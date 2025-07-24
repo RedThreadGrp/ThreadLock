@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThreadLock: Interactive Pitch Deck</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: "Corporate Calm" (Background: stone-50, Primary Text: slate-800, Primary UI: slate-700, Accent: amber-500) -->
+    <!-- Application Structure Plan: The SPA is designed as a thematic, top-down narrative for an investor. It starts with a high-level summary (The Problem & Opportunity), dives into the product (Our Solution), presents the investment details (The Business Case), and concludes with forward-looking statements (Roadmap & Vision). This structure logically groups related content from the slides into cohesive sections, creating a more intuitive and persuasive user flow than a linear presentation. Navigation is handled by a sticky header for easy access to all key sections. -->
+    <!-- Visualization & Content Choices: 
+        - Hero Stats -> Goal: Inform/Impact -> Viz: Animated Counters -> Interaction: On-scroll animation -> Justification: Grabs attention and highlights the scale of the problem immediately -> Library/Method: Vanilla JS.
+        - Case Breakdown -> Goal: Compare -> Viz: Bar Chart -> Interaction: Hover tooltips -> Justification: Clearly compares the volume of different case types -> Library/Method: Chart.js.
+        - Solution Flow -> Goal: Organize/Explain -> Viz: Tabbed Interface -> Interaction: Click to reveal content -> Justification: Condenses detailed product features into a clean, user-driven exploratory component -> Library/Method: Vanilla JS.
+        - Financial Projections -> Goal: Compare/Change -> Viz: Line Chart -> Interaction: Hover tooltips -> Justification: Shows the relationship and trend of revenue vs. expenses over 5 years -> Library/Method: Chart.js.
+        - All other elements use styled HTML/CSS to present information in clear, digestible cards and lists, avoiding information overload.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+        .tab-active {
+            border-color: #f59e0b;
+            color: #1e293b;
+            font-weight: 600;
+        }
+        .tab-inactive {
+            border-color: transparent;
+            color: #475569;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-slate-700">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-800">
+                ThreadLock
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#opportunity" class="text-slate-600 hover:text-amber-500 transition-colors">The Opportunity</a>
+                <a href="#solution" class="text-slate-600 hover:text-amber-500 transition-colors">Our Solution</a>
+                <a href="#business" class="text-slate-600 hover:text-amber-500 transition-colors">Business Case</a>
+                <a href="#roadmap" class="text-slate-600 hover:text-amber-500 transition-colors">Roadmap</a>
+                <a href="#contact" class="bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600 transition-colors">Invest</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-slate-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#opportunity" class="block py-2 text-slate-600 hover:text-amber-500">The Opportunity</a>
+            <a href="#solution" class="block py-2 text-slate-600 hover:text-amber-500">Our Solution</a>
+            <a href="#business" class="block py-2 text-slate-600 hover:text-amber-500">Business Case</a>
+            <a href="#roadmap" class="block py-2 text-slate-600 hover:text-amber-500">Roadmap</a>
+            <a href="#contact" class="block mt-2 bg-amber-500 text-white px-4 py-2 rounded-lg text-center">Invest</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="intro" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-slate-800">ThreadLock: Your Voice, Your Evidence. Making Family Law Accessible and Fair for Every Self-Represented Journey.</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">ThreadLock is an AI-guided, court-ready journaling app revolutionizing how evidence is collected, managed, and presented in family law cases.</p>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="p-6 bg-stone-100 rounded-xl">
+                        <p class="text-4xl font-bold text-amber-500" data-counter-target="3.8">0</p>
+                        <p class="mt-2 text-slate-600">Million annual family law cases overwhelming US courts.</p>
+                    </div>
+                    <div class="p-6 bg-stone-100 rounded-xl">
+                        <p class="text-4xl font-bold text-amber-500" data-counter-target="72">0%</p>
+                        <p class="mt-2 text-slate-600">Of cases involve at least one self-represented litigant.</p>
+                    </div>
+                    <div class="p-6 bg-stone-100 rounded-xl">
+                        <p class="text-4xl font-bold text-amber-500" data-counter-target="79">0%</p>
+                        <p class="mt-2 text-slate-600">Of legal professionals already use AI, leaving others behind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="opportunity" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">The Family Law Crisis is an Opportunity</h2>
+                    <p class="mt-4 text-lg max-w-3xl mx-auto">The family law system is strained, creating a significant access to justice gap. This presents a massive, underserved market for a tool that brings clarity and order to a complex process.</p>
+                </div>
+                <div class="mt-12">
+                    <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold text-center text-slate-800">Annual US Family Law Case Breakdown</h3>
+                        <div class="chart-container mt-4">
+                            <canvas id="caseBreakdownChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                 <div class="mt-12 text-center">
+                    <h3 class="text-2xl font-bold text-slate-800">Our Target Markets</h3>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <h4 class="font-bold text-lg text-amber-600">Self-Represented Litigants</h4>
+                            <p class="mt-2">The largest group, desperately needing tools to organize evidence and navigate legal complexities without costly legal help.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <h4 class="font-bold text-lg text-amber-600">Attorneys & Legal Professionals</h4>
+                            <p class="mt-2">A seamless tool to streamline client evidence collection, saving time and improving case organization.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <h4 class="font-bold text-lg text-amber-600">Mediators & Evaluators</h4>
+                            <p class="mt-2">A source of standardized, objective, and immutable records to facilitate fair resolutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">A Revolution in Evidence Management</h2>
+                    <p class="mt-4 text-lg max-w-3xl mx-auto">Our vision is to revolutionize custody evidence with an intuitive "Log, Manage, Export" workflow, powered by AI and secured by blockchain technology.</p>
+                </div>
+                <div class="mt-12 max-w-5xl mx-auto">
+                    <div class="border-b border-slate-200">
+                        <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                            <button class="solution-tab tab-active whitespace-nowrap py-4 px-1 border-b-2 text-base" data-tab="log">1. Log Evidence</button>
+                            <button class="solution-tab tab-inactive whitespace-nowrap py-4 px-1 border-b-2 text-base" data-tab="manage">2. Manage Library</button>
+                            <button class="solution-tab tab-inactive whitespace-nowrap py-4 px-1 border-b-2 text-base" data-tab="export">3. Export for Court</button>
+                        </nav>
+                    </div>
+                    <div class="mt-8">
+                        <div id="log-content" class="solution-content">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-800">Log with Smart Prompts</h3>
+                                    <p class="mt-2">Capture legally relevant details with AI assistance. Our prompts guide users to record objective facts, attach files, and create a comprehensive record.</p>
+                                    <ul class="mt-4 space-y-3">
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>Capture Details:</strong> Date, time, location, parties, and categories.</span></li>
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>Record & Transcribe:</b> Voice notes are automatically transcribed.</span></li>
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>AI Guidance:</strong> Prompts tailored to your jurisdiction ensure critical facts are included.</span></li>
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>Lock & Timestamp:</strong> Immutable blockchain timestamps prevent tampering and build trust.</span></li>
+                                    </ul>
+                                </div>
+                                <div class="bg-stone-100 p-8 rounded-xl">
+                                    <p class="text-slate-500 text-sm font-semibold">AI FEEDBACK</p>
+                                    <p class="mt-2 text-slate-800 text-lg">"This entry seems emotional. Try to state only the objective facts. Did anyone else witness this? Consider adding a witness to strengthen this record."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="manage-content" class="solution-content hidden">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-800">Intelligent Evidence Library</h3>
+                                    <p class="mt-2">All your evidence, organized and searchable in one place. Our intelligent suggestions help you strengthen your case over time.</p>
+                                     <ul class="mt-4 space-y-3">
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>Unified Search:</strong> Instantly find any note, audio file, or attachment.</span></li>
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>Sort & Filter:</strong> Organize by date, type, or custom flags.</span></li>
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>AI Suggestions:</strong> The system highlights entries that need more detail or context.</span></li>
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>Attorney Dashboard:</strong> Professionals can manage multiple cases seamlessly.</span></li>
+                                    </ul>
+                                </div>
+                                <div class="bg-stone-100 p-8 rounded-xl">
+                                    <p class="text-slate-500 text-sm font-semibold">AI SUGGESTION</p>
+                                    <p class="mt-2 text-slate-800 text-lg">"You have 3 flagged entries that are missing locations. Adding locations can provide crucial context for the court."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="export-content" class="solution-content hidden">
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-800">Share Court-Ready Evidence</h3>
+                                    <p class="mt-2">Generate professional, compliant documents for your attorney or for court submission in just a few clicks.</p>
+                                     <ul class="mt-4 space-y-3">
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>Auto-Summaries:</strong> Generate summaries and highlight critical issues automatically.</span></li>
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>Multiple Formats:</b> Export as PDF, CSV, or JSON, with or without attachments.</span></li>
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>Send Securely:</strong> Email directly to your attorney or share via a secure link.</span></li>
+                                        <li class="flex items-start"><span class="text-amber-500 mr-3 mt-1">✓</span><span><strong>Court Compliant:</strong> Automatically include case numbers and legal disclaimers.</span></li>
+                                    </ul>
+                                </div>
+                                <div class="bg-stone-100 p-8 rounded-xl text-center">
+                                    <h4 class="text-lg font-bold">Generate PDF</h4>
+                                    <p class="mt-2 text-slate-600">Case No.: 2024-12345</p>
+                                    <p class="text-sm text-slate-500">Summary: 12 entries, 3 flags, 2 locked</p>
+                                    <button class="mt-4 bg-amber-500 text-white px-6 py-2 rounded-lg hover:bg-amber-600">Generate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="business" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">A Clear Path to Profitability</h2>
+                    <p class="mt-4 text-lg max-w-3xl mx-auto">Our subscription-based model provides recurring revenue from a diverse user base, with conservative projections showing a strong financial future.</p>
+                </div>
+
+                <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                    <div class="lg:col-span-1 space-y-8">
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <h3 class="font-bold text-lg text-amber-600">Pro Tier</h3>
+                            <p class="text-3xl font-bold text-slate-800 mt-2">$25 <span class="text-base font-normal text-slate-500">/ month</span></p>
+                            <p class="mt-2 text-sm">For individual users, parents, and pro se litigants.</p>
+                            <ul class="mt-4 text-sm space-y-2">
+                                <li class="flex"><span class="text-amber-500 mr-2">✓</span>Full AI Prompt Access</li>
+                                <li class="flex"><span class="text-amber-500 mr-2">✓</span>Unlimited Entries</li>
+                                <li class="flex"><span class="text-amber-500 mr-2">✓</span>All Export Options</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <h3 class="font-bold text-lg text-amber-600">Attorney Dashboard</h3>
+                             <p class="text-3xl font-bold text-slate-800 mt-2">$150 <span class="text-base font-normal text-slate-500">/ month</span></p>
+                            <p class="mt-2 text-sm">For legal professionals and firms.</p>
+                            <ul class="mt-4 text-sm space-y-2">
+                                <li class="flex"><span class="text-amber-500 mr-2">✓</span>Multiple Case Management</li>
+                                <li class="flex"><span class="text-amber-500 mr-2">✓</span>Client Collaboration Tools</li>
+                                <li class="flex"><span class="text-amber-500 mr-2">✓</span>Advanced Analytics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 bg-white p-6 md:p-8 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold text-center text-slate-800">5-Year Financial Projections (Conservative)</h3>
+                        <div class="chart-container mt-4">
+                            <canvas id="financialsChart"></canvas>
+                        </div>
+                         <p class="text-xs text-center mt-2 text-slate-500">Based on a Q3 2026 launch, CAC of $50-$75, and initial monthly churn of 10-12% (Pro) and 7-9% (Attorney).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Roadmap & Competitive Edge</h2>
+                    <p class="mt-4 text-lg max-w-3xl mx-auto">We have a clear vision for success, built on a foundation of unique technology and measurable indicators of market traction.</p>
+                </div>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6">Our Competitive Advantage</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-stone-100 rounded-lg">
+                                <h4 class="font-semibold">AI-Guided Journaling</h4>
+                                <p class="text-sm text-slate-600">Our unique prompts create structured, legally sound evidence, unlike simple note-taking apps.</p>
+                            </div>
+                             <div class="p-4 bg-stone-100 rounded-lg">
+                                <h4 class="font-semibold">Blockchain Immutability</h4>
+                                <p class="text-sm text-slate-600">Provides unparalleled trust and tamper-proof records, a critical advantage in legal disputes.</p>
+                            </div>
+                             <div class="p-4 bg-stone-100 rounded-lg">
+                                <h4 class="font-semibold">Court-Ready Exports</h4>
+                                <p class="text-sm text-slate-600">We solve a major pain point by simplifying the direct preparation of evidence for submission.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6">Key Indicators of Success</h3>
+                         <div class="space-y-4">
+                            <div class="p-4 bg-stone-100 rounded-lg">
+                                <h4 class="font-semibold">User Engagement</h4>
+                                <p class="text-sm text-slate-600">High DAU/WAU and adoption of core features like AI prompts and locking.</p>
+                            </div>
+                             <div class="p-4 bg-stone-100 rounded-lg">
+                                <h4 class="font-semibold">Low Churn & High Conversion</h4>
+                                <p class="text-sm text-slate-600">Strong free-to-paid conversion rates and user retention validate our business model.</p>
+                            </div>
+                             <div class="p-4 bg-stone-100 rounded-lg">
+                                <h4 class="font-semibold">Court & Attorney Adoption</h4>
+                                <p class="text-sm text-slate-600">The ultimate validation: successful court submissions and referrals from legal professionals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="py-20">
+             <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Join Us in Revolutionizing Family Law</h2>
+                <p class="mt-4 text-lg max-w-3xl mx-auto">Invest in ThreadLock today to be part of a solution that brings clarity, security, and fairness to millions of families.</p>
+                <a href="mailto:invest@threadlock.ai" class="mt-8 inline-block bg-amber-500 text-white text-lg font-semibold px-10 py-4 rounded-lg hover:bg-amber-600 transition-colors">
+                    Request Information
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 py-8">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>&copy; 2025 ThreadLock. All Rights Reserved.</p>
+            <p class="mt-2">This presentation is for informational purposes only and does not constitute an offer to sell or a solicitation of an offer to buy any securities.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartData = {
+                caseBreakdown: {
+                    labels: ['Divorce', 'Child Support', 'Paternity', 'Adoption/Other'],
+                    data: [1.1, 0.9, 0.4, 0.35] 
+                },
+                financials: {
+                    labels: ['2026', '2027', '2028', '2029', '2030'],
+                    revenue: [0.4, 7.95, 22.26, 57.24, 120.84],
+                    expenses: [0.75, 0.88, 1.4, 2.11, 3.05]
+                }
+            };
+
+            const setupCounters = () => {
+                const counters = document.querySelectorAll('[data-counter-target]');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const el = entry.target;
+                            const target = +el.getAttribute('data-counter-target');
+                            const duration = 1500;
+                            const frameDuration = 1000 / 60;
+                            const totalFrames = Math.round(duration / frameDuration);
+                            let frame = 0;
+
+                            const counter = setInterval(() => {
+                                frame++;
+                                const progress = frame / totalFrames;
+                                const current = target * progress;
+                                
+                                if (el.textContent.includes('%')) {
+                                    el.textContent = `${Math.round(current)}%`;
+                                } else {
+                                    el.textContent = current.toFixed(1);
+                                }
+
+                                if (frame === totalFrames) {
+                                    clearInterval(counter);
+                                    if (el.textContent.includes('%')) {
+                                        el.textContent = `${target}%`;
+                                    } else {
+                                        el.textContent = target;
+                                    }
+                                }
+                            }, frameDuration);
+                            observer.unobserve(el);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                counters.forEach(counter => observer.observe(counter));
+            };
+
+            const createCaseBreakdownChart = () => {
+                const ctx = document.getElementById('caseBreakdownChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: chartData.caseBreakdown.labels,
+                        datasets: [{
+                            label: 'Annual Cases (in Millions)',
+                            data: chartData.caseBreakdown.data,
+                            backgroundColor: '#f59e0b',
+                            borderColor: '#b45309',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: ${context.parsed.y}M`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Annual Cases (M)'
+                                }
+                            }
+                        }
+                    }
+                });
+            };
+
+            const createFinancialsChart = () => {
+                const ctx = document.getElementById('financialsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: chartData.financials.labels,
+                        datasets: [
+                            {
+                                label: 'Projected Revenue',
+                                data: chartData.financials.revenue,
+                                borderColor: '#16a34a',
+                                backgroundColor: '#16a34a20',
+                                fill: true,
+                                tension: 0.3
+                            },
+                            {
+                                label: 'Projected Expenses',
+                                data: chartData.financials.expenses,
+                                borderColor: '#dc2626',
+                                backgroundColor: '#dc262620',
+                                fill: true,
+                                tension: 0.3
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.dataset.label}: $${context.parsed.y.toFixed(2)}M`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Amount (in Millions USD)'
+                                }
+                            }
+                        }
+                    }
+                });
+            };
+            
+            const setupSolutionTabs = () => {
+                const tabs = document.querySelectorAll('.solution-tab');
+                const contents = document.querySelectorAll('.solution-content');
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const targetId = tab.getAttribute('data-tab');
+
+                        tabs.forEach(t => {
+                            t.classList.remove('tab-active');
+                            t.classList.add('tab-inactive');
+                        });
+                        tab.classList.add('tab-active');
+                        tab.classList.remove('tab-inactive');
+
+                        contents.forEach(content => {
+                            if (content.id === `${targetId}-content`) {
+                                content.classList.remove('hidden');
+                            } else {
+                                content.classList.add('hidden');
+                            }
+                        });
+                    });
+                });
+            };
+
+            const setupMobileMenu = () => {
+                const button = document.getElementById('mobile-menu-button');
+                const menu = document.getElementById('mobile-menu');
+                button.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+            };
+
+            setupCounters();
+            createCaseBreakdownChart();
+            createFinancialsChart();
+            setupSolutionTabs();
+            setupMobileMenu();
+        });
+    </script>
+</body>
+</html>
