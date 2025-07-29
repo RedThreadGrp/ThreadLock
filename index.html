@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ThreadLock: AI-Powered Evidence Management for Family Law</title>
+    <meta name="description" content="Simplify evidence gathering for your family law case. ThreadLock offers AI-guided journaling and blockchain-secured storage to create court-ready documents for parents and attorneys.">
+    <meta name="keywords" content="family law, evidence management, pro se, self-represented litigant, legal tech, AI, blockchain, child custody, divorce evidence">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #005A9C; /* A trustworthy blue */
+            --secondary-color: #00A3E0; /* A brighter accent blue */
+            --dark-color: #2c3e50; /* Dark text color */
+            --light-color: #f8f9fa; /* Light background color */
+            --white-color: #ffffff;
+            --success-color: #28a745;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--white-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1556745757-8d76bdb6984b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600') no-repeat center center/cover;
+            color: var(--white-color);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header .subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .quote-section {
+            background-color: var(--light-color);
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .quote-section blockquote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--primary-color);
+            max-width: 800px;
+            margin: 0 auto;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 20px;
+        }
+        
+        .quote-section blockquote strong {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .features-grid, .audience-grid, .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .feature-card, .audience-card, .pricing-card {
+            background: var(--white-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover, .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-card h3, .audience-card h3, .pricing-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        ul li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+        }
+        
+        ul li::before {
+            content: '✓';
+            color: var(--success-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #6c757d;
+        }
+        
+        .pricing-card .description {
+            font-style: italic;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+        }
+
+        .bonus-section {
+            background-color: var(--success-color);
+            color: var(--white-color);
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: var(--border-radius);
+            margin-top: 50px;
+        }
+
+        .bonus-section h2 {
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+
+        .signup-form {
+            background: var(--light-color);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .payment-placeholder {
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+            border: 2px dashed #ccc;
+            border-radius: var(--border-radius);
+            color: #6c757d;
+        }
+
+        footer {
+            background: var(--dark-color);
+            color: var(--white-color);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .audience-grid, .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 767px) {
+             header h1 {
+                font-size: 2.2rem;
+             }
+             .section-title {
+                font-size: 1.8rem;
+             }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo-text">ThreadLock</h1>
+        <h1>Secure, Simple, Court-Ready Evidence for Family Law</h1>
+        <p class="subtitle">Finally, a way to bring clarity and order to your family law case. Our AI-guided journaling and blockchain-secured evidence management system helps you build a clear, chronological, and court-ready record.</p>
+    </header>
+
+    <section class="quote-section">
+        <div class="container">
+            <blockquote>
+                The family law system necessarily cares most about efficiency.
+                <strong>We make accuracy efficient.</strong>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="for-who" class="container">
+        <div class="audience-grid">
+            <div class="audience-card">
+                <h3>For Parents Representing Themselves</h3>
+                <p>Feeling overwhelmed by the documentation you need? Worried your evidence won't be taken seriously? ThreadLock is designed for you.</p>
+                <ul>
+                    <li><strong>AI-Guided Journaling:</strong> Our smart prompts help you capture the most important details for your case.</li>
+                    <li><strong>Secure and Tamper-Proof:</strong> Every entry is locked and timestamped on a blockchain for ultimate security.</li>
+                    <li><strong>Court-Ready Exports:</strong> Easily generate professional, court-compliant documents to share.</li>
+                </ul>
+            </div>
+            <div class="audience-card">
+                <h3>For Legal Professionals</h3>
+                <p>Tired of sifting through disorganized evidence? Wish you had a more streamlined way to manage case information? ThreadLock is your solution.</p>
+                <ul>
+                    <li><strong>Streamlined Client Evidence:</strong> Give clients a simple tool to log evidence in a structured, legally sound manner.</li>
+                    <li><strong>Attorney Dashboard:</strong> Manage multiple cases, collaborate with clients, and get advanced analytics.</li>
+                    <li><strong>Standardized & Objective Records:</strong> Access immutable records for fair and efficient resolutions.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="container" style="background-color: var(--light-color); border-radius: var(--border-radius); padding-top: 40px; padding-bottom: 40px;">
+        <h2 class="section-title">Log, Manage, Export: It's That Simple</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>1. Log with Smart Prompts</h3>
+                <p>Capture every detail with our AI-guided system. Record voice notes that are automatically transcribed, add attachments, and get jurisdiction-specific prompts to ensure you gather the most critical facts.</p>
+            </div>
+            <div class="feature-card">
+                <h3>2. Intelligent Evidence Library</h3>
+                <p>Your evidence is organized and easily searchable. Our AI provides suggestions to strengthen your case by highlighting entries that need more detail, such as missing locations or witnesses.</p>
+            </div>
+            <div class="feature-card">
+                <h3>3. Share Court-Ready Evidence</h3>
+                <p>Generate professional documents in multiple formats (PDF, CSV, JSON). Securely share your evidence with your attorney or the court via email or a secure link.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="pricing" class="container">
+        <h2 class="section-title">Choose Your Plan</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Pro Tier</h3>
+                <p class="description">Perfect for individuals, parents, and pro se litigants.</p>
+                <div class="price">$25 <span>/ month</span></div>
+                <ul>
+                    <li>Full AI Prompt Access</li>
+                    <li>Unlimited Entries</li>
+                    <li>All Export Options</li>
+                </ul>
+                <a href="#signup" class="btn">Choose Pro Tier</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Attorney Dashboard</h3>
+                <p class="description">Designed for legal professionals and firms.</p>
+                <div class="price">$150 <span>/ month</span></div>
+                <ul>
+                    <li>Multiple Case Management</li>
+                    <li>Client Collaboration Tools</li>
+                    <li>Advanced Analytics</li>
+                </ul>
+                <a href="#signup" class="btn">Choose Attorney Dashboard</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="signup" class="container">
+        <div class="signup-form">
+            <div class="bonus-section">
+                <h2>Limited-Time Early Signup Bonus!</h2>
+                <p>Sign up now to get <strong>3 months of the Pro Tier for free</strong> or <strong>50% off your first 3 months</strong> of the Attorney Dashboard.</p>
+            </div>
+            <h2 class="section-title" style="margin-top: 40px;">Get Started Today</h2>
+            <form action="#" method="POST"> <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="plan">Choose Your Plan</label>
+                    <select id="plan" name="plan">
+                        <option value="pro">Pro Tier (First 3 Months Free!)</option>
+                        <option value="attorney">Attorney Dashboard (50% Off First 3 Months!)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-secondary">Sign Up Now</button>
+            </form>
+            
+            <div class="payment-placeholder">
+                <p>After signing up, you will be directed to our secure payment portal to complete your subscription.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ThreadLock. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
