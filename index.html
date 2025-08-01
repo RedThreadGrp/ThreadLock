@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ThreadLock: AI-Guided Family Law Evidence</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://js.stripe.com/v3/"></script>
   <style>
     :root {
       --dark-blue: #2c3e50;
@@ -29,7 +30,7 @@
     .btn {
       display: inline-block; background-color: var(--orange); color: var(--white);
       padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: 600;
-      transition: background-color 0.3s, transform 0.3s;
+      transition: background-color 0.3s, transform 0.3s; cursor: pointer; border: none;
     }
     .btn:hover { background-color: #e67e22; transform: translateY(-2px); }
     .btn-dark { background-color: var(--dark-blue); }
@@ -127,120 +128,32 @@
         <li>✓ Blockchain-secured entries create immutable, timestamped evidence.</li>
         <li>✓ Export court-ready summaries for your attorney, mediator, or the court in minutes.</li>
       </ul>
-      <a href="#offer" class="btn">Get Started Now - First 6 Months for $5</a>
+      <a href="#offer" class="btn">Sign Up Today - Just $10 for 6 Months</a>
     </div>
   </header>
 
-  <!-- Problem Section -->
-  <section id="problem">
-    <div class="container">
-      <h2>Navigating Family Law is Complex and Overwhelming.</h2>
-      <div class="problem-content">
-        <div class="problem-text">
-          <p>Courts are burdened with over 3.8 million family law cases annually.<sup><a href="#ref3">[3]</a>, <a href="#ref12">[12]</a></sup></p>
-          <p>If you're handling this alone, you're not alone—<strong>72% of cases involve at least one self-represented person</strong>.<sup><a href="#ref4">[4]</a>, <a href="#ref13">[13]</a>, <a href="#ref38">[38]</a></sup></p>
-          <p>Trying to document every text, email, and event leads to disorganized, inconsistent records that can weaken your case.<sup><a href="#ref5">[5]</a>, <a href="#ref15">[15]</a></sup></p>
-          <p>While legal professionals are adopting AI, individuals are often left behind.<sup><a href="#ref16">[16]</a></sup> ThreadLock bridges that gap.<sup><a href="#ref6">[6]</a></sup></p>
-        </div>
-        <div class="problem-image">
-          <img src="https://www.threadlock.ai/slide-2.png" alt="Family Law Case Breakdown Chart">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Solution -->
-  <section id="solution">
-    <div class="container">
-      <h2>Reimagining Evidence in Three Simple Steps</h2>
-      <p>Our vision is to revolutionize custody evidence with AI-guided, immutable, court-ready journaling.<sup><a href="#ref9">[9]</a></sup></p>
-      <div class="solution-steps">
-        <div class="step">
-          <h3>Log Everything with AI Guidance</h3>
-          <p>Capture critical details with structured forms.<sup><a href="#ref20">[20]</a></sup> Record and automatically transcribe audio.<sup><a href="#ref21">[21]</a></sup> Our AI provides feedback, prompting you for objective facts and relevant details for your jurisdiction.<sup><a href="#ref22">[22]</a>, <a href="#ref23">[23]</a></sup></p>
-        </div>
-        <div class="step">
-          <h3>Lock It with Unbreakable Security</h3>
-          <p>Each entry is secured with immutable timestamps and encryption via blockchain technology.<sup><a href="#ref25">[25]</a></sup> This builds trust and prevents any claims of tampering, a critical advantage in legal disputes.<sup><a href="#ref166">[166]</a></sup></p>
-        </div>
-        <div class="step">
-          <h3>Export Court-Ready Documents</h3>
-          <p>Instantly generate clean, professional PDF or data exports of your evidence.<sup><a href="#ref33">[33]</a></sup> Auto-generate summaries, highlight issues, and add case numbers for court compliance.<sup><a href="#ref32">[32]</a>, <a href="#ref35">[35]</a></sup></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Offer -->
+  <!-- Offer with Stripe Checkout -->
   <section id="offer">
     <div class="container">
-      <h2>Join Our Early Adopter Program. Get Clarity for Just $5.</h2>
+      <h2>Early Adopter Offer: $10 for 6 Months</h2>
       <div class="offer-box">
-        <p>For a limited time, get full access to the <strong>ThreadLock Pro Tier</strong> for just <strong>$5.00 for your first 6 months.</strong></p>
-        <p>Your early support helps us build the best tool possible. In return, you get our powerful evidence management platform at an unprecedented price. Lock in your rate, build your case, and help us revolutionize family law.</p>
-        <a href="#" class="btn">Claim My $5 Offer</a>
-        <p class="offer-note">After the 6-month promotional period, your account will convert to our standard Pro Tier subscription ($19.99/month).<sup><a href="#ref59">[59]</a></sup> You can cancel at any time.</p>
+        <p>Sign up by <strong>August 31st</strong> and get 6 months of ThreadLock Pro for just <strong>$10 total</strong>. After that, the standard plan is $19.99/month.</p>
+        
+        <form id="signupForm" style="margin-top:30px; text-align:left; max-width:500px; margin:auto;">
+          <label for="name">Full Name</label><br>
+          <input type="text" id="name" name="name" required style="width:100%; padding:10px; margin-bottom:15px;">
+
+          <label for="email">Email</label><br>
+          <input type="email" id="email" name="email" required style="width:100%; padding:10px; margin-bottom:15px;">
+
+          <button type="button" id="checkoutButton" class="btn" style="width:100%; margin-top:10px;">
+            Pay $10 & Sign Up
+          </button>
+          <p style="font-size:0.8rem; margin-top:10px;">Secure payment powered by Stripe</p>
+        </form>
+
+        <p class="offer-note">After the 6-month promotional period, your account will convert to our standard Pro Tier subscription ($19.99/month). You can cancel at any time.</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Professionals -->
-  <section id="professionals" class="b2b-section">
-    <div class="container">
-      <h2>Streamline Your Practice. Empower Your Clients.</h2>
-      <p>ThreadLock isn't just for individuals. Our <strong>Attorney Dashboard</strong> is built to streamline client evidence collection and case management.<sup><a href="#ref41">[41]</a>, <a href="#ref57">[57]</a></sup></p>
-      <ul style="list-style-type: none; padding: 0; max-width: 600px; margin: 30px auto; text-align: left;">
-        <li><strong>✓ Multi-Case Dashboard:</strong> Manage all your clients in one secure, organized place.<sup><a href="#ref30">[30]</a>, <a href="#ref57">[57]</a></sup></li>
-        <li><strong>✓ Seamless Evidence Intake:</strong> Invite clients to use ThreadLock to receive their structured, timestamped, and pre-summarized evidence directly.<sup><a href="#ref41">[41]</a></sup></li>
-        <li><strong>✓ Objective Records:</strong> Provide a tool for your clients that encourages objective, factual reporting, improving the quality of evidence you receive.<sup><a href="#ref23">[23]</a></sup></li>
-      </ul>
-      <a href="#" class="btn btn-dark">Learn About the Attorney Dashboard</a>
-    </div>
-  </section>
-
-  <!-- Employers -->
-  <section id="employers">
-    <div class="container">
-      <h2>Support Your Team Through Life's Toughest Challenges</h2>
-      <p>Family law disputes are a significant source of stress, impacting employee well-being, focus, and productivity. Offer ThreadLock as a modern, high-value benefit to support your team when they need it most.</p>
-      <ul style="list-style-type: none; padding: 0; max-width: 600px; margin: 30px auto; text-align: left;">
-        <li><strong>✓ Reduce Employee Stress:</strong> Provide a tangible tool that helps employees regain a sense of control.</li>
-        <li><strong>✓ Increase Productivity:</strong> Help reduce the time and mental energy employees spend organizing documents and worrying about their case.</li>
-        <li><strong>✓ Demonstrate Commitment:</strong> Show your team you care about their holistic well-being by providing support for significant life events.</li>
-      </ul>
-      <a href="#" class="btn">Request Custom Pricing</a>
-    </div>
-  </section>
-
-  <!-- References -->
-  <section id="references" class="b2b-section">
-    <div class="container">
-      <h2>References</h2>
-      <ol style="text-align:left; max-width:800px; margin:auto;">
-        <li id="ref3">U.S. Courts Annual Family Law Caseload, 2023.</li>
-        <li id="ref4">National Center for State Courts, Self-Representation Study.</li>
-        <li id="ref5">Family Law Evidence Organization Challenges, ABA Journal, 2021.</li>
-        <li id="ref6">ThreadLock Internal Research, 2025.</li>
-        <li id="ref9">Custody Evidence Tech Landscape, 2025.</li>
-        <li id="ref12">Smith, J. (2022). Self-Representation in Family Court. Journal of Family Law.</li>
-        <li id="ref13">Johnson, A. (2023). Modern Custody Litigation Trends. Family Law Review.</li>
-        <li id="ref15">Court Evidence Disorganization Risks, 2020 Survey.</li>
-        <li id="ref16">AI Adoption in Legal Practices, ABA LegalTech Report, 2024.</li>
-        <li id="ref20">Structured Logging in Family Law Cases, 2022.</li>
-        <li id="ref21">Audio Transcription for Legal Evidence, 2023.</li>
-        <li id="ref22">Objective Fact Collection with AI, 2025.</li>
-        <li id="ref23">Client Evidence Quality Improvement Study, 2024.</li>
-        <li id="ref25">Blockchain Evidence Security Whitepaper, 2024.</li>
-        <li id="ref30">Multi-Case Dashboard Implementation, 2025.</li>
-        <li id="ref32">Court-Compliant Summary Templates, 2024.</li>
-        <li id="ref33">Automated PDF Generation for Legal Evidence, 2025.</li>
-        <li id="ref35">Court Submission Best Practices, 2023.</li>
-        <li id="ref38">Baker & Wilson, Self-Representation Outcomes, 2021.</li>
-        <li id="ref41">Evidence Intake Workflows, LegalTech Case Study, 2024.</li>
-        <li id="ref57">Attorney Dashboard Usage Metrics, 2025.</li>
-        <li id="ref59">ThreadLock Subscription Terms, 2025.</li>
-        <li id="ref166">Tamper-Proof Evidence Ledger, 2025.</li>
-      </ol>
     </div>
   </section>
 
@@ -259,5 +172,45 @@
       <p style="margin-top:20px;">© 2025 ThreadLock. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <!-- Smooth scroll & highlight -->
+  <script>
+    document.querySelectorAll("sup a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        const targetId = this.getAttribute("href").substring(1);
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({behavior: "smooth", block: "center"});
+          targetEl.style.backgroundColor = "#fff3cd";
+          setTimeout(() => targetEl.style.backgroundColor = "", 1200);
+        }
+      });
+    });
+  </script>
+
+  <!-- Stripe Checkout Script -->
+  <script>
+    const stripe = Stripe("pk_test_REPLACE_WITH_YOUR_PUBLISHABLE_KEY");
+
+    document.getElementById("checkoutButton").addEventListener("click", async () => {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      if (!name || !email) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      // Create a checkout session via your backend
+      const res = await fetch("/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, priceId: "price_XXXX" })
+      });
+      const { sessionId } = await res.json();
+      stripe.redirectToCheckout({ sessionId });
+    });
+  </script>
 </body>
 </html>
