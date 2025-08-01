@@ -3,9 +3,7 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed" });
-  }
+  if (req.method !== "POST") return res.status(405).end();
 
   const { name, email } = req.body;
 
@@ -21,20 +19,19 @@ export default async function handler(req, res) {
               name: "ThreadLock 6-Month Early Access",
               description: "Promo valid until August 31, 2025",
             },
-            unit_amount: 1000, // $10 in cents
+            unit_amount: 1000, // $10
           },
           quantity: 1,
         },
       ],
       customer_email: email,
-      success_url: `${req.headers.origin}/success.html?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.headers.origin}/cancel.html`,
+      success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.headers.origin}/cancel`,
       metadata: { name },
     });
 
-    return res.status(200).json({ sessionId: session.id });
+    res.json({ sessionId: session.id });
   } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: err.message });
+    res.status(500).json({ error: err.message });
   }
 }
