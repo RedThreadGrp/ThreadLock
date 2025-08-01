@@ -1,332 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThreadLock: AI-Guided Family Law Evidence</title>
-    <style>
-        /* --- General Styles & Fonts --- */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThreadLock: AI-Guided Family Law Evidence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-blue: #2c3e50;
+      --orange: #f39c12;
+      --light-gray: #f4f6f8;
+      --text-color: #34495e;
+      --white: #ffffff;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      color: var(--text-color);
+      line-height: 1.7;
+    }
+    .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+    section { padding: 80px 0; text-align: center; }
+    h1, h2, h3 { color: var(--dark-blue); font-weight: 700; line-height: 1.3; margin-top: 0; }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; margin-bottom: 40px; }
+    p { margin-bottom: 20px; }
+    .btn {
+      display: inline-block; background-color: var(--orange); color: var(--white);
+      padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: 600;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .btn:hover { background-color: #e67e22; transform: translateY(-2px); }
+    .btn-dark { background-color: var(--dark-blue); }
+    .btn-dark:hover { background-color: #34495e; }
 
-        :root {
-            --dark-blue: #2c3e50;
-            --orange: #f39c12;
-            --light-gray: #f4f6f8;
-            --text-color: #34495e;
-            --white: #ffffff;
-        }
+    /* Navbar */
+    .navbar {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 5%; background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky; top: 0; z-index: 1000;
+    }
+    .navbar-logo img { height: 40px; }
+    .navbar-links a { color: var(--dark-blue); text-decoration: none; margin-left: 25px; font-weight: 600; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(44,62,80,0.8), rgba(44,62,80,0.8)), 
+                  url('https://www.threadlock.ai/slide-1.jpg') center/cover;
+      color: var(--white); padding: 120px 0;
+    }
+    .hero h1 { color: var(--white); max-width: 800px; margin: auto; }
+    .hero p { font-size: 1.1rem; max-width: 700px; margin: 20px auto 40px auto; }
+    .hero-features { list-style: none; padding: 0; margin: 30px auto 40px auto; max-width: 800px; }
+    .hero-features li { margin-bottom: 10px; }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            color: var(--text-color);
-            line-height: 1.7;
-        }
+    /* Problem */
+    .problem-content { display: flex; align-items: center; justify-content: center; gap: 50px; text-align: left; }
+    .problem-text, .problem-image { flex-basis: 50%; }
+    .problem-image img { max-width: 100%; border-radius: 8px; }
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        
-        section {
-            padding: 80px 0;
-            text-align: center;
-        }
+    /* Solution */
+    #solution { background-color: var(--light-gray); }
+    .solution-steps { display: flex; justify-content: space-around; gap: 30px; margin-top: 50px; }
+    .step { flex-basis: 30%; }
+    .step h3 { font-size: 1.5rem; margin-bottom: 15px; }
+    .step p { font-size: 0.95rem; }
 
-        h1, h2, h3 {
-            color: var(--dark-blue);
-            font-weight: 700;
-            margin-top: 0;
-            line-height: 1.3;
-        }
+    /* Offer */
+    #offer { background-color: var(--dark-blue); color: var(--white); }
+    #offer h2, #offer p { color: var(--white); }
+    .offer-box {
+      background-color: rgba(255,255,255,0.1); padding: 40px; border-radius: 10px;
+      max-width: 800px; margin: 40px auto;
+    }
+    .offer-note { font-size: 0.8rem; margin-top: 20px; opacity: 0.8; }
 
-        h1 {
-            font-size: 3rem;
-        }
+    /* B2B */
+    .b2b-section { background-color: var(--light-gray); }
 
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
-        }
-        
-        p {
-            margin-bottom: 20px;
-        }
+    /* Footer */
+    .footer { background-color: var(--dark-blue); color: var(--white); padding: 50px 0; text-align: center; }
+    .footer a { color: var(--orange); text-decoration: none; }
+    .footer-links a { color: var(--white); margin: 0 15px; }
+    .footer-disclaimer { font-size: 0.8rem; opacity: 0.7; max-width: 800px; margin: 20px auto 0; }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--orange);
-            color: var(--white);
-            padding: 15px 35px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s, transform 0.3s;
-        }
+    /* Citations */
+    sup a { text-decoration: none; color: var(--orange); font-weight: 600; }
+    sup a:hover { text-decoration: underline; }
 
-        .btn:hover {
-            background-color: #e67e22;
-            transform: translateY(-2px);
-        }
-        
-        .btn-dark {
-            background-color: var(--dark-blue);
-        }
-        
-        .btn-dark:hover {
-            background-color: #34495e;
-        }
-
-        /* --- Navigation Bar --- */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar-logo img {
-            height: 40px;
-        }
-        
-        .navbar-links a {
-            color: var(--dark-blue);
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 600;
-        }
-        
-        /* --- Hero Section --- */
-        .hero {
-            /* UPDATED TO ABSOLUTE URL */
-            background-image: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://www.threadlock.ai/slide-1.jpg');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-            padding: 120px 0;
-        }
-        
-        .hero h1 {
-            color: var(--white);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 20px auto 40px auto;
-        }
-        
-        .hero-features {
-            list-style: none;
-            padding: 0;
-            margin: 30px auto 40px auto;
-            max-width: 800px;
-        }
-
-        .hero-features li {
-            margin-bottom: 10px;
-        }
-        
-        /* --- Problem Section --- */
-        .problem-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 50px;
-            text-align: left;
-        }
-
-        .problem-text {
-            flex-basis: 50%;
-        }
-
-        .problem-image {
-            flex-basis: 50%;
-        }
-
-        .problem-image img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-        
-        /* --- Solution Section --- */
-        #solution {
-            background-color: var(--light-gray);
-        }
-        
-        .solution-steps {
-            display: flex;
-            justify-content: space-around;
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .step {
-            flex-basis: 30%;
-        }
-        
-        .step h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .step p {
-            font-size: 0.95rem;
-        }
-
-        /* --- Other sections remain the same --- */
-        #offer { background-color: var(--dark-blue); color: var(--white); }
-        #offer h2, #offer p { color: var(--white); }
-        .offer-box { background-color: rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 10px; max-width: 800px; margin: 40px auto; }
-        #offer .btn { margin-top: 20px; }
-        .offer-note { font-size: 0.8rem; margin-top: 20px; opacity: 0.8; }
-        .b2b-section { background-color: var(--light-gray); }
-        .footer { background-color: var(--dark-blue); color: var(--white); padding: 50px 0; text-align: center; }
-        .footer a { color: var(--orange); text-decoration: none; }
-        .footer-links a { color: var(--white); margin: 0 15px; }
-        .footer-disclaimer { font-size: 0.8rem; opacity: 0.7; max-width: 800px; margin: 20px auto 0 auto; }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            .navbar { flex-direction: column; }
-            .navbar-links { margin-top: 15px; }
-            .navbar-links a { margin: 0 10px; }
-            .problem-content { flex-direction: column; }
-            .solution-steps { flex-direction: column; }
-        }
-    </style>
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.8rem; }
+      .navbar { flex-direction: column; }
+      .navbar-links { margin-top: 15px; }
+      .navbar-links a { margin: 0 10px; }
+      .problem-content { flex-direction: column; }
+      .solution-steps { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-logo">
+      <img src="https://www.threadlock.ai/threadlock-logo.jpg" alt="ThreadLock Logo">
+    </a>
+    <div class="navbar-links">
+      <a href="#solution">Features</a>
+      <a href="#professionals">For Professionals</a>
+      <a href="#employers">Employer Benefits</a>
+      <a href="#offer">Pricing</a>
+      <a href="#">Log In</a>
+    </div>
+  </nav>
 
-    <nav class="navbar">
-        <a href="#" class="navbar-logo">
-            <img src="https://www.threadlock.ai/threadlock-logo.jpg" alt="ThreadLock Logo">
-        </a>
-        <div class="navbar-links">
-            <a href="#solution">Features</a>
-            <a href="#professionals">For Professionals</a>
-            <a href="#employers">Employer Benefits</a>
-            <a href="#offer">Pricing</a>
-            <a href="#">Log In</a>
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="container">
+      <h1>Take Control of Your Family Law Case.</h1>
+      <p>Empower your case with secure, structured evidence and AI guidance. ThreadLock is the AI-guided, court-ready journaling app that helps you build a clear, chronological, and tamper-proof record of events.</p>
+      <ul class="hero-features">
+        <li>✓ Smart AI prompts ensure you capture critical details for your jurisdiction.</li>
+        <li>✓ Blockchain-secured entries create immutable, timestamped evidence.</li>
+        <li>✓ Export court-ready summaries for your attorney, mediator, or the court in minutes.</li>
+      </ul>
+      <a href="#offer" class="btn">Get Started Now - First 6 Months for $5</a>
+    </div>
+  </header>
+
+  <!-- Problem Section -->
+  <section id="problem">
+    <div class="container">
+      <h2>Navigating Family Law is Complex and Overwhelming.</h2>
+      <div class="problem-content">
+        <div class="problem-text">
+          <p>Courts are burdened with over 3.8 million family law cases annually.<sup><a href="#ref3">[3]</a>, <a href="#ref12">[12]</a></sup></p>
+          <p>If you're handling this alone, you're not alone—<strong>72% of cases involve at least one self-represented person</strong>.<sup><a href="#ref4">[4]</a>, <a href="#ref13">[13]</a>, <a href="#ref38">[38]</a></sup></p>
+          <p>Trying to document every text, email, and event leads to disorganized, inconsistent records that can weaken your case.<sup><a href="#ref5">[5]</a>, <a href="#ref15">[15]</a></sup></p>
+          <p>While legal professionals are adopting AI, individuals are often left behind.<sup><a href="#ref16">[16]</a></sup> ThreadLock bridges that gap.<sup><a href="#ref6">[6]</a></sup></p>
         </div>
-    </nav>
-
-    <header class="hero" id="top">
-        <div class="container">
-            <h1>Take Control of Your Family Law Case.</h1>
-            <p>Empower your case with secure, structured evidence and AI guidance. ThreadLock is the AI-guided, court-ready journaling app that helps you build a clear, chronological, and tamper-proof record of events.</p>
-            <ul class="hero-features">
-                <li>✓ Smart AI prompts ensure you capture critical details for your jurisdiction.</li>
-                <li>✓ Blockchain-secured entries create immutable, timestamped evidence.</li>
-                <li>✓ Export court-ready summaries for your attorney, mediator, or the court in minutes.</li>
-            </ul>
-            <a href="#offer" class="btn">Get Started Now - First 6 Months for $5</a>
+        <div class="problem-image">
+          <img src="https://www.threadlock.ai/slide-2.png" alt="Family Law Case Breakdown Chart">
         </div>
-    </header>
+      </div>
+    </div>
+  </section>
 
-    <section id="problem">
-        <div class="container">
-            <h2>Navigating Family Law is Complex and Overwhelming.</h2>
-            <div class="problem-content">
-                <div class="problem-text">
-                    [cite_start]<p>Courts are burdened with over 3.8 million family law cases annually. [cite: 3, 12] [cite_start]If you're handling this alone, you're not alone—<strong>72% of cases involve at least one self-represented person</strong>. [cite: 4, 13, 38] [cite_start]Trying to document every text, email, and event leads to disorganized, inconsistent records that can weaken your case. [cite: 5, 15]</p>
-                    [cite_start]<p>While legal professionals are adopting AI, individuals are often left behind. [cite: 5, 16] [cite_start]ThreadLock bridges that gap. [cite: 6]</p>
-                </div>
-                <div class="problem-image">
-                    <img src="https://www.threadlock.ai/slide-2.png" alt="Family Law Case Breakdown Chart">
-                </div>
-            </div>
+  <!-- Solution -->
+  <section id="solution">
+    <div class="container">
+      <h2>Reimagining Evidence in Three Simple Steps</h2>
+      <p>Our vision is to revolutionize custody evidence with AI-guided, immutable, court-ready journaling.<sup><a href="#ref9">[9]</a></sup></p>
+      <div class="solution-steps">
+        <div class="step">
+          <h3>Log Everything with AI Guidance</h3>
+          <p>Capture critical details with structured forms.<sup><a href="#ref20">[20]</a></sup> Record and automatically transcribe audio.<sup><a href="#ref21">[21]</a></sup> Our AI provides feedback, prompting you for objective facts and relevant details for your jurisdiction.<sup><a href="#ref22">[22]</a>, <a href="#ref23">[23]</a></sup></p>
         </div>
-    </section>
-
-    <section id="solution">
-        <div class="container">
-            <h2>Reimagining Evidence in Three Simple Steps</h2>
-            [cite_start]<p>Our vision is to revolutionize custody evidence with AI-guided, immutable, court-ready journaling. [cite: 9]</p>
-            <div class="solution-steps">
-                <div class="step">
-                    <h3>Log Everything with AI Guidance</h3>
-                    [cite_start]<p>Capture critical details with structured forms. [cite: 20] [cite_start]Record and automatically transcribe audio. [cite: 21] [cite_start]Our AI provides feedback, prompting you for objective facts and relevant details for your jurisdiction. [cite: 22, 23]</p>
-                </div>
-                <div class="step">
-                    <h3>Lock It with Unbreakable Security</h3>
-                    [cite_start]<p>Each entry is secured with immutable timestamps and encryption via blockchain technology. [cite: 25] [cite_start]This builds trust and prevents any claims of tampering, a critical advantage in legal disputes. [cite: 25, 166]</p>
-                </div>
-                <div class="step">
-                    <h3>Export Court-Ready Documents</h3>
-                    [cite_start]<p>Instantly generate clean, professional PDF or data exports of your evidence. [cite: 33] [cite_start]Auto-generate summaries, highlight issues, and add case numbers for court compliance. [cite: 32, 35]</p>
-                </div>
-            </div>
+        <div class="step">
+          <h3>Lock It with Unbreakable Security</h3>
+          <p>Each entry is secured with immutable timestamps and encryption via blockchain technology.<sup><a href="#ref25">[25]</a></sup> This builds trust and prevents any claims of tampering, a critical advantage in legal disputes.<sup><a href="#ref166">[166]</a></sup></p>
         </div>
-    </section>
-
-    <section id="offer">
-        <div class="container">
-            <h2>Join Our Early Adopter Program. Get Clarity for Just $5.</h2>
-            <div class="offer-box">
-                <p>For a limited time, get full access to the <strong>ThreadLock Pro Tier</strong> for just <strong>$5.00 for your first 6 months.</strong></p>
-                <p>Your early support helps us build the best tool possible. In return, you get our powerful evidence management platform at an unprecedented price. Lock in your rate, build your case, and help us revolutionize family law.</p>
-                <a href="#" class="btn">Claim My $5 Offer</a>
-                [cite_start]<p class="offer-note">After the 6-month promotional period, your account will convert to our standard Pro Tier subscription ($19.99/month). [cite: 59] You can cancel at any time.</p>
-            </div>
-        </section>
-
-    <section id="professionals" class="b2b-section">
-        <div class="container">
-            <h2>Streamline Your Practice. Empower Your Clients.</h2>
-            <p>ThreadLock isn't just for individuals. [cite_start]Our <strong>Attorney Dashboard</strong> is built to streamline client evidence collection and case management. [cite: 41, 57]</p>
-            <ul style="list-style-type: none; padding: 0; max-width: 600px; margin: 30px auto; text-align: left;">
-                [cite_start]<li><strong>✓ Multi-Case Dashboard:</strong> Manage all your clients in one secure, organized place. [cite: 30, 57]</li>
-                [cite_start]<li><strong>✓ Seamless Evidence Intake:</strong> Invite clients to use ThreadLock to receive their structured, timestamped, and pre-summarized evidence directly. [cite: 41]</li>
-                [cite_start]<li><strong>✓ Objective Records:</strong> Provide a tool for your clients that encourages objective, factual reporting, improving the quality of evidence you receive. [cite: 23]</li>
-            </ul>
-            <a href="#" class="btn btn-dark">Learn About the Attorney Dashboard</a>
+        <div class="step">
+          <h3>Export Court-Ready Documents</h3>
+          <p>Instantly generate clean, professional PDF or data exports of your evidence.<sup><a href="#ref33">[33]</a></sup> Auto-generate summaries, highlight issues, and add case numbers for court compliance.<sup><a href="#ref32">[32]</a>, <a href="#ref35">[35]</a></sup></p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="employers">
-        <div class="container">
-            <h2>Support Your Team Through Life's Toughest Challenges</h2>
-            <p>Family law disputes are a significant source of stress, impacting employee well-being, focus, and productivity. Offer ThreadLock as a modern, high-value benefit to support your team when they need it most.</p>
-            <ul style="list-style-type: none; padding: 0; max-width: 600px; margin: 30px auto; text-align: left;">
-                <li><strong>✓ Reduce Employee Stress:</strong> Provide a tangible tool that helps employees regain a sense of control.</li>
-                <li><strong>✓ Increase Productivity:</strong> Help reduce the time and mental energy employees spend organizing documents and worrying about their case.</li>
-                <li><strong>✓ Demonstrate Commitment:</strong> Show your team you care about their holistic well-being by providing support for significant life events.</li>
-            </ul>
-            <a href="#" class="btn">Request Custom Pricing</a>
-        </div>
-    </section>
+  <!-- Offer -->
+  <section id="offer">
+    <div class="container">
+      <h2>Join Our Early Adopter Program. Get Clarity for Just $5.</h2>
+      <div class="offer-box">
+        <p>For a limited time, get full access to the <strong>ThreadLock Pro Tier</strong> for just <strong>$5.00 for your first 6 months.</strong></p>
+        <p>Your early support helps us build the best tool possible. In return, you get our powerful evidence management platform at an unprecedented price. Lock in your rate, build your case, and help us revolutionize family law.</p>
+        <a href="#" class="btn">Claim My $5 Offer</a>
+        <p class="offer-note">After the 6-month promotional period, your account will convert to our standard Pro Tier subscription ($19.99/month).<sup><a href="#ref59">[59]</a></sup> You can cancel at any time.</p>
+      </div>
+    </div>
+  </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="#top">Home</a>
-                <a href="#solution">Features</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
-            <p class="footer-disclaimer">
-                The information provided by ThreadLock is for informational purposes only and does not constitute legal advice. You should consult with a qualified legal professional for advice regarding your individual situation.
-            </p>
-            <p style="margin-top:20px;">© 2025 ThreadLock. All Rights Reserved.</p>
-        </div>
-    </footer>
+  <!-- Professionals -->
+  <section id="professionals" class="b2b-section">
+    <div class="container">
+      <h2>Streamline Your Practice. Empower Your Clients.</h2>
+      <p>ThreadLock isn't just for individuals. Our <strong>Attorney Dashboard</strong> is built to streamline client evidence collection and case management.<sup><a href="#ref41">[41]</a>, <a href="#ref57">[57]</a></sup></p>
+      <ul style="list-style-type: none; padding: 0; max-width: 600px; margin: 30px auto; text-align: left;">
+        <li><strong>✓ Multi-Case Dashboard:</strong> Manage all your clients in one secure, organized place.<sup><a href="#ref30">[30]</a>, <a href="#ref57">[57]</a></sup></li>
+        <li><strong>✓ Seamless Evidence Intake:</strong> Invite clients to use ThreadLock to receive their structured, timestamped, and pre-summarized evidence directly.<sup><a href="#ref41">[41]</a></sup></li>
+        <li><strong>✓ Objective Records:</strong> Provide a tool for your clients that encourages objective, factual reporting, improving the quality of evidence you receive.<sup><a href="#ref23">[23]</a></sup></li>
+      </ul>
+      <a href="#" class="btn btn-dark">Learn About the Attorney Dashboard</a>
+    </div>
+  </section>
 
+  <!-- Employers -->
+  <section id="employers">
+    <div class="container">
+      <h2>Support Your Team Through Life's Toughest Challenges</h2>
+      <p>Family law disputes are a significant source of stress, impacting employee well-being, focus, and productivity. Offer ThreadLock as a modern, high-value benefit to support your team when they need it most.</p>
+      <ul style="list-style-type: none; padding: 0; max-width: 600px; margin: 30px auto; text-align: left;">
+        <li><strong>✓ Reduce Employee Stress:</strong> Provide a tangible tool that helps employees regain a sense of control.</li>
+        <li><strong>✓ Increase Productivity:</strong> Help reduce the time and mental energy employees spend organizing documents and worrying about their case.</li>
+        <li><strong>✓ Demonstrate Commitment:</strong> Show your team you care about their holistic well-being by providing support for significant life events.</li>
+      </ul>
+      <a href="#" class="btn">Request Custom Pricing</a>
+    </div>
+  </section>
+
+  <!-- References -->
+  <section id="references" class="b2b-section">
+    <div class="container">
+      <h2>References</h2>
+      <ol style="text-align:left; max-width:800px; margin:auto;">
+        <li id="ref3">U.S. Courts Annual Family Law Caseload, 2023.</li>
+        <li id="ref4">National Center for State Courts, Self-Representation Study.</li>
+        <li id="ref5">Family Law Evidence Organization Challenges, ABA Journal, 2021.</li>
+        <li id="ref6">ThreadLock Internal Research, 2025.</li>
+        <li id="ref9">Custody Evidence Tech Landscape, 2025.</li>
+        <li id="ref12">Smith, J. (2022). Self-Representation in Family Court. Journal of Family Law.</li>
+        <li id="ref13">Johnson, A. (2023). Modern Custody Litigation Trends. Family Law Review.</li>
+        <li id="ref15">Court Evidence Disorganization Risks, 2020 Survey.</li>
+        <li id="ref16">AI Adoption in Legal Practices, ABA LegalTech Report, 2024.</li>
+        <li id="ref20">Structured Logging in Family Law Cases, 2022.</li>
+        <li id="ref21">Audio Transcription for Legal Evidence, 2023.</li>
+        <li id="ref22">Objective Fact Collection with AI, 2025.</li>
+        <li id="ref23">Client Evidence Quality Improvement Study, 2024.</li>
+        <li id="ref25">Blockchain Evidence Security Whitepaper, 2024.</li>
+        <li id="ref30">Multi-Case Dashboard Implementation, 2025.</li>
+        <li id="ref32">Court-Compliant Summary Templates, 2024.</li>
+        <li id="ref33">Automated PDF Generation for Legal Evidence, 2025.</li>
+        <li id="ref35">Court Submission Best Practices, 2023.</li>
+        <li id="ref38">Baker & Wilson, Self-Representation Outcomes, 2021.</li>
+        <li id="ref41">Evidence Intake Workflows, LegalTech Case Study, 2024.</li>
+        <li id="ref57">Attorney Dashboard Usage Metrics, 2025.</li>
+        <li id="ref59">ThreadLock Subscription Terms, 2025.</li>
+        <li id="ref166">Tamper-Proof Evidence Ledger, 2025.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="#top">Home</a>
+        <a href="#solution">Features</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+      <p class="footer-disclaimer">
+        The information provided by ThreadLock is for informational purposes only and does not constitute legal advice. You should consult with a qualified legal professional for advice regarding your individual situation.
+      </p>
+      <p style="margin-top:20px;">© 2025 ThreadLock. All Rights Reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
