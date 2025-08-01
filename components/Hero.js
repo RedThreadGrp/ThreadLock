@@ -7,7 +7,10 @@ export default function Hero() {
       <p className="max-w-2xl mx-auto mb-8 text-lg">
         AI-guided, blockchain-secured, and court-ready journaling to protect your rights.
       </p>
-      <a href="#pricing" className="bg-orange px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition">
+      <a
+        href="#pricing"
+        className="bg-orange px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition"
+      >
         Join Early Access for $10
       </a>
     </header>
