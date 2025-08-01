@@ -1,19 +1,21 @@
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
+import { Resend } from "resend";
 
 export const config = {
   api: {
-    bodyParser: false, // Required for raw body verification
+    bodyParser: false, // Required for Stripe raw body
   },
 };
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-// Supabase client (use Service Role Key for inserts)
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -47,7 +49,7 @@ export default async function handler(req, res) {
     const session = event.data.object;
 
     const email = session.customer_email;
-    const name = session.metadata?.name || "Unknown";
+    const name = session.metadata?.name || "Friend";
     const stripeId = session.customer || session.id;
 
     console.log(`✅ Payment received from ${email}`);
@@ -65,7 +67,14 @@ export default async function handler(req, res) {
       console.error("❌ Supabase insert error:", error);
       return res.status(500).json({ error: "Supabase insert failed" });
     }
-  }
 
-  res.json({ received: true });
-}
+    // Send welcome email via Resend
+    try {
+      await resend.emails.send({
+        from: "ThreadLock <welcome@threadlock.ai>",
+        to: [email],
+        subject: "Welcome to ThreadLock Early Access 🎉",
+        html: `
+          <h1>Welcome, ${name}!</h1>
+          <p>Thank you for joining ThreadLock early access.</p>
+          <p>You now have 6 months of Pro features. We'll follow up with instructions to start using your acco
