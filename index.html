@@ -49,25 +49,13 @@
     /* Hero */
     .hero {
       background: linear-gradient(rgba(44,62,80,0.8), rgba(44,62,80,0.8)), 
-                  url('https://www.threadlock.ai/slide-1.jpg') center/cover;
+                  url('public/slide-1.jpg') center/cover;
       color: var(--white); padding: 120px 0;
     }
     .hero h1 { color: var(--white); max-width: 800px; margin: auto; }
     .hero p { font-size: 1.1rem; max-width: 700px; margin: 20px auto 40px auto; }
     .hero-features { list-style: none; padding: 0; margin: 30px auto 40px auto; max-width: 800px; }
     .hero-features li { margin-bottom: 10px; }
-
-    /* Problem */
-    .problem-content { display: flex; align-items: center; justify-content: center; gap: 50px; text-align: left; }
-    .problem-text, .problem-image { flex-basis: 50%; }
-    .problem-image img { max-width: 100%; border-radius: 8px; }
-
-    /* Solution */
-    #solution { background-color: var(--light-gray); }
-    .solution-steps { display: flex; justify-content: space-around; gap: 30px; margin-top: 50px; }
-    .step { flex-basis: 30%; }
-    .step h3 { font-size: 1.5rem; margin-bottom: 15px; }
-    .step p { font-size: 0.95rem; }
 
     /* Offer */
     #offer { background-color: var(--dark-blue); color: var(--white); }
@@ -77,9 +65,6 @@
       max-width: 800px; margin: 40px auto;
     }
     .offer-note { font-size: 0.8rem; margin-top: 20px; opacity: 0.8; }
-
-    /* B2B */
-    .b2b-section { background-color: var(--light-gray); }
 
     /* Footer */
     .footer { background-color: var(--dark-blue); color: var(--white); padding: 50px 0; text-align: center; }
@@ -98,8 +83,6 @@
       .navbar { flex-direction: column; }
       .navbar-links { margin-top: 15px; }
       .navbar-links a { margin: 0 10px; }
-      .problem-content { flex-direction: column; }
-      .solution-steps { flex-direction: column; }
     }
   </style>
 </head>
@@ -107,12 +90,9 @@
   <!-- Navbar -->
   <nav class="navbar">
     <a href="#" class="navbar-logo">
-      <img src="https://www.threadlock.ai/threadlock-logo.jpg" alt="ThreadLock Logo">
+      <img src="public/threadlock-logo.jpg" alt="ThreadLock Logo">
     </a>
     <div class="navbar-links">
-      <a href="#solution">Features</a>
-      <a href="#professionals">For Professionals</a>
-      <a href="#employers">Employer Benefits</a>
       <a href="#offer">Pricing</a>
       <a href="#">Log In</a>
     </div>
@@ -162,7 +142,7 @@
     <div class="container">
       <div class="footer-links">
         <a href="#top">Home</a>
-        <a href="#solution">Features</a>
+        <a href="#offer">Pricing</a>
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
       </div>
@@ -202,12 +182,12 @@
         return;
       }
 
-      // Create a checkout session via your backend
-      const res = await fetch("/create-checkout-session", {
+      const res = await fetch("/api/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, priceId: "price_XXXX" })
+        body: JSON.stringify({ name, email })
       });
+
       const { sessionId } = await res.json();
       stripe.redirectToCheckout({ sessionId });
     });
