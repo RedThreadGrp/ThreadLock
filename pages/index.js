@@ -101,67 +101,34 @@ const FeaturesSection = () => (
   </section>
 );
 
-const StatisticsSection = () => (
-  <section className="text-gray-600 body-font">
-    <div className="container px-5 py-24 mx-auto">
-      <div className="flex flex-wrap -m-4 text-center">
-        {[
-          { value: "2.7K", label: "Downloads" },
-          { value: "1.3K", label: "Users" },
-          { value: "74", label: "Files" },
-          { value: "46", label: "Places" },
-        ].map((stat, i) => (
-          <div key={i} className="p-4 md:w-1/4 sm:w-1/2 w-full">
-            <div className="border-2 border-gray-200 px-4 py-6 rounded-lg">
-              <h2 className="title-font font-medium text-3xl text-gray-900">{stat.value}</h2>
-              <p className="leading-relaxed">{stat.label}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
+const PricingSection = () => (
+  <section id="pricing" className="py-24 bg-slate-50 text-center text-gray-800">
+    <div className="container mx-auto px-6">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Early Access Pricing</h2>
+      <p className="text-lg text-slate-600 mb-12 max-w-2xl mx-auto">
+        Join now to lock in our exclusive early adopter rate. Your first 6 months are just $10.
+      </p>
+      <div className="max-w-md mx-auto bg-white rounded-2xl shadow-xl border border-orange-300 p-8 transform hover:scale-105 transition-transform duration-300">
+        <h3 className="text-2xl font-bold text-slate-800 mb-2">Pro Tier</h3>
+        <p className="text-slate-500 mb-6">All core features included</p>
+        <div className="text-5xl font-extrabold text-slate-900 mb-1">$10</div>
+        <div className="text-lg text-slate-500 mb-8">for your first 6 months</div>
 
-const TestimonialsSection = () => (
-  <section className="text-gray-600 body-font">
-    <div className="container px-5 py-24 mx-auto">
-      <h1 className="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Testimonials</h1>
-      <div className="flex flex-wrap -m-4">
-        <div className="p-4 md:w-1/2 w-full">
-          <div className="h-full bg-gray-100 p-8 rounded">
-            <p className="leading-relaxed mb-6">
-              "Navigating custody paperwork felt impossible—until ThreadLock. It gave me clarity and confidence with everything documented in one secure place."
-            </p>
-            <div className="inline-flex items-center">
-              <img alt="testimonial" src="https://dummyimage.com/106x106" className="w-12 h-12 rounded-full object-cover object-center"/>
-              <span className="flex-grow flex flex-col pl-4">
-                <span className="title-font font-medium text-gray-900">Sarah M.</span>
-                <span className="text-gray-500 text-sm">Parent & Early User</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-const BlogSection = () => (
-  <section className="text-gray-600 body-font">
-    <div className="container px-5 py-24 mx-auto">
-      <div className="flex flex-wrap -mx-4 -my-8">
-        {[1,2,3].map((b) => (
-          <div key={b} className="py-8 px-4 lg:w-1/3">
-            <div className="h-full flex items-start">
-              <div className="flex-grow pl-6">
-                <h2 className="tracking-widest text-xs title-font font-medium text-indigo-500 mb-1">CATEGORY</h2>
-                <h1 className="title-font text-xl font-medium text-gray-900 mb-3">Sample Blog Post {b}</h1>
-                <p className="leading-relaxed mb-5">Quick insights on managing family law cases effectively with ThreadLock.</p>
-              </div>
-            </div>
-          </div>
-        ))}
+        <a
+          href="#"
+          onClick={async (e) => {
+            e.preventDefault();
+            const res = await fetch('/api/create-checkout-session', { method: 'POST' });
+            const data = await res.json();
+            if (data.url) {
+              window.location.href = data.url;
+            }
+          }}
+          className="block w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all duration-300"
+        >
+          Sign Up Now
+        </a>
+        <p className="text-xs text-slate-400 mt-4">Limited time offer.</p>
       </div>
     </div>
   </section>
@@ -176,7 +143,18 @@ const CallToActionSection = () => (
       <p className="mb-8 max-w-xl mx-auto text-slate-300">
         ThreadLock helps you document, secure, and present your evidence clearly.
       </p>
-      <a href="/api/create-checkout-session" className="bg-orange-500 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out">
+      <a
+        href="#"
+        onClick={async (e) => {
+          e.preventDefault();
+          const res = await fetch('/api/create-checkout-session', { method: 'POST' });
+          const data = await res.json();
+          if (data.url) {
+            window.location.href = data.url;
+          }
+        }}
+        className="bg-orange-500 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+      >
         Claim Early Access
       </a>
     </div>
@@ -197,9 +175,7 @@ export default function Home() {
       <main className="flex flex-col w-full overflow-x-hidden">
         <HeroSection />
         <FeaturesSection />
-        <StatisticsSection />
-        <TestimonialsSection />
-        <BlogSection />
+        <PricingSection />
         <CallToActionSection />
       </main>
       <Footer />
