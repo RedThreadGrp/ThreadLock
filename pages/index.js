@@ -63,7 +63,7 @@ const Header = () => (
   <header className="fixed top-0 left-0 w-full bg-slate-900/80 backdrop-blur-sm z-20">
     <div className="container mx-auto px-6 py-4 flex justify-between items-center">
       <a href="#top" className="flex items-center space-x-2">
-        <img src="/logo.png" alt="ThreadLock Logo" className="h-10 w-auto" />
+        <img src="/threadlock-logo.png" alt="ThreadLock Logo" className="h-10 w-auto" />
         <span className="text-white font-bold text-xl">ThreadLock</span>
       </a>
       <nav className="hidden md:flex space-x-8 text-white font-medium">
