@@ -30,7 +30,6 @@ export default function CTA() {
 
       // 2. Redirect to Stripe Checkout
       const stripe = await stripePromise
-
       const response = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -64,13 +63,13 @@ export default function CTA() {
           </h1>
           <p className="leading-relaxed mt-4">
             Everything that matters is on the line. ThreadLock gives parents and professionals 
-            a secure, organized way to document incidents, communications, and timelines—
+            a secure, organized way to document incidents, communications, and timelines— 
             so you can walk into mediation or court prepared and protected.
           </p>
         </div>
 
-        {/* Right: Functional Form */}
-        <form 
+        {/* Right: Functional Signup Form */}
+        <form
           onSubmit={handleSubmit}
           className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0"
         >
@@ -82,7 +81,7 @@ export default function CTA() {
             <label htmlFor="full-name" className="leading-7 text-sm text-gray-600">
               Full Name
             </label>
-            <input 
+            <input
               type="text"
               id="full-name"
               value={fullName}
@@ -96,7 +95,7 @@ export default function CTA() {
             <label htmlFor="email" className="leading-7 text-sm text-gray-600">
               Email
             </label>
-            <input 
+            <input
               type="email"
               id="email"
               value={email}
@@ -120,6 +119,7 @@ export default function CTA() {
             First 6 months for $10. Then $19.99/month. Cancel anytime.
           </p>
         </form>
+
       </div>
     </section>
   )
