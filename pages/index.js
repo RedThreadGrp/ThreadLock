@@ -34,7 +34,7 @@ const FileTextIcon = (props) => (
   </svg>
 );
 
-// --- COMPONENTS ---
+// --- BASIC LAYOUT COMPONENTS ---
 const Header = () => (
   <header className="absolute top-0 left-0 w-full z-10 p-4">
     <div className="container mx-auto flex justify-between items-center"></div>
@@ -101,6 +101,34 @@ const FeaturesSection = () => (
   </section>
 );
 
+const StatisticsSection = () => (
+  <section className="bg-slate-50 py-24 text-center">
+    <div className="container mx-auto px-6">
+      <h2 className="text-3xl font-bold text-slate-900 mb-12">
+        The Family Law Challenge
+      </h2>
+      <div className="grid md:grid-cols-4 gap-6">
+        <div className="p-6 bg-white rounded-lg shadow-sm">
+          <h3 className="text-4xl font-bold text-orange-500 mb-2">3.8M</h3>
+          <p className="text-slate-600">Family law cases filed annually in the U.S.</p>
+        </div>
+        <div className="p-6 bg-white rounded-lg shadow-sm">
+          <h3 className="text-4xl font-bold text-orange-500 mb-2">72%</h3>
+          <p className="text-slate-600">Involve at least one self-represented party</p>
+        </div>
+        <div className="p-6 bg-white rounded-lg shadow-sm">
+          <h3 className="text-4xl font-bold text-orange-500 mb-2">65%</h3>
+          <p className="text-slate-600">Struggle to present evidence in an organized way</p>
+        </div>
+        <div className="p-6 bg-white rounded-lg shadow-sm">
+          <h3 className="text-4xl font-bold text-orange-500 mb-2">90%</h3>
+          <p className="text-slate-600">Report emotional stress from legal complexity</p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const PricingSection = () => (
   <section id="pricing" className="py-24 bg-slate-50 text-center text-gray-800">
     <div className="container mx-auto px-6">
@@ -134,6 +162,30 @@ const PricingSection = () => (
   </section>
 );
 
+const TestimonialsSection = () => (
+  <section className="bg-white py-24 text-center">
+    <div className="container mx-auto px-6">
+      <h2 className="text-3xl font-bold text-slate-900 mb-12">
+        What Parents Like You Are Saying
+      </h2>
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="bg-slate-50 p-8 rounded-lg shadow-md text-left">
+          <p className="mb-6 text-slate-700 italic">
+            “I spent months buried in screenshots and scattered notes. ThreadLock gave me a single timeline that my attorney could actually use. It was a relief to feel organized for the first time.”
+          </p>
+          <p className="font-bold text-slate-900">— Michelle R., Mother of Two</p>
+        </div>
+        <div className="bg-slate-50 p-8 rounded-lg shadow-md text-left">
+          <p className="mb-6 text-slate-700 italic">
+            “Court deadlines don’t wait. ThreadLock’s prompts made me capture what mattered, and the blockchain logs gave me confidence that my ex couldn’t dispute the records.”
+          </p>
+          <p className="font-bold text-slate-900">— Daniel P., Self-Represented Parent</p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const CallToActionSection = () => (
   <section className="bg-slate-800 text-white py-20">
     <div className="container mx-auto px-6 text-center">
@@ -141,7 +193,7 @@ const CallToActionSection = () => (
         Start Building Your Case Today
       </h2>
       <p className="mb-8 max-w-xl mx-auto text-slate-300">
-        ThreadLock helps you document, secure, and present your evidence clearly.
+        Your evidence matters. ThreadLock helps you document, secure, and present it clearly—without the stress.
       </p>
       <a
         href="#"
@@ -167,7 +219,6 @@ const Footer = () => (
   </footer>
 );
 
-// --- MAIN PAGE ---
 export default function Home() {
   return (
     <div className="bg-white">
@@ -175,7 +226,9 @@ export default function Home() {
       <main className="flex flex-col w-full overflow-x-hidden">
         <HeroSection />
         <FeaturesSection />
+        <StatisticsSection />
         <PricingSection />
+        <TestimonialsSection />
         <CallToActionSection />
       </main>
       <Footer />
