@@ -1,39 +1,50 @@
+import Head from 'next/head'
+
+// Import components
 import Hero from '../components/Hero'
 import Features from '../components/Features'
+import Statistics from '../components/Statistics'
+import Testimonials from '../components/Testimonials'
+import Blog from '../components/Blog'
+import CTA from '../components/CTA'
 import Pricing from '../components/Pricing'
 import Footer from '../components/Footer'
-import Head from 'next/head'
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>ThreadLock: AI-Guided Family Law Evidence</title>
-        <meta name="description" content="AI-guided, blockchain-secured journaling for court-ready family law evidence." />
-        <link rel="icon" href="/favicon.ico" />
+        <title>ThreadLock – Secure, Court-Ready Family Law Evidence</title>
+        <meta
+          name="description"
+          content="ThreadLock helps parents and professionals create secure, organized, court-ready family law evidence with AI-guided journaling and immutable records."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Hero />
-      <Features />
-      <Pricing />
-      <Footer />
 
-      {/* Stripe Checkout Script */}
-      <script src="https://js.stripe.com/v3/"></script>
-      <script dangerouslySetInnerHTML={{__html: `
-        const stripe = Stripe("${process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY}");
-        document.getElementById("checkoutButton").addEventListener("click", async () => {
-          const name = document.getElementById("name").value;
-          const email = document.getElementById("email").value;
-          if (!name || !email) return alert("Please fill out all fields.");
-          const res = await fetch("/api/create-checkout-session", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email })
-          });
-          const { sessionId } = await res.json();
-          stripe.redirectToCheckout({ sessionId });
-        });
-      `}} />
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Core Features */}
+      <Features />
+
+      {/* Statistics / Proof Points */}
+      <Statistics />
+
+      {/* Testimonials */}
+      <Testimonials />
+
+      {/* Blog / Educational Content */}
+      <Blog />
+
+      {/* Signup CTA */}
+      <CTA />
+
+      {/* Pricing Plans */}
+      <Pricing />
+
+      {/* Footer */}
+      <Footer />
     </>
   )
 }
