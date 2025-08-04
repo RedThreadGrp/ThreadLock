@@ -42,21 +42,21 @@ const FileTextIcon = (props) => (
 
 // --- HEADER ---
 const Header = () => (
-  <header className="absolute top-0 left-0 w-full z-20 bg-gradient-to-r from-white/90 to-slate-900/0">
+  <header className="absolute top-0 left-0 w-full z-20 bg-gradient-to-r from-white/90 to-transparent">
     <div className="container mx-auto flex justify-between items-center px-6 py-4">
       <div className="flex items-center space-x-2">
         <img
           src="/threadlock-logo.png"
           alt="ThreadLock Logo"
-          className="h-16 w-auto drop-shadow-md"
+          className="h-20 w-auto drop-shadow-lg"
         />
         <span className="text-slate-800 font-bold text-xl tracking-wide">™</span>
       </div>
-      <nav className="space-x-6 text-slate-800 font-medium">
-        <a href="#features" className="hover:text-orange-500 transition">Features</a>
-        <a href="#pricing" className="hover:text-orange-500 transition">Pricing</a>
-        <a href="#testimonials" className="hover:text-orange-500 transition">Testimonials</a>
-        <a href="https://blog.threadlock.ai" className="hover:text-orange-500 transition">Blog</a>
+      <nav className="space-x-6 text-white font-medium">
+        <a href="#features" className="hover:text-orange-400 transition">Features</a>
+        <a href="#pricing" className="hover:text-orange-400 transition">Pricing</a>
+        <a href="#testimonials" className="hover:text-orange-400 transition">Testimonials</a>
+        <a href="https://blog.threadlock.ai" className="hover:text-orange-400 transition">Blog</a>
       </nav>
     </div>
   </header>
@@ -65,11 +65,7 @@ const Header = () => (
 // --- HERO ---
 const HeroSection = () => (
   <section className="relative text-white bg-slate-900">
-    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/30 via-red-500/20 to-transparent"></div>
-    <div className="absolute inset-0 opacity-5" style={{
-      backgroundImage: `radial-gradient(#fff 1px, transparent 1px)`,
-      backgroundSize: `20px 20px`,
-    }}></div>
+    <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900 to-slate-900"></div>
 
     <div className="relative container mx-auto px-6 py-40 text-center">
       <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
@@ -82,7 +78,7 @@ const HeroSection = () => (
         <a href="#pricing" className="bg-orange-500 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-orange-600 transform hover:-translate-y-1 transition">
           Get Early Access
         </a>
-        <a href="#features" className="border border-slate-600 px-8 py-3 rounded-lg hover:bg-slate-800 transition">
+        <a href="#features" className="border border-white px-8 py-3 rounded-lg hover:bg-white hover:text-slate-900 transition">
           Learn More
         </a>
       </div>
