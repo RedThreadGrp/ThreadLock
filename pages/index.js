@@ -19,6 +19,76 @@ const ChevronRightIcon = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m9 18 6-6-6-6"/></svg>
 );
 
+// --- UI MOCKUP COMPONENTS ---
+// These are SVG-based mockups to visually represent the application's UI.
+const JournalUIMockup = () => (
+    <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex gap-4 aspect-[4/3] text-white">
+        <div className="w-1/3 bg-slate-700/50 rounded-lg p-3">
+            <h4 className="font-bold mb-3 text-sm">AI Suggestions</h4>
+            <ul className="space-y-2 text-xs text-slate-300">
+                <li className="bg-slate-600/50 p-2 rounded">Who was present?</li>
+                <li className="bg-slate-600/50 p-2 rounded">What was the date and time?</li>
+                <li className="bg-slate-600/50 p-2 rounded">Is there photo evidence?</li>
+            </ul>
+        </div>
+        <div className="w-2/3 bg-slate-700/50 rounded-lg p-3 flex flex-col">
+            <h4 className="font-bold mb-2 text-sm">New Journal Entry</h4>
+            <div className="flex-grow bg-slate-600/40 rounded p-2 text-xs text-slate-400">
+                On Friday evening, the other party was 30 minutes late for the custody exchange...
+            </div>
+            <div className="flex justify-end gap-2 mt-2">
+                <button className="text-xs bg-slate-600 px-3 py-1 rounded">Attach File</button>
+                <button className="text-xs bg-orange-500 px-3 py-1 rounded">Save Entry</button>
+            </div>
+        </div>
+    </div>
+);
+
+const TimelineUIMockup = () => (
+    <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex flex-col aspect-[4/3] text-white">
+        <h4 className="font-bold text-sm mb-4 text-center">Evidence Timeline</h4>
+        <div className="relative flex-grow pl-8 pr-4">
+            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-600"></div>
+            <div className="space-y-4">
+                <div className="relative">
+                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <div className="bg-slate-700/50 p-2 rounded-lg text-xs">
+                        <p className="font-semibold">Custody Exchange Late</p>
+                        <p className="text-slate-400">July 26, 2025 - 6:30 PM</p>
+                        <span className="text-green-400 text-[10px] flex items-center gap-1 mt-1"><ShieldCheckIcon className="w-3 h-3"/> Blockchain Verified</span>
+                    </div>
+                </div>
+                <div className="relative">
+                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <div className="bg-slate-700/50 p-2 rounded-lg text-xs">
+                        <p className="font-semibold">Email Received</p>
+                        <p className="text-slate-400">July 25, 2025 - 9:15 AM</p>
+                        <span className="text-green-400 text-[10px] flex items-center gap-1 mt-1"><ShieldCheckIcon className="w-3 h-3"/> Blockchain Verified</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
+const PdfExportUIMockup = () => (
+    <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex flex-col items-center justify-center aspect-[4/3] text-white">
+        <h4 className="font-bold text-sm mb-3">Court-Ready PDF Export</h4>
+        <div className="w-3/4 h-3/4 bg-white rounded-md shadow-lg p-4 text-black flex flex-col">
+            <h5 className="text-sm font-bold border-b pb-1">Case Summary: Sarah M.</h5>
+            <p className="text-[8px] mt-2 text-slate-700 leading-tight">
+                <strong>July 26, 2025:</strong> Custody Exchange Late. On Friday evening, the other party was 30 minutes late for the custody exchange...
+            </p>
+            <p className="text-[8px] mt-2 text-slate-700 leading-tight">
+                <strong>July 25, 2025:</strong> Email Received. Received a hostile email regarding scheduling...
+            </p>
+            <div className="flex-grow"></div>
+            <p className="text-[7px] text-center text-slate-500">Page 1 of 5</p>
+        </div>
+        <button className="text-xs bg-orange-500 px-4 py-1.5 rounded-md mt-3">Download PDF</button>
+    </div>
+);
+
 
 // --- HEADER ---
 const Header = ({ handleCheckout, isLoading }) => (
@@ -116,7 +186,7 @@ const ProductShowcaseSection = () => {
         {
             title: "AI-Guided Journaling",
             description: "Never miss a crucial detail. Our AI provides smart prompts to ensure you capture the specific, legally-relevant information needed for your case and jurisdiction.",
-            imageSrc: "https://placehold.co/1200x800/293347/f97316?text=AI-Guided+Journal+Entry+UI",
+            mockup: <JournalUIMockup />,
             callouts: [
                 { text: "Smart prompts suggest legally relevant details.", position: "top-1/4 left-10" },
                 { text: "Easily attach files, photos, and audio evidence.", position: "bottom-1/4 right-10" },
@@ -125,7 +195,7 @@ const ProductShowcaseSection = () => {
         {
             title: "Immutable Timeline",
             description: "View your entire case history in a clean, chronological timeline. Every entry is secured on the blockchain, creating a tamper-proof record that stands up to scrutiny.",
-            imageSrc: "https://placehold.co/1200x800/293347/f97316?text=Secure+Evidence+Timeline+UI",
+            mockup: <TimelineUIMockup />,
             callouts: [
                 { text: "Blockchain-verified timestamp for each entry.", position: "top-20 left-12" },
                 { text: "Filter and search your entire case history instantly.", position: "bottom-20 right-12" },
@@ -134,7 +204,7 @@ const ProductShowcaseSection = () => {
         {
             title: "Court-Ready Exports",
             description: "Instantly generate and export professional, court-ready PDF summaries and timelines. Save time and legal fees by providing your attorney with organized documentation.",
-            imageSrc: "https://placehold.co/1200x800/293347/f97316?text=PDF+Export+Preview+UI",
+            mockup: <PdfExportUIMockup />,
             callouts: [
                 { text: "One-click PDF generation.", position: "top-1/3 left-8" },
                 { text: "Formatted for clarity and legal review.", position: "bottom-1/3 right-8" },
@@ -178,14 +248,11 @@ const ProductShowcaseSection = () => {
                 </p>
                 <div className="max-w-6xl mx-auto">
                     <div className="relative bg-slate-200 rounded-2xl shadow-2xl p-4">
-                         <img 
-                            src={slidesData[currentIndex].imageSrc} 
-                            alt={slidesData[currentIndex].title}
-                            className="w-full h-auto object-cover rounded-xl"
-                        />
-                        {slidesData[currentIndex].callouts.map((callout, index) => (
+                         {slidesData[currentIndex].mockup}
+                        {/* The callouts are now part of the mockup design, but this structure is kept if you want to overlay them on real images later */}
+                        {/* {slidesData[currentIndex].callouts.map((callout, index) => (
                             <Callout key={index} text={callout.text} position={callout.position} />
-                        ))}
+                        ))} */}
                     </div>
 
                     <div className="relative mt-8 flex flex-col md:flex-row justify-between items-center">
