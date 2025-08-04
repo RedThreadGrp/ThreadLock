@@ -223,17 +223,19 @@ const ProductShowcaseSection = () => {
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">
                     A quick look at how our key features help you build a stronger case.
                 </p>
-                <div className="max-w-6xl mx-auto flex flex-col gap-8">
-                    <div className="relative bg-slate-200 rounded-2xl shadow-2xl p-4">
-                         {slidesData[currentIndex].mockup}
+                <div className="max-w-6xl mx-auto">
+                    {/* Mockup Container */}
+                    <div className="bg-slate-200 rounded-2xl shadow-2xl p-4">
+                        {slidesData[currentIndex].mockup}
                     </div>
 
-                    <div className="relative flex flex-col md:flex-row justify-between items-center">
-                        <div className="text-left md:w-1/2">
+                    {/* Description and Controls Container */}
+                    <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
                             <h3 className="text-2xl font-bold text-slate-800 mb-2">{slidesData[currentIndex].title}</h3>
                             <p className="text-slate-600">{slidesData[currentIndex].description}</p>
                         </div>
-                        <div className="flex items-center justify-center gap-4 mt-6 md:mt-0">
+                        <div className="flex items-center justify-center gap-4 shrink-0 order-1 md:order-2">
                            <button onClick={goToPrevious} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
                                 <ChevronLeftIcon className="h-6 w-6 text-slate-700"/>
                             </button>
