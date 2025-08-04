@@ -12,6 +12,12 @@ const ShieldCheckIcon = (props) => (
 const FileTextIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><line x1="10" y1="9" x2="8" y2="9" /></svg>
 );
+const ChevronLeftIcon = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m15 18-6-6 6-6"/></svg>
+);
+const ChevronRightIcon = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m9 18 6-6-6-6"/></svg>
+);
 
 
 // --- HEADER ---
@@ -24,6 +30,7 @@ const Header = ({ handleCheckout, isLoading }) => (
       </div>
       <nav className="hidden md:flex space-x-6 text-white font-medium items-center">
         <a href="#features" className="hover:text-orange-400 transition-colors">Features</a>
+        <a href="#showcase" className="hover:text-orange-400 transition-colors">Showcase</a>
         <a href="#stats" className="hover:text-orange-400 transition-colors">Stats</a>
         <a href="#pricing" className="hover:text-orange-400 transition-colors">Pricing</a>
         <a href="#testimonials" className="hover:text-orange-400 transition-colors">Testimonials</a>
@@ -102,6 +109,114 @@ const FeaturesSection = () => (
     </div>
   </section>
 );
+
+// --- PRODUCT SHOWCASE SECTION ---
+const ProductShowcaseSection = () => {
+    const slidesData = [
+        {
+            title: "AI-Guided Journaling",
+            description: "Never miss a crucial detail. Our AI provides smart prompts to ensure you capture the specific, legally-relevant information needed for your case and jurisdiction.",
+            imageSrc: "https://placehold.co/1200x800/293347/f97316?text=AI-Guided+Journal+Entry+UI",
+            callouts: [
+                { text: "Smart prompts suggest legally relevant details.", position: "top-1/4 left-10" },
+                { text: "Easily attach files, photos, and audio evidence.", position: "bottom-1/4 right-10" },
+            ]
+        },
+        {
+            title: "Immutable Timeline",
+            description: "View your entire case history in a clean, chronological timeline. Every entry is secured on the blockchain, creating a tamper-proof record that stands up to scrutiny.",
+            imageSrc: "https://placehold.co/1200x800/293347/f97316?text=Secure+Evidence+Timeline+UI",
+            callouts: [
+                { text: "Blockchain-verified timestamp for each entry.", position: "top-20 left-12" },
+                { text: "Filter and search your entire case history instantly.", position: "bottom-20 right-12" },
+            ]
+        },
+        {
+            title: "Court-Ready Exports",
+            description: "Instantly generate and export professional, court-ready PDF summaries and timelines. Save time and legal fees by providing your attorney with organized documentation.",
+            imageSrc: "https://placehold.co/1200x800/293347/f97316?text=PDF+Export+Preview+UI",
+            callouts: [
+                { text: "One-click PDF generation.", position: "top-1/3 left-8" },
+                { text: "Formatted for clarity and legal review.", position: "bottom-1/3 right-8" },
+            ]
+        }
+    ];
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const goToPrevious = () => {
+        const isFirstSlide = currentIndex === 0;
+        const newIndex = isFirstSlide ? slidesData.length - 1 : currentIndex - 1;
+        setCurrentIndex(newIndex);
+    };
+
+    const goToNext = () => {
+        const isLastSlide = currentIndex === slidesData.length - 1;
+        const newIndex = isLastSlide ? 0 : currentIndex + 1;
+        setCurrentIndex(newIndex);
+    };
+    
+    const Callout = ({ text, position }) => (
+        <div className={`absolute ${position} hidden md:block`}>
+            <div className="relative flex items-center">
+                <div className="bg-white/90 backdrop-blur-sm text-slate-800 font-semibold py-2 px-4 rounded-lg shadow-lg">
+                    {text}
+                </div>
+                <div className="absolute w-3 h-3 bg-white/90 rounded-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-0 transform -translate-x-full"></div>
+            </div>
+        </div>
+    );
+
+    return (
+        <section id="showcase" className="py-24 bg-slate-50">
+            <div className="container mx-auto px-6 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">
+                    See ThreadLock in Action
+                </h2>
+                <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">
+                    A quick look at how our key features help you build a stronger case.
+                </p>
+                <div className="max-w-6xl mx-auto">
+                    <div className="relative bg-slate-200 rounded-2xl shadow-2xl p-4">
+                         <img 
+                            src={slidesData[currentIndex].imageSrc} 
+                            alt={slidesData[currentIndex].title}
+                            className="w-full h-auto object-cover rounded-xl"
+                        />
+                        {slidesData[currentIndex].callouts.map((callout, index) => (
+                            <Callout key={index} text={callout.text} position={callout.position} />
+                        ))}
+                    </div>
+
+                    <div className="relative mt-8 flex flex-col md:flex-row justify-between items-center">
+                        <div className="text-left md:w-1/2">
+                            <h3 className="text-2xl font-bold text-slate-800 mb-2">{slidesData[currentIndex].title}</h3>
+                            <p className="text-slate-600">{slidesData[currentIndex].description}</p>
+                        </div>
+                        <div className="flex items-center justify-center gap-4 mt-6 md:mt-0">
+                           <button onClick={goToPrevious} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
+                                <ChevronLeftIcon className="h-6 w-6 text-slate-700"/>
+                            </button>
+                            <div className="flex gap-2">
+                                {slidesData.map((slide, slideIndex) => (
+                                    <div 
+                                        key={slideIndex}
+                                        onClick={() => setCurrentIndex(slideIndex)}
+                                        className={`h-3 w-3 rounded-full cursor-pointer transition-colors ${currentIndex === slideIndex ? 'bg-orange-500' : 'bg-slate-300 hover:bg-slate-400'}`}
+                                    ></div>
+                                ))}
+                            </div>
+                            <button onClick={goToNext} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
+                                <ChevronRightIcon className="h-6 w-6 text-slate-700"/>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
 
 // --- STATISTICS SECTION ---
 const StatisticsSection = () => (
@@ -257,6 +372,7 @@ export default function Home() {
       <main className="flex flex-col w-full overflow-x-hidden">
         <HeroSection handleCheckout={handleCheckout} isLoading={isLoading} />
         <FeaturesSection />
+        <ProductShowcaseSection />
         <StatisticsSection />
         <TestimonialsSection />
         <PricingSection handleCheckout={handleCheckout} isLoading={isLoading} />
