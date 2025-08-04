@@ -95,7 +95,7 @@ const Header = ({ handleCheckout, isLoading }) => (
   <header className="absolute top-0 left-0 w-full z-10 p-4 bg-gradient-to-r from-slate-900/50 via-slate-900/20 to-transparent backdrop-blur-md">
     <div className="container mx-auto flex justify-between items-center">
       <div className="flex items-center space-x-3">
-        <img src="/threadlock-logo.png" alt="ThreadLock Logo" className="h-20 w-auto" onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/100x100/1e293b/f97316?text=T' }} />
+        <img src="/threadlock-logo.png" alt="ThreadLock Logo" className="h-12 md:h-16 w-auto" onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/100x100/1e293b/f97316?text=T' }} />
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 font-bold text-xl tracking-wide">™</span>
       </div>
       <nav className="hidden md:flex space-x-6 text-white font-medium items-center">
@@ -187,28 +187,16 @@ const ProductShowcaseSection = () => {
             title: "AI-Guided Journaling",
             description: "Never miss a crucial detail. Our AI provides smart prompts to ensure you capture the specific, legally-relevant information needed for your case and jurisdiction.",
             mockup: <JournalUIMockup />,
-            callouts: [
-                { text: "Smart prompts suggest legally relevant details.", position: "top-1/4 left-10" },
-                { text: "Easily attach files, photos, and audio evidence.", position: "bottom-1/4 right-10" },
-            ]
         },
         {
             title: "Immutable Timeline",
             description: "View your entire case history in a clean, chronological timeline. Every entry is secured on the blockchain, creating a tamper-proof record that stands up to scrutiny.",
             mockup: <TimelineUIMockup />,
-            callouts: [
-                { text: "Blockchain-verified timestamp for each entry.", position: "top-20 left-12" },
-                { text: "Filter and search your entire case history instantly.", position: "bottom-20 right-12" },
-            ]
         },
         {
             title: "Court-Ready Exports",
             description: "Instantly generate and export professional, court-ready PDF summaries and timelines. Save time and legal fees by providing your attorney with organized documentation.",
             mockup: <PdfExportUIMockup />,
-            callouts: [
-                { text: "One-click PDF generation.", position: "top-1/3 left-8" },
-                { text: "Formatted for clarity and legal review.", position: "bottom-1/3 right-8" },
-            ]
         }
     ];
 
@@ -225,17 +213,6 @@ const ProductShowcaseSection = () => {
         const newIndex = isLastSlide ? 0 : currentIndex + 1;
         setCurrentIndex(newIndex);
     };
-    
-    const Callout = ({ text, position }) => (
-        <div className={`absolute ${position} hidden md:block`}>
-            <div className="relative flex items-center">
-                <div className="bg-white/90 backdrop-blur-sm text-slate-800 font-semibold py-2 px-4 rounded-lg shadow-lg">
-                    {text}
-                </div>
-                <div className="absolute w-3 h-3 bg-white/90 rounded-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-0 transform -translate-x-full"></div>
-            </div>
-        </div>
-    );
 
     return (
         <section id="showcase" className="py-24 bg-slate-50">
@@ -246,16 +223,12 @@ const ProductShowcaseSection = () => {
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">
                     A quick look at how our key features help you build a stronger case.
                 </p>
-                <div className="max-w-6xl mx-auto">
+                <div className="max-w-6xl mx-auto flex flex-col gap-8">
                     <div className="relative bg-slate-200 rounded-2xl shadow-2xl p-4">
                          {slidesData[currentIndex].mockup}
-                        {/* The callouts are now part of the mockup design, but this structure is kept if you want to overlay them on real images later */}
-                        {/* {slidesData[currentIndex].callouts.map((callout, index) => (
-                            <Callout key={index} text={callout.text} position={callout.position} />
-                        ))} */}
                     </div>
 
-                    <div className="relative mt-8 flex flex-col md:flex-row justify-between items-center">
+                    <div className="relative flex flex-col md:flex-row justify-between items-center">
                         <div className="text-left md:w-1/2">
                             <h3 className="text-2xl font-bold text-slate-800 mb-2">{slidesData[currentIndex].title}</h3>
                             <p className="text-slate-600">{slidesData[currentIndex].description}</p>
