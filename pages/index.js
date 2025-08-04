@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // --- SVG ICONS ---
 // Using inline SVGs is a great practice in React.
@@ -15,12 +15,12 @@ const FileTextIcon = (props) => (
 
 
 // --- HEADER ---
-const Header = () => (
+const Header = ({ handleCheckout, isLoading }) => (
   <header className="absolute top-0 left-0 w-full z-10 p-4 bg-gradient-to-r from-slate-900/50 via-slate-900/20 to-transparent backdrop-blur-md">
     <div className="container mx-auto flex justify-between items-center">
       <div className="flex items-center space-x-3">
-        <img src="/threadlock-logo.png" alt="ThreadLock Logo" className="h-14 w-auto" onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/100x100/1e293b/f97316?text=T' }} />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 font-bold text-xl tracking-wide">ThreadLock™</span>
+        <img src="/threadlock-logo.png" alt="ThreadLock Logo" className="h-20 w-auto" onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/100x100/1e293b/f97316?text=T' }} />
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 font-bold text-xl tracking-wide">™</span>
       </div>
       <nav className="hidden md:flex space-x-6 text-white font-medium items-center">
         <a href="#features" className="hover:text-orange-400 transition-colors">Features</a>
@@ -28,9 +28,9 @@ const Header = () => (
         <a href="#pricing" className="hover:text-orange-400 transition-colors">Pricing</a>
         <a href="#testimonials" className="hover:text-orange-400 transition-colors">Testimonials</a>
         <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Blog</a>
-        <a href="#pricing" className="bg-orange-500 text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-orange-600 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out">
-          Get Started
-        </a>
+        <button onClick={handleCheckout} disabled={isLoading} className="bg-orange-500 text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-orange-600 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out disabled:bg-orange-400 disabled:cursor-not-allowed">
+          {isLoading ? '...' : 'Get Started'}
+        </button>
       </nav>
     </div>
   </header>
@@ -38,7 +38,7 @@ const Header = () => (
 
 
 // --- HERO SECTION ---
-const HeroSection = () => (
+const HeroSection = ({ handleCheckout, isLoading }) => (
   <section className="relative text-white bg-slate-900 pt-24">
     <div className="absolute inset-0 bg-gradient-to-l from-slate-800/20 to-transparent"></div>
     <div className="relative container mx-auto px-6 py-32 md:py-40 text-center">
@@ -49,12 +49,13 @@ const HeroSection = () => (
         Simplify evidence gathering. Our AI-guided journaling and blockchain-secured timelines give you court-ready documentation, peace of mind, and control.
       </p>
       <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-        <a
-          href="/api/create-checkout-session"
-          className="bg-orange-500 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+        <button
+          onClick={handleCheckout}
+          disabled={isLoading}
+          className="bg-orange-500 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-400 disabled:cursor-not-allowed"
         >
-          Get Early Access
-        </a>
+          {isLoading ? 'Processing...' : 'Get Early Access'}
+        </button>
         <a
           href="#features"
           className="border border-slate-600 px-8 py-3 rounded-lg hover:bg-slate-800 hover:border-slate-500 transition-colors"
@@ -158,7 +159,7 @@ const TestimonialsSection = () => (
 );
 
 // --- PRICING SECTION ---
-const PricingSection = () => (
+const PricingSection = ({ handleCheckout, isLoading }) => (
   <section id="pricing" className="py-24 bg-slate-50 text-center text-gray-800">
     <div className="container mx-auto px-6">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Early Access Pricing</h2>
@@ -170,12 +171,13 @@ const PricingSection = () => (
         <p className="text-slate-500 mb-6">All core features included</p>
         <div className="text-5xl font-extrabold text-slate-900 mb-1">$10</div>
         <div className="text-lg text-slate-500 mb-8">for your first 6 months</div>
-        <a
-          href="/api/create-checkout-session"
-          className="block w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all duration-300"
+        <button
+          onClick={handleCheckout}
+          disabled={isLoading}
+          className="block w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all duration-300 disabled:bg-orange-400 disabled:cursor-not-allowed"
         >
-          Sign Up Now
-        </a>
+          {isLoading ? 'Processing...' : 'Sign Up Now'}
+        </button>
         <p className="text-xs text-slate-400 mt-4">Limited time offer.</p>
       </div>
     </div>
@@ -183,7 +185,7 @@ const PricingSection = () => (
 );
 
 // --- CALL TO ACTION SECTION ---
-const CallToActionSection = () => (
+const CallToActionSection = ({ handleCheckout, isLoading }) => (
   <section className="bg-slate-800 text-white py-20">
     <div className="container mx-auto px-6 text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -192,12 +194,13 @@ const CallToActionSection = () => (
       <p className="mb-8 max-w-xl mx-auto text-slate-300">
         Your evidence matters. ThreadLock helps you document, secure, and present it clearly—without the stress.
       </p>
-      <a
-        href="/api/create-checkout-session"
-        className="bg-orange-500 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+      <button
+        onClick={handleCheckout}
+        disabled={isLoading}
+        className="bg-orange-500 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-400 disabled:cursor-not-allowed"
       >
-        Claim Early Access
-      </a>
+        {isLoading ? 'Processing...' : 'Claim Early Access'}
+      </button>
     </div>
   </section>
 );
@@ -211,19 +214,55 @@ const Footer = () => (
 
 // --- MAIN PAGE ---
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  // This function handles the checkout process.
+  const handleCheckout = async () => {
+    setIsLoading(true); // Set loading state to true
+    try {
+      // Send a POST request to the API route.
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        // If the server response is not OK, throw an error.
+        throw new Error('Failed to create checkout session.');
+      }
+
+      // Get the session URL from the response.
+      const { url } = await response.json();
+      
+      // Redirect the user to the Stripe checkout page.
+      if (url) {
+        window.location.href = url;
+      } else {
+        throw new Error('Checkout URL not found.');
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      // You can add user-facing error handling here, e.g., a toast notification.
+      alert('An error occurred. Please try again.');
+      setIsLoading(false); // Reset loading state on error
+    }
+    // No need to set isLoading to false on success, as the page will redirect.
+  };
+
   return (
     <div className="bg-white">
-      <Header />
+      <Header handleCheckout={handleCheckout} isLoading={isLoading} />
       <main className="flex flex-col w-full overflow-x-hidden">
-        <HeroSection />
+        <HeroSection handleCheckout={handleCheckout} isLoading={isLoading} />
         <FeaturesSection />
         <StatisticsSection />
         <TestimonialsSection />
-        <PricingSection />
-        <CallToActionSection />
+        <PricingSection handleCheckout={handleCheckout} isLoading={isLoading} />
+        <CallToActionSection handleCheckout={handleCheckout} isLoading={isLoading} />
       </main>
       <Footer />
     </div>
   );
 }
-
