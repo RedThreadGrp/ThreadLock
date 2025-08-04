@@ -22,8 +22,8 @@ const ChevronRightIcon = (props) => (
 // --- UI MOCKUP COMPONENTS ---
 // These are SVG-based mockups to visually represent the application's UI.
 const JournalUIMockup = () => (
-    <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex gap-4 aspect-[4/3] text-white">
-        <div className="w-1/3 bg-slate-700/50 rounded-lg p-3">
+    <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex flex-col md:flex-row gap-4 aspect-square md:aspect-[4/3] text-white">
+        <div className="w-full md:w-1/3 bg-slate-700/50 rounded-lg p-3">
             <h4 className="font-bold mb-3 text-sm">AI Suggestions</h4>
             <ul className="space-y-2 text-xs text-slate-300">
                 <li className="bg-slate-600/50 p-2 rounded">Who was present?</li>
@@ -31,7 +31,7 @@ const JournalUIMockup = () => (
                 <li className="bg-slate-600/50 p-2 rounded">Is there photo evidence?</li>
             </ul>
         </div>
-        <div className="w-2/3 bg-slate-700/50 rounded-lg p-3 flex flex-col">
+        <div className="w-full md:w-2/3 bg-slate-700/50 rounded-lg p-3 flex flex-col">
             <h4 className="font-bold mb-2 text-sm">New Journal Entry</h4>
             <div className="flex-grow bg-slate-600/40 rounded p-2 text-xs text-slate-400">
                 On Friday evening, the other party was 30 minutes late for the custody exchange...
