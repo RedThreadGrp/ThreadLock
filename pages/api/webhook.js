@@ -109,3 +109,69 @@ export default async function handler(req, res) {
       const bucket = process.env.TOOLKIT_BUCKET || "toolkit";
       const filePath =
         process.env.TOOLKIT_FILE_PATH || "Founders_Toolkit/Founders_Kit.zip";
+
+      let signedUrl = null;
+      const { data: signed, error: signErr } = await supabase.storage
+        .from(bucket)
+        .createSignedUrl(filePath, 60 * 60); // 3600s
+
+      if (signErr) {
+        console.error("⚠️ Signed URL error:", signErr);
+      } else {
+        signedUrl = signed?.signedUrl || null;
+      }
+
+      // --- Send delivery email
+      if (email) {
+        const htmlEmail = `
+        <!DOCTYPE html><html lang="en">
+        <body style="margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;background:#0D223F;color:#ffffff;">
+          <table align="center" cellpadding="0" cellspacing="0" width="100%" style="max-width:640px;margin:0 auto;background:#0D223F;">
+            <tr><td style="padding:24px;text-align:center;">
+              <img src="https://www.threadlock.ai/threadlock-logo.png" alt="ThreadLock" style="height:44px">
+            </td></tr>
+            <tr><td style="background:#122a4f;padding:28px;">
+              <h1 style="margin:0 0 12px;color:#ffffff;">You're a Founding Member ✅</h1>
+              <p style="margin:0 0 16px;color:#E6EDF7;">Thanks for backing ThreadLock. Your Court-Ready Toolkit is ready.</p>
+              <p style="margin:0 0 20px;color:#E6EDF7;">Perks: lifetime SaaS discount, early beta access, and all toolkit updates.</p>
+              ${
+                signedUrl
+                  ? `<p style="margin:0 0 20px;"><a href="${signedUrl}" style="background:#F58220;color:#000000;text-decoration:none;padding:12px 18px;font-weight:bold;border-radius:4px;display:inline-block;">Download the Toolkit</a></p>`
+                  : `<p style="margin:0 0 20px;color:#FFD8A8;">Your download link is available in your account.</p>`
+              }
+              <p style="margin:0 0 6px;color:#E6EDF7;">Need another link or it expired? Log in here:</p>
+              <p style="margin:0 0 20px;"><a href="https://www.threadlock.ai/members" style="color:#F58220;">threadlock.ai/members</a></p>
+              <p style="margin:0;color:#9BB1D6;font-size:12px;">If you didn’t intend to purchase, reply to this email.</p>
+            </td></tr>
+            <tr><td style="padding:18px;text-align:center;color:#9BB1D6;font-size:12px;">
+              © ${new Date().getFullYear()} ThreadLock — All rights reserved.
+            </td></tr>
+          </table>
+        </body></html>
+        `;
+
+        try {
+          await resend.emails.send({
+            from: "ThreadLock <support@threadlock.ai>",
+            to: [email],
+            subject: "Your Court-Ready Toolkit is ready 🔐",
+            html: htmlEmail,
+          });
+          console.log(`📧 Toolkit email sent to ${email}`);
+        } catch (mailErr) {
+          console.error("❌ Email send failed:", mailErr?.message || mailErr);
+        }
+      }
+
+      // Done
+      return res.json({ received: true });
+    } catch (e) {
+      console.error("❌ Webhook processing error:", e);
+      // Let Stripe retry if something truly failed
+      return res.status(500).json({ error: "Webhook processing failed" });
+    }
+  }
+
+  // Ignore other events for now
+  return res.json({ received: true });
+}
