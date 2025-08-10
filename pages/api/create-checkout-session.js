@@ -18,13 +18,12 @@ export default async function handler(req, res) {
       line_items: [{ price: toolkitPriceId, quantity: 1 }],
       allow_promotion_codes: true,
 
-      // Always send users to the members app after checkout
-      success_url: `https://members.threadlock.ai/?success=true&session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `https://members.threadlock.ai/?canceled=true`,
+      // Route to your main site's Thank You page (no members app required)
+      success_url: `https://threadlock.ai/thank-you?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `https://threadlock.ai/?canceled=true`,
 
-      // Optional but nice: make Stripe store a Customer for future upgrades
+      // Creates a Stripe Customer for future upgrades
       customer_creation: "if_required",
-      // We’re not passing metadata/user_id; webhook will match by Price ID + email
     });
 
     return res.status(200).json({ url: session.url });
