@@ -18,8 +18,8 @@ const PRICE_TO_FILE = {
   [process.env.FM_TOOLKIT_PRICE_ID]: "ThreadlockToolkit.zip",
 
   [process.env.PRICE_BASIC_MOTION]: "Basic Motion Template.pdf",
-  [process.env.PRICE_TRIAL_QUICK_REF]: "Trial & Hearing Quick Reference.pdf", // duplicate price, same file
-  [process.env.PRICE_TRIAL_QUICK_REF_GUIDE]: "Trial & Hearing Quick Reference.pdf", // if present
+  [process.env.PRICE_TRIAL_QUICK_REF]: "Trial & Hearing Quick Reference.pdf",
+  [process.env.PRICE_TRIAL_QUICK_REF_GUIDE]: "Trial & Hearing Quick Reference.pdf",
   [process.env.PRICE_PROOF_OF_SERVICE]: "Proof of Service Tracker.pdf",
   [process.env.PRICE_PRE_HEARING]: "Pre-Hearing Preparation Checklist.pdf",
   [process.env.PRICE_FIND_RULES]: "Finding the Right Court Rules.pdf",
@@ -95,7 +95,6 @@ export default async function handler(req, res) {
       mode = "toolkit";
       fileToSend = PRICE_TO_FILE[process.env.FM_TOOLKIT_PRICE_ID];
     } else {
-      // find first single-PDF price that maps to a file
       for (const pid of ids) {
         if (PRICE_TO_FILE[pid] && pid !== process.env.FM_TOOLKIT_PRICE_ID) {
           mode = "single";
@@ -112,20 +111,23 @@ export default async function handler(req, res) {
       return res.json({ received: true });
     }
 
-    // --- Update Supabase flags (toolkit + founders only)
-    try {
-      if (mode === "toolkit" || mode === "founders") {
-        const { error: updateErr } = await supabase
+    // --- Upsert Supabase user ONLY for toolkit & founders
+    if (mode === "toolkit" || mode === "founders") {
+      try {
+        const { error: upsertErr } = await supabase
           .from("public.users")
-          .update({
-            isFoundingMember: true,
-            founding_member_since: new Date().toISOString(),
-          })
-          .eq("email", email);
-        if (updateErr) console.error("❌ Supabase update error:", updateErr);
+          .upsert(
+            {
+              email, // must be unique for on-conflict
+              isFoundingMember: true,
+              founding_member_since: new Date().toISOString(),
+            },
+            { onConflict: "email" }
+          );
+        if (upsertErr) console.error("❌ Supabase upsert error:", upsertErr);
+      } catch (e) {
+        console.error("⚠️ Supabase upsert failed:", e);
       }
-    } catch (e) {
-      console.error("⚠️ Supabase flag update failed:", e);
     }
 
     // --- Create signed URL if needed
