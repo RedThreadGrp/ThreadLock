@@ -1,4 +1,4 @@
-// /pages/api/stripe-webhook.js  (Next.js API route)
+// /pages/api/webhook.js  (Next.js API route)
 
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
