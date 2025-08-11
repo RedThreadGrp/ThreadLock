@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 
 /* ---------------- SVG Icons ---------------- */
-const BrainCircuitIcon = (props: any) => (
+const BrainCircuitIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M12 5a3 3 0 1 0-5.993.23"/><path d="M18.668 15.65a3 3 0 1 0-5.993.23"/><path d="M12 12a3 3 0 1 0-5.993.23"/><path d="M12 19a3 3 0 1 0-5.993.23"/><path d="M18.668 8.65a3 3 0 1 0-5.993.23"/><path d="M12 5a3 3 0 1 0 5.993.23"/><path d="m12 12 2.5 2.5"/><path d="m12 5-2.5 2.5"/><path d="m18.5 8.5 2.5 2.5"/><path d="m12 19 2.5-2.5"/><path d="m6.5 8.5-2.5 2.5"/></svg>
 );
-const ShieldCheckIcon = (props: any) => (
+const ShieldCheckIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
 );
-const FileTextIcon = (props: any) => (
+const FileTextIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
 );
-const ChevronLeftIcon = (props: any) => (
+const ChevronLeftIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m15 18-6-6 6-6"/></svg>
 );
-const ChevronRightIcon = (props: any) => (
+const ChevronRightIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m9 18 6-6-6-6"/></svg>
 );
 
 /* ---------------- Single-PDF SKUs (client display only) ---------------- */
-const SINGLE_ITEMS: Array<{ sku: string; name: string }> = [
+const SINGLE_ITEMS = [
   { sku: "avoiding_common_mistakes", name: "Avoiding Common Mistakes in Court" },
   { sku: "basic_motion_template", name: "Basic Motion Template" },
   { sku: "case_event_timeline", name: "Case Event Timeline Worksheet" },
@@ -54,6 +54,7 @@ const JournalUIMockup = () => (
     </div>
   </div>
 );
+
 const TimelineUIMockup = () => (
   <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex flex-col aspect-[4/3] text-white">
     <h4 className="font-bold text-sm mb-4 text-center">Evidence Timeline</h4>
@@ -80,6 +81,7 @@ const TimelineUIMockup = () => (
     </div>
   </div>
 );
+
 const PdfExportUIMockup = () => (
   <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex flex-col items-center justify-center aspect-[4/3] text-white">
     <h4 className="font-bold text-sm mb-3">Court-Ready PDF Export</h4>
@@ -99,7 +101,7 @@ const PdfExportUIMockup = () => (
 );
 
 /* ---------------- Header ---------------- */
-const Header = ({ handleBuyToolkit, isLoading }: { handleBuyToolkit: () => void; isLoading: boolean; }) => (
+const Header = ({ handleBuyToolkit, isLoading }) => (
   <header className="absolute top-0 left-0 w-full z-10 p-4 bg-gradient-to-r from-slate-900/50 via-slate-900/20 to-transparent backdrop-blur-md">
     <div className="container mx-auto flex justify-between items-center">
       <div className="flex items-center space-x-3">
@@ -107,7 +109,7 @@ const Header = ({ handleBuyToolkit, isLoading }: { handleBuyToolkit: () => void;
           src="/threadlock-logo.png"
           alt="ThreadLock Logo"
           className="h-12 md:h-16 w-auto"
-          onError={(e: any) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/100x100/1e293b/f97316?text=T'; }}
+          onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/100x100/1e293b/f97316?text=T'; }}
         />
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 font-bold text-xl tracking-wide">™</span>
       </div>
@@ -130,7 +132,7 @@ const Header = ({ handleBuyToolkit, isLoading }: { handleBuyToolkit: () => void;
 );
 
 /* ---------------- Sections ---------------- */
-const HeroSection = ({ handleBuyToolkit, isLoading }: { handleBuyToolkit: () => void; isLoading: boolean; }) => (
+const HeroSection = ({ handleBuyToolkit, isLoading }) => (
   <section className="relative text-white bg-slate-900 pt-24">
     <div className="absolute inset-0 bg-gradient-to-l from-slate-800/20 to-transparent"></div>
     <div className="relative container mx-auto px-6 py-32 md:py-40 text-center">
@@ -159,7 +161,7 @@ const HeroSection = ({ handleBuyToolkit, isLoading }: { handleBuyToolkit: () => 
   </section>
 );
 
-const FeatureCard = ({ icon, title, children }: any) => (
+const FeatureCard = ({ icon, title, children }) => (
   <div className="bg-slate-50 p-8 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
     <div className="w-16 h-16 mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-2xl">
       {icon}
@@ -269,12 +271,6 @@ const PricingSection = ({
   onPickSingle,
   onContribMonthly,
   onContribNYOP,
-}: {
-  onBuyToolkit: () => void;
-  onBuyFounders: () => void;
-  onPickSingle: () => void;
-  onContribMonthly: () => void;
-  onContribNYOP: () => void;
 }) => (
   <section id="pricing" className="py-24 bg-slate-50 text-center text-gray-800">
     <div className="container mx-auto px-6">
@@ -355,7 +351,7 @@ const PricingSection = ({
   </section>
 );
 
-const CallToActionSection = ({ handleBuyToolkit, isLoading }: { handleBuyToolkit: () => void; isLoading: boolean; }) => (
+const CallToActionSection = ({ handleBuyToolkit, isLoading }) => (
   <section className="bg-slate-800 text-white py-20">
     <div className="container mx-auto px-6 text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-4">Start Building Your Case Today</h2>
@@ -380,7 +376,7 @@ const Footer = () => (
 );
 
 /* ---------------- Modal for Single-PDF selection ---------------- */
-function SingleItemModal({ open, onClose, onSelect }: { open: boolean; onClose: () => void; onSelect: (sku: string) => void; }) {
+function SingleItemModal({ open, onClose, onSelect }) {
   if (!open) return null;
   return (
     <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
@@ -411,7 +407,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [singleOpen, setSingleOpen] = useState(false);
 
-  // $97 Toolkit
   const handleBuyToolkit = async () => {
     setIsLoading(true);
     try {
@@ -419,14 +414,13 @@ export default function Home() {
       const j = await r.json();
       if (!r.ok) throw new Error(j?.error || "Checkout error");
       window.location.href = j.url;
-    } catch (e: any) {
+    } catch (e) {
       alert(e.message || "Unable to start checkout.");
     } finally {
       setIsLoading(false);
     }
   };
 
-  // $21 Founders Only
   const handleBuyFounders = async () => {
     setIsLoading(true);
     try {
@@ -434,16 +428,15 @@ export default function Home() {
       const j = await r.json();
       if (!r.ok) throw new Error(j?.error || "Checkout error");
       window.location.href = j.url;
-    } catch (e: any) {
+    } catch (e) {
       alert(e.message || "Unable to start checkout.");
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Single PDFs
   const handlePickSingle = () => setSingleOpen(true);
-  const handleBuySingle = async (sku: string) => {
+  const handleBuySingle = async (sku) => {
     setSingleOpen(false);
     setIsLoading(true);
     try {
@@ -451,14 +444,13 @@ export default function Home() {
       const j = await r.json();
       if (!r.ok) throw new Error(j?.error || "Checkout error");
       window.location.href = j.url;
-    } catch (e: any) {
+    } catch (e) {
       alert(e.message || "Unable to start checkout.");
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Contributions
   const handleContribMonthly = async () => {
     setIsLoading(true);
     try {
@@ -466,7 +458,7 @@ export default function Home() {
       const j = await r.json();
       if (!r.ok) throw new Error(j?.error || "Checkout error");
       window.location.href = j.url;
-    } catch (e: any) {
+    } catch (e) {
       alert(e.message || "Unable to start checkout.");
     } finally {
       setIsLoading(false);
@@ -479,7 +471,7 @@ export default function Home() {
       const j = await r.json();
       if (!r.ok) throw new Error(j?.error || "Checkout error");
       window.location.href = j.url;
-    } catch (e: any) {
+    } catch (e) {
       alert(e.message || "Unable to start checkout.");
     } finally {
       setIsLoading(false);
