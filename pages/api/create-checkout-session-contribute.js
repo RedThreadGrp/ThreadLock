@@ -9,11 +9,11 @@ export default async function handler(req, res) {
   }
 
   try {
-    const kind = String(req.query.kind || "");
+    const kind = String(req.query.kind || ""); // "monthly" | "nyop"
     const origin = req.headers.origin || "https://threadlock.ai";
 
     if (kind === "monthly") {
-      const priceId = process.env.PRICE_SUPPORT_MONTHLY;
+      const priceId = process.env.PRICE_SUPPORT_MONTHLY; // recurring monthly price
       if (!priceId) return res.status(500).json({ error: "PRICE_SUPPORT_MONTHLY not set" });
 
       const session = await stripe.checkout.sessions.create({
@@ -22,13 +22,13 @@ export default async function handler(req, res) {
         allow_promotion_codes: false,
         success_url: `${origin}/thank-you?kind=monthly&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${origin}/cancel`,
-        customer_creation: "if_required",
+        // NOTE: DO NOT send customer_creation in subscription mode
       });
       return res.status(200).json({ url: session.url });
     }
 
     if (kind === "nyop") {
-      const nyopPriceId = process.env.PRICE_SUPPORT_NYOP; // must be custom_unit_amount
+      const nyopPriceId = process.env.PRICE_SUPPORT_NYOP; // one-time, custom_unit_amount enabled
       if (!nyopPriceId) return res.status(500).json({ error: "PRICE_SUPPORT_NYOP not set" });
 
       const session = await stripe.checkout.sessions.create({
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
         allow_promotion_codes: false,
         success_url: `${origin}/thank-you?kind=nyop&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${origin}/cancel`,
-        customer_creation: "if_required",
+        customer_creation: "if_required", // valid in payment mode only
       });
       return res.status(200).json({ url: session.url });
     }
@@ -45,7 +45,6 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Invalid 'kind' (use ?kind=monthly or ?kind=nyop)" });
   } catch (err) {
     console.error("Contribute session error:", err);
-    // Surface the message so we can fix fast
     return res.status(500).json({ error: err?.message || String(err) });
   }
 }
