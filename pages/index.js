@@ -31,39 +31,39 @@ const SINGLE_ITEMS = [
   { sku: "trial_hearing_quick_ref", name: "Trial & Hearing Quick Reference" },
 ];
 
-/* ---------------- UI Mockups ---------------- */
+/* ---------------- UI Mockups (slightly smaller) ---------------- */
 const JournalUIMockup = () => (
-  <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex flex-col md:flex-row gap-4 aspect-square md:aspect-[4/3] text-white">
+  <div className="w-full h-full bg-slate-800 rounded-xl p-3 md:p-4 flex flex-col md:flex-row gap-3 text-white">
     <div className="w-full md:w-1/3 bg-slate-700/50 rounded-lg p-3">
-      <h4 className="font-bold mb-3 text-sm">AI Suggestions</h4>
-      <ul className="space-y-2 text-xs text-slate-300">
+      <h4 className="font-bold mb-2 text-xs md:text-sm">AI Suggestions</h4>
+      <ul className="space-y-2 text-[11px] md:text-xs text-slate-300">
         <li className="bg-slate-600/50 p-2 rounded">Who was present?</li>
         <li className="bg-slate-600/50 p-2 rounded">What was the date and time?</li>
         <li className="bg-slate-600/50 p-2 rounded">Is there photo evidence?</li>
       </ul>
     </div>
     <div className="w-full md:w-2/3 bg-slate-700/50 rounded-lg p-3 flex flex-col">
-      <h4 className="font-bold mb-2 text-sm">New Journal Entry</h4>
-      <div className="flex-grow bg-slate-600/40 rounded p-2 text-xs text-slate-400">
+      <h4 className="font-bold mb-2 text-xs md:text-sm">New Journal Entry</h4>
+      <div className="flex-grow bg-slate-600/40 rounded p-2 text-[11px] md:text-xs text-slate-400">
         On Friday evening, the other party was 30 minutes late for the custody exchange...
       </div>
       <div className="flex justify-end gap-2 mt-2">
-        <button className="text-xs bg-slate-600 px-3 py-1 rounded">Attach File</button>
-        <button className="text-xs bg-orange-500 px-3 py-1 rounded">Save Entry</button>
+        <button className="text-[11px] bg-slate-600 px-3 py-1 rounded">Attach File</button>
+        <button className="text-[11px] bg-orange-500 px-3 py-1 rounded">Save Entry</button>
       </div>
     </div>
   </div>
 );
 
 const TimelineUIMockup = () => (
-  <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex flex-col aspect-[4/3] text-white">
-    <h4 className="font-bold text-sm mb-4 text-center">Evidence Timeline</h4>
-    <div className="relative flex-grow pl-8 pr-4">
+  <div className="w-full h-full bg-slate-800 rounded-xl p-3 md:p-4 flex flex-col text-white">
+    <h4 className="font-bold text-xs md:text-sm mb-3 text-center">Evidence Timeline</h4>
+    <div className="relative flex-grow pl-6 pr-3">
       <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-600"></div>
-      <div className="space-y-4">
+      <div className="space-y-3">
         <div className="relative">
           <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-500 rounded-full"></div>
-          <div className="bg-slate-700/50 p-2 rounded-lg text-xs">
+          <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
             <p className="font-semibold">Custody Exchange Late</p>
             <p className="text-slate-400">July 26, 2025 - 6:30 PM</p>
             <span className="text-green-400 text-[10px] flex items-center gap-1"><ShieldCheckIcon className="w-3 h-3"/> Blockchain Verified</span>
@@ -71,7 +71,7 @@ const TimelineUIMockup = () => (
         </div>
         <div className="relative">
           <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-500 rounded-full"></div>
-          <div className="bg-slate-700/50 p-2 rounded-lg text-xs">
+          <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
             <p className="font-semibold">Email Received</p>
             <p className="text-slate-400">July 25, 2025 - 9:15 AM</p>
             <span className="text-green-400 text-[10px] flex items-center gap-1"><ShieldCheckIcon className="w-3 h-3"/> Blockchain Verified</span>
@@ -83,35 +83,38 @@ const TimelineUIMockup = () => (
 );
 
 const PdfExportUIMockup = () => (
-  <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex flex-col items-center justify-center aspect-[4/3] text-white">
-    <h4 className="font-bold text-sm mb-3">Court-Ready PDF Export</h4>
-    <div className="w-3/4 h-3/4 bg-white rounded-md shadow-lg p-4 text-black flex flex-col">
-      <h5 className="text-sm font-bold border-b pb-1">Case Summary: Sarah M.</h5>
-      <p className="text-[8px] mt-2 text-slate-700 leading-tight">
-        <strong>July 26, 2025:</strong> Custody Exchange Late. On Friday evening, the other party was 30 minutes late for the custody exchange...
+  <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex flex-col items-center justify-center text-white">
+    <h4 className="font-bold text-xs md:text-sm mb-3">Court-Ready PDF Export</h4>
+    <div className="w-4/5 md:w-3/4 h-56 md:h-64 bg-white rounded-md shadow-lg p-3 text-black flex flex-col">
+      <h5 className="text-[11px] font-bold border-b pb-1">Case Summary: Sarah M.</h5>
+      <p className="text-[9px] mt-2 text-slate-700 leading-tight">
+        <strong>July 26, 2025:</strong> Custody Exchange Late. On Friday evening, the other party was 30 minutes late...
       </p>
-      <p className="text-[8px] mt-2 text-slate-700 leading-tight">
+      <p className="text-[9px] mt-2 text-slate-700 leading-tight">
         <strong>July 25, 2025:</strong> Email Received. Received a hostile email regarding scheduling...
       </p>
       <div className="flex-grow" />
-      <p className="text-[7px] text-center text-slate-500">Page 1 of 5</p>
+      <p className="text-[8px] text-center text-slate-500">Page 1 of 5</p>
     </div>
-    <button className="text-xs bg-orange-500 px-4 py-1.5 rounded-md mt-3">Download PDF</button>
+    <button className="text-[11px] bg-orange-500 px-4 py-1.5 rounded-md mt-3">Download PDF</button>
   </div>
 );
 
-/* ---------------- Header ---------------- */
+/* ---------------- Header (updated gradient + size + TM removed) ---------------- */
 const Header = ({ handleBuyToolkit, isLoading }) => (
-  <header className="absolute top-0 left-0 w-full z-10 p-4 bg-gradient-to-r from-slate-900/50 via-slate-900/20 to-transparent backdrop-blur-md">
+  <header
+    className="fixed top-0 left-0 w-full z-20 p-4
+               bg-gradient-to-r from-slate-600/30 via-slate-800/55 to-slate-900/85
+               backdrop-blur-md border-b border-white/10"
+  >
     <div className="container mx-auto flex justify-between items-center">
       <div className="flex items-center space-x-3">
         <img
           src="/threadlock-logo.png"
-          alt="ThreadLock Logo"
-          className="h-12 md:h-16 w-auto"
-          onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/100x100/1e293b/f97316?text=T'; }}
+          alt="ThreadLock"
+          className="h-16 md:h-20 lg:h-24 w-auto"
+          onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/160x64/1e293b/f97316?text=ThreadLock'; }}
         />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 font-bold text-xl tracking-wide">™</span>
       </div>
       <nav className="hidden md:flex space-x-6 text-white font-medium items-center">
         <a href="#features" className="hover:text-orange-400 transition-colors">Features</a>
@@ -133,10 +136,10 @@ const Header = ({ handleBuyToolkit, isLoading }) => (
 
 /* ---------------- Sections ---------------- */
 const HeroSection = ({ handleBuyToolkit, isLoading }) => (
-  <section className="relative text-white bg-slate-900 pt-24">
-    <div className="absolute inset-0 bg-gradient-to-l from-slate-800/20 to-transparent"></div>
-    <div className="relative container mx-auto px-6 py-32 md:py-40 text-center">
-      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
+  <section className="relative text-white bg-slate-900">
+    {/* push content below fixed header; add extra bottom padding and kinder line-height */}
+    <div className="container mx-auto px-6 pt-36 md:pt-44 pb-10 text-center">
+      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.15] text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
         Take Control of Your Family Law Case
       </h1>
       <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-slate-300">
@@ -172,10 +175,10 @@ const FeatureCard = ({ icon, title, children }) => (
 );
 
 const FeaturesSection = () => (
-  <section id="features" className="py-24 bg-white text-gray-800">
+  <section id="features" className="py-20 md:py-24 bg-white text-gray-800">
     <div className="container mx-auto px-6 text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Build Evidence the Smart Way</h2>
-      <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">
+      <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12 md:mb-16">
         Our platform is designed to make evidence collection simple, secure, and stress-free.
       </p>
       <div className="grid md:grid-cols-3 gap-8">
@@ -204,15 +207,21 @@ const ProductShowcaseSection = () => {
   const next = () => setIdx((i) => (i === slides.length - 1 ? 0 : i + 1));
 
   return (
-    <section id="showcase" className="py-24 bg-slate-50">
+    <section id="showcase" className="py-16 md:py-20 bg-slate-50">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12">
           A quick look at how key features help you build a stronger case.
         </p>
-        <div className="max-w-6xl mx-auto">
-          <div className="bg-slate-200 rounded-2xl shadow-2xl p-4">{slides[idx].mockup}</div>
-          <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+
+        <div className="max-w-4xl mx-auto">
+          {/* Mockup Container (scaled down) */}
+          <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
+            <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
+          </div>
+
+          {/* Description + Controls */}
+          <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
               <h3 className="text-2xl font-bold text-slate-800 mb-2">{slides[idx].title}</h3>
               <p className="text-slate-600">{slides[idx].description}</p>
@@ -223,7 +232,11 @@ const ProductShowcaseSection = () => {
               </button>
               <div className="flex gap-2">
                 {slides.map((_, i) => (
-                  <div key={i} onClick={() => setIdx(i)} className={`h-3 w-3 rounded-full cursor-pointer transition-colors ${idx === i ? "bg-orange-500" : "bg-slate-300 hover:bg-slate-400"}`} />
+                  <div
+                    key={i}
+                    onClick={() => setIdx(i)}
+                    className={`h-3 w-3 rounded-full cursor-pointer transition-colors ${idx === i ? "bg-orange-500" : "bg-slate-300 hover:bg-slate-400"}`}
+                  />
                 ))}
               </div>
               <button onClick={next} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
@@ -238,15 +251,15 @@ const ProductShowcaseSection = () => {
 };
 
 const StatisticsSection = () => (
-  <section id="stats" className="py-24 bg-slate-900 text-white">
+  <section id="stats" className="py-20 md:py-24 bg-slate-900 text-white">
     <div className="container mx-auto px-6 text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
         The Scope of the Problem
       </h2>
-      <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-16">
+      <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-12 md:mb-16">
         Family law cases overwhelm courts, and most involve people navigating the system alone.
       </p>
-      <div className="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-10 md:gap-12 max-w-5xl mx-auto">
         <div className="border border-slate-700/50 bg-slate-800/30 p-8 rounded-xl">
           <h3 className="text-5xl font-extrabold text-orange-400">3.8M+</h3>
           <p className="text-slate-400 mt-2 font-medium">Family law cases filed annually in the U.S.</p>
@@ -264,7 +277,7 @@ const StatisticsSection = () => (
   </section>
 );
 
-/* ---------------- Pricing (new) ---------------- */
+/* ---------------- Pricing ---------------- */
 const PricingSection = ({
   onBuyToolkit,
   onBuyFounders,
@@ -272,7 +285,7 @@ const PricingSection = ({
   onContribMonthly,
   onContribNYOP,
 }) => (
-  <section id="pricing" className="py-24 bg-slate-50 text-center text-gray-800">
+  <section id="pricing" className="py-20 md:py-24 bg-slate-50 text-center text-gray-800">
     <div className="container mx-auto px-6">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Pricing</h2>
       <p className="text-lg text-slate-600 mb-12 max-w-3xl mx-auto">
@@ -301,7 +314,7 @@ const PricingSection = ({
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access Only</h3>
           <p className="text-slate-500 mb-6">Perks only—no printables today</p>
           <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
-          <ul className="text-left text-slate-600 mt-6 space-y-2">
+        <ul className="text-left text-slate-600 mt-6 space-y-2">
             <li>• Lifetime SaaS discount</li>
             <li>• Early beta access</li>
             <li>• Founding Member recognition</li>
@@ -352,7 +365,7 @@ const PricingSection = ({
 );
 
 const CallToActionSection = ({ handleBuyToolkit, isLoading }) => (
-  <section className="bg-slate-800 text-white py-20">
+  <section className="bg-slate-800 text-white py-16 md:py-20">
     <div className="container mx-auto px-6 text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-4">Start Building Your Case Today</h2>
       <p className="mb-8 max-w-xl mx-auto text-slate-300">
@@ -436,6 +449,7 @@ export default function Home() {
   };
 
   const handlePickSingle = () => setSingleOpen(true);
+
   const handleBuySingle = async (sku) => {
     setSingleOpen(false);
     setIsLoading(true);
@@ -464,6 +478,7 @@ export default function Home() {
       setIsLoading(false);
     }
   };
+
   const handleContribNYOP = async () => {
     setIsLoading(true);
     try {
