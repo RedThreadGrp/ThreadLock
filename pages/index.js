@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 
 /* ---------------- SVG Icons ---------------- */
+const MenuIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+    <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+  </svg>
+);
+const XIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
+    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
 const BrainCircuitIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M12 5a3 3 0 1 0-5.993.23"/><path d="M18.668 15.65a3 3 0 1 0-5.993.23"/><path d="M12 12a3 3 0 1 0-5.993.23"/><path d="M12 19a3 3 0 1 0-5.993.23"/><path d="M18.668 8.65a3 3 0 1 0-5.993.23"/><path d="M12 5a3 3 0 1 0 5.993.23"/><path d="m12 12 2.5 2.5"/><path d="m12 5-2.5 2.5"/><path d="m18.5 8.5 2.5 2.5"/><path d="m12 19 2.5-2.5"/><path d="m6.5 8.5-2.5 2.5"/></svg>
 );
@@ -31,7 +41,7 @@ const SINGLE_ITEMS = [
   { sku: "trial_hearing_quick_ref", name: "Trial & Hearing Quick Reference" },
 ];
 
-/* ---------------- UI Mockups (slightly smaller) ---------------- */
+/* ---------------- UI Mockups (scaled down) ---------------- */
 const JournalUIMockup = () => (
   <div className="w-full h-full bg-slate-800 rounded-xl p-3 md:p-4 flex flex-col md:flex-row gap-3 text-white">
     <div className="w-full md:w-1/3 bg-slate-700/50 rounded-lg p-3">
@@ -100,46 +110,76 @@ const PdfExportUIMockup = () => (
   </div>
 );
 
-/* ---------------- Header (updated gradient + size + TM removed) ---------------- */
-const Header = ({ handleBuyToolkit, isLoading }) => (
-  <header
-    className="fixed top-0 left-0 w-full z-20 p-4
-               bg-gradient-to-r from-slate-600/30 via-slate-800/55 to-slate-900/85
-               backdrop-blur-md border-b border-white/10"
-  >
-    <div className="container mx-auto flex justify-between items-center">
-      <div className="flex items-center space-x-3">
-        <img
-          src="/threadlock-logo.png"
-          alt="ThreadLock"
-          className="h-16 md:h-20 lg:h-24 w-auto"
-          onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/160x64/1e293b/f97316?text=ThreadLock'; }}
-        />
-      </div>
-      <nav className="hidden md:flex space-x-6 text-white font-medium items-center">
-        <a href="#features" className="hover:text-orange-400 transition-colors">Features</a>
-        <a href="#showcase" className="hover:text-orange-400 transition-colors">Showcase</a>
-        <a href="#stats" className="hover:text-orange-400 transition-colors">Stats</a>
-        <a href="#pricing" className="hover:text-orange-400 transition-colors">Pricing</a>
-        <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Blog</a>
+/* ---------------- Header (gradient + mobile menu + bigger logo) ---------------- */
+const Header = ({ handleBuyToolkit }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <header
+      className="fixed top-0 left-0 w-full z-30
+                 bg-gradient-to-r from-slate-600/30 via-slate-800/55 to-slate-900/85
+                 backdrop-blur-md border-b border-white/10"
+    >
+      <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+        <div className="flex items-center space-x-3">
+          <img
+            src="/threadlock-logo.png"
+            alt="ThreadLock"
+            className="h-14 md:h-18 lg:h-20 w-auto"
+            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/200x60/1e293b/f97316?text=ThreadLock'; }}
+          />
+        </div>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center space-x-6 text-white font-medium">
+          <a href="#features" className="hover:text-orange-400 transition-colors">Features</a>
+          <a href="#showcase" className="hover:text-orange-400 transition-colors">Showcase</a>
+          <a href="#stats" className="hover:text-orange-400 transition-colors">Stats</a>
+          <a href="#pricing" className="hover:text-orange-400 transition-colors">Pricing</a>
+          <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Blog</a>
+          <button
+            onClick={handleBuyToolkit}
+            className="bg-orange-500 text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-orange-600 transform hover:-translate-y-0.5 transition-all"
+          >
+            Get the $97 Toolkit
+          </button>
+        </nav>
+
+        {/* Mobile toggle */}
         <button
-          onClick={handleBuyToolkit}
-          disabled={isLoading}
-          className="bg-orange-500 text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-orange-600 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out disabled:bg-orange-400 disabled:cursor-not-allowed"
+          className="md:hidden text-white p-2"
+          aria-label="Toggle menu"
+          onClick={() => setOpen(!open)}
         >
-          {isLoading ? "..." : "Get the $97 Toolkit"}
+          {open ? <XIcon /> : <MenuIcon />}
         </button>
-      </nav>
-    </div>
-  </header>
-);
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
+        <div className="px-4 pb-4 pt-2 text-white space-y-2 bg-slate-900/80 backdrop-blur-md">
+          <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Features</a>
+          <a href="#showcase" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Showcase</a>
+          <a href="#stats" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Stats</a>
+          <a href="#pricing" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Pricing</a>
+          <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="block py-2 hover:text-orange-400">Blog</a>
+          <button
+            onClick={() => { setOpen(false); handleBuyToolkit(); }}
+            className="w-full mt-2 bg-orange-500 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-600 transition-all"
+          >
+            Get the $97 Toolkit
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+};
 
 /* ---------------- Sections ---------------- */
 const HeroSection = ({ handleBuyToolkit, isLoading }) => (
   <section className="relative text-white bg-slate-900">
-    {/* push content below fixed header; add extra bottom padding and kinder line-height */}
+    {/* Push below fixed header; tune padding to prevent clipping */}
     <div className="container mx-auto px-6 pt-36 md:pt-44 pb-10 text-center">
-      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.15] text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
+      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.15] md:leading-[1.15] pb-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
         Take Control of Your Family Law Case
       </h1>
       <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-slate-300">
@@ -215,7 +255,7 @@ const ProductShowcaseSection = () => {
         </p>
 
         <div className="max-w-4xl mx-auto">
-          {/* Mockup Container (scaled down) */}
+          {/* Mockup Container (scaled down further) */}
           <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
             <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
           </div>
@@ -314,7 +354,7 @@ const PricingSection = ({
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access Only</h3>
           <p className="text-slate-500 mb-6">Perks only—no printables today</p>
           <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
-        <ul className="text-left text-slate-600 mt-6 space-y-2">
+          <ul className="text-left text-slate-600 mt-6 space-y-2">
             <li>• Lifetime SaaS discount</li>
             <li>• Early beta access</li>
             <li>• Founding Member recognition</li>
@@ -495,7 +535,7 @@ export default function Home() {
 
   return (
     <div className="bg-white">
-      <Header handleBuyToolkit={handleBuyToolkit} isLoading={isLoading} />
+      <Header handleBuyToolkit={handleBuyToolkit} />
       <main className="flex flex-col w-full overflow-x-hidden">
         <HeroSection handleBuyToolkit={handleBuyToolkit} isLoading={isLoading} />
         <FeaturesSection />
