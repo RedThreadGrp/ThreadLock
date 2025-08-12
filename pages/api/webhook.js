@@ -119,7 +119,7 @@ export default async function handler(req, res) {
           .upsert(
             {
               email, // must be unique for on-conflict
-              isFoundingMember: true,
+              is_founding_member: true,
               founding_member_since: new Date().toISOString(),
             },
             { onConflict: "email" }
