@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-/* ---------------- SVG Icons ---------------- */
+/* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
   <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
     <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
@@ -27,7 +27,7 @@ const ChevronRightIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m9 18 6-6-6-6"/></svg>
 );
 
-/* ---------------- Single-PDF SKUs (client display only) ---------------- */
+/* ---------------- Single-PDF options (display only) ---------------- */
 const SINGLE_ITEMS = [
   { sku: "avoiding_common_mistakes", name: "Avoiding Common Mistakes in Court" },
   { sku: "basic_motion_template", name: "Basic Motion Template" },
@@ -40,6 +40,20 @@ const SINGLE_ITEMS = [
   { sku: "proof_of_service_tracker", name: "Proof of Service Tracker" },
   { sku: "trial_hearing_quick_ref", name: "Trial & Hearing Quick Reference" },
 ];
+
+/* Map UI SKUs → API slugs */
+const SKU_TO_SLUG = {
+  avoiding_common_mistakes: "common-mistakes",
+  basic_motion_template: "basic-motion",
+  case_event_timeline: "case-timeline",
+  common_response_timelines: "common-response",
+  cross_exam_planning: "cross-exam",
+  evidence_log: "evidence-log",
+  find_court_rules: "find-rules",
+  pre_hearing_checklist: "pre-hearing",
+  proof_of_service_tracker: "proof-of-service",
+  trial_hearing_quick_ref: "trial-quick-ref",
+};
 
 /* ---------------- UI Mockups (scaled down) ---------------- */
 const JournalUIMockup = () => (
@@ -110,13 +124,13 @@ const PdfExportUIMockup = () => (
   </div>
 );
 
-/* ---------------- Header (gradient + mobile menu + bigger logo) ---------------- */
-const Header = ({ handleBuyToolkit }) => {
+/* ---------------- Header ---------------- */
+const Header = ({ onBuyToolkit }) => {
   const [open, setOpen] = useState(false);
   return (
     <header
       className="fixed top-0 left-0 w-full z-30
-                 bg-gradient-to-r from-slate-600/30 via-slate-800/55 to-slate-900/85
+                 bg-gradient-to-r from-slate-400/35 via-slate-700/55 to-slate-900/85
                  backdrop-blur-md border-b border-white/10"
     >
       <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
@@ -124,8 +138,8 @@ const Header = ({ handleBuyToolkit }) => {
           <img
             src="/threadlock-logo.png"
             alt="ThreadLock"
-            className="h-14 md:h-18 lg:h-20 w-auto"
-            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/200x60/1e293b/f97316?text=ThreadLock'; }}
+            className="h-16 md:h-20 lg:h-24 w-auto"
+            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/240x72/1e293b/f97316?text=ThreadLock'; }}
           />
         </div>
 
@@ -137,7 +151,7 @@ const Header = ({ handleBuyToolkit }) => {
           <a href="#pricing" className="hover:text-orange-400 transition-colors">Pricing</a>
           <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Blog</a>
           <button
-            onClick={handleBuyToolkit}
+            onClick={onBuyToolkit}
             className="bg-orange-500 text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-orange-600 transform hover:-translate-y-0.5 transition-all"
           >
             Get the $97 Toolkit
@@ -145,11 +159,7 @@ const Header = ({ handleBuyToolkit }) => {
         </nav>
 
         {/* Mobile toggle */}
-        <button
-          className="md:hidden text-white p-2"
-          aria-label="Toggle menu"
-          onClick={() => setOpen(!open)}
-        >
+        <button className="md:hidden text-white p-2" aria-label="Toggle menu" onClick={() => setOpen(!open)}>
           {open ? <XIcon /> : <MenuIcon />}
         </button>
       </div>
@@ -163,7 +173,7 @@ const Header = ({ handleBuyToolkit }) => {
           <a href="#pricing" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Pricing</a>
           <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="block py-2 hover:text-orange-400">Blog</a>
           <button
-            onClick={() => { setOpen(false); handleBuyToolkit(); }}
+            onClick={() => { setOpen(false); onBuyToolkit(); }}
             className="w-full mt-2 bg-orange-500 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-600 transition-all"
           >
             Get the $97 Toolkit
@@ -175,11 +185,11 @@ const Header = ({ handleBuyToolkit }) => {
 };
 
 /* ---------------- Sections ---------------- */
-const HeroSection = ({ handleBuyToolkit, isLoading }) => (
+const HeroSection = ({ onBuyToolkit, isLoading }) => (
   <section className="relative text-white bg-slate-900">
-    {/* Push below fixed header; tune padding to prevent clipping */}
-    <div className="container mx-auto px-6 pt-36 md:pt-44 pb-10 text-center">
-      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.15] md:leading-[1.15] pb-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
+    {/* Push below fixed header and avoid clipping: generous top padding + stable line-height */}
+    <div className="container mx-auto px-6 pt-44 md:pt-52 pb-12 text-center">
+      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.2] md:leading-[1.2] pb-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
         Take Control of Your Family Law Case
       </h1>
       <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-slate-300">
@@ -187,7 +197,7 @@ const HeroSection = ({ handleBuyToolkit, isLoading }) => (
       </p>
       <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
         <button
-          onClick={handleBuyToolkit}
+          onClick={onBuyToolkit}
           disabled={isLoading}
           className="bg-orange-500 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-400 disabled:cursor-not-allowed"
         >
@@ -223,12 +233,12 @@ const FeaturesSection = () => (
       </p>
       <div className="grid md:grid-cols-3 gap-8">
         <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="AI-Guided Journaling">
-          Never miss a crucial detail. Our AI guides you to capture the specific, legally-relevant facts for your case.
+          Never miss a crucial detail. Our AI guides you to capture the specific, legally‑relevant facts for your case.
         </FeatureCard>
         <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Immutable & Secure">
           Entries are anchored for integrity—creating a record that stands up to scrutiny.
         </FeatureCard>
-        <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court-Ready Exports">
+        <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court‑Ready Exports">
           Export clean timelines and summaries that a judge can actually read.
         </FeatureCard>
       </div>
@@ -239,8 +249,8 @@ const FeaturesSection = () => (
 const ProductShowcaseSection = () => {
   const slides = [
     { title: "AI-Guided Journaling", description: "Smart prompts capture the right details fast.", mockup: <JournalUIMockup /> },
-    { title: "Immutable Timeline", description: "A chronological view that can’t be hand-waved away.", mockup: <TimelineUIMockup /> },
-    { title: "Court-Ready Exports", description: "Professional PDFs in minutes—not hours.", mockup: <PdfExportUIMockup /> },
+    { title: "Immutable Timeline", description: "A chronological view that can’t be hand‑waved away.", mockup: <TimelineUIMockup /> },
+    { title: "Court‑Ready Exports", description: "Professional PDFs in minutes—not hours.", mockup: <PdfExportUIMockup /> },
   ];
   const [idx, setIdx] = useState(0);
   const prev = () => setIdx((i) => (i === 0 ? slides.length - 1 : i - 1));
@@ -255,7 +265,7 @@ const ProductShowcaseSection = () => {
         </p>
 
         <div className="max-w-4xl mx-auto">
-          {/* Mockup Container (scaled down further) */}
+          {/* Mockup Container (scaled down) */}
           <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
             <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
           </div>
@@ -306,7 +316,7 @@ const StatisticsSection = () => (
         </div>
         <div className="border border-slate-700/50 bg-slate-800/30 p-8 rounded-xl">
           <h3 className="text-5xl font-extrabold text-orange-400">72%</h3>
-          <p className="text-slate-400 mt-2 font-medium">Include at least one self-represented party</p>
+          <p className="text-slate-400 mt-2 font-medium">Include at least one self‑represented party</p>
         </div>
         <div className="border border-slate-700/50 bg-slate-800/30 p-8 rounded-xl">
           <h3 className="text-5xl font-extrabold text-orange-400">&gt;50%</h3>
@@ -335,24 +345,24 @@ const PricingSection = ({
       <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {/* $97 Toolkit */}
         <div className="bg-white rounded-2xl shadow-xl border border-orange-300 p-8 flex flex-col">
-          <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Court-Ready Toolkit</h3>
+          <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Court‑Ready Toolkit</h3>
           <p className="text-slate-500 mb-6">All printables now + Founding Member perks at launch</p>
           <div className="text-5xl font-extrabold text-slate-900 mb-1">$97</div>
           <ul className="text-left text-slate-600 mt-6 space-y-2">
             <li>• 10+ premium templates (PDF + editable)</li>
-            <li>• Step-by-step guides + videos</li>
+            <li>• Step‑by‑step guides + videos</li>
             <li>• Lifetime SaaS discount + beta access</li>
           </ul>
           <button onClick={onBuyToolkit} className="mt-8 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
             Get the Full Toolkit
           </button>
-          <p className="text-xs text-slate-400 mt-3">One-time payment.</p>
+          <p className="text-xs text-slate-400 mt-3">One‑time payment.</p>
         </div>
 
         {/* $21 Founders Only */}
         <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access Only</h3>
-          <p className="text-slate-500 mb-6">Perks only—no printables today</p>
+          <p className="text-slate-500 mb-6">Perks only — no printables today</p>
           <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
           <ul className="text-left text-slate-600 mt-6 space-y-2">
             <li>• Lifetime SaaS discount</li>
@@ -379,22 +389,22 @@ const PricingSection = ({
             Choose a Single Tool
           </button>
           <p className="text-[11px] text-slate-400 mt-3">
-            *We’ll auto-apply your $15 toward the $97 Toolkit within 30 days.
+            *We’ll auto‑apply your $15 toward the $97 Toolkit within 30 days.
           </p>
         </div>
 
         {/* Support */}
         <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
-          <p className="text-slate-500 mb-6">No deliverables—just momentum</p>
+          <p className="text-slate-500 mb-6">No deliverables — just momentum</p>
           <div className="text-3xl font-extrabold text-slate-900 mb-1">$2/mo</div>
-          <p className="text-slate-500 mb-6">or name your own one-time amount</p>
+          <p className="text-slate-500 mb-6">or name your own one‑time amount</p>
           <div className="grid grid-cols-1 gap-3">
             <button onClick={onContribMonthly} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
               Contribute $2 / month
             </button>
             <button onClick={onContribNYOP} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-3 rounded-lg shadow-md transition-all">
-              Name-Your-Price (one-time)
+              Name‑Your‑Price (one‑time)
             </button>
           </div>
           <p className="text-xs text-slate-400 mt-3">Thank you. Seriously.</p>
@@ -404,7 +414,7 @@ const PricingSection = ({
   </section>
 );
 
-const CallToActionSection = ({ handleBuyToolkit, isLoading }) => (
+const CallToActionSection = ({ onBuyToolkit, isLoading }) => (
   <section className="bg-slate-800 text-white py-16 md:py-20">
     <div className="container mx-auto px-6 text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-4">Start Building Your Case Today</h2>
@@ -412,7 +422,7 @@ const CallToActionSection = ({ handleBuyToolkit, isLoading }) => (
         Your evidence matters. ThreadLock helps you document, secure, and present it clearly—without the stress.
       </p>
       <button
-        onClick={handleBuyToolkit}
+        onClick={onBuyToolkit}
         disabled={isLoading}
         className="bg-orange-500 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-400 disabled:cursor-not-allowed"
       >
@@ -460,98 +470,68 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [singleOpen, setSingleOpen] = useState(false);
 
-  const handleBuyToolkit = async () => {
-    setIsLoading(true);
-    try {
-      const r = await fetch("/api/create-checkout-session", { method: "POST" });
-      const j = await r.json();
-      if (!r.ok) throw new Error(j?.error || "Checkout error");
-      window.location.href = j.url;
-    } catch (e) {
-      alert(e.message || "Unable to start checkout.");
-    } finally {
-      setIsLoading(false);
-    }
+  // --- API helpers: slug-based endpoints
+  const postTo = async (slug) => {
+    const r = await fetch(`/api/checkout/${slug}`, { method: "POST" });
+    const j = await r.json();
+    if (!r.ok || !j?.url) throw new Error(j?.error || "Checkout error");
+    window.location.href = j.url;
   };
 
-  const handleBuyFounders = async () => {
+  const onBuyToolkit = async () => {
     setIsLoading(true);
-    try {
-      const r = await fetch("/api/create-checkout-session-founder", { method: "POST" });
-      const j = await r.json();
-      if (!r.ok) throw new Error(j?.error || "Checkout error");
-      window.location.href = j.url;
-    } catch (e) {
-      alert(e.message || "Unable to start checkout.");
-    } finally {
-      setIsLoading(false);
-    }
+    try { await postTo("toolkit"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
   };
 
-  const handlePickSingle = () => setSingleOpen(true);
+  const onBuyFounders = async () => {
+    setIsLoading(true);
+    try { await postTo("founders"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
+  };
 
-  const handleBuySingle = async (sku) => {
+  const onPickSingle = () => setSingleOpen(true);
+
+  const onBuySingle = async (sku) => {
     setSingleOpen(false);
     setIsLoading(true);
     try {
-      const r = await fetch(`/api/create-checkout-session-item?sku=${encodeURIComponent(sku)}`, { method: "POST" });
-      const j = await r.json();
-      if (!r.ok) throw new Error(j?.error || "Checkout error");
-      window.location.href = j.url;
+      const slug = SKU_TO_SLUG[sku];
+      if (!slug) throw new Error("Unknown item.");
+      await postTo(slug);
     } catch (e) {
       alert(e.message || "Unable to start checkout.");
-    } finally {
       setIsLoading(false);
     }
   };
 
-  const handleContribMonthly = async () => {
+  const onContribMonthly = async () => {
     setIsLoading(true);
-    try {
-      const r = await fetch(`/api/create-checkout-session-contribute?kind=monthly`, { method: "POST" });
-      const j = await r.json();
-      if (!r.ok) throw new Error(j?.error || "Checkout error");
-      window.location.href = j.url;
-    } catch (e) {
-      alert(e.message || "Unable to start checkout.");
-    } finally {
-      setIsLoading(false);
-    }
+    try { await postTo("support-monthly"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
   };
 
-  const handleContribNYOP = async () => {
+  const onContribNYOP = async () => {
     setIsLoading(true);
-    try {
-      const r = await fetch(`/api/create-checkout-session-contribute?kind=nyop`, { method: "POST" });
-      const j = await r.json();
-      if (!r.ok) throw new Error(j?.error || "Checkout error");
-      window.location.href = j.url;
-    } catch (e) {
-      alert(e.message || "Unable to start checkout.");
-    } finally {
-      setIsLoading(false);
-    }
+    try { await postTo("support-nyop"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
   };
 
   return (
     <div className="bg-white">
-      <Header handleBuyToolkit={handleBuyToolkit} />
+      <Header onBuyToolkit={onBuyToolkit} />
       <main className="flex flex-col w-full overflow-x-hidden">
-        <HeroSection handleBuyToolkit={handleBuyToolkit} isLoading={isLoading} />
+        <HeroSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
         <FeaturesSection />
         <ProductShowcaseSection />
         <StatisticsSection />
         <PricingSection
-          onBuyToolkit={handleBuyToolkit}
-          onBuyFounders={handleBuyFounders}
-          onPickSingle={handlePickSingle}
-          onContribMonthly={handleContribMonthly}
-          onContribNYOP={handleContribNYOP}
+          onBuyToolkit={onBuyToolkit}
+          onBuyFounders={onBuyFounders}
+          onPickSingle={onPickSingle}
+          onContribMonthly={onContribMonthly}
+          onContribNYOP={onContribNYOP}
         />
-        <CallToActionSection handleBuyToolkit={handleBuyToolkit} isLoading={isLoading} />
+        <CallToActionSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
       </main>
       <Footer />
-      <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={handleBuySingle} />
+      <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
     </div>
   );
 }
