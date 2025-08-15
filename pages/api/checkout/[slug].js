@@ -1,6 +1,6 @@
 // /pages/api/checkout/[slug].js
-import { pick } from "@/lib/stripeEnv";
-
+import { pick } from "@/lib/stripeConfig";
+const stripe = stripeClient;
 const MAP = {
   // Bundles / tiers
   toolkit:           { base: "FM_TOOLKIT",        mode: "payment" },
