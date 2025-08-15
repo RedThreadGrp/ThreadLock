@@ -132,7 +132,7 @@ const Header = ({ onBuyToolkit }) => {
       className="fixed top-0 left-0 w-full z-30
                  bg-gradient-to-r from-slate-400/35 via-slate-700/55 to-slate-900/85
                  backdrop-blur-md border-b border-white/10"
-    >
+/*    >
       <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <img
@@ -142,7 +142,7 @@ const Header = ({ onBuyToolkit }) => {
             onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/240x72/1e293b/f97316?text=ThreadLock'; }}
           />
         </div>
-
+*/
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-6 text-white font-medium">
           <a href="#features" className="hover:text-orange-400 transition-colors">Features</a>
