@@ -1,20 +1,20 @@
-// /pages/api/create-checkout-session-item.js
 import Stripe from "stripe";
+import { pick } from "@/lib/stripeEnv";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-// SKU -> Price ID map (envs you already set) and pretty names if you want to log
+// Map each SKU to its base env name; `pick()` chooses TEST or LIVE at runtime
 const ITEMS = {
-  avoiding_common_mistakes: process.env.PRICE_COMMON_MISTAKES,
-  basic_motion_template: process.env.PRICE_BASIC_MOTION,
-  case_event_timeline: process.env.PRICE_CASE_TIMELINE,
-  common_response_timelines: process.env.PRICE_COMMON_RESPONSE,
-  cross_exam_planning: process.env.PRICE_CROSS_EXAM,
-  evidence_log: process.env.PRICE_EVIDENCE_LOG,
-  find_court_rules: process.env.PRICE_FIND_RULES,
-  pre_hearing_checklist: process.env.PRICE_PRE_HEARING,
-  proof_of_service_tracker: process.env.PRICE_PROOF_OF_SERVICE,
-  trial_hearing_quick_ref: process.env.PRICE_TRIAL_QUICK_REF || process.env.PRICE_TRIAL_QUICK_REF_GUIDE,
+  avoiding_common_mistakes: pick("PRICE_COMMON_MISTAKES"),
+  basic_motion_template:    pick("PRICE_BASIC_MOTION"),
+  case_event_timeline:      pick("PRICE_CASE_TIMELINE"),
+  common_response_timelines:pick("PRICE_COMMON_RESPONSE"),
+  cross_exam_planning:      pick("PRICE_CROSS_EXAM"),
+  evidence_log:             pick("PRICE_EVIDENCE_LOG"),
+  find_court_rules:         pick("PRICE_FIND_RULES"),
+  pre_hearing_checklist:    pick("PRICE_PRE_HEARING"),
+  proof_of_service_tracker: pick("PRICE_PROOF_OF_SERVICE"),
+  trial_hearing_quick_ref:  pick("PRICE_TRIAL_QUICK_REF"), // or _GUIDE if you use that suffix too
 };
 
 export default async function handler(req, res) {
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  const sku = (req.query.sku || "").toString();
+  const sku = String(req.query.sku || "");
   const priceId = ITEMS[sku];
 
   if (!sku || !priceId) {
