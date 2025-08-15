@@ -1,6 +1,10 @@
 // /lib/stripeEnv.js
 const SECRET = process.env.STRIPE_SECRET_KEY || "";
 export const isStripeTest = SECRET.startsWith("sk_test_");
+import Stripe from "stripe";
+export const stripeClient = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: "2023-10-16",
+});
 
 export function pick(base) {
   if (isStripeTest) {
