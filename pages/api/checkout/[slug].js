@@ -1,5 +1,5 @@
 // /pages/api/checkout/[slug].js
-import { stripeClient, priceIdFor } from "@/lib/stripeConfig";
+import { stripeClient, priceIdFor } from "@/lib/stripeEnv";
 
 const MAP = {
   // Bundles / tiers
