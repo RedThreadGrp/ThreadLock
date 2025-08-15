@@ -138,7 +138,7 @@ const Header = ({ onBuyToolkit }) => {
           <img
             src="/threadlock-logo.png"
             alt="ThreadLock"
-            className="h-16 md:h-20 lg:h-24 w-auto"
+            className="h-8 md:h-14 lg:h-14 w-auto"
             onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/240x72/1e293b/f97316?text=ThreadLock'; }}
           />
         </div>
