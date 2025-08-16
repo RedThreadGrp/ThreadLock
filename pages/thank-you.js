@@ -1,68 +1,91 @@
 // /pages/thank-you.js
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-export default function ThankYouPage() {
-  const router = useRouter();
-  const { success, canceled, sku } = router.query;
-  const [message, setMessage] = useState("");
+export default function ThankYou() {
+  const [state, setState] = useState({ loading: true, data: null, error: null });
 
   useEffect(() => {
-    if (success) {
-      if (sku) {
-        setMessage("Your file is on its way to your inbox. Thank you for your purchase!");
-      } else {
-        setMessage("You’re officially a Founding Member! Check your email for your toolkit download link.");
-      }
-    } else if (canceled) {
-      setMessage("Your checkout was canceled — no charge was made.");
+    const url = new URL(window.location.href);
+    const sessionId = url.searchParams.get("session_id");
+    if (!sessionId) {
+      setState({ loading: false, data: null, error: "Missing session_id" });
+      return;
     }
-  }, [success, canceled, sku]);
+
+    (async () => {
+      try {
+        const r = await fetch(`/api/checkout/status?session_id=${encodeURIComponent(sessionId)}`);
+        const j = await r.json();
+        if (!r.ok) throw new Error(j?.error || "Failed to load status");
+        setState({ loading: false, data: j, error: null });
+      } catch (e) {
+        setState({ loading: false, data: null, error: e.message || "Error" });
+      }
+    })();
+  }, []);
+
+  const { loading, data, error } = state;
 
   return (
-    <div style={{
-      fontFamily: "Arial, sans-serif",
-      minHeight: "100vh",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      background: "#0D223F",
-      color: "#fff",
-      padding: "2rem"
-    }}>
-      <div style={{ maxWidth: "640px", textAlign: "center" }}>
+    <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center px-6">
+      <div className="max-w-xl w-full text-center">
         <img
           src="/threadlock-logo.png"
-          alt="ThreadLock Logo"
-          style={{ height: "50px", marginBottom: "1.5rem" }}
+          alt="ThreadLock"
+          className="mx-auto mb-8 h-12 w-auto opacity-90"
         />
-        <h1 style={{ fontSize: "1.8rem", marginBottom: "1rem" }}>
-          {success ? "Thank You!" : canceled ? "Checkout Canceled" : "Processing..."}
-        </h1>
-        {message && <p style={{ fontSize: "1.1rem", lineHeight: "1.5" }}>{message}</p>}
 
-        {success && (
-          <p style={{ marginTop: "1rem", fontSize: "0.95rem", color: "#E6EDF7" }}>
-            If you don’t see your email in a few minutes, check your spam or promotions folder.
-          </p>
+        {loading && (
+          <>
+            <h1 className="text-3xl font-bold mb-2">Processing…</h1>
+            <p className="text-slate-300">We’re confirming your payment. This usually takes a few seconds.</p>
+          </>
         )}
 
-        <button
-          style={{
-            marginTop: "2rem",
-            padding: "12px 20px",
-            background: "#F58220",
-            color: "#000",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-            fontWeight: "bold",
-            fontSize: "1rem"
-          }}
-          onClick={() => router.push("/")}
-        >
-          Back to Home
-        </button>
+        {!loading && error && (
+          <>
+            <h1 className="text-3xl font-bold mb-2">We’re Checking…</h1>
+            <p className="text-slate-300 mb-4">{error}</p>
+            <a href="/" className="inline-block bg-orange-500 px-6 py-3 rounded-lg font-semibold">Back to Home</a>
+          </>
+        )}
+
+        {!loading && !error && data && (
+          <>
+            {data.status === "complete" && (data.payment_status === "paid" || data.mode === "subscription") ? (
+              <>
+                <h1 className="text-3xl font-extrabold mb-2">You’re All Set 🎉</h1>
+                <p className="text-slate-300 mb-6">
+                  We’ve sent a confirmation to <span className="font-semibold">{data.customer_email || "your email"}</span>.
+                  {` `}If you purchased a download, the link is in that email.
+                </p>
+
+                {data.line_items?.length > 0 && (
+                  <div className="bg-slate-800/50 rounded-xl p-4 text-left mb-6">
+                    <h2 className="font-semibold mb-2">Items</h2>
+                    <ul className="space-y-1 text-slate-300">
+                      {data.line_items.map((li, i) => (
+                        <li key={i}>• {li.product_name} {li.quantity > 1 ? `× ${li.quantity}` : ""}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <a href="/" className="inline-block bg-orange-500 px-6 py-3 rounded-lg font-semibold">
+                  Back to Home
+                </a>
+              </>
+            ) : (
+              <>
+                <h1 className="text-3xl font-bold mb-2">Processing…</h1>
+                <p className="text-slate-300 mb-6">
+                  We’re waiting for payment confirmation. If this page doesn’t update, check your email or contact us.
+                </p>
+                <a href="/" className="inline-block bg-orange-500 px-6 py-3 rounded-lg font-semibold">Back to Home</a>
+              </>
+            )}
+          </>
+        )}
       </div>
     </div>
   );
