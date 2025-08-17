@@ -1,56 +1,70 @@
-// /pages/api/webhook.js
-import { stripeClient, isStripeTest, pick } from "@/lib/stripeEnv";
-import { Readable } from "stream";
+// pages/api/webhook.js
+import { buffer } from "micro";
+import { stripeClient, isStripeTest } from "@/lib/stripeEnv";
 
-export const config = { api: { bodyParser: false } };
-
-async function getRawBody(req) {
-  const chunks = [];
-  for await (const chunk of req) chunks.push(typeof chunk === "string" ? Buffer.from(chunk) : chunk);
-  return Buffer.concat(chunks);
-}
+export const config = {
+  api: { bodyParser: false }, // we need the raw body for signature verification
+};
 
 export default async function handler(req, res) {
-  if (req.method !== "POST") return res.status(405).send("Method Not Allowed");
+  if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
+    return res.status(405).send("Method Not Allowed");
+  }
 
-  const sig = req.headers["stripe-signature"];
-  const endpointSecret =
-    pick("STRIPE_WEBHOOK_SECRET") || // resolves *_TEST / *_LIVE / base
-    process.env.STRIPE_WEBHOOK_SECRET; // fallback if you only set one name
+  // Choose the correct webhook secret based on the key in use
+  const endpointSecret = isStripeTest
+    ? process.env.STRIPE_WEBHOOK_SECRET_TEST
+    : process.env.STRIPE_WEBHOOK_SECRET;
 
   if (!endpointSecret) {
-    console.error("Missing STRIPE_WEBHOOK_SECRET env");
-    return res.status(500).send("Webhook secret not configured");
+    console.error("⚠️ Missing STRIPE_WEBHOOK_SECRET(_TEST) env");
+    return res
+      .status(500)
+      .send("Webhook misconfigured: missing signing secret env");
   }
 
   let event;
   try {
-    const rawBody = await getRawBody(req);
-    event = stripeClient.webhooks.constructEvent(rawBody, sig, endpointSecret);
+    const sig = req.headers["stripe-signature"];
+    const buf = await buffer(req);
+    event = stripeClient.webhooks.constructEvent(buf, sig, endpointSecret);
   } catch (err) {
-    console.error("Webhook signature verification failed:", err.message);
+    console.error("❌ Webhook signature verification failed:", err.message);
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  // Handle events you care about
+  // ---- Handle events you care about ----
   try {
     switch (event.type) {
-      case "checkout.session.completed":
-        // TODO: fulfill (e.g., Supabase upsert, email)
+      case "checkout.session.completed": {
+        const session = event.data.object;
+        console.log("✅ checkout.session.completed", session.id, {
+          mode: session.mode,
+          customer: session.customer,
+        });
+        // TODO: fulfill order, mark user in DB, send email, etc.
         break;
-      case "invoice.paid":
+      }
+      case "payment_intent.succeeded": {
+        const pi = event.data.object;
+        console.log("💸 payment_intent.succeeded", pi.id);
+        break;
+      }
       case "customer.subscription.created":
       case "customer.subscription.updated":
-      case "customer.subscription.deleted":
-        // TODO: handle subscriptions
+      case "customer.subscription.deleted": {
+        const sub = event.data.object;
+        console.log(`🔁 ${event.type}`, sub.id);
         break;
+      }
       default:
-        // ignore other events
-        break;
+        console.log("ℹ️ Unhandled event:", event.type);
     }
-    return res.status(200).json({ received: true });
-  } catch (e) {
-    console.error("Webhook handler error:", e);
-    return res.status(500).send("Server error");
+  } catch (err) {
+    console.error("⚠️ Webhook handler error:", err);
+    return res.status(500).send("Webhook handler error");
   }
+
+  return res.json({ received: true });
 }
