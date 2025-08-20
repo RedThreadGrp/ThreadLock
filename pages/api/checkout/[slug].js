@@ -8,29 +8,32 @@ export default async function handler(req, res) {
   }
 
   // Prefer explicit DOMAIN, else fall back to request origin
-  const origin = process.env.DOMAIN || `${req.headers["x-forwarded-proto"] || "https"}://${req.headers.host}`;
+  const origin =
+    process.env.DOMAIN ||
+    `${req.headers["x-forwarded-proto"] || "https"}://${req.headers.host}`;
 
-  // Map slugs -> { price: envName, mode: 'payment' | 'subscription' }
+  // Map slugs -> { env: "ENV_NAME" | string[], mode: 'payment' | 'subscription' }
+  // NOTE: we are NOT calling requirePrice() here.
   const routes = {
     // Bundles / tiers
-    "toolkit":            { price: requirePrice("FM_TOOLKIT_PRICE_ID"), mode: "payment" },
-    "founders":           { price: requirePrice("PRICE_FOUNDERS_ONLY"), mode: "payment" },
+    toolkit:         { env: "FM_TOOLKIT_PRICE_ID",      mode: "payment" },
+    founders:        { env: "PRICE_FOUNDERS_ONLY",      mode: "payment" },
 
     // Support
-    "support-monthly":    { price: requirePrice("PRICE_SUPPORT_MONTHLY"), mode: "subscription" },
-    "support-nyop":       { price: requirePrice("PRICE_SUPPORT_NYOP"),    mode: "payment" },
+    "support-monthly": { env: "PRICE_SUPPORT_MONTHLY",  mode: "subscription" },
+    "support-nyop":    { env: "PRICE_SUPPORT_NYOP",     mode: "payment" },
 
     // Singles ($15 each)
-    "common-mistakes":    { price: requirePrice("PRICE_COMMON_MISTAKES"), mode: "payment" },
-    "basic-motion":       { price: requirePrice("PRICE_BASIC_MOTION"),    mode: "payment" },
-    "case-timeline":      { price: requirePrice("PRICE_CASE_TIMELINE"),   mode: "payment" },
-    "common-response":    { price: requirePrice("PRICE_COMMON_RESPONSE"), mode: "payment" },
-    "cross-exam":         { price: requirePrice("PRICE_CROSS_EXAM"),      mode: "payment" },
-    "evidence-log":       { price: requirePrice("PRICE_EVIDENCE_LOG"),    mode: "payment" },
-    "find-rules":         { price: requirePrice("PRICE_FIND_RULES"),      mode: "payment" },
-    "pre-hearing":        { price: requirePrice("PRICE_PRE_HEARING"),     mode: "payment" },
-    "proof-of-service":   { price: requirePrice("PRICE_PROOF_OF_SERVICE"),mode: "payment" },
-    "trial-quick-ref":    { price: requirePrice("PRICE_TRIAL_QUICK_REF") || requirePrice("PRICE_TRIAL_QUICK_REF_GUIDE"), mode: "payment" },
+    "common-mistakes":  { env: "PRICE_COMMON_MISTAKES",   mode: "payment" },
+    "basic-motion":     { env: "PRICE_BASIC_MOTION",      mode: "payment" },
+    "case-timeline":    { env: "PRICE_CASE_TIMELINE",     mode: "payment" },
+    "common-response":  { env: "PRICE_COMMON_RESPONSE",   mode: "payment" },
+    "cross-exam":       { env: "PRICE_CROSS_EXAM",        mode: "payment" },
+    "evidence-log":     { env: "PRICE_EVIDENCE_LOG",      mode: "payment" },
+    "find-rules":       { env: "PRICE_FIND_RULES",        mode: "payment" },
+    "pre-hearing":      { env: "PRICE_PRE_HEARING",       mode: "payment" },
+    "proof-of-service": { env: "PRICE_PROOF_OF_SERVICE",  mode: "payment" },
+    "trial-quick-ref":  { env: ["PRICE_TRIAL_QUICK_REF", "PRICE_TRIAL_QUICK_REF_GUIDE"], mode: "payment" },
   };
 
   const slug = String(req.query.slug || "");
@@ -41,21 +44,52 @@ export default async function handler(req, res) {
     return;
   }
 
+  // Lazily pick the first defined env from cfg.env (string or array), then call requirePrice once.
+  const priceEnvNames = Array.isArray(cfg.env) ? cfg.env : [cfg.env];
+  let priceId = null;
+  let missingNames = [];
+
+  for (const name of priceEnvNames) {
+    const val = process.env[name];
+    if (val) {
+      // validate via your helper (will throw if malformed)
+      priceId = requirePrice(name);
+      break;
+    } else {
+      missingNames.push(name);
+    }
+  }
+
+  if (!priceId) {
+    return res.status(500).json({
+      error: "Price not configured",
+      details: `Missing env: ${missingNames.join(" or ")}`,
+    });
+  }
+
   try {
     const session = await stripeClient.checkout.sessions.create({
       mode: cfg.mode, // 'payment' or 'subscription'
-      line_items: [{ price: cfg.price, quantity: 1 }],
+      line_items: [{ price: priceId, quantity: 1 }],
       allow_promotion_codes: true,
       customer_creation: "if_required",
-      success_url: `${origin}/thank-you?sku=${encodeURIComponent(slug)}&session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${origin}/thank-you?sku=${encodeURIComponent(
+        slug
+      )}&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/?canceled=true`,
-      // Optional: pass the slug so your webhook can see what was intended
       metadata: { slug },
     });
 
     res.status(200).json({ url: session.url });
   } catch (err) {
-    console.error("Stripe session error:", err?.message || err);
+    // Show actionable diagnostics in logs (but keep response generic)
+    console.error("Stripe session error:", {
+      message: err?.message,
+      type: err?.type,
+      code: err?.code,
+      param: err?.param,
+      raw: err?.raw,
+    });
     res.status(500).json({ error: "Unable to create checkout session." });
   }
 }
