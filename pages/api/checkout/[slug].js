@@ -139,4 +139,11 @@ function resolvePriceId(baseNames, { isTestKey }) {
   const tried = expandEnvNames(baseNames, { isTestKey });
   const presence = tried.map((n) => ({ name: n, present: !!process.env[n] }));
   for (const envName of tried) {
-    const
+    const val = process.env[envName];
+    if (val && /^price_/.test(val)) {
+      return { priceId: val, priceEnv: envName, tried, presence };
+    }
+  }
+  const firstPresent = tried.find((n) => !!process.env[n]) || null;
+  return { priceId: null, priceEnv: firstPresent, tried, presence };
+}
