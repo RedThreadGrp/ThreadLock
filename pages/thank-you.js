@@ -29,10 +29,12 @@ export default function ThankYou() {
   return (
     <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center px-6">
       <div className="max-w-xl w-full text-center">
+        {/* Force dark-background logo variant */}
         <img
-          src="/threadlock-logo.png"
+          src="/TL-logo_reversed-white_stroke.png"
           alt="ThreadLock"
           className="mx-auto mb-8 h-12 w-auto opacity-90"
+          onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = "/threadlock-logo.png"; }}
         />
 
         {loading && (
@@ -57,7 +59,7 @@ export default function ThankYou() {
                 <h1 className="text-3xl font-extrabold mb-2">You’re All Set</h1>
                 <p className="text-slate-300 mb-6">
                   We’ve sent a confirmation to <span className="font-semibold">{data.customer_email || "your email"}</span>.
-                  {` `}If you purchased a download, the link is in that email.
+                  {" "}If you purchased a download, the link is in that email.
                 </p>
 
                 {data.line_items?.length > 0 && (
