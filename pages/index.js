@@ -123,6 +123,30 @@ const PdfExportUIMockup = () => (
     <button className="text-[11px] bg-orange-500 px-4 py-1.5 rounded-md mt-3">Download PDF</button>
   </div>
 );
+/* ---------------- Brand Logo ---------------- */
+const LOGO_SRC = {
+  light: "/threadlock-logo.png",                            // original
+  dark:  "/TL-logo_reversed-white_stroke.png",      // for dark BGs
+  plate: "/TL-logo_dark-plate.png",                 // noisy/photo BGs
+};
+
+function Logo({ variant = "auto", className = "" }) {
+  if (variant === "dark") {
+    return <img src={LOGO_SRC.dark} alt="ThreadLock" className={className} />;
+  }
+  if (variant === "light") {
+    return <img src={LOGO_SRC.light} alt="ThreadLock" className={className} />;
+  }
+  if (variant === "plate") {
+    return <img src={LOGO_SRC.plate} alt="ThreadLock" className={className} />;
+  }
+  // SSR-safe automatic swap
+  return (
+    <picture>
+      <source srcSet={LOGO_SRC.dark} media="(prefers-color-scheme: dark)" />
+      <img src={LOGO_SRC.light} alt="ThreadLock" className={className} />
+    </picture>
+  );
 
 /* ---------------- Header ---------------- */
 const Header = ({ onBuyToolkit }) => {
