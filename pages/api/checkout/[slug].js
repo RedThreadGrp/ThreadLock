@@ -13,13 +13,12 @@ export default async function handler(req, res) {
   // Map slugs -> { env: string | string[], mode: 'payment' | 'subscription', promos?: boolean }
   const routes = {
     // Bundles / tiers
-    toolkit:           { env: ["FM_TOOLKIT_PRICE_ID", "PRICE_TOOLKIT"], mode: "payment",       promos: true  },
-    founders:          { env: "PRICE_FOUNDERS_ONLY",                    mode: "payment",       promos: true  },
+    toolkit:           { env: ["FM_TOOLKIT_PRICE_ID", "PRICE_TOOLKIT"], mode: "payment",      promos: true  },
+    founders:          { env: "PRICE_FOUNDERS_ONLY",                    mode: "payment",      promos: true  },
 
     // Support
-    "support-monthly": { env: "PRICE_SUPPORT_MONTHLY",                  mode: "subscription",  promos: true  },
-    // NYOP is a custom-amount (variable) one-time price; promos can break Checkout with custom amounts.
-    "support-nyop":    { env: "PRICE_SUPPORT_NYOP",                     mode: "payment",       promos: false },
+    "support-monthly": { env: "PRICE_SUPPORT_MONTHLY",                  mode: "subscription", promos: false }, // promos off to remove a failure variable
+    "support-nyop":    { env: "PRICE_SUPPORT_NYOP",                     mode: "payment",      promos: false }, // NYOP (custom amount) + promos can fail
 
     // Singles
     "common-mistakes":  { env: "PRICE_COMMON_MISTAKES",   mode: "payment", promos: true },
@@ -41,6 +40,7 @@ export default async function handler(req, res) {
   const isTestKey = !!isStripeTest;
   const { priceId, priceEnv, tried, presence } = resolvePriceId(cfg.env, { isTestKey });
 
+  // Debug endpoint: POST .../[slug]?debug=1
   if (req.query.debug) {
     return res.status(200).json({
       slug,
@@ -59,7 +59,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    // --- Validate price & product
+    // Load price & product to validate config
     const price = await stripeClient.prices.retrieve(priceId, { expand: ["product"] });
     const product = price?.product;
 
@@ -76,7 +76,7 @@ export default async function handler(req, res) {
     if (product && product.object === "product" && product.active === false) {
       return res.status(400).json({
         error: "Product is inactive",
-        details: `Product for ${priceEnv} (${mask(priceId)}) is inactive. Activate the product in Stripe.`,
+        details: `Product for ${priceEnv} (${mask(priceId)}) is inactive. Activate in Stripe.`,
       });
     }
     if (priceType !== expectedType) {
@@ -85,27 +85,43 @@ export default async function handler(req, res) {
         details: `Route "${slug}" expects ${expectedType}, but ${priceEnv} (${mask(priceId)}) is ${priceType}.`,
       });
     }
+    if (cfg.mode === "subscription") {
+      // Ensure monthly interval (you can relax this if you want any interval)
+      const interval = price?.recurring?.interval;
+      const count = price?.recurring?.interval_count;
+      if (interval !== "month" || (count && count !== 1)) {
+        return res.status(400).json({
+          error: "Recurring interval mismatch",
+          details: `Expected monthly subscription, got interval=${interval}, interval_count=${count || 1}. Fix the price on Stripe or adjust this check.`,
+        });
+      }
+    }
 
-    // --- Build Checkout Session params
+    // Build Checkout session params
     const params = {
       mode: cfg.mode,
-      line_items: [{ price: priceId, quantity: 1 }], // quantity must be 1 for custom-amount prices
+      line_items: [{ price: priceId, quantity: 1 }], // keep quantity=1 for support
       success_url: `${origin}/thank-you?sku=${encodeURIComponent(slug)}&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/?canceled=true`,
       customer_creation: "if_required",
       metadata: { slug },
+      // Keep tax simple; flip to true if you use Stripe Tax
+      automatic_tax: { enabled: false },
     };
 
-    // Promotions generally don’t work on custom-amount prices; disable for NYOP or auto-detect.
+    // Promotions:
+    //  - NYOP and some configs can fail with promos → disabled above.
+    //  - Re-enable later if you need them and the price supports it.
     const allowPromos = cfg.promos && !isCustomAmount;
     if (allowPromos) params.allow_promotion_codes = true;
 
-    // Nice UX label for support SKUs (optional)
+    // Friendly button label for support SKUs
     if (slug.startsWith("support")) params.submit_type = "donate";
 
     const session = await stripeClient.checkout.sessions.create(params);
     return res.status(200).json({ url: session.url });
   } catch (err) {
+    // Log full details server-side
     console.error("Stripe session error:", {
       message: err?.message,
       type: err?.type,
@@ -116,6 +132,18 @@ export default async function handler(req, res) {
       priceId: mask(priceId),
       isTestKey,
     });
+
+    // If you want to surface the Stripe error during debugging, hit ?debug=1
+    if (req.query.debug) {
+      return res.status(500).json({
+        error: "Stripe error",
+        message: err?.message,
+        type: err?.type,
+        code: err?.code,
+        param: err?.param,
+      });
+    }
+
     return res.status(500).json({ error: "Unable to create checkout session." });
   }
 }
@@ -126,7 +154,6 @@ function mask(id = "") {
   return id ? id.replace(/^(.{6}).+(.{4})$/, "$1…$2") : id;
 }
 
-// Build the ordered list of env var names to try.
 function expandEnvNames(baseNames, { isTestKey }) {
   const bases = Array.isArray(baseNames) ? baseNames : [baseNames];
   const order = isTestKey ? ["_TEST", "_LIVE", ""] : ["_LIVE", "", "_TEST"];
@@ -135,7 +162,6 @@ function expandEnvNames(baseNames, { isTestKey }) {
   return [...new Set(out)];
 }
 
-// Return the first valid Stripe Price ID from the candidate env names.
 function resolvePriceId(baseNames, { isTestKey }) {
   const tried = expandEnvNames(baseNames, { isTestKey });
   const presence = tried.map((n) => ({ name: n, present: !!process.env[n] }));
