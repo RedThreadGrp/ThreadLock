@@ -54,7 +54,7 @@ export default function ThankYou() {
           <>
             {data.status === "complete" && (data.payment_status === "paid" || data.mode === "subscription") ? (
               <>
-                <h1 className="text-3xl font-extrabold mb-2">You’re All Set 🎉</h1>
+                <h1 className="text-3xl font-extrabold mb-2">You’re All Set</h1>
                 <p className="text-slate-300 mb-6">
                   We’ve sent a confirmation to <span className="font-semibold">{data.customer_email || "your email"}</span>.
                   {` `}If you purchased a download, the link is in that email.
