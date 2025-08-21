@@ -353,7 +353,7 @@ const PricingSection = ({
         {/* $21 Founders Only */}
         <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access Only</h3>
-          <p className="text-slate-500 mb-6">Perks only — no printables today</p>
+          <p className="text-slate-500 mb-6">Only available until September 15th. Get in early!</p>
           <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
           <ul className="text-left text-slate-600 mt-6 space-y-2">
             <li>• Lifetime SaaS discount</li>
@@ -369,7 +369,7 @@ const PricingSection = ({
         {/* $15 Single PDF */}
         <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Single Downloadable</h3>
-          <p className="text-slate-500 mb-6">Buy an individual worksheet or pack</p>
+          <p className="text-slate-500 mb-6">Buy one of our worksheets</p>
           <div className="text-5xl font-extrabold text-slate-900 mb-1">$15</div>
           <ul className="text-left text-slate-600 mt-6 space-y-2">
             <li>• Choose the exact tool you need</li>
@@ -387,7 +387,7 @@ const PricingSection = ({
         {/* Support */}
         <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
-          <p className="text-slate-500 mb-6">No deliverables — just momentum</p>
+          <p className="text-slate-500 mb-6">Just momentum, with your support</p>
           <div className="text-3xl font-extrabold text-slate-900 mb-1">$2/mo</div>
           <p className="text-slate-500 mb-6">or name your own one-time amount</p>
           <div className="grid grid-cols-1 gap-3">
@@ -410,7 +410,7 @@ const CallToActionSection = ({ onBuyToolkit, isLoading }) => (
     <div className="container mx-auto px-6 text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-4">Start Building Your Case Today</h2>
       <p className="mb-8 max-w-xl mx-auto text-slate-300">
-        Your evidence matters. ThreadLock helps you document, secure, and present it clearly—without the stress.
+        Your evidence matters. ThreadLock helps you document, secure, and present it clearly. Without the stress.
       </p>
       <button
         onClick={onBuyToolkit}
