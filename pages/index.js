@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// /pages/index.js
+import React, { useState, useEffect } from "react";
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -123,30 +124,57 @@ const PdfExportUIMockup = () => (
     <button className="text-[11px] bg-orange-500 px-4 py-1.5 rounded-md mt-3">Download PDF</button>
   </div>
 );
-/* ---------------- Brand Logo ---------------- */
+
+/* ---------------- Brand Logo (auto) ---------------- */
 const LOGO_SRC = {
-  light: "/threadlock-logo.png",                            // original
-  dark:  "/TL-logo_reversed-white_stroke.png",      // for dark BGs
-  plate: "/TL-logo_dark-plate.png",                 // noisy/photo BGs
+  light: "/threadlock-logo.png",                 // original
+  dark:  "/TL-logo_reversed-white_stroke.png",   // reversed + halo
+  plate: "/TL-logo_dark-plate.png",              // for busy/photo backgrounds
 };
 
-function Logo({ variant = "auto", className = "" }) {
-  if (variant === "dark") {
-    return <img src={LOGO_SRC.dark} alt="ThreadLock" className={className} />;
-  }
-  if (variant === "light") {
-    return <img src={LOGO_SRC.light} alt="ThreadLock" className={className} />;
-  }
-  if (variant === "plate") {
-    return <img src={LOGO_SRC.plate} alt="ThreadLock" className={className} />;
-  }
-  // SSR-safe automatic swap
+function useDarkActive() {
+  const [dark, setDark] = useState(false);
+  useEffect(() => {
+    const html = document.documentElement;
+    const mq = window.matchMedia?.("(prefers-color-scheme: dark)");
+    const update = () =>
+      setDark(html.classList.contains("dark") || !!mq?.matches);
+    update();
+    mq?.addEventListener?.("change", update);
+    const obs = new MutationObserver(update);
+    obs.observe(html, { attributes: true, attributeFilter: ["class"] });
+    return () => {
+      mq?.removeEventListener?.("change", update);
+      obs.disconnect();
+    };
+  }, []);
+  return dark;
+}
+
+/** Auto logo
+ *  - default: auto-select dark/light from theme
+ *  - noisy={true}: use "plate" on dark for busy/photo bgs
+ *  - force="light" | "dark": override auto when a section is always light/dark
+ */
+function Logo({ className = "", noisy = false, force } = {}) {
+  const darkActive = useDarkActive();
+  let src;
+  if (force === "light") src = LOGO_SRC.light;
+  else if (force === "dark") src = noisy ? LOGO_SRC.plate : LOGO_SRC.dark;
+  else src = darkActive ? (noisy ? LOGO_SRC.plate : LOGO_SRC.dark) : LOGO_SRC.light;
+
   return (
-    <picture>
-      <source srcSet={LOGO_SRC.dark} media="(prefers-color-scheme: dark)" />
-      <img src={LOGO_SRC.light} alt="ThreadLock" className={className} />
-    </picture>
+    <img
+      src={src}
+      alt="ThreadLock"
+      className={className}
+      onError={(e) => {
+        e.currentTarget.onerror = null;
+        e.currentTarget.src = LOGO_SRC.light;
+      }}
+    />
   );
+}
 
 /* ---------------- Header ---------------- */
 const Header = ({ onBuyToolkit }) => {
@@ -159,10 +187,8 @@ const Header = ({ onBuyToolkit }) => {
     >
       <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <Logo
-            variant="dark"
-            className="h-8 md:h-14 lg:h-14 w-auto drop-shadow-logo"
-/>
+          {/* Header is always dark → force dark variant */}
+          <Logo force="dark" className="h-8 md:h-14 lg:h-14 w-auto drop-shadow" />
         </div>
 
         {/* Desktop Nav */}
@@ -209,7 +235,6 @@ const Header = ({ onBuyToolkit }) => {
 /* ---------------- Sections ---------------- */
 const HeroSection = ({ onBuyToolkit, isLoading }) => (
   <section className="relative text-white bg-slate-900">
-    {/* Push below fixed header and avoid clipping: generous top padding + stable line-height */}
     <div className="container mx-auto px-6 pt-44 md:pt-52 pb-12 text-center">
       <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.2] md:leading-[1.2] pb-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
         Take Control of Your Family Law Case
@@ -255,12 +280,12 @@ const FeaturesSection = () => (
       </p>
       <div className="grid md:grid-cols-3 gap-8">
         <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="AI-Guided Journaling">
-          Never miss a crucial detail. Our AI guides you to capture the specific, legally‑relevant facts for your case.
+          Never miss a crucial detail. Our AI guides you to capture the specific, legally-relevant facts for your case.
         </FeatureCard>
         <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Immutable & Secure">
           Entries are anchored for integrity—creating a record that stands up to scrutiny.
         </FeatureCard>
-        <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court‑Ready Exports">
+        <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court-Ready Exports">
           Export clean timelines and summaries that a judge can actually read.
         </FeatureCard>
       </div>
@@ -271,8 +296,8 @@ const FeaturesSection = () => (
 const ProductShowcaseSection = () => {
   const slides = [
     { title: "AI-Guided Journaling", description: "Smart prompts capture the right details fast.", mockup: <JournalUIMockup /> },
-    { title: "Immutable Timeline", description: "A chronological view that can’t be hand‑waved away.", mockup: <TimelineUIMockup /> },
-    { title: "Court‑Ready Exports", description: "Professional PDFs in minutes—not hours.", mockup: <PdfExportUIMockup /> },
+    { title: "Immutable Timeline", description: "A chronological view that can’t be hand-waved away.", mockup: <TimelineUIMockup /> },
+    { title: "Court-Ready Exports", description: "Professional PDFs in minutes—not hours.", mockup: <PdfExportUIMockup /> },
   ];
   const [idx, setIdx] = useState(0);
   const prev = () => setIdx((i) => (i === 0 ? slides.length - 1 : i - 1));
@@ -287,12 +312,10 @@ const ProductShowcaseSection = () => {
         </p>
 
         <div className="max-w-4xl mx-auto">
-          {/* Mockup Container (scaled down) */}
           <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
             <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
           </div>
 
-          {/* Description + Controls */}
           <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
               <h3 className="text-2xl font-bold text-slate-800 mb-2">{slides[idx].title}</h3>
@@ -331,20 +354,6 @@ const StatisticsSection = () => (
       <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-12 md:mb-16">
         Family law cases overwhelm courts, and most involve people navigating the system alone.
       </p>
-      <div className="grid md:grid-cols-3 gap-10 md:gap-12 max-w-5xl mx-auto">
-        <div className="border border-slate-700/50 bg-slate-800/30 p-8 rounded-xl">
-          <h3 className="text-5xl font-extrabold text-orange-400">3.8M+</h3>
-          <p className="text-slate-400 mt-2 font-medium">Family law cases filed annually in the U.S.</p>
-        </div>
-        <div className="border border-slate-700/50 bg-slate-800/30 p-8 rounded-xl">
-          <h3 className="text-5xl font-extrabold text-orange-400">72%</h3>
-          <p className="text-slate-400 mt-2 font-medium">Include at least one self‑represented party</p>
-        </div>
-        <div className="border border-slate-700/50 bg-slate-800/30 p-8 rounded-xl">
-          <h3 className="text-5xl font-extrabold text-orange-400">&gt;50%</h3>
-          <p className="text-slate-400 mt-2 font-medium">Of evidence is disorganized or incomplete</p>
-        </div>
-      </div>
     </div>
   </section>
 );
@@ -364,74 +373,74 @@ const PricingSection = ({
         Pick what you need now. Upgrade later without paying twice.
       </p>
 
-      <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-        {/* $97 Toolkit */}
-        <div className="bg-white rounded-2xl shadow-xl border border-orange-300 p-8 flex flex-col">
-          <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Court‑Ready Toolkit</h3>
-          <p className="text-slate-500 mb-6">All printables now + Founding Member perks at launch</p>
-          <div className="text-5xl font-extrabold text-slate-900 mb-1">$97</div>
-          <ul className="text-left text-slate-600 mt-6 space-y-2">
-            <li>• 10+ premium templates (PDF + editable)</li>
-            <li>• Step‑by‑step guides + videos</li>
-            <li>• Lifetime SaaS discount + beta access</li>
-          </ul>
-          <button onClick={onBuyToolkit} className="mt-8 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
-            Get the Full Toolkit
-          </button>
-          <p className="text-xs text-slate-400 mt-3">One‑time payment.</p>
-        </div>
-
-        {/* $21 Founders Only */}
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
-          <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access Only</h3>
-          <p className="text-slate-500 mb-6">Perks only — no printables today</p>
-          <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
-          <ul className="text-left text-slate-600 mt-6 space-y-2">
-            <li>• Lifetime SaaS discount</li>
-            <li>• Early beta access</li>
-            <li>• Founding Member recognition</li>
-          </ul>
-          <button onClick={onBuyFounders} className="mt-8 w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
-            Get Founders Access
-          </button>
-          <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime.</p>
-        </div>
-
-        {/* $15 Single PDF */}
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
-          <h3 className="text-2xl font-bold text-slate-800 mb-2">Single Downloadable</h3>
-          <p className="text-slate-500 mb-6">Buy an individual worksheet or pack</p>
-          <div className="text-5xl font-extrabold text-slate-900 mb-1">$15</div>
-          <ul className="text-left text-slate-600 mt-6 space-y-2">
-            <li>• Choose the exact tool you need</li>
-            <li>• Immediate download via email</li>
-            <li>• $15 credit if you upgrade to Toolkit*</li>
-          </ul>
-          <button onClick={onPickSingle} className="mt-8 w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-4 rounded-lg shadow-md transition-all">
-            Choose a Single Tool
-          </button>
-          <p className="text-[11px] text-slate-400 mt-3">
-            *We’ll auto‑apply your $15 toward the $97 Toolkit within 30 days.
-          </p>
-        </div>
-
-        {/* Support */}
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
-          <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
-          <p className="text-slate-500 mb-6">No deliverables — just momentum</p>
-          <div className="text-3xl font-extrabold text-slate-900 mb-1">$2/mo</div>
-          <p className="text-slate-500 mb-6">or name your own one‑time amount</p>
-          <div className="grid grid-cols-1 gap-3">
-            <button onClick={onContribMonthly} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
-              Contribute $2 / month
-            </button>
-            <button onClick={onContribNYOP} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-3 rounded-lg shadow-md transition-all">
-              Name‑Your‑Price (one‑time)
-            </button>
-          </div>
-          <p className="text-xs text-slate-400 mt-3">Thank you. Seriously.</p>
-        </div>
+    <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      {/* $97 Toolkit */}
+      <div className="bg-white rounded-2xl shadow-xl border border-orange-300 p-8 flex flex-col">
+        <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Court-Ready Toolkit</h3>
+        <p className="text-slate-500 mb-6">All printables now + Founding Member perks at launch</p>
+        <div className="text-5xl font-extrabold text-slate-900 mb-1">$97</div>
+        <ul className="text-left text-slate-600 mt-6 space-y-2">
+          <li>• 10+ premium templates (PDF + editable)</li>
+          <li>• Step-by-step guides + videos</li>
+          <li>• Lifetime SaaS discount + beta access</li>
+        </ul>
+        <button onClick={onBuyToolkit} className="mt-8 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
+          Get the Full Toolkit
+        </button>
+        <p className="text-xs text-slate-400 mt-3">One-time payment.</p>
       </div>
+
+      {/* $21 Founders Only */}
+      <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
+        <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access Only</h3>
+        <p className="text-slate-500 mb-6">Perks only — no printables today</p>
+        <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
+        <ul className="text-left text-slate-600 mt-6 space-y-2">
+          <li>• Lifetime SaaS discount</li>
+          <li>• Early beta access</li>
+          <li>• Founding Member recognition</li>
+        </ul>
+        <button onClick={onBuyFounders} className="mt-8 w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
+          Get Founders Access
+        </button>
+        <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime.</p>
+      </div>
+
+      {/* $15 Single PDF */}
+      <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
+        <h3 className="text-2xl font-bold text-slate-800 mb-2">Single Downloadable</h3>
+        <p className="text-slate-500 mb-6">Buy an individual worksheet or pack</p>
+        <div className="text-5xl font-extrabold text-slate-900 mb-1">$15</div>
+        <ul className="text-left text-slate-600 mt-6 space-y-2">
+          <li>• Choose the exact tool you need</li>
+          <li>• Immediate download via email</li>
+          <li>• $15 credit if you upgrade to Toolkit*</li>
+        </ul>
+        <button onClick={onPickSingle} className="mt-8 w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-4 rounded-lg shadow-md transition-all">
+          Choose a Single Tool
+        </button>
+        <p className="text-[11px] text-slate-400 mt-3">
+          *We’ll auto-apply your $15 toward the $97 Toolkit within 30 days.
+        </p>
+      </div>
+
+      {/* Support */}
+      <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
+        <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
+        <p className="text-slate-500 mb-6">No deliverables — just momentum</p>
+        <div className="text-3xl font-extrabold text-slate-900 mb-1">$2/mo</div>
+        <p className="text-slate-500 mb-6">or name your own one-time amount</p>
+        <div className="grid grid-cols-1 gap-3">
+          <button onClick={onContribMonthly} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
+            Contribute $2 / month
+          </button>
+          <button onClick={onContribNYOP} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-3 rounded-lg shadow-md transition-all">
+            Name-Your-Price (one-time)
+          </button>
+        </div>
+        <p className="text-xs text-slate-400 mt-3">Thank you. Seriously.</p>
+      </div>
+    </div>
     </div>
   </section>
 );
