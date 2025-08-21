@@ -1,79 +1,113 @@
-// pages/api/webhook.js
+// /pages/api/webhook.js
 import { buffer } from "micro";
 import { stripeClient, isStripeTest } from "@/lib/stripeEnv";
 import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
 
 export const config = {
-  api: { bodyParser: false }, // raw body for Stripe verification
+  api: { bodyParser: false }, // raw body required for Stripe signature verification
 };
 
-// --- Supabase admin client (service role; server-only) ---
+/* ========= Supabase helpers ========= */
+
 function getSupabaseAdmin() {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
   if (!url || !key) {
     throw new Error("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY");
   }
-
-  return createClient(url, key, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
+  return createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
 }
 
-// --- Fetch signed URLs for every file under the toolkit prefix ---
+function normPrefix(p = "toolkit/") {
+  const s = String(p).replace(/^\/+/, "").replace(/\/+$/, "");
+  return s ? `${s}/` : "";
+}
+
+// Returns [{name, url}], throws loudly on failure/empty
 async function getToolkitSignedUrls() {
   const supabase = getSupabaseAdmin();
-
   const bucket = process.env.SUPABASE_STORAGE_BUCKET;
-  const prefix = process.env.SUPABASE_TOOLKIT_PREFIX || "toolkit/";
+  const prefix = normPrefix(process.env.SUPABASE_TOOLKIT_PREFIX || "toolkit/");
 
-  if (!bucket) {
-    throw new Error("Missing SUPABASE_STORAGE_BUCKET");
-  }
+  if (!bucket) throw new Error("Missing SUPABASE_STORAGE_BUCKET");
 
-  // 1) list files in prefix
+  console.log("Supabase list ->", { bucket, prefix });
   const { data: files, error: listErr } = await supabase.storage
     .from(bucket)
-    .list(prefix, { limit: 100 });
+    .list(prefix, { limit: 200, offset: 0 });
 
   if (listErr) throw listErr;
-
-  // Guard: empty folder?
-  if (!files || files.length === 0) return [];
-
-  // 2) generate signed URLs (24h = 86400 seconds)
-  const expiresIn = 86400;
+  if (!files || files.length === 0) {
+    throw new Error(`No files found at bucket='${bucket}' prefix='${prefix}'`);
+  }
 
   const paths = files
-    .filter((f) => !!f && !!f.name) // skip weird entries
+    .filter((f) => f && f.name && !f.name.endsWith("/"))
     .map((f) => `${prefix}${f.name}`);
 
-  const { data: signed, error: signErr } = await supabase.storage
-    .from(bucket)
-    .createSignedUrls(paths, expiresIn);
+  const expiresIn = 60 * 60 * 24; // 24h
 
-  if (signErr) throw signErr;
+  // Try bulk API first
+  let signed = [];
+  let bulkErr = null;
+  try {
+    const { data, error } = await supabase.storage
+      .from(bucket)
+      .createSignedUrls(paths, expiresIn);
+    if (error) throw error;
+    signed = (data || []).filter((s) => s?.signedUrl);
+  } catch (e) {
+    bulkErr = e;
+    console.warn("Bulk createSignedUrls failed → fallback per-file:", e?.message || e);
+  }
 
-  // Normalize
-  return signed
-    .filter((s) => s?.signedUrl)
-    .map((s) => ({
-      name: s.path.replace(prefix, ""),
-      url: s.signedUrl,
-    }))
-    // put the ZIP first if present, because users love one-click
+  // Fallback per-file
+  if (!signed.length) {
+    const perFile = [];
+    for (const p of paths) {
+      const { data, error } = await supabase.storage
+        .from(bucket)
+        .createSignedUrl(p, expiresIn);
+      if (error) {
+        console.warn("Per-file signed URL failed:", p, error.message || error);
+        continue;
+      }
+      perFile.push({ path: p, signedUrl: data?.signedUrl });
+    }
+    signed = perFile.filter((s) => s?.signedUrl);
+  }
+
+  if (!signed.length) {
+    throw new Error(`Failed to create signed URLs (bulkErr=${bulkErr?.message || "n/a"})`);
+  }
+
+  const links = signed
+    .map((s) => ({ name: s.path.replace(prefix, ""), url: s.signedUrl }))
     .sort((a, b) => {
-      const isZipA = a.name.toLowerCase().endsWith(".zip") ? -1 : 0;
-      const isZipB = b.name.toLowerCase().endsWith(".zip") ? -1 : 0;
-      return isZipA - isZipB;
+      const aZip = a.name.toLowerCase().endsWith(".zip") ? -1 : 0;
+      const bZip = b.name.toLowerCase().endsWith(".zip") ? -1 : 0;
+      return aZip - bZip;
     });
+
+  console.log(`Prepared ${links.length} signed URLs`);
+  return links;
 }
 
-// --- Send purchaser email via Resend ---
+/* ========= Email (Resend) ========= */
+
+function escapeHtml(str = "") {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
 async function sendToolkitEmail({ to, sessionId, links }) {
   if (!to) throw new Error("Missing recipient email");
+  if (!links?.length) throw new Error("No deliverables found to email.");
 
   const resendKey = process.env.RESEND_API_KEY;
   const from = process.env.EMAIL_FROM;
@@ -105,9 +139,7 @@ async function sendToolkitEmail({ to, sessionId, links }) {
       <ul style="padding-left:18px;margin:0 0 16px">
         ${listHtml}
       </ul>
-      <p style="margin:0 0 4px">Order Reference: <strong>${escapeHtml(
-        sessionId
-      )}</strong></p>
+      <p style="margin:0 0 4px">Order Reference: <strong>${escapeHtml(sessionId)}</strong></p>
       <p style="margin:8px 0 0;color:#555">Need help? Reply to this email.</p>
     </div>
   `;
@@ -127,15 +159,7 @@ async function sendToolkitEmail({ to, sessionId, links }) {
   });
 }
 
-// simple HTML escape for link text
-function escapeHtml(str = "") {
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
+/* ========= Webhook ========= */
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -143,16 +167,13 @@ export default async function handler(req, res) {
     return res.status(405).send("Method Not Allowed");
   }
 
-  // Choose the correct webhook secret based on the key in use
   const endpointSecret = isStripeTest
     ? process.env.STRIPE_WEBHOOK_SECRET_TEST
     : process.env.STRIPE_WEBHOOK_SECRET;
 
   if (!endpointSecret) {
-    console.error("⚠️ Missing STRIPE_WEBHOOK_SECRET(_TEST) env");
-    return res
-      .status(500)
-      .send("Webhook misconfigured: missing signing secret env");
+    console.error("Missing STRIPE_WEBHOOK_SECRET(_TEST)");
+    return res.status(500).send("Webhook misconfigured");
   }
 
   let event;
@@ -161,7 +182,7 @@ export default async function handler(req, res) {
     const buf = await buffer(req);
     event = stripeClient.webhooks.constructEvent(buf, sig, endpointSecret);
   } catch (err) {
-    console.error("❌ Webhook signature verification failed:", err.message);
+    console.error("Webhook signature verification failed:", err.message);
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
@@ -169,8 +190,6 @@ export default async function handler(req, res) {
     switch (event.type) {
       case "checkout.session.completed": {
         const session = event.data.object;
-
-        // Pull buyer email robustly
         const email =
           session.customer_details?.email ||
           session.customer_email ||
@@ -182,20 +201,8 @@ export default async function handler(req, res) {
           customer: session.customer,
         });
 
-        // Generate signed links from Supabase Storage
-        const links = await getToolkitSignedUrls();
-
-        if (!links.length) {
-          console.warn("No toolkit files found in Supabase.");
-        }
-
-        // Email buyer (will throw if no email)
-        await sendToolkitEmail({
-          to: email,
-          sessionId: session.id,
-          links,
-        });
-
+        const links = await getToolkitSignedUrls(); // throws if empty
+        await sendToolkitEmail({ to: email, sessionId: session.id, links });
         break;
       }
 
