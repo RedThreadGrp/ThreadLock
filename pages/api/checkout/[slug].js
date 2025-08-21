@@ -38,18 +38,18 @@ export default async function handler(req, res) {
   const cfg = routes[slug];
   if (!cfg) return res.status(400).json({ error: "Invalid product slug" });
 
-  // Determine mode from your configured key
   const isTestKey = !!isStripeTest;
+  const { priceId, priceEnv, tried, presence } = resolvePriceId(cfg.env, { isTestKey });
 
-  const { priceId, tried, presence } = resolvePriceId(cfg.env, { isTestKey });
-
-  // Optional diagnostics: POST .../slug?debug=1 to see which env names exist (no values leaked)
   if (req.query.debug) {
     return res.status(200).json({
       slug,
       isTestKey,
       tried,
       present: presence,
+      chosen: priceId
+        ? { env: priceEnv, id: mask(priceId) }
+        : null,
     });
   }
 
@@ -61,6 +61,34 @@ export default async function handler(req, res) {
   }
 
   try {
+    // --- Validate the price matches our intended mode and is usable
+    const price = await stripeClient.prices.retrieve(priceId);
+
+    // price.type is 'one_time' or 'recurring' (Stripe adds this)
+    // fall back to inferring from presence of price.recurring
+    const priceType = price?.type || (price?.recurring ? "recurring" : "one_time");
+    const expectedType = cfg.mode === "subscription" ? "recurring" : "one_time";
+
+    if (!price?.active) {
+      return res.status(400).json({
+        error: "Price is inactive",
+        details: `Env ${priceEnv} points to an inactive price (${mask(priceId)}). Activate it in Stripe.`,
+      });
+    }
+
+    if (priceType !== expectedType) {
+      return res.status(400).json({
+        error: "Price type mismatch",
+        details: `Route "${slug}" expects ${expectedType}, but ${priceEnv} (${mask(priceId)}) is ${priceType}. Update the env var to a matching price or change the price type in Stripe.`,
+      });
+    }
+
+    // Optional sanity check: NYOP price should have custom unit amount if it's truly "name your price"
+    if (slug === "support-nyop" && !price.custom_unit_amount && priceType === "one_time") {
+      // Not fatal, but helpful
+      console.warn(`NYOP hint: ${priceId} has no custom_unit_amount; customer won't be able to enter an amount.`);
+    }
+
     const session = await stripeClient.checkout.sessions.create({
       mode: cfg.mode,
       line_items: [{ price: priceId, quantity: 1 }],
@@ -78,6 +106,10 @@ export default async function handler(req, res) {
       type: err?.type,
       code: err?.code,
       param: err?.param,
+      slug,
+      priceEnv,
+      priceId: mask(priceId),
+      isTestKey,
     });
     return res.status(500).json({ error: "Unable to create checkout session." });
   }
@@ -85,34 +117,26 @@ export default async function handler(req, res) {
 
 /* ---------- helpers ---------- */
 
+function mask(id = "") {
+  return id ? id.replace(/^(.{6}).+(.{4})$/, "$1…$2") : id;
+}
+
 // Build the ordered list of env var names to try.
 // Priority: match key mode first, then the other mode, then bare for backward compat.
 function expandEnvNames(baseNames, { isTestKey }) {
   const bases = Array.isArray(baseNames) ? baseNames : [baseNames];
-  const order = isTestKey
-    ? ["_TEST", "_LIVE", ""]   // using test key → prefer *_TEST
-    : ["_LIVE", "", "_TEST"];  // using live key → prefer *_LIVE
-
+  const order = isTestKey ? ["_TEST", "_LIVE", ""] : ["_LIVE", "", "_TEST"];
   const out = [];
   for (const base of bases) {
     for (const suffix of order) {
       out.push(suffix ? `${base}${suffix}` : base);
     }
   }
-  // de-dupe, preserve order
   return [...new Set(out)];
 }
 
-// Return the first valid Stripe Price ID from the candidate env names.
 function resolvePriceId(baseNames, { isTestKey }) {
   const tried = expandEnvNames(baseNames, { isTestKey });
   const presence = tried.map((n) => ({ name: n, present: !!process.env[n] }));
-
   for (const envName of tried) {
-    const val = process.env[envName];
-    if (val && /^price_/.test(val)) {
-      return { priceId: val, tried, presence };
-    }
-  }
-  return { priceId: null, tried, presence };
-}
+    const
