@@ -170,9 +170,9 @@ function titleFor(slug) {
 function noDownloadParagraph(slug) {
   switch (slug) {
     case "founders":
-      return "There are no downloads with this purchase. Your Founders perks will be applied at launch — we'll email you updates.";
+      return "There are no downloads with this purchase. Your Founders perks will be applied at launch. We will keep you updated on our progress by email.";
     case "support-monthly":
-      return "There are no downloads with this purchase. Your monthly support is now active — thank you for backing the build!";
+      return "There are no downloads with this purchase. Your monthly support is now active. Thank you for backing the build!";
     case "support-nyop":
       return "There are no downloads with this purchase. Thank you for supporting the build!";
     default:
