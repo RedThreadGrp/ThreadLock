@@ -1,189 +1,159 @@
 // /pages/api/webhook.js
 import { buffer } from "micro";
-import { stripeClient, isStripeTest } from "@/lib/stripeEnv";
+import { stripeClient } from "@/lib/stripeEnv";
 import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
 
-export const config = {
-  api: { bodyParser: false }, // raw body required for Stripe signature verification
+export const config = { api: { bodyParser: false } };
+
+/* ---------- env + clients ---------- */
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY, // server-only, required for signing links reliably
+  { auth: { persistSession: false } }
+);
+
+const BUCKET = process.env.SUPABASE_STORAGE_BUCKET || "toolkit";
+const PREFIX = (() => {
+  const p = (process.env.SUPABASE_TOOLKIT_PREFIX || "").trim();
+  if (!p) return "";                     // root of bucket
+  return p.endsWith("/") ? p : p + "/";  // ensure trailing slash
+})();
+const LINK_TTL_HOURS = parseInt(process.env.LINK_TTL_HOURS || "24", 10);
+
+/* Map slug -> filename substring(s) (case-insensitive) */
+const SLUG_PATTERNS = {
+  "common-mistakes":    ["avoiding common mistakes in court.pdf"],
+  "basic-motion":       ["basic motion template.pdf"],
+  "case-timeline":      ["case event timeline worksheet.pdf"],
+  "common-response":    ["common legal response timelines.pdf"],
+  "cross-exam":         ["direct & cross-examination planning.pdf"],
+  "evidence-log":       ["evidence tracking log.pdf"],
+  "find-rules":         ["finding the right court rules.pdf"],
+  "pre-hearing":        ["pre-hearing preparation checklist.pdf"],
+  "proof-of-service":   ["proof of service tracker.pdf"],
+  "trial-quick-ref":    ["trial & hearing quick reference.pdf"],
+  // "toolkit" handled specially (all files)
 };
 
-/* ========= Supabase helpers ========= */
+/* ---------- helpers ---------- */
+async function verifyStripeEvent(req) {
+  const sig = req.headers["stripe-signature"];
+  const buf = await buffer(req);
 
-function getSupabaseAdmin() {
-  const url = process.env.SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) {
-    throw new Error("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY");
-  }
-  return createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
-}
+  const candidates = [
+    ["STRIPE_WEBHOOK_SECRET_TEST", process.env.STRIPE_WEBHOOK_SECRET_TEST],
+    ["STRIPE_WEBHOOK_SECRET_LIVE", process.env.STRIPE_WEBHOOK_SECRET_LIVE || process.env.STRIPE_WEBHOOK_SECRET],
+  ].filter(([, v]) => !!v);
 
-function normPrefix(p = "toolkit/") {
-  const s = String(p).replace(/^\/+/, "").replace(/\/+$/, "");
-  return s ? `${s}/` : "";
-}
-
-// Returns [{name, url}], throws loudly on failure/empty
-async function getToolkitSignedUrls() {
-  const supabase = getSupabaseAdmin();
-  const bucket = process.env.SUPABASE_STORAGE_BUCKET;
-  const prefix = normPrefix(process.env.SUPABASE_TOOLKIT_PREFIX || "toolkit/");
-
-  if (!bucket) throw new Error("Missing SUPABASE_STORAGE_BUCKET");
-
-  console.log("Supabase list ->", { bucket, prefix });
-  const { data: files, error: listErr } = await supabase.storage
-    .from(bucket)
-    .list(prefix, { limit: 200, offset: 0 });
-
-  if (listErr) throw listErr;
-  if (!files || files.length === 0) {
-    throw new Error(`No files found at bucket='${bucket}' prefix='${prefix}'`);
+  if (!candidates.length) {
+    throw new Error("Missing STRIPE_WEBHOOK_SECRET_TEST and STRIPE_WEBHOOK_SECRET_LIVE envs");
   }
 
-  const paths = files
-    .filter((f) => f && f.name && !f.name.endsWith("/"))
-    .map((f) => `${prefix}${f.name}`);
-
-  const expiresIn = 60 * 60 * 24; // 24h
-
-  // Try bulk API first
-  let signed = [];
-  let bulkErr = null;
-  try {
-    const { data, error } = await supabase.storage
-      .from(bucket)
-      .createSignedUrls(paths, expiresIn);
-    if (error) throw error;
-    signed = (data || []).filter((s) => s?.signedUrl);
-  } catch (e) {
-    bulkErr = e;
-    console.warn("Bulk createSignedUrls failed → fallback per-file:", e?.message || e);
-  }
-
-  // Fallback per-file
-  if (!signed.length) {
-    const perFile = [];
-    for (const p of paths) {
-      const { data, error } = await supabase.storage
-        .from(bucket)
-        .createSignedUrl(p, expiresIn);
-      if (error) {
-        console.warn("Per-file signed URL failed:", p, error.message || error);
-        continue;
-      }
-      perFile.push({ path: p, signedUrl: data?.signedUrl });
+  let lastErr;
+  for (const [name, secret] of candidates) {
+    try {
+      const event = stripeClient.webhooks.constructEvent(buf, sig, secret);
+      event._verified_with = name;
+      return event;
+    } catch (err) {
+      lastErr = err;
     }
-    signed = perFile.filter((s) => s?.signedUrl);
   }
-
-  if (!signed.length) {
-    throw new Error(`Failed to create signed URLs (bulkErr=${bulkErr?.message || "n/a"})`);
-  }
-
-  const links = signed
-    .map((s) => ({ name: s.path.replace(prefix, ""), url: s.signedUrl }))
-    .sort((a, b) => {
-      const aZip = a.name.toLowerCase().endsWith(".zip") ? -1 : 0;
-      const bZip = b.name.toLowerCase().endsWith(".zip") ? -1 : 0;
-      return aZip - bZip;
-    });
-
-  console.log(`Prepared ${links.length} signed URLs`);
-  return links;
+  throw new Error(`Webhook signature failed for all secrets: ${lastErr?.message || "unknown error"}`);
 }
 
-/* ========= Email (Resend) ========= */
-
-function escapeHtml(str = "") {
-  return String(str)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-async function sendToolkitEmail({ to, sessionId, links }) {
-  if (!to) throw new Error("Missing recipient email");
-  if (!links?.length) throw new Error("No deliverables found to email.");
-
-  const resendKey = process.env.RESEND_API_KEY;
-  const from = process.env.EMAIL_FROM;
-  const bcc = process.env.EMAIL_BCC || undefined;
-
-  if (!resendKey || !from) {
-    throw new Error("Missing RESEND_API_KEY or EMAIL_FROM");
-  }
-
-  const resend = new Resend(resendKey);
-
-  const title = "Your ThreadLock Toolkit is ready";
-  const intro =
-    "Thanks for your purchase. Download links are below (valid for 24 hours). You can revisit the email while links are active.";
-
-  const listHtml = links
-    .map(
-      (f) =>
-        `<li style="margin:6px 0"><a href="${f.url}" target="_blank" rel="noopener">${escapeHtml(
-          f.name
-        )}</a></li>`
-    )
-    .join("");
-
-  const html = `
-    <div style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.45;color:#111">
-      <h2 style="margin:0 0 12px">${escapeHtml(title)}</h2>
-      <p style="margin:0 0 12px">${escapeHtml(intro)}</p>
-      <ul style="padding-left:18px;margin:0 0 16px">
-        ${listHtml}
-      </ul>
-      <p style="margin:0 0 4px">Order Reference: <strong>${escapeHtml(sessionId)}</strong></p>
-      <p style="margin:8px 0 0;color:#555">Need help? Reply to this email.</p>
-    </div>
-  `;
-
-  const text =
-    `${title}\n\n${intro}\n\n` +
-    links.map((f) => `- ${f.name}: ${f.url}`).join("\n") +
-    `\n\nOrder Reference: ${sessionId}\n`;
-
-  await resend.emails.send({
-    from,
-    to,
-    bcc,
-    subject: "Your ThreadLock Toolkit download links",
-    html,
-    text,
+async function listBucket() {
+  const { data, error } = await supabase.storage.from(BUCKET).list(PREFIX || undefined, {
+    limit: 200,
+    offset: 0,
   });
+  if (error) throw new Error(`Supabase list error: ${error.message}`);
+  return data || [];
 }
 
-/* ========= Webhook ========= */
+async function signPaths(names) {
+  const ttl = LINK_TTL_HOURS * 3600;
+  const out = [];
+  for (const name of names) {
+    const path = PREFIX ? `${PREFIX}${name}` : name;
+    const { data, error } = await supabase.storage.from(BUCKET).createSignedUrl(path, ttl);
+    if (error) throw new Error(`Signed URL error for ${name}: ${error.message}`);
+    out.push({ name, url: data.signedUrl });
+  }
+  return out;
+}
 
+async function getLinksForSlug(slug) {
+  if (!slug) return [];
+  const all = await listBucket();
+  const names = all.map((f) => f.name);
+
+  if (slug === "toolkit") {
+    // send everything in the bucket (root or prefix)
+    return signPaths(names);
+  }
+  const pats = (SLUG_PATTERNS[slug] || []).map((s) => s.toLowerCase());
+  if (!pats.length) return [];
+
+  const selected = names.filter((n) => {
+    const ln = n.toLowerCase();
+    return pats.some((p) => ln.includes(p));
+  });
+
+  return signPaths(selected);
+}
+
+function renderEmail({ email, links, session, slug }) {
+  const ref = session.id;
+  const expires = LINK_TTL_HOURS;
+  const listHtml = links.length
+    ? `<ul>${links
+        .map(
+          ({ name, url }) =>
+            `<li style="margin:6px 0"><a href="${url}" target="_blank" rel="noopener">${name}</a></li>`
+        )
+        .join("")}</ul>`
+    : `<p>No downloads for this purchase. If this seems wrong, reply to this email.</p>`;
+
+  return {
+    subject: links.length ? "Your ThreadLock Toolkit is ready" : "Thanks for your purchase",
+    html: `
+      <div style="font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.45">
+        <h2>Your ThreadLock Toolkit is ready 🎉</h2>
+        <p>Thanks for your purchase${
+          email ? `, ${email}` : ""
+        }. Download links are below (valid for ${expires} hours):</p>
+        ${listHtml}
+        <p style="color:#64748b;font-size:13px;margin-top:18px">
+          Order Reference: ${ref}<br/>
+          Need help? Reply to this email.
+        </p>
+      </div>`,
+    text:
+      (links.length
+        ? `Your ThreadLock Toolkit is ready.\n\n` +
+          links.map((l) => `• ${l.name}: ${l.url}`).join("\n") +
+          `\n\nLinks valid for ${expires} hours.\nOrder Reference: ${ref}`
+        : `Thanks for your purchase.\nOrder Reference: ${ref}`),
+  };
+}
+
+/* ---------- webhook handler ---------- */
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).send("Method Not Allowed");
   }
 
-  const endpointSecret = isStripeTest
-    ? process.env.STRIPE_WEBHOOK_SECRET_TEST
-    : process.env.STRIPE_WEBHOOK_SECRET;
-
-  if (!endpointSecret) {
-    console.error("Missing STRIPE_WEBHOOK_SECRET(_TEST)");
-    return res.status(500).send("Webhook misconfigured");
-  }
-
   let event;
   try {
-    const sig = req.headers["stripe-signature"];
-    const buf = await buffer(req);
-    event = stripeClient.webhooks.constructEvent(buf, sig, endpointSecret);
+    event = await verifyStripeEvent(req);
   } catch (err) {
-    console.error("Webhook signature verification failed:", err.message);
-    return res.status(400).send(`Webhook Error: ${err.message}`);
+    console.error("❌ Signature error:", err.message);
+    return res.status(400).send("Invalid signature");
   }
 
   try {
@@ -191,35 +161,49 @@ export default async function handler(req, res) {
       case "checkout.session.completed": {
         const session = event.data.object;
         const email =
-          session.customer_details?.email ||
-          session.customer_email ||
-          null;
+          session.customer_details?.email || session.customer_email || null;
+        const slug = session.metadata?.slug || null;
 
-        console.log("✅ checkout.session.completed", session.id, {
-          mode: session.mode,
+        console.log("✅ checkout.session.completed", {
+          id: session.id,
           email,
-          customer: session.customer,
+          slug,
+          verifiedWith: event._verified_with,
         });
 
-        const links = await getToolkitSignedUrls(); // throws if empty
-        await sendToolkitEmail({ to: email, sessionId: session.id, links });
+        // Build links (toolkit or single items)
+        let links = [];
+        try {
+          links = await getLinksForSlug(slug);
+        } catch (e) {
+          console.error("Supabase error:", e.message);
+          throw e; // return 500 so Stripe retries
+        }
+
+        // Send email via Resend
+        try {
+          const { subject, html, text } = renderEmail({ email, links, session, slug });
+          if (!email) {
+            console.warn("⚠️ No customer email on session", session.id);
+          } else {
+            await resend.emails.send({
+              from: process.env.EMAIL_FROM || "ThreadLock <info@threadlock.ai>",
+              to: email,
+              reply_to: process.env.EMAIL_REPLY_TO || undefined,
+              subject,
+              html,
+              text,
+            });
+          }
+        } catch (e) {
+          console.error("Resend error:", e.message);
+          throw e; // 500 => Stripe retries
+        }
+
         break;
       }
 
-      case "payment_intent.succeeded": {
-        const pi = event.data.object;
-        console.log("💸 payment_intent.succeeded", pi.id);
-        break;
-      }
-
-      case "customer.subscription.created":
-      case "customer.subscription.updated":
-      case "customer.subscription.deleted": {
-        const sub = event.data.object;
-        console.log(`🔁 ${event.type}`, sub.id);
-        break;
-      }
-
+      // optional: log others for visibility
       default:
         console.log("ℹ️ Unhandled event:", event.type);
     }
