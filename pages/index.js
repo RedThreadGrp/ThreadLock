@@ -159,12 +159,10 @@ const Header = ({ onBuyToolkit }) => {
     >
       <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <img
-            src="/threadlock-logo.png"
-            alt="ThreadLock"
-            className="h-8 md:h-14 lg:h-14 w-auto"
-            onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/240x72/1e293b/f97316?text=ThreadLock'; }}
-          />
+          <Logo
+            variant="dark"
+            className="h-8 md:h-14 lg:h-14 w-auto drop-shadow-logo"
+/>
         </div>
 
         {/* Desktop Nav */}
