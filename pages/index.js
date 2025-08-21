@@ -1,5 +1,5 @@
 // /pages/index.js
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -125,54 +125,16 @@ const PdfExportUIMockup = () => (
   </div>
 );
 
-/* ---------------- Brand Logo (auto) ---------------- */
-const LOGO_SRC = {
-  light: "/threadlock-logo.png",                 // original
-  dark:  "/TL-logo_reversed-white_stroke.png",   // reversed + halo
-  plate: "/TL-logo_dark-plate.png",              // for busy/photo backgrounds
-};
-
-function useDarkActive() {
-  const [dark, setDark] = useState(false);
-  useEffect(() => {
-    const html = document.documentElement;
-    const mq = window.matchMedia?.("(prefers-color-scheme: dark)");
-    const update = () =>
-      setDark(html.classList.contains("dark") || !!mq?.matches);
-    update();
-    mq?.addEventListener?.("change", update);
-    const obs = new MutationObserver(update);
-    obs.observe(html, { attributes: true, attributeFilter: ["class"] });
-    return () => {
-      mq?.removeEventListener?.("change", update);
-      obs.disconnect();
-    };
-  }, []);
-  return dark;
-}
-
-/** Auto logo
- *  - default: auto-select dark/light from theme
- *  - noisy={true}: use "plate" on dark for busy/photo bgs
- *  - force="light" | "dark": override auto when a section is always light/dark
- */
-function Logo({ className = "", noisy = false, force } = {}) {
-  const darkActive = useDarkActive();
-  let src;
-  if (force === "light") src = LOGO_SRC.light;
-  else if (force === "dark") src = noisy ? LOGO_SRC.plate : LOGO_SRC.dark;
-  else src = darkActive ? (noisy ? LOGO_SRC.plate : LOGO_SRC.dark) : LOGO_SRC.light;
-
+/* ---------------- Text Brand (no assets) ---------------- */
+function BrandWordmark({ size = "md", plate = false, className = "" }) {
+  const sizes = { xs:"text-lg", sm:"text-xl", md:"text-2xl", lg:"text-4xl", xl:"text-6xl" };
+  const plateStyles = plate ? "px-2 py-1 rounded-lg bg-white/10 ring-1 ring-white/15 backdrop-blur" : "";
   return (
-    <img
-      src={src}
-      alt="ThreadLock"
-      className={className}
-      onError={(e) => {
-        e.currentTarget.onerror = null;
-        e.currentTarget.src = LOGO_SRC.light;
-      }}
-    />
+    <span className={`inline-flex items-baseline font-extrabold tracking-tight select-none ${sizes[size]} ${plateStyles} ${className}`}>
+      <span className="text-white">Thread</span>
+      <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-orange-500">Lock</span>
+      <span className="ml-0.5 align-text-top text-[0.55em] font-black text-white/80">™</span>
+    </span>
   );
 }
 
@@ -180,15 +142,11 @@ function Logo({ className = "", noisy = false, force } = {}) {
 const Header = ({ onBuyToolkit }) => {
   const [open, setOpen] = useState(false);
   return (
-    <header
-      className="fixed top-0 left-0 w-full z-30
-                 bg-gradient-to-r from-slate-400/35 via-slate-700/55 to-slate-900/85
-                 backdrop-blur-md border-b border-white/10"
-    >
+    <header className="fixed top-0 left-0 w-full z-30 bg-gradient-to-r from-slate-400/35 via-slate-700/55 to-slate-900/85 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          {/* Header is always dark → force dark variant */}
-          <Logo force="dark" className="h-8 md:h-14 lg:h-14 w-auto drop-shadow" />
+          {/* Dark header → small wordmark with subtle plate */}
+          <BrandWordmark size="sm" plate />
         </div>
 
         {/* Desktop Nav */}
@@ -312,10 +270,12 @@ const ProductShowcaseSection = () => {
         </p>
 
         <div className="max-w-4xl mx-auto">
+          {/* Mockup Container (scaled down) */}
           <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
             <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
           </div>
 
+          {/* Description + Controls */}
           <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
               <h3 className="text-2xl font-bold text-slate-800 mb-2">{slides[idx].title}</h3>
@@ -373,74 +333,74 @@ const PricingSection = ({
         Pick what you need now. Upgrade later without paying twice.
       </p>
 
-    <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-      {/* $97 Toolkit */}
-      <div className="bg-white rounded-2xl shadow-xl border border-orange-300 p-8 flex flex-col">
-        <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Court-Ready Toolkit</h3>
-        <p className="text-slate-500 mb-6">All printables now + Founding Member perks at launch</p>
-        <div className="text-5xl font-extrabold text-slate-900 mb-1">$97</div>
-        <ul className="text-left text-slate-600 mt-6 space-y-2">
-          <li>• 10+ premium templates (PDF + editable)</li>
-          <li>• Step-by-step guides + videos</li>
-          <li>• Lifetime SaaS discount + beta access</li>
-        </ul>
-        <button onClick={onBuyToolkit} className="mt-8 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
-          Get the Full Toolkit
-        </button>
-        <p className="text-xs text-slate-400 mt-3">One-time payment.</p>
-      </div>
-
-      {/* $21 Founders Only */}
-      <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
-        <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access Only</h3>
-        <p className="text-slate-500 mb-6">Perks only — no printables today</p>
-        <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
-        <ul className="text-left text-slate-600 mt-6 space-y-2">
-          <li>• Lifetime SaaS discount</li>
-          <li>• Early beta access</li>
-          <li>• Founding Member recognition</li>
-        </ul>
-        <button onClick={onBuyFounders} className="mt-8 w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
-          Get Founders Access
-        </button>
-        <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime.</p>
-      </div>
-
-      {/* $15 Single PDF */}
-      <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
-        <h3 className="text-2xl font-bold text-slate-800 mb-2">Single Downloadable</h3>
-        <p className="text-slate-500 mb-6">Buy an individual worksheet or pack</p>
-        <div className="text-5xl font-extrabold text-slate-900 mb-1">$15</div>
-        <ul className="text-left text-slate-600 mt-6 space-y-2">
-          <li>• Choose the exact tool you need</li>
-          <li>• Immediate download via email</li>
-          <li>• $15 credit if you upgrade to Toolkit*</li>
-        </ul>
-        <button onClick={onPickSingle} className="mt-8 w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-4 rounded-lg shadow-md transition-all">
-          Choose a Single Tool
-        </button>
-        <p className="text-[11px] text-slate-400 mt-3">
-          *We’ll auto-apply your $15 toward the $97 Toolkit within 30 days.
-        </p>
-      </div>
-
-      {/* Support */}
-      <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
-        <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
-        <p className="text-slate-500 mb-6">No deliverables — just momentum</p>
-        <div className="text-3xl font-extrabold text-slate-900 mb-1">$2/mo</div>
-        <p className="text-slate-500 mb-6">or name your own one-time amount</p>
-        <div className="grid grid-cols-1 gap-3">
-          <button onClick={onContribMonthly} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
-            Contribute $2 / month
+      <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        {/* $97 Toolkit */}
+        <div className="bg-white rounded-2xl shadow-xl border border-orange-300 p-8 flex flex-col">
+          <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Court-Ready Toolkit</h3>
+          <p className="text-slate-500 mb-6">All printables now + Founding Member perks at launch</p>
+          <div className="text-5xl font-extrabold text-slate-900 mb-1">$97</div>
+          <ul className="text-left text-slate-600 mt-6 space-y-2">
+            <li>• 10+ premium templates (PDF + editable)</li>
+            <li>• Step-by-step guides + videos</li>
+            <li>• Lifetime SaaS discount + beta access</li>
+          </ul>
+          <button onClick={onBuyToolkit} className="mt-8 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
+            Get the Full Toolkit
           </button>
-          <button onClick={onContribNYOP} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-3 rounded-lg shadow-md transition-all">
-            Name-Your-Price (one-time)
-          </button>
+          <p className="text-xs text-slate-400 mt-3">One-time payment.</p>
         </div>
-        <p className="text-xs text-slate-400 mt-3">Thank you. Seriously.</p>
+
+        {/* $21 Founders Only */}
+        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
+          <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access Only</h3>
+          <p className="text-slate-500 mb-6">Perks only — no printables today</p>
+          <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
+          <ul className="text-left text-slate-600 mt-6 space-y-2">
+            <li>• Lifetime SaaS discount</li>
+            <li>• Early beta access</li>
+            <li>• Founding Member recognition</li>
+          </ul>
+          <button onClick={onBuyFounders} className="mt-8 w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
+            Get Founders Access
+          </button>
+          <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime.</p>
+        </div>
+
+        {/* $15 Single PDF */}
+        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
+          <h3 className="text-2xl font-bold text-slate-800 mb-2">Single Downloadable</h3>
+          <p className="text-slate-500 mb-6">Buy an individual worksheet or pack</p>
+          <div className="text-5xl font-extrabold text-slate-900 mb-1">$15</div>
+          <ul className="text-left text-slate-600 mt-6 space-y-2">
+            <li>• Choose the exact tool you need</li>
+            <li>• Immediate download via email</li>
+            <li>• $15 credit if you upgrade to Toolkit*</li>
+          </ul>
+          <button onClick={onPickSingle} className="mt-8 w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-4 rounded-lg shadow-md transition-all">
+            Choose a Single Tool
+          </button>
+          <p className="text-[11px] text-slate-400 mt-3">
+            *We’ll auto-apply your $15 toward the $97 Toolkit within 30 days.
+          </p>
+        </div>
+
+        {/* Support */}
+        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
+          <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
+          <p className="text-slate-500 mb-6">No deliverables — just momentum</p>
+          <div className="text-3xl font-extrabold text-slate-900 mb-1">$2/mo</div>
+          <p className="text-slate-500 mb-6">or name your own one-time amount</p>
+          <div className="grid grid-cols-1 gap-3">
+            <button onClick={onContribMonthly} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
+              Contribute $2 / month
+            </button>
+            <button onClick={onContribNYOP} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-3 rounded-lg shadow-md transition-all">
+              Name-Your-Price (one-time)
+            </button>
+          </div>
+          <p className="text-xs text-slate-400 mt-3">Thank you. Seriously.</p>
+        </div>
       </div>
-    </div>
     </div>
   </section>
 );
@@ -476,93 +436,4 @@ function SingleItemModal({ open, onClose, onSelect }) {
     <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6">
         <h3 className="text-xl font-bold text-slate-900 mb-3">Choose a Single Tool</h3>
-        <p className="text-slate-600 mb-4">Each item is $15. You’ll get the download link by email after checkout.</p>
-        <div className="max-h-80 overflow-y-auto divide-y">
-          {SINGLE_ITEMS.map((item) => (
-            <button
-              key={item.sku}
-              onClick={() => onSelect(item.sku)}
-              className="w-full text-left py-3 px-2 hover:bg-slate-50"
-            >
-              {item.name}
-            </button>
-          ))}
-        </div>
-        <div className="flex justify-end mt-4">
-          <button onClick={onClose} className="px-4 py-2 rounded bg-slate-200 hover:bg-slate-300 text-slate-900">Close</button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ---------------- Main Page ---------------- */
-export default function Home() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [singleOpen, setSingleOpen] = useState(false);
-
-  // --- API helpers: slug-based endpoints
-  const postTo = async (slug) => {
-    const r = await fetch(`/api/checkout/${slug}`, { method: "POST" });
-    const j = await r.json();
-    if (!r.ok || !j?.url) throw new Error(j?.error || "Checkout error");
-    window.location.href = j.url;
-  };
-
-  const onBuyToolkit = async () => {
-    setIsLoading(true);
-    try { await postTo("toolkit"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
-
-  const onBuyFounders = async () => {
-    setIsLoading(true);
-    try { await postTo("founders"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
-
-  const onPickSingle = () => setSingleOpen(true);
-
-  const onBuySingle = async (sku) => {
-    setSingleOpen(false);
-    setIsLoading(true);
-    try {
-      const slug = SKU_TO_SLUG[sku];
-      if (!slug) throw new Error("Unknown item.");
-      await postTo(slug);
-    } catch (e) {
-      alert(e.message || "Unable to start checkout.");
-      setIsLoading(false);
-    }
-  };
-
-  const onContribMonthly = async () => {
-    setIsLoading(true);
-    try { await postTo("support-monthly"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
-
-  const onContribNYOP = async () => {
-    setIsLoading(true);
-    try { await postTo("support-nyop"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
-
-  return (
-    <div className="bg-white">
-      <Header onBuyToolkit={onBuyToolkit} />
-      <main className="flex flex-col w-full overflow-x-hidden">
-        <HeroSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
-        <FeaturesSection />
-        <ProductShowcaseSection />
-        <StatisticsSection />
-        <PricingSection
-          onBuyToolkit={onBuyToolkit}
-          onBuyFounders={onBuyFounders}
-          onPickSingle={onPickSingle}
-          onContribMonthly={onContribMonthly}
-          onContribNYOP={onContribNYOP}
-        />
-        <CallToActionSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
-      </main>
-      <Footer />
-      <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
-    </div>
-  );
-}
+        <p className="text-slate-600 mb-4">Each item is $15. You’ll get the download link by email after checkout
