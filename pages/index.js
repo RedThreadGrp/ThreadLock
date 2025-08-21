@@ -436,4 +436,93 @@ function SingleItemModal({ open, onClose, onSelect }) {
     <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6">
         <h3 className="text-xl font-bold text-slate-900 mb-3">Choose a Single Tool</h3>
-        <p className="text-slate-600 mb-4">Each item is $15. You’ll get the download link by email after checkout
+        <p className="text-slate-600 mb-4">Each item is $15. You’ll get the download link by email after checkout.</p>
+        <div className="max-h-80 overflow-y-auto divide-y">
+          {SINGLE_ITEMS.map((item) => (
+            <button
+              key={item.sku}
+              onClick={() => onSelect(item.sku)}
+              className="w-full text-left py-3 px-2 hover:bg-slate-50"
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+        <div className="flex justify-end mt-4">
+          <button onClick={onClose} className="px-4 py-2 rounded bg-slate-200 hover:bg-slate-300 text-slate-900">Close</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- Main Page ---------------- */
+export default function Home() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [singleOpen, setSingleOpen] = useState(false);
+
+  // --- API helpers: slug-based endpoints
+  const postTo = async (slug) => {
+    const r = await fetch(`/api/checkout/${slug}`, { method: "POST" });
+    const j = await r.json();
+    if (!r.ok || !j?.url) throw new Error(j?.error || "Checkout error");
+    window.location.href = j.url;
+  };
+
+  const onBuyToolkit = async () => {
+    setIsLoading(true);
+    try { await postTo("toolkit"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
+  };
+
+  const onBuyFounders = async () => {
+    setIsLoading(true);
+    try { await postTo("founders"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
+  };
+
+  const onPickSingle = () => setSingleOpen(true);
+
+  const onBuySingle = async (sku) => {
+    setSingleOpen(false);
+    setIsLoading(true);
+    try {
+      const slug = SKU_TO_SLUG[sku];
+      if (!slug) throw new Error("Unknown item.");
+      await postTo(slug);
+    } catch (e) {
+      alert(e.message || "Unable to start checkout.");
+      setIsLoading(false);
+    }
+  };
+
+  const onContribMonthly = async () => {
+    setIsLoading(true);
+    try { await postTo("support-monthly"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
+  };
+
+  const onContribNYOP = async () => {
+    setIsLoading(true);
+    try { await postTo("support-nyop"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
+  };
+
+  return (
+    <div className="bg-white">
+      <Header onBuyToolkit={onBuyToolkit} />
+      <main className="flex flex-col w-full overflow-x-hidden">
+        <HeroSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
+        <FeaturesSection />
+        <ProductShowcaseSection />
+        <StatisticsSection />
+        <PricingSection
+          onBuyToolkit={onBuyToolkit}
+          onBuyFounders={onBuyFounders}
+          onPickSingle={onPickSingle}
+          onContribMonthly={onContribMonthly}
+          onContribNYOP={onContribNYOP}
+        />
+        <CallToActionSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
+      </main>
+      <Footer />
+      <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
+    </div>
+  );
+}
