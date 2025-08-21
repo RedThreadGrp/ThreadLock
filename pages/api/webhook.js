@@ -188,8 +188,8 @@ function renderEmail({ email, links, session, slug }) {
 
   // Subject lines
   const subject = hasDownloads
-    ? `Your ${productTitle} is ready 🎉`
-    : `Thanks for your purchase of ${productTitle} 🎉`;
+    ? `Your ${productTitle} is ready`
+    : `Thanks for your purchase of ${productTitle}`;
 
   // Body HTML
   const downloadsHtml = hasDownloads
