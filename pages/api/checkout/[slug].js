@@ -1,5 +1,5 @@
 // /pages/api/checkout/[slug].js
-import { stripeClient } from "@/lib/stripeEnv"; // keep your existing stripeClient; we won't use requirePrice
+import { stripeClient } from "@/lib/stripeEnv"; // keep your existing client
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -11,29 +11,30 @@ export default async function handler(req, res) {
     process.env.DOMAIN ||
     `${req.headers["x-forwarded-proto"] || "https"}://${req.headers.host}`;
 
-  // Heuristic: if the Stripe key is a test key, prefer *_TEST envs
-  const isTestKey = String(stripeClient?._api?.auth).startsWith("sk_test_");
+  // Determine live vs test from the secret key actually in use
+  const isTestKey = String(stripeClient?._api?.auth || "").startsWith("sk_test_");
 
   // Map slugs -> { env: string | string[], mode: 'payment' | 'subscription' }
+  // You can add/remove slugs freely. Values are ENV VAR *bases* (without _TEST).
   const routes = {
     // Bundles / tiers
-    toolkit:         { env: ["FM_TOOLKIT_PRICE_ID", "PRICE_TOOLKIT"], mode: "payment" },
-    founders:        { env: ["PRICE_FOUNDERS_ONLY"],                 mode: "payment" },
+    toolkit:           { env: ["FM_TOOLKIT_PRICE_ID", "PRICE_TOOLKIT"], mode: "payment" },
+    founders:          { env: "PRICE_FOUNDERS_ONLY",                    mode: "payment" },
 
     // Support
-    "support-monthly": { env: ["PRICE_SUPPORT_MONTHLY"],            mode: "subscription" },
-    "support-nyop":    { env: ["PRICE_SUPPORT_NYOP"],               mode: "payment" },
+    "support-monthly": { env: "PRICE_SUPPORT_MONTHLY",                  mode: "subscription" },
+    "support-nyop":    { env: "PRICE_SUPPORT_NYOP",                     mode: "payment" },
 
     // Singles
-    "common-mistakes":  { env: ["PRICE_COMMON_MISTAKES"],            mode: "payment" },
-    "basic-motion":     { env: ["PRICE_BASIC_MOTION"],               mode: "payment" },
-    "case-timeline":    { env: ["PRICE_CASE_TIMELINE"],              mode: "payment" },
-    "common-response":  { env: ["PRICE_COMMON_RESPONSE"],            mode: "payment" },
-    "cross-exam":       { env: ["PRICE_CROSS_EXAM"],                 mode: "payment" },
-    "evidence-log":     { env: ["PRICE_EVIDENCE_LOG"],               mode: "payment" },
-    "find-rules":       { env: ["PRICE_FIND_RULES"],                 mode: "payment" },
-    "pre-hearing":      { env: ["PRICE_PRE_HEARING"],                mode: "payment" },
-    "proof-of-service": { env: ["PRICE_PROOF_OF_SERVICE"],           mode: "payment" },
+    "common-mistakes":  { env: "PRICE_COMMON_MISTAKES",   mode: "payment" },
+    "basic-motion":     { env: "PRICE_BASIC_MOTION",      mode: "payment" },
+    "case-timeline":    { env: "PRICE_CASE_TIMELINE",     mode: "payment" },
+    "common-response":  { env: "PRICE_COMMON_RESPONSE",   mode: "payment" },
+    "cross-exam":       { env: "PRICE_CROSS_EXAM",        mode: "payment" },
+    "evidence-log":     { env: "PRICE_EVIDENCE_LOG",      mode: "payment" },
+    "find-rules":       { env: "PRICE_FIND_RULES",        mode: "payment" },
+    "pre-hearing":      { env: "PRICE_PRE_HEARING",       mode: "payment" },
+    "proof-of-service": { env: "PRICE_PROOF_OF_SERVICE",  mode: "payment" },
     "trial-quick-ref":  { env: ["PRICE_TRIAL_QUICK_REF", "PRICE_TRIAL_QUICK_REF_GUIDE"], mode: "payment" },
   };
 
@@ -41,7 +42,6 @@ export default async function handler(req, res) {
   const cfg = routes[slug];
   if (!cfg) return res.status(400).json({ error: "Invalid product slug" });
 
-  // Resolve Price ID:
   const priceId = resolvePriceId(cfg.env, { isTestKey });
   if (!priceId) {
     return res.status(500).json({
@@ -70,25 +70,23 @@ export default async function handler(req, res) {
   }
 }
 
-/** Build the list of env var names to try, including *_TEST when on test keys */
+/** Build the list of env names to try, including *_TEST when on test keys */
 function expandEnvNames(names, { isTestKey }) {
   const base = Array.isArray(names) ? names : [names];
   const expanded = [];
   for (const n of base) {
-    // Try *_TEST first on test keys, then the base
     if (isTestKey) expanded.push(`${n}_TEST`, n);
     else expanded.push(n);
   }
-  // Remove duplicates while preserving order
   return [...new Set(expanded)];
 }
 
-/** Return the first non-empty env var value from expanded list */
+/** Return the first valid Stripe Price ID from expanded list */
 function resolvePriceId(names, { isTestKey }) {
   const candidates = expandEnvNames(names, { isTestKey });
   for (const envName of candidates) {
     const val = process.env[envName];
-    if (val && /^price_/.test(val)) return val; // sanity check for Stripe Price IDs
+    if (val && /^price_/.test(val)) return val;
   }
   return null;
 }
