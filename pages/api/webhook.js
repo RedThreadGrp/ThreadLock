@@ -23,7 +23,29 @@ const PREFIX = (() => {
 })();
 const LINK_TTL_HOURS = parseInt(process.env.LINK_TTL_HOURS || "24", 10);
 
-/* Map slug -> filename substring(s) (case-insensitive) */
+// If set, we will send this exact ZIP file (filename relative to PREFIX)
+const TOOLKIT_ZIP = (process.env.SUPABASE_TOOLKIT_ZIP || "").trim();
+
+/* Human-friendly names for email subjects */
+const PRODUCT_TITLES = {
+  toolkit: "ThreadLock Toolkit",
+  founders: "Founders Access",
+  "support-nyop": "Support (one-time)",
+  "support-monthly": "Support ($2/mo)",
+
+  "common-mistakes": "Avoiding Common Mistakes in Court",
+  "basic-motion": "Basic Motion Template",
+  "case-timeline": "Case Event Timeline Worksheet",
+  "common-response": "Common Legal Response Timelines",
+  "cross-exam": "Direct & Cross-Examination Planning",
+  "evidence-log": "Evidence Tracking Log",
+  "find-rules": "Finding the Right Court Rules",
+  "pre-hearing": "Pre-Hearing Preparation Checklist",
+  "proof-of-service": "Proof of Service Tracker",
+  "trial-quick-ref": "Trial & Hearing Quick Reference",
+};
+
+/* Map slug -> filename substring(s) (case-insensitive) for singles */
 const SLUG_PATTERNS = {
   "common-mistakes":    ["avoiding common mistakes in court.pdf"],
   "basic-motion":       ["basic motion template.pdf"],
@@ -35,7 +57,7 @@ const SLUG_PATTERNS = {
   "pre-hearing":        ["pre-hearing preparation checklist.pdf"],
   "proof-of-service":   ["proof of service tracker.pdf"],
   "trial-quick-ref":    ["trial & hearing quick reference.pdf"],
-  // "toolkit" handled specially (all files)
+  // "toolkit" handled specially (ZIP only)
 };
 
 /* ---------- helpers ---------- */
@@ -71,7 +93,8 @@ async function listBucket() {
     offset: 0,
   });
   if (error) throw new Error(`Supabase list error: ${error.message}`);
-  return data || [];
+  // Only keep files (some SDK returns folders with null metadata or no extension)
+  return (data || []).filter((f) => !!f?.name && f.name.includes("."));
 }
 
 async function signPaths(names) {
@@ -86,15 +109,49 @@ async function signPaths(names) {
   return out;
 }
 
-async function getLinksForSlug(slug) {
-  if (!slug) return [];
+/**
+ * For the toolkit, return ONE ZIP link.
+ * Priority:
+ *   1) SUPABASE_TOOLKIT_ZIP (exact filename relative to PREFIX)
+ *   2) First .zip whose name includes toolkit/full/bundle/complete/all
+ *   3) First .zip (any)
+ *   4) Fallback to everything (legacy) + warn
+ */
+async function getToolkitZipLink() {
   const all = await listBucket();
   const names = all.map((f) => f.name);
 
-  if (slug === "toolkit") {
-    // send everything in the bucket (root or prefix)
-    return signPaths(names);
+  if (TOOLKIT_ZIP) {
+    if (names.includes(TOOLKIT_ZIP)) {
+      console.log("Using configured toolkit ZIP:", TOOLKIT_ZIP);
+      return signPaths([TOOLKIT_ZIP]);
+    } else {
+      console.warn(`Configured SUPABASE_TOOLKIT_ZIP not found in bucket: ${TOOLKIT_ZIP}`);
+    }
   }
+
+  const zips = names.filter((n) => /\.zip$/i.test(n));
+  const preferred = zips.find((n) => /(toolkit|full|bundle|complete|all)/i.test(n)) || zips[0];
+
+  if (preferred) {
+    console.log("Auto-selected toolkit ZIP:", preferred);
+    return signPaths([preferred]);
+  }
+
+  console.warn("No ZIP found for toolkit; falling back to ALL files (legacy behavior).");
+  return signPaths(names); // last-resort fallback
+}
+
+async function getLinksForSlug(slug) {
+  if (!slug) return [];
+
+  if (slug === "toolkit") {
+    return getToolkitZipLink();
+  }
+
+  const all = await listBucket();
+  const names = all.map((f) => f.name);
+
   const pats = (SLUG_PATTERNS[slug] || []).map((s) => s.toLowerCase());
   if (!pats.length) return [];
 
@@ -106,39 +163,69 @@ async function getLinksForSlug(slug) {
   return signPaths(selected);
 }
 
+function titleFor(slug) {
+  return PRODUCT_TITLES[slug] || "Your Order";
+}
+
+function noDownloadParagraph(slug) {
+  switch (slug) {
+    case "founders":
+      return "There are no downloads with this purchase. Your Founders perks will be applied at launch — we'll email you updates.";
+    case "support-monthly":
+      return "There are no downloads with this purchase. Your monthly support is now active — thank you for backing the build!";
+    case "support-nyop":
+      return "There are no downloads with this purchase. Thank you for supporting the build!";
+    default:
+      return "There are no downloads for this purchase. If this seems wrong, reply to this email.";
+  }
+}
+
 function renderEmail({ email, links, session, slug }) {
+  const productTitle = titleFor(slug);
+  const hasDownloads = links.length > 0;
   const ref = session.id;
   const expires = LINK_TTL_HOURS;
-  const listHtml = links.length
-    ? `<ul>${links
-        .map(
-          ({ name, url }) =>
-            `<li style="margin:6px 0"><a href="${url}" target="_blank" rel="noopener">${name}</a></li>`
-        )
-        .join("")}</ul>`
-    : `<p>No downloads for this purchase. If this seems wrong, reply to this email.</p>`;
 
-  return {
-    subject: links.length ? "Your ThreadLock Toolkit is ready" : "Thanks for your purchase",
-    html: `
+  // Subject lines
+  const subject = hasDownloads
+    ? `Your ${productTitle} is ready 🎉`
+    : `Thanks for your purchase of ${productTitle} 🎉`;
+
+  // Body HTML
+  const downloadsHtml = hasDownloads
+    ? `
+        <p>Thanks for your purchase${email ? `, ${email}` : ""}. Download link${
+        links.length > 1 ? "s are" : " is"
+      } below (valid for ${expires} hours):</p>
+        <ul>
+          ${links
+            .map(
+              ({ name, url }) =>
+                `<li style="margin:6px 0"><a href="${url}" target="_blank" rel="noopener">${name}</a></li>`
+            )
+            .join("")}
+        </ul>`
+    : `
+        <p>Thanks for your purchase${email ? `, ${email}` : ""}.</p>
+        <p>${noDownloadParagraph(slug)}</p>
+      `;
+
+  const html = `
       <div style="font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.45">
-        <h2>Your ThreadLock Toolkit is ready 🎉</h2>
-        <p>Thanks for your purchase${
-          email ? `, ${email}` : ""
-        }. Download links are below (valid for ${expires} hours):</p>
-        ${listHtml}
+        <h2>${subject}</h2>
+        ${downloadsHtml}
         <p style="color:#64748b;font-size:13px;margin-top:18px">
           Order Reference: ${ref}<br/>
           Need help? Reply to this email.
         </p>
-      </div>`,
-    text:
-      (links.length
-        ? `Your ThreadLock Toolkit is ready.\n\n` +
-          links.map((l) => `• ${l.name}: ${l.url}`).join("\n") +
-          `\n\nLinks valid for ${expires} hours.\nOrder Reference: ${ref}`
-        : `Thanks for your purchase.\nOrder Reference: ${ref}`),
-  };
+      </div>`;
+
+  // Plain-text fallback
+  const text = hasDownloads
+    ? `${subject}\n\n${links.map((l) => `• ${l.name}: ${l.url}`).join("\n")}\n\nLinks valid for ${expires} hours.\nOrder Reference: ${ref}`
+    : `${subject}\n\n${noDownloadParagraph(slug)}\nOrder Reference: ${ref}`;
+
+  return { subject, html, text };
 }
 
 /* ---------- webhook handler ---------- */
@@ -171,7 +258,7 @@ export default async function handler(req, res) {
           verifiedWith: event._verified_with,
         });
 
-        // Build links (toolkit or single items)
+        // Build links
         let links = [];
         try {
           links = await getLinksForSlug(slug);
