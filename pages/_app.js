@@ -8,6 +8,8 @@ const font = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["500","700","800"]
 export default function App({ Component, pageProps }) {
   const siteUrl = "https://threadlock.ai";
   const ogImage = `${siteUrl}/og-image.jpg`; // absolute URL
+  <meta property="og:image:secure_url" content={ogImage} />
+  <meta property="og:image:type" content="image/jpeg" />
 
   return (
     <>
