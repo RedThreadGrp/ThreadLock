@@ -43,6 +43,9 @@ export default async function handler(req, res) {
 
   const { priceId, tried, presence } = resolvePriceId(cfg.env, { isTestKey });
 
+  // Slugs that use a Price with custom_unit_amount (Stripe forbids promos on these)
+  const nyopDenylist = new Set(["support-nyop"]);
+
   // Optional diagnostics
   if (req.query.debug) {
     return res.status(200).json({
@@ -50,7 +53,10 @@ export default async function handler(req, res) {
       isTestKey,
       tried,
       present: presence,
-      chosen: priceId ? { envName: presence.find(p => process.env[p.name] === priceId)?.name, priceId } : null,
+      chosen: priceId
+        ? { envName: presence.find(p => process.env[p.name] === priceId)?.name, priceId }
+        : null,
+      promosEnabled: !nyopDenylist.has(slug),
     });
   }
 
@@ -65,13 +71,17 @@ export default async function handler(req, res) {
     const sessionParams = {
       mode: cfg.mode,
       line_items: [{ price: priceId, quantity: 1 }],
-      allow_promotion_codes: true,
       success_url: `${origin}/thank-you?sku=${encodeURIComponent(slug)}&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/?canceled=true`,
       metadata: { slug },
     };
 
-    // ✅ Only add customer_creation for one-time payments
+    // Allow promo codes everywhere EXCEPT NYOP slugs
+    if (!nyopDenylist.has(slug)) {
+      sessionParams.allow_promotion_codes = true;
+    }
+
+    // Only add customer_creation for one-time payments
     if (cfg.mode === "payment") {
       sessionParams.customer_creation = "if_required";
     }
@@ -87,7 +97,12 @@ export default async function handler(req, res) {
     });
     // Surface message when debugging
     if (req.query.debug) {
-      return res.status(500).json({ error: "Unable to create checkout session.", message: err?.message, code: err?.code, type: err?.type });
+      return res.status(500).json({
+        error: "Unable to create checkout session.",
+        message: err?.message,
+        code: err?.code,
+        type: err?.type,
+      });
     }
     return res.status(500).json({ error: "Unable to create checkout session." });
   }
