@@ -139,56 +139,93 @@ function BrandWordmark({ size = "md", plate = false, className = "" }) {
 }
 
 /* ---------------- Header ---------------- */
+import Head from "next/head";
+import { useState } from "react";
+import { BrandWordmark } from "@/components/BrandWordmark";
+import { MenuIcon, XIcon } from "lucide-react";
+
 const Header = ({ onBuyToolkit }) => {
   const [open, setOpen] = useState(false);
+
   return (
-    <header className="fixed top-0 left-0 w-full z-30 bg-gradient-to-r from-slate-400/35 via-slate-700/55 to-slate-900/85 backdrop-blur-md border-b border-white/10">
-      <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center space-x-3">
-          {/* Dark header → small wordmark with subtle plate */}
-          <BrandWordmark size="sm" plate />
+    <>
+      {/* SEO / Open Graph Meta */}
+      <Head>
+        <title>ThreadLock™ | Family Law Technology</title>
+        <meta
+          property="og:title"
+          content="ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management"
+        />
+        <meta
+          property="og:description"
+          content="ThreadLock is AI-powered family law software designed for custody disputes, child support cases, and family court evidence management. Make the system make sense."
+        />
+        <meta property="og:image" content="https://threadlock.ai/og-image.jpg" />
+        <meta property="og:url" content="https://threadlock.ai" />
+        <meta property="og:type" content="website" />
+      </Head>
+
+      {/* Actual Site Header */}
+      <header className="fixed top-0 left-0 w-full z-30 bg-gradient-to-r from-slate-400/35 via-slate-700/55 to-slate-900/85 backdrop-blur-md border-b border-white/10">
+        <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <BrandWordmark size="sm" plate />
+          </div>
+
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center space-x-6 text-white font-medium">
+            <a href="#features" className="hover:text-orange-400 transition-colors">Features</a>
+            <a href="#showcase" className="hover:text-orange-400 transition-colors">Showcase</a>
+            <a href="#stats" className="hover:text-orange-400 transition-colors">Stats</a>
+            <a href="#pricing" className="hover:text-orange-400 transition-colors">Pricing</a>
+            <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Blog</a>
+            <button
+              onClick={onBuyToolkit}
+              className="bg-orange-500 text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-orange-600 transform hover:-translate-y-0.5 transition-all"
+            >
+              Get the $97 Toolkit
+            </button>
+          </nav>
+
+          {/* Mobile toggle */}
+          <button
+            className="md:hidden text-white p-2"
+            aria-label="Toggle menu"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? <XIcon /> : <MenuIcon />}
+          </button>
         </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-6 text-white font-medium">
-          <a href="#features" className="hover:text-orange-400 transition-colors">Features</a>
-          <a href="#showcase" className="hover:text-orange-400 transition-colors">Showcase</a>
-          <a href="#stats" className="hover:text-orange-400 transition-colors">Stats</a>
-          <a href="#pricing" className="hover:text-orange-400 transition-colors">Pricing</a>
-          <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Blog</a>
-          <button
-            onClick={onBuyToolkit}
-            className="bg-orange-500 text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-orange-600 transform hover:-translate-y-0.5 transition-all"
-          >
-            Get the $97 Toolkit
-          </button>
-        </nav>
-
-        {/* Mobile toggle */}
-        <button className="md:hidden text-white p-2" aria-label="Toggle menu" onClick={() => setOpen(!open)}>
-          {open ? <XIcon /> : <MenuIcon />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
-        <div className="px-4 pb-4 pt-2 text-white space-y-2 bg-slate-900/80 backdrop-blur-md">
-          <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Features</a>
-          <a href="#showcase" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Showcase</a>
-          <a href="#stats" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Stats</a>
-          <a href="#pricing" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Pricing</a>
-          <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="block py-2 hover:text-orange-400">Blog</a>
-          <button
-            onClick={() => { setOpen(false); onBuyToolkit(); }}
-            className="w-full mt-2 bg-orange-500 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-600 transition-all"
-          >
-            Get the $97 Toolkit
-          </button>
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${
+            open ? "max-h-96" : "max-h-0"
+          }`}
+        >
+          <div className="px-4 pb-4 pt-2 text-white space-y-2 bg-slate-900/80 backdrop-blur-md">
+            <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Features</a>
+            <a href="#showcase" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Showcase</a>
+            <a href="#stats" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Stats</a>
+            <a href="#pricing" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Pricing</a>
+            <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="block py-2 hover:text-orange-400">Blog</a>
+            <button
+              onClick={() => {
+                setOpen(false);
+                onBuyToolkit();
+              }}
+              className="w-full mt-2 bg-orange-500 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-600 transition-all"
+            >
+              Get the $97 Toolkit
+            </button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
+
+export default Header;
 
 /* ---------------- Sections ---------------- */
 const HeroSection = ({ onBuyToolkit, isLoading }) => (
