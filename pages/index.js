@@ -1,5 +1,10 @@
 // pages/index.js
 import React, { useState } from "react";
+import Head from "next/head";
+
+/* ---------------- SEO (page-level) ---------------- */
+const SITE_URL = "https://threadlock.ai";
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`; // absolute URL
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -125,7 +130,7 @@ const PdfExportUIMockup = () => (
   </div>
 );
 
-/* ---------------- Text Brand (no assets) ---------------- */
+/* ---------------- Text Brand ---------------- */
 function BrandWordmark({ size = "md", plate = false, className = "" }) {
   const sizes = { xs: "text-lg", sm: "text-xl", md: "text-2xl", lg: "text-4xl", xl: "text-6xl" };
   const plateStyles = plate ? "px-2 py-1 rounded-lg bg-white/10 ring-1 ring-white/15 backdrop-blur" : "";
@@ -236,17 +241,17 @@ const FeaturesSection = () => (
       <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12 md:mb-16">
         Our platform is designed to make evidence collection simple, secure, and stress-free.
       </p>
-      <div className="grid md:grid-cols-3 gap-8">
-        <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="AI-Guided Journaling">
-          Never miss a crucial detail. Our AI guides you to capture the specific, legally-relevant facts for your case.
-        </FeatureCard>
-        <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Immutable & Secure">
-          Entries are anchored for integrity—creating a record that stands up to scrutiny.
-        </FeatureCard>
-        <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court-Ready Exports">
-          Export clean timelines and summaries that a judge can actually read.
-        </FeatureCard>
-      </div>
+    </div>
+    <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+      <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="AI-Guided Journaling">
+        Never miss a crucial detail. Our AI guides you to capture the specific, legally-relevant facts for your case.
+      </FeatureCard>
+      <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Immutable & Secure">
+        Entries are anchored for integrity—creating a record that stands up to scrutiny.
+      </FeatureCard>
+      <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court-Ready Exports">
+        Export clean timelines and summaries that a judge can actually read.
+      </FeatureCard>
     </div>
   </section>
 );
@@ -265,9 +270,7 @@ const ProductShowcaseSection = () => {
     <section id="showcase" className="py-16 md:py-20 bg-slate-50">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12">
-          A quick look at how key features help you build a stronger case.
-        </p>
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12">A quick look at how key features help you build a stronger case.</p>
 
         <div className="max-w-4xl mx-auto">
           <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
@@ -483,24 +486,58 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-white">
-      <Header onBuyToolkit={onBuyToolkit} />
-      <main className="flex flex-col w-full overflow-x-hidden">
-        <HeroSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
-        <FeaturesSection />
-        <ProductShowcaseSection />
-        <StatisticsSection />
-        <PricingSection
-          onBuyToolkit={onBuyToolkit}
-          onBuyFounders={onBuyFounders}
-          onPickSingle={onPickSingle}
-          onContribMonthly={onContribMonthly}
-          onContribNYOP={onContribNYOP}
+    <>
+      {/* Page-level SEO (helps crawlers that ignore _app) */}
+      <Head>
+        <title>ThreadLock™ | Family Law Technology</title>
+        <meta
+          name="description"
+          content="AI-powered family law software for custody disputes, child support, and family court evidence management. Make the system make sense."
         />
-        <CallToActionSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
-      </main>
-      <Footer />
-      <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
-    </div>
+        <link rel="canonical" href={SITE_URL} />
+
+        {/* Open Graph */}
+        <meta property="og:site_name" content="ThreadLock" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={SITE_URL} />
+        <meta property="og:title" content="ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management" />
+        <meta property="og:description" content="AI-powered family law software designed for custody disputes, child support, and family court evidence management. Make the system make sense." />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:secure_url" content={OG_IMAGE} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="627" />
+
+        {/* Twitter / X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management" />
+        <meta name="twitter:description" content="AI-powered family law software for custody, child support, and evidence management." />
+        <meta name="twitter:image" content={OG_IMAGE} />
+
+        {/* Crawl hints */}
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#f97316" />
+      </Head>
+
+      <div className="bg-white">
+        <Header onBuyToolkit={onBuyToolkit} />
+        <main className="flex flex-col w-full overflow-x-hidden">
+          <HeroSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
+          <FeaturesSection />
+          <ProductShowcaseSection />
+          <StatisticsSection />
+          <PricingSection
+            onBuyToolkit={onBuyToolkit}
+            onBuyFounders={onBuyFounders}
+            onPickSingle={onPickSingle}
+            onContribMonthly={onContribMonthly}
+            onContribNYOP={onContribNYOP}
+          />
+          <CallToActionSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
+        </main>
+        <Footer />
+        <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
+      </div>
+    </>
   );
 }
