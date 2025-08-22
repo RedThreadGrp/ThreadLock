@@ -334,12 +334,12 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
         {/* $97 Toolkit */}
         <div className="bg-white rounded-2xl shadow-xl border border-orange-300 p-8 flex flex-col lg:min-h-[520px]">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Court-Ready Toolkit</h3>
-          <p className="text-slate-500 mb-6">All printables now + Founding Member perks at launch</p>
+          <p className="text-slate-500 mb-6">All printables now & Founding Member perks at launch</p>
           <div className="text-5xl font-extrabold text-slate-900 mb-1">$97</div>
           <ul className="text-left text-slate-600 mt-6 space-y-2">
-            <li>• 10+ premium templates (PDF + editable)</li>
-            <li>• Step-by-step guides + videos</li>
-            <li>• Lifetime SaaS discount + beta access</li>
+            <li>• 10+ premium templates (PDF)</li>
+            <li>• Step-by-step guides</li>
+            <li>• Lifetime SaaS discount and beta access</li>
           </ul>
           <div className="mt-auto" />
           <button onClick={onBuyToolkit} className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
@@ -362,7 +362,7 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
           <button onClick={onBuyFounders} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
             Get Founders Access
           </button>
-          <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime.</p>
+          <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime</p>
         </div>
 
         {/* $15 Single PDF */}
@@ -373,7 +373,6 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
           <ul className="text-left text-slate-600 mt-6 space-y-2">
             <li>• Choose the exact tool you need</li>
             <li>• Immediate download via email</li>
-            <li>• $15 credit if you upgrade to Toolkit*</li>
           </ul>
           <div className="mt-auto" />
           <button onClick={onPickSingle} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-4 rounded-lg shadow-md transition-all">
