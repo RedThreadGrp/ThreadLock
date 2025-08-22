@@ -320,15 +320,19 @@ const StatisticsSection = () => (
 );
 
 /* ---------------- Pricing ---------------- */
+// Changes:
+// 1) Slightly smaller on desktop: container is scaled down a touch on lg+
+// 2) Buttons aligned to the bottom: cards use flex-col + mt-auto before the button
+// 3) Consistent heights on desktop with lg:min-h
 const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
   <section id="pricing" className="py-20 md:py-24 bg-slate-50 text-center text-gray-800">
-    <div className="container mx-auto px-6">
+    <div className="container mx-auto px-6 lg:scale-[0.97] lg:origin-top">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Pricing</h2>
       <p className="text-lg text-slate-600 mb-12 max-w-3xl mx-auto">Pick what you need now. Upgrade later without paying twice.</p>
 
-      <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
         {/* $97 Toolkit */}
-        <div className="bg-white rounded-2xl shadow-xl border border-orange-300 p-8 flex flex-col">
+        <div className="bg-white rounded-2xl shadow-xl border border-orange-300 p-8 flex flex-col lg:min-h-[520px]">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Court-Ready Toolkit</h3>
           <p className="text-slate-500 mb-6">All printables now + Founding Member perks at launch</p>
           <div className="text-5xl font-extrabold text-slate-900 mb-1">$97</div>
@@ -337,14 +341,15 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
             <li>• Step-by-step guides + videos</li>
             <li>• Lifetime SaaS discount + beta access</li>
           </ul>
-          <button onClick={onBuyToolkit} className="mt-8 w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
+          <div className="mt-auto" />
+          <button onClick={onBuyToolkit} className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
             Get the Full Toolkit
           </button>
           <p className="text-xs text-slate-400 mt-3">One-time payment.</p>
         </div>
 
         {/* $21 Founders Only */}
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
+        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col lg:min-h-[520px]">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access Only</h3>
           <p className="text-slate-500 mb-6">Only available until September 15th. Get in early!</p>
           <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
@@ -353,14 +358,15 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
             <li>• Early beta access</li>
             <li>• Founding Member recognition</li>
           </ul>
-          <button onClick={onBuyFounders} className="mt-8 w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
+          <div className="mt-auto" />
+          <button onClick={onBuyFounders} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
             Get Founders Access
           </button>
           <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime.</p>
         </div>
 
         {/* $15 Single PDF */}
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
+        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col lg:min-h-[520px]">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Single Downloadable</h3>
           <p className="text-slate-500 mb-6">Buy one of our worksheets</p>
           <div className="text-5xl font-extrabold text-slate-900 mb-1">$15</div>
@@ -369,19 +375,20 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
             <li>• Immediate download via email</li>
             <li>• $15 credit if you upgrade to Toolkit*</li>
           </ul>
-          <button onClick={onPickSingle} className="mt-8 w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-4 rounded-lg shadow-md transition-all">
+          <div className="mt-auto" />
+          <button onClick={onPickSingle} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-4 rounded-lg shadow-md transition-all">
             Choose a Single Tool
           </button>
           <p className="text-[11px] text-slate-400 mt-3">*We’ll auto-apply your $15 toward the $97 Toolkit within 30 days.</p>
         </div>
 
         {/* Support */}
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col">
+        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col lg:min-h-[520px]">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
           <p className="text-slate-500 mb-6">Just momentum, with your support</p>
           <div className="text-3xl font-extrabold text-slate-900 mb-1">$2/mo</div>
           <p className="text-slate-500 mb-6">or name your own one-time amount</p>
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-3 mt-auto">
             <button onClick={onContribMonthly} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
               Contribute $2 / month
             </button>
@@ -496,6 +503,15 @@ export default function Home() {
         />
         <link rel="canonical" href={SITE_URL} />
 
+        {/* Favicon + PWA */}
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
+
         {/* Open Graph */}
         <meta property="og:site_name" content="ThreadLock" />
         <meta property="og:type" content="website" />
@@ -516,7 +532,6 @@ export default function Home() {
 
         {/* Crawl hints */}
         <meta name="robots" content="index, follow" />
-        <meta name="theme-color" content="#f97316" />
       </Head>
 
       <div className="bg-white">
