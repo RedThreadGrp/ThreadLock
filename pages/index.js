@@ -1,4 +1,4 @@
-// /pages/index.js
+// pages/index.js
 import React, { useState } from "react";
 
 /* ---------------- Icons ---------------- */
@@ -91,7 +91,7 @@ const TimelineUIMockup = () => (
           <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
             <p className="font-semibold">Custody Exchange Late</p>
             <p className="text-slate-400">July 26, 2025 - 6:30 PM</p>
-            <span className="text-green-400 text-[10px] flex items-center gap-1"><ShieldCheckIcon className="w-3 h-3"/> Blockchain Verified</span>
+            <span className="text-green-400 text-[10px] flex items-center gap-1"><ShieldCheckIcon className="w-3 h-3" /> Blockchain Verified</span>
           </div>
         </div>
         <div className="relative">
@@ -99,7 +99,7 @@ const TimelineUIMockup = () => (
           <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
             <p className="font-semibold">Email Received</p>
             <p className="text-slate-400">July 25, 2025 - 9:15 AM</p>
-            <span className="text-green-400 text-[10px] flex items-center gap-1"><ShieldCheckIcon className="w-3 h-3"/> Blockchain Verified</span>
+            <span className="text-green-400 text-[10px] flex items-center gap-1"><ShieldCheckIcon className="w-3 h-3" /> Blockchain Verified</span>
           </div>
         </div>
       </div>
@@ -127,7 +127,7 @@ const PdfExportUIMockup = () => (
 
 /* ---------------- Text Brand (no assets) ---------------- */
 function BrandWordmark({ size = "md", plate = false, className = "" }) {
-  const sizes = { xs:"text-lg", sm:"text-xl", md:"text-2xl", lg:"text-4xl", xl:"text-6xl" };
+  const sizes = { xs: "text-lg", sm: "text-xl", md: "text-2xl", lg: "text-4xl", xl: "text-6xl" };
   const plateStyles = plate ? "px-2 py-1 rounded-lg bg-white/10 ring-1 ring-white/15 backdrop-blur" : "";
   return (
     <span className={`inline-flex items-baseline font-extrabold tracking-tight select-none ${sizes[size]} ${plateStyles} ${className}`}>
@@ -138,13 +138,13 @@ function BrandWordmark({ size = "md", plate = false, className = "" }) {
   );
 }
 
+/* ---------------- Header ---------------- */
 const Header = ({ onBuyToolkit }) => {
   const [open, setOpen] = useState(false);
   return (
     <header className="fixed top-0 left-0 w-full z-30 bg-gradient-to-r from-slate-400/35 via-slate-700/55 to-slate-900/85 backdrop-blur-md border-b border-white/10">
       <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          {/* Dark header → small wordmark with subtle plate */}
           <BrandWordmark size="sm" plate />
         </div>
 
@@ -174,53 +174,15 @@ const Header = ({ onBuyToolkit }) => {
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${
-          open ? "max-h-96" : "max-h-0"
-        }`}
-      >
+      <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
         <div className="px-4 pb-4 pt-2 text-white space-y-2 bg-slate-900/80 backdrop-blur-md">
-          <a
-            href="#features"
-            onClick={() => setOpen(false)}
-            className="block py-2 hover:text-orange-400"
-          >
-            Features
-          </a>
-          <a
-            href="#showcase"
-            onClick={() => setOpen(false)}
-            className="block py-2 hover:text-orange-400"
-          >
-            Showcase
-          </a>
-          <a
-            href="#stats"
-            onClick={() => setOpen(false)}
-            className="block py-2 hover:text-orange-400"
-          >
-            Stats
-          </a>
-          <a
-            href="#pricing"
-            onClick={() => setOpen(false)}
-            className="block py-2 hover:text-orange-400"
-          >
-            Pricing
-          </a>
-          <a
-            href="https://blog.threadlock.ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block py-2 hover:text-orange-400"
-          >
-            Blog
-          </a>
+          <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Features</a>
+          <a href="#showcase" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Showcase</a>
+          <a href="#stats" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Stats</a>
+          <a href="#pricing" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Pricing</a>
+          <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="block py-2 hover:text-orange-400">Blog</a>
           <button
-            onClick={() => {
-              setOpen(false);
-              onBuyToolkit();
-            }}
+            onClick={() => { setOpen(false); onBuyToolkit(); }}
             className="w-full mt-2 bg-orange-500 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-600 transition-all"
           >
             Get the $97 Toolkit
@@ -249,10 +211,7 @@ const HeroSection = ({ onBuyToolkit, isLoading }) => (
         >
           {isLoading ? "Processing..." : "Get the $97 Toolkit"}
         </button>
-        <a
-          href="#pricing"
-          className="border border-slate-600 px-8 py-3 rounded-lg hover:bg-slate-800 hover:border-slate-500 transition-colors"
-        >
+        <a href="#pricing" className="border border-slate-600 px-8 py-3 rounded-lg hover:bg-slate-800 hover:border-slate-500 transition-colors">
           See All Options
         </a>
       </div>
@@ -311,12 +270,10 @@ const ProductShowcaseSection = () => {
         </p>
 
         <div className="max-w-4xl mx-auto">
-          {/* Mockup Container (scaled down) */}
           <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
             <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
           </div>
 
-          {/* Description + Controls */}
           <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
               <h3 className="text-2xl font-bold text-slate-800 mb-2">{slides[idx].title}</h3>
@@ -360,19 +317,11 @@ const StatisticsSection = () => (
 );
 
 /* ---------------- Pricing ---------------- */
-const PricingSection = ({
-  onBuyToolkit,
-  onBuyFounders,
-  onPickSingle,
-  onContribMonthly,
-  onContribNYOP,
-}) => (
+const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
   <section id="pricing" className="py-20 md:py-24 bg-slate-50 text-center text-gray-800">
     <div className="container mx-auto px-6">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Pricing</h2>
-      <p className="text-lg text-slate-600 mb-12 max-w-3xl mx-auto">
-        Pick what you need now. Upgrade later without paying twice.
-      </p>
+      <p className="text-lg text-slate-600 mb-12 max-w-3xl mx-auto">Pick what you need now. Upgrade later without paying twice.</p>
 
       <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {/* $97 Toolkit */}
@@ -420,9 +369,7 @@ const PricingSection = ({
           <button onClick={onPickSingle} className="mt-8 w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-4 rounded-lg shadow-md transition-all">
             Choose a Single Tool
           </button>
-          <p className="text-[11px] text-slate-400 mt-3">
-            *We’ll auto-apply your $15 toward the $97 Toolkit within 30 days.
-          </p>
+          <p className="text-[11px] text-slate-400 mt-3">*We’ll auto-apply your $15 toward the $97 Toolkit within 30 days.</p>
         </div>
 
         {/* Support */}
@@ -480,11 +427,7 @@ function SingleItemModal({ open, onClose, onSelect }) {
         <p className="text-slate-600 mb-4">Each item is $15. You’ll get the download link by email after checkout.</p>
         <div className="max-h-80 overflow-y-auto divide-y">
           {SINGLE_ITEMS.map((item) => (
-            <button
-              key={item.sku}
-              onClick={() => onSelect(item.sku)}
-              className="w-full text-left py-3 px-2 hover:bg-slate-50"
-            >
+            <button key={item.sku} onClick={() => onSelect(item.sku)} className="w-full text-left py-3 px-2 hover:bg-slate-50">
               {item.name}
             </button>
           ))}
@@ -502,7 +445,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [singleOpen, setSingleOpen] = useState(false);
 
-  // --- API helpers: slug-based endpoints
   const postTo = async (slug) => {
     const r = await fetch(`/api/checkout/${slug}`, { method: "POST" });
     const j = await r.json();
@@ -514,14 +456,11 @@ export default function Home() {
     setIsLoading(true);
     try { await postTo("toolkit"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
   };
-
   const onBuyFounders = async () => {
     setIsLoading(true);
     try { await postTo("founders"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
   };
-
   const onPickSingle = () => setSingleOpen(true);
-
   const onBuySingle = async (sku) => {
     setSingleOpen(false);
     setIsLoading(true);
@@ -534,12 +473,10 @@ export default function Home() {
       setIsLoading(false);
     }
   };
-
   const onContribMonthly = async () => {
     setIsLoading(true);
     try { await postTo("support-monthly"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
   };
-
   const onContribNYOP = async () => {
     setIsLoading(true);
     try { await postTo("support-nyop"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
