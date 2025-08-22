@@ -3,14 +3,16 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
   render() {
-    const siteUrl   = "https://threadlock.ai";
-    const title     = "ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management";
-    const desc      = "AI-powered family law software designed for custody disputes, child support, and family court evidence management. Make the system make sense.";
-    // Version query busts scraper cache
-    const ogImage   = `${siteUrl}/og-image.jpg?v=2025-08-21a`;
+    const siteUrl = "https://threadlock.ai";
+    const title =
+      "ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management";
+    const desc =
+      "AI-powered family law software designed for custody disputes, child support, and family court evidence management. Make the system make sense.";
+    const ogImage = `${siteUrl}/og-image.jpg?v=2025-08-21a`;
 
     return (
-      <Html lang="en">
+      // prefix helps some scrapers recognize OG tags reliably
+      <Html lang="en" prefix="og: http://ogp.me/ns#">
         <Head>
           {/* Primary */}
           <meta charSet="utf-8" />
@@ -21,7 +23,7 @@ export default class MyDocument extends Document {
           <meta name="author" content="ThreadLock" />
           <meta name="theme-color" content="#f97316" />
 
-          {/* Open Graph */}
+          {/* Open Graph (keep og:type near the top) */}
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="ThreadLock" />
           <meta property="og:url" content={siteUrl} />
@@ -39,24 +41,16 @@ export default class MyDocument extends Document {
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={desc} />
           <meta name="twitter:image" content={ogImage} />
-          {/* Add these when you have a handle: */}
-          {/* <meta name="twitter:site" content="@ThreadLockAI" />
-          <meta name="twitter:creator" content="@ThreadLockAI" /> */}
 
-          {/* Optional: JSON-LD for search engines */}
+          {/* JSON-LD (safe) */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                "name": "ThreadLock",
-                "url": siteUrl,
-                "potentialAction": {
-                  "@type": "SearchAction",
-                  "target": `${siteUrl}/?q={search_term_string}`,
-                  "query-input": "required name=search_term_string"
-                }
+                name: "ThreadLock",
+                url: siteUrl,
               }),
             }}
           />
