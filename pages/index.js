@@ -159,7 +159,7 @@ const Header = ({ onBuyToolkit }) => {
           <a href="#showcase" className="hover:text-orange-400 transition-colors">Showcase</a>
           <a href="#stats" className="hover:text-orange-400 transition-colors">Stats</a>
           <a href="#pricing" className="hover:text-orange-400 transition-colors">Pricing</a>
-          <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 transition-colors">Blog</a>
+          <a href="/blog" className="hover:text-orange-400 transition-colors">Blog</a>
           <button
             onClick={onBuyToolkit}
             className="bg-orange-500 text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-orange-600 transform hover:-translate-y-0.5 transition-all"
@@ -185,7 +185,7 @@ const Header = ({ onBuyToolkit }) => {
           <a href="#showcase" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Showcase</a>
           <a href="#stats" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Stats</a>
           <a href="#pricing" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Pricing</a>
-          <a href="https://blog.threadlock.ai" target="_blank" rel="noopener noreferrer" className="block py-2 hover:text-orange-400">Blog</a>
+          <a href="/blog" className="block py-2 hover:text-orange-400">Blog</a>
           <button
             onClick={() => { setOpen(false); onBuyToolkit(); }}
             className="w-full mt-2 bg-orange-500 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-600 transition-all"
