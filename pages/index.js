@@ -153,7 +153,7 @@ const Header = () => {
 
                 <nav className="hidden md:flex items-center space-x-6 text-slate-700 font-semibold">
                     <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
-                    <a href="#pricing" className="hover:text-orange-600 transition-colors">Pricing</a>
+                    <a href="#resources" className="hover:text-orange-600 transition-colors">Resources</a>
                     <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
                     <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Founder Story</a></Link>
                     <Link href="/signup">
@@ -175,7 +175,7 @@ const Header = () => {
             <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
                 <div className="px-4 pb-4 pt-2 text-slate-800 space-y-2 bg-white border-t border-slate-200">
                     <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Features</a>
-                    <a href="#pricing" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Pricing</a>
+                    <a href="#resources" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Resources</a>
                     <Link href="/sarahs-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Her Story</a></Link>
                     <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Founder Story</a></Link>
                     <Link href="/signup">
@@ -211,8 +211,8 @@ const HeroSection = ({ onBuyToolkit, isLoading }) => (
                 >
                     {isLoading ? "Processing..." : "Get the Toolkit"}
                 </button>
-                <a href="#pricing" className="font-semibold text-slate-700 px-8 py-4 rounded-lg hover:bg-slate-100 transition-colors">
-                    See Pricing
+                <a href="#resources" className="font-semibold text-slate-700 px-8 py-4 rounded-lg hover:bg-slate-100 transition-colors">
+                    See Resources
                 </a>
             </div>
         </div>
@@ -317,6 +317,44 @@ const OurMissionSection = () => (
     </section>
 );
 
+const SubscriptionPreviewSection = () => (
+    <section id="subscriptions" className="py-20 md:py-28 bg-gray-50">
+        <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Future-Ready Access</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">
+                While we're launching with our resource toolkits, here's a preview of the app subscription tiers coming soon.
+            </p>
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="bg-white p-8 rounded-2xl shadow-md border border-slate-200 text-center flex flex-col">
+                    <h3 className="text-xl font-bold text-slate-800 mb-2">Individual</h3>
+                    <p className="text-4xl font-extrabold text-slate-900 mb-2">$10<span className="text-lg font-semibold text-slate-500">/mo</span></p>
+                    <p className="text-slate-500 mb-6 flex-grow">Perfect for single users managing their own case.</p>
+                    <button disabled className="w-full mt-8 bg-slate-200 text-slate-500 font-semibold py-3 rounded-lg cursor-not-allowed">
+                        Coming Soon
+                    </button>
+                </div>
+                <div className="bg-white p-8 rounded-2xl shadow-lg ring-2 ring-orange-500 text-center flex flex-col">
+                     <h3 className="text-xl font-bold text-slate-800 mb-2">Lifetime Access</h3>
+                     <p className="text-4xl font-extrabold text-slate-900 mb-2">$100<span className="text-lg font-semibold text-slate-500">/one-time</span></p>
+                     <p className="text-slate-500 mb-6 flex-grow">Pay once for lifetime access for a single case.</p>
+                     <button disabled className="w-full mt-8 bg-slate-200 text-slate-500 font-semibold py-3 rounded-lg cursor-not-allowed">
+                        Coming Soon
+                    </button>
+                </div>
+                <div className="bg-white p-8 rounded-2xl shadow-md border border-slate-200 text-center flex flex-col">
+                    <h3 className="text-xl font-bold text-slate-800 mb-2">Employee Benefit</h3>
+                    <p className="text-4xl font-extrabold text-slate-900 mb-2">Custom</p>
+                    <p className="text-slate-500 mb-6 flex-grow">Offer ThreadLock as a benefit to support your team.</p>
+                    <div className="w-full mt-8 bg-slate-800 text-white font-semibold py-3 rounded-lg">
+                        Contact Us
+                    </div>
+                     <p className="text-sm text-slate-500 mt-2">info@threadlock.ai</p>
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
 const SignupSection = () => (
     <section id="signup" className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-6 text-center max-w-3xl">
@@ -324,17 +362,24 @@ const SignupSection = () => (
             <p className="text-lg text-slate-600 mb-8">
                 Join our waitlist for early access to the ThreadLock app, plus exclusive updates and resources.
             </p>
-            <form action="/api/signup" method="POST" className="max-w-md mx-auto">
+            <form action="/thank-you" method="POST" className="max-w-xl mx-auto">
                  <div className="flex flex-col sm:flex-row gap-4">
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                    />
                     <input
                         type="email"
                         name="email"
-                        placeholder="Enter your email address"
+                        placeholder="Your Email Address"
                         required
-                        className="flex-grow px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
                     />
                     <button type="submit" className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all">
-                        Join Waitlist
+                        Join
                     </button>
                 </div>
             </form>
@@ -344,10 +389,10 @@ const SignupSection = () => (
 
 
 const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
-    <section id="pricing" className="py-20 md:py-28 bg-gray-50 text-center text-gray-800">
+    <section id="resources" className="py-20 md:py-28 bg-gray-50 text-center text-gray-800">
         <div className="container mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Get Organized Today</h2>
-            <p className="text-lg text-slate-600 mb-16 max-w-3xl mx-auto">Pick what you need now. Get lifetime perks and upgrades when the full application launches.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Get Organized Today with Our Resources</h2>
+            <p className="text-lg text-slate-600 mb-16 max-w-3xl mx-auto">These downloadable toolkits are available now. Get lifetime app perks and upgrades when the full application launches.</p>
 
             <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
                 <div className="bg-white rounded-2xl shadow-lg ring-2 ring-orange-500 p-8 flex flex-col relative overflow-hidden">
@@ -416,6 +461,7 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
         </div>
     </section>
 );
+
 
 const Footer = () => (
     <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
@@ -522,12 +568,13 @@ export default function Home() {
             </Head>
 
             <div className="bg-white">
-                <Header onBuyToolkit={onBuyToolkit} />
+                <Header />
                 <main className="flex flex-col w-full overflow-x-hidden">
                     <HeroSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
                     <FeaturesSection />
                     <ProductShowcaseSection />
                     <OurMissionSection />
+                    <SubscriptionPreviewSection />
                     <SignupSection />
                     <PricingSection
                         onBuyToolkit={onBuyToolkit}
