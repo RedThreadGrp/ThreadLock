@@ -1,7 +1,7 @@
 import React from 'react';
 
 // The entire page is now a self-contained React component telling the founder's story,
-// with an improved, more readable layout.
+// with an improved, more readable layout and updated header navigation.
 export default function FounderStoryPage() {
 
   // Storing the year in a variable for easy updates.
@@ -17,7 +17,7 @@ export default function FounderStoryPage() {
         :root {
             --orange-600: #ea580c;
             --orange-700: #c2410c;
-            --blue-900: #1e293b; /* UPDATED to match slate-800 */
+            --blue-900: #1e293b; 
             --gray-50: #f9fafb;
             --gray-100: #f3f4f6;
             --gray-300: #d1d5db;
@@ -62,12 +62,16 @@ export default function FounderStoryPage() {
             font-weight: 700;
             color: var(--orange-600);
         }
+        .header nav {
+            display: flex;
+            align-items: center;
+        }
         .header nav a {
             color: var(--gray-800);
             font-weight: 600;
             text-decoration: none;
             margin-left: 1.5rem;
-            transition: color 0.2s;
+            transition: all 0.2s;
         }
         .header nav a:hover {
             color: var(--orange-600);
@@ -77,6 +81,22 @@ export default function FounderStoryPage() {
             border-bottom: 2px solid var(--orange-600);
             padding-bottom: 2px;
         }
+        .header nav a.waitlist-button {
+            background-color: var(--orange-600);
+            color: var(--white);
+            font-weight: 700;
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+        }
+        .header nav a.waitlist-button:hover {
+            background-color: var(--orange-700);
+            color: var(--white);
+            transform: translateY(-2px);
+            border-bottom: none;
+            padding-bottom: 0.5rem;
+        }
+
 
         /* Hero Section */
         .hero {
@@ -130,7 +150,6 @@ export default function FounderStoryPage() {
             line-height: 1.8;
         }
         
-        /* Highlighted/Oriented Story Step */
         .story-step.highlighted {
             background-color: var(--white);
             padding: 2.5rem;
@@ -144,8 +163,7 @@ export default function FounderStoryPage() {
         .story-step.left-oriented {
             text-align: left;
         }
-
-        /* NEW Standalone Quote Box */
+        
         .story-blockquote {
             background-color: var(--white);
             padding: 1.5rem;
@@ -159,8 +177,7 @@ export default function FounderStoryPage() {
             color: var(--gray-800);
             max-width: 38rem;
         }
-
-        /* NEW Highlighted Conclusion Box */
+        
         .epiphany-conclusion {
             background-color: var(--blue-900);
             color: var(--gray-100);
@@ -262,8 +279,8 @@ export default function FounderStoryPage() {
           <h1 className="header-title">ThreadLock.ai</h1>
           <nav>
             <a href="https://www.threadlock.ai">Home</a>
-            <a href="/sarahs-story">Sarah's Story</a>
             <a href="/founder-story" className="active">Founder Story</a>
+            <a href="/signup" className="waitlist-button">Join Waitlist</a>
           </nav>
         </header>
 
