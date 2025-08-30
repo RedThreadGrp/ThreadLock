@@ -12,6 +12,7 @@ import {
   Pie,
   Cell,
   Legend,
+  LabelList,
 } from 'recharts';
 
 /* ----------------- Icons ----------------- */
@@ -47,11 +48,10 @@ const COLORS = {
   grid: '#e2e8f0',
   hover: 'rgba(148,163,184,0.12)',
 };
-
 const useIsMounted = () => {
-  const [mounted, setMounted] = React.useState(false);
-  React.useEffect(() => setMounted(true), []);
-  return mounted;
+  const [m, setM] = React.useState(false);
+  React.useEffect(() => setM(true), []);
+  return m;
 };
 
 /* ----------------- Charts ----------------- */
@@ -64,15 +64,29 @@ const CasesBarChart = ({ data, title, note }) => {
       <div className="h-64 min-w-0">
         {mounted && (
           <ResponsiveContainer width="100%" height="100%">
-            <RBarChart data={data} margin={{ top: 8, right: 8, left: -8, bottom: 0 }}>
+            <RBarChart
+              data={data}
+              margin={{ top: 40, right: 24, left: 28, bottom: 24 }}
+            >
               <CartesianGrid strokeDasharray="3 3" stroke={COLORS.grid} />
-              <XAxis dataKey="label" tick={{ fontSize: 12 }} />
-              <YAxis domain={[0, 100]} tickFormatter={(v) => `${v}%`} width={36} />
+              <XAxis
+                dataKey="label"
+                tick={{ fontSize: 12 }}
+                interval={0}
+                tickMargin={10}
+              />
+              <YAxis
+                width={48}
+                domain={[0, 100]}
+                tickFormatter={(v) => `${v}%`}
+              />
               <Tooltip
                 cursor={{ fill: COLORS.hover }}
-                formatter={(value, _name, { payload }) => [payload.rawValue, payload.label]}
+                formatter={(value, _n, { payload }) => [payload.rawValue, payload.label]}
               />
-              <Bar dataKey="value" fill={COLORS.orange} radius={[6, 6, 0, 0]} />
+              <Bar dataKey="value" fill={COLORS.orange} radius={[6, 6, 0, 0]}>
+                <LabelList dataKey="rawValue" position="top" offset={6} />
+              </Bar>
             </RBarChart>
           </ResponsiveContainer>
         )}
@@ -91,17 +105,8 @@ const RepresentationPieChart = ({ data, title, note }) => {
         {mounted && (
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
-              <Pie
-                data={data}
-                dataKey="value"
-                nameKey="label"
-                innerRadius={60}
-                outerRadius={90}
-                paddingAngle={2}
-              >
-                {data.map((_, i) => (
-                  <Cell key={i} fill={i === 0 ? COLORS.orange : COLORS.slate} />
-                ))}
+              <Pie data={data} dataKey="value" nameKey="label" innerRadius={60} outerRadius={90} paddingAngle={2}>
+                {data.map((_, i) => <Cell key={i} fill={i === 0 ? COLORS.orange : COLORS.slate} />)}
               </Pie>
               <Tooltip formatter={(v, n) => [`${v}%`, n]} />
               <Legend verticalAlign="bottom" height={36} />
@@ -116,14 +121,14 @@ const RepresentationPieChart = ({ data, title, note }) => {
 /* ----------------- Feature Box ----------------- */
 function FeatureItem({ icon: Icon, title, children }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="bg-white p-5 rounded-lg border border-slate-200">
       <div className="flex items-center gap-3">
         <div className="w-12 h-12 shrink-0 bg-orange-100 text-orange-600 flex items-center justify-center rounded-lg">
           <Icon className="w-6 h-6" />
         </div>
-        <h3 className="m-0 text-base font-bold text-slate-800">{title}</h3>
+        <h3 className="feature-title text-base font-bold text-slate-800">{title}</h3>
       </div>
-      <p className="text-base m-0">{children}</p>
+      <p className="mt-2 mb-0 text-base text-slate-700">{children}</p>
     </div>
   );
 }
@@ -136,7 +141,6 @@ export default function WhitePaperPage() {
     { label: 'Paternity', value: 33, rawValue: '~0.4M' },
     { label: 'Adoption & Other', value: 25, rawValue: '~0.3M' },
   ];
-  
   const selfRepData = [
     { label: 'At Least One Party Self-Represented', value: 72, rawValue: '72%' },
     { label: 'Full Legal Representation', value: 28, rawValue: '28%' },
@@ -144,7 +148,6 @@ export default function WhitePaperPage() {
 
   return (
     <>
-      {/* If you are not on Next.js, delete jsx attribute below and move styles to a CSS file */}
       <style jsx global>{`
         body { background-color: #f1f5f9; }
         .wp-container { max-width: 840px; margin: auto; }
@@ -152,6 +155,7 @@ export default function WhitePaperPage() {
         .wp-section { padding: 3rem 1.5rem; border-bottom: 1px solid #e2e8f0; background-color: white;}
         .wp-section h2 { font-size: 2.25rem; font-weight: 800; color: #1e293b; margin-bottom: 1rem; }
         .wp-section h3 { font-size: 1.125rem; font-weight: 700; color: #1e293b; margin: 0; }
+        .feature-title { margin: 0; line-height: 1; }
         .wp-section p { font-size: 1.05rem; line-height: 1.75; color: #334155; margin: 0 0 1rem 0; }
         .wp-blockquote { border-left: 4px solid #ea580c; padding-left: 1rem; margin: 1.25rem 0; font-size: 1.05rem; font-style: italic; color: #1e293b; }
       `}</style>
@@ -160,17 +164,15 @@ export default function WhitePaperPage() {
         <main className="wp-container">
           <header className="wp-header">
             <BrandWordmark className="text-5xl justify-center" />
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mt-6 text-slate-900">
-              An Investment in Access, Equality, and Return
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mt-6 text-slate-900">An Investment in Access, Equality, and Return</h1>
             <p className="mt-4 text-lg text-slate-600">A white paper on a non equity investment in ThreadLock</p>
             <p className="text-sm text-slate-500 mt-2">August 30, 2025</p>
           </header>
-          
+
           <section className="wp-section">
             <h2>1. Executive Summary</h2>
             <p>The family law system is overloaded. About 3.8 million new cases hit the courts each year and in most of them at least one person goes it alone. People in the middle of life stress are told to figure out a legal maze with little help. That leads to worse outcomes and higher costs. ThreadLock is built to make the process clearer and fairer.</p>
-            <p>We are seeking <strong>$150,000</strong> in non equity funding to launch. We will start with a Tribal pilot and a simple employee benefit. Target time to market is 6 months, profitability in 12 to 15 months, and full payback in 18 to 24 months. With strong uptake the return can be 5x or more.</p>
+            <p>We are seeking <strong>$150,000</strong> in non equity funding to launch. We will start with a Tribal pilot and an employee benefit. Target time to market is 6 months, profitability in 12 to 15 months, and full payback in 18 to 24 months. With strong uptake the return can be 5x or more.</p>
           </section>
 
           <section className="wp-section">
@@ -181,41 +183,30 @@ export default function WhitePaperPage() {
             <p>That is what ThreadLock addresses. It is an information problem at scale.</p>
 
             <div className="grid md:grid-cols-2 gap-8 mt-8">
-              <CasesBarChart
-                data={marketData}
-                title="U.S. Annual Family Law Cases"
-                note="About 3.8M total each year"
-              />
-              <RepresentationPieChart
-                data={selfRepData}
-                title="Representation in Family Law"
-                note="Domestic relations cases"
-              />
+              <CasesBarChart data={marketData} title="U.S. Annual Family Law Cases" note="About 3.8M total each year" />
+              <RepresentationPieChart data={selfRepData} title="Representation in Family Law" note="Domestic relations cases" />
             </div>
             <p className="text-sm text-slate-500 mt-4 text-center">Source: National Center for State Courts, Legal Services Corporation.</p>
           </section>
 
           <section className="wp-section">
             <h2>3. The Product</h2>
-
             <div className="grid grid-cols-1 gap-8 mt-8">
               <FeatureItem icon={BrainCircuitIcon} title="AI guided journaling">
                 Prompts based on local rules capture witnesses, dates, and facts in clear language so evidence holds up.
               </FeatureItem>
-
               <FeatureItem icon={ShieldCheckIcon} title="Immutable records">
                 Every entry is timestamped on a blockchain to prevent edits and end fights about when something was logged.
               </FeatureItem>
-
               <FeatureItem icon={FileTextIcon} title="Court ready exports">
                 One click turns notes into clean summaries and timelines a judge can scan in minutes.
               </FeatureItem>
             </div>
           </section>
-          
+
           <section className="wp-section">
             <h2>4. Rollout</h2>
-            <p>We start with a Tribal pilot for fast adoption and real world proof. Then we sell it as an employee benefit at one dollar per employee per month. With traction, we scale direct to consumers.</p>
+            <p>We start with a Tribal pilot for fast adoption and real world proof. Then we sell it as an employee benefit at one dollar per employee per month. With traction we scale direct to consumers.</p>
           </section>
 
           <section className="wp-section">
