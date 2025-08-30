@@ -1,6 +1,6 @@
-// pages/index.js
 import React, { useState } from "react";
 import Head from "next/head";
+import Link from "next/link";
 
 /* ---------------- SEO (page-level) ---------------- */
 const SITE_URL = "https://threadlock.ai";
@@ -63,495 +63,482 @@ const SKU_TO_SLUG = {
 
 /* ---------------- UI Mockups (scaled down) ---------------- */
 const JournalUIMockup = () => (
-  <div className="w-full h-full bg-slate-800 rounded-xl p-3 md:p-4 flex flex-col md:flex-row gap-3 text-white">
-    <div className="w-full md:w-1/3 bg-slate-700/50 rounded-lg p-3">
-      <h4 className="font-bold mb-2 text-xs md:text-sm">AI Suggestions</h4>
-      <ul className="space-y-2 text-[11px] md:text-xs text-slate-300">
-        <li className="bg-slate-600/50 p-2 rounded">Who was present?</li>
-        <li className="bg-slate-600/50 p-2 rounded">What was the date and time?</li>
-        <li className="bg-slate-600/50 p-2 rounded">Is there photo evidence?</li>
-      </ul>
+    <div className="w-full h-full bg-slate-800 rounded-xl p-3 md:p-4 flex flex-col md:flex-row gap-3 text-white">
+        <div className="w-full md:w-1/3 bg-slate-700/50 rounded-lg p-3">
+            <h4 className="font-bold mb-2 text-xs md:text-sm">AI Suggestions</h4>
+            <ul className="space-y-2 text-[11px] md:text-xs text-slate-300">
+                <li className="bg-slate-600/50 p-2 rounded">Who was present?</li>
+                <li className="bg-slate-600/50 p-2 rounded">What was the date and time?</li>
+                <li className="bg-slate-600/50 p-2 rounded">Is there photo evidence?</li>
+            </ul>
+        </div>
+        <div className="w-full md:w-2/3 bg-slate-700/50 rounded-lg p-3 flex flex-col">
+            <h4 className="font-bold mb-2 text-xs md:text-sm">New Journal Entry</h4>
+            <div className="flex-grow bg-slate-600/40 rounded p-2 text-[11px] md:text-xs text-slate-400">
+                On Friday evening, the other party was 30 minutes late for the custody exchange...
+            </div>
+            <div className="flex justify-end gap-2 mt-2">
+                <button className="text-[11px] bg-slate-600 px-3 py-1 rounded">Attach File</button>
+                <button className="text-[11px] bg-orange-600 px-3 py-1 rounded">Save Entry</button>
+            </div>
+        </div>
     </div>
-    <div className="w-full md:w-2/3 bg-slate-700/50 rounded-lg p-3 flex flex-col">
-      <h4 className="font-bold mb-2 text-xs md:text-sm">New Journal Entry</h4>
-      <div className="flex-grow bg-slate-600/40 rounded p-2 text-[11px] md:text-xs text-slate-400">
-        On Friday evening, the other party was 30 minutes late for the custody exchange...
-      </div>
-      <div className="flex justify-end gap-2 mt-2">
-        <button className="text-[11px] bg-slate-600 px-3 py-1 rounded">Attach File</button>
-        <button className="text-[11px] bg-orange-500 px-3 py-1 rounded">Save Entry</button>
-      </div>
-    </div>
-  </div>
 );
 
 const TimelineUIMockup = () => (
-  <div className="w-full h-full bg-slate-800 rounded-xl p-3 md:p-4 flex flex-col text-white">
-    <h4 className="font-bold text-xs md:text-sm mb-3 text-center">Evidence Timeline</h4>
-    <div className="relative flex-grow pl-6 pr-3">
-      <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-600"></div>
-      <div className="space-y-3">
-        <div className="relative">
-          <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-500 rounded-full"></div>
-          <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
-            <p className="font-semibold">Custody Exchange Late</p>
-            <p className="text-slate-400">July 26, 2025 - 6:30 PM</p>
-            <span className="text-green-400 text-[10px] flex items-center gap-1"><ShieldCheckIcon className="w-3 h-3" /> Blockchain Verified</span>
-          </div>
+    <div className="w-full h-full bg-slate-800 rounded-xl p-3 md:p-4 flex flex-col text-white">
+        <h4 className="font-bold text-xs md:text-sm mb-3 text-center">Evidence Timeline</h4>
+        <div className="relative flex-grow pl-6 pr-3">
+            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-600"></div>
+            <div className="space-y-3">
+                <div className="relative">
+                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-600 rounded-full"></div>
+                    <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
+                        <p className="font-semibold">Custody Exchange Late</p>
+                        <p className="text-slate-400">July 26, 2025 - 6:30 PM</p>
+                        <span className="text-green-400 text-[10px] flex items-center gap-1"><ShieldCheckIcon className="w-3 h-3" /> Blockchain Verified</span>
+                    </div>
+                </div>
+                <div className="relative">
+                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-600 rounded-full"></div>
+                    <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
+                        <p className="font-semibold">Email Received</p>
+                        <p className="text-slate-400">July 25, 2025 - 9:15 AM</p>
+                        <span className="text-green-400 text-[10px] flex items-center gap-1"><ShieldCheckIcon className="w-3 h-3" /> Blockchain Verified</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div className="relative">
-          <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-500 rounded-full"></div>
-          <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
-            <p className="font-semibold">Email Received</p>
-            <p className="text-slate-400">July 25, 2025 - 9:15 AM</p>
-            <span className="text-green-400 text-[10px] flex items-center gap-1"><ShieldCheckIcon className="w-3 h-3" /> Blockchain Verified</span>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 );
 
 const PdfExportUIMockup = () => (
-  <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex flex-col items-center justify-center text-white">
-    <h4 className="font-bold text-xs md:text-sm mb-3">Court-Ready PDF Export</h4>
-    <div className="w-4/5 md:w-3/4 h-56 md:h-64 bg-white rounded-md shadow-lg p-3 text-black flex flex-col">
-      <h5 className="text-[11px] font-bold border-b pb-1">Case Summary: Sarah M.</h5>
-      <p className="text-[9px] mt-2 text-slate-700 leading-tight">
-        <strong>July 26, 2025:</strong> Custody Exchange Late. On Friday evening, the other party was 30 minutes late...
-      </p>
-      <p className="text-[9px] mt-2 text-slate-700 leading-tight">
-        <strong>July 25, 2025:</strong> Email Received. Received a hostile email regarding scheduling...
-      </p>
-      <div className="flex-grow" />
-      <p className="text-[8px] text-center text-slate-500">Page 1 of 5</p>
+    <div className="w-full h-full bg-slate-800 rounded-xl p-4 flex flex-col items-center justify-center text-white">
+        <h4 className="font-bold text-xs md:text-sm mb-3">Court-Ready PDF Export</h4>
+        <div className="w-4/5 md:w-3/4 h-56 md:h-64 bg-white rounded-md shadow-lg p-3 text-black flex flex-col">
+            <h5 className="text-[11px] font-bold border-b pb-1">Case Summary: Sarah M.</h5>
+            <p className="text-[9px] mt-2 text-slate-700 leading-tight">
+                <strong>July 26, 2025:</strong> Custody Exchange Late. On Friday evening, the other party was 30 minutes late...
+            </p>
+            <p className="text-[9px] mt-2 text-slate-700 leading-tight">
+                <strong>July 25, 2025:</strong> Email Received. Received a hostile email regarding scheduling...
+            </p>
+            <div className="flex-grow" />
+            <p className="text-[8px] text-center text-slate-500">Page 1 of 5</p>
+        </div>
+        <button className="text-[11px] bg-orange-600 text-white px-4 py-1.5 rounded-md mt-3">Download PDF</button>
     </div>
-    <button className="text-[11px] bg-orange-500 px-4 py-1.5 rounded-md mt-3">Download PDF</button>
-  </div>
 );
 
 /* ---------------- Text Brand ---------------- */
-function BrandWordmark({ size = "md", plate = false, className = "" }) {
-  const sizes = { xs: "text-lg", sm: "text-xl", md: "text-2xl", lg: "text-4xl", xl: "text-6xl" };
-  const plateStyles = plate ? "px-2 py-1 rounded-lg bg-white/10 ring-1 ring-white/15 backdrop-blur" : "";
-  return (
-    <span className={`inline-flex items-baseline font-extrabold tracking-tight select-none ${sizes[size]} ${plateStyles} ${className}`}>
-      <span className="text-white">Thread</span>
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-orange-500">Lock</span>
-      <span className="ml-0.5 align-text-top text-[0.55em] font-black text-white/80">™</span>
-    </span>
-  );
+function BrandWordmark({ className = "" }) {
+    return (
+        <span className={`inline-flex items-baseline font-bold text-2xl tracking-tight select-none ${className}`}>
+            <span className="text-slate-900">Thread</span>
+            <span className="text-orange-600">Lock</span>
+            <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
+        </span>
+    );
 }
 
 /* ---------------- Header ---------------- */
 const Header = ({ onBuyToolkit }) => {
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="fixed top-0 left-0 w-full z-30 bg-gradient-to-r from-slate-400/35 via-slate-700/55 to-slate-900/85 backdrop-blur-md border-b border-white/10">
-      <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center space-x-3">
-          <BrandWordmark size="sm" plate />
-        </div>
+    const [open, setOpen] = useState(false);
+    return (
+        <header className="fixed top-0 left-0 w-full z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
+            <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+                <Link href="/">
+                    <a><BrandWordmark /></a>
+                </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-6 text-white font-medium">
-          <a href="#features" className="hover:text-orange-400 transition-colors">Features</a>
-          <a href="#showcase" className="hover:text-orange-400 transition-colors">Showcase</a>
-          <a href="#stats" className="hover:text-orange-400 transition-colors">Stats</a>
-          <a href="#pricing" className="hover:text-orange-400 transition-colors">Pricing</a>
-          <a href="/blog" className="hover:text-orange-400 transition-colors">Blog</a>
-          <button
-            onClick={onBuyToolkit}
-            className="bg-orange-500 text-white font-semibold px-5 py-2 rounded-lg shadow-md hover:bg-orange-600 transform hover:-translate-y-0.5 transition-all"
-          >
-            Get the $97 Toolkit
-          </button>
-        </nav>
+                {/* Desktop Nav */}
+                <nav className="hidden md:flex items-center space-x-6 text-slate-800 font-medium">
+                    <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
+                    <a href="#showcase" className="hover:text-orange-600 transition-colors">Showcase</a>
+                    <a href="#pricing" className="hover:text-orange-600 transition-colors">Pricing</a>
+                    <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Our Story</a></Link>
+                    <button
+                        onClick={onBuyToolkit}
+                        className="bg-orange-600 text-white font-semibold px-5 py-2 rounded-lg shadow-sm hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all"
+                    >
+                        Get the Toolkit
+                    </button>
+                </nav>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-white p-2"
-          aria-label="Toggle menu"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <XIcon /> : <MenuIcon />}
-        </button>
-      </div>
+                {/* Mobile toggle */}
+                <button
+                    className="md:hidden text-slate-800 p-2"
+                    aria-label="Toggle menu"
+                    onClick={() => setOpen(!open)}
+                >
+                    {open ? <XIcon /> : <MenuIcon />}
+                </button>
+            </div>
 
-      {/* Mobile Menu */}
-      <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
-        <div className="px-4 pb-4 pt-2 text-white space-y-2 bg-slate-900/80 backdrop-blur-md">
-          <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Features</a>
-          <a href="#showcase" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Showcase</a>
-          <a href="#stats" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Stats</a>
-          <a href="#pricing" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-400">Pricing</a>
-          <a href="/blog" className="block py-2 hover:text-orange-400">Blog</a>
-          <button
-            onClick={() => { setOpen(false); onBuyToolkit(); }}
-            className="w-full mt-2 bg-orange-500 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-600 transition-all"
-          >
-            Get the $97 Toolkit
-          </button>
-        </div>
-      </div>
-    </header>
-  );
+            {/* Mobile Menu */}
+            <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
+                <div className="px-4 pb-4 pt-2 text-slate-800 space-y-2 bg-white border-t border-slate-200">
+                    <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Features</a>
+                    <a href="#showcase" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Showcase</a>
+                    <a href="#pricing" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Pricing</a>
+                    <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Our Story</a></Link>
+                    <button
+                        onClick={() => { setOpen(false); onBuyToolkit(); }}
+                        className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
+                    >
+                        Get the Toolkit
+                    </button>
+                </div>
+            </div>
+        </header>
+    );
 };
 
 /* ---------------- Sections ---------------- */
 const HeroSection = ({ onBuyToolkit, isLoading }) => (
-  <section className="relative text-white bg-slate-900">
-    <div className="container mx-auto px-6 pt-44 md:pt-52 pb-12 text-center">
-      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.2] md:leading-[1.2] pb-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
-        Take Control of Your Family Law Case
-      </h1>
-      <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-slate-300">
-        The Court-Ready Toolkit gets you organized now. Founders get lifetime perks when the product launches.
-      </p>
-      <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-        <button
-          onClick={onBuyToolkit}
-          disabled={isLoading}
-          className="bg-orange-500 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-400 disabled:cursor-not-allowed"
-        >
-          {isLoading ? "Processing..." : "Get the $97 Toolkit"}
-        </button>
-        <a href="#pricing" className="border border-slate-600 px-8 py-3 rounded-lg hover:bg-slate-800 hover:border-slate-500 transition-colors">
-          See All Options
-        </a>
-      </div>
-    </div>
-  </section>
+    <section className="relative text-slate-900 bg-white">
+        <div className="container mx-auto px-6 pt-44 md:pt-52 pb-20 text-center">
+            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight md:leading-tight">
+                The justice system is broken.
+                <br />
+                <span className="text-orange-600">Not the people in it.</span>
+            </h1>
+            <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-slate-600">
+                ThreadLock was born from a simple realization: the system doesn't need more complexity, it needs clarity. We built the tools to provide it.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                <button
+                    onClick={onBuyToolkit}
+                    disabled={isLoading}
+                    className="bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-500 disabled:cursor-not-allowed"
+                >
+                    {isLoading ? "Processing..." : "Get the $97 Toolkit"}
+                </button>
+                <a href="#pricing" className="border border-slate-300 px-8 py-3 rounded-lg hover:bg-slate-100 transition-colors">
+                    See Pricing
+                </a>
+            </div>
+        </div>
+    </section>
 );
 
 const FeatureCard = ({ icon, title, children }) => (
-  <div className="bg-slate-50 p-8 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-    <div className="w-16 h-16 mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-2xl">
-      {icon}
+    <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div className="w-16 h-16 mb-6 bg-orange-100 text-orange-600 flex items-center justify-center rounded-2xl">
+            {icon}
+        </div>
+        <h3 className="text-xl font-bold text-slate-800 mb-3">{title}</h3>
+        <p className="text-slate-600 leading-relaxed">{children}</p>
     </div>
-    <h3 className="text-xl font-bold text-slate-800 mb-3">{title}</h3>
-    <p className="text-slate-600 leading-relaxed">{children}</p>
-  </div>
 );
 
 const FeaturesSection = () => (
-  <section id="features" className="py-20 md:py-24 bg-white text-gray-800">
-    <div className="container mx-auto px-6 text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Build Evidence the Smart Way</h2>
-      <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12 md:mb-16">
-        Our platform is designed to make evidence collection simple, secure, and stress-free.
-      </p>
-    </div>
-    <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
-      <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="AI-Guided Journaling">
-        Never miss a crucial detail. Our AI guides you to capture the specific, legally-relevant facts for your case.
-      </FeatureCard>
-      <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Immutable & Secure">
-        Entries are anchored for integrity—creating a record that stands up to scrutiny.
-      </FeatureCard>
-      <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court-Ready Exports">
-        Export clean timelines and summaries that a judge can actually read.
-      </FeatureCard>
-    </div>
-  </section>
+    <section id="features" className="py-20 md:py-24 bg-slate-50 text-gray-800">
+        <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Build Your Case with Confidence</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12 md:mb-16">
+                Our platform is designed to make evidence collection simple, secure, and stress-free.
+            </p>
+        </div>
+        <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+            <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="AI-Guided Journaling">
+                Never miss a crucial detail. Our AI guides you to capture the specific, legally-relevant facts for your case.
+            </FeatureCard>
+            <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Immutable & Secure">
+                Entries are anchored for integrity—creating a record that stands up to scrutiny.
+            </FeatureCard>
+            <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court-Ready Exports">
+                Export clean timelines and summaries that a judge can actually read.
+            </FeatureCard>
+        </div>
+    </section>
 );
 
 const ProductShowcaseSection = () => {
-  const slides = [
-    { title: "AI-Guided Journaling", description: "Smart prompts capture the right details fast.", mockup: <JournalUIMockup /> },
-    { title: "Immutable Timeline", description: "A chronological view that can’t be hand-waved away.", mockup: <TimelineUIMockup /> },
-    { title: "Court-Ready Exports", description: "Professional PDFs in minutes—not hours.", mockup: <PdfExportUIMockup /> },
-  ];
-  const [idx, setIdx] = useState(0);
-  const prev = () => setIdx((i) => (i === 0 ? slides.length - 1 : i - 1));
-  const next = () => setIdx((i) => (i === slides.length - 1 ? 0 : i + 1));
+    const slides = [
+        { title: "AI-Guided Journaling", description: "Smart prompts capture the right details fast.", mockup: <JournalUIMockup /> },
+        { title: "Immutable Timeline", description: "A chronological view that can’t be hand-waved away.", mockup: <TimelineUIMockup /> },
+        { title: "Court-Ready Exports", description: "Professional PDFs in minutes—not hours.", mockup: <PdfExportUIMockup /> },
+    ];
+    const [idx, setIdx] = useState(0);
+    const prev = () => setIdx((i) => (i === 0 ? slides.length - 1 : i - 1));
+    const next = () => setIdx((i) => (i === slides.length - 1 ? 0 : i + 1));
 
-  return (
-    <section id="showcase" className="py-16 md:py-20 bg-slate-50">
-      <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12">A quick look at how key features help you build a stronger case.</p>
+    return (
+        <section id="showcase" className="py-16 md:py-20 bg-white">
+            <div className="container mx-auto px-6 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
+                <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12">A quick look at how key features help you build a stronger case.</p>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
-            <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
-          </div>
+                <div className="max-w-4xl mx-auto">
+                    <div className="bg-slate-200 rounded-2xl shadow-lg p-3 md:p-4">
+                        <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
+                    </div>
 
-          <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
-              <h3 className="text-2xl font-bold text-slate-800 mb-2">{slides[idx].title}</h3>
-              <p className="text-slate-600">{slides[idx].description}</p>
+                    <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
+                            <h3 className="text-2xl font-bold text-slate-800 mb-2">{slides[idx].title}</h3>
+                            <p className="text-slate-600">{slides[idx].description}</p>
+                        </div>
+                        <div className="flex items-center justify-center gap-4 shrink-0 order-1 md:order-2">
+                            <button onClick={prev} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
+                                <ChevronLeftIcon className="h-6 w-6 text-slate-700" />
+                            </button>
+                            <div className="flex gap-2">
+                                {slides.map((_, i) => (
+                                    <div
+                                        key={i}
+                                        onClick={() => setIdx(i)}
+                                        className={`h-3 w-3 rounded-full cursor-pointer transition-colors ${idx === i ? "bg-orange-600" : "bg-slate-300 hover:bg-slate-400"}`}
+                                    />
+                                ))}
+                            </div>
+                            <button onClick={next} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
+                                <ChevronRightIcon className="h-6 w-6 text-slate-700" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="flex items-center justify-center gap-4 shrink-0 order-1 md:order-2">
-              <button onClick={prev} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
-                <ChevronLeftIcon className="h-6 w-6 text-slate-700" />
-              </button>
-              <div className="flex gap-2">
-                {slides.map((_, i) => (
-                  <div
-                    key={i}
-                    onClick={() => setIdx(i)}
-                    className={`h-3 w-3 rounded-full cursor-pointer transition-colors ${idx === i ? "bg-orange-500" : "bg-slate-300 hover:bg-slate-400"}`}
-                  />
-                ))}
-              </div>
-              <button onClick={next} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
-                <ChevronRightIcon className="h-6 w-6 text-slate-700" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
-const StatisticsSection = () => (
-  <section id="stats" className="py-20 md:py-24 bg-slate-900 text-white">
-    <div className="container mx-auto px-6 text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-red-400">
-        The Scope of the Problem
-      </h2>
-      <p className="text-lg text-slate-400 max-w-2xl mx-auto mb-12 md:mb-16">
-        Family law cases overwhelm courts, and most involve people navigating the system alone.
-      </p>
-    </div>
-  </section>
+const OurMissionSection = () => (
+    <section id="mission" className="py-20 md:py-24 bg-blue-900 text-white">
+        <div className="container mx-auto px-6 text-center max-w-4xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission: A Fair Shot for Everyone</h2>
+            <blockquote className="border-l-4 border-orange-500 pl-6 md:pl-8 text-left text-lg md:text-xl italic text-slate-200 leading-relaxed">
+                "I could have been angry, but I saw something else: a good person constrained by a bad system. The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative. We built that alternative."
+            </blockquote>
+            <Link href="/founder-story">
+                <a className="mt-8 inline-block text-orange-400 font-semibold hover:text-orange-300 transition-colors">
+                    Read the Full Founder Story &rarr;
+                </a>
+            </Link>
+        </div>
+    </section>
 );
 
-/* ---------------- Pricing ---------------- */
-// Changes:
-// 1) Slightly smaller on desktop: container is scaled down a touch on lg+
-// 2) Buttons aligned to the bottom: cards use flex-col + mt-auto before the button
-// 3) Consistent heights on desktop with lg:min-h
+
 const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
-  <section id="pricing" className="py-20 md:py-24 bg-slate-50 text-center text-gray-800">
-    <div className="container mx-auto px-6 lg:scale-[0.97] lg:origin-top">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Pricing</h2>
-      <p className="text-lg text-slate-600 mb-12 max-w-3xl mx-auto">Pick what you need now. Upgrade later without paying twice.</p>
+    <section id="pricing" className="py-20 md:py-24 bg-slate-50 text-center text-gray-800">
+        <div className="container mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Get Organized Today</h2>
+            <p className="text-lg text-slate-600 mb-12 max-w-3xl mx-auto">Pick what you need now. Get lifetime perks and upgrades when the full application launches.</p>
 
-      <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
-        {/* $97 Toolkit */}
-        <div className="bg-white rounded-2xl shadow-xl border border-orange-300 p-8 flex flex-col lg:min-h-[520px]">
-          <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Court-Ready Toolkit</h3>
-          <p className="text-slate-500 mb-6">All printables now & Founding Member perks at launch</p>
-          <div className="text-5xl font-extrabold text-slate-900 mb-1">$97</div>
-          <ul className="text-left text-slate-600 mt-6 space-y-2">
-            <li>• 10+ premium templates (PDF)</li>
-            <li>• Step-by-step guides</li>
-            <li>• Lifetime SaaS discount and beta access</li>
-          </ul>
-          <div className="mt-auto" />
-          <button onClick={onBuyToolkit} className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
-            Get the Full Toolkit
-          </button>
-          <p className="text-xs text-slate-400 mt-3">One-time payment.</p>
-        </div>
+            <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
+                {/* $97 Toolkit */}
+                <div className="bg-white rounded-2xl shadow-lg border border-orange-400 p-8 flex flex-col">
+                    <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Toolkit</h3>
+                    <p className="text-slate-500 mb-6">All printables & Founding Member perks.</p>
+                    <div className="text-5xl font-extrabold text-slate-900 mb-1">$97</div>
+                    <ul className="text-left text-slate-600 mt-6 space-y-2 flex-grow">
+                        <li>• 10+ premium templates (PDF)</li>
+                        <li>• Step-by-step guides</li>
+                        <li>• Lifetime SaaS discount</li>
+                        <li>• Early beta access</li>
+                    </ul>
+                    <button onClick={onBuyToolkit} className="w-full mt-8 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
+                        Get the Full Toolkit
+                    </button>
+                    <p className="text-xs text-slate-400 mt-3">One-time payment.</p>
+                </div>
 
-        {/* $21 Founders Only */}
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col lg:min-h-[520px]">
-          <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access Only</h3>
-          <p className="text-slate-500 mb-6">Only available until September 15th. Get in early!</p>
-          <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
-          <ul className="text-left text-slate-600 mt-6 space-y-2">
-            <li>• Lifetime SaaS discount</li>
-            <li>• Early beta access</li>
-            <li>• Founding Member recognition</li>
-          </ul>
-          <div className="mt-auto" />
-          <button onClick={onBuyFounders} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-4 rounded-lg shadow-md transition-all">
-            Get Founders Access
-          </button>
-          <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime</p>
-        </div>
+                {/* $21 Founders Only */}
+                <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
+                    <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access</h3>
+                    <p className="text-slate-500 mb-6">Get in early and lock in your perks.</p>
+                    <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
+                    <ul className="text-left text-slate-600 mt-6 space-y-2 flex-grow">
+                        <li>• Lifetime SaaS discount</li>
+                        <li>• Early beta access</li>
+                        <li>• Founding Member recognition</li>
+                    </ul>
+                    <button onClick={onBuyFounders} className="w-full mt-8 bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
+                        Get Founders Access
+                    </button>
+                    <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime.</p>
+                </div>
 
-        {/* $15 Single PDF */}
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col lg:min-h-[520px]">
-          <h3 className="text-2xl font-bold text-slate-800 mb-2">Single Downloadable</h3>
-          <p className="text-slate-500 mb-6">Buy one of our worksheets</p>
-          <div className="text-5xl font-extrabold text-slate-900 mb-1">$15</div>
-          <ul className="text-left text-slate-600 mt-6 space-y-2">
-            <li>• Choose the exact tool you need</li>
-            <li>• Immediate download via email</li>
-          </ul>
-          <div className="mt-auto" />
-          <button onClick={onPickSingle} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-4 rounded-lg shadow-md transition-all">
-            Choose a Single Tool
-          </button>
-          <p className="text-[11px] text-slate-400 mt-3">*We’ll auto-apply your $15 toward the $97 Toolkit within 30 days.</p>
-        </div>
+                {/* $15 Single PDF */}
+                <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
+                    <h3 className="text-2xl font-bold text-slate-800 mb-2">Single Download</h3>
+                    <p className="text-slate-500 mb-6">Just the one tool you need right now.</p>
+                    <div className="text-5xl font-extrabold text-slate-900 mb-1">$15</div>
+                    <ul className="text-left text-slate-600 mt-6 space-y-2 flex-grow">
+                        <li>• Choose any tool you need</li>
+                        <li>• Immediate download via email</li>
+                        <li>• Credit towards the full toolkit</li>
+                    </ul>
+                    <button onClick={onPickSingle} className="w-full mt-8 bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-3 rounded-lg shadow-sm transition-all">
+                        Choose a Single Tool
+                    </button>
+                    <p className="text-[11px] text-slate-400 mt-3">We’ll credit your $15 toward the Toolkit.</p>
+                </div>
 
-        {/* Support */}
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 flex flex-col lg:min-h-[520px]">
-          <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
-          <p className="text-slate-500 mb-6">Just momentum, with your support</p>
-          <div className="text-3xl font-extrabold text-slate-900 mb-1">$2/mo</div>
-          <p className="text-slate-500 mb-6">or name your own one-time amount</p>
-          <div className="grid grid-cols-1 gap-3 mt-auto">
-            <button onClick={onContribMonthly} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
-              Contribute $2 / month
-            </button>
-            <button onClick={onContribNYOP} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-3 rounded-lg shadow-md transition-all">
-              Name-Your-Price (one-time)
-            </button>
-          </div>
-          <p className="text-xs text-slate-400 mt-3">Thank you. Seriously.</p>
+                {/* Support */}
+                <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
+                    <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
+                    <p className="text-slate-500 mb-6">Help us bring this to life.</p>
+                    <div className="text-3xl font-extrabold text-slate-900 mb-1">$2/mo</div>
+                    <p className="text-slate-500 mb-6">or name your one-time amount</p>
+                    <div className="grid grid-cols-1 gap-3 mt-auto flex-grow justify-end flex flex-col">
+                        <button onClick={onContribMonthly} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
+                            Contribute $2 / month
+                        </button>
+                        <button onClick={onContribNYOP} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-3 rounded-lg shadow-sm transition-all">
+                            One-Time Support
+                        </button>
+                    </div>
+                    <p className="text-xs text-slate-400 mt-3">Thank you. Seriously.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 );
 
 const CallToActionSection = ({ onBuyToolkit, isLoading }) => (
-  <section className="bg-slate-800 text-white py-16 md:py-20">
-    <div className="container mx-auto px-6 text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">Start Building Your Case Today</h2>
-      <p className="mb-8 max-w-xl mx-auto text-slate-300">
-        Your evidence matters. ThreadLock helps you document, secure, and present it clearly. Without the stress.
-      </p>
-      <button
-        onClick={onBuyToolkit}
-        disabled={isLoading}
-        className="bg-orange-500 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-600 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-400 disabled:cursor-not-allowed"
-      >
-        {isLoading ? "Processing..." : "Get the $97 Toolkit"}
-      </button>
-    </div>
-  </section>
+    <section className="bg-orange-600 text-white py-16 md:py-20">
+        <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Take Control?</h2>
+            <p className="mb-8 max-w-xl mx-auto text-orange-100">
+                Your evidence matters. Let ThreadLock help you document, secure, and present it clearly. Without the stress.
+            </p>
+            <button
+                onClick={onBuyToolkit}
+                disabled={isLoading}
+                className="bg-white text-orange-600 font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-50 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-100 disabled:cursor-not-allowed"
+            >
+                {isLoading ? "Processing..." : "Get the $97 Toolkit"}
+            </button>
+        </div>
+    </section>
 );
 
 const Footer = () => (
-  <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
-    <p>© {new Date().getFullYear()} ThreadLock. All rights reserved.</p>
-  </footer>
+    <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
+        <p>© {new Date().getFullYear()} ThreadLock.ai. All rights reserved.</p>
+    </footer>
 );
 
 /* ---------------- Modal for Single-PDF selection ---------------- */
 function SingleItemModal({ open, onClose, onSelect }) {
-  if (!open) return null;
-  return (
-    <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6">
-        <h3 className="text-xl font-bold text-slate-900 mb-3">Choose a Single Tool</h3>
-        <p className="text-slate-600 mb-4">Each item is $15. You’ll get the download link by email after checkout.</p>
-        <div className="max-h-80 overflow-y-auto divide-y">
-          {SINGLE_ITEMS.map((item) => (
-            <button key={item.sku} onClick={() => onSelect(item.sku)} className="w-full text-left py-3 px-2 hover:bg-slate-50">
-              {item.name}
-            </button>
-          ))}
+    if (!open) return null;
+    return (
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6">
+                <h3 className="text-xl font-bold text-slate-900 mb-3">Choose a Single Tool</h3>
+                <p className="text-slate-600 mb-4">Each item is $15. You’ll get the download link by email after checkout.</p>
+                <div className="max-h-80 overflow-y-auto divide-y">
+                    {SINGLE_ITEMS.map((item) => (
+                        <button key={item.sku} onClick={() => onSelect(item.sku)} className="w-full text-left py-3 px-2 hover:bg-slate-50">
+                            {item.name}
+                        </button>
+                    ))}
+                </div>
+                <div className="flex justify-end mt-4">
+                    <button onClick={onClose} className="px-4 py-2 rounded bg-slate-200 hover:bg-slate-300 text-slate-900">Close</button>
+                </div>
+            </div>
         </div>
-        <div className="flex justify-end mt-4">
-          <button onClick={onClose} className="px-4 py-2 rounded bg-slate-200 hover:bg-slate-300 text-slate-900">Close</button>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 /* ---------------- Main Page ---------------- */
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [singleOpen, setSingleOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [singleOpen, setSingleOpen] = useState(false);
 
-  const postTo = async (slug) => {
-    const r = await fetch(`/api/checkout/${slug}`, { method: "POST" });
-    const j = await r.json();
-    if (!r.ok || !j?.url) throw new Error(j?.error || "Checkout error");
-    window.location.href = j.url;
-  };
+    const postTo = async (slug) => {
+        const r = await fetch(`/api/checkout/${slug}`, { method: "POST" });
+        const j = await r.json();
+        if (!r.ok || !j?.url) throw new Error(j?.error || "Checkout error");
+        window.location.href = j.url;
+    };
 
-  const onBuyToolkit = async () => {
-    setIsLoading(true);
-    try { await postTo("toolkit"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
-  const onBuyFounders = async () => {
-    setIsLoading(true);
-    try { await postTo("founders"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
-  const onPickSingle = () => setSingleOpen(true);
-  const onBuySingle = async (sku) => {
-    setSingleOpen(false);
-    setIsLoading(true);
-    try {
-      const slug = SKU_TO_SLUG[sku];
-      if (!slug) throw new Error("Unknown item.");
-      await postTo(slug);
-    } catch (e) {
-      alert(e.message || "Unable to start checkout.");
-      setIsLoading(false);
-    }
-  };
-  const onContribMonthly = async () => {
-    setIsLoading(true);
-    try { await postTo("support-monthly"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
-  const onContribNYOP = async () => {
-    setIsLoading(true);
-    try { await postTo("support-nyop"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
+    const onBuyToolkit = async () => {
+        setIsLoading(true);
+        try { await postTo("toolkit"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
+    };
+    const onBuyFounders = async () => {
+        setIsLoading(true);
+        try { await postTo("founders"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
+    };
+    const onPickSingle = () => setSingleOpen(true);
+    const onBuySingle = async (sku) => {
+        setSingleOpen(false);
+        setIsLoading(true);
+        try {
+            const slug = SKU_TO_SLUG[sku];
+            if (!slug) throw new Error("Unknown item.");
+            await postTo(slug);
+        } catch (e) {
+            alert(e.message || "Unable to start checkout.");
+            setIsLoading(false);
+        }
+    };
+    const onContribMonthly = async () => {
+        setIsLoading(true);
+        try { await postTo("support-monthly"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
+    };
+    const onContribNYOP = async () => {
+        setIsLoading(true);
+        try { await postTo("support-nyop"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
+    };
 
-  return (
-    <>
-      {/* Page-level SEO (helps crawlers that ignore _app) */}
-      <Head>
-        <title>ThreadLock™ | Family Law Technology</title>
-        <meta
-          name="description"
-          content="AI-powered family law software for custody disputes, child support, and family court evidence management. Make the system make sense."
-        />
-        <link rel="canonical" href={SITE_URL} />
+    return (
+        <>
+            <Head>
+                <title>ThreadLock™ | Family Law Technology</title>
+                <meta
+                    name="description"
+                    content="AI-powered family law software for custody disputes, child support, and family court evidence management. Make the system make sense."
+                />
+                <link rel="canonical" href={SITE_URL} />
+                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+                <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
+                <link rel="manifest" href="/manifest.json" />
+                <meta name="msapplication-config" content="/browserconfig.xml" />
+                <meta name="theme-color" content="#ffffff" />
+                <meta property="og:site_name" content="ThreadLock" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={SITE_URL} />
+                <meta property="og:title" content="ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management" />
+                <meta property="og:description" content="AI-powered family law software designed for custody disputes, child support, and family court evidence management. Make the system make sense." />
+                <meta property="og:image" content={OG_IMAGE} />
+                <meta property="og:image:secure_url" content={OG_IMAGE} />
+                <meta property="og:image:type" content="image/jpeg" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="627" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management" />
+                <meta name="twitter:description" content="AI-powered family law software for custody, child support, and evidence management." />
+                <meta name="twitter:image" content={OG_IMAGE} />
+                <meta name="robots" content="index, follow" />
+            </Head>
 
-        {/* Favicon + PWA */}
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="theme-color" content="#ffffff" />
-
-        {/* Open Graph */}
-        <meta property="og:site_name" content="ThreadLock" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={SITE_URL} />
-        <meta property="og:title" content="ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management" />
-        <meta property="og:description" content="AI-powered family law software designed for custody disputes, child support, and family court evidence management. Make the system make sense." />
-        <meta property="og:image" content={OG_IMAGE} />
-        <meta property="og:image:secure_url" content={OG_IMAGE} />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="627" />
-
-        {/* Twitter / X */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management" />
-        <meta name="twitter:description" content="AI-powered family law software for custody, child support, and evidence management." />
-        <meta name="twitter:image" content={OG_IMAGE} />
-
-        {/* Crawl hints */}
-        <meta name="robots" content="index, follow" />
-      </Head>
-
-      <div className="bg-white">
-        <Header onBuyToolkit={onBuyToolkit} />
-        <main className="flex flex-col w-full overflow-x-hidden">
-          <HeroSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
-          <FeaturesSection />
-          <ProductShowcaseSection />
-          <StatisticsSection />
-          <PricingSection
-            onBuyToolkit={onBuyToolkit}
-            onBuyFounders={onBuyFounders}
-            onPickSingle={onPickSingle}
-            onContribMonthly={onContribMonthly}
-            onContribNYOP={onContribNYOP}
-          />
-          <CallToActionSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
-        </main>
-        <Footer />
-        <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
-      </div>
-    </>
-  );
+            <div className="bg-white">
+                <Header onBuyToolkit={onBuyToolkit} />
+                <main className="flex flex-col w-full overflow-x-hidden">
+                    <HeroSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
+                    <FeaturesSection />
+                    <ProductShowcaseSection />
+                    <OurMissionSection />
+                    <PricingSection
+                        onBuyToolkit={onBuyToolkit}
+                        onBuyFounders={onBuyFounders}
+                        onPickSingle={onPickSingle}
+                        onContribMonthly={onContribMonthly}
+                        onContribNYOP={onContribNYOP}
+                    />
+                    <CallToActionSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
+                </main>
+                <Footer />
+                <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
+            </div>
+        </>
+    );
 }
