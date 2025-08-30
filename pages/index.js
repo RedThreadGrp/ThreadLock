@@ -127,7 +127,7 @@ const Header = () => {
                     <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
                     <Link href="/resources"><a className="hover:text-orange-600 transition-colors">Resources</a></Link>
                     <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
-                    <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Founder Story</a></Link>
+                    <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Our Story</a></Link>
                     <Link href="/signup">
                         <a className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
                             Join Waitlist
@@ -189,7 +189,7 @@ const HeroSection = () => (
 const SubscriptionBanner = () => (
     <section id="subscriptions" className="bg-white py-12 border-b border-slate-200">
         <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Simple, Powerful Plans</h2>
+             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Simple, Powerful Plans</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12">
                 Choose the right level of support for your journey. App coming soon.
             </p>
@@ -220,12 +220,14 @@ const SubscriptionBanner = () => (
 
 
 const FeatureCard = ({ icon, title, children }) => (
-    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
-        <div className="w-16 h-16 mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
+    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-6 text-left">
+        <div className="w-16 h-16 shrink-0 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
             {icon}
         </div>
-        <h3 className="text-xl font-bold text-slate-800 mb-3">{title}</h3>
-        <p className="text-slate-600 leading-relaxed">{children}</p>
+        <div>
+            <h3 className="text-xl font-bold text-slate-800 mb-2">{title}</h3>
+            <p className="text-slate-600 leading-relaxed">{children}</p>
+        </div>
     </div>
 );
 
@@ -317,6 +319,31 @@ const OurMissionSection = () => (
     </section>
 );
 
+const SignupSection = () => (
+    <section id="signup" className="py-20 md:py-28 bg-gray-50">
+        <div className="container mx-auto px-6 text-center max-w-3xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Be the First to Know</h2>
+            <p className="text-lg text-slate-600 mb-8">
+                Join our waitlist for early access to the ThreadLock app, plus exclusive updates and resources.
+            </p>
+            <form action="/api/signup" method="POST" className="max-w-md mx-auto">
+                 <div className="flex flex-col sm:flex-row gap-4">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        required
+                        className="flex-grow px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                    />
+                    <button type="submit" className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all">
+                        Join Waitlist
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+);
+
 const Footer = () => (
     <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
         <p>© {new Date().getFullYear()} ThreadLock.ai. All rights reserved.</p>
@@ -325,6 +352,7 @@ const Footer = () => (
 
 /* ---------------- Main Page ---------------- */
 export default function Home() {
+
     return (
         <>
             <Head>
@@ -362,15 +390,11 @@ export default function Home() {
                 <Header/>
                 <main className="flex flex-col w-full overflow-x-hidden">
                     <HeroSection />
-                    <SubscriptionBanner />
+                    <OurMissionSection />
                     <FeaturesSection />
                     <ProductShowcaseSection />
-                    <OurMissionSection />
-                    <Link href="/resources">
-                        <a className="block text-center py-16 bg-gray-50 text-orange-600 font-bold text-xl hover:bg-gray-100 transition-colors">
-                            See All Resources & Toolkits &rarr;
-                        </a>
-                    </Link>
+                    <SubscriptionBanner />
+                    <SignupSection />
                 </main>
                 <Footer />
             </div>
