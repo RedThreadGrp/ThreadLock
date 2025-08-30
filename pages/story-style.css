@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The ThreadLock Story | A Better Way Through Family Court</title>
+    <link rel="stylesheet" href="story-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar" id="nav-content">
+        <!-- Nav content will be loaded here -->
+    </header>
+
+    <main>
+        <section id="story-hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content" id="hero-content">
+                <!-- Hero content will be loaded here -->
+            </div>
+        </section>
+
+        <section id="story-body">
+            <div class="container story-container" id="story-content">
+                <!-- Story content will be loaded here -->
+            </div>
+        </section>
+
+        <section id="cta">
+            <div class="container" id="cta-content">
+                <!-- CTA content will be loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer-content">
+        <!-- Footer content will be loaded here -->
+    </footer>
+
+    <script src="story-script.js"></script>
+</body>
+</html>
