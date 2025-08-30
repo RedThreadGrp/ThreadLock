@@ -289,7 +289,9 @@ export default function FounderStoryPage() {
           <section className="hero">
             <div className="max-w-4xl mx-auto">
                 <h2>
-                    The justice system is broken. Not the people in it.
+                    The System Puts Everyone in a Box.
+                    <br/>
+                    Even the Judge.
                 </h2>
                 <p>
                     Our founder's journey through the family court system revealed a surprising truth that became the foundation for ThreadLock.
@@ -304,7 +306,7 @@ export default function FounderStoryPage() {
                 <span className="step-number">STEP 1</span>
                 <h3>The Expectation</h3>
                 <p>
-                    I walked into family court to represent myself, having been to law school, thinking I was prepared. I assumed my knowledge would be enough to guide me through the process. I was wrong.
+                    I walked into family court to represent myself. I'd been to law school, but after several years as a stay-at-home mom, I had no money for a lawyer and no access to professional resources. I thought my legal knowledge would be enough to guide me through the process. I was wrong.
                 </p>
             </div>
 
