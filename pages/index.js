@@ -79,7 +79,7 @@ const JournalUIMockup = () => (
             </div>
             <div className="flex justify-end gap-2 mt-2">
                 <button className="text-[11px] bg-slate-600 px-3 py-1 rounded">Attach File</button>
-                <button className="text-[11px] bg-orange-600 px-3 py-1 rounded">Save Entry</button>
+                <button className="text-[11px] bg-orange-500 px-3 py-1 rounded">Save Entry</button>
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@ const TimelineUIMockup = () => (
             <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-600"></div>
             <div className="space-y-3">
                 <div className="relative">
-                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-600 rounded-full"></div>
+                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-500 rounded-full"></div>
                     <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
                         <p className="font-semibold">Custody Exchange Late</p>
                         <p className="text-slate-400">July 26, 2025 - 6:30 PM</p>
@@ -100,7 +100,7 @@ const TimelineUIMockup = () => (
                     </div>
                 </div>
                 <div className="relative">
-                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-600 rounded-full"></div>
+                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-500 rounded-full"></div>
                     <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
                         <p className="font-semibold">Email Received</p>
                         <p className="text-slate-400">July 25, 2025 - 9:15 AM</p>
@@ -126,7 +126,7 @@ const PdfExportUIMockup = () => (
             <div className="flex-grow" />
             <p className="text-[8px] text-center text-slate-500">Page 1 of 5</p>
         </div>
-        <button className="text-[11px] bg-orange-600 text-white px-4 py-1.5 rounded-md mt-3">Download PDF</button>
+        <button className="text-[11px] bg-orange-500 px-4 py-1.5 rounded-md mt-3">Download PDF</button>
     </div>
 );
 
@@ -134,7 +134,7 @@ const PdfExportUIMockup = () => (
 function BrandWordmark({ className = "" }) {
     return (
         <span className={`inline-flex items-baseline font-bold text-2xl tracking-tight select-none ${className}`}>
-            <span className="text-slate-900">Thread</span>
+            <span className="text-slate-800">Thread</span>
             <span className="text-orange-600">Lock</span>
             <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
         </span>
@@ -151,21 +151,19 @@ const Header = ({ onBuyToolkit }) => {
                     <a><BrandWordmark /></a>
                 </Link>
 
-                {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center space-x-6 text-slate-800 font-medium">
+                <nav className="hidden md:flex items-center space-x-6 text-slate-700 font-semibold">
                     <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
                     <a href="#showcase" className="hover:text-orange-600 transition-colors">Showcase</a>
                     <a href="#pricing" className="hover:text-orange-600 transition-colors">Pricing</a>
                     <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Our Story</a></Link>
                     <button
                         onClick={onBuyToolkit}
-                        className="bg-orange-600 text-white font-semibold px-5 py-2 rounded-lg shadow-sm hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all"
+                        className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all"
                     >
-                        Get the Toolkit
+                        Get Toolkit
                     </button>
                 </nav>
 
-                {/* Mobile toggle */}
                 <button
                     className="md:hidden text-slate-800 p-2"
                     aria-label="Toggle menu"
@@ -175,7 +173,6 @@ const Header = ({ onBuyToolkit }) => {
                 </button>
             </div>
 
-            {/* Mobile Menu */}
             <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
                 <div className="px-4 pb-4 pt-2 text-slate-800 space-y-2 bg-white border-t border-slate-200">
                     <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Features</a>
@@ -196,25 +193,27 @@ const Header = ({ onBuyToolkit }) => {
 
 /* ---------------- Sections ---------------- */
 const HeroSection = ({ onBuyToolkit, isLoading }) => (
-    <section className="relative text-slate-900 bg-white">
-        <div className="container mx-auto px-6 pt-44 md:pt-52 pb-20 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight md:leading-tight">
+    <section className="relative text-slate-900 bg-gray-50">
+        <div className="container mx-auto px-6 pt-48 md:pt-56 pb-24 text-center">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
                 The justice system is broken.
                 <br />
-                <span className="text-orange-600">Not the people in it.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
+                    Not the people in it.
+                </span>
             </h1>
-            <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-slate-600">
-                ThreadLock was born from a simple realization: the system doesn't need more complexity, it needs clarity. We built the tools to provide it.
+            <p className="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-slate-600 leading-relaxed">
+                ThreadLock was born from a simple realization: the system doesn't need more complexity, it needs clarity. We built the tools to provide it, putting power back into your hands.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+            <div className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-4">
                 <button
                     onClick={onBuyToolkit}
                     disabled={isLoading}
-                    className="bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-500 disabled:cursor-not-allowed"
+                    className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-400 disabled:cursor-not-allowed"
                 >
                     {isLoading ? "Processing..." : "Get the $97 Toolkit"}
                 </button>
-                <a href="#pricing" className="border border-slate-300 px-8 py-3 rounded-lg hover:bg-slate-100 transition-colors">
+                <a href="#pricing" className="font-semibold text-slate-700 px-8 py-4 rounded-lg hover:bg-slate-100 transition-colors">
                     See Pricing
                 </a>
             </div>
@@ -223,8 +222,8 @@ const HeroSection = ({ onBuyToolkit, isLoading }) => (
 );
 
 const FeatureCard = ({ icon, title, children }) => (
-    <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-        <div className="w-16 h-16 mb-6 bg-orange-100 text-orange-600 flex items-center justify-center rounded-2xl">
+    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+        <div className="w-16 h-16 mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
             {icon}
         </div>
         <h3 className="text-xl font-bold text-slate-800 mb-3">{title}</h3>
@@ -233,10 +232,10 @@ const FeatureCard = ({ icon, title, children }) => (
 );
 
 const FeaturesSection = () => (
-    <section id="features" className="py-20 md:py-24 bg-slate-50 text-gray-800">
+    <section id="features" className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Build Your Case with Confidence</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12 md:mb-16">
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">
                 Our platform is designed to make evidence collection simple, secure, and stress-free.
             </p>
         </div>
@@ -265,17 +264,17 @@ const ProductShowcaseSection = () => {
     const next = () => setIdx((i) => (i === slides.length - 1 ? 0 : i + 1));
 
     return (
-        <section id="showcase" className="py-16 md:py-20 bg-white">
+        <section id="showcase" className="py-20 md:py-28 bg-gray-50">
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
-                <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12">A quick look at how key features help you build a stronger case.</p>
+                <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">A quick look at how key features help you build a stronger case.</p>
 
                 <div className="max-w-4xl mx-auto">
-                    <div className="bg-slate-200 rounded-2xl shadow-lg p-3 md:p-4">
+                    <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
                         <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
                     </div>
 
-                    <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
                         <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
                             <h3 className="text-2xl font-bold text-slate-800 mb-2">{slides[idx].title}</h3>
                             <p className="text-slate-600">{slides[idx].description}</p>
@@ -305,7 +304,7 @@ const ProductShowcaseSection = () => {
 };
 
 const OurMissionSection = () => (
-    <section id="mission" className="py-20 md:py-24 bg-blue-900 text-white">
+    <section id="mission" className="py-20 md:py-28 bg-slate-800 text-white">
         <div className="container mx-auto px-6 text-center max-w-4xl">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission: A Fair Shot for Everyone</h2>
             <blockquote className="border-l-4 border-orange-500 pl-6 md:pl-8 text-left text-lg md:text-xl italic text-slate-200 leading-relaxed">
@@ -322,22 +321,22 @@ const OurMissionSection = () => (
 
 
 const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
-    <section id="pricing" className="py-20 md:py-24 bg-slate-50 text-center text-gray-800">
+    <section id="pricing" className="py-20 md:py-28 bg-white text-center text-gray-800">
         <div className="container mx-auto px-6">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Get Organized Today</h2>
-            <p className="text-lg text-slate-600 mb-12 max-w-3xl mx-auto">Pick what you need now. Get lifetime perks and upgrades when the full application launches.</p>
+            <p className="text-lg text-slate-600 mb-16 max-w-3xl mx-auto">Pick what you need now. Get lifetime perks and upgrades when the full application launches.</p>
 
             <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
-                {/* $97 Toolkit */}
-                <div className="bg-white rounded-2xl shadow-lg border border-orange-400 p-8 flex flex-col">
+                <div className="bg-white rounded-2xl shadow-lg ring-2 ring-orange-500 p-8 flex flex-col relative overflow-hidden">
+                    <div className="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">Most Popular</div>
                     <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Toolkit</h3>
                     <p className="text-slate-500 mb-6">All printables & Founding Member perks.</p>
                     <div className="text-5xl font-extrabold text-slate-900 mb-1">$97</div>
-                    <ul className="text-left text-slate-600 mt-6 space-y-2 flex-grow">
-                        <li>• 10+ premium templates (PDF)</li>
-                        <li>• Step-by-step guides</li>
-                        <li>• Lifetime SaaS discount</li>
-                        <li>• Early beta access</li>
+                    <ul className="text-left text-slate-600 mt-6 space-y-3 flex-grow">
+                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>10+ premium templates (PDF)</span></li>
+                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Step-by-step guides</span></li>
+                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Lifetime SaaS discount</span></li>
+                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Early beta access</span></li>
                     </ul>
                     <button onClick={onBuyToolkit} className="w-full mt-8 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
                         Get the Full Toolkit
@@ -345,49 +344,46 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
                     <p className="text-xs text-slate-400 mt-3">One-time payment.</p>
                 </div>
 
-                {/* $21 Founders Only */}
                 <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
                     <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access</h3>
                     <p className="text-slate-500 mb-6">Get in early and lock in your perks.</p>
                     <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
-                    <ul className="text-left text-slate-600 mt-6 space-y-2 flex-grow">
-                        <li>• Lifetime SaaS discount</li>
-                        <li>• Early beta access</li>
-                        <li>• Founding Member recognition</li>
+                    <ul className="text-left text-slate-600 mt-6 space-y-3 flex-grow">
+                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Lifetime SaaS discount</span></li>
+                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Early beta access</span></li>
+                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Founding Member recognition</span></li>
                     </ul>
-                    <button onClick={onBuyFounders} className="w-full mt-8 bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
+                    <button onClick={onBuyFounders} className="w-full mt-8 bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
                         Get Founders Access
                     </button>
                     <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime.</p>
                 </div>
 
-                {/* $15 Single PDF */}
                 <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
                     <h3 className="text-2xl font-bold text-slate-800 mb-2">Single Download</h3>
                     <p className="text-slate-500 mb-6">Just the one tool you need right now.</p>
                     <div className="text-5xl font-extrabold text-slate-900 mb-1">$15</div>
-                    <ul className="text-left text-slate-600 mt-6 space-y-2 flex-grow">
-                        <li>• Choose any tool you need</li>
-                        <li>• Immediate download via email</li>
-                        <li>• Credit towards the full toolkit</li>
+                    <ul className="text-left text-slate-600 mt-6 space-y-3 flex-grow">
+                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Choose any tool you need</span></li>
+                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Immediate download via email</span></li>
+                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Credit towards the full toolkit</span></li>
                     </ul>
-                    <button onClick={onPickSingle} className="w-full mt-8 bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-3 rounded-lg shadow-sm transition-all">
+                    <button onClick={onPickSingle} className="w-full mt-8 bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 font-semibold py-3 rounded-lg shadow-sm transition-all">
                         Choose a Single Tool
                     </button>
                     <p className="text-[11px] text-slate-400 mt-3">We’ll credit your $15 toward the Toolkit.</p>
                 </div>
 
-                {/* Support */}
                 <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
                     <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
                     <p className="text-slate-500 mb-6">Help us bring this to life.</p>
                     <div className="text-3xl font-extrabold text-slate-900 mb-1">$2/mo</div>
                     <p className="text-slate-500 mb-6">or name your one-time amount</p>
                     <div className="grid grid-cols-1 gap-3 mt-auto flex-grow justify-end flex flex-col">
-                        <button onClick={onContribMonthly} className="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
+                        <button onClick={onContribMonthly} className="w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
                             Contribute $2 / month
                         </button>
-                        <button onClick={onContribNYOP} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-900 font-semibold py-3 rounded-lg shadow-sm transition-all">
+                        <button onClick={onContribNYOP} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 font-semibold py-3 rounded-lg shadow-sm transition-all">
                             One-Time Support
                         </button>
                     </div>
@@ -399,18 +395,18 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
 );
 
 const CallToActionSection = ({ onBuyToolkit, isLoading }) => (
-    <section className="bg-orange-600 text-white py-16 md:py-20">
+    <section className="bg-slate-800 text-white py-20 md:py-24">
         <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Take Control?</h2>
-            <p className="mb-8 max-w-xl mx-auto text-orange-100">
+            <p className="mb-8 max-w-xl mx-auto text-slate-300">
                 Your evidence matters. Let ThreadLock help you document, secure, and present it clearly. Without the stress.
             </p>
             <button
                 onClick={onBuyToolkit}
                 disabled={isLoading}
-                className="bg-white text-orange-600 font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-50 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-100 disabled:cursor-not-allowed"
+                className="bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:opacity-90 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:opacity-70 disabled:cursor-not-allowed"
             >
-                {isLoading ? "Processing..." : "Get the $97 Toolkit"}
+                {isLoading ? "Processing..." : "Get the $97 Toolkit & Founders Perks"}
             </button>
         </div>
     </section>
@@ -542,3 +538,4 @@ export default function Home() {
         </>
     );
 }
+
