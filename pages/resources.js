@@ -16,6 +16,73 @@ const XIcon = (props) => (
     <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
   </svg>
 );
+const LinkedinIcon = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+        <rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+    </svg>
+);
+const GlobeIcon = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+);
+
+/* ---------------- Data for State Rules ---------------- */
+const STATE_RULES = [
+    { name: "Alabama", url: "https://eforms.alacourt.gov/media/d5464e8e-a228-4107-94d3-882245b7a1f5/rules-of-civil-procedure/" },
+    { name: "Alaska", url: "https://courts.alaska.gov/rules/rules.htm" },
+    { name: "Arizona", url: "https://www.azcourts.gov/rules" },
+    { name: "Arkansas", url: "https://courts.arkansas.gov/rules-and-administrative-orders/rules-of-civil-procedure" },
+    { name: "California", url: "https://www.courts.ca.gov/rules.htm" },
+    { name: "Colorado", url: "https://www.courts.state.co.us/Courts/Supreme_Court/Rule_Categories.cfm?Cat_ID=2" },
+    { name: "Connecticut", url: "https://jud.ct.gov/cbecs/rules.htm" },
+    { name: "Delaware", url: "https://courts.delaware.gov/rules/" },
+    { name: "Florida", url: "https://www.floridabar.org/rules/ctproc/" },
+    { name: "Georgia", url: "https://georgiacourts.gov/rules/" },
+    { name: "Hawaii", url: "https://www.courts.state.hi.us/rules_and_orders/rules_of_court" },
+    { name: "Idaho", url: "https://isc.idaho.gov/rules" },
+    { name: "Illinois", url: "https://www.illinoiscourts.gov/rules-and-orders/supreme-court-rules" },
+    { name: "Indiana", url: "https://www.in.gov/courts/rules/" },
+    { name: "Iowa", url: "https://www.iowacourts.gov/for-attorneys/court-rules" },
+    { name: "Kansas", url: "https://www.kscourts.org/rules" },
+    { name: "Kentucky", url: "https://courts.ky.gov/resources/Legal-Resources/Pages/KentuckyRulesofCourt.aspx" },
+    { name: "Louisiana", url: "https://www.lasc.org/rules/" },
+    { name: "Maine", url: "https://www.courts.maine.gov/rules/index.html" },
+    { name: "Maryland", url: "https://mdcourts.gov/rules" },
+    { name: "Massachusetts", url: "https://www.mass.gov/guides/massachusetts-court-rules" },
+    { name: "Michigan", url: "https://courts.michigan.gov/administration/standards-guidelines/rules/" },
+    { name: "Minnesota", url: "https://www.mncourts.gov/courtrules" },
+    { name: "Mississippi", url: "https://courts.ms.gov/rules/msrulesofcourt/rules_of_civil_procedure.pdf" },
+    { name: "Missouri", url: "https://www.courts.mo.gov/page.jsp?id=677" },
+    { name: "Montana", url: "https://courts.mt.gov/rules/" },
+    { name: "Nebraska", url: "https://supremecourt.nebraska.gov/supreme-court-rules" },
+    { name: "Nevada", url: "https://www.leg.state.nv.us/courtrules/" },
+    { name: "New Hampshire", url: "https://www.courts.nh.gov/rules-orders" },
+    { name: "New Jersey", url: "https://www.njcourts.gov/courts/rules" },
+    { name: "New Mexico", url: "https://www.nmcourts.gov/rules-forms/" },
+    { name: "New York", url: "https://ww2.nycourts.gov/rules/" },
+    { name: "North Carolina", url: "https://www.nccourts.gov/legal-resources/rules-forms" },
+    { name: "North Dakota", url: "https://www.ndcourts.gov/legal-resources/rules" },
+    { name: "Ohio", url: "https://www.supremecourt.ohio.gov/rules/" },
+    { name: "Oklahoma", url: "https://www.oscn.net/applications/oscn/index.asp?ftdb=STOKRU&level=1" },
+    { name: "Oregon", url: "https://www.ojd.state.or.us/rules/" },
+    { name: "Pennsylvania", url: "http://www.pacourts.us/rules-and-forms/" },
+    { name: "Rhode Island", url: "https://www.courts.ri.gov/Pages/rules-of-practice.aspx" },
+    { name: "South Carolina", url: "https://www.sccourts.org/courtReg/" },
+    { name: "South Dakota", url: "https://ujs.sd.gov/Supreme_Court/rules.aspx" },
+    { name: "Tennessee", url: "https://www.tncourts.gov/rules" },
+    { name: "Texas", url: "https://www.txcourts.gov/rules-forms/rules-standards/" },
+    { name: "Utah", url: "https://www.utcourts.gov/rules/" },
+    { name: "Vermont", url: "https://www.vermontjudiciary.org/court-rules" },
+    { name: "Virginia", url: "http://www.courts.state.va.us/courts/scv/rulesofcourt.pdf" },
+    { name: "Washington", url: "https://www.courts.wa.gov/court_rules/" },
+    { name: "West Virginia", url: "http://www.courtswv.gov/legal-community/court-rules.html" },
+    { name: "Wisconsin", url: "https://www.wicourts.gov/courts/supreme/rules/index.htm" },
+    { name: "Wyoming", url: "https://www.courts.state.wy.us/court-rules/" },
+];
+
 
 /* ---------------- Single-PDF options (display only) ---------------- */
 const SINGLE_ITEMS = [
@@ -179,6 +246,49 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
     </section>
 );
 
+const CommunityLinksSection = () => (
+    <section id="community-links" className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-6 max-w-4xl">
+             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 text-center">Community & Legal Links</h2>
+            <p className="text-lg text-slate-600 mb-12 text-center">Connect with us and find helpful legal resources for your jurisdiction.</p>
+
+            <div className="grid md:grid-cols-2 gap-8 items-start">
+                {/* LinkedIn Card */}
+                <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200">
+                    <div className="flex items-center gap-4 mb-4">
+                        <div className="w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center rounded-lg">
+                           <LinkedinIcon className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-slate-800">Join our Community</h3>
+                    </div>
+                    <p className="text-slate-600 mb-6">Follow ThreadLock on LinkedIn for company updates, news, and insights into family law technology.</p>
+                    <a href="https://www.linkedin.com/company/threadlock/" target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all">
+                        Follow on LinkedIn
+                    </a>
+                </div>
+                {/* State Rules Card */}
+                <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200">
+                     <div className="flex items-center gap-4 mb-4">
+                        <div className="w-12 h-12 bg-green-100 text-green-600 flex items-center justify-center rounded-lg">
+                           <GlobeIcon className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-slate-800">Local Court Rules</h3>
+                    </div>
+                    <p className="text-slate-600 mb-6">Find the official court and family law rules for your state. <em>(Links go to external government websites)</em></p>
+                    <div className="space-y-2">
+                        {STATE_RULES.map(state => (
+                            <a key={state.name} href={state.url} target="_blank" rel="noopener noreferrer" className="block text-slate-800 hover:text-orange-600 font-semibold transition-colors">
+                                {state.name} &rarr;
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
+
 const Footer = () => (
     <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
         <p>© {new Date().getFullYear()} ThreadLock.ai. All rights reserved.</p>
@@ -267,6 +377,7 @@ export default function ResourcesPage() {
                         onContribMonthly={onContribMonthly}
                         onContribNYOP={onContribNYOP}
                     />
+                    <CommunityLinksSection />
                 </main>
                 <Footer />
                 <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
@@ -274,3 +385,4 @@ export default function ResourcesPage() {
         </>
     );
 }
+
