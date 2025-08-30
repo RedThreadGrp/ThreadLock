@@ -28,6 +28,12 @@ const GlobeIcon = (props) => (
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
     </svg>
 );
+const ChevronDownIcon = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+);
+
 
 /* ---------------- Data for State Rules ---------------- */
 const STATE_RULES = [
@@ -246,47 +252,57 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
     </section>
 );
 
-const CommunityLinksSection = () => (
-    <section id="community-links" className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-6 max-w-4xl">
-             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 text-center">Community & Legal Links</h2>
-            <p className="text-lg text-slate-600 mb-12 text-center">Connect with us and find helpful legal resources for your jurisdiction.</p>
+const CommunityLinksSection = () => {
+    const [rulesOpen, setRulesOpen] = useState(false);
+    return (
+        <section id="community-links" className="py-20 md:py-28 bg-white">
+            <div className="container mx-auto px-6 max-w-4xl">
+                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 text-center">Community & Legal Links</h2>
+                <p className="text-lg text-slate-600 mb-12 text-center">Connect with us and find helpful legal resources for your jurisdiction.</p>
 
-            <div className="grid md:grid-cols-2 gap-8 items-start">
-                {/* LinkedIn Card */}
-                <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200">
-                    <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center rounded-lg">
-                           <LinkedinIcon className="w-6 h-6" />
+                <div className="grid md:grid-cols-2 gap-8 items-start">
+                    {/* LinkedIn Card */}
+                    <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200">
+                        <div className="flex items-center gap-4 mb-4">
+                            <div className="w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center rounded-lg">
+                               <LinkedinIcon className="w-6 h-6" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-slate-800">Join our Community</h3>
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-800">Join our Community</h3>
+                        <p className="text-slate-600 mb-6">Follow ThreadLock on LinkedIn for company updates, news, and insights into family law technology.</p>
+                        <a href="https://www.linkedin.com/company/threadlock/" target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all">
+                            Follow on LinkedIn
+                        </a>
                     </div>
-                    <p className="text-slate-600 mb-6">Follow ThreadLock on LinkedIn for company updates, news, and insights into family law technology.</p>
-                    <a href="https://www.linkedin.com/company/threadlock/" target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all">
-                        Follow on LinkedIn
-                    </a>
-                </div>
-                {/* State Rules Card */}
-                <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200">
-                     <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 bg-green-100 text-green-600 flex items-center justify-center rounded-lg">
-                           <GlobeIcon className="w-6 h-6" />
+                    {/* State Rules Card */}
+                    <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200">
+                         <div className="flex items-center gap-4 mb-4">
+                            <div className="w-12 h-12 bg-green-100 text-green-600 flex items-center justify-center rounded-lg">
+                               <GlobeIcon className="w-6 h-6" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-slate-800">Local Court Rules</h3>
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-800">Local Court Rules</h3>
-                    </div>
-                    <p className="text-slate-600 mb-6">Find the official court and family law rules for your state. <em>(Links go to external government websites)</em></p>
-                    <div className="space-y-2">
-                        {STATE_RULES.map(state => (
-                            <a key={state.name} href={state.url} target="_blank" rel="noopener noreferrer" className="block text-slate-800 hover:text-orange-600 font-semibold transition-colors">
-                                {state.name} &rarr;
-                            </a>
-                        ))}
+                        <p className="text-slate-600 mb-6">Find the official court and family law rules for your state. <em>(Links go to external government websites)</em></p>
+                        
+                        <button onClick={() => setRulesOpen(!rulesOpen)} className="w-full text-left font-semibold text-slate-800 py-3 px-4 bg-slate-200 hover:bg-slate-300 rounded-lg flex justify-between items-center transition-all">
+                            <span>Select Your State</span>
+                            <ChevronDownIcon className={`w-5 h-5 transition-transform ${rulesOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                        <div className={`transition-all duration-300 ease-in-out overflow-hidden ${rulesOpen ? 'max-h-[500px] mt-2' : 'max-h-0'}`}>
+                            <div className="py-2 space-y-2 max-h-80 overflow-y-auto">
+                                {STATE_RULES.map(state => (
+                                    <a key={state.name} href={state.url} target="_blank" rel="noopener noreferrer" className="block text-slate-800 hover:text-orange-600 font-semibold transition-colors p-2 rounded hover:bg-slate-100">
+                                        {state.name} &rarr;
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 
 const Footer = () => (
@@ -300,12 +316,12 @@ function SingleItemModal({ open, onClose, onSelect }) {
     if (!open) return null;
     return (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-6">
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Choose a Single Tool</h3>
                 <p className="text-slate-600 mb-4">Each item is $15. You’ll get the download link by email after checkout.</p>
-                <div className="max-h-80 overflow-y-auto divide-y">
+                <div className="max-h-80 overflow-y-auto grid md:grid-cols-2 gap-x-4 divide-y md:divide-y-0">
                     {SINGLE_ITEMS.map((item) => (
-                        <button key={item.sku} onClick={() => onSelect(item.sku)} className="w-full text-left py-3 px-2 hover:bg-slate-50">
+                        <button key={item.sku} onClick={() => onSelect(item.sku)} className="w-full text-left py-3 px-2 hover:bg-slate-50 rounded-md">
                             {item.name}
                         </button>
                     ))}
@@ -369,7 +385,8 @@ export default function ResourcesPage() {
 
             <div className="bg-white">
                 <Header />
-                <main className="flex flex-col w-full overflow-x-hidden pt-16">
+                <main className="flex flex-col w-full overflow-x-hidden">
+                    <CommunityLinksSection />
                     <PricingSection
                         onBuyToolkit={onBuyToolkit}
                         onBuyFounders={onBuyFounders}
@@ -377,7 +394,6 @@ export default function ResourcesPage() {
                         onContribMonthly={onContribMonthly}
                         onContribNYOP={onContribNYOP}
                     />
-                    <CommunityLinksSection />
                 </main>
                 <Footer />
                 <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
