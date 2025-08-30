@@ -1,6 +1,7 @@
 import React from 'react';
 
-
+// The entire page is now a self-contained React component telling Sarah's story,
+// formatted for visual cohesion with the Founder's Story page.
 export default function SarahsStoryPage() {
 
   // Storing the year in a variable for easy updates.
@@ -61,12 +62,16 @@ export default function SarahsStoryPage() {
             font-weight: 700;
             color: var(--orange-600);
         }
+        .header nav {
+            display: flex;
+            align-items: center;
+        }
         .header nav a {
             color: var(--gray-800);
             font-weight: 600;
             text-decoration: none;
             margin-left: 1.5rem;
-            transition: color 0.2s;
+            transition: all 0.2s;
         }
         .header nav a:hover {
             color: var(--orange-600);
@@ -76,6 +81,22 @@ export default function SarahsStoryPage() {
             border-bottom: 2px solid var(--orange-600);
             padding-bottom: 2px;
         }
+        .header nav a.waitlist-button {
+            background-color: var(--orange-600);
+            color: var(--white);
+            font-weight: 700;
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+        }
+        .header nav a.waitlist-button:hover {
+            background-color: var(--orange-700);
+            color: var(--white);
+            transform: translateY(-2px);
+            border-bottom: none;
+            padding-bottom: 0.5rem;
+        }
+
 
         /* Hero Section */
         .hero {
@@ -128,17 +149,7 @@ export default function SarahsStoryPage() {
             color: var(--gray-700);
             line-height: 1.8;
         }
-        .story-blockquote {
-            border-left: 4px solid var(--orange-600);
-            padding-left: 1.5rem;
-            margin: 2.5rem auto;
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--gray-800);
-            max-width: 38rem;
-        }
         
-        /* Highlighted/Oriented Story Step */
         .story-step.highlighted {
             background-color: var(--white);
             padding: 2.5rem;
@@ -152,8 +163,34 @@ export default function SarahsStoryPage() {
         .story-step.left-oriented {
             text-align: left;
         }
-        .story-step.right-oriented .blockquote, .story-step.left-oriented .blockquote {
+        
+        .story-blockquote {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid var(--orange-600);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
             text-align: left;
+            margin: 2rem auto;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--gray-800);
+            max-width: 38rem;
+        }
+        
+        .epiphany-conclusion {
+            background-color: var(--blue-900);
+            color: var(--gray-100);
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 42rem;
+        }
+        .epiphany-conclusion p {
+             color: var(--gray-300);
+             font-size: 1.1rem;
+             line-height: 1.8;
         }
 
         /* Features Section */
@@ -242,8 +279,9 @@ export default function SarahsStoryPage() {
           <h1 className="header-title">ThreadLock.ai</h1>
           <nav>
             <a href="https://www.threadlock.ai">Home</a>
-            <a href="/sarahs-story" className="active">Sarah's Story</a>
-            <a href="/founder-story">Founder Story</a>
+            <a href="/sarahs-story" className="active">Her Story</a>
+            <a href="/founder-story">Our Story</a>
+            <a href="/signup" className="waitlist-button">Join Waitlist</a>
           </nav>
         </header>
 
@@ -252,21 +290,22 @@ export default function SarahsStoryPage() {
           <section className="hero">
             <div className="max-w-4xl mx-auto">
                 <h2>
-                    From Chaos to Clarity
+                    From Chaos to Clarity.
                     <br />
-                    Her Journey
+                    Her Story.
                 </h2>
                 <p>
-                    For too long, the legal system has been a maze. But for Sarah Thompson, a single mom from Oregon, her entire future depended on finding a path.
+                    For too long, the legal system has been a maze. But for Sarah Thompson, a single mom from Oregon, her entire future depended on finding a path forward.
                 </p>
             </div>
           </section>
 
           {/* Story Flow Section */}
           <section className="story-flow">
-            <h2 style={{textAlign: 'center', fontSize: '2.5rem', fontWeight: '800', color: 'var(--blue-900)', marginBottom: '3rem'}}>Sarah's Journey</h2>
+            <h2 style={{textAlign: 'center', fontSize: '2.5rem', fontWeight: '800', color: 'var(--blue-900)', marginBottom: '3rem'}}>Sarah's Journey in Three Steps</h2>
             <div className="story-step highlighted right-oriented">
                 <span className="step-number">STEP 1</span>
+                <h3>The Problem</h3>
                 <p>
                     Sarah's world fell apart when her marriage turned violent. Overwhelmed and terrified for her kids' safety, she knew she had to get out, but had no idea what to do. As a stay-at-home mom with no paycheck and no access to resources, she was drowning in the chaos of a legal battle she couldn't afford, feeling trapped and utterly powerless.
                 </p>
@@ -274,6 +313,7 @@ export default function SarahsStoryPage() {
 
             <div className="story-step highlighted left-oriented">
                 <span className="step-number">STEP 2</span>
+                <h3>The Turning Point</h3>
                 <p>
                     Sarah was told to "collect evidence" and "be prepared," but had no idea where to start. Then she found ThreadLock.ai and began turning scattered information into a clear, organized case.
                 </p>
@@ -281,6 +321,7 @@ export default function SarahsStoryPage() {
 
             <div className="story-step highlighted right-oriented">
                 <span className="step-number">STEP 3</span>
+                <h3>The Result</h3>
                 <p>
                     Sarah walked into court terrified but walked out free. She won custody of her kids, left the abuse behind, and started her new life. ThreadLock provided the tools she needed to find her voice.
                 </p>
