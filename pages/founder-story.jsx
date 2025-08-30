@@ -216,10 +216,18 @@ export default function FounderStoryPage() {
           {/* Hero Section */}
           <section className="hero max-w-5xl mx-auto">
             <h2>
-              The Justice System is Broken. The People In It Aren't.
+              The justice system is broken.
+              <br />
+              Not the people in it.
             </h2>
             <p className="max-w-3xl mx-auto">
-              I walked into family court with a law degree, thinking I was prepared. I was wrong. The system wasn't just complex; it felt designed to be bewildering. That experience revealed a crucial truth.
+              I walked into family court with a law degree, thinking I was prepared.
+              <br />
+              I was wrong.
+              <br />
+              The system wasn't just complex; it felt designed to be bewildering.
+              <br />
+              That experience revealed a crucial truth.
             </p>
           </section>
 
