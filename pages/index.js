@@ -33,34 +33,6 @@ const ChevronRightIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m9 18 6-6-6-6"/></svg>
 );
 
-/* ---------------- Single-PDF options (display only) ---------------- */
-const SINGLE_ITEMS = [
-  { sku: "avoiding_common_mistakes", name: "Avoiding Common Mistakes in Court" },
-  { sku: "basic_motion_template", name: "Basic Motion Template" },
-  { sku: "case_event_timeline", name: "Case Event Timeline Worksheet" },
-  { sku: "common_response_timelines", name: "Common Legal Response Timelines" },
-  { sku: "cross_exam_planning", name: "Direct & Cross-Examination Planning" },
-  { sku: "evidence_log", name: "Evidence Tracking Log" },
-  { sku: "find_court_rules", name: "Finding the Right Court Rules" },
-  { sku: "pre_hearing_checklist", name: "Pre-Hearing Preparation Checklist" },
-  { sku: "proof_of_service_tracker", name: "Proof of Service Tracker" },
-  { sku: "trial_hearing_quick_ref", name: "Trial & Hearing Quick Reference" },
-];
-
-/* Map UI SKUs → API slugs */
-const SKU_TO_SLUG = {
-  avoiding_common_mistakes: "common-mistakes",
-  basic_motion_template: "basic-motion",
-  case_event_timeline: "case-timeline",
-  common_response_timelines: "common-response",
-  cross_exam_planning: "cross-exam",
-  evidence_log: "evidence-log",
-  find_court_rules: "find-rules",
-  pre_hearing_checklist: "pre-hearing",
-  proof_of_service_tracker: "proof-of-service",
-  trial_hearing_quick_ref: "trial-quick-ref",
-};
-
 /* ---------------- UI Mockups (scaled down) ---------------- */
 const JournalUIMockup = () => (
     <div className="w-full h-full bg-slate-800 rounded-xl p-3 md:p-4 flex flex-col md:flex-row gap-3 text-white">
@@ -153,7 +125,7 @@ const Header = () => {
 
                 <nav className="hidden md:flex items-center space-x-6 text-slate-700 font-semibold">
                     <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
-                    <a href="#resources" className="hover:text-orange-600 transition-colors">Resources</a>
+                    <Link href="/resources"><a className="hover:text-orange-600 transition-colors">Resources</a></Link>
                     <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
                     <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Founder Story</a></Link>
                     <Link href="/signup">
@@ -175,7 +147,7 @@ const Header = () => {
             <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
                 <div className="px-4 pb-4 pt-2 text-slate-800 space-y-2 bg-white border-t border-slate-200">
                     <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Features</a>
-                    <a href="#resources" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Resources</a>
+                    <Link href="/resources"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Resources</a></Link>
                     <Link href="/sarahs-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Her Story</a></Link>
                     <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Founder Story</a></Link>
                     <Link href="/signup">
@@ -190,34 +162,62 @@ const Header = () => {
 };
 
 /* ---------------- Sections ---------------- */
-const HeroSection = ({ onBuyToolkit, isLoading }) => (
-    <section className="relative text-slate-900 bg-gray-50">
-        <div className="container mx-auto px-6 pt-48 md:pt-56 pb-24 text-center">
+const HeroSection = () => (
+    <section className="relative text-slate-900 bg-gray-50 pt-20">
+        <div className="container mx-auto px-6 pt-36 md:pt-44 pb-24 text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-                The justice system is broken.
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
+                <span className="block">The justice system is broken.</span>
+                <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
                     Not the people in it.
                 </span>
             </h1>
-            <p className="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-slate-600 leading-relaxed">
+            <p className="mt-8 text-lg md:text-xl max-w-3xl mx-auto text-slate-600 leading-relaxed">
                 ThreadLock was born from a simple realization: the system doesn't need more complexity, it needs clarity. We built the tools to provide it, putting power back into your hands.
             </p>
-            <div className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-4">
-                <button
-                    onClick={onBuyToolkit}
-                    disabled={isLoading}
-                    className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-400 disabled:cursor-not-allowed"
+            <div className="mt-12 flex justify-center">
+                <a
+                    href="#features"
+                    className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
                 >
-                    {isLoading ? "Processing..." : "Get the Toolkit"}
-                </button>
-                <a href="#resources" className="font-semibold text-slate-700 px-8 py-4 rounded-lg hover:bg-slate-100 transition-colors">
-                    See Resources
+                    See How
                 </a>
             </div>
         </div>
     </section>
 );
+
+const SubscriptionBanner = () => (
+    <section id="subscriptions" className="bg-white py-12 border-b border-slate-200">
+        <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Simple, Powerful Plans</h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12">
+                Choose the right level of support for your journey. App coming soon.
+            </p>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                {/* Single User */}
+                <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200 text-left">
+                    <h3 className="text-xl font-bold text-slate-800">Individual</h3>
+                    <p className="text-4xl font-extrabold text-slate-900 my-4">$10<span className="text-base font-medium text-slate-500">/mo</span></p>
+                    <p className="text-slate-600 mb-6">For parents and individuals managing their own case.</p>
+                </div>
+                {/* Lifetime Access */}
+                <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200 text-left">
+                    <h3 className="text-xl font-bold text-slate-800">Lifetime</h3>
+                    <p className="text-4xl font-extrabold text-slate-900 my-4">$100<span className="text-base font-medium text-slate-500">/one-time</span></p>
+                    <p className="text-slate-600 mb-6">Full access for a single case, from start to finish.</p>
+                </div>
+                {/* Employee Benefit */}
+                <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200 text-left">
+                    <h3 className="text-xl font-bold text-slate-800">For Teams</h3>
+                     <p className="text-4xl font-extrabold text-slate-900 my-4">Custom</p>
+                    <p className="text-slate-600 mb-6">Offer ThreadLock as a powerful benefit for your employees.</p>
+                    <p className="text-slate-800 font-semibold">Contact us at info@threadlock.ai</p>
+                </div>
+            </div>
+        </div>
+    </section>
+);
+
 
 const FeatureCard = ({ icon, title, children }) => (
     <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
@@ -230,7 +230,7 @@ const FeatureCard = ({ icon, title, children }) => (
 );
 
 const FeaturesSection = () => (
-    <section id="features" className="py-20 md:py-28 bg-white">
+    <section id="features" className="py-20 md:py-28 bg-gray-50">
         <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Build Your Case with Confidence</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">
@@ -262,7 +262,7 @@ const ProductShowcaseSection = () => {
     const next = () => setIdx((i) => (i === slides.length - 1 ? 0 : i + 1));
 
     return (
-        <section id="showcase" className="py-20 md:py-28 bg-gray-50">
+        <section id="showcase" className="py-20 md:py-28 bg-white">
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">A quick look at how key features help you build a stronger case.</p>
@@ -317,223 +317,14 @@ const OurMissionSection = () => (
     </section>
 );
 
-const SubscriptionPreviewSection = () => (
-    <section id="subscriptions" className="py-20 md:py-28 bg-gray-50">
-        <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Future-Ready Access</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">
-                While we're launching with our resource toolkits, here's a preview of the app subscription tiers coming soon.
-            </p>
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div className="bg-white p-8 rounded-2xl shadow-md border border-slate-200 text-center flex flex-col">
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">Individual</h3>
-                    <p className="text-4xl font-extrabold text-slate-900 mb-2">$10<span className="text-lg font-semibold text-slate-500">/mo</span></p>
-                    <p className="text-slate-500 mb-6 flex-grow">Perfect for single users managing their own case.</p>
-                    <button disabled className="w-full mt-8 bg-slate-200 text-slate-500 font-semibold py-3 rounded-lg cursor-not-allowed">
-                        Coming Soon
-                    </button>
-                </div>
-                <div className="bg-white p-8 rounded-2xl shadow-lg ring-2 ring-orange-500 text-center flex flex-col">
-                     <h3 className="text-xl font-bold text-slate-800 mb-2">Lifetime Access</h3>
-                     <p className="text-4xl font-extrabold text-slate-900 mb-2">$100<span className="text-lg font-semibold text-slate-500">/one-time</span></p>
-                     <p className="text-slate-500 mb-6 flex-grow">Pay once for lifetime access for a single case.</p>
-                     <button disabled className="w-full mt-8 bg-slate-200 text-slate-500 font-semibold py-3 rounded-lg cursor-not-allowed">
-                        Coming Soon
-                    </button>
-                </div>
-                <div className="bg-white p-8 rounded-2xl shadow-md border border-slate-200 text-center flex flex-col">
-                    <h3 className="text-xl font-bold text-slate-800 mb-2">Employee Benefit</h3>
-                    <p className="text-4xl font-extrabold text-slate-900 mb-2">Custom</p>
-                    <p className="text-slate-500 mb-6 flex-grow">Offer ThreadLock as a benefit to support your team.</p>
-                    <div className="w-full mt-8 bg-slate-800 text-white font-semibold py-3 rounded-lg">
-                        Contact Us
-                    </div>
-                     <p className="text-sm text-slate-500 mt-2">info@threadlock.ai</p>
-                </div>
-            </div>
-        </div>
-    </section>
-);
-
-const SignupSection = () => (
-    <section id="signup" className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-6 text-center max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Be the First to Know</h2>
-            <p className="text-lg text-slate-600 mb-8">
-                Join our waitlist for early access to the ThreadLock app, plus exclusive updates and resources.
-            </p>
-            <form action="/thank-you" method="POST" className="max-w-xl mx-auto">
-                 <div className="flex flex-col sm:flex-row gap-4">
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Your Name"
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                    />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Your Email Address"
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                    />
-                    <button type="submit" className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all">
-                        Join
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
-);
-
-
-const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
-    <section id="resources" className="py-20 md:py-28 bg-gray-50 text-center text-gray-800">
-        <div className="container mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Get Organized Today with Our Resources</h2>
-            <p className="text-lg text-slate-600 mb-16 max-w-3xl mx-auto">These downloadable toolkits are available now. Get lifetime app perks and upgrades when the full application launches.</p>
-
-            <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
-                <div className="bg-white rounded-2xl shadow-lg ring-2 ring-orange-500 p-8 flex flex-col relative overflow-hidden">
-                    <div className="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">Most Popular</div>
-                    <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Toolkit</h3>
-                    <p className="text-slate-500 mb-6">All printables & Founding Member perks.</p>
-                    <div className="text-5xl font-extrabold text-slate-900 mb-1">$97</div>
-                    <ul className="text-left text-slate-600 mt-6 space-y-3 flex-grow">
-                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>10+ premium templates (PDF)</span></li>
-                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Step-by-step guides</span></li>
-                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Lifetime SaaS discount</span></li>
-                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Early beta access</span></li>
-                    </ul>
-                    <button onClick={onBuyToolkit} className="w-full mt-8 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
-                        Get the Toolkit
-                    </button>
-                    <p className="text-xs text-slate-400 mt-3">One-time payment.</p>
-                </div>
-
-                <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
-                    <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access</h3>
-                    <p className="text-slate-500 mb-6">Get in early and lock in your perks.</p>
-                    <div className="text-5xl font-extrabold text-slate-900 mb-1">$21</div>
-                    <ul className="text-left text-slate-600 mt-6 space-y-3 flex-grow">
-                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Lifetime SaaS discount</span></li>
-                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Early beta access</span></li>
-                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Founding Member recognition</span></li>
-                    </ul>
-                    <button onClick={onBuyFounders} className="w-full mt-8 bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
-                        Get Founders Access
-                    </button>
-                    <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime.</p>
-                </div>
-
-                <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
-                    <h3 className="text-2xl font-bold text-slate-800 mb-2">Single Download</h3>
-                    <p className="text-slate-500 mb-6">Just the one tool you need right now.</p>
-                    <div className="text-5xl font-extrabold text-slate-900 mb-1">$15</div>
-                    <ul className="text-left text-slate-600 mt-6 space-y-3 flex-grow">
-                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Choose any tool you need</span></li>
-                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Immediate download via email</span></li>
-                        <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Credit towards the full toolkit</span></li>
-                    </ul>
-                    <button onClick={onPickSingle} className="w-full mt-8 bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 font-semibold py-3 rounded-lg shadow-sm transition-all">
-                        Choose a Single Tool
-                    </button>
-                    <p className="text-[11px] text-slate-400 mt-3">We’ll credit your $15 toward the Toolkit.</p>
-                </div>
-
-                <div className="bg-white rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
-                    <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
-                    <p className="text-slate-500 mb-6">Help us bring this to life.</p>
-                    <div className="text-3xl font-extrabold text-slate-900 mb-1">$2/mo</div>
-                    <p className="text-slate-500 mb-6">or name your one-time amount</p>
-                    <div className="grid grid-cols-1 gap-3 mt-auto flex-grow justify-end flex flex-col">
-                        <button onClick={onContribMonthly} className="w-full bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
-                            Contribute $2 / month
-                        </button>
-                        <button onClick={onContribNYOP} className="w-full bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 font-semibold py-3 rounded-lg shadow-sm transition-all">
-                            One-Time Support
-                        </button>
-                    </div>
-                    <p className="text-xs text-slate-400 mt-3">Thank you. Seriously.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-);
-
-
 const Footer = () => (
     <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
         <p>© {new Date().getFullYear()} ThreadLock.ai. All rights reserved.</p>
     </footer>
 );
 
-/* ---------------- Modal for Single-PDF selection ---------------- */
-function SingleItemModal({ open, onClose, onSelect }) {
-    if (!open) return null;
-    return (
-        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-3">Choose a Single Tool</h3>
-                <p className="text-slate-600 mb-4">Each item is $15. You’ll get the download link by email after checkout.</p>
-                <div className="max-h-80 overflow-y-auto divide-y">
-                    {SINGLE_ITEMS.map((item) => (
-                        <button key={item.sku} onClick={() => onSelect(item.sku)} className="w-full text-left py-3 px-2 hover:bg-slate-50">
-                            {item.name}
-                        </button>
-                    ))}
-                </div>
-                <div className="flex justify-end mt-4">
-                    <button onClick={onClose} className="px-4 py-2 rounded bg-slate-200 hover:bg-slate-300 text-slate-900">Close</button>
-                </div>
-            </div>
-        </div>
-    );
-}
-
 /* ---------------- Main Page ---------------- */
 export default function Home() {
-    const [isLoading, setIsLoading] = useState(false);
-    const [singleOpen, setSingleOpen] = useState(false);
-
-    const postTo = async (slug) => {
-        const r = await fetch(`/api/checkout/${slug}`, { method: "POST" });
-        const j = await r.json();
-        if (!r.ok || !j?.url) throw new Error(j?.error || "Checkout error");
-        window.location.href = j.url;
-    };
-
-    const onBuyToolkit = async () => {
-        setIsLoading(true);
-        try { await postTo("toolkit"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-    };
-    const onBuyFounders = async () => {
-        setIsLoading(true);
-        try { await postTo("founders"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-    };
-    const onPickSingle = () => setSingleOpen(true);
-    const onBuySingle = async (sku) => {
-        setSingleOpen(false);
-        setIsLoading(true);
-        try {
-            const slug = SKU_TO_SLUG[sku];
-            if (!slug) throw new Error("Unknown item.");
-            await postTo(slug);
-        } catch (e) {
-            alert(e.message || "Unable to start checkout.");
-            setIsLoading(false);
-        }
-    };
-    const onContribMonthly = async () => {
-        setIsLoading(true);
-        try { await postTo("support-monthly"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-    };
-    const onContribNYOP = async () => {
-        setIsLoading(true);
-        try { await postTo("support-nyop"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-    };
-
     return (
         <>
             <Head>
@@ -568,24 +359,20 @@ export default function Home() {
             </Head>
 
             <div className="bg-white">
-                <Header />
+                <Header/>
                 <main className="flex flex-col w-full overflow-x-hidden">
-                    <HeroSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
+                    <HeroSection />
+                    <SubscriptionBanner />
                     <FeaturesSection />
                     <ProductShowcaseSection />
                     <OurMissionSection />
-                    <SubscriptionPreviewSection />
-                    <SignupSection />
-                    <PricingSection
-                        onBuyToolkit={onBuyToolkit}
-                        onBuyFounders={onBuyFounders}
-                        onPickSingle={onPickSingle}
-                        onContribMonthly={onContribMonthly}
-                        onContribNYOP={onContribNYOP}
-                    />
+                    <Link href="/resources">
+                        <a className="block text-center py-16 bg-gray-50 text-orange-600 font-bold text-xl hover:bg-gray-100 transition-colors">
+                            See All Resources & Toolkits &rarr;
+                        </a>
+                    </Link>
                 </main>
                 <Footer />
-                <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
             </div>
         </>
     );
