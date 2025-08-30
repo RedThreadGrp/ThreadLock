@@ -143,7 +143,7 @@ const Header = () => {
                     <Link href="/#features"><a className="hover:text-orange-600 transition-colors">Features</a></Link>
                     <Link href="/resources"><a className="text-orange-600 border-b-2 border-orange-600 pb-1">Resources</a></Link>
                     <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
-                    <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Founder Story</a></Link>
+                    <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Our Story</a></Link>
                     <Link href="/signup">
                         <a className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
                             Join Waitlist
@@ -179,9 +179,9 @@ const Header = () => {
 
 /* ---------------- Sections ---------------- */
 const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
-    <section id="pricing" className="py-20 md:py-28 bg-gray-50 text-center text-gray-800">
+    <section id="pricing" className="py-20 md:py-24 bg-white text-center text-gray-800">
         <div className="container mx-auto px-6">
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-slate-900">Resources & Toolkits</h1>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Resources & Toolkits</h2>
             <p className="text-lg text-slate-600 mb-16 max-w-3xl mx-auto">While our app is in development, get organized with these essential resources. Your purchase supports our build and includes Founding Member perks.</p>
 
             <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
@@ -255,14 +255,14 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
 const CommunityLinksSection = () => {
     const [rulesOpen, setRulesOpen] = useState(false);
     return (
-        <section id="community-links" className="py-20 md:py-28 bg-white">
+        <section id="community-links" className="py-20 md:py-24 bg-gray-50">
             <div className="container mx-auto px-6 max-w-4xl">
                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 text-center">Community & Legal Links</h2>
                 <p className="text-lg text-slate-600 mb-12 text-center">Connect with us and find helpful legal resources for your jurisdiction.</p>
 
                 <div className="grid md:grid-cols-2 gap-8 items-start">
                     {/* LinkedIn Card */}
-                    <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200">
+                    <div className="bg-white p-8 rounded-2xl border border-slate-200">
                         <div className="flex items-center gap-4 mb-4">
                             <div className="w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center rounded-lg">
                                <LinkedinIcon className="w-6 h-6" />
@@ -275,7 +275,7 @@ const CommunityLinksSection = () => {
                         </a>
                     </div>
                     {/* State Rules Card */}
-                    <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200">
+                    <div className="bg-white p-8 rounded-2xl border border-slate-200">
                          <div className="flex items-center gap-4 mb-4">
                             <div className="w-12 h-12 bg-green-100 text-green-600 flex items-center justify-center rounded-lg">
                                <GlobeIcon className="w-6 h-6" />
@@ -284,7 +284,7 @@ const CommunityLinksSection = () => {
                         </div>
                         <p className="text-slate-600 mb-6">Find the official court and family law rules for your state. <em>(Links go to external government websites)</em></p>
                         
-                        <button onClick={() => setRulesOpen(!rulesOpen)} className="w-full text-left font-semibold text-slate-800 py-3 px-4 bg-slate-200 hover:bg-slate-300 rounded-lg flex justify-between items-center transition-all">
+                        <button onClick={() => setRulesOpen(!rulesOpen)} className="w-full text-left font-semibold text-slate-800 py-3 px-4 bg-slate-100 hover:bg-slate-200 rounded-lg flex justify-between items-center transition-all">
                             <span>Select Your State</span>
                             <ChevronDownIcon className={`w-5 h-5 transition-transform ${rulesOpen ? 'rotate-180' : ''}`} />
                         </button>
@@ -383,9 +383,9 @@ export default function ResourcesPage() {
                 <meta name="robots" content="noindex, follow" />
             </Head>
 
-            <div className="bg-white">
+            <div className="bg-gray-50">
                 <Header />
-                <main className="flex flex-col w-full overflow-x-hidden">
+                <main className="flex flex-col w-full overflow-x-hidden pt-20">
                     <CommunityLinksSection />
                     <PricingSection
                         onBuyToolkit={onBuyToolkit}
