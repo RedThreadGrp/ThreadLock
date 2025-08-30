@@ -79,7 +79,7 @@ const JournalUIMockup = () => (
             </div>
             <div className="flex justify-end gap-2 mt-2">
                 <button className="text-[11px] bg-slate-600 px-3 py-1 rounded">Attach File</button>
-                <button className="text-[11px] bg-orange-500 px-3 py-1 rounded">Save Entry</button>
+                <button className="text-[11px] bg-orange-600 px-3 py-1 rounded">Save Entry</button>
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@ const TimelineUIMockup = () => (
             <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-600"></div>
             <div className="space-y-3">
                 <div className="relative">
-                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-600 rounded-full"></div>
                     <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
                         <p className="font-semibold">Custody Exchange Late</p>
                         <p className="text-slate-400">July 26, 2025 - 6:30 PM</p>
@@ -100,7 +100,7 @@ const TimelineUIMockup = () => (
                     </div>
                 </div>
                 <div className="relative">
-                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-500 rounded-full"></div>
+                    <div className="absolute -left-5 top-1 w-2 h-2 bg-orange-600 rounded-full"></div>
                     <div className="bg-slate-700/50 p-2 rounded-lg text-[11px]">
                         <p className="font-semibold">Email Received</p>
                         <p className="text-slate-400">July 25, 2025 - 9:15 AM</p>
@@ -126,7 +126,7 @@ const PdfExportUIMockup = () => (
             <div className="flex-grow" />
             <p className="text-[8px] text-center text-slate-500">Page 1 of 5</p>
         </div>
-        <button className="text-[11px] bg-orange-500 px-4 py-1.5 rounded-md mt-3">Download PDF</button>
+        <button className="text-[11px] bg-orange-600 text-white px-4 py-1.5 rounded-md mt-3">Download PDF</button>
     </div>
 );
 
@@ -142,7 +142,7 @@ function BrandWordmark({ className = "" }) {
 }
 
 /* ---------------- Header ---------------- */
-const Header = ({ onBuyToolkit }) => {
+const Header = () => {
     const [open, setOpen] = useState(false);
     return (
         <header className="fixed top-0 left-0 w-full z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
@@ -153,15 +153,14 @@ const Header = ({ onBuyToolkit }) => {
 
                 <nav className="hidden md:flex items-center space-x-6 text-slate-700 font-semibold">
                     <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
-                    <a href="#showcase" className="hover:text-orange-600 transition-colors">Showcase</a>
                     <a href="#pricing" className="hover:text-orange-600 transition-colors">Pricing</a>
-                    <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Our Story</a></Link>
-                    <button
-                        onClick={onBuyToolkit}
-                        className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all"
-                    >
-                        Get Toolkit
-                    </button>
+                    <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
+                    <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Founder Story</a></Link>
+                    <Link href="/signup">
+                        <a className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
+                            Join Waitlist
+                        </a>
+                    </Link>
                 </nav>
 
                 <button
@@ -176,15 +175,14 @@ const Header = ({ onBuyToolkit }) => {
             <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
                 <div className="px-4 pb-4 pt-2 text-slate-800 space-y-2 bg-white border-t border-slate-200">
                     <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Features</a>
-                    <a href="#showcase" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Showcase</a>
                     <a href="#pricing" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Pricing</a>
-                    <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Our Story</a></Link>
-                    <button
-                        onClick={() => { setOpen(false); onBuyToolkit(); }}
-                        className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
-                    >
-                        Get the Toolkit
-                    </button>
+                    <Link href="/sarahs-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Her Story</a></Link>
+                    <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Founder Story</a></Link>
+                    <Link href="/signup">
+                        <a onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
+                            Join the Waitlist
+                        </a>
+                    </Link>
                 </div>
             </div>
         </header>
@@ -211,7 +209,7 @@ const HeroSection = ({ onBuyToolkit, isLoading }) => (
                     disabled={isLoading}
                     className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:bg-orange-400 disabled:cursor-not-allowed"
                 >
-                    {isLoading ? "Processing..." : "Get the $97 Toolkit"}
+                    {isLoading ? "Processing..." : "Get the Toolkit"}
                 </button>
                 <a href="#pricing" className="font-semibold text-slate-700 px-8 py-4 rounded-lg hover:bg-slate-100 transition-colors">
                     See Pricing
@@ -319,9 +317,34 @@ const OurMissionSection = () => (
     </section>
 );
 
+const SignupSection = () => (
+    <section id="signup" className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-6 text-center max-w-3xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Be the First to Know</h2>
+            <p className="text-lg text-slate-600 mb-8">
+                Join our waitlist for early access to the ThreadLock app, plus exclusive updates and resources.
+            </p>
+            <form action="/api/signup" method="POST" className="max-w-md mx-auto">
+                 <div className="flex flex-col sm:flex-row gap-4">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email address"
+                        required
+                        className="flex-grow px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                    />
+                    <button type="submit" className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all">
+                        Join Waitlist
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+);
+
 
 const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
-    <section id="pricing" className="py-20 md:py-28 bg-white text-center text-gray-800">
+    <section id="pricing" className="py-20 md:py-28 bg-gray-50 text-center text-gray-800">
         <div className="container mx-auto px-6">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Get Organized Today</h2>
             <p className="text-lg text-slate-600 mb-16 max-w-3xl mx-auto">Pick what you need now. Get lifetime perks and upgrades when the full application launches.</p>
@@ -339,7 +362,7 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
                         <li className="flex items-start"><span className="text-green-500 mr-2 mt-1">✓</span><span>Early beta access</span></li>
                     </ul>
                     <button onClick={onBuyToolkit} className="w-full mt-8 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 rounded-lg shadow-md transition-all">
-                        Get the Full Toolkit
+                        Get the Toolkit
                     </button>
                     <p className="text-xs text-slate-400 mt-3">One-time payment.</p>
                 </div>
@@ -390,24 +413,6 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
                     <p className="text-xs text-slate-400 mt-3">Thank you. Seriously.</p>
                 </div>
             </div>
-        </div>
-    </section>
-);
-
-const CallToActionSection = ({ onBuyToolkit, isLoading }) => (
-    <section className="bg-slate-800 text-white py-20 md:py-24">
-        <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Take Control?</h2>
-            <p className="mb-8 max-w-xl mx-auto text-slate-300">
-                Your evidence matters. Let ThreadLock help you document, secure, and present it clearly. Without the stress.
-            </p>
-            <button
-                onClick={onBuyToolkit}
-                disabled={isLoading}
-                className="bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:opacity-90 transform hover:-translate-y-1 transition-all duration-300 ease-in-out disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-                {isLoading ? "Processing..." : "Get the $97 Toolkit & Founders Perks"}
-            </button>
         </div>
     </section>
 );
@@ -523,6 +528,7 @@ export default function Home() {
                     <FeaturesSection />
                     <ProductShowcaseSection />
                     <OurMissionSection />
+                    <SignupSection />
                     <PricingSection
                         onBuyToolkit={onBuyToolkit}
                         onBuyFounders={onBuyFounders}
@@ -530,7 +536,6 @@ export default function Home() {
                         onContribMonthly={onContribMonthly}
                         onContribNYOP={onContribNYOP}
                     />
-                    <CallToActionSection onBuyToolkit={onBuyToolkit} isLoading={isLoading} />
                 </main>
                 <Footer />
                 <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
