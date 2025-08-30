@@ -1,7 +1,5 @@
 import React from 'react';
 
-// The entire page is now a self-contained React component telling the founder's story,
-// with an improved, more readable layout and updated header navigation.
 export default function FounderStoryPage() {
 
   // Storing the year in a variable for easy updates.
@@ -279,7 +277,7 @@ export default function FounderStoryPage() {
           <h1 className="header-title">ThreadLock.ai</h1>
           <nav>
             <a href="https://www.threadlock.ai">Home</a>
-            <a href="/founder-story" className="active">Founder Story</a>
+            <a href="/founder-story" className="active">Our Story</a>
             <a href="/signup" className="waitlist-button">Join Waitlist</a>
           </nav>
         </header>
@@ -289,9 +287,9 @@ export default function FounderStoryPage() {
           <section className="hero">
             <div className="max-w-4xl mx-auto">
                 <h2>
-                    The System Puts Everyone in a Box.
+                    The System Puts Everyone in a Box
                     <br/>
-                    Even the Judge.
+                    Even the Judge
                 </h2>
                 <p>
                     Our founder's journey through the family court system revealed a surprising truth that became the foundation for ThreadLock.
