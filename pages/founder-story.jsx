@@ -234,7 +234,7 @@ export default function FounderStoryPage() {
           {/* Story Section */}
           <section className="content-section">
             <div className="max-w-4xl mx-auto">
-              <h3>The Day I Realized the Judge Was Trapped, Too</h3>
+              <h3 style={{ textAlign: 'center' }}>The Day I Realized the Judge Was Trapped, Too</h3>
               <p>
                 The moment that changed everything was when I learned about the judge in my case. Before the robe, they were a champion for the underdog, an advocate for access to justice. Yet, from the bench, they were unable to provide the very access they once fought for.
               </p>
