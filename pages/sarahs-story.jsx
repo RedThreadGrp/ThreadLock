@@ -1,5 +1,16 @@
 import React from 'react';
 
+/* ----------------- Brand ----------------- */
+function BrandWordmark({ className = "" }) {
+    return (
+        <span className={`inline-flex items-baseline font-bold text-2xl tracking-tight select-none ${className}`}>
+            <span className="text-slate-800">Thread</span>
+            <span className="text-orange-600">Lock</span>
+            <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
+        </span>
+    );
+}
+
 // The entire page is now a self-contained React component telling Sarah's story,
 // formatted for visual cohesion with the Founder's Story page.
 export default function SarahsStoryPage() {
@@ -57,10 +68,8 @@ export default function SarahsStoryPage() {
             top: 0;
             z-index: 10;
         }
-        .header h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--orange-600);
+        .header .brand-link {
+            text-decoration: none;
         }
         .header nav {
             display: flex;
@@ -178,21 +187,6 @@ export default function SarahsStoryPage() {
             max-width: 38rem;
         }
         
-        .epiphany-conclusion {
-            background-color: var(--blue-900);
-            color: var(--gray-100);
-            padding: 2.5rem;
-            border-radius: 0.75rem;
-            text-align: left;
-            margin: 0 auto;
-            max-width: 42rem;
-        }
-        .epiphany-conclusion p {
-             color: var(--gray-300);
-             font-size: 1.1rem;
-             line-height: 1.8;
-        }
-
         /* Features Section */
         .features-section {
             background-color: var(--white);
@@ -276,7 +270,7 @@ export default function SarahsStoryPage() {
       <div className="page-container">
         {/* Header */}
         <header className="header">
-          <h1 className="header-title">ThreadLock.ai</h1>
+          <a href="/" className="brand-link"><BrandWordmark /></a>
           <nav>
             <a href="https://www.threadlock.ai">Home</a>
             <a href="/sarahs-story" className="active">Her Story</a>
@@ -295,7 +289,7 @@ export default function SarahsStoryPage() {
                     Her Story.
                 </h2>
                 <p>
-                    For too long, the legal system has been a maze. But for Sarah Thompson, a single mom from Oregon, her entire future depended on finding a path forward.
+                    For too long, the legal system has been a maze. But for Sarah Thompson, a single mom from Portland, it was a battle for her future.
                 </p>
             </div>
           </section>
