@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Head from "next/head";
-import Link from "next/link";
-
-/* ---------------- SEO (page-level) ---------------- */
-const SITE_URL = "https://threadlock.ai";
-const OG_IMAGE = `${SITE_URL}/og-image.jpg`; // absolute URL
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -120,14 +114,9 @@ const Header = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            // Set scrolled state if user scrolls down more than 10px
             setIsScrolled(window.scrollY > 10);
         };
-
-        // Add event listener
         window.addEventListener('scroll', handleScroll);
-
-        // Clean up event listener
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -140,20 +129,16 @@ const Header = () => {
     return (
         <header className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${headerClasses}`}>
             <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-                <Link href="/">
-                    <a><BrandWordmark darkText={isScrolled} /></a>
-                </Link>
+                <a href="/"><BrandWordmark darkText={isScrolled} /></a>
 
                 <nav className={`hidden md:flex items-center space-x-6 font-semibold ${navTextClasses}`}>
                     <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
-                    <Link href="/resources"><a className="hover:text-orange-600 transition-colors">Resources</a></Link>
-                    <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
-                    <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Our Story</a></Link>
-                    <Link href="/signup">
-                        <a className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
-                            Join Waitlist
-                        </a>
-                    </Link>
+                    <a href="/resources" className="hover:text-orange-600 transition-colors">Resources</a>
+                    <a href="/sarahs-story" className="hover:text-orange-600 transition-colors">Her Story</a>
+                    <a href="/founder-story" className="hover:text-orange-600 transition-colors">Our Story</a>
+                    <a href="/signup" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
+                        Join Waitlist
+                    </a>
                 </nav>
 
                 <button
@@ -168,14 +153,12 @@ const Header = () => {
             <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
                 <div className="px-4 pb-4 pt-2 space-y-2 bg-white border-t border-slate-200">
                     <a href="#features" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Features</a>
-                    <Link href="/resources"><a onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Resources</a></Link>
-                    <Link href="/sarahs-story"><a onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Her Story</a></Link>
-                    <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Founder Story</a></Link>
-                    <Link href="/signup">
-                        <a onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
-                            Join the Waitlist
-                        </a>
-                    </Link>
+                    <a href="/resources" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Resources</a>
+                    <a href="/sarahs-story" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Her Story</a>
+                    <a href="/founder-story" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Founder Story</a>
+                    <a href="/signup" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
+                        Join the Waitlist
+                    </a>
                 </div>
             </div>
         </header>
@@ -223,7 +206,6 @@ const SubscriptionBanner = () => (
     }}
   >
     <div className="container mx-auto px-6 text-center relative">
-      {/* Framed title + tagline */}
       <div className="inline-block px-6 py-5 mb-10 border-2 border-orange-500 rounded-xl bg-white/60 backdrop-blur-sm shadow-md">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
           Simple, Powerful Plans
@@ -232,8 +214,6 @@ const SubscriptionBanner = () => (
           Choose the right level of support for your journey. App coming soon.
         </p>
       </div>
-
-      {/* Cards — same orange frame as title */}
       <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
           <h3 className="text-xl font-bold text-slate-800">Individual</h3>
@@ -242,7 +222,6 @@ const SubscriptionBanner = () => (
           </p>
           <p className="text-slate-600 mb-6">For parents and individuals managing their own case.</p>
         </div>
-
         <div className="bg-white/85 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
           <h3 className="text-xl font-bold text-slate-800">Lifetime</h3>
           <p className="text-4xl font-extrabold text-slate-900 my-4">
@@ -250,7 +229,6 @@ const SubscriptionBanner = () => (
           </p>
           <p className="text-slate-600 mb-6">Full access for a single case, from start to finish.</p>
         </div>
-
         <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
           <h3 className="text-xl font-bold text-slate-800">For Teams</h3>
           <p className="text-4xl font-extrabold text-slate-900 my-4">Custom</p>
@@ -261,8 +239,6 @@ const SubscriptionBanner = () => (
     </div>
   </section>
 );
-
-
 
 const FeatureCard = ({ icon, title, children }) => (
     <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-6 text-left">
@@ -277,14 +253,23 @@ const FeatureCard = ({ icon, title, children }) => (
 );
 
 const FeaturesSection = () => (
-    <section id="features" className="py-20 md:py-28 bg-gray-50">
-        <div className="container mx-auto px-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Build Your Case with Confidence</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">
+    <section 
+        id="features" 
+        className="relative py-20 md:py-28"
+        style={{
+            backgroundImage: "url('/getty-images-1mEcRkmEXBM-unsplash.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+        }}
+    >
+        <div className="absolute inset-0 bg-slate-900/70 z-0"></div>
+        <div className="relative container mx-auto px-6 text-center z-10">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Build Your Case with Confidence</h2>
+            <p className="text-lg text-slate-200 max-w-2xl mx-auto mb-16">
                 Our platform is designed to make evidence collection simple, secure, and stress-free.
             </p>
         </div>
-        <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8">
+        <div className="relative container mx-auto px-6 grid md:grid-cols-3 gap-8 z-10">
             <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="AI-Guided Journaling">
                 Never miss a crucial detail. Our AI guides you to capture the specific, legally-relevant facts for your case.
             </FeatureCard>
@@ -351,10 +336,8 @@ const OurMissionSection = () => (
     id="mission"
     className="relative py-20 md:py-28 text-white bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
   >
-    {/* subtle pattern + vignette for pop while staying on guide */}
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.06),_transparent_60%)]" />
     <div className="pointer-events-none absolute inset-0 bg-black/20" />
-
     <div className="relative container mx-auto px-6 text-center max-w-4xl">
       <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Mission: A Fair Shot for Everyone</h2>
       <div className="border-l-4 border-orange-500 pl-6 md:pl-8 text-left">
@@ -370,31 +353,74 @@ const OurMissionSection = () => (
   </section>
 );
 
+const SignupSection = () => {
+    const [email, setEmail] = useState('');
+    const [status, setStatus] = useState('idle');
+    const [message, setMessage] = useState('');
 
-const SignupSection = () => (
-    <section id="signup" className="py-20 md:py-28 bg-gray-50">
-        <div className="container mx-auto px-6 text-center max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Be the First to Know</h2>
-            <p className="text-lg text-slate-600 mb-8">
-                Join our waitlist for early access to the ThreadLock app, plus exclusive updates and resources.
-            </p>
-            <form action="/api/signup" method="POST" className="max-w-md mx-auto">
-                 <div className="flex flex-col sm:flex-row gap-4">
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email address"
-                        required
-                        className="flex-grow px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                    />
-                    <button type="submit" className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all">
-                        Join Waitlist
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
-);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('submitting');
+        setMessage('');
+
+        try {
+            const response = await fetch('/api/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setMessage('Thanks for joining! We\'ll be in touch soon.');
+                setEmail('');
+            } else {
+                const data = await response.json();
+                setStatus('error');
+                setMessage(data.message || 'Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            setStatus('error');
+            setMessage('An unexpected error occurred. Please try again later.');
+        }
+    };
+
+    return (
+        <section id="signup" className="py-20 md:py-28 bg-gray-50">
+            <div className="container mx-auto px-6 text-center max-w-3xl">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Be the First to Know</h2>
+                <p className="text-lg text-slate-600 mb-8">
+                    Join our waitlist for early access to the ThreadLock app, plus exclusive updates and resources.
+                </p>
+                <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="flex-grow px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                        />
+                        <button 
+                            type="submit" 
+                            className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all disabled:bg-slate-400"
+                            disabled={status === 'submitting'}
+                        >
+                            {status === 'submitting' ? 'Joining...' : 'Join Waitlist'}
+                        </button>
+                    </div>
+                </form>
+                {message && (
+                    <p className={`mt-4 text-sm ${status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                        {message}
+                    </p>
+                )}
+            </div>
+        </section>
+    );
+};
 
 const Footer = () => (
     <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
@@ -404,52 +430,19 @@ const Footer = () => (
 
 /* ---------------- Main Page ---------------- */
 export default function Home() {
-
     return (
-        <>
-            <Head>
-                <title>ThreadLock™ | Family Law Technology</title>
-                <meta
-                    name="description"
-                    content="AI-powered family law software for custody disputes, child support, and family court evidence management. Make the system make sense."
-                />
-                <link rel="canonical" href={SITE_URL} />
-                <link rel="icon" href="/favicon.ico" />
-                <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-                <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-                <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png" />
-                <link rel="manifest" href="/manifest.json" />
-                <meta name="msapplication-config" content="/browserconfig.xml" />
-                <meta name="theme-color" content="#ffffff" />
-                <meta property="og:site_name" content="ThreadLock" />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={SITE_URL} />
-                <meta property="og:title" content="ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management" />
-                <meta property="og:description" content="AI-powered family law software designed for custody disputes, child support, and family court evidence management. Make the system make sense." />
-                <meta property="og:image" content={OG_IMAGE} />
-                <meta property="og:image:secure_url" content={OG_IMAGE} />
-                <meta property="og:image:type" content="image/jpeg" />
-                <meta property="og:image:width" content="1200" />
-                <meta property="og:image:height" content="627" />
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management" />
-                <meta name="twitter:description" content="AI-powered family law software for custody, child support, and evidence management." />
-                <meta name="twitter:image" content={OG_IMAGE} />
-                <meta name="robots" content="index, follow" />
-            </Head>
-
-            <div className="bg-white">
-                <Header/>
-                <main className="flex flex-col w-full overflow-x-hidden">
-                    <HeroSection />
-                    <OurMissionSection />
-                    <FeaturesSection />
-                    <ProductShowcaseSection />
-                    <SubscriptionBanner />
-                    <SignupSection />
-                </main>
-                <Footer />
-            </div>
-        </>
+        <div className="bg-white">
+            <Header/>
+            <main className="flex flex-col w-full overflow-x-hidden">
+                <HeroSection />
+                <OurMissionSection />
+                <FeaturesSection />
+                <ProductShowcaseSection />
+                <SubscriptionBanner />
+                <SignupSection />
+            </main>
+            <Footer />
+        </div>
     );
 }
+
