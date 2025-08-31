@@ -27,10 +27,10 @@ export default function FounderStoryPage() {
           --font-family:'Poppins',sans-serif;
 
           /* images */
-          --hero-url: url('https://i.imgur.com/uBl9s8s.jpeg');
-          --quote-url: url('https://i.imgur.com/v1K5u5V.jpeg');
-          --reality-bg-url: url('https://i.imgur.com/O1bC4AL.jpeg');
-          --result-url: url('https://i.imgur.com/b5g3m2e.jpeg');
+          --hero-url: url('https://images.unsplash.com/photo-1594744806548-993d02b9f9a4?q=80&w=2940&auto=format&fit=crop');
+          --quote-url: url('https://images.unsplash.com/photo-1549413723-54135508b888?q=80&w=2940&auto=format&fit=crop');
+          --reality-bg-url: url('https://images.unsplash.com/photo-1533221345835-1845c20f7826?q=80&w=2836&auto=format&fit=crop');
+          --result-url: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2940&auto=format&fit=crop');
         }
 
         html { -webkit-text-size-adjust: 100%; }
