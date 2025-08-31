@@ -168,31 +168,31 @@ const Header = () => {
 /* ---------------- Sections ---------------- */
 
 const HeroSection = () => (
-    <section 
-        className="relative text-white bg-cover bg-center"
-        style={{ backgroundImage: `url('/simran-sood-qL0t5zNGFVQ-unsplash.jpg')` }}
-    >
-        <div className="absolute inset-0 bg-black/60"></div>
-        <div className="relative container mx-auto px-6 pt-36 md:pt-44 pb-24 text-center">
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-                <span className="block">The justice system is broken.</span>
-                <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
-                    Not the people in it.
-                </span>
-            </h1>
-            <p className="mt-8 text-lg md:text-xl max-w-3xl mx-auto text-slate-200 leading-relaxed">
-                ThreadLock was born from a simple realization: the system doesn't need more complexity, it needs clarity. We built the tools to provide it, putting power back into your hands.
-            </p>
-            <div className="mt-12 flex justify-center">
-                <a
-                    href="#features"
-                    className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                >
-                    See How
-                </a>
-            </div>
-        </div>
-    </section>
+  <section
+    className="relative text-white bg-cover bg-center bg-fixed"
+    style={{ backgroundImage: "url('/simran-sood-qL0t5zNGFVQ-unsplash.jpg')" }}
+  >
+    <div className="absolute inset-0 bg-black/60"></div>
+    <div className="relative container mx-auto px-6 pt-36 md:pt-44 pb-24 text-center">
+      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+        <span className="block">The justice system is broken.</span>
+        <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
+          Not the people in it.
+        </span>
+      </h1>
+      <p className="mt-8 text-lg md:text-xl max-w-3xl mx-auto text-slate-200 leading-relaxed">
+        ThreadLock was born from a simple realization: the system doesn't need more complexity, it needs clarity. We built the tools to provide it, putting power back into your hands.
+      </p>
+      <div className="mt-12 flex justify-center">
+        <a
+          href="#features"
+          className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+        >
+          See How
+        </a>
+      </div>
+    </div>
+  </section>
 );
 
 const SubscriptionBanner = () => (
@@ -253,34 +253,32 @@ const FeatureCard = ({ icon, title, children }) => (
 );
 
 const FeaturesSection = () => (
-    <section 
-        id="features" 
-        className="relative py-20 md:py-28"
-        style={{
-            backgroundImage: "url('/getty-images-1mEcRkmEXBM-unsplash.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-        }}
-    >
-        <div className="absolute inset-0 bg-slate-900/70 z-0"></div>
-        <div className="relative container mx-auto px-6 text-center z-10">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Build Your Case with Confidence</h2>
-            <p className="text-lg text-slate-200 max-w-2xl mx-auto mb-16">
-                Our platform is designed to make evidence collection simple, secure, and stress-free.
-            </p>
-        </div>
-        <div className="relative container mx-auto px-6 grid md:grid-cols-3 gap-8 z-10">
-            <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="AI-Guided Journaling">
-                Never miss a crucial detail. Our AI guides you to capture the specific, legally-relevant facts for your case.
-            </FeatureCard>
-            <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Immutable & Secure">
-                Entries are anchored for integrity—creating a record that stands up to scrutiny.
-            </FeatureCard>
-            <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court-Ready Exports">
-                Export clean timelines and summaries that a judge can actually read.
-            </FeatureCard>
-        </div>
-    </section>
+  <section
+    id="features"
+    className="relative py-20 md:py-28 bg-fixed bg-cover bg-center"
+    style={{
+      backgroundImage: "url('/getty-images-1mEcRkmEXBM-unsplash.jpg')",
+    }}
+  >
+    <div className="absolute inset-0 bg-slate-900/70 z-0"></div>
+    <div className="relative container mx-auto px-6 text-center z-10">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Build Your Case with Confidence</h2>
+      <p className="text-lg text-slate-200 max-w-2xl mx-auto mb-16">
+        Our platform is designed to make evidence collection simple, secure, and stress-free.
+      </p>
+    </div>
+    <div className="relative container mx-auto px-6 grid md:grid-cols-3 gap-8 z-10">
+      <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="AI-Guided Journaling">
+        Never miss a crucial detail. Our AI guides you to capture the specific, legally-relevant facts for your case.
+      </FeatureCard>
+      <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Immutable & Secure">
+        Entries are anchored for integrity—creating a record that stands up to scrutiny.
+      </FeatureCard>
+      <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court-Ready Exports">
+        Export clean timelines and summaries that a judge can actually read.
+      </FeatureCard>
+    </div>
+  </section>
 );
 
 const ProductShowcaseSection = () => {
