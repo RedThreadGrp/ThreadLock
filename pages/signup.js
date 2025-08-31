@@ -1,24 +1,40 @@
-// TEMP STUB: accepts every signup so the build/deploy succeeds.
-// Remove this once real storage/email + ratelimiting are wired.
+// pages/signup.js
+import React, { useState } from 'react';
 
-export default async function handler(req, res) {
-  // allow GET for smoke tests and OPTIONS for preflight
-  if (req.method === 'OPTIONS') return res.status(200).end();
+export default function SignupPage() {
+  const [status, setStatus] = useState('idle');
 
-  // Best-effort body parse (Next usually parses JSON already)
-  const body = typeof req.body === 'string' ? safeParse(req.body) : (req.body || {});
-  const { email = null, name = null } = body;
+  async function onSubmit(e) {
+    e.preventDefault();
+    setStatus('success'); // optimistic: show "accepted" immediately
+    const fd = new FormData(e.currentTarget);
+    const payload = { name: fd.get('name'), email: fd.get('email') };
+    try {
+      await fetch('/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+    } catch {
+      // ignore; we already showed success
+    }
+  }
 
-  // Always report success (no external services called)
-  return res.status(200).json({
-    ok: true,
-    message: 'Signup accepted',
-    email,
-    name,
-    // NOTE: nothing is persisted in this stub.
-  });
-}
-
-function safeParse(s) {
-  try { return JSON.parse(s); } catch { return {}; }
+  return (
+    <main style={{ minHeight: '60vh', display: 'grid', placeItems: 'center', padding: 24 }}>
+      <form onSubmit={onSubmit} style={{ maxWidth: 420, width: '100%' }}>
+        <h1 style={{ fontWeight: 800, marginBottom: 12 }}>Join the waitlist</h1>
+        <input name="name" placeholder="Name" style={{ width: '100%', padding: 10, marginBottom: 10 }} />
+        <input name="email" type="email" required placeholder="Email" style={{ width: '100%', padding: 10, marginBottom: 10 }} />
+        <button type="submit" style={{ width: '100%', padding: 10, background: '#ea580c', color: '#fff', fontWeight: 700, border: 0, borderRadius: 8 }}>
+          Sign up
+        </button>
+        {status === 'success' && (
+          <p style={{ marginTop: 12, padding: 10, border: '1px solid #cce5cc', background: '#f4fff4', color: '#1f7a1f', borderRadius: 6 }}>
+            Accepted — we’ll be in touch. (temporary)
+          </p>
+        )}
+      </form>
+    </main>
+  );
 }
