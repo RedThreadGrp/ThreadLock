@@ -20,18 +20,19 @@ export default function FounderStoryPage() {
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
 
-        :root {
+        :root{
           --orange-600:#ea580c; --orange-700:#c2410c; --blue-900:#1e293b;
           --gray-50:#f9fafb; --gray-100:#f3f4f6; --gray-300:#d1d5db;
           --gray-700:#374151; --gray-800:#1f2937; --gray-900:#0f172a; --white:#fff;
           --font-family:'Poppins',sans-serif;
 
-          /* public/ paths */
-          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');               /* woman */
-          --step3-url: url('/getty-images-6iVK12iAn_s-unsplash.jpg');       /* man + child */
-          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg');       /* forest */
+          /* images from /public */
+          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');          /* woman */
+          --step3-url: url('/getty-images-6iVK12iAn_s-unsplash.jpg');   /* man + child */
+          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg');   /* forest */
         }
 
+        html { -webkit-text-size-adjust: 100%; }
         body{font-family:var(--font-family);background:var(--gray-50);color:var(--gray-900);margin:0}
         .page-container{min-height:100vh;background:var(--gray-50)}
         .max-w-5xl{max-width:64rem}.max-w-4xl{max-width:56rem}.mx-auto{margin-left:auto;margin-right:auto}
@@ -44,9 +45,9 @@ export default function FounderStoryPage() {
         .nav-links a{color:var(--gray-800);font-weight:600;text-decoration:none;margin-left:1.5rem;transition:.2s}
         .nav-links a:hover{color:var(--orange-600)}
         .nav-links a.active{color:var(--orange-600);border-bottom:2px solid var(--orange-600);padding-bottom:2px}
-        .waitlist-button{background:var(--orange-600);color:var(--white);font-weight:700;padding:.5rem 1.25rem;border-radius:.5rem;
+        .waitlist-button{background:var(--orange-600);color:#fff;font-weight:700;padding:.5rem 1.25rem;border-radius:.5rem;
           box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}
-        .waitlist-button:hover{background:var(--orange-700);color:#fff;transform:translateY(-2px);border-bottom:none;padding-bottom:.5rem}
+        .waitlist-button:hover{background:var(--orange-700);color:#fff;transform:translateY(-2px);border-bottom:none}
 
         .hamburger{display:none;background:transparent;border:0;padding:.25rem;cursor:pointer}
         .hamburger svg{width:28px;height:28px;color:var(--gray-900)}
@@ -57,64 +58,69 @@ export default function FounderStoryPage() {
         .mobile-panel .waitlist-button{display:inline-block;margin-top:.5rem}
         @media (max-width:991px){.nav-links{display:none}.hamburger{display:inline-flex}.mobile-panel.open{display:block}}
 
-        /* Hero (woman) */
-        .hero{position:relative;padding:6rem 1.25rem;text-align:center;color:#fff;
-          background-image:var(--hero-url);background-size:cover;background-position:center;isolation:isolate}
+        /* Hero */
+        .hero{
+          position:relative;padding:6rem 1.25rem;text-align:center;color:#fff;
+          background-image:var(--hero-url);background-size:cover;background-position:center;isolation:isolate
+        }
         .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.25),rgba(0,0,0,.55));z-index:-1}
         .hero h2{font-size:2.4rem;line-height:1.2;font-weight:800;margin-bottom:1rem}
         .hero p{font-size:1.125rem;max-width:48rem;margin:0 auto;color:#f2f4f7}
 
         /* Story flow */
         .story-flow{padding:4rem 1.5rem}
-        .story-step{max-width:42rem;margin:0 auto 3.5rem auto;text-align:center}
-        .step-number{display:inline-block;background:#feefc7;color:#d97706;font-weight:700;font-size:.9rem;padding:.25rem .75rem;border-radius:9999px;margin-bottom:1rem}
+        .story-step{max-width:42rem;margin:0 auto 3.5rem auto;background:#fff;padding:2.5rem;border-radius:1rem;border:1px solid var(--gray-100);
+          box-shadow:0 4px 6px -1px rgba(0,0,0,.05)}
         .story-step h3{font-size:2rem;font-weight:700;color:var(--blue-900);margin-bottom:1rem}
         .story-step p{font-size:1.1rem;color:var(--gray-700);line-height:1.8}
-        .story-step.highlighted{background:#fff;padding:2.5rem;border-radius:1rem;border:1px solid var(--gray-100);box-shadow:0 4px 6px -1px rgba(0,0,0,.05)}
+        .step-number{display:inline-block;background:#feefc7;color:#d97706;font-weight:700;font-size:.9rem;
+          padding:.25rem .75rem;border-radius:9999px;margin-bottom:1rem}
 
-        /* Step 3 (man + child) */
-        .story-step.step-3{color:#fff;background-image:var(--step3-url);background-size:cover;background-position:center;position:relative;overflow:hidden}
-        .story-step.step-3::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);border-radius:1rem}
-        .story-step.step-3 > *{position:relative}
-        .story-step.step-3 h3{color:#fff}
-        .story-step.step-3 p{color:#f3f4f6}
+        /* Alignment helpers (apply to the card content) */
+        .align-right{text-align:right}
+        .align-left{text-align:left}
 
-        .story-blockquote{background:#fff;padding:1.5rem;border-radius:.5rem;border-left:4px solid var(--orange-600);
-          box-shadow:0 4px 6px -1px rgba(0,0,0,.05);text-align:left;margin:2rem auto;font-size:1.2rem;font-style:italic;color:var(--gray-800);max-width:38rem}
-        .epiphany-conclusion{background:var(--blue-900);color:var(--gray-100);padding:2.5rem;border-radius:.75rem;text-align:left;margin:0 auto;max-width:42rem}
-        .epiphany-conclusion p{color:var(--gray-300);font-size:1.1rem;line-height:1.8}
+        /* Make the STEP badge align with the side */
+        .align-right .step-number{margin-left:auto;display:inline-block}
+        .align-left  .step-number{margin-right:auto;display:inline-block}
 
-        /* Result section (features) with forest bg */
+        /* Step 3 background */
+        .step-3{
+          color:#fff; position:relative; overflow:hidden;
+          background-image:var(--step3-url);background-size:cover;background-position:center;
+        }
+        .step-3::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);border-radius:1rem}
+        .step-3 > *{position:relative}
+        .step-3 h3{color:#fff}
+        .step-3 p{color:#f3f4f6}
+
+        /* Result section with forest background */
         .features-section{position:relative;padding:4rem 1.5rem;color:#fff;background-image:var(--result-url);
           background-size:cover;background-position:center;isolation:isolate}
         .features-section::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));z-index:-1}
-        .features-section h3{font-size:2rem;font-weight:700;margin-bottom:2rem;color:#fff;text-align:center}
+        .features-section h3{text-align:center;font-size:2rem;font-weight:700;margin-bottom:2rem}
         .features-grid{display:grid;gap:2rem}
         @media (min-width:768px){.features-grid{grid-template-columns:repeat(3,1fr)}}
         .feature-card{background:rgba(255,255,255,.08);backdrop-filter:blur(2px);padding:2rem;border-radius:1rem;border:1px solid rgba(255,255,255,.2);text-align:center}
-        .feature-card h4{font-size:1.25rem;font-weight:700;margin-bottom:.5rem;color:#ffd7b3}
+        .feature-card h4{color:#ffd7b3;font-size:1.25rem;font-weight:700;margin-bottom:.5rem}
         .feature-card p{color:#f3f4f6;font-size:.95rem}
 
-        /* Closing CTA */
+        /* CTA & Footer */
         .closing-cta{background:var(--blue-900);padding:4rem 1.5rem;text-align:center;color:#fff}
-        .closing-cta h3{font-size:2rem;font-weight:700;margin-bottom:1rem}
-        .closing-cta p{margin-bottom:2rem;opacity:.9}
-        .cta-link{background:var(--orange-600);color:#fff;padding:.75rem 2rem;border-radius:.5rem;font-weight:700;transition:.2s;text-decoration:none;display:inline-block}
+        .cta-link{background:var(--orange-600);color:#fff;padding:.75rem 2rem;border-radius:.5rem;font-weight:700;text-decoration:none;display:inline-block}
         .cta-link:hover{background:var(--orange-700)}
-
-        /* Footer */
         .footer{background:var(--gray-900);color:var(--gray-300);padding:1.5rem;text-align:center;font-size:.9rem}
 
-        /* Mobile text justification */
+        /* Mobile readability & scaling */
         @media (max-width:640px){
-          p,.story-step p,.hero p,.epiphany-conclusion p,.feature-card p,.closing-cta p,blockquote{
-            text-align:justify;text-justify:inter-word;hyphens:auto;overflow-wrap:anywhere
-          }
+          p,.story-step p,.hero p,.feature-card p{ text-align:justify; text-justify:inter-word; hyphens:auto; overflow-wrap:anywhere; }
           .hero h2{font-size:1.9rem}
+          .story-step{padding:1.75rem}
         }
       `}</style>
 
       <div className="page-container">
+        {/* Header */}
         <header className="header">
           <a href="/" className="brand-link" aria-label="ThreadLock Home"><BrandWordmark /></a>
 
@@ -149,6 +155,7 @@ export default function FounderStoryPage() {
         </header>
 
         <main>
+          {/* Hero */}
           <section className="hero">
             <div className="max-w-4xl mx-auto">
               <h2>The System Puts Everyone in a Box.<br/>Even the Judge.</h2>
@@ -156,39 +163,45 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
+          {/* Story Flow */}
           <section className="story-flow">
             <h2 style={{textAlign:'center',fontSize:'2.5rem',fontWeight:800,color:'var(--blue-900)',marginBottom:'3rem'}}>
               A Journey in Three Steps
             </h2>
 
-            <div className="story-step highlighted">
+            {/* STEP 1: RIGHT */}
+            <div className="story-step align-right">
               <span className="step-number">STEP 1</span>
               <h3>The Expectation</h3>
-              <p>I walked into family court to represent myself. I'd been to law school, but after several years as a stay-at-home mom, I had no money for a lawyer and no access to professional resources. I thought my legal knowledge would be enough to guide me through the process. I was wrong.</p>
+              <p>
+                I walked into family court to represent myself. I'd been to law school, but after several years as a stay-at-home mom, I had no money for a lawyer and no access to professional resources. I thought my legal knowledge would be enough to guide me through the process. I was wrong.
+              </p>
             </div>
 
-            <div className="story-step highlighted">
+            {/* STEP 2: LEFT */}
+            <div className="story-step align-left">
               <span className="step-number">STEP 2</span>
               <h3>The Reality</h3>
-              <p>The system wasn't just complex; it felt designed to be bewildering. My confidence was quickly replaced by the same fear and powerlessness that millions of people feel every year.</p>
+              <p>
+                The system wasn't just complex; it felt designed to be bewildering. My confidence was quickly replaced by the same fear and powerlessness that millions of people feel every year.
+              </p>
             </div>
 
-            <div className="story-step highlighted step-3" style={{marginBottom:'1.5rem'}}>
+            {/* STEP 3: RIGHT with background */}
+            <div className="story-step align-right step-3" style={{marginBottom:'1.5rem'}}>
               <span className="step-number">STEP 3</span>
               <h3>The Epiphany</h3>
-              <p>The moment that changed everything was when I learned about the judge in my case. Before the robe, they were a champion for the underdog. Yet, from the bench, they were unable to provide the very access they once fought for.</p>
+              <p>
+                The moment that changed everything was when I learned about the judge in my case. Before the robe, they were a champion for the underdog. Yet, from the bench, they were unable to provide the very access they once fought for.
+              </p>
             </div>
 
             <blockquote className="story-blockquote">
               "Instead of anger, I felt a moment of clarity. I saw a good person constrained by a bad system."
             </blockquote>
-
-            <div className="epiphany-conclusion">
-              <p>The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative. The problem wasn't the judge. It was a crisis of information.</p>
-            </div>
           </section>
 
-          {/* RESULT section (forest bg) */}
+          {/* Result (forest) */}
           <section className="features-section">
             <div className="max-w-5xl mx-auto">
               <h3>The Result: A Solvable Problem</h3>
@@ -209,9 +222,11 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
+          {/* CTA */}
           <section className="closing-cta">
             <div className="max-w-4xl mx-auto">
-              <h3>You're not powerless. You're just unprepared.</h3>
+              <h3>You're not powerless. You're just not prepared.</h3>
+			<h3>Yet.</h3>
               <p>Let ThreadLock change that. We’re putting power back into the hands of everyday people, one case at a time.</p>
               <a href="https://www.threadlock.ai" className="cta-link">Get Started with ThreadLock</a>
             </div>
