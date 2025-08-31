@@ -172,12 +172,11 @@ export default function SarahsStoryPage() {
                 .hero {
                     padding: 4.5rem 1.5rem;
                     text-align: center;
-                    background-color: var(--white);
-                    background-image: url('/earving-segura-_WYjs343uLY-unsplash.jpg'); /* Updated file path */
-                    background-size: cover; /* Cover the entire section */
-                    background-position: center; /* Center the image */
-                    color: var(--white); /* Change text color for readability */
-                    position: relative; /* Needed for overlay */
+                    background-image: url('https://i.imgur.com/k9b6M2p.png');
+                    background-size: cover;
+                    background-position: center 65%; /* Adjusted framing */
+                    color: var(--white);
+                    position: relative;
                 }
                 .hero::before {
                     content: '';
@@ -186,11 +185,11 @@ export default function SarahsStoryPage() {
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+                    background-color: rgba(0, 0, 0, 0.4);
                     z-index: 1;
                 }
                 .hero > div {
-                    position: relative; /* Ensure content is above overlay */
+                    position: relative;
                     z-index: 2;
                 }
                 .hero h2 {
@@ -198,11 +197,11 @@ export default function SarahsStoryPage() {
                     line-height: 1.2;
                     font-weight: 800;
                     margin-bottom: 1.5rem;
-                    color: var(--white); /* Changed to white */
+                    color: var(--white);
                 }
                 .hero p {
                     font-size: 1.125rem;
-                    color: var(--white); /* Changed to white */
+                    color: var(--white);
                     line-height: 1.75;
                     max-width: 48rem;
                     margin: auto;
@@ -216,8 +215,8 @@ export default function SarahsStoryPage() {
                     max-width: 42rem;
                     margin: 0 auto 3.5rem auto;
                     text-align: center;
-                    position: relative; /* Needed for overlay */
-                    overflow: hidden; /* Keeps overlay within rounded corners */
+                    position: relative;
+                    overflow: hidden; 
                 }
                 .story-step::before {
                     content: '';
@@ -227,10 +226,10 @@ export default function SarahsStoryPage() {
                     right: 0;
                     bottom: 0;
                     z-index: 1;
-                    border-radius: 1rem; /* Match parent's border-radius */
+                    border-radius: 1rem;
                 }
                 .story-step > * {
-                    position: relative; /* Ensure content is above overlay */
+                    position: relative;
                     z-index: 2;
                 }
                 .story-step .step-number {
@@ -265,20 +264,20 @@ export default function SarahsStoryPage() {
 
                 /* Specific background for Story Step 2 */
                 .story-step.highlighted.left-oriented {
-                    background-image: url('/getty-images-EZcXgfq9w4A-unsplash.jpg'); /* Updated file path */
+                    background-image: url('https://i.imgur.com/gK96v74.png');
                     background-size: cover;
                     background-position: center;
-                    color: var(--white); /* Adjust text color for readability */
+                    color: var(--white);
                 }
                 .story-step.highlighted.left-oriented::before {
-                    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
+                    background-color: rgba(0, 0, 0, 0.6); /* Increased overlay darkness */
                 }
                 .story-step.highlighted.left-oriented h3,
                 .story-step.highlighted.left-oriented p {
-                    color: var(--white); /* Ensure text elements are white */
+                    color: var(--white);
                 }
                 .story-step.highlighted.left-oriented .step-number {
-                    background-color: rgba(254, 239, 199, 0.7); /* Adjust badge background for contrast */
+                    background-color: rgba(254, 239, 199, 0.7);
                     color: var(--orange-700);
                 }
 
@@ -306,14 +305,28 @@ export default function SarahsStoryPage() {
                 
                 /* Features Section */
                 .features-section {
-                    background-color: var(--white);
+                    background-image: url('https://i.imgur.com/sC5T0T8.jpeg'); /* New background */
+                    background-size: cover;
+                    background-position: center;
                     padding: 4rem 1.5rem;
+                    position: relative;
+                }
+                .features-section::before {
+                    content: '';
+                    position: absolute;
+                    top: 0; left: 0; right: 0; bottom: 0;
+                    background-color: rgba(15, 23, 42, 0.8); /* Dark blue overlay */
+                    z-index: 1;
+                }
+                .features-section .content-wrapper {
+                    position: relative;
+                    z-index: 2;
                 }
                 .features-section h3 {
                     font-size: 2rem;
                     font-weight: 700;
                     margin-bottom: 2rem;
-                    color: var(--blue-900);
+                    color: var(--white);
                     text-align: center;
                 }
                 .features-grid {
@@ -326,20 +339,20 @@ export default function SarahsStoryPage() {
                     }
                 }
                 .feature-card {
-                    background-color: var(--gray-50);
+                    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent */
                     padding: 2rem;
                     border-radius: 1rem;
-                    border: 1px solid var(--gray-100);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
                     text-align: center;
                 }
                 .feature-card h4 {
                     font-size: 1.25rem;
                     font-weight: 700;
                     margin-bottom: 0.5rem;
-                    color: var(--orange-600);
+                    color: var(--white);
                 }
                 .feature-card p {
-                    color: var(--gray-700);
+                    color: var(--gray-300);
                     font-size: 0.95rem;
                 }
 
@@ -473,7 +486,7 @@ export default function SarahsStoryPage() {
 
                     {/* Features Section */}
                     <section className="features-section">
-                        <div className="max-w-5xl mx-auto">
+                        <div className="content-wrapper max-w-5xl mx-auto">
                             <h3>How ThreadLock Turned Chaos into Clarity</h3>
                             <div className="features-grid">
                                 <div className="feature-card">
@@ -524,5 +537,4 @@ export default function SarahsStoryPage() {
         </>
     );
 }
-
 
