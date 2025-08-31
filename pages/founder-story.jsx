@@ -27,7 +27,7 @@ export default function FounderStoryPage() {
           --font-family:'Poppins',sans-serif;
 
           /* images */
-          --hero-url: url('https://images.unsplash.com/photo-1594744806548-993d02b9f9a4?q=80&w=2940&auto=format&fit=crop');
+          --hero-url: url('https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=2823&auto=format&fit=crop');
           --quote-url: url('https://images.unsplash.com/photo-1549413723-54135508b888?q=80&w=2940&auto=format&fit=crop');
           --reality-bg-url: url('https://images.unsplash.com/photo-1533221345835-1845c20f7826?q=80&w=2836&auto=format&fit=crop');
           --result-url: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2940&auto=format&fit=crop');
@@ -69,7 +69,7 @@ export default function FounderStoryPage() {
         .hero p{font-size:1.125rem;max-width:48rem;margin:0 auto;color:#f2f4f7}
 
         /* Story flow */
-        .story-flow{padding:4rem 1.5rem}
+        .story-flow{padding:4rem 1.5rem 0 1.5rem}
         .story-step{max-width:42rem;margin:0 auto 3.5rem auto;background:#fff;padding:2.5rem;border-radius:1rem;border:1px solid var(--gray-100);
           box-shadow:0 4px 6px -1px rgba(0,0,0,.05)}
         .story-step h3{font-size:2rem;font-weight:700;color:var(--blue-900);margin-bottom:1rem}
@@ -85,48 +85,65 @@ export default function FounderStoryPage() {
 
         /* NEW: Reality Section Background */
         .reality-background-container {
-            background-image: var(--reality-bg-url);
-            background-size: cover;
-            background-position: center 70%; /* Adjust vertical position */
-            background-attachment: fixed; /* Parallax effect */
-            padding: 3.5rem 1.5rem;
-            margin-bottom: 3.5rem;
+          background-image: var(--reality-bg-url);
+          background-size: cover;
+          background-position: center 70%; /* Adjust vertical position */
+          background-attachment: fixed; /* Parallax effect */
+          padding: 3.5rem 1.5rem;
+          margin: 0;
         }
         .reality-background-container .story-step {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(5px);
-            margin-bottom: 0;
-            border: 1px solid rgba(255,255,255,0.5);
+          background: rgba(255, 255, 255, 0.9);
+          backdrop-filter: blur(5px);
+          margin-bottom: 0;
+          border: 1px solid rgba(255,255,255,0.5);
         }
 
-        /* Quote block with background image */
-        .story-blockquote{
-          position:relative; max-width:42rem; margin:2rem auto 1.5rem auto;
-          background-image:var(--quote-url); background-size:cover; background-position:center;
-          border-radius:0.75rem; overflow:hidden; color:#fff;
+        /* Quote container */
+        .quote-container {
+            position: relative;
+            max-width: 42rem;
+            margin: 2rem auto 3.5rem auto;
+            background-image: var(--quote-url);
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            color: var(--white);
         }
-        .story-blockquote::before{
-          content:""; position:absolute; inset:0; background:rgba(0,0,0,.45);
+        .quote-container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
         }
-        .story-blockquote > .inner{
-          position:relative; padding:1.5rem; border-left:4px solid var(--orange-600);
-          font-size:1.2rem; font-style:italic;
+        .story-blockquote {
+            position: relative;
+            background: transparent;
+            margin: 0;
+            max-width: 100%;
+            color: var(--white);
         }
-
-        /* Epiphany Conclusion (restored) */
-        .epiphany-conclusion{
-          background-color: var(--blue-900);
-          color: var(--gray-100);
-          padding: 2.5rem;
-          border-radius: 0.75rem;
-          text-align: left;
-          margin: 0 auto 3rem auto;
-          max-width: 42rem;
+        .story-blockquote > .inner {
+            position: relative;
+            padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+            border-left: 4px solid var(--orange-600);
+            font-size: 1.2rem;
+            font-style: italic;
         }
-        .epiphany-conclusion p{
-          color: var(--gray-300);
-          font-size: 1.1rem;
-          line-height: 1.8;
+        .epiphany-conclusion {
+            position: relative;
+            background-color: transparent;
+            color: var(--gray-100);
+            padding: 0 2.5rem 2.5rem 2.5rem;
+            text-align: left;
+            margin: 0;
+            max-width: 100%;
+        }
+        .epiphany-conclusion p {
+            color: var(--gray-200);
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
         /* Result section with forest background */
@@ -160,13 +177,11 @@ export default function FounderStoryPage() {
         {/* Header */}
         <header className="header">
           <a href="/" className="brand-link" aria-label="ThreadLock Home"><BrandWordmark /></a>
-
           <nav className="nav-links" aria-label="Primary">
             <a href="https://www.threadlock.ai">Home</a>
             <a href="/founder-story" className="active">Our Story</a>
             <a href="/signup" className="waitlist-button">Join Waitlist</a>
           </nav>
-
           <button
             className="hamburger"
             aria-label="Open menu"
@@ -183,7 +198,6 @@ export default function FounderStoryPage() {
               </svg>
             )}
           </button>
-
           <div className={`mobile-panel ${menuOpen ? 'open' : ''}`}>
             <a href="https://www.threadlock.ai" onClick={() => setMenuOpen(false)}>Home</a>
             <a href="/founder-story" className="active" onClick={() => setMenuOpen(false)}>Our Story</a>
@@ -205,8 +219,6 @@ export default function FounderStoryPage() {
             <h2 style={{textAlign:'center',fontSize:'2.5rem',fontWeight:800,color:'var(--blue-900)',marginBottom:'3rem'}}>
               A Journey in Three Steps
             </h2>
-
-            {/* STEP 1: RIGHT */}
             <div className="story-step align-right">
               <span className="step-number">STEP 1</span>
               <h3>The Expectation</h3>
@@ -216,7 +228,6 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
-          {/* STEP 2: LEFT (with full-width background) */}
           <section className="reality-background-container">
             <div className="story-step align-left">
               <span className="step-number">STEP 2</span>
@@ -228,7 +239,6 @@ export default function FounderStoryPage() {
           </section>
 
           <section className="story-flow" style={{paddingTop: 0}}>
-            {/* STEP 3: RIGHT (no bg) */}
             <div className="story-step align-right" style={{marginBottom:'1.5rem', marginTop: '3.5rem'}}>
               <span className="step-number">STEP 3</span>
               <h3>The Epiphany</h3>
@@ -236,20 +246,17 @@ export default function FounderStoryPage() {
                 The moment that changed everything was when I learned about the judge in my case. Before the robe, they were a champion for the underdog. Yet, from the bench, they were unable to provide the very access they once fought for.
               </p>
             </div>
-
-            {/* Quote with man+child background */}
-            <blockquote className="story-blockquote">
-              <div className="inner">
-                “Instead of anger, I felt a moment of clarity. I saw a good person constrained by a bad system.”
+            <div className="quote-container">
+              <blockquote className="story-blockquote">
+                <div className="inner">
+                  “Instead of anger, I felt a moment of clarity. I saw a good person constrained by a bad system.”
+                </div>
+              </blockquote>
+              <div className="epiphany-conclusion">
+                <p>
+                  The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative. The problem wasn't the judge. It was a crisis of information.
+                </p>
               </div>
-            </blockquote>
-
-            {/* Epiphany Conclusion (restored) */}
-            <div className="epiphany-conclusion">
-              <p>
-                The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative.
-                The problem wasn't the judge. It was a crisis of information.
-              </p>
             </div>
           </section>
 
@@ -294,4 +301,3 @@ export default function FounderStoryPage() {
     </>
   );
 }
-

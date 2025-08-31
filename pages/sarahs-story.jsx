@@ -168,11 +168,11 @@ export default function SarahsStoryPage() {
                  }
 
 
-                /* Hero Section - CORRECTED IMAGE */
+                /* Hero Section */
                 .hero {
                     padding: 4.5rem 1.5rem;
                     text-align: center;
-                    background-image: url('https://images.unsplash.com/photo-1594744806548-993d02b9f9a4?q=80&w=2940&auto=format&fit=crop');
+                    background-image: url('https://i.imgur.com/k9b6M2p.png');
                     background-size: cover;
                     background-position: center 40%;
                     color: var(--white);
@@ -256,9 +256,9 @@ export default function SarahsStoryPage() {
                     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
                 }
 
-                /* Specific background for Story Step 2 - CORRECTED IMAGE */
+                /* Specific background for Story Step 2 */
                 .story-step.step-2-bg {
-                    background-image: url('https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=2940&auto=format&fit=crop');
+                    background-image: url('https://i.imgur.com/gK96v74.png');
                     background-size: cover;
                     background-position: center;
                     color: var(--white);
@@ -292,10 +292,10 @@ export default function SarahsStoryPage() {
                     max-width: 38rem;
                 }
                 
-                /* Features Section - CORRECTED IMAGE */
+                /* Features Section */
                 .features-section {
                     position: relative;
-                    background-image: url('https://images.unsplash.com/photo-1554224155-82a47921b7fc?q=80&w=2892&auto=format&fit=crop');
+                    background-image: url('https://i.imgur.com/gK2xYq2.jpeg');
                     background-size: cover;
                     background-position: center;
                     padding: 4rem 1.5rem;
