@@ -27,9 +27,9 @@ export default function FounderStoryPage() {
           --font-family:'Poppins',sans-serif;
 
           /* images from /public */
-          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');          /* woman */
-          --step3-url: url('/getty-images-6iVK12iAn_s-unsplash.jpg');   /* man + child */
-          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg');   /* forest */
+          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');          /* woman (hero) */
+          --quote-url: url('/getty-images-6iVK12iAn_s-unsplash.jpg');  /* man + child (behind quote) */
+          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg');   /* forest (result section) */
         }
 
         html { -webkit-text-size-adjust: 100%; }
@@ -76,23 +76,41 @@ export default function FounderStoryPage() {
         .step-number{display:inline-block;background:#feefc7;color:#d97706;font-weight:700;font-size:.9rem;
           padding:.25rem .75rem;border-radius:9999px;margin-bottom:1rem}
 
-        /* Alignment helpers (apply to the card content) */
+        /* Alignment helpers */
         .align-right{text-align:right}
         .align-left{text-align:left}
-
-        /* Make the STEP badge align with the side */
         .align-right .step-number{margin-left:auto;display:inline-block}
         .align-left  .step-number{margin-right:auto;display:inline-block}
 
-        /* Step 3 background */
-        .step-3{
-          color:#fff; position:relative; overflow:hidden;
-          background-image:var(--step3-url);background-size:cover;background-position:center;
+        /* Quote block with background image */
+        .story-blockquote{
+          position:relative; max-width:42rem; margin:2rem auto 1.5rem auto;
+          background-image:var(--quote-url); background-size:cover; background-position:center;
+          border-radius:0.75rem; overflow:hidden; color:#fff;
         }
-        .step-3::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45);border-radius:1rem}
-        .step-3 > *{position:relative}
-        .step-3 h3{color:#fff}
-        .step-3 p{color:#f3f4f6}
+        .story-blockquote::before{
+          content:""; position:absolute; inset:0; background:rgba(0,0,0,.45);
+        }
+        .story-blockquote > .inner{
+          position:relative; padding:1.5rem; border-left:4px solid var(--orange-600);
+          font-size:1.2rem; font-style:italic;
+        }
+
+        /* Epiphany Conclusion (restored) */
+        .epiphany-conclusion{
+          background-color: var(--blue-900);
+          color: var(--gray-100);
+          padding: 2.5rem;
+          border-radius: 0.75rem;
+          text-align: left;
+          margin: 0 auto 3rem auto;
+          max-width: 42rem;
+        }
+        .epiphany-conclusion p{
+          color: var(--gray-300);
+          font-size: 1.1rem;
+          line-height: 1.8;
+        }
 
         /* Result section with forest background */
         .features-section{position:relative;padding:4rem 1.5rem;color:#fff;background-image:var(--result-url);
@@ -107,6 +125,8 @@ export default function FounderStoryPage() {
 
         /* CTA & Footer */
         .closing-cta{background:var(--blue-900);padding:4rem 1.5rem;text-align:center;color:#fff}
+        .closing-cta h3{font-size:2rem;font-weight:800;margin:0 0 .5rem 0}
+        .closing-cta .subtitle{margin-top:1rem;margin-bottom:2rem;opacity:.9}
         .cta-link{background:var(--orange-600);color:#fff;padding:.75rem 2rem;border-radius:.5rem;font-weight:700;text-decoration:none;display:inline-block}
         .cta-link:hover{background:var(--orange-700)}
         .footer{background:var(--gray-900);color:var(--gray-300);padding:1.5rem;text-align:center;font-size:.9rem}
@@ -187,8 +207,8 @@ export default function FounderStoryPage() {
               </p>
             </div>
 
-            {/* STEP 3: RIGHT with background */}
-            <div className="story-step align-right step-3" style={{marginBottom:'1.5rem'}}>
+            {/* STEP 3: RIGHT (no bg) */}
+            <div className="story-step align-right" style={{marginBottom:'1.5rem'}}>
               <span className="step-number">STEP 3</span>
               <h3>The Epiphany</h3>
               <p>
@@ -196,9 +216,20 @@ export default function FounderStoryPage() {
               </p>
             </div>
 
+            {/* Quote with man+child background */}
             <blockquote className="story-blockquote">
-              "Instead of anger, I felt a moment of clarity. I saw a good person constrained by a bad system."
+              <div className="inner">
+                “Instead of anger, I felt a moment of clarity. I saw a good person constrained by a bad system.”
+              </div>
             </blockquote>
+
+            {/* Epiphany Conclusion (restored) */}
+            <div className="epiphany-conclusion">
+              <p>
+                The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative.
+                The problem wasn't the judge. It was a crisis of information.
+              </p>
+            </div>
           </section>
 
           {/* Result (forest) */}
@@ -225,9 +256,11 @@ export default function FounderStoryPage() {
           {/* CTA */}
           <section className="closing-cta">
             <div className="max-w-4xl mx-auto">
-              <h3>You're not powerless. You're just not prepared.</h3>
-			<h3>Yet.</h3>
-              <p>Let ThreadLock change that. We’re putting power back into the hands of everyday people, one case at a time.</p>
+              <h3>You aren’t powerless. You just aren’t prepared.</h3>
+              <h3>Yet.</h3>
+              <p className="subtitle">
+                Let ThreadLock change that. We’re putting power back into the hands of everyday people, one case at a time.
+              </p>
               <a href="https://www.threadlock.ai" className="cta-link">Get Started with ThreadLock</a>
             </div>
           </section>

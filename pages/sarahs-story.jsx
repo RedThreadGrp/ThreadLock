@@ -179,7 +179,8 @@ export default function SarahsStoryPage() {
 
           <section className="closing-cta">
             <div className="max-w-4xl mx-auto">
-              <h3>You're not powerless. You're just not prepared. Yet.</h3>
+              <h3>You're not powerless. You're just not prepared.</h3>
+		<h3>Yet.</h3>
               <p>Let ThreadLock change that. We’re putting power back into the hands of everyday people, one case at a time.</p>
               <a href="https://www.threadlock.ai" className="cta-link">Find Your Voice. Find Your Freedom.</a>
             </div>
