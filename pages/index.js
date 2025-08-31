@@ -325,25 +325,29 @@ const ProductShowcaseSection = () => {
 };
 
 const OurMissionSection = () => (
-    <section 
-        id="mission" 
-        className="relative py-20 md:py-28 bg-cover bg-center text-white"
-        style={{ backgroundImage: `url('/mick-kirchman-CjowkkLmLKE-unsplash.jpg')` }}
-    >
-        <div className="absolute inset-0 bg-slate-800/80"></div>
-        <div className="relative container mx-auto px-6 text-center max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Mission: A Fair Shot for Everyone</h2>
-            <div className="border-l-4 border-orange-500 pl-6 md:pl-8 text-left">
-                <p className="text-xl md:text-2xl text-slate-100 leading-relaxed font-light">
-                    The justice system doesn't fail because of one judge or one case. It fails when people, forced to represent themselves, are denied a voice because they lack the confidence and tools to be heard.
-                </p>
-                <p className="mt-4 text-xl md:text-2xl text-orange-400 font-semibold">
-                    We built the tools to give you that voice.
-                </p>
-            </div>
-        </div>
-    </section>
+  <section
+    id="mission"
+    className="relative py-20 md:py-28 text-white bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+  >
+    {/* subtle pattern + vignette for pop while staying on guide */}
+    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.06),_transparent_60%)]" />
+    <div className="pointer-events-none absolute inset-0 bg-black/20" />
+
+    <div className="relative container mx-auto px-6 text-center max-w-4xl">
+      <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Mission: A Fair Shot for Everyone</h2>
+      <div className="border-l-4 border-orange-500 pl-6 md:pl-8 text-left">
+        <p className="text-xl md:text-2xl text-slate-100 leading-relaxed font-light">
+          The justice system doesn't fail because of one judge or one case. It fails when people, forced to represent
+          themselves, are denied a voice because they lack the confidence and tools to be heard.
+        </p>
+        <p className="mt-4 text-xl md:text-2xl text-orange-400 font-semibold">
+          We built the tools to give you that voice.
+        </p>
+      </div>
+    </div>
+  </section>
 );
+
 
 const SignupSection = () => (
     <section id="signup" className="py-20 md:py-28 bg-gray-50">
