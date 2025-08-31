@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -103,27 +103,48 @@ const PdfExportUIMockup = () => (
 );
 
 /* ---------------- Text Brand ---------------- */
-function BrandWordmark({ className = "" }) {
+function BrandWordmark({ className = "", darkText = true }) {
     return (
         <span className={`inline-flex items-baseline font-bold text-2xl tracking-tight select-none ${className}`}>
-            <span className="text-slate-800">Thread</span>
+            <span className={darkText ? "text-slate-800" : "text-white"}>Thread</span>
             <span className="text-orange-600">Lock</span>
-            <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
+            <span className={`ml-0.5 align-text-top text-[0.5em] font-black ${darkText ? 'text-slate-500' : 'text-slate-300'}`}>™</span>
         </span>
     );
 }
 
-/* ---------------- Header ---------------- */
+/* ---------------- Header: MODIFIED ---------------- */
 const Header = () => {
     const [open, setOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Set scrolled state if user scrolls down more than 10px
+            setIsScrolled(window.scrollY > 10);
+        };
+
+        // Add event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Clean up event listener
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const headerClasses = isScrolled
+        ? "bg-white/90 backdrop-blur-md border-b border-slate-200"
+        : "bg-transparent";
+    
+    const navTextClasses = isScrolled ? "text-slate-700" : "text-white";
+
     return (
-        <header className="fixed top-0 left-0 w-full z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <header className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${headerClasses}`}>
             <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
                 <Link href="/">
-                    <a><BrandWordmark /></a>
+                    <a><BrandWordmark darkText={isScrolled} /></a>
                 </Link>
 
-                <nav className="hidden md:flex items-center space-x-6 text-slate-700 font-semibold">
+                <nav className={`hidden md:flex items-center space-x-6 font-semibold ${navTextClasses}`}>
                     <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
                     <Link href="/resources"><a className="hover:text-orange-600 transition-colors">Resources</a></Link>
                     <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
@@ -136,7 +157,7 @@ const Header = () => {
                 </nav>
 
                 <button
-                    className="md:hidden text-slate-800 p-2"
+                    className={`md:hidden p-2 ${navTextClasses}`}
                     aria-label="Toggle menu"
                     onClick={() => setOpen(!open)}
                 >
@@ -145,11 +166,11 @@ const Header = () => {
             </div>
 
             <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
-                <div className="px-4 pb-4 pt-2 text-slate-800 space-y-2 bg-white border-t border-slate-200">
-                    <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Features</a>
-                    <Link href="/resources"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Resources</a></Link>
-                    <Link href="/sarahs-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Her Story</a></Link>
-                    <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Founder Story</a></Link>
+                <div className="px-4 pb-4 pt-2 space-y-2 bg-white border-t border-slate-200">
+                    <a href="#features" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Features</a>
+                    <Link href="/resources"><a onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Resources</a></Link>
+                    <Link href="/sarahs-story"><a onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Her Story</a></Link>
+                    <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Founder Story</a></Link>
                     <Link href="/signup">
                         <a onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
                             Join the Waitlist
@@ -162,16 +183,21 @@ const Header = () => {
 };
 
 /* ---------------- Sections ---------------- */
+
 const HeroSection = () => (
-    <section className="relative text-slate-900 bg-gray-50 pt-20">
-        <div className="container mx-auto px-6 pt-36 md:pt-44 pb-24 text-center">
+    <section 
+        className="relative text-white bg-cover bg-center"
+        style={{ backgroundImage: `url('/simran-sood-qL0t5zNGFVQ-unsplash.jpg')` }}
+    >
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="relative container mx-auto px-6 pt-36 md:pt-44 pb-24 text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
                 <span className="block">The justice system is broken.</span>
-                <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
+                <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
                     Not the people in it.
                 </span>
             </h1>
-            <p className="mt-8 text-lg md:text-xl max-w-3xl mx-auto text-slate-600 leading-relaxed">
+            <p className="mt-8 text-lg md:text-xl max-w-3xl mx-auto text-slate-200 leading-relaxed">
                 ThreadLock was born from a simple realization: the system doesn't need more complexity, it needs clarity. We built the tools to provide it, putting power back into your hands.
             </p>
             <div className="mt-12 flex justify-center">
@@ -194,19 +220,16 @@ const SubscriptionBanner = () => (
                 Choose the right level of support for your journey. App coming soon.
             </p>
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                {/* Single User */}
                 <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200 text-left">
                     <h3 className="text-xl font-bold text-slate-800">Individual</h3>
                     <p className="text-4xl font-extrabold text-slate-900 my-4">$10<span className="text-base font-medium text-slate-500">/mo</span></p>
                     <p className="text-slate-600 mb-6">For parents and individuals managing their own case.</p>
                 </div>
-                {/* Lifetime Access */}
                 <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200 text-left">
                     <h3 className="text-xl font-bold text-slate-800">Lifetime</h3>
                     <p className="text-4xl font-extrabold text-slate-900 my-4">$100<span className="text-base font-medium text-slate-500">/one-time</span></p>
                     <p className="text-slate-600 mb-6">Full access for a single case, from start to finish.</p>
                 </div>
-                {/* Employee Benefit */}
                 <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200 text-left">
                     <h3 className="text-xl font-bold text-slate-800">For Teams</h3>
                      <p className="text-4xl font-extrabold text-slate-900 my-4">Custom</p>
@@ -268,12 +291,10 @@ const ProductShowcaseSection = () => {
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">A quick look at how key features help you build a stronger case.</p>
-
                 <div className="max-w-4xl mx-auto">
                     <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
                         <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
                     </div>
-
                     <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
                         <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
                             <h3 className="text-2xl font-bold text-slate-800 mb-2">{slides[idx].title}</h3>
@@ -304,17 +325,22 @@ const ProductShowcaseSection = () => {
 };
 
 const OurMissionSection = () => (
-    <section id="mission" className="py-20 md:py-28 bg-slate-800 text-white">
-        <div className="container mx-auto px-6 text-center max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission: A Fair Shot for Everyone</h2>
-            <blockquote className="border-l-4 border-orange-500 pl-6 md:pl-8 text-left text-lg md:text-xl italic text-slate-200 leading-relaxed">
-                "I could have been angry, but I saw something else: a good person constrained by a bad system. The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative. We built that alternative."
-            </blockquote>
-            <Link href="/founder-story">
-                <a className="mt-8 inline-block text-orange-400 font-semibold hover:text-orange-300 transition-colors">
-                    Read the Full Founder Story &rarr;
-                </a>
-            </Link>
+    <section 
+        id="mission" 
+        className="relative py-20 md:py-28 bg-cover bg-center text-white"
+        style={{ backgroundImage: `url('/mick-kirchman-CjowkkLmLKE-unsplash.jpg')` }}
+    >
+        <div className="absolute inset-0 bg-slate-800/80"></div>
+        <div className="relative container mx-auto px-6 text-center max-w-4xl">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Mission: A Fair Shot for Everyone</h2>
+            <div className="border-l-4 border-orange-500 pl-6 md:pl-8 text-left">
+                <p className="text-xl md:text-2xl text-slate-100 leading-relaxed font-light">
+                    The justice system doesn't fail because of one judge or one case. It fails when people, forced to represent themselves, are denied a voice because they lack the confidence and tools to be heard.
+                </p>
+                <p className="mt-4 text-xl md:text-2xl text-orange-400 font-semibold">
+                    We built the tools to give you that voice.
+                </p>
+            </div>
         </div>
     </section>
 );
@@ -401,4 +427,3 @@ export default function Home() {
         </>
     );
 }
-
