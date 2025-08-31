@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 /* ----------------- Brand ----------------- */
 function BrandWordmark({ className = "" }) {
@@ -28,10 +28,10 @@ export default function FounderStoryPage() {
 
           /* EXACT filenames in /public */
           --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');                 /* woman on train */
-          --quote-band-url: url('/getty-images-6iVK12iAn_s-unsplash.jpg');    /* man + child */
+          /* removed man+child image entirely */
           --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg');         /* sunshine forest */
 
-          /* Step 2 image (child looking over the wall). Replace with your local file if you have it. */
+          /* Step 2 image (child looking over the wall). Replace if you have a local file. */
           --step2-url: url('https://images.unsplash.com/photo-1549413723-54135508b888?q=80&w=2400&auto=format&fit=crop');
         }
 
@@ -61,7 +61,7 @@ export default function FounderStoryPage() {
         .mobile-panel .waitlist-button{display:inline-block;margin-top:.5rem}
         @media (max-width:991px){.nav-links{display:none}.hamburger{display:inline-flex}.mobile-panel.open{display:block}}
 
-        /* ---------------- HERO (fixed background) ---------------- */
+        /* ---------------- HERO (fixed background, scoped overlay) ---------------- */
         .hero{
           min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;
           position:relative;padding:6rem 1.25rem;background-image:var(--hero-url);
@@ -100,12 +100,13 @@ export default function FounderStoryPage() {
         .step2-card h3{color:#fff;margin:.4rem 0 .5rem}
         .step2-card p{color:#f3f4f6}
 
-        /* ---------------- STEP 3: quote band with man+child bg ---------------- */
+        /* ---------------- STEP 3: quote band (no background photo) ---------------- */
         .quote-band{
-          position:relative;padding:2.5rem 1.5rem 3.25rem;background-image:var(--quote-band-url);
-          background-size:cover;background-position:center;isolation:isolate;color:#fff;
+          position:relative;padding:2.5rem 1.5rem 3.25rem;
+          background:linear-gradient(180deg,#0b1220,#1b2433); /* dark, no image */
+          isolation:isolate;color:#fff;
         }
-        .quote-band::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.55));z-index:0}
+        .quote-band::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.25));z-index:0}
         .quote-band > *{position:relative;z-index:1}
         .quote-container, .epiphany-conclusion{max-width:42rem;margin:0 auto}
         .story-blockquote{background:transparent;margin:0;color:#fff}
@@ -196,7 +197,7 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
-          {/* STEP 2 (full-screen sticky with child-over-wall) */}
+          {/* STEP 2 (full-screen sticky) */}
           <section className="step2-wrap" aria-label="Step 2 band">
             <div className="step2-sticky">
               <div className="step2-card">
@@ -209,7 +210,7 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
-          {/* STEP 3 card (normal background) */}
+          {/* STEP 3 card */}
           <section className="story-flow" style={{paddingTop: 0}}>
             <div className="story-step align-right" style={{marginBottom:'1.5rem', marginTop: '3.5rem'}}>
               <span className="step-number">STEP 3</span>
@@ -220,7 +221,7 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
-          {/* Quote band (man + child background) */}
+          {/* Quote band (no image) */}
           <section className="quote-band">
             <div className="quote-container">
               <blockquote className="story-blockquote">
