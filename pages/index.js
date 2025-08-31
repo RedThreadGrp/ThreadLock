@@ -363,26 +363,17 @@ const SignupSection = () => {
         setStatus('submitting');
         setMessage('');
 
-        try {
-            const response = await fetch('/api/signup', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email }),
-            });
-
-            if (response.ok) {
+        // Simulate API call for demonstration purposes
+        setTimeout(() => {
+            if (email && email.includes('@')) {
                 setStatus('success');
                 setMessage('Thanks for joining! We\'ll be in touch soon.');
                 setEmail('');
             } else {
-                const data = await response.json();
                 setStatus('error');
-                setMessage(data.message || 'Something went wrong. Please try again.');
+                setMessage('Please enter a valid email address.');
             }
-        } catch (error) {
-            setStatus('error');
-            setMessage('An unexpected error occurred. Please try again later.');
-        }
+        }, 1000);
     };
 
     return (
