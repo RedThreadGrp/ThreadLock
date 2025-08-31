@@ -1,12 +1,12 @@
 // pages/signup.js
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export default function SignupPage() {
   const [status, setStatus] = useState('idle');
 
   async function onSubmit(e) {
     e.preventDefault();
-    setStatus('success'); // optimistic: show "accepted" immediately
+    setStatus('success'); // show success immediately
     const fd = new FormData(e.currentTarget);
     const payload = { name: fd.get('name'), email: fd.get('email') };
     try {
@@ -15,9 +15,7 @@ export default function SignupPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-    } catch {
-      // ignore; we already showed success
-    }
+    } catch { /* ignore errors in this temporary mode */ }
   }
 
   return (
