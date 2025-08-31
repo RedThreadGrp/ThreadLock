@@ -213,34 +213,48 @@ const HeroSection = () => (
 );
 
 const SubscriptionBanner = () => (
-    <section id="subscriptions" className="bg-white py-12 border-b border-slate-200">
-        <div className="container mx-auto px-6 text-center">
-             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Simple, Powerful Plans</h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-12">
-                Choose the right level of support for your journey. App coming soon.
-            </p>
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200 text-left">
-                    <h3 className="text-xl font-bold text-slate-800">Individual</h3>
-                    <p className="text-4xl font-extrabold text-slate-900 my-4">$10<span className="text-base font-medium text-slate-500">/mo</span></p>
-                    <p className="text-slate-600 mb-6">For parents and individuals managing their own case.</p>
-                </div>
-                <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200 text-left">
-                    <h3 className="text-xl font-bold text-slate-800">Lifetime</h3>
-                    <p className="text-4xl font-extrabold text-slate-900 my-4">$100<span className="text-base font-medium text-slate-500">/one-time</span></p>
-                    <p className="text-slate-600 mb-6">Full access for a single case, from start to finish.</p>
-                </div>
-                <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200 text-left">
-                    <h3 className="text-xl font-bold text-slate-800">For Teams</h3>
-                     <p className="text-4xl font-extrabold text-slate-900 my-4">Custom</p>
-                    <p className="text-slate-600 mb-6">Offer ThreadLock as a powerful benefit for your employees.</p>
-                    <p className="text-slate-800 font-semibold">Contact us at info@threadlock.ai</p>
-                </div>
-            </div>
-        </div>
-    </section>
-);
+  <section
+    id="subscriptions"
+    className="relative py-12 border-y border-slate-200 overflow-hidden"
+    style={{ backgroundImage: "url('/gabrielle-henderson-HJckKnwCXxQ-unsplash.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+  >
+    {/* legibility + on-brand tint */}
+    <div className="absolute inset-0 bg-white/85 backdrop-blur-[1px]" />
+    <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/80 to-white/90" />
 
+    <div className="relative container mx-auto px-6 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Simple, Powerful Plans</h2>
+      <p className="text-lg text-slate-700 max-w-2xl mx-auto mb-12">
+        Choose the right level of support for your journey. App coming soon.
+      </p>
+
+      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 text-left shadow-sm">
+          <h3 className="text-xl font-bold text-slate-800">Individual</h3>
+          <p className="text-4xl font-extrabold text-slate-900 my-4">
+            $10<span className="text-base font-medium text-slate-500">/mo</span>
+          </p>
+          <p className="text-slate-600 mb-6">For parents and individuals managing their own case.</p>
+        </div>
+
+        <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 text-left shadow-md">
+          <h3 className="text-xl font-bold text-slate-800">Lifetime</h3>
+          <p className="text-4xl font-extrabold text-slate-900 my-4">
+            $100<span className="text-base font-medium text-slate-500">/one-time</span>
+          </p>
+          <p className="text-slate-600 mb-6">Full access for a single case, from start to finish.</p>
+        </div>
+
+        <div className="bg-white/90 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 text-left shadow-sm">
+          <h3 className="text-xl font-bold text-slate-800">For Teams</h3>
+          <p className="text-4xl font-extrabold text-slate-900 my-4">Custom</p>
+          <p className="text-slate-600 mb-6">Offer ThreadLock as a powerful benefit for your employees.</p>
+          <p className="text-slate-800 font-semibold">Contact us at info@threadlock.ai</p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
 
 const FeatureCard = ({ icon, title, children }) => (
     <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-6 text-left">
