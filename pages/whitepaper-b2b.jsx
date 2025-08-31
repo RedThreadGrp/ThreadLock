@@ -64,26 +64,11 @@ const CasesBarChart = ({ data, title, note }) => {
       <div className="h-64 min-w-0">
         {mounted && (
           <ResponsiveContainer width="100%" height="100%">
-            <RBarChart
-              data={data}
-              margin={{ top: 40, right: 24, left: 28, bottom: 24 }}
-            >
+            <RBarChart data={data} margin={{ top: 40, right: 24, left: 28, bottom: 24 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={COLORS.grid} />
-              <XAxis
-                dataKey="label"
-                tick={{ fontSize: 12 }}
-                interval={0}
-                tickMargin={10}
-              />
-              <YAxis
-                width={48}
-                domain={[0, 100]}
-                tickFormatter={(v) => `${v}%`}
-              />
-              <Tooltip
-                cursor={{ fill: COLORS.hover }}
-                formatter={(value, _n, { payload }) => [payload.rawValue, payload.label]}
-              />
+              <XAxis dataKey="label" tick={{ fontSize: 12 }} interval={0} tickMargin={10} />
+              <YAxis width={48} domain={[0, 100]} tickFormatter={(v) => `${v}%`} />
+              <Tooltip cursor={{ fill: COLORS.hover }} formatter={(value, _n, { payload }) => [payload.rawValue, payload.label]} />
               <Bar dataKey="value" fill={COLORS.orange} radius={[6, 6, 0, 0]}>
                 <LabelList dataKey="rawValue" position="top" offset={6} />
               </Bar>
@@ -134,7 +119,7 @@ function FeatureItem({ icon: Icon, title, children }) {
 }
 
 /* ----------------- Page ----------------- */
-export default function WhitePaperPage() {
+export default function WhitePaperB2BPage() {
   const marketData = [
     { label: 'Divorce', value: 90, rawValue: '~1.1M' },
     { label: 'Child Support', value: 74, rawValue: '~0.9M' },
@@ -172,7 +157,7 @@ export default function WhitePaperPage() {
           <section className="wp-section">
             <h2>1. Executive Summary</h2>
             <p>The family law system is overloaded. About 3.8 million new cases hit the courts each year and in most of them at least one person goes it alone. People in the middle of life stress are told to figure out a legal maze with little help. That leads to worse outcomes and higher costs. ThreadLock is built to make the process clearer and fairer.</p>
-            <p>We are seeking <strong>$150,000</strong> in non equity funding to launch. We will start with a Tribal pilot and an employee benefit. Target time to market is 6 months, profitability in 12 to 15 months, and full payback in 18 to 24 months. With strong uptake the return can be 5x or more.</p>
+            <p>We are seeking <strong>$150,000</strong> in non equity funding to launch. We will start with an employer rollout through a broker network. Time to market is 3 months with brokers that already carry EAP and mental health benefits. Profitability in 9 to 12 months. Full payback in 12 to 18 months. With strong uptake the return can be 5x or more.</p>
           </section>
 
           <section className="wp-section">
@@ -206,7 +191,13 @@ export default function WhitePaperPage() {
 
           <section className="wp-section">
             <h2>4. Rollout</h2>
-            <p>We start with a Tribal pilot for fast adoption and real world proof. Then we sell it as an employee benefit at one dollar per employee per month. With traction we scale direct to consumers.</p>
+            <p>Start with benefits brokers that already sell EAP and mental health tools. Package ThreadLock as a low cost add on at one dollar per employee per month. Give brokers co branded copy, a short deck, and a sandbox. Run a two week enablement sprint per broker. Pilot with two midsize employers in month two. Go live in month three with a simple agreement and SSO.</p>
+            <ul className="list-disc pl-6 mt-2">
+              <li>Channel: national and regional brokers, TPAs, and benefits consultants</li>
+              <li>Buyer: HR and total rewards leaders</li>
+              <li>Hook: reduce legal stress, fewer missed days, better documentation in custody and support matters</li>
+              <li>Pricing: one dollar per employee per month with tiered volume</li>
+            </ul>
           </section>
 
           <section className="wp-section">
@@ -215,14 +206,14 @@ export default function WhitePaperPage() {
             <ul className="list-disc pl-6">
               <li><strong>Build and launch, 60,000</strong> product and infra</li>
               <li><strong>Sales and marketing, 52,500</strong> B2B lead and materials</li>
-              <li><strong>Pilot, 37,500</strong> Tribal rollout</li>
+              <li><strong>Broker program, 37,500</strong> partner onboarding, enablement, legal review</li>
             </ul>
 
             <h3>Timeline</h3>
             <ul className="list-disc pl-6">
-              <li><strong>Time to market:</strong> 6 months</li>
-              <li><strong>Profitability:</strong> 12 to 15 months</li>
-              <li><strong>Full payback:</strong> 18 to 24 months</li>
+              <li><strong>Time to market:</strong> 3 months</li>
+              <li><strong>Profitability:</strong> 9 to 12 months</li>
+              <li><strong>Full payback:</strong> 12 to 18 months</li>
             </ul>
 
             <div className="bg-slate-50 p-6 rounded-lg mt-8">
@@ -231,17 +222,17 @@ export default function WhitePaperPage() {
                 <div>
                   <p className="text-3xl font-bold text-slate-800">1.5x</p>
                   <p className="font-semibold text-orange-600">Conservative</p>
-                  <p className="text-sm text-slate-600 mt-1">About 5,000 B2B users in year one.</p>
+                  <p className="text-sm text-slate-600 mt-1">About 5,000 employees in year one through three brokers.</p>
                 </div>
                 <div className="ring-2 ring-orange-500 rounded-lg p-4">
                   <p className="text-3xl font-bold text-slate-800">3x</p>
                   <p className="font-semibold text-orange-600">Moderate</p>
-                  <p className="text-sm text-slate-600 mt-1">B2B growth plus Tribal pilot, 25,000 users.</p>
+                  <p className="text-sm text-slate-600 mt-1">Broker network lift to 25,000 employees across 30 employers.</p>
                 </div>
                 <div>
                   <p className="text-3xl font-bold text-slate-800">5x+</p>
                   <p className="font-semibold text-orange-600">Aggressive</p>
-                  <p className="text-sm text-slate-600 mt-1">One major corporate win and broad Tribal rollout.</p>
+                  <p className="text-sm text-slate-600 mt-1">One national employer plus broad broker channel adoption.</p>
                 </div>
               </div>
             </div>
