@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 /* ---------------- Text Brand ---------------- */
 function BrandWordmark({ className = "" }) {
@@ -30,10 +30,42 @@ const Footer = () => (
 
 
 export default function SignupPage() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [status, setStatus] = useState('idle'); // idle, submitting, success, error
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('submitting');
+        setMessage('');
+
+        try {
+            const response = await fetch('/api/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email }),
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setMessage('Thank you for joining the waitlist!');
+                setName('');
+                setEmail('');
+            } else {
+                 const errorData = await response.json();
+                setStatus('error');
+                setMessage(errorData.message || 'An error occurred. Please try again.');
+            }
+        } catch (error) {
+            setStatus('error');
+            setMessage('An unexpected error occurred. Please check your connection.');
+        }
+    };
+
+
     return (
         <>
-            {/* The <Head> component was removed to resolve a build error.
-                You can add a <title> tag directly here if needed. */}
             <div className="bg-gray-50 min-h-screen flex flex-col">
                 <Header />
                 <main className="flex-grow flex items-center justify-center">
@@ -42,27 +74,40 @@ export default function SignupPage() {
                         <p className="text-lg text-slate-600 mb-8">
                             Join our waitlist for early access to the ThreadLock app, plus exclusive updates and resources. We're excited to have you with us.
                         </p>
-                        <form action="/thank-you" method="POST" className="max-w-xl mx-auto">
+                        <form onSubmit={handleSubmit} className="max-w-xl mx-auto">
                              <div className="flex flex-col sm:flex-row gap-4 bg-white p-6 rounded-2xl shadow-md border border-slate-200">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Your Name"
-                                    required
-                                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                                />
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Your Email Address"
-                                    required
-                                    className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                                />
-                                <button type="submit" className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all sm:w-auto w-full">
-                                    Join
-                                </button>
-                            </div>
+                                 <input
+                                     type="text"
+                                     name="name"
+                                     placeholder="Your Name"
+                                     value={name}
+                                     onChange={(e) => setName(e.target.value)}
+                                     required
+                                     className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                                 />
+                                 <input
+                                     type="email"
+                                     name="email"
+                                     placeholder="Your Email Address"
+                                     value={email}
+                                     onChange={(e) => setEmail(e.target.value)}
+                                     required
+                                     className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
+                                 />
+                                 <button 
+                                    type="submit" 
+                                    disabled={status === 'submitting'}
+                                    className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all sm:w-auto w-full disabled:bg-slate-400 disabled:cursor-not-allowed"
+                                >
+                                     {status === 'submitting' ? 'Joining...' : 'Join'}
+                                 </button>
+                             </div>
                         </form>
+                        {message && (
+                            <div className={`mt-4 text-sm font-semibold ${status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                                {message}
+                            </div>
+                        )}
                     </div>
                 </main>
                 <Footer />

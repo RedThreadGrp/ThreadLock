@@ -26,10 +26,11 @@ export default function FounderStoryPage() {
           --gray-700:#374151; --gray-800:#1f2937; --gray-900:#0f172a; --white:#fff;
           --font-family:'Poppins',sans-serif;
 
-          /* images from /public */
-          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');          /* woman (hero) */
-          --quote-url: url('/getty-images-6iVK12iAn_s-unsplash.jpg');  /* man + child (behind quote) */
-          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg');   /* forest (result section) */
+          /* images */
+          --hero-url: url('https://i.imgur.com/uBl9s8s.jpeg');
+          --quote-url: url('https://i.imgur.com/v1K5u5V.jpeg');
+          --reality-bg-url: url('https://i.imgur.com/O1bC4AL.jpeg');
+          --result-url: url('https://i.imgur.com/b5g3m2e.jpeg');
         }
 
         html { -webkit-text-size-adjust: 100%; }
@@ -81,6 +82,22 @@ export default function FounderStoryPage() {
         .align-left{text-align:left}
         .align-right .step-number{margin-left:auto;display:inline-block}
         .align-left  .step-number{margin-right:auto;display:inline-block}
+
+        /* NEW: Reality Section Background */
+        .reality-background-container {
+            background-image: var(--reality-bg-url);
+            background-size: cover;
+            background-position: center 70%; /* Adjust vertical position */
+            background-attachment: fixed; /* Parallax effect */
+            padding: 3.5rem 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+        .reality-background-container .story-step {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            margin-bottom: 0;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
 
         /* Quote block with background image */
         .story-blockquote{
@@ -197,8 +214,10 @@ export default function FounderStoryPage() {
                 I walked into family court to represent myself. I'd been to law school, but after several years as a stay-at-home mom, I had no money for a lawyer and no access to professional resources. I thought my legal knowledge would be enough to guide me through the process. I was wrong.
               </p>
             </div>
+          </section>
 
-            {/* STEP 2: LEFT */}
+          {/* STEP 2: LEFT (with full-width background) */}
+          <section className="reality-background-container">
             <div className="story-step align-left">
               <span className="step-number">STEP 2</span>
               <h3>The Reality</h3>
@@ -206,9 +225,11 @@ export default function FounderStoryPage() {
                 The system wasn't just complex; it felt designed to be bewildering. My confidence was quickly replaced by the same fear and powerlessness that millions of people feel every year.
               </p>
             </div>
+          </section>
 
+          <section className="story-flow" style={{paddingTop: 0}}>
             {/* STEP 3: RIGHT (no bg) */}
-            <div className="story-step align-right" style={{marginBottom:'1.5rem'}}>
+            <div className="story-step align-right" style={{marginBottom:'1.5rem', marginTop: '3.5rem'}}>
               <span className="step-number">STEP 3</span>
               <h3>The Epiphany</h3>
               <p>
@@ -273,3 +294,4 @@ export default function FounderStoryPage() {
     </>
   );
 }
+
