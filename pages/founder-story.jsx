@@ -26,11 +26,13 @@ export default function FounderStoryPage() {
           --gray-700:#374151; --gray-800:#1f2937; --gray-900:#0f172a; --white:#fff;
           --font-family:'Poppins',sans-serif;
 
-          /* images */
-          --hero-url: url('https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=2823&auto=format&fit=crop');
-          --quote-url: url('https://images.unsplash.com/photo-1549413723-54135508b888?q=80&w=2940&auto=format&fit=crop');
-          --reality-bg-url: url('https://images.unsplash.com/photo-1533221345835-1845c20f7826?q=80&w=2836&auto=format&fit=crop');
-          --result-url: url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2940&auto=format&fit=crop');
+          /* EXACT filenames in /public */
+          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');                 /* woman on train */
+          --quote-band-url: url('/getty-images-6iVK12iAn_s-unsplash.jpg');    /* man + child */
+          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg');         /* sunshine forest */
+
+          /* Step 2 image (child looking over the wall). Replace with your local file if you have it. */
+          --step2-url: url('https://images.unsplash.com/photo-1549413723-54135508b888?q=80&w=2400&auto=format&fit=crop');
         }
 
         html { -webkit-text-size-adjust: 100%; }
@@ -39,8 +41,8 @@ export default function FounderStoryPage() {
         .max-w-5xl{max-width:64rem}.max-w-4xl{max-width:56rem}.mx-auto{margin-left:auto;margin-right:auto}
 
         /* Header */
-        .header{background:rgba(255,255,255,.8);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-100);
-          padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
+        .header{background:rgba(255,255,255,.84);backdrop-filter:blur(8px);border-bottom:1px solid var(--gray-100);
+          padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:40}
         .brand-link{text-decoration:none}
         .nav-links{display:flex;align-items:center}
         .nav-links a{color:var(--gray-800);font-weight:600;text-decoration:none;margin-left:1.5rem;transition:.2s}
@@ -53,22 +55,24 @@ export default function FounderStoryPage() {
         .hamburger{display:none;background:transparent;border:0;padding:.25rem;cursor:pointer}
         .hamburger svg{width:28px;height:28px;color:var(--gray-900)}
         .mobile-panel{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.98);
-          border-bottom:1px solid var(--gray-100);padding:.75rem 1rem;z-index:30}
+          border-bottom:1px solid var(--gray-100);padding:.75rem 1rem;z-index:50}
         .mobile-panel a{display:block;padding:.75rem .5rem;color:var(--gray-900);text-decoration:none;font-weight:600}
         .mobile-panel a + a{border-top:1px solid var(--gray-100)}
         .mobile-panel .waitlist-button{display:inline-block;margin-top:.5rem}
         @media (max-width:991px){.nav-links{display:none}.hamburger{display:inline-flex}.mobile-panel.open{display:block}}
 
-        /* Hero */
+        /* ---------------- HERO (fixed background) ---------------- */
         .hero{
-          position:relative;padding:6rem 1.25rem;text-align:center;color:#fff;
-          background-image:var(--hero-url);background-size:cover;background-position:center;isolation:isolate
+          min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;
+          position:relative;padding:6rem 1.25rem;background-image:var(--hero-url);
+          background-size:cover;background-position:center;background-attachment:fixed;isolation:isolate;
         }
-        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.25),rgba(0,0,0,.55));z-index:-1}
-        .hero h2{font-size:2.4rem;line-height:1.2;font-weight:800;margin-bottom:1rem}
+        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.25),rgba(0,0,0,.58));z-index:0}
+        .hero > div{position:relative;z-index:1}
+        .hero h2{font-size:clamp(2rem,4.8vw,2.6rem);line-height:1.2;font-weight:800;margin-bottom:1rem}
         .hero p{font-size:1.125rem;max-width:48rem;margin:0 auto;color:#f2f4f7}
 
-        /* Story flow */
+        /* ---------------- GENERIC STORY STEP ---------------- */
         .story-flow{padding:4rem 1.5rem 0 1.5rem}
         .story-step{max-width:42rem;margin:0 auto 3.5rem auto;background:#fff;padding:2.5rem;border-radius:1rem;border:1px solid var(--gray-100);
           box-shadow:0 4px 6px -1px rgba(0,0,0,.05)}
@@ -76,80 +80,44 @@ export default function FounderStoryPage() {
         .story-step p{font-size:1.1rem;color:var(--gray-700);line-height:1.8}
         .step-number{display:inline-block;background:#feefc7;color:#d97706;font-weight:700;font-size:.9rem;
           padding:.25rem .75rem;border-radius:9999px;margin-bottom:1rem}
-
-        /* Alignment helpers */
-        .align-right{text-align:right}
-        .align-left{text-align:left}
+        .align-right{text-align:right}.align-left{text-align:left}
         .align-right .step-number{margin-left:auto;display:inline-block}
         .align-left  .step-number{margin-right:auto;display:inline-block}
 
-        /* NEW: Reality Section Background */
-        .reality-background-container {
-          background-image: var(--reality-bg-url);
-          background-size: cover;
-          background-position: center 70%; /* Adjust vertical position */
-          background-attachment: fixed; /* Parallax effect */
-          padding: 3.5rem 1.5rem;
-          margin: 0;
+        /* ---------------- STEP 2: full-screen sticky band ---------------- */
+        .step2-wrap{height:180vh;position:relative}
+        .step2-sticky{
+          position:sticky;top:0;height:100vh;color:#fff;text-align:center;
+          background-image:var(--step2-url);background-size:cover;background-position:center;background-attachment:fixed;isolation:isolate;
+          display:flex;align-items:flex-end;justify-content:center;padding:0 1rem 2.25rem;
         }
-        .reality-background-container .story-step {
-          background: rgba(255, 255, 255, 0.9);
-          backdrop-filter: blur(5px);
-          margin-bottom: 0;
-          border: 1px solid rgba(255,255,255,0.5);
+        .step2-sticky::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.55));z-index:0}
+        .step2-card{
+          position:relative;z-index:1;width:min(48rem,calc(100% - 2rem));
+          background:rgba(0,0,0,.5);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);
+          color:#fff;border-radius:1rem;padding:1.5rem;text-align:left;box-shadow:0 15px 30px rgba(0,0,0,.35)
         }
+        .step2-card h3{color:#fff;margin:.4rem 0 .5rem}
+        .step2-card p{color:#f3f4f6}
 
-        /* Quote container */
-        .quote-container {
-            position: relative;
-            max-width: 42rem;
-            margin: 2rem auto 3.5rem auto;
-            background-image: var(--quote-url);
-            background-size: cover;
-            background-position: center;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            color: var(--white);
+        /* ---------------- STEP 3: quote band with man+child bg ---------------- */
+        .quote-band{
+          position:relative;padding:2.5rem 1.5rem 3.25rem;background-image:var(--quote-band-url);
+          background-size:cover;background-position:center;isolation:isolate;color:#fff;
         }
-        .quote-container::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.55);
-        }
-        .story-blockquote {
-            position: relative;
-            background: transparent;
-            margin: 0;
-            max-width: 100%;
-            color: var(--white);
-        }
-        .story-blockquote > .inner {
-            position: relative;
-            padding: 2.5rem 2.5rem 1.5rem 2.5rem;
-            border-left: 4px solid var(--orange-600);
-            font-size: 1.2rem;
-            font-style: italic;
-        }
-        .epiphany-conclusion {
-            position: relative;
-            background-color: transparent;
-            color: var(--gray-100);
-            padding: 0 2.5rem 2.5rem 2.5rem;
-            text-align: left;
-            margin: 0;
-            max-width: 100%;
-        }
-        .epiphany-conclusion p {
-            color: var(--gray-200);
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
+        .quote-band::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.55));z-index:0}
+        .quote-band > *{position:relative;z-index:1}
+        .quote-container, .epiphany-conclusion{max-width:42rem;margin:0 auto}
+        .story-blockquote{background:transparent;margin:0;color:#fff}
+        .story-blockquote .inner{padding:2rem 2.25rem 1rem;border-left:4px solid var(--orange-600);font-size:1.2rem;font-style:italic;text-shadow:0 1px 2px rgba(0,0,0,.7)}
+        .epiphany-conclusion{padding:0 2.25rem 0 2.25rem}
+        .epiphany-conclusion p{color:#e5e7eb;font-size:1.1rem;line-height:1.8;text-shadow:0 1px 2px rgba(0,0,0,.6)}
 
-        /* Result section with forest background */
+        /* ---------------- RESULT (sunshine forest) ---------------- */
         .features-section{position:relative;padding:4rem 1.5rem;color:#fff;background-image:var(--result-url);
           background-size:cover;background-position:center;isolation:isolate}
-        .features-section::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));z-index:-1}
+        .features-section::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));z-index:0}
+        .features-section > div{position:relative;z-index:1}
         .features-section h3{text-align:center;font-size:2rem;font-weight:700;margin-bottom:2rem}
         .features-grid{display:grid;gap:2rem}
         @media (min-width:768px){.features-grid{grid-template-columns:repeat(3,1fr)}}
@@ -206,7 +174,7 @@ export default function FounderStoryPage() {
         </header>
 
         <main>
-          {/* Hero */}
+          {/* HERO */}
           <section className="hero">
             <div className="max-w-4xl mx-auto">
               <h2>The System Puts Everyone in a Box.<br/>Even the Judge.</h2>
@@ -214,7 +182,7 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
-          {/* Story Flow */}
+          {/* STEP 1 */}
           <section className="story-flow">
             <h2 style={{textAlign:'center',fontSize:'2.5rem',fontWeight:800,color:'var(--blue-900)',marginBottom:'3rem'}}>
               A Journey in Three Steps
@@ -223,21 +191,25 @@ export default function FounderStoryPage() {
               <span className="step-number">STEP 1</span>
               <h3>The Expectation</h3>
               <p>
-                I walked into family court to represent myself. I'd been to law school, but after several years as a stay-at-home mom, I had no money for a lawyer and no access to professional resources. I thought my legal knowledge would be enough to guide me through the process. I was wrong.
+                I walked into family court to represent myself. I'd been to law school, but after several years as a stay-at-home mom, I had no money for a lawyer and no access to professional resources. I thought my legal knowledge would be enough. I was wrong.
               </p>
             </div>
           </section>
 
-          <section className="reality-background-container">
-            <div className="story-step align-left">
-              <span className="step-number">STEP 2</span>
-              <h3>The Reality</h3>
-              <p>
-                The system wasn't just complex; it felt designed to be bewildering. My confidence was quickly replaced by the same fear and powerlessness that millions of people feel every year.
-              </p>
+          {/* STEP 2 (full-screen sticky with child-over-wall) */}
+          <section className="step2-wrap" aria-label="Step 2 band">
+            <div className="step2-sticky">
+              <div className="step2-card">
+                <span className="step-number">STEP 2</span>
+                <h3>The Reality</h3>
+                <p>
+                  The system wasn't just complex; it felt designed to be bewildering. My confidence was quickly replaced by the same fear and powerlessness that millions of people feel every year.
+                </p>
+              </div>
             </div>
           </section>
 
+          {/* STEP 3 card (normal background) */}
           <section className="story-flow" style={{paddingTop: 0}}>
             <div className="story-step align-right" style={{marginBottom:'1.5rem', marginTop: '3.5rem'}}>
               <span className="step-number">STEP 3</span>
@@ -246,21 +218,25 @@ export default function FounderStoryPage() {
                 The moment that changed everything was when I learned about the judge in my case. Before the robe, they were a champion for the underdog. Yet, from the bench, they were unable to provide the very access they once fought for.
               </p>
             </div>
+          </section>
+
+          {/* Quote band (man + child background) */}
+          <section className="quote-band">
             <div className="quote-container">
               <blockquote className="story-blockquote">
                 <div className="inner">
                   “Instead of anger, I felt a moment of clarity. I saw a good person constrained by a bad system.”
                 </div>
               </blockquote>
-              <div className="epiphany-conclusion">
-                <p>
-                  The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative. The problem wasn't the judge. It was a crisis of information.
-                </p>
-              </div>
+            </div>
+            <div className="epiphany-conclusion">
+              <p>
+                The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative. The problem wasn't the judge. It was a crisis of information.
+              </p>
             </div>
           </section>
 
-          {/* Result (forest) */}
+          {/* RESULT (sunshine forest) */}
           <section className="features-section">
             <div className="max-w-5xl mx-auto">
               <h3>The Result: A Solvable Problem</h3>
