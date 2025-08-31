@@ -223,53 +223,45 @@ const SubscriptionBanner = () => (
     }}
   >
     <div className="container mx-auto px-6 text-center relative">
-      {/* Title frame */}
-      <div className="inline-block px-6 py-4 mb-10 border-2 border-orange-500 rounded-xl bg-white/60 backdrop-blur-sm shadow-md">
+      {/* Framed title + tagline */}
+      <div className="inline-block px-6 py-5 mb-10 border-2 border-orange-500 rounded-xl bg-white/60 backdrop-blur-sm shadow-md">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
           Simple, Powerful Plans
         </h2>
+        <p className="mt-2 text-lg text-slate-800/90 max-w-2xl">
+          Choose the right level of support for your journey. App coming soon.
+        </p>
       </div>
 
-      <p className="text-lg text-slate-800/90 max-w-2xl mx-auto mb-12">
-        Choose the right level of support for your journey. App coming soon.
-      </p>
-
-      {/* Cards */}
+      {/* Cards — same orange frame as title */}
       <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border border-white/50 shadow-lg text-left">
+        <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
           <h3 className="text-xl font-bold text-slate-800">Individual</h3>
           <p className="text-4xl font-extrabold text-slate-900 my-4">
             $10<span className="text-base font-medium text-slate-500">/mo</span>
           </p>
-          <p className="text-slate-600 mb-6">
-            For parents and individuals managing their own case.
-          </p>
+          <p className="text-slate-600 mb-6">For parents and individuals managing their own case.</p>
         </div>
 
-        <div className="bg-white/85 backdrop-blur-md p-8 rounded-2xl border border-white/50 shadow-lg text-left">
+        <div className="bg-white/85 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
           <h3 className="text-xl font-bold text-slate-800">Lifetime</h3>
           <p className="text-4xl font-extrabold text-slate-900 my-4">
             $100<span className="text-base font-medium text-slate-500">/one-time</span>
           </p>
-          <p className="text-slate-600 mb-6">
-            Full access for a single case, from start to finish.
-          </p>
+          <p className="text-slate-600 mb-6">Full access for a single case, from start to finish.</p>
         </div>
 
-        <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border border-white/50 shadow-lg text-left">
+        <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
           <h3 className="text-xl font-bold text-slate-800">For Teams</h3>
           <p className="text-4xl font-extrabold text-slate-900 my-4">Custom</p>
-          <p className="text-slate-600 mb-6">
-            Offer ThreadLock as a powerful benefit for your employees.
-          </p>
-          <p className="text-slate-800 font-semibold">
-            Contact us at info@threadlock.ai
-          </p>
+          <p className="text-slate-600 mb-6">Offer ThreadLock as a powerful benefit for your employees.</p>
+          <p className="text-slate-800 font-semibold">Contact us at info@threadlock.ai</p>
         </div>
       </div>
     </div>
   </section>
 );
+
 
 
 const FeatureCard = ({ icon, title, children }) => (
