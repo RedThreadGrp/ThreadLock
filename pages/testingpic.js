@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 /* ---------------- Image Paths ---------------- */
-// List of the images you provided. Assumes they are in the /public/ folder.
+// Ensure these filenames EXACTLY match the files in your /public/ folder.
 const images = [
   "/gabrielle-henderson-HJckKnwCXxQ-unsplash.jpg",
   "/curated-lifestyle-LUCdjfXP-uE-unsplash.jpg",
@@ -16,11 +16,6 @@ const images = [
   "/sean-foster-Hvu6H1F8JrU-unsplash.jpg",
   "/mick-kirchman-CjowkkLmLKE-unsplash.jpg",
 ];
-
-
-/* ---------------- SEO (page-level) ---------------- */
-const SITE_URL = "https://threadlock.ai";
-const OG_IMAGE = `${SITE_URL}/og-image.jpg`; // absolute URL
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -95,15 +90,12 @@ const Header = () => {
 
 /* ---------------- Sections ---------------- */
 
-// --- MODIFIED HeroSection to accept a background image ---
 const HeroSection = ({ bgImage }) => (
     <section 
-        className="relative text-white bg-cover bg-center" 
+        className="relative text-white bg-cover bg-center transition-all duration-500" 
         style={{ backgroundImage: `url(${bgImage})` }}
     >
-        {/* Overlay for text readability */}
         <div className="absolute inset-0 bg-black/60"></div>
-
         <div className="relative container mx-auto px-6 pt-36 md:pt-44 pb-24 text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
                 <span className="block">The justice system is broken.</span>
@@ -160,52 +152,19 @@ const FeaturesSection = () => (
     </section>
 );
 
-// --- MODIFIED OurMissionSection to accept a background image ---
 const OurMissionSection = ({ bgImage }) => (
     <section 
         id="mission" 
-        className="relative py-20 md:py-28 bg-cover bg-center text-white"
+        className="relative py-20 md:py-28 bg-cover bg-center text-white transition-all duration-500"
         style={{ backgroundImage: `url(${bgImage})` }}
     >
-        {/* Overlay for text readability */}
         <div className="absolute inset-0 bg-slate-800/80"></div>
-        
         <div className="relative container mx-auto px-6 text-center max-w-4xl">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission: A Fair Shot for Everyone</h2>
             <blockquote className="border-l-4 border-orange-500 pl-6 md:pl-8 text-left text-lg md:text-xl italic text-slate-200 leading-relaxed">
                 "I could have been angry, but I saw something else: a good person constrained by a bad system. The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative. We built that alternative."
             </blockquote>
             <p className="mt-6 text-slate-300">— A Judge, speaking to our founder</p>
-            <Link href="/founder-story">
-                <a className="mt-8 inline-block text-orange-400 font-semibold hover:text-orange-300 transition-colors">
-                    Read the Full Founder Story &rarr;
-                </a>
-            </Link>
-        </div>
-    </section>
-);
-
-const SignupSection = () => (
-    <section id="signup" className="py-20 md:py-28 bg-gray-50">
-        <div className="container mx-auto px-6 text-center max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Be the First to Know</h2>
-            <p className="text-lg text-slate-600 mb-8">
-                Join our waitlist for early access to the ThreadLock app, plus exclusive updates and resources.
-            </p>
-            <form className="max-w-md mx-auto">
-                 <div className="flex flex-col sm:flex-row gap-4">
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Enter your email address"
-                        required
-                        className="flex-grow px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-orange-500 focus:outline-none"
-                    />
-                    <button type="submit" className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all">
-                        Join Waitlist
-                    </button>
-                </div>
-            </form>
         </div>
     </section>
 );
@@ -216,33 +175,33 @@ const Footer = () => (
     </footer>
 );
 
-
-/* ---------------- NEW: Image Switcher UI ---------------- */
-const ImageSwitcher = ({ current, total, onChange }) => (
+/* ---------------- Image Switcher UI ---------------- */
+// This component now takes the state setter function directly as a prop.
+const ImageSwitcher = ({ currentIndex, imageCount, onImageChange }) => (
     <div className="fixed bottom-4 right-4 z-50 bg-white/80 backdrop-blur-md p-3 rounded-lg shadow-2xl border border-slate-200">
         <p className="text-sm font-bold text-slate-700 mb-2 text-center">Test Backgrounds</p>
         <div className="grid grid-cols-5 gap-2">
-            {Array.from({ length: total }).map((_, i) => (
+            {Array.from({ length: imageCount }).map((_, index) => (
                 <button
-                    key={i}
-                    onClick={() => onChange(i)}
+                    key={index}
+                    // The onClick handler now directly calls the state setter with the new index.
+                    onClick={() => onImageChange(index)}
                     className={`w-10 h-10 rounded-md text-sm font-bold transition-all ${
-                        current === i 
+                        currentIndex === index 
                         ? 'bg-orange-600 text-white scale-110 shadow-lg' 
                         : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
                     }`}
                 >
-                    {i + 1}
+                    {index + 1}
                 </button>
             ))}
         </div>
     </div>
 );
 
-
 /* ---------------- Main Page Component ---------------- */
 export default function TestingPicPage() {
-    // State to track the current image index
+    // State to track the current image index. Default is 0 (the first image).
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     return (
@@ -252,21 +211,18 @@ export default function TestingPicPage() {
                 <meta name="robots" content="noindex, nofollow" />
             </Head>
 
-            {/* NEW: Image Switcher Control */}
             <ImageSwitcher 
-                current={currentImageIndex}
-                total={images.length}
-                onChange={setCurrentImageIndex}
+                currentIndex={currentImageIndex}
+                imageCount={images.length}
+                onImageChange={setCurrentImageIndex} // Pass the setter function directly.
             />
 
             <div className="bg-white">
                 <Header/>
                 <main className="flex flex-col w-full overflow-x-hidden">
-                    {/* Pass the selected image to the sections */}
                     <HeroSection bgImage={images[currentImageIndex]} />
                     <FeaturesSection />
                     <OurMissionSection bgImage={images[currentImageIndex]} />
-                    <SignupSection />
                 </main>
                 <Footer />
             </div>
