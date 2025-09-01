@@ -38,9 +38,9 @@ export default function SarahsStoryPage() {
           --gray-300:#d1d5db; --gray-700:#374151; --gray-800:#1f2937; --gray-900:#0f172a;
           --white:#ffffff;
 
-          /* Match EXACT filenames in /public */
-          --hero-person:url('/earving-segura-_WYjs343uLY-unsplash.jpg');
-          --hands-sun:url('/daoudi-aissa-absT1BNRDAI-unsplash.jpg');
+          /* EXACT filenames in /public */
+          --hero-person:url('/earving-segura-_WYjs343uLY-unsplash.jpg'); /* person (hero) */
+          --hands-sun:url('/daoudi-aissa-absT1BNRDAI-unsplash.jpg');     /* hands + sun (Step 3) */
         }
         *{box-sizing:border-box}
         body{margin:0;font-family:'Poppins',sans-serif;background:var(--gray-50);color:var(--gray-900)}
@@ -72,77 +72,44 @@ export default function SarahsStoryPage() {
         .mobile-nav a{font-size:1.5rem;font-weight:700;color:var(--gray-900);text-decoration:none;margin:1.25rem 0}
         .mobile-nav a.waitlist-button{background:var(--orange-600);color:#fff;padding:.75rem 2rem;border-radius:.5rem}
 
-        /* ---------- Sticky Hero + Step 1 and in-container Step 2 ---------- */
-        .hero-wrap{
-          position:relative;
-          height:220vh; /* controls how long the hero pins before it releases */
-        }
-        .sticky-hero{
-          position:sticky;top:0;height:100vh;z-index:1;isolation:isolate;
+        /* ---------- HERO: fixed background image, text scrolls ---------- */
+        .hero{
+          min-height:100vh;position:relative;color:#fff;text-align:center;padding:4.5rem 1.5rem;
           background-image:var(--hero-person);
           background-size:cover;background-position:center 32%;
-          display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;
+          background-attachment:fixed; /* image fixed; content scrolls */
         }
-        .sticky-hero::before{
-          content:"";position:absolute;inset:0;z-index:0;
-          background:linear-gradient(180deg,rgba(15,23,42,.58),rgba(15,23,42,.42));
+        .hero::before{
+          content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.25),rgba(0,0,0,.55));
+          z-index:0;
         }
-        .hero-inner{position:relative;z-index:1;padding:0 1rem}
-        .hero-title{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.15;margin:0 0 .75rem}
-        .hero-sub{max-width:48rem;margin:0 auto 1.25rem;opacity:.95}
+        .hero > div{position:relative;z-index:1}
+        .hero h2{font-size:2.5rem;line-height:1.2;font-weight:800;margin-bottom:1rem}
+        .hero p{font-size:1.125rem;max-width:48rem;margin:0 auto;color:#f2f4f7}
 
-        /* Step 1 card sits on the hero and stays while hero is pinned */
-        .step1-card{
-          position:absolute;left:50%;transform:translateX(-50%);
-          bottom:clamp(1.25rem,6vh,3rem);
-          width:min(46rem,calc(100% - 2rem));
-          background:rgba(0,0,0,.55);color:#fff;border:1px solid rgba(255,255,255,.15);
-          border-radius:.85rem;padding:1.25rem 1.25rem 1.35rem;
-          backdrop-filter:blur(6px);box-shadow:0 15px 35px rgba(0,0,0,.35);
-          text-align:left;
+        /* Story Flow */
+        .story-flow{padding:4rem 1.5rem}
+        .story-step{
+          max-width:42rem;margin:0 auto 3.5rem auto;position:relative;text-align:center;
+          background:#fff;padding:2.5rem;border-radius:1rem;border:1px solid var(--gray-100);
+          box-shadow:0 4px 6px -1px rgba(0,0,0,.05);
         }
-        .badge{display:inline-block;background:#feefc7;color:#b45309;font-weight:700;
-               font-size:.85rem;border-radius:9999px;padding:.25rem .75rem;margin-bottom:.65rem}
-        .step1-title{font-size:1.5rem;margin:.1rem 0 .35rem}
-        .muted{opacity:.95;line-height:1.65}
+        .step-number{display:inline-block;background:#feefc7;color:#d97706;font-weight:700;font-size:.9rem;
+          padding:.25rem .75rem;border-radius:9999px;margin-bottom:1rem}
+        .story-step h3{font-size:2rem;font-weight:700;color:var(--blue-900);margin-bottom:1rem}
+        .story-step p{font-size:1.1rem;color:var(--gray-700);line-height:1.8}
+        .right-oriented{text-align:right}
+        .left-oriented{text-align:left}
 
-        /* Step 2 lives in the SAME container so it scrolls up and obscures the sticky hero */
-        .step2-wrap{
-          position:relative;z-index:2; /* above sticky hero */
-          margin-top:80vh; /* when this starts appearing while hero is still pinned */
-          padding:2rem 1.5rem;
-        }
-        .step2{
-          max-width:48rem;margin:0 auto;background:#fff;border:1px solid var(--gray-100);
-          border-radius:1rem;padding:2rem;box-shadow:0 10px 20px rgba(0,0,0,.06);
-        }
-        .step-title{font-size:2rem;font-weight:700;color:var(--blue-900);margin:.25rem 0 .5rem}
-        .step-body{font-size:1.075rem;color:var(--gray-700);line-height:1.8}
-
-        /* Steps 3 & 4 with the hands/sun background */
-        .section{position:relative;z-index:5;padding:clamp(2.5rem,5vw,4rem) 1.5rem;background:#fff}
-        .section h2{text-align:center;color:var(--blue-900);
-          font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;margin:0 0 2rem}
-
+        /* Step 3 with hands/sun background */
         .photo-step{
           position:relative;isolation:isolate;
-          background-image:var(--hands-sun);
-          background-size:cover;background-position:center;
-          border-radius:1rem;overflow:hidden;
-          max-width:48rem;margin:2.5rem auto 0;border:1px solid rgba(255,255,255,.15);
+          background-image:var(--hands-sun);background-size:cover;background-position:center;
+          border-radius:1rem;overflow:hidden;max-width:48rem;margin:2.5rem auto;border:1px solid rgba(255,255,255,.15);
         }
-        .photo-step::before{
-          content:"";position:absolute;inset:0;z-index:0;
-          background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.55));
-        }
-        .photo-step .content{
-          position:relative;z-index:1;color:#fff;padding:2rem;
-          text-shadow:0 1px 2px rgba(0,0,0,.6);
-        }
-        .blockquote{
-          background:rgba(0,0,0,.45);border-left:4px solid var(--orange-600);
-          padding:1rem 1.25rem;border-radius:.5rem;margin-top:1rem;font-style:italic
-        }
+        .photo-step::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.55));z-index:0}
+        .photo-step .content{position:relative;z-index:1;color:#fff;padding:2rem;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+        .blockquote{background:rgba(0,0,0,.45);border-left:4px solid var(--orange-600);padding:1rem 1.25rem;border-radius:.5rem;margin-top:1rem;font-style:italic}
 
         /* Features */
         .features-section{position:relative;color:#fff;padding:4rem 1.5rem;background:var(--blue-900)}
@@ -162,7 +129,9 @@ export default function SarahsStoryPage() {
         .cta-link:hover{background:var(--orange-700)}
         .footer{background:var(--gray-900);color:var(--gray-300);text-align:center;padding:1.25rem}
 
-        @media(max-width:767px){.step1-card{text-align:left}}
+        @media(max-width:767px){
+          .story-step,.left-oriented,.right-oriented{ text-align:left }
+        }
       `}</style>
 
       <div className="page-container">
@@ -190,66 +159,56 @@ export default function SarahsStoryPage() {
         )}
 
         <main>
-          {/* ---------- Sticky Hero (person) with Step 1 ---------- */}
-          <section className="hero-wrap">
-            <div className="sticky-hero">
-              <div className="hero-inner">
-                <h1 className="hero-title">From Chaos to Clarity.<br/>Her Story.</h1>
-                <p className="hero-sub">
-                  For too long, the legal system has been a maze. For Sarah Thompson, it was a fight for her future.
-                </p>
-              </div>
-
-              <aside className="step1-card" aria-label="Step 1">
-                <span className="badge">STEP 1</span>
-                <h3 className="step1-title">The Problem</h3>
-                <p className="muted">
-                  Sarah’s world fell apart when her marriage turned violent. With no paycheck and no access to resources, she was drowning in a legal battle she couldn’t afford.
-                </p>
-              </aside>
-            </div>
-
-            {/* Step 2 is inside the same container so it scrolls up and obscures the hero */}
-            <div className="step2-wrap">
-              <div className="step2">
-                <span className="badge">STEP 2</span>
-                <h3 className="step-title">The Turning Point</h3>
-                <p className="step-body">
-                  She was told to “collect evidence” and “be prepared,” but had no idea where to start. Then she found ThreadLock.ai and began turning scattered texts, photos, and documents into a clear, organized case.
-                </p>
-              </div>
+          {/* HERO (image fixed, text scrolls) */}
+          <section className="hero">
+            <div className="max-w-4xl mx-auto">
+              <h2>From Chaos to Clarity.<br/>Her Story.</h2>
+              <p>
+                For too long, the legal system has been a maze. But for Sarah Thompson, a single mom from Portland, it was a battle for her future.
+              </p>
             </div>
           </section>
 
-          {/* ---------- Steps 3 & 4 (hands & sun) ---------- */}
-          <section className="section">
-            <h2>Sarah's Journey Continues</h2>
+          {/* Story Flow */}
+          <section className="story-flow">
+            <h2 style={{textAlign:'center',fontSize:'2.5rem',fontWeight:'800',color:'var(--blue-900)',marginBottom:'3rem'}}>
+              Sarah's Journey in Three Steps
+            </h2>
 
-            <div className="photo-step" style={{marginTop:'0'}}>
+            {/* STEP 1 */}
+            <div className="story-step right-oriented">
+              <span className="step-number">STEP 1</span>
+              <h3>The Problem</h3>
+              <p>
+                Sarah's world fell apart when her marriage turned violent. Overwhelmed and terrified for her kids' safety, she knew she had to get out, but had no idea what to do. As a stay-at-home mom with no paycheck and no access to resources, she was drowning in the chaos of a legal battle she couldn't afford, feeling trapped and utterly powerless.
+              </p>
+            </div>
+
+            {/* STEP 2 */}
+            <div className="story-step left-oriented">
+              <span className="step-number">STEP 2</span>
+              <h3>The Turning Point</h3>
+              <p>
+                Sarah was told to "collect evidence" and "be prepared," but had no idea where to start. Then she found ThreadLock.ai and began turning scattered information into a clear, organized case.
+              </p>
+            </div>
+
+            {/* STEP 3 with hands/sun */}
+            <div className="photo-step">
               <div className="content">
-                <span className="badge" style={{background:'rgba(254,239,199,.85)'}}>STEP 3</span>
+                <span className="step-number" style={{background:'rgba(254,239,199,.85)', color:'#b45309'}}>STEP 3</span>
                 <h3 className="step-title" style={{color:'#fff'}}>The Result</h3>
                 <p className="step-body" style={{color:'#f3f4f6'}}>
-                  She walked into court terrified and walked out free. The story was coherent, the evidence clear, and the judge could finally see the truth.
+                  Sarah walked into court terrified but walked out free. She won custody of her kids, left the abuse behind, and started her new life. ThreadLock provided the tools she needed to find her voice.
                 </p>
                 <div className="blockquote">
-                  “ThreadLock didn’t just give me tools. It gave me confidence. I could finally stand up for myself — and be heard.”
+                  "ThreadLock didn’t just give me tools. It gave me confidence. I could finally stand up for myself—and be heard."
                 </div>
               </div>
             </div>
-
-            <div className="photo-step">
-              <div className="content">
-                <span className="badge" style={{background:'rgba(254,239,199,.85)'}}>STEP 4</span>
-                <h3 className="step-title" style={{color:'#fff'}}>What Comes Next</h3>
-                <p className="step-body" style={{color:'#f3f4f6'}}>
-                  Recovery isn’t overnight. With organized records, alerts, and court-ready exports, Sarah keeps momentum and protects her family without reliving chaos every hearing.
-                </p>
-              </div>
-            </div>
           </section>
 
-          {/* ---------- Features ---------- */}
+          {/* Features */}
           <section className="features-section">
             <div className="max-w-5xl mx-auto">
               <h3 style={{textAlign:'center',fontWeight:800,fontSize:'2rem',margin:'0 0 2rem'}}>How ThreadLock Turns Chaos into Clarity</h3>
@@ -270,7 +229,7 @@ export default function SarahsStoryPage() {
             </div>
           </section>
 
-          {/* ---------- CTA ---------- */}
+          {/* CTA */}
           <section className="closing-cta">
             <div className="max-w-4xl mx-auto">
               <h3>You’re not powerless. You’re just not prepared.<br/>Yet.</h3>
