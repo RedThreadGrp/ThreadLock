@@ -26,12 +26,11 @@ export default function FounderStoryPage() {
           --gray-700:#374151; --gray-800:#1f2937; --gray-900:#0f172a; --white:#fff;
           --font-family:'Poppins',sans-serif;
 
-          /* EXACT filenames in /public */
-          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');       /* woman on train */
-          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg'); /* sunshine forest */
-
-          /* Step 2 (remote ok; swap to /public if you add it) */
-          --step2-url: url('https://images.unsplash.com/photo-1549413723-54135508b888?q=80&w=2400&auto=format&fit=crop');
+          /* --- FIXED LOCAL IMAGE PATHS --- */
+          /* The leading '/' tells the browser to look in your 'public' folder. */
+          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');
+          --step2-url: url('/getty-images-6iVK12iAn_s-unsplash.jpg');
+          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg');
         }
 
         html { -webkit-text-size-adjust: 100%; }
@@ -60,22 +59,42 @@ export default function FounderStoryPage() {
         .mobile-panel .waitlist-button{display:inline-block;margin-top:.5rem}
         @media (max-width:991px){.nav-links{display:none}.hamburger{display:inline-flex}.mobile-panel.open{display:block}}
 
-        /* -------- HERO: fixed BACKGROUND layer, scrolling CONTENT -------- */
-        .hero{
-          min-height:100vh;position:relative;color:#fff;text-align:center;padding:6rem 1.25rem;
-          overflow:clip; /* keeps the fixed bg tidy at edges */
+        /* -------- HERO: FIXED BACKGROUND layer, scrolling CONTENT -------- */
+        .hero-wrap {
+          min-height: 80vh;
+          position: relative;
+          z-index: 1;
+          padding: 6rem 1.25rem;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
-        /* Fixed image lives on ::before so only the image is fixed */
-        .hero::before{
-          content:"";position:fixed;inset:0;z-index:-1;
+        .fixed-bg {
+          position: fixed;
+          top: 0; left: 0; width: 100%; height: 100%;
           background-image: var(--hero-url);
-          background-size:cover;background-position:center;
-          /* overlay on the same fixed layer */
-          box-shadow: inset 0 0 0 9999px rgba(0,0,0,.45);
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+          z-index: -1;
         }
-        .hero h2{font-size:clamp(2rem,4.8vw,2.6rem);line-height:1.2;font-weight:800;margin-bottom:1rem}
-        .hero p{font-size:1.125rem;max-width:48rem;margin:0 auto;color:#f2f4f7}
+        .fixed-bg::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: rgba(0,0,0,0.5);
+        }
+        .hero-wrap h2{font-size:clamp(2rem,4.8vw,2.8rem);line-height:1.2;font-weight:800;margin-bottom:1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);}
+        .hero-wrap p{font-size:1.125rem;max-width:48rem;margin:0 auto;color:#f2f4f7; text-shadow: 0 1px 3px rgba(0,0,0,0.5);}
 
+        /* Content that scrolls OVER the fixed background */
+        .scroll-content {
+          position: relative;
+          z-index: 2;
+          background-color: var(--gray-50);
+        }
+        
         /* Story steps */
         .story-flow{padding:4rem 1.5rem 0 1.5rem}
         .story-step{max-width:42rem;margin:0 auto 3.5rem auto;background:#fff;padding:2.5rem;border-radius:1rem;border:1px solid var(--gray-100);
@@ -89,40 +108,36 @@ export default function FounderStoryPage() {
         .align-left  .step-number{margin-right:auto;display:inline-block}
 
         /* Step 2 sticky band */
-        .step2-wrap{height:180vh;position:relative}
+        .step2-wrap{height:150vh;position:relative}
         .step2-sticky{
           position:sticky;top:0;height:100vh;color:#fff;text-align:center;
-          background-image:var(--step2-url);background-size:cover;background-position:center; /* no background-attachment here */
-          isolation:isolate;display:flex;align-items:flex-end;justify-content:center;padding:0 1rem 2.25rem;
+          background-image:var(--step2-url);background-size:cover;background-position:center;
+          isolation:isolate;display:flex;align-items:center;justify-content:center;padding:1rem;
         }
-        .step2-sticky::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.55));z-index:0}
+        .step2-sticky::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:-1}
         .step2-card{
-          position:relative;z-index:1;width:min(48rem,calc(100% - 2rem));
-          background:rgba(0,0,0,.5);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.18);
-          color:#fff;border-radius:1rem;padding:1.5rem;text-align:left;box-shadow:0 15px 30px rgba(0,0,0,.35)
+          position:relative;z-index:1;width:min(42rem,100%);
+          background:rgba(20,20,30,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);
+          color:#fff;border-radius:1rem;padding:2rem 2.5rem;text-align:left;box-shadow:0 15px 30px rgba(0,0,0,.35)
         }
         .step2-card h3{color:#fff;margin:.4rem 0 .5rem}
         .step2-card p{color:#f3f4f6}
 
-        /* Quote band (no image as per your current file) */
+        /* Quote band */
         .quote-band{
-          position:relative;padding:2.5rem 1.5rem 3.25rem;
-          background:linear-gradient(180deg,#0b1220,#1b2433);
-          isolation:isolate;color:#fff;
+          position:relative;padding:3rem 1.5rem 4rem;
+          background:var(--blue-900);
+          color:#fff;
         }
-        .quote-band::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.25));z-index:0}
-        .quote-band > *{position:relative;z-index:1}
         .quote-container, .epiphany-conclusion{max-width:42rem;margin:0 auto}
-        .story-blockquote{background:transparent;margin:0;color:#fff}
-        .story-blockquote .inner{padding:2rem 2.25rem 1rem;border-left:4px solid var(--orange-600);font-size:1.2rem;font-style:italic;text-shadow:0 1px 2px rgba(0,0,0,.7)}
-        .epiphany-conclusion{padding:0 2.25rem 0 2.25rem}
-        .epiphany-conclusion p{color:#e5e7eb;font-size:1.1rem;line-height:1.8;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+        .story-blockquote{background:transparent;margin-bottom: 2rem; color:#fff}
+        .story-blockquote .inner{padding:0; border-left:4px solid var(--orange-600);padding-left:1.5rem; font-size:1.2rem;font-style:italic;}
+        .epiphany-conclusion p{color:#e5e7eb;font-size:1.1rem;line-height:1.8;}
 
         /* Result (sunshine forest) */
         .features-section{position:relative;padding:4rem 1.5rem;color:#fff;background-image:var(--result-url);
           background-size:cover;background-position:center;isolation:isolate}
-        .features-section::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));z-index:0}
-        .features-section > div{position:relative;z-index:1}
+        .features-section::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));z-index:-1}
         .features-section h3{text-align:center;font-size:2rem;font-weight:700;margin-bottom:2rem}
         .features-grid{display:grid;gap:2rem}
         @media (min-width:768px){.features-grid{grid-template-columns:repeat(3,1fr)}}
@@ -139,8 +154,8 @@ export default function FounderStoryPage() {
         .footer{background:var(--gray-900);color:var(--gray-300);padding:1.5rem;text-align:center;font-size:.9rem}
 
         @media (max-width:640px){
-          p,.story-step p,.hero p,.feature-card p{ text-align:justify; text-justify:inter-word; hyphens:auto; overflow-wrap:anywhere; }
-          .hero h2{font-size:1.9rem}
+          p,.story-step p,.hero-wrap p,.feature-card p{ text-align:justify; text-justify:inter-word; hyphens:auto; overflow-wrap:anywhere; }
+          .hero-wrap h2{font-size:1.9rem}
           .story-step{padding:1.75rem}
         }
       `}</style>
@@ -178,100 +193,95 @@ export default function FounderStoryPage() {
         </header>
 
         <main>
-          {/* HERO (image fixed, text scrolls past it) */}
-          <section className="hero">
-            <div className="max-w-4xl mx-auto">
+          <div className="fixed-bg" />
+          
+          <section className="hero-wrap">
+            <div className="max-w-4xl mx-auto text-center">
               <h2>The System Puts Everyone in a Box.<br/>Even the Judge.</h2>
               <p>Our founder's journey through the family court system revealed a surprising truth that became the foundation for ThreadLock.</p>
             </div>
           </section>
 
-          {/* STEP 1 */}
-          <section className="story-flow">
-            <h2 style={{textAlign:'center',fontSize:'2.5rem',fontWeight:800,color:'var(--blue-900)',marginBottom:'3rem'}}>
-              A Journey in Three Steps
-            </h2>
-            <div className="story-step align-right">
-              <span className="step-number">STEP 1</span>
-              <h3>The Expectation</h3>
-              <p>
-                I walked into family court to represent myself. I'd been to law school, but after several years as a stay-at-home mom, I had no money for a lawyer and no access to professional resources. I thought my legal knowledge would be enough. I was wrong.
-              </p>
-            </div>
-          </section>
-
-          {/* STEP 2 (sticky) */}
-          <section className="step2-wrap" aria-label="Step 2 band">
-            <div className="step2-sticky">
-              <div className="step2-card">
-                <span className="step-number">STEP 2</span>
-                <h3>The Reality</h3>
+          <div className="scroll-content">
+            <section className="story-flow">
+              <h2 style={{textAlign:'center',fontSize:'2.5rem',fontWeight:800,color:'var(--blue-900)',marginBottom:'3rem'}}>
+                A Journey in Three Steps
+              </h2>
+              <div className="story-step align-right">
+                <span className="step-number">STEP 1</span>
+                <h3>The Expectation</h3>
                 <p>
-                  The system wasn't just complex; it felt designed to be bewildering. My confidence was quickly replaced by the same fear and powerlessness that millions of people feel every year.
+                  I walked into family court to represent myself. I'd been to law school, but after several years as a stay-at-home mom, I had no money for a lawyer and no access to professional resources. I thought my legal knowledge would be enough. I was wrong.
                 </p>
               </div>
-            </div>
-          </section>
+            </section>
 
-          {/* STEP 3 */}
-          <section className="story-flow" style={{paddingTop: 0}}>
-            <div className="story-step align-right" style={{marginBottom:'1.5rem', marginTop: '3.5rem'}}>
-              <span className="step-number">STEP 3</span>
-              <h3>The Epiphany</h3>
-              <p>
-                The moment that changed everything was when I learned about the judge in my case. Before the robe, they were a champion for the underdog. Yet, from the bench, they were unable to provide the very access they once fought for.
-              </p>
-            </div>
-          </section>
+            <section className="step2-wrap" aria-label="The Reality Section">
+              <div className="step2-sticky">
+                <div className="step2-card">
+                  <span className="step-number">STEP 2</span>
+                  <h3>The Reality</h3>
+                  <p>
+                    The system wasn't just complex; it felt designed to be bewildering. My confidence was quickly replaced by the same fear and powerlessness that millions of people feel every year.
+                  </p>
+                </div>
+              </div>
+            </section>
 
-          {/* Quote band (no image) */}
-          <section className="quote-band">
-            <div className="quote-container">
-              <blockquote className="story-blockquote">
+            <section className="story-flow" style={{paddingTop: '3.5rem', paddingBottom: 0}}>
+              <div className="story-step align-right">
+                <span className="step-number">STEP 3</span>
+                <h3>The Epiphany</h3>
+                <p>
+                  The moment that changed everything was when I learned about the judge in my case. Before the robe, they were a champion for the underdog. Yet, from the bench, they were unable to provide the very access they once fought for.
+                </p>
+              </div>
+            </section>
+
+            <section className="quote-band">
+              <div className="story-blockquote">
                 <div className="inner">
                   “Instead of anger, I felt a moment of clarity. I saw a good person constrained by a bad system.”
                 </div>
-              </blockquote>
-            </div>
-            <div className="epiphany-conclusion">
-              <p>
-                The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative. The problem wasn't the judge. It was a crisis of information.
-              </p>
-            </div>
-          </section>
+              </div>
+              <div className="epiphany-conclusion">
+                <p>
+                  The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative. The problem wasn't the judge. It was a crisis of information.
+                </p>
+              </div>
+            </section>
 
-          {/* RESULT */}
-          <section className="features-section">
-            <div className="max-w-5xl mx_auto">
-              <h3>The Result: A Solvable Problem</h3>
-              <div className="features-grid">
-                <div className="feature-card">
-                  <h4>Clarity over Chaos</h4>
-                  <p>A secure place to organize documents, messages, and evidence.</p>
-                </div>
-                <div className="feature-card">
-                  <h4>Guidance over Guesswork</h4>
-                  <p>AI that provides jurisdiction-specific guidance, not just generic advice.</p>
-                </div>
-                <div className="feature-card">
-                  <h4>Truth over Confusion</h4>
-                  <p>Timelines and court-ready proof so the truth is seen clearly.</p>
+            <section className="features-section">
+              <div className="max-w-5xl mx-auto">
+                <h3>The Result: A Solvable Problem</h3>
+                <div className="features-grid">
+                  <div className="feature-card">
+                    <h4>Clarity over Chaos</h4>
+                    <p>A secure place to organize documents, messages, and evidence.</p>
+                  </div>
+                  <div className="feature-card">
+                    <h4>Guidance over Guesswork</h4>
+                    <p>AI that provides jurisdiction-specific guidance, not just generic advice.</p>
+                  </div>
+                  <div className="feature-card">
+                    <h4>Truth over Confusion</h4>
+                    <p>Timelines and court-ready proof so the truth is seen clearly.</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          {/* CTA */}
-          <section className="closing-cta">
-            <div className="max-w-4xl mx-auto">
-              <h3>You aren’t powerless. You just aren’t prepared.</h3>
-              <h3>Yet.</h3>
-              <p className="subtitle">
-                Let ThreadLock change that. We’re putting power back into the hands of everyday people, one case at a time.
-              </p>
-              <a href="https://www.threadlock.ai" className="cta-link">Get Started with ThreadLock</a>
-            </div>
-          </section>
+            <section className="closing-cta">
+              <div className="max-w-4xl mx-auto">
+                <h3>You aren’t powerless. You just aren’t prepared.</h3>
+                <h3>Yet.</h3>
+                <p className="subtitle">
+                  Let ThreadLock change that. We’re putting power back into the hands of everyday people, one case at a time.
+                </p>
+                <a href="https://www.threadlock.ai" className="cta-link">Get Started with ThreadLock</a>
+              </div>
+            </section>
+          </div>
         </main>
 
         <footer className="footer">

@@ -264,15 +264,15 @@ const FeaturesSection = () => (
     <div className="relative container mx-auto px-6 text-center z-10">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Build Your Case with Confidence</h2>
       <p className="text-lg text-slate-200 max-w-2xl mx-auto mb-16">
-        Our platform is designed to make evidence collection simple, secure, and stress-free.
+        Our platform is designed to make evidence collection and presentation simple, secure, and stress-free.
       </p>
     </div>
     <div className="relative container mx-auto px-6 grid md:grid-cols-3 gap-8 z-10">
       <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="AI-Guided Journaling">
-        Never miss a crucial detail. Our AI guides you to capture the specific, legally-relevant facts for your case.
+        Never miss important details because you don't know what to track. Our AI guides you to capture the specific, legally-relevant facts for your case.
       </FeatureCard>
       <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Immutable & Secure">
-        Entries are anchored for integrity—creating a record that stands up to scrutiny.
+        Locked timestamps establishing the true date and time of each logon and event entry.
       </FeatureCard>
       <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court-Ready Exports">
         Export clean timelines and summaries that a judge can actually read.
