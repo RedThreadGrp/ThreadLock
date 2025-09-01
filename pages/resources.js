@@ -177,12 +177,31 @@ const Header = () => {
     );
 };
 
+/* ---------------- Hero Section (New Component) ---------------- */
+const HeroSection = () => (
+    <section className="relative h-[80vh] flex items-center justify-center text-white text-center overflow-hidden">
+        {/* Fixed background image for the Hero */}
+        <div className="fixed-bg-hero" />
+        <div className="relative z-10 p-4 max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 drop-shadow-lg">
+                Essential Legal Resources for Self-Represented Litigants
+            </h1>
+            <p className="text-lg md:text-xl font-medium drop-shadow-md">
+                Navigate the complexities of family court with confidence. Access state-specific rules and practical tools designed to empower you.
+            </p>
+        </div>
+    </section>
+);
+
+
 /* ---------------- Sections ---------------- */
 const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
-    <section id="pricing" className="py-20 md:py-24 bg-white text-center text-gray-800">
-        <div className="container mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Resources & Toolkits</h2>
-            <p className="text-lg text-slate-600 mb-16 max-w-3xl mx-auto">While our app is in development, get organized with these essential resources. Your purchase supports our build and includes Founding Member perks.</p>
+    <section id="pricing" className="relative py-20 md:py-24 bg-white text-center text-gray-800 overflow-hidden">
+        {/* Fixed background image for the Pricing Section */}
+        <div className="fixed-bg-pricing" />
+        <div className="relative z-10 container mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">Resources & Toolkits</h2>
+            <p className="text-lg text-white mb-16 max-w-3xl mx-auto drop-shadow-md">While our app is in development, get organized with these essential resources. Your purchase supports our build and includes Founding Member perks.</p>
 
             <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
                 <div className="bg-white rounded-2xl shadow-lg ring-2 ring-orange-500 p-8 flex flex-col relative overflow-hidden">
@@ -257,8 +276,8 @@ const CommunityLinksSection = () => {
     return (
         <section id="community-links" className="py-20 md:py-24 bg-gray-50">
             <div className="container mx-auto px-6 max-w-4xl">
-                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 text-center">Community & Legal Links</h2>
-                <p className="text-lg text-slate-600 mb-12 text-center">Connect with us and find helpful legal resources for your jurisdiction.</p>
+                   <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 text-center">Community & Legal Links</h2>
+                 <p className="text-lg text-slate-600 mb-12 text-center">Connect with us and find helpful legal resources for your jurisdiction.</p>
 
                 <div className="grid md:grid-cols-2 gap-8 items-start">
                     {/* LinkedIn Card */}
@@ -276,27 +295,27 @@ const CommunityLinksSection = () => {
                     </div>
                     {/* State Rules Card */}
                     <div className="bg-white p-8 rounded-2xl border border-slate-200">
-                         <div className="flex items-center gap-4 mb-4">
-                            <div className="w-12 h-12 bg-green-100 text-green-600 flex items-center justify-center rounded-lg">
+                           <div className="flex items-center gap-4 mb-4">
+                                <div className="w-12 h-12 bg-green-100 text-green-600 flex items-center justify-center rounded-lg">
                                <GlobeIcon className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-2xl font-bold text-slate-800">Local Court Rules</h3>
                             </div>
-                            <h3 className="text-2xl font-bold text-slate-800">Local Court Rules</h3>
-                        </div>
-                        <p className="text-slate-600 mb-6">Find the official court and family law rules for your state. <em>(Links go to external government websites)</em></p>
-                        
-                        <button onClick={() => setRulesOpen(!rulesOpen)} className="w-full text-left font-semibold text-slate-800 py-3 px-4 bg-slate-100 hover:bg-slate-200 rounded-lg flex justify-between items-center transition-all">
-                            <span>Select Your State</span>
-                            <ChevronDownIcon className={`w-5 h-5 transition-transform ${rulesOpen ? 'rotate-180' : ''}`} />
-                        </button>
-                        <div className={`transition-all duration-300 ease-in-out overflow-hidden ${rulesOpen ? 'max-h-[500px] mt-2' : 'max-h-0'}`}>
-                            <div className="py-2 space-y-2 max-h-80 overflow-y-auto">
-                                {STATE_RULES.map(state => (
-                                    <a key={state.name} href={state.url} target="_blank" rel="noopener noreferrer" className="block text-slate-800 hover:text-orange-600 font-semibold transition-colors p-2 rounded hover:bg-slate-100">
-                                        {state.name} &rarr;
-                                    </a>
-                                ))}
+                         <p className="text-slate-600 mb-6">Find the official court and family law rules for your state. <em>(Links go to external government websites)</em></p>
+                           
+                            <button onClick={() => setRulesOpen(!rulesOpen)} className="w-full text-left font-semibold text-slate-800 py-3 px-4 bg-slate-100 hover:bg-slate-200 rounded-lg flex justify-between items-center transition-all">
+                                <span>Select Your State</span>
+                                <ChevronDownIcon className={`w-5 h-5 transition-transform ${rulesOpen ? 'rotate-180' : ''}`} />
+                            </button>
+                            <div className={`transition-all duration-300 ease-in-out overflow-hidden ${rulesOpen ? 'max-h-[500px] mt-2' : 'max-h-0'}`}>
+                                <div className="py-2 space-y-2 max-h-80 overflow-y-auto">
+                                    {STATE_RULES.map(state => (
+                                        <a key={state.name} href={state.url} target="_blank" rel="noopener noreferrer" className="block text-slate-800 hover:text-orange-600 font-semibold transition-colors p-2 rounded hover:bg-slate-100">
+                                            {state.name} &rarr;
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -381,11 +400,69 @@ export default function ResourcesPage() {
             <Head>
                 <title>Resources | ThreadLock™</title>
                 <meta name="robots" content="noindex, follow" />
+                {/* Global CSS for fixed backgrounds */}
+                <style jsx global>{`
+                    :root {
+                        --hero-bg-url: url('/man-child-bike.jpg'); /* Image 1 */
+                        --pricing-bg-url: url('/woman-window.jpg'); /* Image 2 */
+                    }
+
+                    .fixed-bg-hero {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-image: var(--hero-bg-url);
+                        background-size: cover;
+                        background-position: center;
+                        background-attachment: fixed;
+                        z-index: -2; /* Ensure it's behind everything but still visible */
+                        /* Optional: Add an overlay for text readability */
+                        filter: brightness(0.7); /* Darken the image */
+                    }
+
+                    .fixed-bg-pricing {
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-image: var(--pricing-bg-url);
+                        background-size: cover;
+                        background-position: center;
+                        background-attachment: fixed;
+                        z-index: -2; /* Ensure it's behind the pricing content */
+                         /* Optional: Add an overlay for text readability */
+                        filter: brightness(0.6); /* Darken the image */
+                    }
+
+                    /* Ensure sections that sit *over* fixed backgrounds have a background color */
+                    #community-links {
+                        background-color: var(--gray-50); /* Or white, whatever matches your design */
+                        position: relative; /* Create new stacking context */
+                        z-index: 1; /* Bring it above the fixed backgrounds */
+                    }
+                    #pricing {
+                        background-color: transparent; /* Make the section itself transparent to show fixed background */
+                        position: relative;
+                        z-index: 1;
+                    }
+                    #pricing > .container {
+                        position: relative;
+                        z-index: 2; /* Ensure content is above the pseudo-element overlay */
+                    }
+                    #pricing .bg-white {
+                        background-color: rgba(255,255,255,0.9); /* Slightly transparent cards for effect */
+                        backdrop-filter: blur(5px);
+                    }
+                `}</style>
             </Head>
 
             <div className="bg-gray-50">
                 <Header />
-                <main className="flex flex-col w-full overflow-x-hidden pt-20">
+                <main className="flex flex-col w-full overflow-x-hidden">
+                    <HeroSection />
                     <CommunityLinksSection />
                     <PricingSection
                         onBuyToolkit={onBuyToolkit}
@@ -401,4 +478,3 @@ export default function ResourcesPage() {
         </>
     );
 }
-
