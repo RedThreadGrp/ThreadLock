@@ -27,11 +27,10 @@ export default function FounderStoryPage() {
           --font-family:'Poppins',sans-serif;
 
           /* EXACT filenames in /public */
-          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');                 /* woman on train */
-          /* removed man+child image entirely */
-          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg');         /* sunshine forest */
+          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');       /* woman on train */
+          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg'); /* sunshine forest */
 
-          /* Step 2 image (child looking over the wall). Replace if you have a local file. */
+          /* Step 2 (remote ok; swap to /public if you add it) */
           --step2-url: url('https://images.unsplash.com/photo-1549413723-54135508b888?q=80&w=2400&auto=format&fit=crop');
         }
 
@@ -61,18 +60,23 @@ export default function FounderStoryPage() {
         .mobile-panel .waitlist-button{display:inline-block;margin-top:.5rem}
         @media (max-width:991px){.nav-links{display:none}.hamburger{display:inline-flex}.mobile-panel.open{display:block}}
 
-        /* ---------------- HERO (fixed background, scoped overlay) ---------------- */
+        /* -------- HERO: fixed BACKGROUND layer, scrolling CONTENT -------- */
         .hero{
-          min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;
-          position:relative;padding:6rem 1.25rem;background-image:var(--hero-url);
-          background-size:cover;background-position:center;background-attachment:fixed;isolation:isolate;
+          min-height:100vh;position:relative;color:#fff;text-align:center;padding:6rem 1.25rem;
+          overflow:clip; /* keeps the fixed bg tidy at edges */
         }
-        .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.25),rgba(0,0,0,.58));z-index:0}
-        .hero > div{position:relative;z-index:1}
+        /* Fixed image lives on ::before so only the image is fixed */
+        .hero::before{
+          content:"";position:fixed;inset:0;z-index:-1;
+          background-image: var(--hero-url);
+          background-size:cover;background-position:center;
+          /* overlay on the same fixed layer */
+          box-shadow: inset 0 0 0 9999px rgba(0,0,0,.45);
+        }
         .hero h2{font-size:clamp(2rem,4.8vw,2.6rem);line-height:1.2;font-weight:800;margin-bottom:1rem}
         .hero p{font-size:1.125rem;max-width:48rem;margin:0 auto;color:#f2f4f7}
 
-        /* ---------------- GENERIC STORY STEP ---------------- */
+        /* Story steps */
         .story-flow{padding:4rem 1.5rem 0 1.5rem}
         .story-step{max-width:42rem;margin:0 auto 3.5rem auto;background:#fff;padding:2.5rem;border-radius:1rem;border:1px solid var(--gray-100);
           box-shadow:0 4px 6px -1px rgba(0,0,0,.05)}
@@ -84,12 +88,12 @@ export default function FounderStoryPage() {
         .align-right .step-number{margin-left:auto;display:inline-block}
         .align-left  .step-number{margin-right:auto;display:inline-block}
 
-        /* ---------------- STEP 2: full-screen sticky band ---------------- */
+        /* Step 2 sticky band */
         .step2-wrap{height:180vh;position:relative}
         .step2-sticky{
           position:sticky;top:0;height:100vh;color:#fff;text-align:center;
-          background-image:var(--step2-url);background-size:cover;background-position:center;background-attachment:fixed;isolation:isolate;
-          display:flex;align-items:flex-end;justify-content:center;padding:0 1rem 2.25rem;
+          background-image:var(--step2-url);background-size:cover;background-position:center; /* no background-attachment here */
+          isolation:isolate;display:flex;align-items:flex-end;justify-content:center;padding:0 1rem 2.25rem;
         }
         .step2-sticky::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.55));z-index:0}
         .step2-card{
@@ -100,10 +104,10 @@ export default function FounderStoryPage() {
         .step2-card h3{color:#fff;margin:.4rem 0 .5rem}
         .step2-card p{color:#f3f4f6}
 
-        /* ---------------- STEP 3: quote band (no background photo) ---------------- */
+        /* Quote band (no image as per your current file) */
         .quote-band{
           position:relative;padding:2.5rem 1.5rem 3.25rem;
-          background:linear-gradient(180deg,#0b1220,#1b2433); /* dark, no image */
+          background:linear-gradient(180deg,#0b1220,#1b2433);
           isolation:isolate;color:#fff;
         }
         .quote-band::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.25));z-index:0}
@@ -114,7 +118,7 @@ export default function FounderStoryPage() {
         .epiphany-conclusion{padding:0 2.25rem 0 2.25rem}
         .epiphany-conclusion p{color:#e5e7eb;font-size:1.1rem;line-height:1.8;text-shadow:0 1px 2px rgba(0,0,0,.6)}
 
-        /* ---------------- RESULT (sunshine forest) ---------------- */
+        /* Result (sunshine forest) */
         .features-section{position:relative;padding:4rem 1.5rem;color:#fff;background-image:var(--result-url);
           background-size:cover;background-position:center;isolation:isolate}
         .features-section::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.55));z-index:0}
@@ -134,7 +138,6 @@ export default function FounderStoryPage() {
         .cta-link:hover{background:var(--orange-700)}
         .footer{background:var(--gray-900);color:var(--gray-300);padding:1.5rem;text-align:center;font-size:.9rem}
 
-        /* Mobile readability & scaling */
         @media (max-width:640px){
           p,.story-step p,.hero p,.feature-card p{ text-align:justify; text-justify:inter-word; hyphens:auto; overflow-wrap:anywhere; }
           .hero h2{font-size:1.9rem}
@@ -175,7 +178,7 @@ export default function FounderStoryPage() {
         </header>
 
         <main>
-          {/* HERO */}
+          {/* HERO (image fixed, text scrolls past it) */}
           <section className="hero">
             <div className="max-w-4xl mx-auto">
               <h2>The System Puts Everyone in a Box.<br/>Even the Judge.</h2>
@@ -197,7 +200,7 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
-          {/* STEP 2 (full-screen sticky) */}
+          {/* STEP 2 (sticky) */}
           <section className="step2-wrap" aria-label="Step 2 band">
             <div className="step2-sticky">
               <div className="step2-card">
@@ -210,7 +213,7 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
-          {/* STEP 3 card */}
+          {/* STEP 3 */}
           <section className="story-flow" style={{paddingTop: 0}}>
             <div className="story-step align-right" style={{marginBottom:'1.5rem', marginTop: '3.5rem'}}>
               <span className="step-number">STEP 3</span>
@@ -237,9 +240,9 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
-          {/* RESULT (sunshine forest) */}
+          {/* RESULT */}
           <section className="features-section">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-5xl mx_auto">
               <h3>The Result: A Solvable Problem</h3>
               <div className="features-grid">
                 <div className="feature-card">
