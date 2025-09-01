@@ -26,11 +26,12 @@ export default function FounderStoryPage() {
           --gray-700:#374151; --gray-800:#1f2937; --gray-900:#0f172a; --white:#fff;
           --font-family:'Poppins',sans-serif;
 
-          /* --- FIXED LOCAL IMAGE PATHS --- */
-          /* The leading '/' tells the browser to look in your 'public' folder. */
-          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg');
-          --step2-url: url('/getty-images-6iVK12iAn_s-unsplash.jpg');
-          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg');
+          /* --- LOCAL IMAGE PATHS --- */
+          /* These paths assume the images are in your 'public' folder */
+          --hero-url: url('/ahmed-tB_QL1ToYBQ-unsplash.jpg'); /* Lady on train */
+          --step2-url: url('/child-over-wall.jpg'); /* Child looking over wall */
+          --quote-bg-url: url('/man-child.jpg'); /* Man and child touching hands */
+          --result-url: url('/ales-krivec-OC63XpUAxuY-unsplash.jpg'); /* Sunshine forest (unchanged) */
         }
 
         html { -webkit-text-size-adjust: 100%; }
@@ -70,29 +71,29 @@ export default function FounderStoryPage() {
           align-items: center;
           justify-content: center;
         }
-        .fixed-bg {
+        .fixed-bg-hero { /* Dedicated class for the fixed hero background */
           position: fixed;
           top: 0; left: 0; width: 100%; height: 100%;
           background-image: var(--hero-url);
           background-size: cover;
           background-position: center;
-          background-attachment: fixed;
+          background-attachment: fixed; /* Makes the background fixed while content scrolls */
           z-index: -1;
         }
-        .fixed-bg::before {
+        .fixed-bg-hero::before {
           content: "";
           position: absolute;
           inset: 0;
-          background: rgba(0,0,0,0.5);
+          background: rgba(0,0,0,0.5); /* Dark overlay for readability */
         }
         .hero-wrap h2{font-size:clamp(2rem,4.8vw,2.8rem);line-height:1.2;font-weight:800;margin-bottom:1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);}
         .hero-wrap p{font-size:1.125rem;max-width:48rem;margin:0 auto;color:#f2f4f7; text-shadow: 0 1px 3px rgba(0,0,0,0.5);}
 
-        /* Content that scrolls OVER the fixed background */
+        /* Content that scrolls OVER the fixed hero background */
         .scroll-content {
           position: relative;
-          z-index: 2;
-          background-color: var(--gray-50);
+          z-index: 2; /* Must be higher than hero content and its fixed background */
+          background-color: var(--gray-50); /* Opaque background to hide fixed image */
         }
         
         /* Story steps */
@@ -111,7 +112,8 @@ export default function FounderStoryPage() {
         .step2-wrap{height:150vh;position:relative}
         .step2-sticky{
           position:sticky;top:0;height:100vh;color:#fff;text-align:center;
-          background-image:var(--step2-url);background-size:cover;background-position:center;
+          background-image:var(--step2-url); /* Child over wall */
+          background-size:cover;background-position:center;
           isolation:isolate;display:flex;align-items:center;justify-content:center;padding:1rem;
         }
         .step2-sticky::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:-1}
@@ -123,12 +125,31 @@ export default function FounderStoryPage() {
         .step2-card h3{color:#fff;margin:.4rem 0 .5rem}
         .step2-card p{color:#f3f4f6}
 
-        /* Quote band */
+        /* Quote band - now with fixed background */
         .quote-band{
           position:relative;padding:3rem 1.5rem 4rem;
-          background:var(--blue-900);
           color:#fff;
+          /* The image is now on the ::before pseudo-element for fixed behavior */
+          z-index: 1; /* Ensure content is above the fixed pseudo-element */
         }
+        .quote-band::before {
+          content: "";
+          position: fixed; /* Fixed background */
+          top: 0; left: 0; width: 100%; height: 100%;
+          background-image: var(--quote-bg-url); /* Man and child */
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed;
+          z-index: -2; /* Behind the quote band content, and behind hero if it's still visible */
+          /* Overlay for readability */
+          box-shadow: inset 0 0 0 9999px rgba(0,0,0,0.65);
+        }
+        /* Ensure the actual content of the quote band is above its fixed background */
+        .quote-band > * {
+            position: relative;
+            z-index: 1;
+        }
+
         .quote-container, .epiphany-conclusion{max-width:42rem;margin:0 auto}
         .story-blockquote{background:transparent;margin-bottom: 2rem; color:#fff}
         .story-blockquote .inner{padding:0; border-left:4px solid var(--orange-600);padding-left:1.5rem; font-size:1.2rem;font-style:italic;}
@@ -193,8 +214,10 @@ export default function FounderStoryPage() {
         </header>
 
         <main>
-          <div className="fixed-bg" />
+          {/* This empty div holds the fixed hero background image */}
+          <div className="fixed-bg-hero" />
           
+          {/* HERO (text that scrolls over the fixed background) */}
           <section className="hero-wrap">
             <div className="max-w-4xl mx-auto text-center">
               <h2>The System Puts Everyone in a Box.<br/>Even the Judge.</h2>
@@ -202,7 +225,9 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
+          {/* This container holds all content that scrolls over the hero */}
           <div className="scroll-content">
+            {/* STEP 1 */}
             <section className="story-flow">
               <h2 style={{textAlign:'center',fontSize:'2.5rem',fontWeight:800,color:'var(--blue-900)',marginBottom:'3rem'}}>
                 A Journey in Three Steps
@@ -216,6 +241,7 @@ export default function FounderStoryPage() {
               </div>
             </section>
 
+            {/* STEP 2 (sticky) */}
             <section className="step2-wrap" aria-label="The Reality Section">
               <div className="step2-sticky">
                 <div className="step2-card">
@@ -228,6 +254,7 @@ export default function FounderStoryPage() {
               </div>
             </section>
 
+            {/* STEP 3 */}
             <section className="story-flow" style={{paddingTop: '3.5rem', paddingBottom: 0}}>
               <div className="story-step align-right">
                 <span className="step-number">STEP 3</span>
@@ -238,6 +265,7 @@ export default function FounderStoryPage() {
               </div>
             </section>
 
+            {/* Quote band (now with Image 3 as fixed background) */}
             <section className="quote-band">
               <div className="story-blockquote">
                 <div className="inner">
@@ -251,6 +279,7 @@ export default function FounderStoryPage() {
               </div>
             </section>
 
+            {/* RESULT (Image remains as before) */}
             <section className="features-section">
               <div className="max-w-5xl mx-auto">
                 <h3>The Result: A Solvable Problem</h3>
@@ -271,6 +300,7 @@ export default function FounderStoryPage() {
               </div>
             </section>
 
+            {/* CTA */}
             <section className="closing-cta">
               <div className="max-w-4xl mx-auto">
                 <h3>You aren’t powerless. You just aren’t prepared.</h3>
