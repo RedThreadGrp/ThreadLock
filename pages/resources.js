@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 
-/* ---------------- Icon components ---------------- */
+/* ---------------- Paths (must match /public exactly) ---------------- */
+const HERO_IMG = "/sandra-seitamaa-JvPDBMvgNls-unsplash.jpg";
+const PRICING_IMG = "/giorgio-trovato-IgAFof1bhTA-unsplash.jpg";
+
+/* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
   <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
     <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
@@ -31,14 +36,10 @@ const ChevronDownIcon = (props) => (
   </svg>
 );
 
-/* ---------------- Image paths (must match /public exactly) ---------------- */
-const HERO_IMG = "/man-child-bike.jpg";
-const PRICING_IMG = "/woman-window.jpg";
-
-/* ---------------- State Rules data ---------------- */
+/* ---------------- State Rules ---------------- */
 const STATE_RULES = [
   { name: "Alabama", url: "https://eforms.alacourt.gov/media/d5464e8e-a228-4107-94d3-882245b7a1f5/rules-of-civil-procedure/" },
-  { name: "Alaska", url: "https://courts.alaska.gov/courtdir/index.htm" },
+  { name: "Alaska", url: "https://courts.alaska.gov/rules/rules.htm" },
   { name: "Arizona", url: "https://www.azcourts.gov/rules" },
   { name: "Arkansas", url: "https://courts.arkansas.gov/rules-and-administrative-orders/rules-of-civil-procedure" },
   { name: "California", url: "https://www.courts.ca.gov/rules.htm" },
@@ -89,7 +90,7 @@ const STATE_RULES = [
   { name: "Wyoming", url: "https://www.courts.state.wy.us/court-rules/" },
 ];
 
-/* ---------------- Single-PDF items ---------------- */
+/* ---------------- Single items + slugs ---------------- */
 const SINGLE_ITEMS = [
   { sku: "avoiding_common_mistakes", name: "Avoiding Common Mistakes in Court" },
   { sku: "basic_motion_template", name: "Basic Motion Template" },
@@ -102,7 +103,6 @@ const SINGLE_ITEMS = [
   { sku: "proof_of_service_tracker", name: "Proof of Service Tracker" },
   { sku: "trial_hearing_quick_ref", name: "Trial & Hearing Quick Reference" },
 ];
-
 const SKU_TO_SLUG = {
   avoiding_common_mistakes: "common-mistakes",
   basic_motion_template: "basic-motion",
@@ -124,6 +124,37 @@ function BrandWordmark({ className = "" }) {
       <span className="text-orange-600">Lock</span>
       <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
     </span>
+  );
+}
+
+/* ---------------- Fixed Background (robust) ---------------- */
+function FixedImageBackground({ src, dark = 0.0, className = "" }) {
+  // Fixed across desktop; absolute fallback for iOS Safari
+  return (
+    <div className={`pointer-events-none ${className}`} style={{ position: "fixed", inset: 0, zIndex: -2 }}>
+      <div className="absolute inset-0">
+        <Image
+          src={src}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+          onError={(e) => console.error("Background image failed to load:", src)}
+        />
+      </div>
+      {dark > 0 && (
+        <div
+          className="absolute inset-0"
+          style={{ background: `rgba(0,0,0,${dark})` }}
+        />
+      )}
+      <style jsx>{`
+        @supports (-webkit-touch-callout: none) {
+          div[style*="position: fixed"] { position: absolute !important; } /* iOS fallback */
+        }
+      `}</style>
+    </div>
   );
 }
 
@@ -170,12 +201,7 @@ const Header = () => {
 /* ---------------- Hero Section ---------------- */
 const HeroSection = () => (
   <section className="relative h-[80vh] flex items-center justify-center text-white text-center overflow-hidden">
-    {/* Fixed bg layer */}
-    <div
-      className="fixed-bg"
-      style={{ backgroundImage: `url('${HERO_IMG}')`, filter: "brightness(0.7)" }}
-      aria-hidden="true"
-    />
+    <FixedImageBackground src={HERO_IMG} dark={0.3} />
     <div className="relative z-10 p-4 max-w-4xl mx-auto">
       <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 drop-shadow-lg">
         Essential Legal Resources for Self-Represented Litigants
@@ -190,12 +216,7 @@ const HeroSection = () => (
 /* ---------------- Pricing Section ---------------- */
 const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
   <section id="pricing" className="relative py-20 md:py-24 text-center text-gray-800 overflow-hidden">
-    {/* Fixed bg layer */}
-    <div
-      className="fixed-bg"
-      style={{ backgroundImage: `url('${PRICING_IMG}')`, filter: "brightness(0.6)" }}
-      aria-hidden="true"
-    />
+    <FixedImageBackground src={PRICING_IMG} dark={0.4} />
     <div className="relative z-10 container mx-auto px-6">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">Resources &amp; Toolkits</h2>
       <p className="text-lg text-white mb-16 max-w-3xl mx-auto drop-shadow-md">
@@ -364,7 +385,7 @@ function SingleItemModal({ open, onClose, onSelect }) {
   );
 }
 
-/* ---------------- Main Page ---------------- */
+/* ---------------- Page ---------------- */
 export default function ResourcesPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [singleOpen, setSingleOpen] = useState(false);
@@ -376,35 +397,12 @@ export default function ResourcesPage() {
     window.location.href = j.url;
   };
 
-  const onBuyToolkit = async () => {
-    setIsLoading(true);
-    try { await postTo("toolkit"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
-  const onBuyFounders = async () => {
-    setIsLoading(true);
-    try { await postTo("founders"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
+  const onBuyToolkit = async () => { setIsLoading(true); try { await postTo("toolkit"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); } };
+  const onBuyFounders = async () => { setIsLoading(true); try { await postTo("founders"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); } };
   const onPickSingle = () => setSingleOpen(true);
-  const onBuySingle = async (sku) => {
-    setSingleOpen(false);
-    setIsLoading(true);
-    try {
-      const slug = SKU_TO_SLUG[sku];
-      if (!slug) throw new Error("Unknown item.");
-      await postTo(slug);
-    } catch (e) {
-      alert(e.message || "Unable to start checkout.");
-      setIsLoading(false);
-    }
-  };
-  const onContribMonthly = async () => {
-    setIsLoading(true);
-    try { await postTo("support-monthly"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
-  const onContribNYOP = async () => {
-    setIsLoading(true);
-    try { await postTo("support-nyop"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); }
-  };
+  const onBuySingle = async (sku) => { setSingleOpen(false); setIsLoading(true); try { const slug = SKU_TO_SLUG[sku]; if (!slug) throw new Error("Unknown item."); await postTo(slug); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); } };
+  const onContribMonthly = async () => { setIsLoading(true); try { await postTo("support-monthly"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); } };
+  const onContribNYOP = async () => { setIsLoading(true); try { await postTo("support-nyop"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); } };
 
   return (
     <>
@@ -413,20 +411,6 @@ export default function ResourcesPage() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="noindex,follow" />
-        <style jsx global>{`
-          /* Generic fixed background utility behind content */
-          .fixed-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover; background-position: center;
-            background-attachment: fixed;
-            z-index: -2;
-          }
-          /* iOS/Safari fallback */
-          @supports (-webkit-touch-callout: none) {
-            .fixed-bg { position: absolute; background-attachment: scroll; }
-          }
-        `}</style>
       </Head>
 
       <div className="bg-gray-50">
