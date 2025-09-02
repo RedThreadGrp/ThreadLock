@@ -38,7 +38,7 @@ const PRICING_IMG = "/woman-window.jpg";
 /* ---------------- State Rules data ---------------- */
 const STATE_RULES = [
   { name: "Alabama", url: "https://eforms.alacourt.gov/media/d5464e8e-a228-4107-94d3-882245b7a1f5/rules-of-civil-procedure/" },
-  { name: "Alaska", url: "https://courts.alaska.gov/rules/rules.htm" },
+  { name: "Alaska", url: "https://courts.alaska.gov/courtdir/index.htm" },
   { name: "Arizona", url: "https://www.azcourts.gov/rules" },
   { name: "Arkansas", url: "https://courts.arkansas.gov/rules-and-administrative-orders/rules-of-civil-procedure" },
   { name: "California", url: "https://www.courts.ca.gov/rules.htm" },
