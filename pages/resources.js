@@ -3,11 +3,11 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
-/* ---------------- Public image paths (exact filenames) ---------------- */
+/* Exact filenames in /public */
 const HERO_IMG = "/sandra-seitamaa-JvPDBMvgNls-unsplash.jpg";
 const PRICING_IMG = "/giorgio-trovato-IgAFof1bhTA-unsplash.jpg";
 
-/* ---------------- Icons ---------------- */
+/* Icons */
 const MenuIcon = (props) => (
   <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
     <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
@@ -36,7 +36,7 @@ const ChevronDownIcon = (props) => (
   </svg>
 );
 
-/* ---------------- State Rules ---------------- */
+/* State rules */
 const STATE_RULES = [
   { name: "Alabama", url: "https://eforms.alacourt.gov/media/d5464e8e-a228-4107-94d3-882245b7a1f5/rules-of-civil-procedure/" },
   { name: "Alaska", url: "https://courts.alaska.gov/rules/rules.htm" },
@@ -90,7 +90,7 @@ const STATE_RULES = [
   { name: "Wyoming", url: "https://www.courts.state.wy.us/court-rules/" },
 ];
 
-/* ---------------- Single items + slugs ---------------- */
+/* Single items */
 const SINGLE_ITEMS = [
   { sku: "avoiding_common_mistakes", name: "Avoiding Common Mistakes in Court" },
   { sku: "basic_motion_template", name: "Basic Motion Template" },
@@ -116,7 +116,7 @@ const SKU_TO_SLUG = {
   trial_hearing_quick_ref: "trial-quick-ref",
 };
 
-/* ---------------- Brand ---------------- */
+/* Brand */
 function BrandWordmark({ className = "" }) {
   return (
     <span className={`inline-flex items-baseline font-bold text-2xl tracking-tight select-none ${className}`}>
@@ -127,28 +127,25 @@ function BrandWordmark({ className = "" }) {
   );
 }
 
-/* ---------------- Utilities ---------------- */
+/* Background tied to its section; no negative z-index, no fixed globals */
 function SectionBackground({ src, dark = 0 }) {
-  // Background tied to its section (no global stacking fights)
   return (
-    <div className="absolute inset-0 -z-10">
-      <div className="relative h-full w-full">
-        <Image
-          src={src}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center" }}
-          onError={() => console.error("Background image failed to load:", src)}
-        />
-      </div>
+    <div className="pointer-events-none absolute inset-0 z-0">
+      <Image
+        src={src}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+        onError={() => console.error("Background failed:", src)}
+      />
       {dark > 0 && <div className="absolute inset-0" style={{ background: `rgba(0,0,0,${dark})` }} />}
     </div>
   );
 }
 
-/* ---------------- Header ---------------- */
+/* Header */
 const Header = () => {
   const [open, setOpen] = useState(false);
   return (
@@ -188,9 +185,10 @@ const Header = () => {
   );
 };
 
-/* ---------------- Hero ---------------- */
+/* Hero */
 const HeroSection = () => (
-  <section className="relative h-[80vh] flex items-center justify-center text-white text-center overflow-hidden">
+  <section className="relative isolate h-[80vh] flex items-center justify-center text-white text-center overflow-hidden">
+    {/* isolate => new stacking context so this background never sits under the page */}
     <SectionBackground src={HERO_IMG} dark={0.35} />
     <div className="relative z-10 p-4 max-w-4xl mx-auto">
       <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 drop-shadow-lg">
@@ -203,9 +201,9 @@ const HeroSection = () => (
   </section>
 );
 
-/* ---------------- Pricing ---------------- */
+/* Pricing */
 const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
-  <section id="pricing" className="relative py-20 md:py-24 text-center text-gray-800 overflow-hidden">
+  <section id="pricing" className="relative isolate py-20 md:py-24 text-center text-gray-800 overflow-hidden">
     <SectionBackground src={PRICING_IMG} dark={0.45} />
     <div className="relative z-10 container mx-auto px-6">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">Resources &amp; Toolkits</h2>
@@ -214,7 +212,7 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
       </p>
 
       <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
-        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg ring-2 ring-orange-500 p-8 flex flex-col relative overflow-hidden">
+        <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg ring-2 ring-orange-500 p-8 flex flex-col relative">
           <div className="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">Most Popular</div>
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Toolkit</h3>
           <p className="text-slate-500 mb-6">All printables &amp; Founding Member perks.</p>
@@ -281,7 +279,7 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
   </section>
 );
 
-/* ---------------- Community Links ---------------- */
+/* Community links */
 const CommunityLinksSection = () => {
   const [rulesOpen, setRulesOpen] = useState(false);
   return (
@@ -339,14 +337,14 @@ const CommunityLinksSection = () => {
   );
 };
 
-/* ---------------- Footer ---------------- */
+/* Footer */
 const Footer = () => (
   <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
     <p>© {new Date().getFullYear()} ThreadLock.ai. All rights reserved.</p>
   </footer>
 );
 
-/* ---------------- Modal ---------------- */
+/* Modal */
 function SingleItemModal({ open, onClose, onSelect }) {
   if (!open) return null;
   return (
@@ -369,7 +367,7 @@ function SingleItemModal({ open, onClose, onSelect }) {
   );
 }
 
-/* ---------------- Page ---------------- */
+/* Page */
 export default function ResourcesPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [singleOpen, setSingleOpen] = useState(false);
