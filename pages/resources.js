@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
-/* ---------------- Paths (must match /public exactly) ---------------- */
+/* ---------------- Public image paths (exact filenames) ---------------- */
 const HERO_IMG = "/sandra-seitamaa-JvPDBMvgNls-unsplash.jpg";
 const PRICING_IMG = "/giorgio-trovato-IgAFof1bhTA-unsplash.jpg";
 
@@ -127,12 +127,12 @@ function BrandWordmark({ className = "" }) {
   );
 }
 
-/* ---------------- Fixed Background (robust) ---------------- */
-function FixedImageBackground({ src, dark = 0.0, className = "" }) {
-  // Fixed across desktop; absolute fallback for iOS Safari
+/* ---------------- Utilities ---------------- */
+function SectionBackground({ src, dark = 0 }) {
+  // Background tied to its section (no global stacking fights)
   return (
-    <div className={`pointer-events-none ${className}`} style={{ position: "fixed", inset: 0, zIndex: -2 }}>
-      <div className="absolute inset-0">
+    <div className="absolute inset-0 -z-10">
+      <div className="relative h-full w-full">
         <Image
           src={src}
           alt=""
@@ -140,20 +140,10 @@ function FixedImageBackground({ src, dark = 0.0, className = "" }) {
           priority
           sizes="100vw"
           style={{ objectFit: "cover", objectPosition: "center" }}
-          onError={(e) => console.error("Background image failed to load:", src)}
+          onError={() => console.error("Background image failed to load:", src)}
         />
       </div>
-      {dark > 0 && (
-        <div
-          className="absolute inset-0"
-          style={{ background: `rgba(0,0,0,${dark})` }}
-        />
-      )}
-      <style jsx>{`
-        @supports (-webkit-touch-callout: none) {
-          div[style*="position: fixed"] { position: absolute !important; } /* iOS fallback */
-        }
-      `}</style>
+      {dark > 0 && <div className="absolute inset-0" style={{ background: `rgba(0,0,0,${dark})` }} />}
     </div>
   );
 }
@@ -198,10 +188,10 @@ const Header = () => {
   );
 };
 
-/* ---------------- Hero Section ---------------- */
+/* ---------------- Hero ---------------- */
 const HeroSection = () => (
   <section className="relative h-[80vh] flex items-center justify-center text-white text-center overflow-hidden">
-    <FixedImageBackground src={HERO_IMG} dark={0.3} />
+    <SectionBackground src={HERO_IMG} dark={0.35} />
     <div className="relative z-10 p-4 max-w-4xl mx-auto">
       <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 drop-shadow-lg">
         Essential Legal Resources for Self-Represented Litigants
@@ -213,10 +203,10 @@ const HeroSection = () => (
   </section>
 );
 
-/* ---------------- Pricing Section ---------------- */
+/* ---------------- Pricing ---------------- */
 const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
   <section id="pricing" className="relative py-20 md:py-24 text-center text-gray-800 overflow-hidden">
-    <FixedImageBackground src={PRICING_IMG} dark={0.4} />
+    <SectionBackground src={PRICING_IMG} dark={0.45} />
     <div className="relative z-10 container mx-auto px-6">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">Resources &amp; Toolkits</h2>
       <p className="text-lg text-white mb-16 max-w-3xl mx-auto drop-shadow-md">
@@ -224,7 +214,6 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
       </p>
 
       <div className="grid lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-stretch">
-        {/* Card 1 */}
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg ring-2 ring-orange-500 p-8 flex flex-col relative overflow-hidden">
           <div className="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">Most Popular</div>
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Complete Toolkit</h3>
@@ -242,7 +231,6 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
           <p className="text-xs text-slate-400 mt-3">One-time payment.</p>
         </div>
 
-        {/* Card 2 */}
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Founders Access</h3>
           <p className="text-slate-500 mb-6">Get in early and lock in your perks.</p>
@@ -258,7 +246,6 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
           <p className="text-xs text-slate-400 mt-3">Upgrade to Toolkit anytime.</p>
         </div>
 
-        {/* Card 3 */}
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Single Download</h3>
           <p className="text-slate-500 mb-6">Just the one tool you need right now.</p>
@@ -274,7 +261,6 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
           <p className="text-[11px] text-slate-400 mt-3">We’ll credit your $15 toward the Toolkit.</p>
         </div>
 
-        {/* Card 4 */}
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md border border-slate-200 p-8 flex flex-col">
           <h3 className="text-2xl font-bold text-slate-800 mb-2">Support the Build</h3>
           <p className="text-slate-500 mb-6">Help us bring this to life.</p>
@@ -305,7 +291,6 @@ const CommunityLinksSection = () => {
         <p className="text-lg text-slate-600 mb-12 text-center">Connect with us and find helpful legal resources for your jurisdiction.</p>
 
         <div className="grid md:grid-cols-2 gap-8 items-start">
-          {/* LinkedIn Card */}
           <div className="bg-white p-8 rounded-2xl border border-slate-200">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center rounded-lg">
@@ -319,7 +304,6 @@ const CommunityLinksSection = () => {
             </a>
           </div>
 
-          {/* State Rules Card */}
           <div className="bg-white p-8 rounded-2xl border border-slate-200">
             <div className="flex items-center gap-4 mb-4">
               <div className="w-12 h-12 bg-green-100 text-green-600 flex items-center justify-center rounded-lg">
