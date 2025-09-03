@@ -12,11 +12,11 @@ function BrandWordmark({ className = "" }) {
   );
 }
 
-/* ----------------- Local image paths (exact filenames in /public) ----------------- */
-const HERO_IMG   = "/ahmed-tB_QL1ToYBQ-unsplash.jpg";        // Lady on train
-const STEP2_IMG  = "/child-over-wall.jpg";                    // Child looking over wall
-const QUOTE_IMG  = "/man-child.jpg";                          // Man & child touching hands
-const RESULT_IMG = "/ales-krivec-OC63XpUAxuY-unsplash.jpg";   // Sunshine forest
+// Exact filenames in /public
+const HERO_IMG   = "/ahmed-tB_QL1ToYBQ-unsplash.jpg";
+const STEP2_IMG  = "/ariel-salgado-vp1Adq27sro-unsplash.jpg";      // ← was /child-over-wall.jpg
+const QUOTE_IMG  = "/getty-images-6iVK12iAn_s-unsplash.jpg";       // ← was /man-child.jpg
+const RESULT_IMG = "/ales-krivec-OC63XpUAxuY-unsplash.jpg";
 
 /* Background helper tied to its section (no fixed backgrounds) */
 function SectionBackground({ src, dark = 0 }) {
