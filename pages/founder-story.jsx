@@ -12,25 +12,17 @@ function BrandWordmark({ className = "" }) {
   );
 }
 
-// Exact filenames in /public
+/* ----------------- Local image paths (exact filenames in /public) ----------------- */
 const HERO_IMG   = "/ahmed-tB_QL1ToYBQ-unsplash.jpg";
-const STEP2_IMG  = "/ariel-salgado-vp1Adq27sro-unsplash.jpg";      // ← was /child-over-wall.jpg
-const QUOTE_IMG  = "/getty-images-6iVK12iAn_s-unsplash.jpg";       // ← was /man-child.jpg
+const STEP2_IMG  = "/ariel-salgado-vp1Adq27sro-unsplash.jpg";      // child over wall
+const QUOTE_IMG  = "/getty-images-6iVK12iAn_s-unsplash.jpg";       // man + child hands
 const RESULT_IMG = "/ales-krivec-OC63XpUAxuY-unsplash.jpg";
 
-/* Background helper tied to its section (no fixed backgrounds) */
+/* Scoped background helper (used for hero & result only) */
 function SectionBackground({ src, dark = 0 }) {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 z-0">
-      <Image
-        src={src}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-        onError={() => console.error("Background failed to load:", src)}
-      />
+      <Image src={src} alt="" fill priority sizes="100vw" className="object-cover" />
       {dark > 0 && <div className="absolute inset-0" style={{ background: `rgba(0,0,0,${dark})` }} />}
     </div>
   );
@@ -60,7 +52,6 @@ export default function FounderStoryPage() {
         .waitlist-button{background:#ea580c;color:#fff;font-weight:700;padding:.5rem 1.25rem;border-radius:.5rem;
           box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}
         .waitlist-button:hover{background:#c2410c;color:#fff;transform:translateY(-2px);border-bottom:none}
-
         .hamburger{display:none;background:transparent;border:0;padding:.25rem;cursor:pointer}
         .hamburger svg{width:28px;height:28px;color:#0f172a}
         .mobile-panel{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.98);
@@ -70,15 +61,13 @@ export default function FounderStoryPage() {
         .mobile-panel .waitlist-button{display:inline-block;margin-top:.5rem}
         @media (max-width:991px){.nav-links{display:none}.hamburger{display:inline-flex}.mobile-panel.open{display:block}}
 
-        /* -------- HERO -------- */
+        /* HERO */
         .hero-wrap{
           min-height:80vh; position:relative; isolation:isolate;
           padding:6rem 1.25rem; color:#fff; display:flex; align-items:center; justify-content:center;
         }
         .hero-wrap h2{font-size:clamp(2rem,4.8vw,2.8rem);line-height:1.2;font-weight:800;margin-bottom:1rem;text-shadow:0 2px 4px rgba(0,0,0,.5);}
         .hero-wrap p{font-size:1.125rem;max-width:48rem;margin:0 auto;color:#f2f4f7;text-shadow:0 1px 3px rgba(0,0,0,.5);}
-
-        /* Content that scrolls over sections with backgrounds */
         .scroll-content{position:relative;z-index:1;background-color:#f9fafb}
 
         /* Story steps */
@@ -93,28 +82,30 @@ export default function FounderStoryPage() {
         .align-right .step-number{margin-left:auto;display:inline-block}
         .align-left  .step-number{margin-right:auto;display:inline-block}
 
-        /* Step 2 sticky band (background handled by SectionBackground) */
-        .step2-wrap{height:150vh;position:relative}
-        .step2-sticky{
-          position:sticky; top:0; height:100vh; color:#fff; text-align:center;
-          isolation:isolate; display:flex; align-items:center; justify-content:center; padding:1rem;
-        }
+        /* STEP 2 — compact, image only behind the card */
+        .step2-section{padding:0 1.5rem; margin: 0 auto 3.5rem auto;}
         .step2-card{
-          position:relative; z-index:2; width:min(42rem,100%);
-          background:rgba(20,20,30,.55); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.18);
-          color:#fff; border-radius:1rem; padding:2rem 2.5rem; text-align:left; box-shadow:0 15px 30px rgba(0,0,0,.35)
+          position:relative; width:min(42rem,100%); margin:0 auto;
+          border-radius:1rem; overflow:hidden; color:#fff;
+          border:1px solid rgba(255,255,255,.18);
+          box-shadow:0 12px 24px rgba(0,0,0,.25);
+          text-align:left; padding:2rem 2.5rem;
+          background-size:cover; background-position:center;
         }
-        .step2-card h3{color:#fff;margin:.4rem 0 .5rem}
-        .step2-card p{color:#f3f4f6}
+        .step2-card .content { position:relative; z-index:1 }
+        .step2-card::after{content:""; position:absolute; inset:0; background:rgba(0,0,0,.48);}
 
-        /* Quote band */
-        .quote-band{position:relative; isolation:isolate; padding:3rem 1.5rem 4rem; color:#fff; overflow:hidden;}
-        .quote-container, .epiphany-conclusion{max-width:42rem;margin:0 auto}
-        .story-blockquote{background:transparent;margin-bottom:2rem;color:#fff}
-        .story-blockquote .inner{padding:0;border-left:4px solid #ea580c;padding-left:1.5rem;font-size:1.2rem;font-style:italic;}
-        .epiphany-conclusion p{color:#e5e7eb;font-size:1.1rem;line-height:1.8;}
+        /* QUOTE BAND — image left, cream plate for text */
+        .quote-band{padding:2.5rem 1.5rem 3rem;}
+        .quote-grid{display:grid; gap:1.5rem; align-items:center; max-width:64rem; margin:0 auto;}
+        @media (min-width:768px){ .quote-grid{grid-template-columns:minmax(230px,36%) 1fr;} }
+        .quote-figure{position:relative; width:100%; aspect-ratio:4/3; border-radius:1rem; overflow:hidden;}
+        .quote-content{background:#f5f3f0; /* grayish-cream */
+          border:1px solid #e7e5e4; border-radius:1rem; padding:1.75rem;}
+        .quote-text{ text-align:center; font-size:1.2rem; font-style:italic; color:#1f2937; }
+        .epiphany-right{ text-align:right; color:#374151; margin-top:1rem; line-height:1.8; }
 
-        /* Result (sunshine forest) */
+        /* RESULT */
         .features-section{position:relative; isolation:isolate; padding:4rem 1.5rem; color:#fff;}
         .features-section h3{text-align:center;font-size:2rem;font-weight:700;margin-bottom:2rem;position:relative;z-index:2}
         .features-grid{display:grid;gap:2rem;position:relative;z-index:2}
@@ -132,7 +123,7 @@ export default function FounderStoryPage() {
         .footer{background:#0f172a;color:#d1d5db;padding:1.5rem;text-align:center;font-size:.9rem}
 
         @media (max-width:640px){
-          p,.story-step p,.hero-wrap p,.feature-card p{ text-align:justify; text-justify:inter-word; hyphens:auto; overflow-wrap:anywhere; }
+          p,.story-step p,.feature-card p{ text-align:justify; text-justify:inter-word; hyphens:auto; overflow-wrap:anywhere; }
           .hero-wrap h2{font-size:1.9rem}
           .story-step{padding:1.75rem}
         }
@@ -171,10 +162,10 @@ export default function FounderStoryPage() {
         </header>
 
         <main>
-          {/* HERO (scoped background) */}
+          {/* HERO */}
           <section className="hero-wrap">
             <SectionBackground src={HERO_IMG} dark={0.5} />
-            {/* optional header fade for readability */}
+            {/* header fade */}
             <div aria-hidden className="absolute inset-x-0 top-0 h-28 z-10" style={{background: "linear-gradient(to bottom, rgba(0,0,0,.40), rgba(0,0,0,0))"}} />
             <div className="max-w-4xl mx-auto text-center" style={{position:"relative", zIndex:2}}>
               <h2>The System Puts Everyone in a Box.<br/>Even the Judge.</h2>
@@ -182,9 +173,8 @@ export default function FounderStoryPage() {
             </div>
           </section>
 
-          {/* Content that scrolls over the hero */}
+          {/* STEP 1 */}
           <div className="scroll-content">
-            {/* STEP 1 */}
             <section className="story-flow">
               <h2 style={{textAlign:'center',fontSize:'2.5rem',fontWeight:800,color:'#1e293b',marginBottom:'3rem'}}>
                 A Journey in Three Steps
@@ -198,11 +188,15 @@ export default function FounderStoryPage() {
               </div>
             </section>
 
-            {/* STEP 2 (sticky with scoped background) */}
-            <section className="step2-wrap" aria-label="The Reality Section">
-              <div className="step2-sticky">
-                <SectionBackground src={STEP2_IMG} dark={0.5} />
-                <div className="step2-card">
+            {/* STEP 2 — compact card with its own background image */}
+            <section className="step2-section" aria-label="The Reality Section">
+              <div
+                className="step2-card"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url('${STEP2_IMG}')`
+                }}
+              >
+                <div className="content">
                   <span className="step-number">STEP 2</span>
                   <h3>The Reality</h3>
                   <p>
@@ -223,22 +217,23 @@ export default function FounderStoryPage() {
               </div>
             </section>
 
-            {/* Quote band (scoped background) */}
+            {/* QUOTE BAND — image left, centered quote, right-aligned paragraph on cream plate */}
             <section className="quote-band">
-              <SectionBackground src={QUOTE_IMG} dark={0.65} />
-              <div className="story-blockquote" style={{position:"relative", zIndex:2}}>
-                <div className="inner">
-                  “Instead of anger, I felt a moment of clarity. I saw a good person constrained by a bad system.”
+              <div className="quote-grid">
+                <figure className="quote-figure">
+                  <Image src={QUOTE_IMG} alt="" fill sizes="(min-width: 768px) 36vw, 100vw" className="object-cover" />
+                </figure>
+                <div className="quote-content">
+                  <div className="quote-text">“Instead of anger, I felt a moment of clarity. I saw a good person constrained by a bad system.”</div>
+                  <p className="epiphany-right">
+                    The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative.
+                    The problem wasn't the judge. It was a crisis of information.
+                  </p>
                 </div>
-              </div>
-              <div className="epiphany-conclusion" style={{position:"relative", zIndex:2}}>
-                <p>
-                  The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative. The problem wasn't the judge. It was a crisis of information.
-                </p>
               </div>
             </section>
 
-            {/* RESULT (scoped background) */}
+            {/* RESULT */}
             <section className="features-section">
               <SectionBackground src={RESULT_IMG} dark={0.4} />
               <div className="max-w-5xl mx-auto">
