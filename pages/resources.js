@@ -185,14 +185,22 @@ const Header = () => {
   );
 };
 
-/* Hero */
+/* ---------------- Hero ---------------- */
 const HeroSection = () => (
   <section className="relative isolate h-[80vh] flex items-center justify-center text-white text-center overflow-hidden">
-    {/* isolate => new stacking context so this background never sits under the page */}
     <SectionBackground src={HERO_IMG} dark={0.35} />
-    <div className="relative z-10 p-4 max-w-4xl mx-auto">
-      <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 drop-shadow-lg">
-        Essential Legal Resources for Self-Represented Litigants
+
+    {/* overlay that sits behind the sticky site header */}
+    <div
+      aria-hidden
+      className="absolute inset-x-0 top-0 h-28 z-10 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"
+    />
+
+    <div className="relative z-20 p-4 max-w-4xl mx-auto">
+      <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
+        <span className="inline-block rounded-xl bg-black/40 backdrop-blur-sm px-4 py-2">
+          Essential Legal Resources
+        </span>
       </h1>
       <p className="text-lg md:text-xl font-medium drop-shadow-md">
         Navigate the complexities of family court with confidence. Access state-specific rules and practical tools designed to empower you.
