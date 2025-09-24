@@ -136,8 +136,9 @@ const Header = () => {
                     <a href="/resources" className="hover:text-orange-600 transition-colors">Resources</a>
                     <a href="/sarahs-story" className="hover:text-orange-600 transition-colors">Her Story</a>
                     <a href="/founder-story" className="hover:text-orange-600 transition-colors">Our Story</a>
-                    <a href="/signup" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
-                        Join Waitlist
+                    <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" className="hover:text-orange-600 transition-colors">Login</a>
+                    <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
+                        Open App
                     </a>
                 </nav>
 
@@ -156,8 +157,9 @@ const Header = () => {
                     <a href="/resources" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Resources</a>
                     <a href="/sarahs-story" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Her Story</a>
                     <a href="/founder-story" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Founder Story</a>
-                    <a href="/signup" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
-                        Join the Waitlist
+                    <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Login</a>
+                    <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
+                        Open App
                     </a>
                 </div>
             </div>
@@ -183,12 +185,22 @@ const HeroSection = () => (
       <p className="mt-8 text-lg md:text-xl max-w-3xl mx-auto text-slate-200 leading-relaxed">
         ThreadLock was born from a simple realization: the system doesn't need more complexity, it needs clarity. We built the tools to provide it, putting power back into your hands.
       </p>
-      <div className="mt-12 flex justify-center">
+      <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="#features"
-          className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
+          href="https://app.threadlock.ai/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
         >
-          See How
+          Get Started
+        </a>
+        <a
+          href="https://app.threadlock.ai/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-slate-700 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-slate-800 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
+        >
+          Login
         </a>
       </div>
     </div>

@@ -157,11 +157,10 @@ const Header = () => {
           <Link href="/resources"><a className="text-orange-600 border-b-2 border-orange-600 pb-1">Resources</a></Link>
           <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
           <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Our Story</a></Link>
-          <Link href="/signup">
-            <a className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
-              Join Waitlist
-            </a>
-          </Link>
+          <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" className="hover:text-orange-600 transition-colors">Login</a>
+          <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
+            Open App
+          </a>
         </nav>
         <button className="md:hidden text-slate-800 p-2" aria-label="Toggle menu" onClick={() => setOpen(!open)}>
           {open ? <XIcon /> : <MenuIcon />}

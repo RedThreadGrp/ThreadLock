@@ -136,7 +136,8 @@ export default function FounderStoryPage() {
           <nav className="nav-links" aria-label="Primary">
             <a href="https://www.threadlock.ai">Home</a>
             <a href="/founder-story" className="active">Our Story</a>
-            <a href="/signup" className="waitlist-button">Join Waitlist</a>
+            <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer">Login</a>
+            <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="waitlist-button">Open App</a>
           </nav>
           <button
             className="hamburger"
@@ -157,7 +158,8 @@ export default function FounderStoryPage() {
           <div className={`mobile-panel ${menuOpen ? 'open' : ''}`}>
             <a href="https://www.threadlock.ai" onClick={() => setMenuOpen(false)}>Home</a>
             <a href="/founder-story" className="active" onClick={() => setMenuOpen(false)}>Our Story</a>
-            <a href="/signup" className="waitlist-button" onClick={() => setMenuOpen(false)}>Join Waitlist</a>
+            <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>Login</a>
+            <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="waitlist-button" onClick={() => setMenuOpen(false)}>Open App</a>
           </div>
         </header>
 
@@ -263,7 +265,7 @@ export default function FounderStoryPage() {
                 <p className="subtitle">
                   Let ThreadLock change that. We’re putting power back into the hands of everyday people, one case at a time.
                 </p>
-                <a href="https://www.threadlock.ai" className="cta-link">Get Started with ThreadLock</a>
+                <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="cta-link">Get Started with ThreadLock</a>
               </div>
             </section>
           </div>
