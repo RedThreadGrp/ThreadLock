@@ -142,7 +142,8 @@ export default function SarahsStoryPage() {
             <a href="https://www.threadlock.ai">Home</a>
             <a href="/sarahs-story" className="active">Her Story</a>
             <a href="/founder-story">Our Story</a>
-            <a href="/signup" className="waitlist-button">Join Waitlist</a>
+            <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer">Login</a>
+            <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="waitlist-button">Open App</a>
           </nav>
           <button className="hamburger-button" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
             {isMenuOpen ? <XIcon color="var(--gray-900)" /> : <MenuIcon color="var(--gray-900)" />}
@@ -154,7 +155,8 @@ export default function SarahsStoryPage() {
             <a href="https://www.threadlock.ai" onClick={() => setIsMenuOpen(false)}>Home</a>
             <a href="/sarahs-story" onClick={() => setIsMenuOpen(false)}>Her Story</a>
             <a href="/founder-story" onClick={() => setIsMenuOpen(false)}>Our Story</a>
-            <a href="/signup" className="waitlist-button" onClick={() => setIsMenuOpen(false)}>Join Waitlist</a>
+            <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>Login</a>
+            <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="waitlist-button" onClick={() => setIsMenuOpen(false)}>Open App</a>
           </nav>
         )}
 
@@ -234,7 +236,7 @@ export default function SarahsStoryPage() {
             <div className="max-w-4xl mx-auto">
               <h3>You’re not powerless. You’re just not prepared.<br/>Yet.</h3>
               <p>We’re putting power back in the hands of everyday people, one case at a time.</p>
-              <a href="/signup" className="cta-link">Find Your Voice. Find Your Freedom.</a>
+              <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="cta-link">Find Your Voice. Find Your Freedom.</a>
             </div>
           </section>
         </main>

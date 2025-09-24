@@ -60,11 +60,10 @@ const Header = () => {
                 </Link>
                 <nav className="hidden md:flex items-center space-x-6 text-slate-700 font-semibold">
                     <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
-                     <Link href="/signup">
-                        <a className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
-                            Join Waitlist
-                        </a>
-                    </Link>
+                     <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" className="hover:text-orange-600 transition-colors">Login</a>
+                     <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
+                        Open App
+                     </a>
                 </nav>
                 <button
                     className="md:hidden text-slate-800 p-2"
