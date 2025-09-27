@@ -143,7 +143,7 @@ export default function SarahsStoryPage() {
             <a href="/sarahs-story" className="active">Her Story</a>
             <a href="/founder-story">Our Story</a>
             <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer">Login</a>
-            <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="waitlist-button">Open App</a>
+            <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" className="waitlist-button">Create Account</a>
           </nav>
           <button className="hamburger-button" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
             {isMenuOpen ? <XIcon color="var(--gray-900)" /> : <MenuIcon color="var(--gray-900)" />}
@@ -156,7 +156,7 @@ export default function SarahsStoryPage() {
             <a href="/sarahs-story" onClick={() => setIsMenuOpen(false)}>Her Story</a>
             <a href="/founder-story" onClick={() => setIsMenuOpen(false)}>Our Story</a>
             <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>Login</a>
-            <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="waitlist-button" onClick={() => setIsMenuOpen(false)}>Open App</a>
+            <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" className="waitlist-button" onClick={() => setIsMenuOpen(false)}>Create Account</a>
           </nav>
         )}
 
