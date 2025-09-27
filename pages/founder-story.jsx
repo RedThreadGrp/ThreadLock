@@ -137,7 +137,7 @@ export default function FounderStoryPage() {
             <a href="https://www.threadlock.ai">Home</a>
             <a href="/founder-story" className="active">Our Story</a>
             <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer">Login</a>
-            <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="waitlist-button">Open App</a>
+            <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" className="waitlist-button">Create Account</a>
           </nav>
           <button
             className="hamburger"
@@ -159,7 +159,7 @@ export default function FounderStoryPage() {
             <a href="https://www.threadlock.ai" onClick={() => setMenuOpen(false)}>Home</a>
             <a href="/founder-story" className="active" onClick={() => setMenuOpen(false)}>Our Story</a>
             <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>Login</a>
-            <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="waitlist-button" onClick={() => setMenuOpen(false)}>Open App</a>
+            <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" className="waitlist-button" onClick={() => setMenuOpen(false)}>Create Account</a>
           </div>
         </header>
 
