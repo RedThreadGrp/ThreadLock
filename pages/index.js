@@ -138,7 +138,7 @@ const Header = () => {
                     <a href="/founder-story" className="hover:text-orange-600 transition-colors">Our Story</a>
                     <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" className="hover:text-orange-600 transition-colors">Login</a>
                     <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
-                        Get the App
+                        Create Account
                     </a>
                 </nav>
 
@@ -159,7 +159,7 @@ const Header = () => {
                     <a href="/founder-story" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Founder Story</a>
                     <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Login</a>
                     <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
-                        Get the App
+                        Create Account
                     </a>
                 </div>
             </div>
@@ -192,7 +192,7 @@ const HeroSection = () => (
           rel="noopener noreferrer"
           className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
         >
-          Get Started
+          Create Account
         </a>
         <a
           href="https://app.threadlock.ai/login"
