@@ -16,7 +16,7 @@ export default function Hero() {
             giving you confidence in mediation and court.
           </p>
           <div className="flex justify-center">
-            <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer">
+            <a href="https://app.threadlock.ai/signup/" target="_blank" rel="noopener noreferrer">
               <button className="inline-flex text-white bg-orange-500 border-0 py-2 px-6 focus:outline-none hover:bg-orange-600 rounded text-lg">
                 Get Started
               </button>
