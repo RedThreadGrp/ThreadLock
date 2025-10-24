@@ -230,7 +230,7 @@ const SubscriptionBanner = () => (
         <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
           <h3 className="text-xl font-bold text-slate-800">Monthly</h3>
           <p className="text-4xl font-extrabold text-slate-900 my-4">
-            $10<span className="text-base font-medium text-slate-500">/mo</span>
+            $15<span className="text-base font-medium text-slate-500">/mo</span>
           </p>
           <p className="text-slate-600 mb-6">Full access for a month, cancel anytime.</p>
         </div>
