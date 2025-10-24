@@ -1,7 +1,7 @@
 export default function handler(req, res) {
   res.status(200).json({
-    SUPABASE_URL: !!process.env.SUPABASE_URL,
-    SUPABASE_SERVICE_ROLE_KEY: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+    FIREBASE_API_KEY: !!process.env.NEXT_PUBLIC_FIREBASE_API_KEY || !!process.env.VITE_FIREBASE_API_KEY,
+    FIREBASE_PROJECT_ID: !!process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || !!process.env.VITE_FIREBASE_PROJECT_ID,
     STRIPE_SECRET_KEY: !!process.env.STRIPE_SECRET_KEY,
   });
 }
