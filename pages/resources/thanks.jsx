@@ -7,6 +7,17 @@ export default function Thanks() {
   const router = useRouter();
   const { email = "", dl = "/resources/threadlock-toolkit.pdf" } = router.query;
 
+  // Validate download URL to prevent XSS and open redirects
+  const safeDownloadUrl = useMemo(() => {
+    const urlString = String(dl);
+    // Only allow internal paths starting with /resources/
+    if (urlString.startsWith('/resources/') && !urlString.includes('://')) {
+      return urlString;
+    }
+    // Default to safe path if validation fails
+    return '/resources/threadlock-toolkit.pdf';
+  }, [dl]);
+
   useEffect(() => {
     // Optionally fire analytics "lead_download_view"
   }, []);
@@ -23,12 +34,10 @@ export default function Thanks() {
       <div className="min-h-screen bg-gray-50">
         <header className="sticky top-0 left-0 w-full z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
           <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-            <Link href="/">
-              <a className="inline-flex items-baseline font-bold text-2xl tracking-tight select-none">
-                <span className="text-slate-800">Thread</span>
-                <span className="text-orange-600">Lock</span>
-                <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
-              </a>
+            <Link href="/" className="inline-flex items-baseline font-bold text-2xl tracking-tight select-none">
+              <span className="text-slate-800">Thread</span>
+              <span className="text-orange-600">Lock</span>
+              <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
             </Link>
           </div>
         </header>
@@ -37,7 +46,7 @@ export default function Thanks() {
           <h1 className="text-3xl font-bold mb-3">
             Thanks! Your toolkit is on its way to your inbox.
           </h1>
-          <a href={dl} className="inline-block underline mb-6 text-orange-600 hover:text-orange-700">
+          <a href={safeDownloadUrl} className="inline-block underline mb-6 text-orange-600 hover:text-orange-700">
             Or click here to download now
           </a>
 

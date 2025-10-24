@@ -20,12 +20,10 @@ export default function TrialStart() {
       <div className="min-h-screen bg-gray-50">
         <header className="sticky top-0 left-0 w-full z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
           <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-            <Link href="/">
-              <a className="inline-flex items-baseline font-bold text-2xl tracking-tight select-none">
-                <span className="text-slate-800">Thread</span>
-                <span className="text-orange-600">Lock</span>
-                <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
-              </a>
+            <Link href="/" className="inline-flex items-baseline font-bold text-2xl tracking-tight select-none">
+              <span className="text-slate-800">Thread</span>
+              <span className="text-orange-600">Lock</span>
+              <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
             </Link>
           </div>
         </header>
