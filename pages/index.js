@@ -223,23 +223,23 @@ const SubscriptionBanner = () => (
           Simple, Powerful Plans
         </h2>
         <p className="mt-2 text-lg text-slate-800/90 max-w-2xl">
-          Choose the right level of support for your journey. App coming soon.
+          Choose the right level of support for your journey.
         </p>
       </div>
       <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
-          <h3 className="text-xl font-bold text-slate-800">Individual</h3>
+          <h3 className="text-xl font-bold text-slate-800">Monthly</h3>
           <p className="text-4xl font-extrabold text-slate-900 my-4">
             $10<span className="text-base font-medium text-slate-500">/mo</span>
           </p>
-          <p className="text-slate-600 mb-6">For parents and individuals managing their own case.</p>
+          <p className="text-slate-600 mb-6">Full access for a month, cancel anytime.</p>
         </div>
         <div className="bg-white/85 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
-          <h3 className="text-xl font-bold text-slate-800">Lifetime</h3>
+          <h3 className="text-xl font-bold text-slate-800">Annual</h3>
           <p className="text-4xl font-extrabold text-slate-900 my-4">
-            $100<span className="text-base font-medium text-slate-500">/one-time</span>
+            $150<span className="text-base font-medium text-slate-500">/one-time</span>
           </p>
-          <p className="text-slate-600 mb-6">Full access for a single case, from start to finish.</p>
+          <p className="text-slate-600 mb-6">Our annual plans include two months free.</p>
         </div>
         <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
           <h3 className="text-xl font-bold text-slate-800">For Teams</h3>
@@ -389,9 +389,9 @@ const SignupSection = () => {
     return (
         <section id="signup" className="py-20 md:py-28 bg-gray-50">
             <div className="container mx-auto px-6 text-center max-w-3xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Be the First to Know</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Take Control, Educate Yourself</h2>
                 <p className="text-lg text-slate-600 mb-8">
-                    Join our waitlist for early access to the ThreadLock app, plus exclusive updates and resources.
+                    Join our mailing list to access free resources and other ThreadLock updates.
                 </p>
                 <form onSubmit={handleSubmit} className="max-w-md mx-auto">
                     <div className="flex flex-col sm:flex-row gap-4">
