@@ -1,5 +1,5 @@
 // Firebase connectivity test endpoint
-import { subscribeLeadFn } from "../../lib/firebase";
+import { subscribeLeadFn } from "../../src/lib/firebase";
 
 export default async function handler(req, res) {
   try {
