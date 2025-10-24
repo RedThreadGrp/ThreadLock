@@ -1,24 +1,14 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import Image from "next/image";
 import LeadMagnetForm from "../components/LeadMagnetForm";
+import SiteHeader from "../src/components/SiteHeader";
+import SiteFooter from "../src/components/SiteFooter";
+import HeroBanner from "../src/components/HeroBanner";
 
 /* Exact filenames in /public */
 const HERO_IMG = "/sandra-seitamaa-JvPDBMvgNls-unsplash.jpg";
 const PRICING_IMG = "/giorgio-trovato-IgAFof1bhTA-unsplash.jpg";
-
-/* Icons */
-const MenuIcon = (props) => (
-  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-    <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
-  </svg>
-);
-const XIcon = (props) => (
-  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-  </svg>
-);
 const LinkedinIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -117,100 +107,20 @@ const SKU_TO_SLUG = {
   trial_hearing_quick_ref: "trial-quick-ref",
 };
 
-/* Brand */
-function BrandWordmark({ className = "" }) {
-  return (
-    <span className={`inline-flex items-baseline font-bold text-2xl tracking-tight select-none ${className}`}>
-      <span className="text-slate-800">Thread</span>
-      <span className="text-orange-600">Lock</span>
-      <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
-    </span>
-  );
-}
-
-/* Background tied to its section; no negative z-index, no fixed globals */
-function SectionBackground({ src, dark = 0 }) {
-  return (
-    <div className="pointer-events-none absolute inset-0 z-0">
-      <Image
-        src={src}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-        onError={() => console.error("Background failed:", src)}
-      />
-      {dark > 0 && <div className="absolute inset-0" style={{ background: `rgba(0,0,0,${dark})` }} />}
-    </div>
-  );
-}
-
-/* Header */
-const Header = () => {
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="sticky top-0 left-0 w-full z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
-      <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-        <Link href="/"><BrandWordmark /></Link>
-        <nav className="hidden md:flex items-center space-x-6 text-slate-700 font-semibold">
-          <Link href="/#features" className="hover:text-orange-600 transition-colors">Features</Link>
-          <Link href="/resources" className="text-orange-600 border-b-2 border-orange-600 pb-1">Resources</Link>
-          <Link href="/sarahs-story" className="hover:text-orange-600 transition-colors">Her Story</Link>
-          <Link href="/founder-story" className="hover:text-orange-600 transition-colors">Our Story</Link>
-          <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" className="hover:text-orange-600 transition-colors">Login</a>
-          <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
-            Create Account
-          </a>
-        </nav>
-        <button className="md:hidden text-slate-800 p-2" aria-label="Toggle menu" onClick={() => setOpen(!open)}>
-          {open ? <XIcon /> : <MenuIcon />}
-        </button>
-      </div>
-
-      <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
-        <div className="px-4 pb-4 pt-2 text-slate-800 space-y-2 bg-white border-t border-slate-200">
-          <Link href="/#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Features</Link>
-          <Link href="/resources" onClick={() => setOpen(false)} className="block py-2 text-orange-600">Resources</Link>
-          <Link href="/sarahs-story" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Her Story</Link>
-          <Link href="/founder-story" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Founder Story</Link>
-          <Link href="/signup" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
-            Join the Waitlist
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-};
-
-/* ---------------- Hero ---------------- */
-const HeroSection = () => (
-  <section className="relative isolate h-[80vh] flex items-center justify-center text-white text-center overflow-hidden">
-    <SectionBackground src={HERO_IMG} dark={0.35} />
-
-    {/* overlay that sits behind the sticky site header */}
-    <div
-      aria-hidden
-      className="absolute inset-x-0 top-0 h-28 z-10 bg-gradient-to-b from-black/40 to-transparent pointer-events-none"
-    />
-
-    <div className="relative z-20 p-4 max-w-4xl mx-auto">
-      <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">
-        <span className="inline-block rounded-xl bg-black/40 backdrop-blur-sm px-4 py-2">
-          Essential Legal Resources
-        </span>
-      </h1>
-      <p className="text-lg md:text-xl font-medium drop-shadow-md">
-        Navigate the complexities of family court with confidence. Access state-specific rules and practical tools designed to empower you.
-      </p>
-    </div>
-  </section>
-);
+/* Icons for Community Links section */
 
 /* Pricing */
 const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMonthly, onContribNYOP }) => (
-  <section id="pricing" className="relative isolate py-20 md:py-24 text-center text-gray-800 overflow-hidden">
-    <SectionBackground src={PRICING_IMG} dark={0.45} />
+  <section 
+    id="pricing" 
+    className="relative py-20 md:py-28 text-center text-gray-800 overflow-hidden"
+    style={{
+      backgroundImage: `url('${PRICING_IMG}')`,
+      backgroundSize: "cover",
+      backgroundPosition: "center"
+    }}
+  >
+    <div className="absolute inset-0 bg-black/45" />
     <div className="relative z-10 container mx-auto px-6">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">Resources &amp; Toolkits</h2>
       <p className="text-lg text-white mb-16 max-w-3xl mx-auto drop-shadow-md">
@@ -343,13 +253,6 @@ const CommunityLinksSection = () => {
   );
 };
 
-/* Footer */
-const Footer = () => (
-  <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
-    <p>© {new Date().getFullYear()} ThreadLock.ai. All rights reserved.</p>
-  </footer>
-);
-
 /* Modal */
 function SingleItemModal({ open, onClose, onSelect }) {
   if (!open) return null;
@@ -405,15 +308,17 @@ export default function ResourcesPage() {
       </Head>
 
       <div className="bg-gray-50">
-        <Header />
+        <SiteHeader />
         <main className="flex flex-col w-full overflow-x-hidden">
-          <HeroSection />
+          <HeroBanner
+            image={HERO_IMG}
+            heading="Essential Legal Resources"
+            subheading="Navigate the complexities of family court with confidence. Access state-specific rules and practical tools designed to empower you."
+          />
           
           {/* Lead Magnet Form Section */}
-          <section className="py-12 relative z-10">
-            <div className="container mx-auto px-4">
-              <LeadMagnetForm />
-            </div>
+          <section className="container mx-auto px-6 py-20 md:py-28">
+            <LeadMagnetForm />
           </section>
 
           <CommunityLinksSection />
@@ -429,7 +334,7 @@ export default function ResourcesPage() {
             />
           )}
         </main>
-        <Footer />
+        <SiteFooter />
         <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
       </div>
     </>
