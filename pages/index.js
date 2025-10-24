@@ -409,7 +409,7 @@ const SignupSection = () => {
                             className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all disabled:bg-slate-400"
                             disabled={status === 'submitting'}
                         >
-                            {status === 'submitting' ? 'Joining...' : 'Join Waitlist'}
+                            {status === 'submitting' ? 'Joining...' : 'Join'}
                         </button>
                     </div>
                 </form>
