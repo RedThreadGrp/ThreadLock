@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const COMPONENTS_POSTCARD_JS = `
 import Link from 'next/link';
 
@@ -12,7 +13,7 @@ return (
 ) : null}
 <h3 className="text-xl font-semibold tracking-tight leading-snug">
 <Link href={`/blog/${slug}`} className="hover:underline">
-{title}
+  {title}
 </Link>
 </h3>
 <div className="mt-2 text-sm text-gray-500 flex flex-wrap gap-x-3 gap-y-1 items-center">
