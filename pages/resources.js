@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import LeadMagnetForm from "../components/LeadMagnetForm";
 
 /* Exact filenames in /public */
 const HERO_IMG = "/sandra-seitamaa-JvPDBMvgNls-unsplash.jpg";
@@ -393,6 +394,9 @@ export default function ResourcesPage() {
   const onContribMonthly = async () => { setIsLoading(true); try { await postTo("support-monthly"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); } };
   const onContribNYOP = async () => { setIsLoading(true); try { await postTo("support-nyop"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); } };
 
+  // Feature flag to show old pricing cards (set to false to hide)
+  const SHOW_OLD_CARDS = false;
+
   return (
     <>
       <Head>
@@ -406,14 +410,26 @@ export default function ResourcesPage() {
         <Header />
         <main className="flex flex-col w-full overflow-x-hidden">
           <HeroSection />
+          
+          {/* Lead Magnet Form Section */}
+          <section className="py-12 relative z-10">
+            <div className="container mx-auto px-4">
+              <LeadMagnetForm />
+            </div>
+          </section>
+
           <CommunityLinksSection />
-          <PricingSection
-            onBuyToolkit={onBuyToolkit}
-            onBuyFounders={onBuyFounders}
-            onPickSingle={onPickSingle}
-            onContribMonthly={onContribMonthly}
-            onContribNYOP={onContribNYOP}
-          />
+          
+          {/* Old pricing cards - kept for easy rollback */}
+          {SHOW_OLD_CARDS && (
+            <PricingSection
+              onBuyToolkit={onBuyToolkit}
+              onBuyFounders={onBuyFounders}
+              onPickSingle={onPickSingle}
+              onContribMonthly={onContribMonthly}
+              onContribNYOP={onContribNYOP}
+            />
+          )}
         </main>
         <Footer />
         <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
