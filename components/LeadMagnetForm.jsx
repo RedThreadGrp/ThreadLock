@@ -46,7 +46,7 @@ export default function LeadMagnetForm() {
     }
     
     if (!firebaseReady) {
-      setErr("Service temporarily unavailable. Please try again later.");
+      setErr("Unable to process submission. Please contact support.");
       return;
     }
     
