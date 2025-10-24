@@ -244,7 +244,7 @@ const SubscriptionBanner = () => (
         <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
           <h3 className="text-xl font-bold text-slate-800">For Teams</h3>
           <p className="text-4xl font-extrabold text-slate-900 my-4">Custom</p>
-          <p className="text-slate-600 mb-6">Offer ThreadLock as a powerful benefit for your employees.</p>
+          <p className="text-slate-600 mb-6">Offer ThreadLock as a unique benefit for your employees.</p>
           <p className="text-slate-800 font-semibold">Contact us at info@threadlock.ai</p>
         </div>
       </div>
