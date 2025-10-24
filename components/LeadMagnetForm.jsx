@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { subscribeLeadFn } from "../lib/firebase";
+import { subscribeLeadFn } from "../src/lib/firebase";
 import { useRouter } from "next/router";
 
 export default function LeadMagnetForm() {
