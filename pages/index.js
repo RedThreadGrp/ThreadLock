@@ -237,7 +237,7 @@ const SubscriptionBanner = () => (
         <div className="bg-white/85 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
           <h3 className="text-xl font-bold text-slate-800">Annual</h3>
           <p className="text-4xl font-extrabold text-slate-900 my-4">
-            $150<span className="text-base font-medium text-slate-500">/one-time</span>
+            $150<span className="text-base font-medium text-slate-500">/yr</span>
           </p>
           <p className="text-slate-600 mb-6">Our annual plans include two months free.</p>
         </div>
@@ -389,7 +389,7 @@ const SignupSection = () => {
     return (
         <section id="signup" className="py-20 md:py-28 bg-gray-50">
             <div className="container mx-auto px-6 text-center max-w-3xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Take Control, Educate Yourself</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Stay Informed</h2>
                 <p className="text-lg text-slate-600 mb-8">
                     Join our mailing list to access free resources and other ThreadLock updates.
                 </p>
