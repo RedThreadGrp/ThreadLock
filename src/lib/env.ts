@@ -24,12 +24,12 @@ function req(name: string, ...keys: string[]): string {
   const v = pick(...keys);
   if (!v) {
     const msg = `[env] Missing ${name}. Checked keys: ${keys.join(", ")}.`;
-    // During build/SSR, just warn - the actual value will come from runtime env
     // Only throw in browser context if truly needed (but better to degrade gracefully)
     if (typeof window !== "undefined") {
       console.error(msg);
       throw new Error(msg);
     } else {
+      // During build/SSR, just warn - the actual value will come from runtime env
       console.warn(msg);
       return "";
     }
