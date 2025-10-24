@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import LeadMagnetForm from "../components/LeadMagnetForm";
 
 /* Exact filenames in /public */
 const HERO_IMG = "/sandra-seitamaa-JvPDBMvgNls-unsplash.jpg";
@@ -151,12 +152,12 @@ const Header = () => {
   return (
     <header className="sticky top-0 left-0 w-full z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
       <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-        <Link href="/"><a><BrandWordmark /></a></Link>
+        <Link href="/"><BrandWordmark /></Link>
         <nav className="hidden md:flex items-center space-x-6 text-slate-700 font-semibold">
-          <Link href="/#features"><a className="hover:text-orange-600 transition-colors">Features</a></Link>
-          <Link href="/resources"><a className="text-orange-600 border-b-2 border-orange-600 pb-1">Resources</a></Link>
-          <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
-          <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Our Story</a></Link>
+          <Link href="/#features" className="hover:text-orange-600 transition-colors">Features</Link>
+          <Link href="/resources" className="text-orange-600 border-b-2 border-orange-600 pb-1">Resources</Link>
+          <Link href="/sarahs-story" className="hover:text-orange-600 transition-colors">Her Story</Link>
+          <Link href="/founder-story" className="hover:text-orange-600 transition-colors">Our Story</Link>
           <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" className="hover:text-orange-600 transition-colors">Login</a>
           <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
             Create Account
@@ -169,14 +170,12 @@ const Header = () => {
 
       <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
         <div className="px-4 pb-4 pt-2 text-slate-800 space-y-2 bg-white border-t border-slate-200">
-          <Link href="/#features"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Features</a></Link>
-          <Link href="/resources"><a onClick={() => setOpen(false)} className="block py-2 text-orange-600">Resources</a></Link>
-          <Link href="/sarahs-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Her Story</a></Link>
-          <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Founder Story</a></Link>
-          <Link href="/signup">
-            <a onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
-              Join the Waitlist
-            </a>
+          <Link href="/#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Features</Link>
+          <Link href="/resources" onClick={() => setOpen(false)} className="block py-2 text-orange-600">Resources</Link>
+          <Link href="/sarahs-story" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Her Story</Link>
+          <Link href="/founder-story" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Founder Story</Link>
+          <Link href="/signup" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
+            Join the Waitlist
           </Link>
         </div>
       </div>
@@ -393,6 +392,9 @@ export default function ResourcesPage() {
   const onContribMonthly = async () => { setIsLoading(true); try { await postTo("support-monthly"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); } };
   const onContribNYOP = async () => { setIsLoading(true); try { await postTo("support-nyop"); } catch (e) { alert(e.message || "Unable to start checkout."); setIsLoading(false); } };
 
+  // Feature flag to show old pricing cards (set to false to hide)
+  const SHOW_OLD_CARDS = false;
+
   return (
     <>
       <Head>
@@ -406,14 +408,26 @@ export default function ResourcesPage() {
         <Header />
         <main className="flex flex-col w-full overflow-x-hidden">
           <HeroSection />
+          
+          {/* Lead Magnet Form Section */}
+          <section className="py-12 relative z-10">
+            <div className="container mx-auto px-4">
+              <LeadMagnetForm />
+            </div>
+          </section>
+
           <CommunityLinksSection />
-          <PricingSection
-            onBuyToolkit={onBuyToolkit}
-            onBuyFounders={onBuyFounders}
-            onPickSingle={onPickSingle}
-            onContribMonthly={onContribMonthly}
-            onContribNYOP={onContribNYOP}
-          />
+          
+          {/* Old pricing cards - kept for easy rollback */}
+          {SHOW_OLD_CARDS && (
+            <PricingSection
+              onBuyToolkit={onBuyToolkit}
+              onBuyFounders={onBuyFounders}
+              onPickSingle={onPickSingle}
+              onContribMonthly={onContribMonthly}
+              onContribNYOP={onContribNYOP}
+            />
+          )}
         </main>
         <Footer />
         <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
