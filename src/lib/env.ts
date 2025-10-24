@@ -1,27 +1,35 @@
-// Works in both Next.js (client: NEXT_PUBLIC_*) and Vite (client: VITE_*).
-type Src = Record<string, string | undefined>;
-const vite = (typeof import.meta !== "undefined" && (import.meta as any).env) as Src | undefined;
-const next = (typeof process !== "undefined" && process.env) as Src | undefined;
+// Next.js env helper - uses process.env with NEXT_PUBLIC_* prefix for client-side access
 
-function pick(...keys: string[]) {
+export function readNextPublic(key: string): string | undefined {
+  const v = process.env[key];
+  return v && v.trim() ? v : undefined;
+}
+
+// STRICT variant for server/build checks only - throws if missing
+export function readStrictAtBuild(key: string): string {
+  const v = process.env[key];
+  if (!v || !v.trim()) throw new Error(`[env] Missing ${key} at build`);
+  return v;
+}
+
+function pick(...keys: string[]): string | undefined {
   for (const k of keys) {
-    const v = (next && next[k]) || (vite && vite[k]);
-    if (v) return v;
+    const v = process.env[k];
+    if (v && v.trim()) return v;
   }
   return undefined;
 }
 
-function req(name: string, ...keys: string[]) {
+function req(name: string, ...keys: string[]): string {
   const v = pick(...keys);
   if (!v) {
     const msg = `[env] Missing ${name}. Checked keys: ${keys.join(", ")}.`;
-    // Surface clearly in prod to avoid silent "undefined" hosts.
-    // Only throw in browser context, not during SSR/build
+    // During build/SSR, just warn - the actual value will come from runtime env
+    // Only throw in browser context if truly needed (but better to degrade gracefully)
     if (typeof window !== "undefined") {
       console.error(msg);
       throw new Error(msg);
     } else {
-      // During build/SSR, just warn - the actual value will come from runtime env
       console.warn(msg);
       return "";
     }

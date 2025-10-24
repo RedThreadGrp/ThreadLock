@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { subscribeLeadFn } from "../src/lib/firebase";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function LeadMagnetForm() {
@@ -7,7 +6,36 @@ export default function LeadMagnetForm() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState(null);
+  const [firebaseReady, setFirebaseReady] = useState(false);
   const router = useRouter();
+
+  // Lazy-load Firebase on the client only
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      try {
+        const cfg = {
+          apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+          authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+          projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+          appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+          storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+        };
+        // Only init if keys are truly present at runtime
+        if (Object.values(cfg).some(v => !v)) {
+          console.warn("Firebase env incomplete on client - form will degrade gracefully");
+          return;
+        }
+        // Dynamically import Firebase to avoid SSR/build issues
+        await import("../src/lib/firebase");
+        if (mounted) setFirebaseReady(true);
+      } catch (e) {
+        console.error("Firebase init failed:", e);
+        // Silently degrade - form can still be shown
+      }
+    })();
+    return () => { mounted = false; };
+  }, []);
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -16,8 +44,16 @@ export default function LeadMagnetForm() {
       setErr("Enter a valid email.");
       return;
     }
+    
+    if (!firebaseReady) {
+      setErr("Service temporarily unavailable. Please try again later.");
+      return;
+    }
+    
     setLoading(true);
     try {
+      // Dynamic import to get the function
+      const { subscribeLeadFn } = await import("../src/lib/firebase");
       const res = await subscribeLeadFn({ email, name, origin: "threadlock.ai/resources" });
       if (res?.data?.ok) {
         // Pass download URL via query to the thank-you page
