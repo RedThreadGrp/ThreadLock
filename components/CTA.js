@@ -1,11 +1,6 @@
 import { useState } from 'react'
-import { createClient } from '@supabase/supabase-js'
 import { loadStripe } from '@stripe/stripe-js'
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-)
+import { subscribeLeadFn } from '../lib/firebase'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
@@ -21,12 +16,8 @@ export default function CTA() {
     setError(null)
 
     try {
-      // 1. Insert lead into Supabase
-      const { error: supabaseError } = await supabase
-        .from('early_access_signups')
-        .insert([{ full_name: fullName, email }])
-
-      if (supabaseError) throw supabaseError
+      // 1. Call Firebase Cloud Function to save lead
+      await subscribeLeadFn({ fullName, email })
 
       // 2. Redirect to Stripe Checkout
       const stripe = await stripePromise
