@@ -1,4 +1,3 @@
-/* eslint-disable */
 export const COMPONENTS_POSTCARD_JS = `
 import Link from 'next/link';
 
