@@ -63,7 +63,7 @@ export default function LeadMagnetForm() {
       }
       
       // Always proceed to download page
-      const dl = "/resources/threadlock-toolkit.pdf";
+      const dl = "/resources/ThreadlockToolkit.zip";
       router.push(`/resources/thanks?email=${encodeURIComponent(email)}&dl=${encodeURIComponent(dl)}`);
     } catch (e) {
       console.error(e);
