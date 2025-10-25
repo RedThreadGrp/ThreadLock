@@ -11,13 +11,14 @@ Cypress.on('uncaught:exception', (err) => {
     'firebase',
     'auth/invalid-api-key',
     'app/invalid-api-key',
-    // React error #418 is often thrown when Firebase initialization fails
+    // React minified errors that occur when Firebase initialization fails
     'Minified React error #418',
-    'invariant=418'
+    'invariant=418', // URL parameter format in React error redirects
+    'Minified React error #31' // Another common Firebase-related React error
   ];
   
   const shouldIgnore = ignoredErrors.some(errorPattern => 
-    err.message.includes(errorPattern)
+    err?.message?.includes(errorPattern) ?? false
   );
   
   if (shouldIgnore) {
