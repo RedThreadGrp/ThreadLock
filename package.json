@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "e2e": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npx cypress run --browser chrome --headless",
-    "e2e:spec": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npx cypress run --spec \"cypress/e2e/layout_consistency.cy.ts\" --browser chrome --headless"
+    "e2e": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npm exec cypress run --browser chrome --headless",
+    "e2e:spec": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npm exec cypress run --spec \"cypress/e2e/layout_consistency.cy.ts\" --browser chrome --headless"
   },
   "dependencies": {
     "@stripe/stripe-js": "2.3.0",
