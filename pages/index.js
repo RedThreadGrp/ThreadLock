@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Head from "next/head";
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -433,6 +434,10 @@ const Footer = () => (
 export default function Home() {
     return (
         <div className="bg-white">
+            <Head>
+                <title>ThreadLock™ | AI-Powered Evidence Management</title>
+                <meta name="description" content="AI-powered family law software designed for custody disputes, child support, and family court evidence management. Make the system make sense." />
+            </Head>
             <Header/>
             <main className="flex flex-col w-full overflow-x-hidden">
                 <HeroSection />

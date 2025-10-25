@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import SiteHeader from "../src/components/SiteHeader";
 import SiteFooter from "../src/components/SiteFooter";
 import HeroBanner from "../src/components/HeroBanner";
@@ -6,6 +7,10 @@ import HeroBanner from "../src/components/HeroBanner";
 export default function SarahsStoryPage() {
   return (
     <div className="bg-white">
+      <Head>
+        <title>Her Story | ThreadLock™</title>
+        <meta name="description" content="Sarah's journey from chaos to clarity. How ThreadLock helped a single mom navigate the family court system." />
+      </Head>
       <SiteHeader />
       <HeroBanner
         image="/earving-segura-_WYjs343uLY-unsplash.jpg"

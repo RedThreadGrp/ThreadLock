@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Image from "next/image";
 import SiteHeader from "../src/components/SiteHeader";
 import SiteFooter from "../src/components/SiteFooter";
@@ -12,6 +13,10 @@ const RESULT_IMG = "/ales-krivec-OC63XpUAxuY-unsplash.jpg";
 export default function FounderStoryPage() {
   return (
     <div className="bg-white">
+      <Head>
+        <title>Our Story | ThreadLock™</title>
+        <meta name="description" content="The system puts everyone in a box. Even the judge. Our founder's journey through the family court system." />
+      </Head>
       <SiteHeader />
       <HeroBanner
         image="/ahmed-tB_QL1ToYBQ-unsplash.jpg"

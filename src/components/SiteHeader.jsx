@@ -48,7 +48,6 @@ const SiteHeader = () => {
                 <a href="/"><BrandWordmark darkText={isScrolled} /></a>
 
                 <nav className={`hidden md:flex items-center space-x-6 font-semibold ${navTextClasses}`}>
-                    <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
                     <a href="/resources" className="hover:text-orange-600 transition-colors">Resources</a>
                     <a href="/sarahs-story" className="hover:text-orange-600 transition-colors">Her Story</a>
                     <a href="/founder-story" className="hover:text-orange-600 transition-colors">Our Story</a>
@@ -69,7 +68,6 @@ const SiteHeader = () => {
 
             <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
                 <div className="px-4 pb-4 pt-2 space-y-2 bg-white border-t border-slate-200">
-                    <a href="#features" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Features</a>
                     <a href="/resources" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Resources</a>
                     <a href="/sarahs-story" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Her Story</a>
                     <a href="/founder-story" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Founder Story</a>

@@ -4,7 +4,7 @@ export default function Cancel() {
   return (
     <main className="text-center py-24">
       <Head>
-        <title>Payment Canceled – ThreadLock</title>
+        <title>Payment Canceled | ThreadLock™</title>
       </Head>
       <h1 className="text-3xl font-bold text-red-600">❌ Payment Canceled</h1>
       <p className="mt-4">

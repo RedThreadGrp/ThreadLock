@@ -134,7 +134,6 @@ const Header = () => {
                 </Link>
 
                 <nav className="hidden md:flex items-center space-x-6 text-slate-700 font-semibold">
-                    <Link href="/#features"><a className="hover:text-orange-600 transition-colors">Features</a></Link>
                     <Link href="/resources"><a className="text-orange-600 border-b-2 border-orange-600 pb-1">Resources</a></Link>
                     <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
                     <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Founder Story</a></Link>
@@ -156,7 +155,6 @@ const Header = () => {
 
             <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
                 <div className="px-4 pb-4 pt-2 text-slate-800 space-y-2 bg-white border-t border-slate-200">
-                    <Link href="/#features"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Features</a></Link>
                     <Link href="/resources"><a onClick={() => setOpen(false)} className="block py-2 text-orange-600">Resources</a></Link>
                     <Link href="/sarahs-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Her Story</a></Link>
                     <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Founder Story</a></Link>
