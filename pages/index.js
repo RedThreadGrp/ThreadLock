@@ -368,23 +368,59 @@ const SignupSection = () => {
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState('idle');
     const [message, setMessage] = useState('');
+    const [firebaseReady, setFirebaseReady] = useState(false);
+
+    useEffect(() => {
+        let mounted = true;
+        (async () => {
+            try {
+                const cfg = {
+                    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+                    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+                    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+                    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+                    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+                };
+                if (Object.values(cfg).some(v => !v)) {
+                    console.warn("Firebase configuration incomplete");
+                    return;
+                }
+                await import("../src/lib/firebase");
+                if (mounted) setFirebaseReady(true);
+            } catch (e) {
+                console.error('Firebase initialization error:', e);
+            }
+        })();
+        return () => { mounted = false; };
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('submitting');
         setMessage('');
 
-        // Simulate API call for demonstration purposes
-        setTimeout(() => {
-            if (email && email.includes('@')) {
-                setStatus('success');
-                setMessage('Thanks for joining! We\'ll be in touch soon.');
-                setEmail('');
+        if (!email || !email.includes('@')) {
+            setStatus('error');
+            setMessage('Please enter a valid email address.');
+            return;
+        }
+
+        try {
+            if (firebaseReady) {
+                const { subscribeLeadFn } = await import("../src/lib/firebase");
+                await subscribeLeadFn({ email, name: '', origin: "threadlock.ai/landing" });
             } else {
-                setStatus('error');
-                setMessage('Please enter a valid email address.');
+                console.warn("Firebase not ready, email not saved:", email);
             }
-        }, 1000);
+            
+            setStatus('success');
+            setMessage('Thanks for joining! We\'ll be in touch soon.');
+            setEmail('');
+        } catch (error) {
+            console.error("Failed to save email:", error);
+            setStatus('error');
+            setMessage('Something went wrong. Please try again.');
+        }
     };
 
     return (

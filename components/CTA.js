@@ -43,16 +43,19 @@ export default function CTA() {
     setError(null)
 
     try {
-      // Check if Firebase is ready
-      if (!firebaseReady) {
-        throw new Error('Service temporarily unavailable. Please try again.');
+      // Attempt Firebase submission if available
+      if (firebaseReady) {
+        try {
+          const { subscribeLeadFn } = await import('../src/lib/firebase');
+          await subscribeLeadFn({ fullName, email, origin: "threadlock.ai/cta" })
+          console.log("Lead saved successfully to Firebase");
+        } catch (fbError) {
+          console.error("Firebase submission failed:", fbError);
+          // Continue to checkout even if Firebase fails
+        }
+      } else {
+        console.warn("Firebase not ready, email not saved:", email);
       }
-
-      // Dynamically import Firebase function
-      const { subscribeLeadFn } = await import('../src/lib/firebase');
-      
-      // 1. Call Firebase Cloud Function to save lead
-      await subscribeLeadFn({ fullName, email })
 
       // 2. Redirect to Stripe Checkout
       const stripe = await stripePromise

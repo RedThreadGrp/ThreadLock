@@ -46,15 +46,20 @@ export default function LeadMagnetForm() {
     setLoading(true);
     
     try {
-      // Try Firebase if available, otherwise proceed directly to download
+      // Always attempt Firebase submission to save lead
+      let firebaseSuccess = false;
       if (firebaseReady) {
         try {
           const { subscribeLeadFn } = await import("../src/lib/firebase");
           await subscribeLeadFn({ email, name, origin: "threadlock.ai/resources" });
+          firebaseSuccess = true;
+          console.log("Lead saved successfully to Firebase");
         } catch (fbError) {
-          console.warn("Firebase submission failed, proceeding to download:", fbError);
+          console.error("Firebase submission failed:", fbError);
           // Continue to download even if Firebase fails
         }
+      } else {
+        console.warn("Firebase not ready, email not saved:", email);
       }
       
       // Always proceed to download page
@@ -63,7 +68,6 @@ export default function LeadMagnetForm() {
     } catch (e) {
       console.error(e);
       setErr("Something went wrong. Please try again.");
-    } finally {
       setLoading(false);
     }
   }
@@ -71,7 +75,7 @@ export default function LeadMagnetForm() {
   return (
     <form onSubmit={onSubmit} className="max-w-xl mx-auto bg-white/70 rounded-2xl p-6 shadow">
       <h2 className="text-2xl font-bold mb-2">Download Our Free Toolkit</h2>
-      <p className="text-sm text-gray-600 mb-6">No credit card. We&apos;ll email the download link.</p>
+      <p className="text-sm text-gray-600 mb-6">No credit card. Instant download after you submit.</p>
       <div className="grid gap-3">
         <input
           className="border rounded-lg px-3 py-2"
