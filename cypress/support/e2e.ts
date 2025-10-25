@@ -18,7 +18,7 @@ Cypress.on('uncaught:exception', (err) => {
   ];
   
   const shouldIgnore = ignoredErrors.some(errorPattern => 
-    err?.message?.includes(errorPattern) ?? false
+    err?.message?.includes(errorPattern)
   );
   
   if (shouldIgnore) {
