@@ -61,8 +61,8 @@ const Header = () => {
                 <nav className="hidden md:flex items-center space-x-6 text-slate-700 font-semibold">
                     <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
                      <a href="https://app.threadlock.ai/login" target="_blank" rel="noopener noreferrer" className="hover:text-orange-600 transition-colors">Login</a>
-                     <a href="https://app.threadlock.ai/" target="_blank" rel="noopener noreferrer" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
-                        Open App
+                     <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
+                        Create Account
                      </a>
                 </nav>
                 <button
@@ -76,11 +76,9 @@ const Header = () => {
             <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
                 <div className="px-4 pb-4 pt-2 text-slate-800 space-y-2 bg-white border-t border-slate-200">
                     <a href="#features" onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Features</a>
-                    <Link href="/signup">
-                        <a onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
-                            Join the Waitlist
-                        </a>
-                    </Link>
+                    <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
+                        Create Account
+                    </a>
                 </div>
             </div>
         </header>

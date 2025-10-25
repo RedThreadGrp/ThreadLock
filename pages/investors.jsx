@@ -137,11 +137,9 @@ const Header = () => {
                     <Link href="/resources"><a className="text-orange-600 border-b-2 border-orange-600 pb-1">Resources</a></Link>
                     <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
                     <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Founder Story</a></Link>
-                    <Link href="/signup">
-                        <a className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
-                            Join Waitlist
-                        </a>
-                    </Link>
+                    <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
+                        Create Account
+                    </a>
                 </nav>
 
                 <button
@@ -158,11 +156,9 @@ const Header = () => {
                     <Link href="/resources"><a onClick={() => setOpen(false)} className="block py-2 text-orange-600">Resources</a></Link>
                     <Link href="/sarahs-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Her Story</a></Link>
                     <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Founder Story</a></Link>
-                    <Link href="/signup">
-                        <a onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
-                            Join the Waitlist
-                        </a>
-                    </Link>
+                    <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
+                        Create Account
+                    </a>
                 </div>
             </div>
         </header>

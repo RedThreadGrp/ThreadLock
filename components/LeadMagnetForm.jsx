@@ -43,24 +43,23 @@ export default function LeadMagnetForm() {
       return;
     }
     
-    if (!firebaseReady) {
-      setErr("Service temporarily unavailable. Please try again later.");
-      return;
-    }
-    
     setLoading(true);
+    
     try {
-      // Dynamically import Firebase function
-      const { subscribeLeadFn } = await import("../src/lib/firebase");
-      
-      const res = await subscribeLeadFn({ email, name, origin: "threadlock.ai/resources" });
-      if (res?.data?.ok) {
-        // Pass download URL via query to the thank-you page
-        const dl = "/resources/threadlock-toolkit.pdf";
-        router.push(`/resources/thanks?email=${encodeURIComponent(email)}&dl=${encodeURIComponent(dl)}`);
-      } else {
-        throw new Error("Unexpected response");
+      // Try Firebase if available, otherwise proceed directly to download
+      if (firebaseReady) {
+        try {
+          const { subscribeLeadFn } = await import("../src/lib/firebase");
+          await subscribeLeadFn({ email, name, origin: "threadlock.ai/resources" });
+        } catch (fbError) {
+          console.warn("Firebase submission failed, proceeding to download:", fbError);
+          // Continue to download even if Firebase fails
+        }
       }
+      
+      // Always proceed to download page
+      const dl = "/resources/threadlock-toolkit.pdf";
+      router.push(`/resources/thanks?email=${encodeURIComponent(email)}&dl=${encodeURIComponent(dl)}`);
     } catch (e) {
       console.error(e);
       setErr("Something went wrong. Please try again.");
