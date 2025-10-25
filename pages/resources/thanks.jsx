@@ -15,7 +15,7 @@ export default function Thanks() {
       return urlString;
     }
     // Default to safe path if validation fails
-    return '/resources/threadlock-toolkit.pdf';
+    return '/resources/ThreadlockToolkit.zip';
   }, [dl]);
 
   useEffect(() => {
