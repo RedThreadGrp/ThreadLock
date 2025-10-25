@@ -1,11 +1,11 @@
-// Works in both Next.js (client: NEXT_PUBLIC_*) and Vite (client: VITE_*).
+// Environment variable loader for Next.js
+// Supports both NEXT_PUBLIC_* and VITE_* prefixes for compatibility
 type Src = Record<string, string | undefined>;
-const vite = (typeof import.meta !== "undefined" && (import.meta as any).env) as Src | undefined;
-const next = (typeof process !== "undefined" && process.env) as Src | undefined;
 
 function pick(...keys: string[]) {
+  const env = (typeof process !== "undefined" && process.env) as Src | undefined;
   for (const k of keys) {
-    const v = (next && next[k]) || (vite && vite[k]);
+    const v = env && env[k];
     if (v) return v;
   }
   return undefined;
@@ -37,5 +37,5 @@ export const ENV = {
   FIREBASE_STORAGE_BUCKET: req("FIREBASE_STORAGE_BUCKET", "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET", "VITE_FIREBASE_STORAGE_BUCKET"),
   // Optional
   FIREBASE_MESSAGING_SENDER_ID: pick("NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID", "VITE_FIREBASE_MESSAGING_SENDER_ID"),
-  FIREBASE_APPCHECK_KEY: pick("NEXT_PUBLIC_FIREBASE_APPCHECK_KEY", "VITE_FIREBASE_APPCHECK_KEY"),
+  FIREBASE_MEASUREMENT_ID: pick("NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID"),
 };

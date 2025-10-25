@@ -1,5 +1,5 @@
 // /pages/api/checkout/[slug].js
-import { stripeClient, isStripeTest } from "@/lib/stripeEnv";
+import { stripeClient, isStripeTest } from "../../../lib/stripeEnv.js";
 
 export default async function handler(req, res) {
   // Allow GET only for ?debug=1, otherwise require POST

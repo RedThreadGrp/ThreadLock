@@ -4,3 +4,8 @@ node_modules/
 .env*.local
 .vercel/
 .next/
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+cypress/results/

@@ -1,6 +1,6 @@
 // /pages/api/webhook.js
 import { buffer } from "micro";
-import { stripeClient } from "@/lib/stripeEnv";
+import { stripeClient } from "../../lib/stripeEnv.js";
 
 export const config = { api: { bodyParser: false } };
 

@@ -1,6 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { loadStripe } from '@stripe/stripe-js'
-import { subscribeLeadFn } from '../src/lib/firebase'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
@@ -9,6 +8,34 @@ export default function CTA() {
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [firebaseReady, setFirebaseReady] = useState(false)
+  const [firebaseError, setFirebaseError] = useState(null)
+
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      try {
+        const cfg = {
+          apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+          authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+          projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+          appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+          storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+        };
+        // Only init if keys are present at runtime
+        if (Object.values(cfg).some(v => !v)) {
+          throw new Error("Firebase configuration incomplete");
+        }
+        // Lazy-load Firebase on the client
+        await import('../src/lib/firebase');
+        if (mounted) setFirebaseReady(true);
+      } catch (e) {
+        console.error('Firebase initialization error:', e);
+        if (mounted) setFirebaseError(e?.message || "Firebase unavailable");
+      }
+    })();
+    return () => { mounted = false; };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -16,6 +43,14 @@ export default function CTA() {
     setError(null)
 
     try {
+      // Check if Firebase is ready
+      if (!firebaseReady) {
+        throw new Error('Service temporarily unavailable. Please try again.');
+      }
+
+      // Dynamically import Firebase function
+      const { subscribeLeadFn } = await import('../src/lib/firebase');
+      
       // 1. Call Firebase Cloud Function to save lead
       await subscribeLeadFn({ fullName, email })
 
@@ -37,7 +72,7 @@ export default function CTA() {
 
     } catch (err) {
       console.error(err)
-      setError('Something went wrong. Please try again.')
+      setError(err.message || 'Something went wrong. Please try again.')
     } finally {
       setLoading(false)
     }

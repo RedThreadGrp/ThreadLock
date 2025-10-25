@@ -5,16 +5,16 @@ describe("Marketing Layout Consistency", () => {
 
   it("all pages share consistent header height and hero scale", () => {
     cy.viewport(1280, 900);
-    let baselineHeaderHeight = 0;
-    let baselineHeroHeight = 0;
+    let baselineHeaderHeight: number = 0;
+    let baselineHeroHeight: number = 0;
 
     // Visit landing page first
     cy.visit("/");
     cy.get(headerHeightSelector).invoke("outerHeight").then((h) => {
-      baselineHeaderHeight = h;
+      baselineHeaderHeight = h as number;
     });
     cy.get(heroSelector).invoke("outerHeight").then((h) => {
-      baselineHeroHeight = h;
+      baselineHeroHeight = h as number;
     });
 
     // Compare remaining pages
@@ -23,12 +23,12 @@ describe("Marketing Layout Consistency", () => {
       cy.get(headerHeightSelector)
         .invoke("outerHeight")
         .then((h) => {
-          expect(Math.abs(h - baselineHeaderHeight)).to.be.lessThan(4);
+          expect(Math.abs((h as number) - baselineHeaderHeight)).to.be.lessThan(4);
         });
       cy.get(heroSelector)
         .invoke("outerHeight")
         .then((h) => {
-          expect(Math.abs(h - baselineHeroHeight)).to.be.lessThan(8);
+          expect(Math.abs((h as number) - baselineHeroHeight)).to.be.lessThan(8);
         });
     });
   });

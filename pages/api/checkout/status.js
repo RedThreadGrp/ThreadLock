@@ -1,5 +1,5 @@
 // /pages/api/checkout/status.js
-import { stripeClient } from "@/lib/stripeEnv";
+import { stripeClient } from "../../../lib/stripeEnv.js";
 
 export default async function handler(req, res) {
   if (req.method !== "GET") {

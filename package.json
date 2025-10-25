@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prebuild": "node scripts/check-next-env.mjs",
+    "e2e": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npx cypress run --browser chrome --headless",
+    "e2e:spec": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npx cypress run --spec \"cypress/e2e/layout_consistency.cy.ts\" --browser chrome --headless"
   },
   "dependencies": {
     "@stripe/stripe-js": "2.3.0",
@@ -20,12 +23,16 @@
     "stripe": "^16.0.0"
   },
   "devDependencies": {
+    "@types/react": "19.2.2",
     "autoprefixer": "^10.4.19",
-    "cypress": "^15.5.0",
+    "cypress": "13.13.2",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.33",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
