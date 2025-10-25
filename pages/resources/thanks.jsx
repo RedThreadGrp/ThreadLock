@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 export default function Thanks() {
   const router = useRouter();
-  const { email = "", dl = "/resources/threadlock-toolkit.pdf" } = router.query;
+  const { email = "", dl = "/resources/ThreadlockToolkit.zip" } = router.query;
 
   // Validate download URL to prevent XSS and open redirects
   const safeDownloadUrl = useMemo(() => {
@@ -44,10 +44,10 @@ export default function Thanks() {
 
         <main className="max-w-3xl mx-auto py-12 px-4">
           <h1 className="text-3xl font-bold mb-3">
-            Thanks! Your toolkit is on its way to your inbox.
+            Thanks! We hope this toolkit is helpful!
           </h1>
           <a href={safeDownloadUrl} className="inline-block underline mb-6 text-orange-600 hover:text-orange-700">
-            Or click here to download now
+            Click here to download now
           </a>
 
           <div className="bg-white/70 rounded-2xl p-6 shadow">
