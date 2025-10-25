@@ -40,7 +40,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
       
       - name: Install dependencies
@@ -57,7 +57,9 @@ jobs:
           NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: dummy
       
       - name: Start Next.js server
-        run: npm start &
+        run: |
+          nohup npm start >/dev/null 2>&1 &
+          echo $! > .next_pid
         env:
           NEXT_PUBLIC_FIREBASE_API_KEY: dummy
           NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: dummy
@@ -68,21 +70,24 @@ jobs:
       - name: Wait for server
         run: npx wait-on http://localhost:3000 --timeout 60000
       
-      - name: Run Cypress tests
-        run: npx cypress run --spec "cypress/e2e/layout_consistency.cy.ts"
+      - name: E2E visual consistency
+        env:
+          NODE_OPTIONS: ""
+          CYPRESS_INSTALL_BINARY: "0"
+        run: npm run e2e:spec
       
-      - name: Upload Cypress screenshots on failure
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-          if-no-files-found: ignore
-      
-      - name: Upload Cypress videos
+      - name: Upload Cypress results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-videos
-          path: cypress/videos
+          name: cypress-results
+          path: |
+            cypress/results/**/*.xml
+            cypress/screenshots/**
+            cypress/videos/**
           if-no-files-found: ignore
+      
+      - name: Stop Next.js server
+        if: always()
+        run: |
+          if [ -f .next_pid ]; then kill $(cat .next_pid) || true; fi
