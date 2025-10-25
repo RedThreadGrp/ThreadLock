@@ -3,11 +3,11 @@ import React from "react";
 export default function HeroBanner({ image, heading, subheading, children }) {
   return (
     <section
-      className="relative text-white bg-cover bg-center bg-fixed"
+      className="relative text-white bg-cover bg-center bg-fixed min-h-[500px] flex items-center"
       style={{ backgroundImage: `url('${image}')` }}
     >
       <div className="absolute inset-0 bg-black/60" />
-      <div className="relative container mx-auto px-6 pt-36 md:pt-44 pb-24 text-center">
+      <div className="relative container mx-auto px-6 py-24 text-center w-full">
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
           {heading}
         </h1>

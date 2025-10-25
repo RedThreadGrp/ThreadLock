@@ -171,11 +171,11 @@ const Header = () => {
 
 const HeroSection = () => (
   <section
-    className="relative text-white bg-cover bg-center bg-fixed"
+    className="relative text-white bg-cover bg-center bg-fixed min-h-[500px] flex items-center"
     style={{ backgroundImage: "url('/simran-sood-qL0t5zNGFVQ-unsplash.jpg')" }}
   >
     <div className="absolute inset-0 bg-black/60"></div>
-    <div className="relative container mx-auto px-6 pt-36 md:pt-44 pb-24 text-center">
+    <div className="relative container mx-auto px-6 py-24 text-center w-full">
       <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
         <span className="block">The justice system is broken.</span>
         <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
