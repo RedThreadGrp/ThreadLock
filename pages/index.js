@@ -460,12 +460,6 @@ const SignupSection = () => {
     );
 };
 
-const Footer = () => (
-    <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
-        <p>© {new Date().getFullYear()} ThreadLock.ai. All rights reserved.</p>
-    </footer>
-);
-
 /* ---------------- Main Page ---------------- */
 export default function Home() {
     return (
@@ -483,7 +477,6 @@ export default function Home() {
                 <SubscriptionBanner />
                 <SignupSection />
             </main>
-            <Footer />
         </div>
     );
 }

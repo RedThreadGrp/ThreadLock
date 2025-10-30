@@ -166,12 +166,6 @@ const OurMissionSection = ({ bgImage }) => (
     </section>
 );
 
-const Footer = () => (
-    <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
-        <p>© {new Date().getFullYear()} ThreadLock.ai. All rights reserved.</p>
-    </footer>
-);
-
 /* ---------------- Image Switcher UI ---------------- */
 // This component now takes the state setter function directly as a prop.
 const ImageSwitcher = ({ currentIndex, imageCount, onImageChange }) => (
@@ -221,7 +215,6 @@ export default function TestingPicPage() {
                     <FeaturesSection />
                     <OurMissionSection bgImage={images[currentImageIndex]} />
                 </main>
-                <Footer />
             </div>
         </>
     );
