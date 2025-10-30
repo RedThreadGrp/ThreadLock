@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="mx-auto max-w-5xl px-4 py-8">
           <div className="flex flex-col items-center gap-3 text-center md:flex-row md:justify-between md:text-left">
             <h2 className="text-lg font-semibold text-slate-900">Stay informed</h2>
-            <form className="flex w-full max-w-md gap-2">
+            <form className="flex w-full max-w-md gap-2" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="Enter your email"
