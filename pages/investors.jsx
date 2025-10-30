@@ -283,12 +283,6 @@ const CommunityLinksSection = () => (
 );
 
 
-const Footer = () => (
-    <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center">
-        <p>© {new Date().getFullYear()} ThreadLock.ai. All rights reserved.</p>
-    </footer>
-);
-
 /* ---------------- Modal for Single-PDF selection ---------------- */
 function SingleItemModal({ open, onClose, onSelect }) {
     if (!open) return null;
@@ -373,7 +367,6 @@ export default function ResourcesPage() {
                     />
                     <CommunityLinksSection />
                 </main>
-                <Footer />
                 <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
             </div>
         </>
