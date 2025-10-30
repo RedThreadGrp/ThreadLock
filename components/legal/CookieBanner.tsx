@@ -19,7 +19,6 @@ export default function CookieBanner() {
   // Sync consent to window object when it changes
   useEffect(() => {
     if (typeof window === "undefined") return;
-    
     if (consent === "accepted_all") {
       (window as any).__tlConsent = { nonEssential: true };
     } else if (consent === "rejected_non_essential") {
