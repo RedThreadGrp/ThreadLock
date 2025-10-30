@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import SiteHeader from "../src/components/SiteHeader";
-import SiteFooter from "../src/components/SiteFooter";
 import HeroBanner from "../src/components/HeroBanner";
 
 /* ----------------- Local image paths (exact filenames in /public) ----------------- */
@@ -127,8 +126,6 @@ export default function FounderStoryPage() {
           </div>
         </div>
       </section>
-
-      <SiteFooter />
     </div>
   );
 }

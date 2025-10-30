@@ -5,25 +5,36 @@ type Consent = "unset" | "accepted_all" | "rejected_non_essential";
 const STORAGE_KEY = "tl_cookie_consent_v1";
 
 export default function CookieBanner() {
-  const [consent, setConsent] = useState<Consent>("unset");
+  const [consent, setConsent] = useState<Consent>(() => {
+    // Initialize from localStorage on client-side only
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem(STORAGE_KEY) as Consent | null;
+      if (saved === "accepted_all" || saved === "rejected_non_essential") {
+        return saved;
+      }
+    }
+    return "unset";
+  });
 
+  // Sync consent to window object when it changes
   useEffect(() => {
-    const saved = (typeof window !== "undefined" && localStorage.getItem(STORAGE_KEY)) as Consent | null;
-    if (saved === "accepted_all" || saved === "rejected_non_essential") setConsent(saved);
-  }, []);
+    if (consent === "accepted_all") {
+      (window as any).__tlConsent = { nonEssential: true };
+    } else if (consent === "rejected_non_essential") {
+      (window as any).__tlConsent = { nonEssential: false };
+    }
+  }, [consent]);
 
   if (consent !== "unset") return null;
 
   const acceptAll = () => {
     localStorage.setItem(STORAGE_KEY, "accepted_all");
     setConsent("accepted_all");
-    (window as any).__tlConsent = { nonEssential: true };
   };
 
   const rejectNonEssential = () => {
     localStorage.setItem(STORAGE_KEY, "rejected_non_essential");
     setConsent("rejected_non_essential");
-    (window as any).__tlConsent = { nonEssential: false };
   };
 
   return (

@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import SiteHeader from "../src/components/SiteHeader";
-import SiteFooter from "../src/components/SiteFooter";
 import HeroBanner from "../src/components/HeroBanner";
 
 export default function SarahsStoryPage() {
@@ -97,8 +96,6 @@ export default function SarahsStoryPage() {
           </div>
         </div>
       </section>
-
-      <SiteFooter />
     </div>
   );
 }
