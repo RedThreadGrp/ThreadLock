@@ -7,7 +7,7 @@ export default function Accessibility() {
       description="ThreadLock's commitment to accessibility and compliance with WCAG standards"
     >
       <p className="text-sm text-gray-500 mb-6">
-        <strong>Effective Date:</strong> [EFFECTIVE DATE]
+        <strong>Effective Date:</strong> October 1, 2025
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">1. Our Commitment</h2>
@@ -124,7 +124,7 @@ export default function Accessibility() {
       </p>
       <div className="bg-gray-100 p-6 rounded-lg mb-4">
         <p className="mb-2">
-          <strong>Email:</strong> [CONTACT EMAIL]
+          <strong>Email:</strong> info@threadlock.ai
         </p>
         <p className="mb-2">
           <strong>Subject Line:</strong> Accessibility Feedback
@@ -181,8 +181,8 @@ export default function Accessibility() {
         For accessibility-related questions or concerns:
       </p>
       <p className="mb-4">
-        <strong>Email:</strong> [CONTACT EMAIL]<br />
-        <strong>Address:</strong> [COMPANY ADDRESS]
+        <strong>Email:</strong> info@threadlock.ai<br />
+        <strong>Address:</strong> 16200 SW Pacific Hwy, Suite H PMB 1046, Tigard, OR 97224, United States
       </p>
     </LegalLayout>
   );

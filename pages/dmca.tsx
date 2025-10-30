@@ -7,7 +7,7 @@ export default function DMCA() {
       description="Digital Millennium Copyright Act (DMCA) policy and procedures for ThreadLock"
     >
       <p className="text-sm text-gray-500 mb-6">
-        <strong>Effective Date:</strong> [EFFECTIVE DATE]
+        <strong>Effective Date:</strong> October 1, 2025
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">1. Introduction</h2>
@@ -55,13 +55,13 @@ export default function DMCA() {
       </p>
       <div className="bg-gray-100 p-6 rounded-lg mb-4">
         <p className="mb-2">
-          <strong>Email:</strong> [CONTACT EMAIL]
+          <strong>Email:</strong> info@threadlock.ai
         </p>
         <p className="mb-2">
           <strong>Subject Line:</strong> DMCA Takedown Notice
         </p>
         <p className="mb-2">
-          <strong>Mail:</strong> [COMPANY ADDRESS]
+          <strong>Mail:</strong> 16200 SW Pacific Hwy, Suite H PMB 1046, Tigard, OR 97224, United States
         </p>
       </div>
 
@@ -171,10 +171,10 @@ export default function DMCA() {
           <strong>Copyright Agent</strong>
         </p>
         <p className="mb-2">
-          <strong>Email:</strong> [CONTACT EMAIL]
+          <strong>Email:</strong> info@threadlock.ai
         </p>
         <p className="mb-2">
-          <strong>Address:</strong> [COMPANY ADDRESS]
+          <strong>Address:</strong> 16200 SW Pacific Hwy, Suite H PMB 1046, Tigard, OR 97224, United States
         </p>
       </div>
 

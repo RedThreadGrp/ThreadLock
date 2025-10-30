@@ -7,7 +7,7 @@ export default function Security() {
       description="ThreadLock Security Policy - How we protect your data and maintain platform security"
     >
       <p className="text-sm text-gray-500 mb-6">
-        <strong>Effective Date:</strong> [EFFECTIVE DATE]
+        <strong>Effective Date:</strong> October 1, 2025
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">1. Our Commitment to Security</h2>
@@ -166,7 +166,7 @@ export default function Security() {
         We welcome responsible disclosure of security vulnerabilities. If you discover a security issue, please report it to us at:
       </p>
       <p className="mb-4">
-        <strong>Security Email:</strong> [CONTACT EMAIL]
+        <strong>Security Email:</strong> info@threadlock.ai
       </p>
       <p className="mb-4">
         Please include:
@@ -210,7 +210,7 @@ export default function Security() {
         If you have questions or concerns about security, please contact us at:
       </p>
       <p className="mb-4">
-        <strong>Email:</strong> [CONTACT EMAIL]
+        <strong>Email:</strong> info@threadlock.ai
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">15. Related Policies</h2>

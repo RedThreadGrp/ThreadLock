@@ -7,7 +7,7 @@ export default function TermsOfService() {
       description="Terms of Service for ThreadLock - AI-powered evidence management platform"
     >
       <p className="text-sm text-gray-500 mb-6">
-        <strong>Effective Date:</strong> [EFFECTIVE DATE]
+        <strong>Effective Date:</strong> October 1, 2025
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">1. Acceptance of Terms</h2>
@@ -122,8 +122,8 @@ export default function TermsOfService() {
         If you have any questions about these Terms, please contact us at:
       </p>
       <p className="mb-4">
-        <strong>Email:</strong> [CONTACT EMAIL]<br />
-        <strong>Address:</strong> [COMPANY ADDRESS]
+        <strong>Email:</strong> info@threadlock.ai<br />
+        <strong>Address:</strong> 16200 SW Pacific Hwy, Suite H PMB 1046, Tigard, OR 97224, United States
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">14. Related Policies</h2>

@@ -15,13 +15,13 @@ export default function Contact() {
       <div className="bg-gray-100 p-6 rounded-lg mb-6">
         <p className="mb-3">
           <strong>Email:</strong>{' '}
-          <a href="mailto:[CONTACT EMAIL]" className="text-orange-600 hover:text-orange-700 underline">
-            [CONTACT EMAIL]
+          <a href="mailto:info@threadlock.ai" className="text-orange-600 hover:text-orange-700 underline">
+            info@threadlock.ai
           </a>
         </p>
         <p className="mb-3">
           <strong>Address:</strong><br />
-          [COMPANY ADDRESS]
+          16200 SW Pacific Hwy, Suite H PMB 1046, Tigard, OR 97224, United States
         </p>
       </div>
 
@@ -32,8 +32,8 @@ export default function Contact() {
       <div className="bg-gray-100 p-6 rounded-lg mb-6">
         <p className="mb-3">
           <strong>Support Email:</strong>{' '}
-          <a href="mailto:[CONTACT EMAIL]" className="text-orange-600 hover:text-orange-700 underline">
-            [CONTACT EMAIL]
+          <a href="mailto:info@threadlock.ai" className="text-orange-600 hover:text-orange-700 underline">
+            info@threadlock.ai
           </a>
         </p>
         <p className="text-sm text-gray-600">
@@ -48,8 +48,8 @@ export default function Contact() {
       <div className="bg-gray-100 p-6 rounded-lg mb-6">
         <p className="mb-3">
           <strong>Security Email:</strong>{' '}
-          <a href="mailto:[CONTACT EMAIL]" className="text-orange-600 hover:text-orange-700 underline">
-            [CONTACT EMAIL]
+          <a href="mailto:info@threadlock.ai" className="text-orange-600 hover:text-orange-700 underline">
+            info@threadlock.ai
           </a>
         </p>
         <p className="text-sm text-gray-600">
@@ -65,8 +65,8 @@ export default function Contact() {
       <div className="bg-gray-100 p-6 rounded-lg mb-6">
         <p className="mb-3">
           <strong>Copyright Agent Email:</strong>{' '}
-          <a href="mailto:[CONTACT EMAIL]" className="text-orange-600 hover:text-orange-700 underline">
-            [CONTACT EMAIL]
+          <a href="mailto:info@threadlock.ai" className="text-orange-600 hover:text-orange-700 underline">
+            info@threadlock.ai
           </a>
         </p>
         <p className="text-sm text-gray-600">
@@ -82,8 +82,8 @@ export default function Contact() {
       <div className="bg-gray-100 p-6 rounded-lg mb-6">
         <p className="mb-3">
           <strong>Privacy Email:</strong>{' '}
-          <a href="mailto:[CONTACT EMAIL]" className="text-orange-600 hover:text-orange-700 underline">
-            [CONTACT EMAIL]
+          <a href="mailto:info@threadlock.ai" className="text-orange-600 hover:text-orange-700 underline">
+            info@threadlock.ai
           </a>
         </p>
         <p className="text-sm text-gray-600">
@@ -99,8 +99,8 @@ export default function Contact() {
       <div className="bg-gray-100 p-6 rounded-lg mb-6">
         <p className="mb-3">
           <strong>Accessibility Email:</strong>{' '}
-          <a href="mailto:[CONTACT EMAIL]" className="text-orange-600 hover:text-orange-700 underline">
-            [CONTACT EMAIL]
+          <a href="mailto:info@threadlock.ai" className="text-orange-600 hover:text-orange-700 underline">
+            info@threadlock.ai
           </a>
         </p>
         <p className="text-sm text-gray-600">
@@ -116,8 +116,8 @@ export default function Contact() {
       <div className="bg-gray-100 p-6 rounded-lg mb-6">
         <p className="mb-3">
           <strong>Partnerships Email:</strong>{' '}
-          <a href="mailto:[CONTACT EMAIL]" className="text-orange-600 hover:text-orange-700 underline">
-            [CONTACT EMAIL]
+          <a href="mailto:info@threadlock.ai" className="text-orange-600 hover:text-orange-700 underline">
+            info@threadlock.ai
           </a>
         </p>
       </div>
@@ -129,8 +129,8 @@ export default function Contact() {
       <div className="bg-gray-100 p-6 rounded-lg mb-6">
         <p className="mb-3">
           <strong>Press Email:</strong>{' '}
-          <a href="mailto:[CONTACT EMAIL]" className="text-orange-600 hover:text-orange-700 underline">
-            [CONTACT EMAIL]
+          <a href="mailto:info@threadlock.ai" className="text-orange-600 hover:text-orange-700 underline">
+            info@threadlock.ai
           </a>
         </p>
       </div>
@@ -181,8 +181,8 @@ export default function Contact() {
       <div className="bg-gray-100 p-6 rounded-lg mb-6">
         <p className="mb-3">
           <strong>Feedback Email:</strong>{' '}
-          <a href="mailto:[CONTACT EMAIL]" className="text-orange-600 hover:text-orange-700 underline">
-            [CONTACT EMAIL]
+          <a href="mailto:info@threadlock.ai" className="text-orange-600 hover:text-orange-700 underline">
+            info@threadlock.ai
           </a>
         </p>
       </div>

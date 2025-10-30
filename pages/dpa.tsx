@@ -7,7 +7,7 @@ export default function DataProcessingAgreement() {
       description="Data Processing Agreement (DPA) for ThreadLock - GDPR compliance and data protection"
     >
       <p className="text-sm text-gray-500 mb-6">
-        <strong>Effective Date:</strong> [EFFECTIVE DATE]
+        <strong>Effective Date:</strong> October 1, 2025
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">1. Introduction</h2>
@@ -211,7 +211,7 @@ export default function DataProcessingAgreement() {
         </a>
         <p className="mt-4 text-sm text-gray-700">
           After downloading, please complete the template with your organization's information, sign it, and return it 
-          to [CONTACT EMAIL] for countersignature.
+          to info@threadlock.ai for countersignature.
         </p>
       </div>
 
@@ -220,8 +220,8 @@ export default function DataProcessingAgreement() {
         For questions about this DPA or data processing:
       </p>
       <p className="mb-4">
-        <strong>Email:</strong> [CONTACT EMAIL]<br />
-        <strong>Address:</strong> [COMPANY ADDRESS]
+        <strong>Email:</strong> info@threadlock.ai<br />
+        <strong>Address:</strong> 16200 SW Pacific Hwy, Suite H PMB 1046, Tigard, OR 97224, United States
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">16. Related Policies</h2>
