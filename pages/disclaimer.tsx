@@ -7,7 +7,7 @@ export default function Disclaimer() {
       description="Legal Disclaimer for ThreadLock - Important information about using our service"
     >
       <p className="text-sm text-gray-500 mb-6">
-        <strong>Effective Date:</strong> [EFFECTIVE DATE]
+        <strong>Effective Date:</strong> October 1, 2025
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">1. Not a Law Firm</h2>
@@ -111,7 +111,7 @@ export default function Disclaimer() {
         If you have questions about this Disclaimer, please contact us at:
       </p>
       <p className="mb-4">
-        <strong>Email:</strong> [CONTACT EMAIL]
+        <strong>Email:</strong> info@threadlock.ai
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">13. Related Policies</h2>

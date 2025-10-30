@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
       description="Privacy Policy for ThreadLock - How we collect, use, and protect your data"
     >
       <p className="text-sm text-gray-500 mb-6">
-        <strong>Effective Date:</strong> [EFFECTIVE DATE]
+        <strong>Effective Date:</strong> October 1, 2025
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">1. Introduction</h2>
@@ -110,7 +110,7 @@ export default function PrivacyPolicy() {
         <li><strong>Withdraw Consent:</strong> Withdraw consent at any time (without affecting prior processing)</li>
       </ul>
       <p className="mb-4">
-        To exercise these rights, please contact us at [CONTACT EMAIL].
+        To exercise these rights, please contact us at info@threadlock.ai.
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">7. Data Retention</h2>
@@ -172,8 +172,8 @@ export default function PrivacyPolicy() {
         If you have any questions about this Privacy Policy, please contact us at:
       </p>
       <p className="mb-4">
-        <strong>Email:</strong> [CONTACT EMAIL]<br />
-        <strong>Address:</strong> [COMPANY ADDRESS]
+        <strong>Email:</strong> info@threadlock.ai<br />
+        <strong>Address:</strong> 16200 SW Pacific Hwy, Suite H PMB 1046, Tigard, OR 97224, United States
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">14. Related Documents</h2>

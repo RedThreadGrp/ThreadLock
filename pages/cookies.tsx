@@ -7,7 +7,7 @@ export default function CookiePolicy() {
       description="Cookie Policy for ThreadLock - How we use cookies and tracking technologies"
     >
       <p className="text-sm text-gray-500 mb-6">
-        <strong>Effective Date:</strong> [EFFECTIVE DATE]
+        <strong>Effective Date:</strong> October 1, 2025
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">1. What Are Cookies?</h2>
@@ -114,7 +114,7 @@ export default function CookiePolicy() {
         If you have any questions about our use of cookies, please contact us at:
       </p>
       <p className="mb-4">
-        <strong>Email:</strong> [CONTACT EMAIL]
+        <strong>Email:</strong> info@threadlock.ai
       </p>
 
       <h2 className="text-2xl font-bold mt-8 mb-4">9. More Information</h2>
