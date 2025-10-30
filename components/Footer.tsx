@@ -17,28 +17,6 @@ function SocialLink({ href, label, children }: React.PropsWithChildren<{href:str
 export default function Footer() {
   return (
     <footer className="mt-16">
-      {/* Newsletter (slim, optional) */}
-      <section className="bg-slate-50">
-        <div className="mx-auto max-w-5xl px-4 py-8">
-          <div className="flex flex-col items-center gap-3 text-center md:flex-row md:justify-between md:text-left">
-            <h2 className="text-lg font-semibold text-slate-900">Stay informed</h2>
-            <form className="flex w-full max-w-md gap-2" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#1b3a4d]"
-              />
-              <button
-                type="submit"
-                className="shrink-0 rounded-lg bg-[#fb7a1e] px-4 py-2 text-sm font-medium text-white hover:opacity-95"
-              >
-                Join
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-
       {/* Footer Bar */}
       <section className="bg-[#1b3a4d] text-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">

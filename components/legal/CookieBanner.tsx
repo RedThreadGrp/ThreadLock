@@ -1,64 +1,58 @@
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { useEffect, useState } from "react";
 
-const CONSENT_KEY = 'tl_cookie_consent_v1';
+type Consent = "unset" | "accepted_all" | "rejected_non_essential";
+
+const STORAGE_KEY = "tl_cookie_consent_v1";
 
 export default function CookieBanner() {
-  const [showBanner, setShowBanner] = useState(false);
+  const [consent, setConsent] = useState<Consent>("unset");
 
   useEffect(() => {
-    // Check if user has already made a choice
-    const consent = localStorage.getItem(CONSENT_KEY);
-    if (!consent) {
-      setShowBanner(true);
-    }
+    const saved = (typeof window !== "undefined" && localStorage.getItem(STORAGE_KEY)) as Consent | null;
+    if (saved === "accepted_all" || saved === "rejected_non_essential") setConsent(saved);
   }, []);
 
-  const handleAccept = () => {
-    localStorage.setItem(CONSENT_KEY, 'accepted');
-    setShowBanner(false);
+  if (consent !== "unset") return null;
+
+  const acceptAll = () => {
+    localStorage.setItem(STORAGE_KEY, "accepted_all");
+    setConsent("accepted_all");
+    (window as any).__tlConsent = { nonEssential: true };
   };
 
-  const handleReject = () => {
-    localStorage.setItem(CONSENT_KEY, 'rejected');
-    setShowBanner(false);
+  const rejectNonEssential = () => {
+    localStorage.setItem(STORAGE_KEY, "rejected_non_essential");
+    setConsent("rejected_non_essential");
+    (window as any).__tlConsent = { nonEssential: false };
   };
-
-  if (!showBanner) {
-    return null;
-  }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t-2 border-gray-200 shadow-2xl">
-      <div className="container mx-auto px-4 py-4 md:py-6">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          <div className="flex-1">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
-              Cookie Preferences
-            </h3>
-            <p className="text-sm text-gray-600">
-              We use cookies to enhance your experience. Essential cookies are required for the site to function. 
-              You can choose to accept or reject non-essential cookies.{' '}
-              <Link href="/cookies" className="text-orange-600 hover:text-orange-700 underline">
-                Learn more
-              </Link>
-              {' '}or view our{' '}
-              <Link href="/privacy" className="text-orange-600 hover:text-orange-700 underline">
-                Privacy Policy
-              </Link>
-              .
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+    <div
+      role="dialog"
+      aria-live="polite"
+      aria-label="Cookie consent"
+      className="fixed inset-x-0 bottom-4 z-50 flex justify-center px-4"
+    >
+      <div className="max-w-xl w-full rounded-2xl shadow-xl border bg-white/95 backdrop-blur p-4 md:p-5
+                      border-slate-200 text-slate-800">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
+          <p className="text-sm leading-5 grow">
+            We use essential cookies to make this site work, and optional cookies to improve it.
+            You can accept all or reject non-essential. See our{" "}
+            <a href="/privacy" className="underline decoration-1 hover:opacity-80"
+               target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+          </p>
+          <div className="flex gap-2 shrink-0">
             <button
-              onClick={handleReject}
-              className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+              onClick={rejectNonEssential}
+              className="px-3 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-50 transition-colors"
             >
               Reject Non-Essential
             </button>
             <button
-              onClick={handleAccept}
-              className="px-6 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors font-medium"
+              onClick={acceptAll}
+              className="px-4 py-2 rounded-xl text-white text-sm hover:opacity-90 transition-opacity"
+              style={{ backgroundColor: "#fb7a1e" }}
             >
               Accept All
             </button>
