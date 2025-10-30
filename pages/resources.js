@@ -3,7 +3,6 @@ import Head from "next/head";
 import Image from "next/image";
 import LeadMagnetForm from "../components/LeadMagnetForm";
 import SiteHeader from "../src/components/SiteHeader";
-import SiteFooter from "../src/components/SiteFooter";
 import HeroBanner from "../src/components/HeroBanner";
 
 /* Exact filenames in /public */
@@ -334,7 +333,6 @@ export default function ResourcesPage() {
             />
           )}
         </main>
-        <SiteFooter />
         <SingleItemModal open={singleOpen} onClose={() => setSingleOpen(false)} onSelect={onBuySingle} />
       </div>
     </>

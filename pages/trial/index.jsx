@@ -45,10 +45,6 @@ export default function TrialStart() {
             ends.
           </div>
         </main>
-
-        <footer className="bg-slate-900 text-slate-400 text-sm py-8 text-center mt-12">
-          <p>© {new Date().getFullYear()} ThreadLock.ai. All rights reserved.</p>
-        </footer>
       </div>
     </>
   );
