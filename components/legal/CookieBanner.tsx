@@ -44,10 +44,14 @@ export default function CookieBanner({ initialConsent }: { initialConsent: Conse
 
   if (!open) return null;
 
-  if (!open) return null;
-
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[70]" data-testid="cookie-banner">
+    <div 
+      className="fixed inset-x-0 bottom-0 z-[70]" 
+      data-testid="cookie-banner"
+      role="dialog"
+      aria-live="polite"
+      aria-label="Cookie consent"
+    >
       <div className="mx-auto max-w-4xl m-4 rounded-xl border shadow-lg bg-white p-4 text-sm">
         <p className="mb-3">
           We use essential cookies to make this site work, and optional cookies to improve it.
