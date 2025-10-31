@@ -23,7 +23,7 @@ export default function CookieBanner({ initialConsent }: { initialConsent: Conse
         setConsent(v);
       }
     } catch { /* ignore */ }
-  }, []); // Run only once on mount
+  }, [initialConsent]); // Re-run if initialConsent changes
 
   // Handlers
   function accept() {
