@@ -1,74 +1,64 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-type Consent = "unset" | "accepted_all" | "rejected_non_essential";
+const LS_KEY = "tl_cookie_consent_v1"; // legacy localStorage for compatibility
+type Consent = "accept" | "reject" | null;
 
-const STORAGE_KEY = "tl_cookie_consent_v1";
+function setConsentCookie(value: Exclude<Consent, null>) {
+  // 180 days
+  const maxAge = 60 * 60 * 24 * 180;
+  document.cookie = `tl_cc=${value}; Path=/; Max-Age=${maxAge}; SameSite=Lax`;
+}
 
-export default function CookieBanner() {
-  const [consent, setConsent] = useState<Consent>(() => {
-    // Initialize from localStorage on client-side only
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem(STORAGE_KEY) as Consent | null;
-      if (saved === "accepted_all" || saved === "rejected_non_essential") {
-        return saved;
-      }
-    }
-    return "unset";
-  });
+export default function CookieBanner({ initialConsent }: { initialConsent: Consent }) {
+  // Initialize from server cookie first to avoid flicker/hydration mismatch
+  const [consent, setConsent] = useState<Consent>(initialConsent);
+  const open = useMemo(() => consent === null, [consent]);
 
-  // Sync consent to window object when it changes
+  // One-time sync from localStorage *only* if no cookie was set by server
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (consent === "accepted_all") {
-      (window as any).__tlConsent = { nonEssential: true };
-    } else if (consent === "rejected_non_essential") {
-      (window as any).__tlConsent = { nonEssential: false };
-    }
-  }, [consent]);
+    if (initialConsent !== null) return;
+    try {
+      const v = localStorage.getItem(LS_KEY);
+      if (v === "accept" || v === "reject") {
+        setConsent(v);
+      }
+    } catch { /* ignore */ }
+  }, [initialConsent]); // Re-run if initialConsent changes
 
-  if (consent !== "unset") return null;
+  // Handlers
+  function accept() {
+    setConsent("accept");
+    try { localStorage.setItem(LS_KEY, "accept"); } catch {}
+    setConsentCookie("accept");
+    window.dispatchEvent(new CustomEvent("cookie-consent", { detail: "accept" }));
+  }
 
-  const acceptAll = () => {
-    localStorage.setItem(STORAGE_KEY, "accepted_all");
-    setConsent("accepted_all");
-  };
+  function reject() {
+    setConsent("reject");
+    try { localStorage.setItem(LS_KEY, "reject"); } catch {}
+    setConsentCookie("reject");
+    window.dispatchEvent(new CustomEvent("cookie-consent", { detail: "reject" }));
+  }
 
-  const rejectNonEssential = () => {
-    localStorage.setItem(STORAGE_KEY, "rejected_non_essential");
-    setConsent("rejected_non_essential");
-  };
+  if (!open) return null;
 
   return (
-    <div
+    <div 
+      className="fixed inset-x-0 bottom-0 z-[70]" 
+      data-testid="cookie-banner"
       role="dialog"
       aria-live="polite"
       aria-label="Cookie consent"
-      className="fixed inset-x-0 bottom-4 z-50 flex justify-center px-4"
     >
-      <div className="max-w-xl w-full rounded-2xl shadow-xl border bg-white/95 backdrop-blur p-4 md:p-5
-                      border-slate-200 text-slate-800">
-        <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
-          <p className="text-sm leading-5 grow">
-            We use essential cookies to make this site work, and optional cookies to improve it.
-            You can accept all or reject non-essential. See our{" "}
-            <a href="/privacy" className="underline decoration-1 hover:opacity-80"
-               target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
-          </p>
-          <div className="flex gap-2 shrink-0">
-            <button
-              onClick={rejectNonEssential}
-              className="px-3 py-2 rounded-xl border border-slate-300 text-sm hover:bg-slate-50 transition-colors"
-            >
-              Reject Non-Essential
-            </button>
-            <button
-              onClick={acceptAll}
-              className="px-4 py-2 rounded-xl text-white text-sm hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: "#fb7a1e" }}
-            >
-              Accept All
-            </button>
-          </div>
+      <div className="mx-auto max-w-4xl m-4 rounded-xl border shadow-lg bg-white p-4 text-sm">
+        <p className="mb-3">
+          We use essential cookies to make this site work, and optional cookies to improve it.
+          See our <a href="/privacy" className="underline">Privacy Policy</a>.
+        </p>
+        <div className="flex gap-2">
+          <button onClick={reject} className="rounded-lg px-3 py-2 border">Reject Non-Essential</button>
+          <button onClick={accept} className="rounded-lg px-3 py-2 bg-[#1b3a4d] text-white">Accept All</button>
+          <a href="/cookies" className="px-3 py-2 underline">Manage</a>
         </div>
       </div>
     </div>

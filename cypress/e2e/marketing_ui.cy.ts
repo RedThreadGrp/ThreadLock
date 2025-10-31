@@ -1,5 +1,6 @@
 describe('Marketing UI basics', () => {
   it('shows a single newsletter form and cookie banner flow', () => {
+    cy.clearCookies();
     cy.clearLocalStorage();
     cy.visit('/');
 
@@ -19,6 +20,7 @@ describe('Marketing UI basics', () => {
     cy.get('[role="dialog"][aria-label="Cookie consent"]').should('not.exist');
 
     // Clear and test accepting all cookies
+    cy.clearCookies();
     cy.clearLocalStorage();
     cy.reload();
     cy.get('[role="dialog"][aria-label="Cookie consent"]').should('exist');
@@ -31,6 +33,7 @@ describe('Marketing UI basics', () => {
   });
 
   it('verifies cookie banner accessibility', () => {
+    cy.clearCookies();
     cy.clearLocalStorage();
     cy.visit('/');
 
