@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useMemo, useState } from "react";
 
 const LS_KEY = "tl_cookie_consent_v1"; // legacy localStorage for compatibility
@@ -18,14 +16,14 @@ export default function CookieBanner({ initialConsent }: { initialConsent: Conse
 
   // One-time sync from localStorage *only* if no cookie was set by server
   useEffect(() => {
-    if (consent !== null) return;
+    if (initialConsent !== null) return;
     try {
       const v = localStorage.getItem(LS_KEY);
       if (v === "accept" || v === "reject") {
         setConsent(v);
       }
     } catch { /* ignore */ }
-  }, [consent]);
+  }, []); // Run only once on mount
 
   // Handlers
   function accept() {

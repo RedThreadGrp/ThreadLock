@@ -18,7 +18,9 @@ App.getInitialProps = async ({ ctx }) => {
   let initialConsent = null;
   if (ctx.req?.headers.cookie) {
     const cookies = ctx.req.headers.cookie.split(';').reduce((acc, cookie) => {
-      const [key, value] = cookie.trim().split('=');
+      const parts = cookie.trim().split('=');
+      const key = parts[0];
+      const value = parts.slice(1).join('='); // Handle values with '=' in them
       acc[key] = value;
       return acc;
     }, {});
