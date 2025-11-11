@@ -79,26 +79,26 @@ export default function PricingPage() {
                 <div className="flex-grow">
                   <h4 className="font-semibold text-slate-900 mb-4">Features:</h4>
                   <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-500 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
                       <span className="text-slate-700">Guided 5-Step Workflow</span>
                     </li>
-                    <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-500 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
                       <span className="text-slate-700">Journal & Evidence Manager</span>
                     </li>
-                    <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-500 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
                       <span className="text-slate-700">Document Scanning & OCR</span>
                     </li>
-                    <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-500 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
                       <span className="text-slate-700">Timeline Builder (with KML/ICS Import)</span>
@@ -146,46 +146,46 @@ export default function PricingPage() {
                 <div className="flex-grow">
                   <h4 className="font-semibold text-slate-900 mb-4">Features:</h4>
                   <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-600 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
                       <span className="text-slate-800">Professional Dashboard</span>
                     </li>
-                    <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-600 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
                       <span className="text-slate-800">Access to the "Review Queue"</span>
                     </li>
-                    <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-600 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
                       <span className="text-slate-800">Built-in Privacy & Conflict Check Flow</span>
                     </li>
-                    <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-600 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
                       <span className="text-slate-800">
                         Upload & Assign Your Firm's Custom Forms <span className="bg-orange-600 text-white text-xs px-2 py-0.5 rounded-full ml-1">New</span>
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-600 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
                       <span className="text-slate-800">5 Client Seats Included (BYOA)</span>
                     </li>
-                    <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-600 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
                       <span className="text-slate-800">1-Click "Sync to Clio"</span>
                     </li>
-                    <li className="flex items-start">
-                      <svg className="w-5 h-5 text-green-600 mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-600 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
                       <span className="text-slate-800">Full Annotation & Redaction Tools</span>
