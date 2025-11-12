@@ -290,9 +290,21 @@ const FeaturesSection = () => (
 
 const ProductShowcaseSection = () => {
     const slides = [
-        { title: "AI-Guided Journaling", description: "Smart prompts capture the right details fast.", mockup: <JournalUIMockup /> },
-        { title: "Immutable Timeline", description: "A chronological view that can’t be hand-waved away.", mockup: <TimelineUIMockup /> },
-        { title: "Court-Ready Exports", description: "Professional PDFs in minutes—not hours.", mockup: <PdfExportUIMockup /> },
+        { 
+            title: "Stop the Chaos. Start Here.", 
+            description: "Stop digging through emails, notebooks, and messy folders. Your Case Hub gives you a clean, simple view of all your matters. See your timeline, your evidence, and your tasks, all in one place.", 
+            mockup: <JournalUIMockup /> 
+        },
+        { 
+            title: "Your All-in-One Evidence Locker", 
+            description: "A conversation happens. A receipt is printed. An email is sent. Now you have one place to log it all, right when it happens. Add journal entries, upload documents, or scan files, all tagged to your case timeline.", 
+            mockup: <TimelineUIMockup /> 
+        },
+        { 
+            title: "Manage Your Case Forms", 
+            description: "Don't waste time searching confusing government websites. Access a library of state-specific legal forms relevant to your case, right from your case hub.", 
+            mockup: <PdfExportUIMockup /> 
+        },
     ];
     const [idx, setIdx] = useState(0);
     const prev = () => setIdx((i) => (i === 0 ? slides.length - 1 : i - 1));
