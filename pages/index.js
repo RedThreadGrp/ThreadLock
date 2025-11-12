@@ -179,7 +179,11 @@ const HeroSection = () => (
     <div className="absolute inset-0 bg-black/60"></div>
     <div className="relative container mx-auto px-6 py-24 text-center w-full">
       <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-        Your Case, Organized and Under Control.
+        <span className="block">Your case.</span>
+        <span className="block mt-2">Organized.</span>
+        <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
+          Take control.
+        </span>
       </h1>
       <p className="mt-8 text-lg md:text-xl max-w-3xl mx-auto text-slate-200 leading-relaxed">
         Take control of the chaos. ThreadLock is your secure, all-in-one platform to organize evidence, journal events, and manage documents. Get everything in one place so you can feel prepared, whether you&apos;re representing yourself or preparing to speak with a professional.
@@ -378,7 +382,7 @@ const WhoItsForSection = () => (
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
           <h3 className="text-2xl font-bold text-slate-800 mb-4">For Individuals Navigating the Legal System</h3>
           <p className="text-slate-600 leading-relaxed">
-            For individuals navigating the legal system on their own. We are your partner in organization, helping you build a clear, chronological, and complete record. ThreadLock is for the busy parent, the full-time professional, or anyone who needs to manage a complex matter *without* letting it take over their life.
+            We are your partner in organization, helping you build a clear, chronological, and complete record. ThreadLock is for the busy parent, the full-time professional, or anyone who needs to manage a complex matter <em>without</em> letting it take over their life.
           </p>
         </div>
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
@@ -515,7 +519,7 @@ export default function Home() {
     return (
         <div className="bg-white">
             <Head>
-                <title>ThreadLock™ | Your Case, Organized and Under Control</title>
+                <title>ThreadLock™ | Your case. Organized. Take control.</title>
                 <meta name="description" content="Take control of the chaos. ThreadLock is your secure, all-in-one platform to organize evidence, journal events, and manage documents for your legal matters." />
             </Head>
             <Header/>
