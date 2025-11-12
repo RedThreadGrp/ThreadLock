@@ -37,6 +37,11 @@ const ChevronLeftIcon = (props) => (
 const ChevronRightIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m9 18 6-6-6-6"/></svg>
 );
+const CheckmarkIcon = ({ color = "green-500", ...props }) => (
+  <svg className={`w-5 h-5 text-${color} mr-2 shrink-0`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" {...props}>
+    <path d="M5 13l4 4L19 7"/>
+  </svg>
+);
 
 /* ---------------- UI Mockups (scaled down) ---------------- */
 const JournalUIMockup = () => (
@@ -287,28 +292,20 @@ const SubscriptionBanner = () => (
           <div className="flex-grow">
             <h4 className="font-semibold text-slate-900 mb-4">Features:</h4>
             <ul className="space-y-3">
-              <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-500 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M5 13l4 4L19 7"/>
-                </svg>
+              <li className="flex items-center">
+                <CheckmarkIcon />
                 <span className="text-slate-700">Guided 5-Step Workflow</span>
               </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-500 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M5 13l4 4L19 7"/>
-                </svg>
+              <li className="flex items-center">
+                <CheckmarkIcon />
                 <span className="text-slate-700">Journal & Evidence Manager</span>
               </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-500 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M5 13l4 4L19 7"/>
-                </svg>
+              <li className="flex items-center">
+                <CheckmarkIcon />
                 <span className="text-slate-700">Document Scanning & OCR</span>
               </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-500 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M5 13l4 4L19 7"/>
-                </svg>
+              <li className="flex items-center">
+                <CheckmarkIcon />
                 <span className="text-slate-700">Timeline Builder (with KML/ICS Import)</span>
               </li>
             </ul>
@@ -354,48 +351,34 @@ const SubscriptionBanner = () => (
           <div className="flex-grow">
             <h4 className="font-semibold text-slate-900 mb-4">Features:</h4>
             <ul className="space-y-3">
-              <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-600 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M5 13l4 4L19 7"/>
-                </svg>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
                 <span className="text-slate-800">Professional Dashboard</span>
               </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-600 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M5 13l4 4L19 7"/>
-                </svg>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
                 <span className="text-slate-800">Access to the &quot;Review Queue&quot;</span>
               </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-600 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M5 13l4 4L19 7"/>
-                </svg>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
                 <span className="text-slate-800">Built-in Privacy & Conflict Check Flow</span>
               </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-600 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M5 13l4 4L19 7"/>
-                </svg>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
                 <span className="text-slate-800">
                   Upload & Assign Your Firm&apos;s Custom Forms <span className="bg-orange-600 text-white text-xs px-2 py-0.5 rounded-full ml-1">New</span>
                 </span>
               </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-600 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M5 13l4 4L19 7"/>
-                </svg>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
                 <span className="text-slate-800">5 Client Seats Included (BYOA)</span>
               </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-600 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M5 13l4 4L19 7"/>
-                </svg>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
                 <span className="text-slate-800">1-Click &quot;Sync to Clio&quot;</span>
               </li>
-              <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-600 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M5 13l4 4L19 7"/>
-                </svg>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
                 <span className="text-slate-800">Full Annotation & Redaction Tools</span>
               </li>
             </ul>
