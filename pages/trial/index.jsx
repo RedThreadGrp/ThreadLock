@@ -29,7 +29,7 @@ export default function TrialStart() {
         </header>
 
         <main className="max-w-3xl mx-auto py-12 px-4">
-          <h1 className="text-3xl font-bold mb-2">Start Your 10-Day, No-Risk Free Trial</h1>
+          <h1 className="text-3xl font-bold mb-2">Start Your 10-Day Trial</h1>
           <p className="text-gray-700 mb-6">
             You'll confirm your name, email, and payment method on the next screen. Cancel anytime during the trial.
           </p>

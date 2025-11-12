@@ -38,7 +38,7 @@ export default function SignupPage() {
             </div>
             <h2 className="text-2xl font-bold text-slate-900 mb-3">I'm an Individual</h2>
             <p className="text-slate-600 mb-6">
-              Start your free trial to get organized and build your case.
+              Get started to get organized and build your case.
             </p>
             <div className="flex items-center text-orange-600 font-semibold group-hover:translate-x-2 transition-transform">
               Create Individual Account

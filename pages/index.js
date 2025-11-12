@@ -180,20 +180,27 @@ const HeroSection = () => (
     <div className="relative container mx-auto px-6 py-24 text-center w-full">
       <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
         <span className="block">Your case.</span>
-        <span className="block mt-2">Organized.</span>
-        <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
+        <span className="block mt-2 text-orange-400">Organized.</span>
+        <span className="block mt-4">
           Take control.
         </span>
       </h1>
-      <p className="mt-8 text-lg md:text-xl max-w-3xl mx-auto text-slate-200 leading-relaxed">
-        Take control of the chaos. ThreadLock is your secure, all-in-one platform to organize evidence, journal events, and manage documents. Get everything in one place so you can feel prepared, whether you&apos;re representing yourself or preparing to speak with a professional.
-      </p>
+      <div className="mt-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 text-left bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
+          <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
+            Take control of the chaos. ThreadLock is your secure, all-in-one platform to organize evidence, journal events, and manage documents.
+          </p>
+          <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
+            Get everything in one place so you can feel prepared, whether you&apos;re representing yourself or preparing to speak with a professional.
+          </p>
+        </div>
+      </div>
       <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <Link
           href="/signup"
           className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
         >
-          Start Your Free Trial
+          Start Here
         </Link>
         <Link
           href="/login"

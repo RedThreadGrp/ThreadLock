@@ -62,7 +62,7 @@ export default function Thanks() {
               href={`/trial?email=${encodeURIComponent(email)}`}
               className="inline-block rounded-xl px-5 py-3 font-semibold bg-orange-600 text-white hover:bg-orange-700 transition-all"
             >
-              Start My 10-Day Free Trial
+              Start My 10-Day Trial
             </a>
           </div>
         </main>
