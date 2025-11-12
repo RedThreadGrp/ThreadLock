@@ -381,8 +381,16 @@ const WhoItsForSection = () => (
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
           <h3 className="text-2xl font-bold text-slate-800 mb-4">For Individuals Navigating the Legal System</h3>
-          <p className="text-slate-600 leading-relaxed">
-            We are your partner in organization, helping you build a clear, chronological, and complete record. ThreadLock is for the busy parent, the full-time professional, or anyone who needs to manage a complex matter <em>without</em> letting it take over their life.
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
+            <p className="text-slate-600 leading-relaxed">
+              We are your partner in organization, helping you build a clear, chronological, and complete record.
+            </p>
+            <p className="text-slate-600 leading-relaxed">
+              ThreadLock is for the busy parent, the full-time professional, or anyone who needs to manage a complex matter
+            </p>
+          </div>
+          <p className="text-slate-600 leading-relaxed text-center">
+            <em>without</em> letting it take over their life.
           </p>
         </div>
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
