@@ -179,20 +179,17 @@ const HeroSection = () => (
     <div className="absolute inset-0 bg-black/60"></div>
     <div className="relative container mx-auto px-6 py-24 text-center w-full">
       <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-        <span className="block">The justice system is broken.</span>
-        <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
-          Not the people in it.
-        </span>
+        Your Case, Organized and Under Control.
       </h1>
       <p className="mt-8 text-lg md:text-xl max-w-3xl mx-auto text-slate-200 leading-relaxed">
-        ThreadLock was born from a simple realization: the system doesn't need more complexity, it needs clarity. We built the tools to provide it, putting power back into your hands.
+        Take control of the chaos. ThreadLock is your secure, all-in-one platform to organize evidence, journal events, and manage documents. Get everything in one place so you can feel prepared, whether you&apos;re representing yourself or preparing to speak with a professional.
       </p>
       <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <Link
           href="/signup"
           className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
         >
-          Sign Up
+          Start Your Free Trial
         </Link>
         <Link
           href="/login"
@@ -272,20 +269,20 @@ const FeaturesSection = () => (
   >
     <div className="absolute inset-0 bg-slate-900/70 z-0"></div>
     <div className="relative container mx-auto px-6 text-center z-10">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Build Your Case with Confidence</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">How It Works</h2>
       <p className="text-lg text-slate-200 max-w-2xl mx-auto mb-16">
-        Our platform is designed to make evidence collection and presentation simple, secure, and stress-free.
+        Our platform is designed to make evidence organization simple, secure, and stress-free.
       </p>
     </div>
     <div className="relative container mx-auto px-6 grid md:grid-cols-3 gap-8 z-10">
-      <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="AI-Guided Journaling">
-        Never miss important details because you don't know what to track. Our AI guides you to capture the specific, legally-relevant facts for your case.
+      <FeatureCard icon={<BrainCircuitIcon className="w-8 h-8" />} title="Add Evidence">
+        Securely upload, scan, or journal entries. AI automatically tags and organizes your evidence chronologically, so you can focus on what matters.
       </FeatureCard>
-      <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Immutable & Secure">
-        Locked timestamps establishing the true date and time of each logon and event entry.
+      <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Find & Fill Forms">
+        Access our library of jurisdictional legal forms. Our smart editor helps you populate them with your saved case information, saving you from repetitive data entry.
       </FeatureCard>
-      <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court-Ready Exports">
-        Export clean timelines and summaries that a judge can actually read.
+      <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Prepare & Share">
+        Create drafts, organize your timeline, and securely share your case. You control who sees your information—grant access to an attorney for a final review, share documents with a co-parent, or keep it all for your own records.
       </FeatureCard>
     </div>
   </section>
@@ -305,7 +302,7 @@ const ProductShowcaseSection = () => {
         <section id="showcase" className="py-20 md:py-28 bg-white">
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
-                <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">A quick look at how key features help you build a stronger case.</p>
+                <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">A quick look at how key features help you stay organized and prepared.</p>
                 <div className="max-w-4xl mx-auto">
                     <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
                         <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
@@ -356,6 +353,50 @@ const OurMissionSection = () => (
         <p className="mt-4 text-xl md:text-2xl text-orange-400 font-semibold">
           We built the tools to give you that voice.
         </p>
+      </div>
+    </div>
+  </section>
+);
+
+const WhoItsForSection = () => (
+  <section id="who-its-for" className="py-20 md:py-28 bg-gray-50">
+    <div className="container mx-auto px-6">
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-slate-900 text-center">Who It&apos;s For</h2>
+      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">For Individuals Navigating the Legal System</h3>
+          <p className="text-slate-600 leading-relaxed">
+            For individuals navigating the legal system on their own. We are your partner in organization, helping you build a clear, chronological, and complete record. ThreadLock is for the busy parent, the full-time professional, or anyone who needs to manage a complex matter *without* letting it take over their life.
+          </p>
+        </div>
+        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">For When You Want a Second Set of Eyes</h3>
+          <p className="text-slate-600 leading-relaxed">
+            Choose to share your organized case file with a legal professional—for a 30-minute consultation, a pre-filing review, or full representation. You&apos;ll save time and money by providing a perfectly organized file from day one.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const FAQSection = () => (
+  <section id="faq" className="py-20 md:py-28 bg-white">
+    <div className="container mx-auto px-6 max-w-4xl">
+      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-slate-900 text-center">Our Commitment to You</h2>
+      <div className="space-y-8">
+        <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200">
+          <h3 className="text-xl font-bold text-slate-800 mb-4">Is ThreadLock a law firm or a lawyer?</h3>
+          <p className="text-slate-700 leading-relaxed">
+            No. We are a software company, not a law firm. Our platform is a powerful organizational tool to help you prepare and manage your materials. We do not provide legal advice, and we are not a substitute for speaking with an attorney if you have legal questions.
+          </p>
+        </div>
+        <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200">
+          <h3 className="text-xl font-bold text-slate-800 mb-4">Will ThreadLock guarantee I win my case?</h3>
+          <p className="text-slate-700 leading-relaxed">
+            No. We can&apos;t guarantee any specific outcome—your case is unique. Our mission is to help you get organized and feel a sense of control and preparedness for your next step. A well-organized record is invaluable, whether you are representing yourself or working with a professional.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -462,8 +503,8 @@ export default function Home() {
     return (
         <div className="bg-white">
             <Head>
-                <title>ThreadLock™ | AI-Powered Evidence Management</title>
-                <meta name="description" content="AI-powered family law software designed for custody disputes, child support, and family court evidence management. Make the system make sense." />
+                <title>ThreadLock™ | Your Case, Organized and Under Control</title>
+                <meta name="description" content="Take control of the chaos. ThreadLock is your secure, all-in-one platform to organize evidence, journal events, and manage documents for your legal matters." />
             </Head>
             <Header/>
             <main className="flex flex-col w-full overflow-x-hidden">
@@ -471,7 +512,9 @@ export default function Home() {
                 <OurMissionSection />
                 <FeaturesSection />
                 <ProductShowcaseSection />
+                <WhoItsForSection />
                 <SubscriptionBanner />
+                <FAQSection />
                 <SignupSection />
             </main>
         </div>
