@@ -17,6 +17,20 @@ function SocialLink({ href, label, children }: React.PropsWithChildren<{href:str
 export default function Footer() {
   return (
     <footer className="mt-16">
+      {/* Disclaimer Section */}
+      <section className="bg-slate-100 border-t border-slate-200">
+        <div className="mx-auto max-w-6xl px-4 py-8">
+          <div className="bg-white/80 p-6 rounded-lg border border-slate-200">
+            <p className="text-sm text-slate-700 text-center leading-relaxed">
+              <strong className="text-slate-900">Important:</strong> ThreadLock is an organizational tool, not a law firm. 
+              We do not provide legal advice, representation, or attorney-client relationships. 
+              Our platform helps you organize and manage your materials, but we are not a substitute for speaking with a licensed attorney if you have legal questions. 
+              Results may vary, and we cannot guarantee specific outcomes in any legal matter.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Footer Bar */}
       <section className="bg-[#1b3a4d] text-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
