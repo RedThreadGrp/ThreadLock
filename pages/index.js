@@ -22,11 +22,25 @@ const ShieldCheckIcon = (props) => (
 const FileTextIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
 );
+const FolderIcon = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+);
+const BookOpenIcon = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+);
+const UsersIcon = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+);
 const ChevronLeftIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m15 18-6-6 6-6"/></svg>
 );
 const ChevronRightIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m9 18 6-6-6-6"/></svg>
+);
+const CheckmarkIcon = ({ color = "green-500", ...props }) => (
+  <svg className={`w-5 h-5 text-${color} mr-2 shrink-0`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" {...props}>
+    <path d="M5 13l4 4L19 7"/>
+  </svg>
 );
 
 /* ---------------- UI Mockups (scaled down) ---------------- */
@@ -185,22 +199,15 @@ const HeroSection = () => (
           Take control.
         </span>
       </h1>
-      <div className="mt-8 max-w-4xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-6 text-left bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
-          <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-            Take control of the chaos. ThreadLock is your secure, all-in-one platform to organize evidence, journal events, and manage documents.
-          </p>
-          <p className="text-lg md:text-xl text-slate-200 leading-relaxed">
-            Get everything in one place so you can feel prepared, whether you&apos;re representing yourself or preparing to speak with a professional.
-          </p>
-        </div>
-      </div>
+      <p className="mt-8 text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
+        Your secure, all-in-one platform to organize evidence, journal events, and manage your case—whether you&apos;re representing yourself or working with a professional.
+      </p>
       <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <Link
           href="/signup"
           className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
         >
-          Start Here
+          Start Your Free Trial
         </Link>
         <Link
           href="/login"
@@ -208,6 +215,42 @@ const HeroSection = () => (
         >
           Login
         </Link>
+      </div>
+    </div>
+  </section>
+);
+
+const ValuePropositionSection = () => (
+  <section className="py-20 md:py-28 bg-white">
+    <div className="container mx-auto px-6">
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+          <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
+            <FolderIcon className="w-8 h-8" />
+          </div>
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">Your All-in-One Hub</h3>
+          <p className="text-slate-600 leading-relaxed">
+            Stop the chaos of messy folders and lost notes. Securely upload documents, add journal entries, and track events in one place.
+          </p>
+        </div>
+        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+          <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
+            <BookOpenIcon className="w-8 h-8" />
+          </div>
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">Build Your Timeline</h3>
+          <p className="text-slate-600 leading-relaxed">
+            See your case chronologically. Our new timeline automatically populates from your entries, giving you a clear view of your story.
+          </p>
+        </div>
+        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
+          <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
+            <UsersIcon className="w-8 h-8" />
+          </div>
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">You Control Your Story</h3>
+          <p className="text-slate-600 leading-relaxed">
+            Whether you self-represent or seek a review, you are in control. Securely share your organized file with a professional, mediator, or co-parent.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -226,32 +269,152 @@ const SubscriptionBanner = () => (
     <div className="container mx-auto px-6 text-center relative">
       <div className="inline-block px-6 py-5 mb-10 border-2 border-orange-500 rounded-xl bg-white/60 backdrop-blur-sm shadow-md">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
-          Simple, Powerful Plans
+          Simple, Transparent Pricing
         </h2>
         <p className="mt-2 text-lg text-slate-800/90 max-w-2xl">
-          Choose the right level of support for your journey.
+          Choose the plan that&apos;s right for you. All plans include our core features.
         </p>
       </div>
-      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
-          <h3 className="text-xl font-bold text-slate-800">Monthly</h3>
-          <p className="text-4xl font-extrabold text-slate-900 my-4">
-            $15<span className="text-base font-medium text-slate-500">/mo</span>
-          </p>
-          <p className="text-slate-600 mb-6">Full access for a month, cancel anytime.</p>
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* ThreadLock Core - For Individuals */}
+        <div className="bg-white/90 backdrop-blur-md p-8 rounded-2xl border-2 border-slate-200 hover:border-orange-500 transition-all shadow-lg text-left flex flex-col">
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">ThreadLock Core</h3>
+            <p className="text-slate-600">For Individuals</p>
+          </div>
+          <div className="mb-6">
+            <p className="text-5xl font-bold text-slate-900">
+              $29
+              <span className="text-lg font-normal text-slate-500">/month</span>
+            </p>
+            <p className="text-sm text-slate-600 mt-2">Annual plan available with 2 months free</p>
+          </div>
+          <div className="flex-grow">
+            <h4 className="font-semibold text-slate-900 mb-4">Features:</h4>
+            <ul className="space-y-3">
+              <li className="flex items-center">
+                <CheckmarkIcon />
+                <span className="text-slate-700">Guided 5-Step Workflow</span>
+              </li>
+              <li className="flex items-center">
+                <CheckmarkIcon />
+                <span className="text-slate-700">Journal & Evidence Manager</span>
+              </li>
+              <li className="flex items-center">
+                <CheckmarkIcon />
+                <span className="text-slate-700">Document Scanning & OCR</span>
+              </li>
+              <li className="flex items-center">
+                <CheckmarkIcon />
+                <span className="text-slate-700">Timeline Builder (with KML/ICS Import)</span>
+              </li>
+            </ul>
+            <div className="mt-6 pt-6 border-t border-slate-200">
+              <h5 className="font-semibold text-slate-900 mb-2">Add-on:</h5>
+              <p className="text-sm text-slate-700 mb-1">
+                <strong>BYOA (Bring Your Own Attorney) Seat</strong>
+              </p>
+              <p className="text-2xl font-bold text-orange-600">
+                +$19<span className="text-sm font-normal text-slate-500">/month per seat</span>
+              </p>
+              <p className="text-sm text-slate-600 mt-2">
+                Pay for a secure, collaborative seat for your existing attorney.
+              </p>
+            </div>
+          </div>
+          <a
+            href="https://app.threadlock.ai/signup"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 block text-center bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
+          >
+            Get Started
+          </a>
         </div>
-        <div className="bg-white/85 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
-          <h3 className="text-xl font-bold text-slate-800">Annual</h3>
-          <p className="text-4xl font-extrabold text-slate-900 my-4">
-            $150<span className="text-base font-medium text-slate-500">/yr</span>
-          </p>
-          <p className="text-slate-600 mb-6">Our annual plans include two months free.</p>
+
+        {/* ThreadLock Pro - For Professionals */}
+        <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl border-2 border-orange-500 p-8 shadow-xl flex flex-col relative">
+          <div className="absolute top-0 right-0 bg-orange-600 text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-xl">
+            POPULAR
+          </div>
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">ThreadLock Pro</h3>
+            <p className="text-slate-700">For Legal Professionals</p>
+          </div>
+          <div className="mb-6">
+            <p className="text-5xl font-bold text-slate-900">
+              $99
+              <span className="text-lg font-normal text-slate-600">/month</span>
+            </p>
+            <p className="text-sm text-slate-700 mt-2">Annual plan available with 2 months free</p>
+          </div>
+          <div className="flex-grow">
+            <h4 className="font-semibold text-slate-900 mb-4">Features:</h4>
+            <ul className="space-y-3">
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
+                <span className="text-slate-800">Professional Dashboard</span>
+              </li>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
+                <span className="text-slate-800">Access to the &quot;Review Queue&quot;</span>
+              </li>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
+                <span className="text-slate-800">Built-in Privacy & Conflict Check Flow</span>
+              </li>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
+                <span className="text-slate-800">
+                  Upload & Assign Your Firm&apos;s Custom Forms <span className="bg-orange-600 text-white text-xs px-2 py-0.5 rounded-full ml-1">New</span>
+                </span>
+              </li>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
+                <span className="text-slate-800">5 Client Seats Included (BYOA)</span>
+              </li>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
+                <span className="text-slate-800">1-Click &quot;Sync to Clio&quot;</span>
+              </li>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
+                <span className="text-slate-800">Full Annotation & Redaction Tools</span>
+              </li>
+            </ul>
+          </div>
+          <a
+            href="https://app.threadlock.ai/pro/register"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 block text-center bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
+          >
+            Get Started as Pro
+          </a>
         </div>
-        <div className="bg-white/80 backdrop-blur-md p-8 rounded-2xl border-2 border-orange-500 shadow-lg text-left">
-          <h3 className="text-xl font-bold text-slate-800">For Teams</h3>
-          <p className="text-4xl font-extrabold text-slate-900 my-4">Custom</p>
-          <p className="text-slate-600 mb-6">Offer ThreadLock as a unique benefit for your employees.</p>
-          <p className="text-slate-800 font-semibold">Contact us at info@threadlock.ai</p>
+
+        {/* ThreadLock for Benefits - For Employers */}
+        <div className="bg-white/90 backdrop-blur-md p-8 rounded-2xl border-2 border-slate-200 hover:border-orange-500 transition-all shadow-lg text-left flex flex-col">
+          <div className="mb-6">
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">ThreadLock for Benefits</h3>
+            <p className="text-slate-600">For Employers</p>
+          </div>
+          <div className="mb-6">
+            <p className="text-5xl font-bold text-slate-900">Custom</p>
+            <p className="text-sm text-slate-600 mt-2">Contact us for pricing</p>
+          </div>
+          <div className="flex-grow">
+            <p className="text-slate-700 mb-6">
+              Offer ThreadLock as a powerful, affordable legal benefit to your employees. Support your team through life&apos;s most stressful events.
+            </p>
+            <p className="text-slate-800 font-semibold">Contact us at info@threadlock.ai</p>
+          </div>
+          <Link
+            href="/contact"
+            className="mt-8 block text-center bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
+          >
+            Contact Us
+          </Link>
         </div>
       </div>
     </div>
@@ -387,23 +550,18 @@ const WhoItsForSection = () => (
       <h2 className="text-3xl md:text-4xl font-bold mb-12 text-slate-900 text-center">Who It&apos;s For</h2>
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-          <h3 className="text-2xl font-bold text-slate-800 mb-4">For Individuals Navigating the Legal System</h3>
-          <div className="grid md:grid-cols-2 gap-4 mb-4">
-            <p className="text-slate-600 leading-relaxed">
-              We are your partner in organization, helping you build a clear, chronological, and complete record.
-            </p>
-            <p className="text-slate-600 leading-relaxed">
-              ThreadLock is for the busy parent, the full-time professional, or anyone who needs to manage a complex matter
-            </p>
-          </div>
-          <p className="text-slate-600 leading-relaxed text-center">
-            <em>without</em> letting it take over their life.
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">Navigating on your own? Get a clear path.</h3>
+          <p className="text-slate-600 leading-relaxed mb-4">
+            Most people in family law represent themselves. We built ThreadLock for you. It&apos;s your personal case manager to keep you on track, organized, and in control.
+          </p>
+          <p className="text-slate-600 leading-relaxed">
+            Stop feeling overwhelmed and start feeling prepared.
           </p>
         </div>
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-          <h3 className="text-2xl font-bold text-slate-800 mb-4">For When You Want a Second Set of Eyes</h3>
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">Save time and money with professionals.</h3>
           <p className="text-slate-600 leading-relaxed">
-            Choose to share your organized case file with a legal professional—for a 30-minute consultation, a pre-filing review, or full representation. You&apos;ll save time and money by providing a perfectly organized file from day one.
+            If you choose to get legal help—for a 30-minute consultation or a full review—you&apos;ll be ready. Hand them a perfectly organized file, saving you hours in legal fees and getting you to the right answers, faster.
           </p>
         </div>
       </div>
@@ -540,6 +698,7 @@ export default function Home() {
             <Header/>
             <main className="flex flex-col w-full overflow-x-hidden">
                 <HeroSection />
+                <ValuePropositionSection />
                 <OurMissionSection />
                 <FeaturesSection />
                 <ProductShowcaseSection />
