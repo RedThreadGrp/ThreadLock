@@ -28,7 +28,7 @@ export default function LoginPage() {
             href="https://app.threadlock.ai/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-gradient-to-br from-blue-900/40 via-purple-900/40 to-blue-900/40 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-white/10 hover:border-orange-500/50 transform hover:-translate-y-1"
+            className="group bg-gradient-to-br from-blue-900/40 via-purple-900/40 to-blue-900/40 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-white/10 hover:border-orange-500/50 transform hover:-translate-y-1 flex flex-col"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 bg-blue-500/20 text-blue-300 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -39,7 +39,7 @@ export default function LoginPage() {
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-white">I am an individual</h2>
             </div>
-            <ul className="space-y-3 mb-8 text-slate-200">
+            <ul className="space-y-3 mb-8 text-slate-200 flex-grow">
               <li className="flex items-start">
                 <svg className="w-5 h-5 text-slate-400 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <circle cx="10" cy="10" r="3"/>
@@ -63,7 +63,7 @@ export default function LoginPage() {
             href="https://app.threadlock.ai/pro/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-slate-700/40 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-white/10 hover:border-orange-500/50 transform hover:-translate-y-1"
+            className="group bg-slate-700/40 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-white/10 hover:border-orange-500/50 transform hover:-translate-y-1 flex flex-col"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 bg-orange-500/20 text-orange-300 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -73,7 +73,7 @@ export default function LoginPage() {
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-white">I am a legal professional</h2>
             </div>
-            <p className="text-slate-300 mb-12">For attorneys & paralegals.</p>
+            <p className="text-slate-300 mb-8 flex-grow">For attorneys & paralegals.</p>
             <div className="flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">
               Continue to Professional Portal
             </div>
