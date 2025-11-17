@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--tl-brand-navy);
-    background-image: radial-gradient(circle at 1px 1px, rgba(100, 116, 139, 0.15) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(245, 130, 32, 0.12) 1px, transparent 0);
     background-size: 28px 28px;
   }
 
