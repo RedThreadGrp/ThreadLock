@@ -17,14 +17,14 @@
     align-items: center;
     justify-content: center;
     background-color: var(--tl-brand-navy);
-    background-image: radial-gradient(circle at 2px 2px, rgba(245, 130, 32, 0.12) 2px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, rgba(245, 130, 32, 0.12) 1px, transparent 1px);
     background-size: 56px 56px;
   }
 
   /* White background with dotted pattern for main pages */
   .tl-page-background {
     background-color: #f9fafb;
-    background-image: radial-gradient(circle at 2px 2px, rgba(245, 130, 32, 0.08) 2px, transparent 0);
+    background-image: radial-gradient(circle at 2px 2px, rgba(245, 130, 32, 0.08) 1px, transparent 1px);
     background-size: 56px 56px;
   }
 
