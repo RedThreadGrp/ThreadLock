@@ -3,27 +3,27 @@ import Link from 'next/link';
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4">
       <Head>
         <title>Login - ThreadLock</title>
         <meta name="description" content="Login to ThreadLock - Choose your account type" />
       </Head>
 
-      <div className="max-w-4xl w-full">
+      <div className="max-w-5xl w-full">
         <div className="text-center mb-12">
           <Link href="/">
             <span className="inline-flex items-baseline font-bold text-3xl tracking-tight select-none cursor-pointer">
-              <span className="text-slate-800">Thread</span>
+              <span className="text-white">Thread</span>
               <span className="text-orange-600">Lock</span>
-              <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
+              <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-400">™</span>
             </span>
           </Link>
-          <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mt-6">Welcome Back</h1>
-          <p className="text-lg text-slate-600 mt-2">Choose your account type to continue</p>
+          <h1 className="text-3xl md:text-4xl font-bold text-white mt-6">Welcome Back</h1>
+          <p className="text-lg text-slate-300 mt-2">Choose your account type to continue</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Client Login */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Individual with Representation */}
           <a
             href="https://app.threadlock.ai/login"
             target="_blank"
@@ -36,19 +36,40 @@ export default function LoginPage() {
                 <circle cx="12" cy="7" r="4"/>
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-3">I'm a Client</h2>
-            <p className="text-slate-600 mb-6">
-              Log in to your case, manage your timeline, and add evidence.
-            </p>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">I am an Individual</h2>
             <div className="flex items-center text-orange-600 font-semibold group-hover:translate-x-2 transition-transform">
-              Continue to Client Login
+              Continue to Login
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                 <path d="m9 18 6-6-6-6"/>
               </svg>
             </div>
           </a>
 
-          {/* Professional Login */}
+          {/* Pro Se / Self-Represented */}
+          <a
+            href="https://app.threadlock.ai/login"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border-2 border-transparent hover:border-orange-500 transform hover:-translate-y-1"
+          >
+            <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="8.5" cy="7" r="4"/>
+                <path d="M20 8v6"/>
+                <path d="M23 11h-6"/>
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">I am Pro Se</h2>
+            <div className="flex items-center text-orange-600 font-semibold group-hover:translate-x-2 transition-transform">
+              Continue to Login
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </div>
+          </a>
+
+          {/* Legal Professional */}
           <a
             href="https://app.threadlock.ai/pro/login"
             target="_blank"
@@ -57,18 +78,12 @@ export default function LoginPage() {
           >
             <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 text-orange-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="8.5" cy="7" r="4"/>
-                <path d="M20 8v6"/>
-                <path d="M23 11h-6"/>
+                <path d="M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/>
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-3">I'm a Professional</h2>
-            <p className="text-slate-600 mb-6">
-              Log in to your Professional Dashboard, manage clients, and review requests.
-            </p>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">I am a Legal Professional</h2>
             <div className="flex items-center text-orange-600 font-semibold group-hover:translate-x-2 transition-transform">
-              Continue to Pro Login
+              Continue to Login
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                 <path d="m9 18 6-6-6-6"/>
               </svg>
@@ -77,9 +92,9 @@ export default function LoginPage() {
         </div>
 
         <div className="text-center mt-8">
-          <p className="text-slate-600">
+          <p className="text-slate-300">
             Don't have an account?{' '}
-            <Link href="/signup" className="text-orange-600 font-semibold hover:text-orange-700">
+            <Link href="/signup" className="text-orange-400 font-semibold hover:text-orange-300">
               Sign up here
             </Link>
           </p>

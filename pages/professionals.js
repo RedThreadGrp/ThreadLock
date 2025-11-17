@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import TestimonialsCarousel from '../components/TestimonialsCarousel';
 
 export default function ProfessionalsPage() {
   return (
@@ -236,6 +237,9 @@ export default function ProfessionalsPage() {
             </div>
           </div>
         </section>
+
+        {/* Testimonials Carousel */}
+        <TestimonialsCarousel />
 
         {/* Final CTA */}
         <section className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
