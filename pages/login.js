@@ -30,7 +30,6 @@ export default function LoginPage() {
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-gradient-to-br from-blue-900/40 via-purple-900/40 to-blue-900/40 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-white/10 hover:shadow-[0_0_20px_rgba(245,130,32,0.3)] transform hover:-translate-y-1 flex flex-col"
-            style={{ '--hover-border-color': 'var(--tl-brand-orange)' }}
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 bg-blue-500/20 text-blue-300 rounded-xl flex items-center justify-center flex-shrink-0">
