@@ -54,7 +54,7 @@ export default function LoginPage() {
                 <span>I do not have or want an attorney.</span>
               </li>
             </ul>
-            <div className="flex items-center justify-center text-white font-semibold py-3 px-6 rounded-lg transition-all" style={{ backgroundColor: 'var(--tl-brand-orange)' }}>
+            <div className="flex items-center justify-center text-white font-semibold py-3 px-6 rounded-lg transition-all hover:brightness-90" style={{ backgroundColor: 'var(--tl-brand-orange)' }}>
               Continue to Personal Portal
             </div>
           </a>
