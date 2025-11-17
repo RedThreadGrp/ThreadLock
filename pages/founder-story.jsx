@@ -37,7 +37,7 @@ export default function FounderStoryPage() {
           </p>
         </div>
 
-        {/* STEP 2 — compact card with its own background image */}
+        {/* STEP 2 - compact card with its own background image */}
         <div 
           className="max-w-3xl mx-auto mb-14 relative rounded-2xl overflow-hidden shadow-lg border border-white/15"
           style={{
@@ -65,7 +65,7 @@ export default function FounderStoryPage() {
           </p>
         </div>
 
-        {/* QUOTE BAND — image left, centered quote, right-aligned paragraph on cream plate */}
+        {/* QUOTE BAND - image left, centered quote, right-aligned paragraph on cream plate */}
         <div className="grid md:grid-cols-2 gap-6 items-center max-w-5xl mx-auto mb-14">
           <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
             <Image src={QUOTE_IMG} alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />

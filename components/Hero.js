@@ -12,7 +12,7 @@ export default function Hero() {
           </h1>
           <p className="mb-8 leading-relaxed">
             Navigating custody and court deadlines is overwhelming when everything that matters is on the line.
-            ThreadLock helps parents and professionals collect, secure, and organize every crucial detail—
+            ThreadLock helps parents and professionals collect, secure, and organize every crucial detail -
             giving you confidence in mediation and court.
           </p>
           <div className="flex justify-center">

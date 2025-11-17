@@ -57,7 +57,7 @@ export default function SarahsStoryPage() {
               Sarah walked into court terrified but walked out free. She won custody of her kids, left the abuse behind, and started her new life. ThreadLock provided the tools she needed to find her voice.
             </p>
             <div className="bg-black/45 border-l-4 border-orange-600 p-4 rounded italic">
-              "ThreadLock didn't just give me tools. It gave me confidence. I could finally stand up for myself—and be heard."
+              "ThreadLock didn't just give me tools. It gave me confidence. I could finally stand up for myself - and be heard."
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@ export default function SarahsStoryPage() {
             </div>
             <div className="bg-white/5 backdrop-blur border border-white/15 p-6 rounded-xl text-center">
               <h4 className="text-orange-600 text-xl font-bold mb-2">Understand the Law</h4>
-              <p className="text-slate-200">Plain-language explanations and smart prompts—no legal degree required.</p>
+              <p className="text-slate-200">Plain-language explanations and smart prompts - no legal degree required.</p>
             </div>
             <div className="bg-white/5 backdrop-blur border border-white/15 p-6 rounded-xl text-center">
               <h4 className="text-orange-600 text-xl font-bold mb-2">Show the Truth</h4>

@@ -46,7 +46,7 @@ export default function BlogSEO({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:image:alt" content={`${title} — ${siteName}`} />
+      <meta property="og:image:alt" content={`${title} - ${siteName}`} />
       <meta property="article:author" content={authorName} />
       <meta property="article:published_time" content={publishedTime} />
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}

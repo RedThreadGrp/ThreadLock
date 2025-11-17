@@ -92,7 +92,7 @@ export default function CTA() {
           </h1>
           <p className="leading-relaxed mt-4">
             Everything that matters is on the line. ThreadLock gives parents and professionals 
-            a secure, organized way to document incidents, communications, and timelines— 
+            a secure, organized way to document incidents, communications, and timelines - 
             so you can walk into mediation or court prepared and protected.
           </p>
         </div>

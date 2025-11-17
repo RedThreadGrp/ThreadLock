@@ -200,7 +200,7 @@ const HeroSection = () => (
         </span>
       </h1>
       <p className="mt-8 text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-        Your secure, all-in-one platform to organize evidence, journal events, and manage your case—whether you&apos;re representing yourself or working with a professional.
+        Your secure, all-in-one platform to organize evidence, journal events, and manage your case - whether you&apos;re representing yourself or working with a professional.
       </p>
       <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <Link
@@ -456,7 +456,7 @@ const FeaturesSection = () => (
         Access our library of jurisdictional legal forms. Our smart editor helps you populate them with your saved case information, saving you from repetitive data entry.
       </FeatureCard>
       <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Prepare & Share">
-        Create drafts, organize your timeline, and securely share your case. You control who sees your information—grant access to an attorney for a final review, share documents with a co-parent, or keep it all for your own records.
+        Create drafts, organize your timeline, and securely share your case. You control who sees your information - grant access to an attorney for a final review, share documents with a co-parent, or keep it all for your own records.
       </FeatureCard>
     </div>
   </section>
@@ -561,7 +561,7 @@ const WhoItsForSection = () => (
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
           <h3 className="text-2xl font-bold text-slate-800 mb-4">Save time and money with professionals.</h3>
           <p className="text-slate-600 leading-relaxed">
-            If you choose to get legal help—for a 30-minute consultation or a full review—you&apos;ll be ready. Hand them a perfectly organized file, saving you hours in legal fees and getting you to the right answers, faster.
+            If you choose to get legal help - for a 30-minute consultation or a full review - you&apos;ll be ready. Hand them a perfectly organized file, saving you hours in legal fees and getting you to the right answers, faster.
           </p>
         </div>
       </div>
@@ -583,7 +583,7 @@ const FAQSection = () => (
         <div className="bg-gray-50 p-8 rounded-2xl border border-slate-200">
           <h3 className="text-xl font-bold text-slate-800 mb-4">Will ThreadLock guarantee I win my case?</h3>
           <p className="text-slate-700 leading-relaxed">
-            No. We can&apos;t guarantee any specific outcome—your case is unique. Our mission is to help you get organized and feel a sense of control and preparedness for your next step. A well-organized record is invaluable, whether you are representing yourself or working with a professional.
+            No. We can&apos;t guarantee any specific outcome - your case is unique. Our mission is to help you get organized and feel a sense of control and preparedness for your next step. A well-organized record is invaluable, whether you are representing yourself or working with a professional.
           </p>
         </div>
       </div>

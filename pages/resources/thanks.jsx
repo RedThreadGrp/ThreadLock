@@ -56,7 +56,7 @@ export default function Thanks() {
             </h2>
             <p className="mb-4">
               That toolkit is a great start, but managing it all is the hard part. ThreadLock.ai was built to do that
-              work for you—securely, simply, and ready for court.
+              work for you - securely, simply, and ready for court.
             </p>
             <a
               href={`/trial?email=${encodeURIComponent(email)}`}
