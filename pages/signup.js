@@ -76,7 +76,7 @@ export default function SignupPage() {
               <h2 className="text-2xl md:text-3xl font-bold text-white">I am a legal professional</h2>
             </div>
             <p className="text-slate-300 mb-8 flex-grow">For attorneys & paralegals.</p>
-            <div className="flex items-center justify-center text-white font-semibold py-3 px-6 rounded-lg transition-all" style={{ backgroundColor: 'var(--tl-brand-orange)' }}>
+            <div className="flex items-center justify-center text-white font-semibold py-3 px-6 rounded-lg transition-all group-hover:brightness-90" style={{ backgroundColor: 'var(--tl-brand-orange)' }}>
               Continue to Professional Portal
             </div>
           </a>
