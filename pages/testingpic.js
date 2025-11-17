@@ -140,7 +140,7 @@ const FeaturesSection = () => (
                 Never miss a crucial detail. Our AI guides you to capture the specific, legally-relevant facts for your case.
             </FeatureCard>
             <FeatureCard icon={<ShieldCheckIcon className="w-8 h-8" />} title="Immutable & Secure">
-                Entries are anchored for integrity—creating a record that stands up to scrutiny.
+                Entries are anchored for integrity - creating a record that stands up to scrutiny.
             </FeatureCard>
             <FeatureCard icon={<FileTextIcon className="w-8 h-8" />} title="Court-Ready Exports">
                 Export clean timelines and summaries that a judge can actually read.
@@ -161,7 +161,7 @@ const OurMissionSection = ({ bgImage }) => (
             <blockquote className="border-l-4 border-orange-500 pl-6 md:pl-8 text-left text-lg md:text-xl italic text-slate-200 leading-relaxed">
                 "I could have been angry, but I saw something else: a good person constrained by a bad system. The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative. We built that alternative."
             </blockquote>
-            <p className="mt-6 text-slate-300">— A Judge, speaking to our founder</p>
+            <p className="mt-6 text-slate-300">- A Judge, speaking to our founder</p>
         </div>
     </section>
 );

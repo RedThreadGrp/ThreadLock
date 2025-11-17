@@ -1,7 +1,7 @@
 // /pages/thank-you.js
 import { useEffect, useState } from "react";
 
-/* Simple text wordmark — no assets required */
+/* Simple text wordmark - no assets required */
 function BrandWordmark({ size = "lg", className = "" }) {
   const sizes = { sm: "text-xl", md: "text-2xl", lg: "text-3xl", xl: "text-5xl" };
   return (
