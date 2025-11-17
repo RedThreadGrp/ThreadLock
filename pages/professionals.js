@@ -5,7 +5,7 @@ import TestimonialsCarousel from '../components/TestimonialsCarousel';
 
 export default function ProfessionalsPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen tl-page-background">
       <Head>
         <title>For Professionals - ThreadLock</title>
         <meta name="description" content="Join the ThreadLock Pro Pool. Get pre-paid review requests from users in your state." />

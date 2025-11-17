@@ -207,7 +207,7 @@ const HeroSection = () => (
           href="/signup"
           className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
         >
-          Start Your Free Trial
+          Get Started
         </Link>
         <Link
           href="/login"
