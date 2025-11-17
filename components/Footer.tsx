@@ -16,7 +16,7 @@ function SocialLink({ href, label, children }: React.PropsWithChildren<{href:str
 
 export default function Footer() {
   return (
-    <footer className="mt-16">
+    <footer>
       {/* Disclaimer Section */}
       <section className="bg-slate-100 border-t border-slate-200">
         <div className="mx-auto max-w-6xl px-4 py-8">

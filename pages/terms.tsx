@@ -56,10 +56,10 @@ export default function TermsOfService() {
         ThreadLock offers subscription-based access to the Service. By subscribing, you agree to pay the applicable fees.
       </p>
       <p className="mb-4">
-        <strong>Monthly Subscriptions:</strong> Billed monthly at $15/month. You may cancel at any time.
+        <strong>Monthly Subscriptions:</strong> Billed monthly at $29/month. You may cancel at any time.
       </p>
       <p className="mb-4">
-        <strong>Annual Subscriptions:</strong> Billed annually at $150/year (equivalent to 10 months, 2 months free).
+        <strong>Annual Subscriptions:</strong> Billed annually at $290/year (equivalent to 10 months, 2 months free).
       </p>
       <p className="mb-4">
         <strong>Refunds:</strong> We offer a 30-day money-back guarantee for new subscriptions. After 30 days, 
