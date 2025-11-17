@@ -36,7 +36,7 @@ export default function Footer() {
         <div className="mx-auto max-w-6xl px-4 py-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           {/* Left: © + Compact nav */}
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6">
-            <span className="text-sm/6 opacity-90">© {new Date().getFullYear()} ThreadLock.ai</span>
+            <span className="text-sm/6 opacity-90">© {new Date().getFullYear()} ThreadLock</span>
             <nav className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm/6">
               <Link href="/terms" className="hover:text-white">Terms</Link>
               <Link href="/privacy" className="hover:text-white">Privacy</Link>

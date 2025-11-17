@@ -22,7 +22,7 @@ export default function PricingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen tl-page-background">
       <Head>
         <title>Pricing - ThreadLock</title>
         <meta name="description" content="ThreadLock pricing plans for individuals, professionals, and businesses" />

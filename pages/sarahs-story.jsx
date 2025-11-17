@@ -36,7 +36,7 @@ export default function SarahsStoryPage() {
           <span className="inline-block bg-yellow-100 text-yellow-700 font-bold text-sm px-3 py-1 rounded-full mb-4">STEP 2</span>
           <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">The Turning Point</h3>
           <p className="text-lg text-slate-600 leading-relaxed">
-            Sarah was told to "collect evidence" and "be prepared," but had no idea where to start. Then she found ThreadLock.ai and began turning scattered information into a clear, organized case.
+            Sarah was told to "collect evidence" and "be prepared," but had no idea where to start. Then she found ThreadLock and began turning scattered information into a clear, organized case.
           </p>
         </div>
 

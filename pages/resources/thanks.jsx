@@ -31,7 +31,7 @@ export default function Thanks() {
         <meta name="robots" content="noindex,follow" />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen tl-page-background">
         <header className="sticky top-0 left-0 w-full z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
           <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
             <Link href="/" className="inline-flex items-baseline font-bold text-2xl tracking-tight select-none">
@@ -55,14 +55,14 @@ export default function Thanks() {
               Want to put that checklist on autopilot?
             </h2>
             <p className="mb-4">
-              That toolkit is a great start, but managing it all is the hard part. ThreadLock.ai was built to do that
+              That toolkit is a great start, but managing it all is the hard part. ThreadLock was built to do that
               work for you - securely, simply, and ready for court.
             </p>
             <a
-              href={`/trial?email=${encodeURIComponent(email)}`}
+              href="/signup"
               className="inline-block rounded-xl px-5 py-3 font-semibold bg-orange-600 text-white hover:bg-orange-700 transition-all"
             >
-              Start My 10-Day Trial
+              Get Started
             </a>
           </div>
         </main>
