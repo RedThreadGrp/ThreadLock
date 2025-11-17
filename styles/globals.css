@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --tl-brand-navy: #1e293b;    /* app login background base */
+    --tl-brand-orange: #f58220;  /* app login button orange – use this everywhere */
+  }
+}
+
+@layer utilities {
+  /* Full-height dotted navy background similar to app login screen */
+  .tl-auth-background {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--tl-brand-navy);
+    background-image: radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.18) 1px, transparent 0);
+    background-size: 28px 28px;
+  }
+
+  .tl-auth-card {
+    max-width: 1024px;
+    width: 100%;
+    padding: 1rem;
+  }
+}

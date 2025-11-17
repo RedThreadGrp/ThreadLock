@@ -1,20 +1,21 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { AuthShell } from '../components/AuthShell';
 
 export default function SignupPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center px-4">
+    <AuthShell>
       <Head>
         <title>Sign Up - ThreadLock</title>
         <meta name="description" content="Sign up for ThreadLock - Choose your account type" />
       </Head>
 
-      <div className="max-w-4xl w-full">
+      <div className="max-w-4xl w-full mx-auto">
         <div className="text-center mb-12">
           <Link href="/">
             <span className="inline-flex items-baseline font-bold text-3xl tracking-tight select-none cursor-pointer">
               <span className="text-white">Thread</span>
-              <span className="text-orange-600">Lock</span>
+              <span style={{ color: 'var(--tl-brand-orange)' }}>Lock</span>
               <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-300">™</span>
             </span>
           </Link>
@@ -28,7 +29,8 @@ export default function SignupPage() {
             href="https://app.threadlock.ai/signup"
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-gradient-to-br from-blue-900/40 via-purple-900/40 to-blue-900/40 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-white/10 hover:border-orange-500/50 transform hover:-translate-y-1 flex flex-col"
+            className="group bg-gradient-to-br from-blue-900/40 via-purple-900/40 to-blue-900/40 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-white/10 hover:shadow-[0_0_20px_rgba(245,130,32,0.3)] transform hover:-translate-y-1 flex flex-col"
+            style={{ '--hover-border-color': 'var(--tl-brand-orange)' }}
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 bg-blue-500/20 text-blue-300 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -53,7 +55,7 @@ export default function SignupPage() {
                 <span>I do not have or want an attorney.</span>
               </li>
             </ul>
-            <div className="flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">
+            <div className="flex items-center justify-center text-white font-semibold py-3 px-6 rounded-lg transition-all" style={{ backgroundColor: 'var(--tl-brand-orange)' }}>
               Continue to Personal Portal
             </div>
           </a>
@@ -63,10 +65,10 @@ export default function SignupPage() {
             href="https://app.threadlock.ai/pro/register"
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-slate-700/40 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-white/10 hover:border-orange-500/50 transform hover:-translate-y-1 flex flex-col"
+            className="group bg-slate-700/40 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-white/10 hover:shadow-[0_0_20px_rgba(245,130,32,0.3)] transform hover:-translate-y-1 flex flex-col"
           >
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 bg-orange-500/20 text-orange-300 rounded-xl flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(245, 130, 32, 0.2)', color: 'rgba(245, 130, 32, 0.9)' }}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/>
                 </svg>
@@ -74,7 +76,7 @@ export default function SignupPage() {
               <h2 className="text-2xl md:text-3xl font-bold text-white">I am a legal professional</h2>
             </div>
             <p className="text-slate-300 mb-8 flex-grow">For attorneys & paralegals.</p>
-            <div className="flex items-center justify-center bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg transition-all">
+            <div className="flex items-center justify-center text-white font-semibold py-3 px-6 rounded-lg transition-all" style={{ backgroundColor: 'var(--tl-brand-orange)' }}>
               Continue to Professional Portal
             </div>
           </a>
@@ -83,12 +85,12 @@ export default function SignupPage() {
         <div className="text-center mt-8">
           <p className="text-slate-300">
             Already have an account?{' '}
-            <Link href="/login" className="text-orange-400 font-semibold hover:text-orange-300">
+            <Link href="/login" className="font-semibold" style={{ color: 'var(--tl-brand-orange)' }}>
               Log in here
             </Link>
           </p>
         </div>
       </div>
-    </div>
+    </AuthShell>
   );
 }
