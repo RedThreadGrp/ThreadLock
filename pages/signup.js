@@ -18,8 +18,8 @@ export default function SignupPage() {
               <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-300">™</span>
             </span>
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mt-8">Welcome</h1>
-          <p className="text-lg text-slate-300 mt-3">Choose your secure entry point.</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mt-8">Get Started</h1>
+          <p className="text-lg text-slate-300 mt-3">Create your account and start organizing today.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
