@@ -85,7 +85,7 @@ export default function LoginPage() {
         <div className="text-center mt-8">
           <p className="text-slate-300">
             Don't have an account?{' '}
-            <Link href="/signup" className="font-semibold" style={{ color: 'var(--tl-brand-orange)' }}>
+            <Link href="/signup" className="font-semibold text-brand-orange">
               Sign up here
             </Link>
           </p>
