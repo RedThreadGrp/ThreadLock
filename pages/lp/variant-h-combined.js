@@ -634,7 +634,7 @@ const SignupSection = () => {
         try {
             if (firebaseReady) {
                 const { subscribeLeadFn } = await import("../../src/lib/firebase");
-                await subscribeLeadFn({ email, name: '', origin: "threadlock.ai/lp/variant-a-control" });
+                await subscribeLeadFn({ email, name: '', origin: "threadlock.ai/lp/variant-h-combined" });
             } else {
                 console.warn("Firebase not ready, email not saved:", email);
             }
