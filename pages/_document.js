@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
         <Head>
           {/* Primary */}
           <meta charSet="utf-8" />
-          <link rel="canonical" href={siteUrl} />
+          {/* Canonical tag removed from global - should be set per-page */}
           <meta name="title" content={title} />
           <meta name="description" content={desc} />
           <meta name="robots" content="index, follow" />
