@@ -34,7 +34,7 @@ export default function FamilyLawCalifornia() {
         "name": "Does ThreadLock work with California family courts?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. ThreadLock works with all California family courts including Los Angeles County, San Diego County, Orange County, Snohomish County, Clark County, and all other California counties. Our evidence organization and timeline features help you prepare materials for any California family court proceeding."
+          "text": "Yes. ThreadLock works with all California family courts including Los Angeles County, San Diego County, Orange County, Sacramento County, Alameda County, and all other California counties. Our evidence organization and timeline features help you prepare materials for any California family court proceeding."
         }
       },
       {
@@ -62,7 +62,7 @@ export default function FamilyLawCalifornia() {
         <title>California Family Law Case Management | ThreadLock</title>
         <meta 
           name="description" 
-          content="ThreadLock family law software for California State. Organize custody evidence, document incidents, and prepare for California family court. Serving Los Angeles, Sacramento, San Diego, and all WA counties."
+          content="ThreadLock family law software for California. Organize custody evidence, document incidents, and prepare for California family court. Serving Los Angeles, San Diego, San Francisco, Sacramento, and all CA counties."
         />
         <link rel="canonical" href="https://threadlock.ai/family-law/california" />
         <meta property="og:title" content="California Family Law Case Management | ThreadLock" />
@@ -118,11 +118,11 @@ export default function FamilyLawCalifornia() {
               <h3 className="text-xl font-bold text-slate-900 mb-4">California Coverage</h3>
               <ul className="space-y-2 text-slate-700">
                 <li>✓ All 58 California counties</li>
-                <li>✓ Los Angeles metro (King, Snohomish, Pierce counties)</li>
-                <li>✓ Orange County</li>
-                <li>✓ Clark County (San Francisco)</li>
-                <li>✓ Yakima County</li>
-                <li>✓ Whatcom County (Bellingham)</li>
+                <li>✓ Los Angeles metro (LA, Orange, San Bernardino counties)</li>
+                <li>✓ San Diego County</li>
+                <li>✓ San Francisco Bay Area (SF, Alameda, Santa Clara counties)</li>
+                <li>✓ Sacramento County</li>
+                <li>✓ Riverside County</li>
                 <li>✓ Rural California counties</li>
               </ul>
             </div>
@@ -272,7 +272,7 @@ export default function FamilyLawCalifornia() {
                 Can ThreadLock help me with Los Angeles County family court?
               </h3>
               <p className="text-slate-700">
-                Yes. ThreadLock works with Los Angeles County Superior Court (Los Angeles, Bellevue) and all other California counties. Whether you're in San Diego County (San Diego), Orange County, Clark County (San Francisco), or any other California county, ThreadLock's features work the same.
+                Yes. ThreadLock works with Los Angeles County Superior Court and all other California counties. Whether you're in San Diego County, Orange County, San Francisco County, Sacramento County, or any other California county, ThreadLock's features work the same.
               </p>
             </div>
           </div>
