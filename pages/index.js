@@ -689,11 +689,148 @@ const SignupSection = () => {
 
 /* ---------------- Main Page ---------------- */
 export default function Home() {
+    const softwareApplicationSchema = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ThreadLock",
+        "applicationCategory": "LegalTech",
+        "description": "AI-powered family law case management software for custody disputes, child support, and family court evidence management. Helps self-represented litigants and legal professionals organize evidence, document incidents, and prepare for court.",
+        "operatingSystem": "Web",
+        "url": "https://threadlock.ai",
+        "screenshot": "https://threadlock.ai/screenshot-1-request-pool.png",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "ThreadLock Core",
+                "description": "Individual plan with evidence management, journal, timeline, and document scanning",
+                "price": "29",
+                "priceCurrency": "USD",
+                "priceValidUntil": "2026-12-31",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "29",
+                    "priceCurrency": "USD",
+                    "billingDuration": "P1M"
+                },
+                "eligibleCustomerType": "Individual"
+            },
+            {
+                "@type": "Offer",
+                "name": "ThreadLock Pro",
+                "description": "Professional plan for legal practitioners with review queue, client management, and Clio integration",
+                "price": "99",
+                "priceCurrency": "USD",
+                "priceValidUntil": "2026-12-31",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "99",
+                    "priceCurrency": "USD",
+                    "billingDuration": "P1M"
+                },
+                "eligibleCustomerType": "Business"
+            }
+        ],
+        "featureList": [
+            "Evidence management and organization",
+            "Incident journal with AI suggestions",
+            "Chronological timeline builder",
+            "Document scanning and OCR",
+            "Court-ready PDF export",
+            "Secure document storage",
+            "Exhibit preparation tools",
+            "Filings management",
+            "Message organization",
+            "Case planner",
+            "AI-assisted documentation",
+            "Professional review integration",
+            "Collaborative attorney access"
+        ],
+        "areaServed": {
+            "@type": "Country",
+            "name": "United States"
+        },
+        "audience": [
+            {
+                "@type": "Audience",
+                "audienceType": "Self-Represented Litigants"
+            },
+            {
+                "@type": "Audience",
+                "audienceType": "Legal Professionals"
+            },
+            {
+                "@type": "Audience",
+                "audienceType": "Parents"
+            }
+        ],
+        "keywords": "family law, custody evidence, child support documentation, court exhibits, self-represented litigant, legal case management, evidence timeline, family court, custody dispute, co-parenting documentation",
+        "softwareHelp": "https://threadlock.ai/resources",
+        "installUrl": "https://app.threadlock.ai/signup"
+    };
+
+    const legalServiceSchema = {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "ThreadLock Family Law Technology",
+        "description": "Technology platform providing case management tools for family law matters including custody, support, and evidence organization. Not a law firm.",
+        "url": "https://threadlock.ai",
+        "areaServed": {
+            "@type": "Country",
+            "name": "United States"
+        },
+        "serviceType": "Legal Technology Platform",
+        "provider": {
+            "@type": "Organization",
+            "name": "ThreadLock",
+            "url": "https://threadlock.ai",
+            "logo": "https://threadlock.ai/threadlock-logo.png"
+        },
+        "termsOfService": "https://threadlock.ai/terms",
+        "privacyPolicy": "https://threadlock.ai/privacy",
+        "disclaimer": "ThreadLock is not a law firm and does not provide legal advice. Our software is a tool for organizing and managing case materials."
+    };
+
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is ThreadLock a law firm or a lawyer?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. We are a software company, not a law firm. Our platform is a powerful organizational tool to help you prepare and manage your materials. We do not provide legal advice, and we are not a substitute for speaking with an attorney if you have legal questions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will ThreadLock guarantee I win my case?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. We can't guarantee any specific outcome - your case is unique. Our mission is to help you get organized and feel a sense of control and preparedness for your next step. A well-organized record is invaluable, whether you are representing yourself or working with a professional."
+                }
+            }
+        ]
+    };
+
     return (
         <div className="bg-white">
             <Head>
                 <title>ThreadLock™ | Your case. Organized. Take control.</title>
                 <meta name="description" content="Take control of the chaos. ThreadLock is your secure, all-in-one platform to organize evidence, journal events, and manage documents for your legal matters." />
+                <link rel="canonical" href="https://threadlock.ai/" />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(legalServiceSchema) }}
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                />
             </Head>
             <Header/>
             <main className="flex flex-col w-full overflow-x-hidden">
