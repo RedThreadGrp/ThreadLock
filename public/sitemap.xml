@@ -13,9 +13,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://threadlock.ai/for-llms</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://threadlock.ai/docs/threadlock-facts</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  
+  <!-- Integration & Directory Pages -->
+  <url>
+    <loc>https://threadlock.ai/integrations/clio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://threadlock.ai/legal-tech-directory</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   
   <!-- Jurisdiction Pages -->
