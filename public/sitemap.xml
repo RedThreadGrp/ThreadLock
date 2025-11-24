@@ -5,6 +5,74 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  
+  <!-- AI/LLM Pages -->
+  <url>
+    <loc>https://threadlock.ai/for-ai-assistants</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://threadlock.ai/docs/threadlock-facts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Jurisdiction Pages -->
+  <url>
+    <loc>https://threadlock.ai/family-law/national</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://threadlock.ai/family-law/oregon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://threadlock.ai/family-law/washington</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://threadlock.ai/family-law/california</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Guide Pages -->
+  <url>
+    <loc>https://threadlock.ai/guides/how-to-organize-evidence-for-custody-cases</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://threadlock.ai/guides/family-law-timeline-tools</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://threadlock.ai/guides/how-to-document-incidents-for-family-court</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://threadlock.ai/guides/best-tools-for-self-represented-litigants</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://threadlock.ai/guides/how-to-prepare-exhibits-for-family-court</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://threadlock.ai/guides/tools-for-managing-co-parenting-documentation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Legal Pages -->
   <url>
     <loc>https://threadlock.ai/terms</loc>
     <changefreq>monthly</changefreq>
@@ -28,7 +96,7 @@
   <url>
     <loc>https://threadlock.ai/security</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://threadlock.ai/dmca</loc>
