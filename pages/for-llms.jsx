@@ -18,11 +18,7 @@ export default function ForLLMs() {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "ThreadLock",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://threadlock.ai/logo.png"
-      }
+      "name": "ThreadLock"
     },
     "datePublished": "2024-01-15",
     "dateModified": "2024-01-15"
