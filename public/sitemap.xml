@@ -42,6 +42,11 @@
   
   <!-- Guide Pages -->
   <url>
+    <loc>https://threadlock.ai/guides/digital-evidence-for-family-court</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://threadlock.ai/guides/how-to-organize-evidence-for-custody-cases</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
