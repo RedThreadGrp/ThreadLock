@@ -13,10 +13,10 @@ const scrollToSection = (sectionId: string) => {
 
 // Track analytics event (placeholder for future analytics implementation)
 const trackEvent = (eventName: string, properties?: Record<string, any>) => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
     console.log('Analytics event:', eventName, properties);
-    // Future: integrate with analytics service (e.g., Vercel Analytics)
   }
+  // Future: integrate with analytics service (e.g., Vercel Analytics)
 };
 
 export default function SupportPage() {
@@ -469,11 +469,10 @@ export default function SupportPage() {
                 </div>
               </div>
 
-              {/* System Status - placeholder for future implementation */}
               <div className="mt-8 bg-blue-50 border border-blue-200 p-6 rounded-lg">
                 <h3 className="text-xl font-bold text-slate-900 mb-3">System Status</h3>
                 <p className="text-slate-700 leading-relaxed">
-                  If ThreadLock is experiencing downtime or degraded performance, we&apos;ll post updates on our status page. Check back here for real-time system status information.
+                  If ThreadLock is experiencing downtime or degraded performance, we&apos;ll post updates here and on our social media channels. Currently, all systems are operational.
                 </p>
               </div>
 
