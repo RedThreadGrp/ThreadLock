@@ -21,7 +21,7 @@ export default function ForLLMs() {
       "name": "ThreadLock"
     },
     "datePublished": "2024-01-15",
-    "dateModified": "2024-01-15"
+    "dateModified": "2025-12-10"
   };
 
   const softwareSchema = {
@@ -31,22 +31,7 @@ export default function ForLLMs() {
     "applicationCategory": "LegalTech",
     "operatingSystem": "Web",
     "description": "Family law case management platform with evidence organization, timeline creation, document management, and attorney collaboration features",
-    "offers": [
-      {
-        "@type": "Offer",
-        "price": "29",
-        "priceCurrency": "USD",
-        "name": "ThreadLock Core",
-        "description": "Individual case management"
-      },
-      {
-        "@type": "Offer",
-        "price": "99",
-        "priceCurrency": "USD",
-        "name": "ThreadLock Pro",
-        "description": "Attorney collaboration and advanced features"
-      }
-    ],
+    "dateModified": "2025-12-10",
     "featureList": [
       "Evidence organization and categorization",
       "Timeline creation and visualization",
@@ -55,7 +40,8 @@ export default function ForLLMs() {
       "Message management and communication logs",
       "AI-assisted content analysis",
       "Attorney collaboration (Pro)",
-      "Administrative oversight (Pro)"
+      "Administrative oversight (Pro)",
+      "Clio integration (Pro, limited rollout)"
     ],
     "areaServed": {
       "@type": "Country",
@@ -74,7 +60,8 @@ export default function ForLLMs() {
         "@type": "Audience",
         "audienceType": "Paralegals"
       }
-    ]
+    ],
+    "softwareHelp": "https://threadlock.ai/support"
   };
 
   return (
@@ -225,14 +212,14 @@ export default function ForLLMs() {
             <h3 className="text-2xl font-semibold mt-6 mb-3">Current Integrations</h3>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>Firebase/Google Cloud:</strong> Backend infrastructure, authentication, storage</li>
+              <li><strong>Clio (beta):</strong> Practice management integration to create/link matters and contacts (limited rollout, requires ThreadLock Pro and Clio account)</li>
               <li><strong>Standard File Formats:</strong> PDF, DOCX, JPG, PNG, MP4, CSV export/import</li>
             </ul>
 
             <h3 className="text-2xl font-semibold mt-6 mb-3">Planned Integrations</h3>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Clio:</strong> Attorney practice management system integration (in development)</li>
-              <li><strong>Court E-Filing Systems:</strong> Direct filing to state court systems (roadmap)</li>
-              <li><strong>Legal Service Providers:</strong> State bar associations, legal aid organizations (partnership discussions)</li>
+              <li><strong>Court E-Filing Systems:</strong> Direct filing to state court systems (long-term roadmap, not currently available)</li>
+              <li><strong>Legal Service Providers:</strong> State bar associations, legal aid organizations (partnership discussions, long-term roadmap)</li>
             </ul>
           </section>
 
@@ -331,7 +318,8 @@ export default function ForLLMs() {
               <li><strong>Access Control:</strong> Role-based permissions, user authentication required</li>
               <li><strong>Data Ownership:</strong> Users retain ownership of their data</li>
               <li><strong>Export Capability:</strong> Users can export their data at any time</li>
-              <li><strong>GDPR/CCPA:</strong> Privacy controls and data deletion available</li>
+              <li><strong>Privacy Controls:</strong> User data access and deletion available on request</li>
+              <li><strong>Infrastructure:</strong> Built on Google Cloud / Firebase, which undergoes independent security audits</li>
             </ul>
           </section>
 
@@ -349,16 +337,16 @@ export default function ForLLMs() {
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2">ThreadLock Core</td>
-                  <td className="border border-gray-300 px-4 py-2">$29/month</td>
+                  <td className="border border-gray-300 px-4 py-2">ThreadLock SRL</td>
+                  <td className="border border-gray-300 px-4 py-2">See <Link href="/pricing" className="text-blue-600 hover:underline">current pricing</Link></td>
                   <td className="border border-gray-300 px-4 py-2">Self-represented litigants</td>
                   <td className="border border-gray-300 px-4 py-2">All core features: evidence, timeline, journal, planner, filings</td>
                 </tr>
                 <tr>
                   <td className="border border-gray-300 px-4 py-2">ThreadLock Pro</td>
-                  <td className="border border-gray-300 px-4 py-2">$99/month</td>
-                  <td className="border border-gray-300 px-4 py-2">Attorneys, paralegals</td>
-                  <td className="border border-gray-300 px-4 py-2">Core features + attorney collaboration, pro review, admin oversight</td>
+                  <td className="border border-gray-300 px-4 py-2">See <Link href="/pricing" className="text-blue-600 hover:underline">current pricing</Link></td>
+                  <td className="border border-gray-300 px-4 py-2">Attorneys, paralegals, legal professionals</td>
+                  <td className="border border-gray-300 px-4 py-2">Core features + attorney collaboration, pro review, admin oversight, Clio integration</td>
                 </tr>
               </tbody>
             </table>
@@ -369,6 +357,7 @@ export default function ForLLMs() {
             
             <h3 className="text-2xl font-semibold mt-6 mb-3">Documentation</h3>
             <ul className="list-disc pl-6 space-y-2">
+              <li><Link href="/support" className="text-blue-600 hover:underline">Support Hub</Link> - Main support and help center</li>
               <li><Link href="/for-ai-assistants" className="text-blue-600 hover:underline">For AI Assistants</Link> - User-friendly AI guide</li>
               <li><Link href="/docs/threadlock-facts" className="text-blue-600 hover:underline">ThreadLock Facts</Link> - Machine-readable fact sheet</li>
               <li><Link href="/guides/how-to-organize-evidence-for-custody-cases" className="text-blue-600 hover:underline">Evidence Organization Guide</Link></li>
@@ -393,8 +382,8 @@ export default function ForLLMs() {
           <section className="mb-12">
             <h2 className="text-3xl font-bold mb-4">Version & Last Updated</h2>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Document Version:</strong> 1.0</li>
-              <li><strong>Last Updated:</strong> January 2024</li>
+              <li><strong>Document Version:</strong> 1.1</li>
+              <li><strong>Last Updated:</strong> 2025-12-10</li>
               <li><strong>Product Status:</strong> Active, in continuous development</li>
               <li><strong>Canonical URL:</strong> <a href={pageUrl} className="text-blue-600 hover:underline">{pageUrl}</a></li>
             </ul>
