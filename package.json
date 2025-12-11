@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prebuild": "node scripts/check-next-env.mjs",
+    "generate-sitemap": "node scripts/generate-sitemap.mjs",
     "e2e": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npx cypress run --browser chrome --headless",
     "e2e:spec": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npx cypress run --spec \"cypress/e2e/layout_consistency.cy.ts\" --browser chrome --headless"
   },

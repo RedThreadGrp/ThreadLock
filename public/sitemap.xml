@@ -1,143 +1,231 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://threadlock.ai/</loc>
+    <loc>https://www.threadlock.ai</loc>
+    <lastmod>2025-12-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- AI/LLM Pages -->
   <url>
-    <loc>https://threadlock.ai/for-ai-assistants</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/for-llms</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/docs/threadlock-facts</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Integration & Directory Pages -->
-  <url>
-    <loc>https://threadlock.ai/integrations/clio</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/legal-tech-directory</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- Jurisdiction Pages -->
-  <url>
-    <loc>https://threadlock.ai/family-law/national</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/family-law/oregon</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/family-law/washington</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/family-law/california</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Guide Pages -->
-  <url>
-    <loc>https://threadlock.ai/guides/digital-evidence-for-family-court</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/guides/how-to-organize-evidence-for-custody-cases</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/guides/family-law-timeline-tools</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/guides/how-to-document-incidents-for-family-court</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/guides/best-tools-for-self-represented-litigants</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/guides/how-to-prepare-exhibits-for-family-court</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/guides/tools-for-managing-co-parenting-documentation</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Legal Pages -->
-  <url>
-    <loc>https://threadlock.ai/terms</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/privacy</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/cookies</loc>
+    <loc>https://www.threadlock.ai/accessibility</loc>
+    <lastmod>2025-12-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://threadlock.ai/disclaimer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/security</loc>
+    <loc>https://www.threadlock.ai/contact</loc>
+    <lastmod>2025-12-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://threadlock.ai/dmca</loc>
+    <loc>https://www.threadlock.ai/cookies</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/disclaimer</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/dmca</loc>
+    <lastmod>2025-12-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://threadlock.ai/accessibility</loc>
+    <loc>https://www.threadlock.ai/docs/threadlock-facts</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/dpa</loc>
+    <lastmod>2025-12-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://threadlock.ai/contact</loc>
+    <loc>https://www.threadlock.ai/family-law/california</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/family-law/national</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/family-law/oregon</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/family-law/washington</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/for-ai-assistants</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/for-llms</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/founder-story</loc>
+    <lastmod>2025-12-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://threadlock.ai/dpa</loc>
+    <loc>https://www.threadlock.ai/guides/best-tools-for-self-represented-litigants</loc>
+    <lastmod>2025-12-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/guides/digital-evidence-for-family-court</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/guides/family-law-timeline-tools</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/guides/how-to-document-incidents-for-family-court</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/guides/how-to-organize-evidence-for-custody-cases</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/guides/how-to-prepare-exhibits-for-family-court</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/guides/tools-for-managing-co-parenting-documentation</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/integrations/clio</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/investors</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/legal</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/legal-tech-directory</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/pricing</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/privacy</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/professionals</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/resources</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/resources/thanks</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/sarahs-story</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/security</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/support</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/terms</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/trial</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/whitepaper</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.threadlock.ai/whitepaper-b2b</loc>
+    <lastmod>2025-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
