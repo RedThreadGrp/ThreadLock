@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://threadlock.ai/sitemap.xml
+Sitemap: https://www.threadlock.ai/sitemap.xml
