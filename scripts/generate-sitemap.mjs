@@ -92,6 +92,7 @@ const ROUTE_CONFIG = {
 
 /**
  * Recursively get all page files from the pages directory
+ * Returns an array of objects with filePath and mtime (modification time)
  */
 function getPageFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir);
@@ -103,7 +104,10 @@ function getPageFiles(dir, fileList = []) {
     if (stat.isDirectory()) {
       getPageFiles(filePath, fileList);
     } else if (/\.(tsx|ts|jsx|js)$/.test(file)) {
-      fileList.push(filePath);
+      fileList.push({
+        path: filePath,
+        mtime: stat.mtime
+      });
     }
   });
   
@@ -113,8 +117,8 @@ function getPageFiles(dir, fileList = []) {
 /**
  * Convert file path to URL route
  */
-function filePathToRoute(filePath, pagesDir) {
-  let route = filePath
+function filePathToRoute(fileObj, pagesDir) {
+  let route = fileObj.path
     .replace(pagesDir, '')
     .replace(/\\/g, '/')
     .replace(/\.(tsx|ts|jsx|js)$/, '')
@@ -126,7 +130,10 @@ function filePathToRoute(filePath, pagesDir) {
     return null;
   }
   
-  return route === '' ? '/' : `/${route}`;
+  return {
+    route: route === '' ? '/' : `/${route}`,
+    mtime: fileObj.mtime
+  };
 }
 
 /**
@@ -151,21 +158,21 @@ function generateSitemap() {
   const pagesDir = path.join(__dirname, '../pages');
   const pageFiles = getPageFiles(pagesDir);
   
-  // Convert files to routes
+  // Convert files to routes with modification times
   const routes = pageFiles
     .map(file => filePathToRoute(file, pagesDir))
-    .filter(route => route !== null && !shouldExclude(route))
-    .sort();
+    .filter(routeObj => routeObj !== null && !shouldExclude(routeObj.route))
+    .sort((a, b) => a.route.localeCompare(b.route));
   
   // Generate XML
-  const lastmod = new Date().toISOString().split('T')[0];
-  
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   
-  routes.forEach(route => {
-    const config = ROUTE_CONFIG[route] || { priority: '0.5', changefreq: 'monthly' };
-    const url = route === '/' ? SITE_URL : `${SITE_URL}${route}`;
+  routes.forEach(routeObj => {
+    const config = ROUTE_CONFIG[routeObj.route] || { priority: '0.5', changefreq: 'monthly' };
+    const url = routeObj.route === '/' ? SITE_URL : `${SITE_URL}${routeObj.route}`;
+    // Use file modification time for lastmod to reflect actual content changes
+    const lastmod = routeObj.mtime.toISOString().split('T')[0];
     
     xml += '  <url>\n';
     xml += `    <loc>${url}</loc>\n`;
