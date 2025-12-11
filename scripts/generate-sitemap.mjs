@@ -174,6 +174,11 @@ function generateSitemap() {
     // Use file modification time for lastmod to reflect actual content changes
     const lastmod = routeObj.mtime.toISOString().split('T')[0];
     
+    // Log when using default config to help identify missing configurations
+    if (!ROUTE_CONFIG[routeObj.route]) {
+      console.log(`  Using default config for: ${routeObj.route}`);
+    }
+    
     xml += '  <url>\n';
     xml += `    <loc>${url}</loc>\n`;
     xml += `    <lastmod>${lastmod}</lastmod>\n`;
