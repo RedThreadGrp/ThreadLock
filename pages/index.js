@@ -123,7 +123,8 @@ function BrandWordmark({ className = "", darkText = true }) {
     );
 }
 
-/* ---------------- Header: MODIFIED ---------------- */
+/* ---------------- Header---------------- */
+<meta name="google-site-verification" content="2mBSTxyxxxBpxwt7jRlMLYJnnrpnE_b2FPkXzW7oXYU" />
 const Header = () => {
     const [open, setOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
