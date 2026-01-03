@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import FloatingRiskReviewCTA from "../components/FloatingRiskReviewCTA";
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -153,6 +154,13 @@ const Header = () => {
                     <Link href="/resources" className="hover:text-orange-600 transition-colors">Resources</Link>
                     <Link href="/professionals" className="hover:text-orange-600 transition-colors">For Pros</Link>
                     <Link href="/pricing" className="hover:text-orange-600 transition-colors">Pricing</Link>
+                    <a 
+                        href="https://app.threadlock.ai/readiness" 
+                        className="hover:text-orange-600 transition-colors text-sm"
+                        title="Pause to review risk and expectations"
+                    >
+                        Before you act
+                    </a>
                     <Link href="/login" className="hover:text-orange-600 transition-colors">Login</Link>
                     <Link href="/signup" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
                         Sign Up
@@ -174,6 +182,7 @@ const Header = () => {
                     <Link href="/resources" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Resources</Link>
                     <Link href="/professionals" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">For Pros</Link>
                     <Link href="/pricing" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Pricing</Link>
+                    <a href="https://app.threadlock.ai/readiness" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600 text-sm">Before you act</a>
                     <Link href="/login" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Login</Link>
                     <Link href="/signup" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
                         Sign Up
@@ -194,46 +203,28 @@ const HeroSection = () => (
     <div className="absolute inset-0 bg-black/60"></div>
     <div className="relative container mx-auto px-6 py-24 text-center w-full">
       <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-        Pause Before You Act in Family Court
+        <span className="block">Your case.</span>
+        <span className="block mt-2 text-orange-400">Organized.</span>
+        <span className="block mt-4">
+          Take control.
+        </span>
       </h1>
       <p className="mt-8 text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-        A structured way to assess risk, uncertainty, and your own tolerance before taking action.
+        Your secure, all-in-one platform to organize evidence, journal events, and manage your case - whether you&apos;re representing yourself or working with a professional.
       </p>
-      <div className="mt-12 flex justify-center">
-        <a
-          href="https://app.threadlock.ai/readiness"
+      <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+        <Link
+          href="/signup"
           className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
         >
-          Begin a Risk Review
-        </a>
-      </div>
-    </div>
-  </section>
-);
-
-const WhatThisReviewDoesSection = () => (
-  <section className="py-20 md:py-28 bg-white">
-    <div className="container mx-auto px-6 max-w-4xl">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 text-slate-900 text-center">What This Review Does</h2>
-      <ul className="space-y-6 text-lg text-slate-700">
-        <li className="flex items-start">
-          <span className="text-orange-600 font-bold mr-3">•</span>
-          <span>Surfaces procedural risk before you act</span>
-        </li>
-        <li className="flex items-start">
-          <span className="text-orange-600 font-bold mr-3">•</span>
-          <span>Acknowledges uncertainty and inconsistency in family court outcomes</span>
-        </li>
-        <li className="flex items-start">
-          <span className="text-orange-600 font-bold mr-3">•</span>
-          <span>Helps you decide what risk you are prepared to tolerate</span>
-        </li>
-      </ul>
-      <div className="mt-12 text-lg text-slate-700 leading-relaxed">
-        <p>
-          This review does not provide legal advice, recommend filings, or predict outcomes.
-          Its purpose is to support deliberate decision-making, not to tell you what to do.
-        </p>
+          Get Started
+        </Link>
+        <Link
+          href="/login"
+          className="bg-slate-700 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-slate-800 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
+        >
+          Login
+        </Link>
       </div>
     </div>
   </section>
@@ -247,9 +238,9 @@ const ValuePropositionSection = () => (
           <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
             <FolderIcon className="w-8 h-8" />
           </div>
-          <h3 className="text-2xl font-bold text-slate-800 mb-4">Your Evidence Hub</h3>
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">Your All-in-One Hub</h3>
           <p className="text-slate-600 leading-relaxed">
-            Stop the chaos of messy folders and lost notes. Securely upload documents, add journal entries, and track events while things are unfolding.
+            Stop the chaos of messy folders and lost notes. Securely upload documents, add journal entries, and track events in one place.
           </p>
         </div>
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
@@ -347,7 +338,7 @@ const SubscriptionBanner = () => (
             rel="noopener noreferrer"
             className="mt-8 block text-center bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
           >
-            Learn More
+            Get Started
           </a>
         </div>
 
@@ -408,7 +399,7 @@ const SubscriptionBanner = () => (
             rel="noopener noreferrer"
             className="mt-8 block text-center bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
           >
-            Learn More as Pro
+            Get Started as Pro
           </a>
         </div>
 
@@ -485,16 +476,16 @@ const ProductShowcaseSection = () => {
     const slides = [
         { 
             title: "Stop the Chaos. Start Here.", 
-            description: "Stop digging through emails, notebooks, and messy folders. Your Case Hub gives you a clean, simple view of all your matters. See your timeline, your evidence, and your tasks while things are unfolding.", 
+            description: "Stop digging through emails, notebooks, and messy folders. Your Case Hub gives you a clean, simple view of all your matters. See your timeline, your evidence, and your tasks, all in one place.", 
             mockup: <JournalUIMockup /> 
         },
         { 
-            title: "Your Evidence Locker", 
+            title: "Your All-in-One Evidence Locker", 
             description: "A conversation happens. A receipt is printed. An email is sent. Now you have one place to log it all, right when it happens. Add journal entries, upload documents, or scan files, all tagged to your case timeline.", 
             mockup: <TimelineUIMockup /> 
         },
         { 
-            title: "Review Your Case Forms", 
+            title: "Manage Your Case Forms", 
             description: "Don't waste time searching confusing government websites. Access a library of state-specific legal forms relevant to your case, right from your case hub.", 
             mockup: <PdfExportUIMockup /> 
         },
@@ -610,22 +601,6 @@ const FAQSection = () => (
   </section>
 );
 
-const SecondaryCTASection = () => (
-  <section className="py-20 md:py-28 bg-gray-50">
-    <div className="container mx-auto px-6 text-center max-w-3xl">
-      <p className="text-2xl md:text-3xl text-slate-900 mb-8">
-        Unsure what the court expects next?
-      </p>
-      <a
-        href="https://app.threadlock.ai/readiness"
-        className="inline-block bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-      >
-        Check Before You Act
-      </a>
-    </div>
-  </section>
-);
-
 const SignupSection = () => {
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState('idle');
@@ -721,22 +696,6 @@ const SignupSection = () => {
         </section>
     );
 };
-
-const FooterCTASection = () => (
-  <section className="py-16 md:py-20 bg-slate-800 text-white">
-    <div className="container mx-auto px-6 text-center">
-      <p className="text-xl md:text-2xl mb-6">
-        Don&apos;t guess. Pause and review risk first.
-      </p>
-      <a
-        href="https://app.threadlock.ai/readiness"
-        className="inline-block bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out"
-      >
-        Begin a Risk Review
-      </a>
-    </div>
-  </section>
-);
 
 /* ---------------- Main Page ---------------- */
 export default function Home() {
@@ -867,8 +826,8 @@ export default function Home() {
     return (
         <div className="bg-white">
             <Head>
-                <title>ThreadLock™ | Pause Before You Act in Family Court</title>
-                <meta name="description" content="A structured way to assess risk, uncertainty, and your own tolerance before taking action in family court." />
+                <title>ThreadLock™ | Your case. Organized. Take control.</title>
+                <meta name="description" content="Take control of the chaos. ThreadLock is your secure, all-in-one platform to organize evidence, journal events, and manage documents for your legal matters." />
                 <link rel="canonical" href="https://threadlock.ai/" />
                 <script
                     type="application/ld+json"
@@ -886,18 +845,16 @@ export default function Home() {
             <Header/>
             <main className="flex flex-col w-full overflow-x-hidden">
                 <HeroSection />
-                <WhatThisReviewDoesSection />
                 <ValuePropositionSection />
                 <OurMissionSection />
                 <FeaturesSection />
                 <ProductShowcaseSection />
                 <WhoItsForSection />
-                <SecondaryCTASection />
                 <SubscriptionBanner />
                 <FAQSection />
                 <SignupSection />
-                <FooterCTASection />
             </main>
+            <FloatingRiskReviewCTA />
         </div>
     );
 }
