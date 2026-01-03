@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import FloatingRiskReviewCTA from "../components/FloatingRiskReviewCTA";
+import ResourcesDropdown from "../components/ResourcesDropdown";
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -129,6 +130,7 @@ function BrandWordmark({ className = "", darkText = true }) {
 const Header = () => {
     const [open, setOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [resourcesOpen, setResourcesOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -151,16 +153,9 @@ const Header = () => {
 
                 <nav className={`hidden md:flex items-center space-x-6 font-semibold ${navTextClasses}`}>
                     <a href="#features" className="hover:text-orange-600 transition-colors">Features</a>
-                    <Link href="/resources" className="hover:text-orange-600 transition-colors">Resources</Link>
+                    <ResourcesDropdown darkText={isScrolled} />
                     <Link href="/professionals" className="hover:text-orange-600 transition-colors">For Pros</Link>
                     <Link href="/pricing" className="hover:text-orange-600 transition-colors">Pricing</Link>
-                    <a 
-                        href="https://app.threadlock.ai/readiness" 
-                        className="hover:text-orange-600 transition-colors text-sm"
-                        title="Pause to review risk and expectations"
-                    >
-                        Before you act
-                    </a>
                     <Link href="/login" className="hover:text-orange-600 transition-colors">Login</Link>
                     <Link href="/signup" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
                         Sign Up
@@ -179,10 +174,40 @@ const Header = () => {
             <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
                 <div className="px-4 pb-4 pt-2 space-y-2 bg-white border-t border-slate-200">
                     <a href="#features" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Features</a>
-                    <Link href="/resources" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Resources</Link>
+                    
+                    {/* Resources expandable section */}
+                    <div>
+                        <button
+                            onClick={() => setResourcesOpen(!resourcesOpen)}
+                            className="w-full text-left py-2 text-slate-800 hover:text-orange-600 flex items-center justify-between"
+                        >
+                            Resources
+                            <svg 
+                                viewBox="0 0 24 24" 
+                                width="16" 
+                                height="16" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                strokeWidth="2"
+                                className={`transition-transform ${resourcesOpen ? 'rotate-180' : ''}`}
+                            >
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                        {resourcesOpen && (
+                            <div className="pl-4 space-y-1">
+                                <Link href="/resources" onClick={() => { setOpen(false); setResourcesOpen(false); }} className="block py-2 text-slate-700 hover:text-orange-600">
+                                    Resources
+                                </Link>
+                                <a href="https://app.threadlock.ai/readiness" onClick={() => { setOpen(false); setResourcesOpen(false); }} className="block py-2 text-slate-700 hover:text-orange-600">
+                                    Before you act
+                                </a>
+                            </div>
+                        )}
+                    </div>
+                    
                     <Link href="/professionals" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">For Pros</Link>
                     <Link href="/pricing" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Pricing</Link>
-                    <a href="https://app.threadlock.ai/readiness" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600 text-sm">Before you act</a>
                     <Link href="/login" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Login</Link>
                     <Link href="/signup" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
                         Sign Up
