@@ -26,7 +26,7 @@ export default function SignupPage() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Individual */}
           <a
-            href="https://app.threadlock.ai/signup"
+            href="https://app.threadlock.ai/subscribe?src=marketing_signup&s=role_srl"
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-gradient-to-br from-blue-900/40 via-purple-900/40 to-blue-900/40 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-white/10 hover:shadow-[0_0_20px_rgba(245,130,32,0.3)] transform hover:-translate-y-1 flex flex-col"
@@ -62,7 +62,7 @@ export default function SignupPage() {
 
           {/* Legal Professional */}
           <a
-            href="https://app.threadlock.ai/pro/register"
+            href="https://app.threadlock.ai/pro/subscribe?src=marketing_signup&s=role_pro"
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-slate-700/40 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-white/10 hover:shadow-[0_0_20px_rgba(245,130,32,0.3)] transform hover:-translate-y-1 flex flex-col"
@@ -85,9 +85,9 @@ export default function SignupPage() {
         <div className="text-center mt-8">
           <p className="text-slate-300">
             Already have an account?{' '}
-            <Link href="/login" className="font-semibold" style={{ color: 'var(--tl-brand-orange)' }}>
+            <a href="https://app.threadlock.ai/login" className="font-semibold" style={{ color: 'var(--tl-brand-orange)' }}>
               Log in here
-            </Link>
+            </a>
           </p>
         </div>
       </div>
