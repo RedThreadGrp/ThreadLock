@@ -16,6 +16,7 @@ export default function SovereignPage() {
     setFormMessage("");
 
     try {
+      // First, validate via API endpoint
       const response = await fetch("/api/sovereign-inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -25,6 +26,27 @@ export default function SovereignPage() {
       const data = await response.json();
 
       if (response.ok && data.ok) {
+        // Store in Firebase Firestore using client SDK (following existing pattern)
+        try {
+          const { getFirestore } = await import("firebase/firestore");
+          const { addDoc, collection } = await import("firebase/firestore");
+          const { app } = await import("../lib/firebase");
+          
+          const db = getFirestore(app);
+          await addDoc(collection(db, "sovereign_inquiries"), {
+            organization: formData.organization,
+            nameEmail: formData.nameEmail,
+            description: formData.description,
+            timestamp: new Date().toISOString(),
+            source: "threadlock.ai/sovereign",
+          });
+          
+          console.log("✅ Inquiry stored in Firestore");
+        } catch (firebaseError) {
+          // Log error but don't fail the submission
+          console.warn("Firebase storage failed (non-critical):", firebaseError);
+        }
+
         setFormStatus("success");
         setFormMessage("Thank you. Your inquiry has been sent to our team.");
         setFormData({ organization: "", nameEmail: "", description: "" });
