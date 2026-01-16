@@ -28,8 +28,10 @@ export default async function handler(req, res) {
     });
   }
 
-  // Basic email validation (check that nameEmail contains an @)
-  if (!nameEmail.includes('@')) {
+  // Email validation - check for basic email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailMatch = nameEmail.match(emailRegex);
+  if (!emailMatch) {
     return res.status(400).json({
       ok: false,
       message: 'Please include a valid email address in the name and email field.',
@@ -43,19 +45,24 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Since there's no email service currently configured in the repo,
-    // we'll log the inquiry and return success.
-    // In production, this should integrate with an email service.
+    // ⚠️ IMPORTANT: This endpoint currently ONLY LOGS inquiries to the console.
+    // No emails are being sent to info@threadlock.ai yet.
+    // 
+    // ACTION REQUIRED: Integrate an email service before deploying to production:
+    // - Option A: Resend (recommended) - https://resend.com/docs/send-with-nodejs
+    // - Option B: SendGrid - https://docs.sendgrid.com/for-developers/sending-email/api-getting-started
+    // - Option C: AWS SES - https://docs.aws.amazon.com/ses/
+    //
+    // Add required environment variables and implement email sending below.
     
-    console.log('Sovereign inquiry received:', {
+    console.log('⚠️ Sovereign inquiry received (NOT EMAILED - logging only):', {
       organization,
       nameEmail,
       description,
       timestamp: new Date().toISOString(),
     });
 
-    // TODO: Integrate with email service (Resend, SendGrid, AWS SES, etc.)
-    // For now, we'll simulate success
+    // TODO: Replace this section with actual email service integration
     
     // Example for future implementation:
     // const emailSent = await sendEmail({
