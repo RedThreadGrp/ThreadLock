@@ -202,6 +202,12 @@ const Header = () => {
                                 <a href="https://app.threadlock.ai/readiness" onClick={() => { setOpen(false); setResourcesOpen(false); }} className="block py-2 text-slate-700 hover:text-orange-600">
                                     Before you act
                                 </a>
+                                <Link href="/sarahs-story" onClick={() => { setOpen(false); setResourcesOpen(false); }} className="block py-2 text-slate-700 hover:text-orange-600">
+                                    Her Story
+                                </Link>
+                                <Link href="/founder-story" onClick={() => { setOpen(false); setResourcesOpen(false); }} className="block py-2 text-slate-700 hover:text-orange-600">
+                                    Our Story
+                                </Link>
                             </div>
                         )}
                     </div>

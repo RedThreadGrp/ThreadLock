@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       colors: {
         brand: { navy: '#0B1724', orange: '#F58220' },
+        tl: { navy: '#1b3a4d', orange: '#fb7a1e' },
       },
       dropShadow: { logo: '0 2px 6px rgba(0,0,0,.55)' },
       boxShadow: { plate: '0 8px 24px rgba(0,0,0,.35)' },

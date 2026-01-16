@@ -70,6 +70,20 @@ export default function ResourcesDropdown({ darkText = false }) {
           >
             Before you act
           </a>
+          <Link
+            href="/sarahs-story"
+            onClick={handleItemClick}
+            className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+          >
+            Her Story
+          </Link>
+          <Link
+            href="/founder-story"
+            onClick={handleItemClick}
+            className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+          >
+            Our Story
+          </Link>
         </div>
       )}
     </div>
