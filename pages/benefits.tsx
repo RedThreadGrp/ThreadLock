@@ -58,7 +58,7 @@ export default function BenefitsPage() {
   };
 
   return (
-    <div className="bg-slate-950 text-slate-50 antialiased min-h-screen">
+    <div className="tl-auth-background text-slate-50 antialiased min-h-screen">
       <Head>
         <title>The Hidden Cost of Family Court | ThreadLock for Employers</title>
         <meta

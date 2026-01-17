@@ -119,7 +119,7 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
       backgroundPosition: "center"
     }}
   >
-    <div className="absolute inset-0 bg-black/45" />
+    <div className="absolute inset-0 bg-black/65" />
     <div className="relative z-10 container mx-auto px-6">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-lg">Resources &amp; Toolkits</h2>
       <p className="text-lg text-white mb-16 max-w-3xl mx-auto drop-shadow-md">
@@ -306,7 +306,7 @@ export default function ResourcesPage() {
         <meta name="robots" content="noindex,follow" />
       </Head>
 
-      <div className="bg-gray-50">
+      <div className="tl-page-background">
         <SiteHeader />
         <main className="flex flex-col w-full overflow-x-hidden">
           <HeroBanner
