@@ -268,14 +268,14 @@ export default function BenefitsPage() {
           <section className="bg-slate-900 rounded-2xl px-8 py-10 border border-slate-700 text-center">
             <div className="flex justify-center gap-2 mb-6">
               {/* 1 highlighted icon */}
-              <svg width="32" height="32" viewBox="0 0 24 24" className="print-color-exact" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" className="print-color-exact" aria-label="Affected employee">
                 <path d="M20 21a8 8 0 0 0-16 0" fill="none" stroke="#f97316" strokeWidth="2" strokeLinecap="round"></path>
                 <circle cx="12" cy="8" r="4" fill="#f97316"></circle>
               </svg>
 
               {/* 9 muted icons */}
               {[...Array(9)].map((_, i) => (
-                <svg key={i} width="32" height="32" viewBox="0 0 24 24" aria-hidden="true">
+                <svg key={i} width="32" height="32" viewBox="0 0 24 24" aria-label="Unaffected employee">
                   <path d="M20 21a8 8 0 0 0-16 0" fill="none" stroke="#334155" strokeWidth="2" strokeLinecap="round"></path>
                   <circle cx="12" cy="8" r="4" fill="none" stroke="#334155" strokeWidth="2"></circle>
                 </svg>
