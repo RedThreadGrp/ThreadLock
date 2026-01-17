@@ -855,7 +855,7 @@ export default function Home() {
     };
 
     return (
-        <div className="tl-page-background">
+        <div className="bg-white">
             <Head>
                 <title>ThreadLock™ | Your case. Organized. Take control.</title>
                 <meta name="description" content="Take control of the chaos. ThreadLock is your secure, all-in-one platform to organize evidence, journal events, and manage documents for your legal matters." />
