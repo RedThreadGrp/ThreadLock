@@ -46,7 +46,7 @@ export default function FounderStoryPage() {
             backgroundPosition: "center"
           }}
         >
-          <div className="absolute inset-0 bg-black/48" />
+          <div className="absolute inset-0 bg-black/60" />
           <div className="relative z-10 p-8 text-white">
             <span className="inline-block bg-yellow-100 text-yellow-700 font-bold text-sm px-3 py-1 rounded-full mb-4">STEP 2</span>
             <h3 className="text-3xl md:text-4xl font-bold mb-4">The Reality</h3>
@@ -71,12 +71,11 @@ export default function FounderStoryPage() {
             <Image src={QUOTE_IMG} alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </div>
           <div className="bg-stone-100 border border-stone-200 rounded-xl p-8">
-            <div className="text-center text-xl italic text-slate-800 mb-4">
-              "Instead of anger, I felt a moment of clarity. I saw a good person constrained by a bad system."
-            </div>
-            <p className="text-right text-slate-600 leading-relaxed">
-              The only reason a champion for justice becomes the hand of an unfeeling system is a lack of an alternative.
-              The problem wasn't the judge. It was a crisis of information.
+            <p className="text-slate-800 leading-relaxed mb-4">
+              Instead of anger, I felt a moment of clarity. I saw a capable person operating under impossible constraints.
+            </p>
+            <p className="text-slate-800 leading-relaxed">
+              The issue was not intent or compassion. It was the risk of being wrong, combined with the volume of material and the speed at which decisions had to be made. In family court, no one has the time or margin for error to sift through scattered records and competing narratives. The system does not fail because people do not care. It fails because it forces decisions to be made faster than clarity can be achieved.
             </p>
           </div>
         </div>
