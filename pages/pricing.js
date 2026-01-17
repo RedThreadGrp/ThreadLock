@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
+import SiteHeader from '../src/components/SiteHeader';
 
 export default function PricingPage() {
   const [formData, setFormData] = useState({
@@ -28,22 +29,7 @@ export default function PricingPage() {
         <meta name="description" content="ThreadLock pricing plans for individuals, professionals, and businesses" />
       </Head>
 
-      {/* Header */}
-      <header className="bg-white border-b border-slate-200">
-        <div className="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
-          <Link href="/">
-            <span className="inline-flex items-baseline font-bold text-2xl tracking-tight select-none cursor-pointer">
-              <span className="text-slate-800">Thread</span>
-              <span className="text-orange-600">Lock</span>
-              <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
-            </span>
-          </Link>
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="text-slate-700 hover:text-orange-600 transition-colors">Home</Link>
-            <Link href="/professionals" className="text-slate-700 hover:text-orange-600 transition-colors">For Professionals</Link>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         {/* Hero Section */}

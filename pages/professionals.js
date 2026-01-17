@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import TestimonialsCarousel from '../components/TestimonialsCarousel';
+import SiteHeader from '../src/components/SiteHeader';
 
 export default function ProfessionalsPage() {
   return (
@@ -11,25 +12,7 @@ export default function ProfessionalsPage() {
         <meta name="description" content="Join the ThreadLock Pro Pool. Get pre-paid review requests from users in your state." />
       </Head>
 
-      {/* Header */}
-      <header className="bg-white border-b border-slate-200">
-        <div className="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
-          <Link href="/">
-            <span className="inline-flex items-baseline font-bold text-2xl tracking-tight select-none cursor-pointer">
-              <span className="text-slate-800">Thread</span>
-              <span className="text-orange-600">Lock</span>
-              <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
-            </span>
-          </Link>
-          <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="text-slate-700 hover:text-orange-600 transition-colors">Home</Link>
-            <Link href="/pricing" className="text-slate-700 hover:text-orange-600 transition-colors">Pricing</Link>
-            <a href="https://app.threadlock.ai/pro/login" target="_blank" rel="noopener noreferrer" className="text-slate-700 hover:text-orange-600 transition-colors">
-              Login
-            </a>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         {/* Hero Section */}
