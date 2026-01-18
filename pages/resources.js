@@ -146,7 +146,7 @@ const FindCourtRulesSection = () => {
 
         <div className="bg-white p-8 rounded-2xl border border-slate-200 max-w-xl mx-auto text-center">
           <a
-            href="https://www.justice.gov/jmd/ls/state-and-federal-court-resources"
+            href="https://www.justice.gov/resources"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all"
