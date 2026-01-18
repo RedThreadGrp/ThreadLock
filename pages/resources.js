@@ -327,7 +327,7 @@ export default function ResourcesPage() {
       </Head>
 
       <div className="bg-gray-50">
-        <SiteHeader />
+        <SiteHeader theme="light" />
         <main className="flex flex-col w-full overflow-x-hidden">
           <HeroBanner
             image={HERO_IMG}
