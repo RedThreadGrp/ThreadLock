@@ -16,7 +16,9 @@ const PRICING_IMG = "/giorgio-trovato-IgAFof1bhTA-unsplash.jpg";
 /* Import state rules from JSON */
 const STATE_RULES = statesData.map(state => ({
   name: state.name,
-  url: state.rulesUrl
+  url: state.rulesUrl,
+  isOfficial: state.isOfficial,
+  note: state.note
 }));
 
 /* Import single items from JSON */
@@ -179,15 +181,19 @@ const LocalCourtRulesSection = () => {
             <div className="mt-2 py-2 space-y-1 max-h-80 overflow-y-auto border-2 border-slate-200 rounded-lg">
               {filteredStates.length > 0 ? (
                 filteredStates.map((state) => (
-                  <a
-                    key={state.name}
-                    href={state.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-sm md:text-base text-slate-800 hover:text-orange-600 font-semibold transition-colors p-2 mx-1 rounded hover:bg-slate-100"
-                  >
-                    {state.name} &rarr;
-                  </a>
+                  <div key={state.name}>
+                    <a
+                      href={state.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-sm md:text-base text-slate-800 hover:text-orange-600 font-semibold transition-colors p-2 mx-1 rounded hover:bg-slate-100"
+                    >
+                      {state.name} {!state.isOfficial && '⚠️'} &rarr;
+                    </a>
+                    {state.note && (
+                      <p className="text-xs text-slate-500 italic px-3 pb-1">{state.note}</p>
+                    )}
+                  </div>
                 ))
               ) : (
                 <p className="text-sm md:text-base text-slate-500 text-center py-4">No states found matching "{searchTerm}"</p>

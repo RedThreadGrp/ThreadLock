@@ -4,28 +4,40 @@
     "name": "Alabama",
     "abbreviation": "AL",
     "rulesUrl": "https://eforms.alacourt.gov/media/d5464e8e-a228-4107-94d3-882245b7a1f5/rules-of-civil-procedure/",
-    "description": "Alabama state court rules and civil procedure resources"
+    "description": "Alabama state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "alaska",
     "name": "Alaska",
     "abbreviation": "AK",
     "rulesUrl": "https://courts.alaska.gov/rules/rules.htm",
-    "description": "Alaska state court rules and civil procedure resources"
+    "description": "Alaska state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "arizona",
     "name": "Arizona",
     "abbreviation": "AZ",
     "rulesUrl": "https://www.azcourts.gov/rules",
-    "description": "Arizona state court rules and civil procedure resources"
+    "description": "Arizona state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "arkansas",
     "name": "Arkansas",
     "abbreviation": "AR",
     "rulesUrl": "https://courts.arkansas.gov/rules-and-administrative-orders/rules-of-civil-procedure",
-    "description": "Arkansas state court rules and civil procedure resources"
+    "description": "Arkansas state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "california",
@@ -33,321 +45,460 @@
     "abbreviation": "CA",
     "rulesUrl": "https://www.courts.ca.gov/rules.htm",
     "selfHelpUrl": "https://www.courts.ca.gov/selfhelp.htm",
-    "description": "California state court rules and civil procedure resources"
+    "description": "California state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "colorado",
     "name": "Colorado",
     "abbreviation": "CO",
     "rulesUrl": "https://www.courts.state.co.us/Courts/Supreme_Court/Rule_Categories.cfm?Cat_ID=2",
-    "description": "Colorado state court rules and civil procedure resources"
+    "description": "Colorado state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "connecticut",
     "name": "Connecticut",
     "abbreviation": "CT",
     "rulesUrl": "https://jud.ct.gov/cbecs/rules.htm",
-    "description": "Connecticut state court rules and civil procedure resources"
+    "description": "Connecticut state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "delaware",
     "name": "Delaware",
     "abbreviation": "DE",
     "rulesUrl": "https://courts.delaware.gov/rules/",
-    "description": "Delaware state court rules and civil procedure resources"
+    "description": "Delaware state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "florida",
     "name": "Florida",
     "abbreviation": "FL",
     "rulesUrl": "https://www.floridabar.org/rules/ctproc/",
-    "description": "Florida state court rules and civil procedure resources"
+    "description": "Florida state court rules and civil procedure resources",
+    "sourceType": "bar_association",
+    "note": "Official Florida Bar rules repository",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": false
   },
   {
     "id": "georgia",
     "name": "Georgia",
     "abbreviation": "GA",
     "rulesUrl": "https://georgiacourts.gov/rules/",
-    "description": "Georgia state court rules and civil procedure resources"
+    "description": "Georgia state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "hawaii",
     "name": "Hawaii",
     "abbreviation": "HI",
     "rulesUrl": "https://www.courts.state.hi.us/rules_and_orders/rules_of_court",
-    "description": "Hawaii state court rules and civil procedure resources"
+    "description": "Hawaii state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "idaho",
     "name": "Idaho",
     "abbreviation": "ID",
     "rulesUrl": "https://isc.idaho.gov/rules",
-    "description": "Idaho state court rules and civil procedure resources"
+    "description": "Idaho state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "illinois",
     "name": "Illinois",
     "abbreviation": "IL",
     "rulesUrl": "https://www.illinoiscourts.gov/rules-and-orders/supreme-court-rules",
-    "description": "Illinois state court rules and civil procedure resources"
+    "description": "Illinois state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "indiana",
     "name": "Indiana",
     "abbreviation": "IN",
     "rulesUrl": "https://www.in.gov/courts/rules/",
-    "description": "Indiana state court rules and civil procedure resources"
+    "description": "Indiana state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "iowa",
     "name": "Iowa",
     "abbreviation": "IA",
     "rulesUrl": "https://www.iowacourts.gov/for-attorneys/court-rules",
-    "description": "Iowa state court rules and civil procedure resources"
+    "description": "Iowa state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "kansas",
     "name": "Kansas",
     "abbreviation": "KS",
     "rulesUrl": "https://www.kscourts.org/rules",
-    "description": "Kansas state court rules and civil procedure resources"
+    "description": "Kansas state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "kentucky",
     "name": "Kentucky",
     "abbreviation": "KY",
     "rulesUrl": "https://courts.ky.gov/resources/Legal-Resources/Pages/KentuckyRulesofCourt.aspx",
-    "description": "Kentucky state court rules and civil procedure resources"
+    "description": "Kentucky state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "louisiana",
     "name": "Louisiana",
     "abbreviation": "LA",
     "rulesUrl": "https://www.lasc.org/rules/",
-    "description": "Louisiana state court rules and civil procedure resources"
+    "description": "Louisiana state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "maine",
     "name": "Maine",
     "abbreviation": "ME",
     "rulesUrl": "https://www.courts.maine.gov/rules/index.html",
-    "description": "Maine state court rules and civil procedure resources"
+    "description": "Maine state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "maryland",
     "name": "Maryland",
     "abbreviation": "MD",
     "rulesUrl": "https://mdcourts.gov/rules",
-    "description": "Maryland state court rules and civil procedure resources"
+    "description": "Maryland state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "massachusetts",
     "name": "Massachusetts",
     "abbreviation": "MA",
     "rulesUrl": "https://www.mass.gov/guides/massachusetts-court-rules",
-    "description": "Massachusetts state court rules and civil procedure resources"
+    "description": "Massachusetts state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "michigan",
     "name": "Michigan",
     "abbreviation": "MI",
     "rulesUrl": "https://courts.michigan.gov/administration/standards-guidelines/rules/",
-    "description": "Michigan state court rules and civil procedure resources"
+    "description": "Michigan state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "minnesota",
     "name": "Minnesota",
     "abbreviation": "MN",
     "rulesUrl": "https://www.mncourts.gov/courtrules",
-    "description": "Minnesota state court rules and civil procedure resources"
+    "description": "Minnesota state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "mississippi",
     "name": "Mississippi",
     "abbreviation": "MS",
     "rulesUrl": "https://courts.ms.gov/rules/msrulesofcourt/rules_of_civil_procedure.pdf",
-    "description": "Mississippi state court rules and civil procedure resources"
+    "description": "Mississippi state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "missouri",
     "name": "Missouri",
     "abbreviation": "MO",
     "rulesUrl": "https://www.courts.mo.gov/page.jsp?id=677",
-    "description": "Missouri state court rules and civil procedure resources"
+    "description": "Missouri state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "montana",
     "name": "Montana",
     "abbreviation": "MT",
     "rulesUrl": "https://courts.mt.gov/rules/",
-    "description": "Montana state court rules and civil procedure resources"
+    "description": "Montana state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "nebraska",
     "name": "Nebraska",
     "abbreviation": "NE",
     "rulesUrl": "https://supremecourt.nebraska.gov/supreme-court-rules",
-    "description": "Nebraska state court rules and civil procedure resources"
+    "description": "Nebraska state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "nevada",
     "name": "Nevada",
     "abbreviation": "NV",
     "rulesUrl": "https://www.leg.state.nv.us/courtrules/",
-    "description": "Nevada state court rules and civil procedure resources"
+    "description": "Nevada state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "new-hampshire",
     "name": "New Hampshire",
     "abbreviation": "NH",
     "rulesUrl": "https://www.courts.nh.gov/rules-orders",
-    "description": "New Hampshire state court rules and civil procedure resources"
+    "description": "New Hampshire state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "new-jersey",
     "name": "New Jersey",
     "abbreviation": "NJ",
     "rulesUrl": "https://www.njcourts.gov/courts/rules",
-    "description": "New Jersey state court rules and civil procedure resources"
+    "description": "New Jersey state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "new-mexico",
     "name": "New Mexico",
     "abbreviation": "NM",
     "rulesUrl": "https://www.nmcourts.gov/rules-forms/",
-    "description": "New Mexico state court rules and civil procedure resources"
+    "description": "New Mexico state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "new-york",
     "name": "New York",
     "abbreviation": "NY",
     "rulesUrl": "https://ww2.nycourts.gov/rules/",
-    "description": "New York state court rules and civil procedure resources"
+    "description": "New York state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "north-carolina",
     "name": "North Carolina",
     "abbreviation": "NC",
     "rulesUrl": "https://www.nccourts.gov/legal-resources/rules-forms",
-    "description": "North Carolina state court rules and civil procedure resources"
+    "description": "North Carolina state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "north-dakota",
     "name": "North Dakota",
     "abbreviation": "ND",
     "rulesUrl": "https://www.ndcourts.gov/legal-resources/rules",
-    "description": "North Dakota state court rules and civil procedure resources"
+    "description": "North Dakota state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "ohio",
     "name": "Ohio",
     "abbreviation": "OH",
     "rulesUrl": "https://www.supremecourt.ohio.gov/rules/",
-    "description": "Ohio state court rules and civil procedure resources"
+    "description": "Ohio state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "oklahoma",
     "name": "Oklahoma",
     "abbreviation": "OK",
     "rulesUrl": "https://www.oscn.net/applications/oscn/index.asp?ftdb=STOKRU&level=1",
-    "description": "Oklahoma state court rules and civil procedure resources"
+    "description": "Oklahoma state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "oregon",
     "name": "Oregon",
     "abbreviation": "OR",
     "rulesUrl": "https://www.ojd.state.or.us/rules/",
-    "description": "Oregon state court rules and civil procedure resources"
+    "description": "Oregon state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "pennsylvania",
     "name": "Pennsylvania",
     "abbreviation": "PA",
     "rulesUrl": "http://www.pacourts.us/rules-and-forms/",
-    "description": "Pennsylvania state court rules and civil procedure resources"
+    "description": "Pennsylvania state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "rhode-island",
     "name": "Rhode Island",
     "abbreviation": "RI",
     "rulesUrl": "https://www.courts.ri.gov/Pages/rules-of-practice.aspx",
-    "description": "Rhode Island state court rules and civil procedure resources"
+    "description": "Rhode Island state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "south-carolina",
     "name": "South Carolina",
     "abbreviation": "SC",
     "rulesUrl": "https://www.sccourts.org/courtReg/",
-    "description": "South Carolina state court rules and civil procedure resources"
+    "description": "South Carolina state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "south-dakota",
     "name": "South Dakota",
     "abbreviation": "SD",
     "rulesUrl": "https://ujs.sd.gov/Supreme_Court/rules.aspx",
-    "description": "South Dakota state court rules and civil procedure resources"
+    "description": "South Dakota state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "tennessee",
     "name": "Tennessee",
     "abbreviation": "TN",
     "rulesUrl": "https://www.tncourts.gov/rules",
-    "description": "Tennessee state court rules and civil procedure resources"
+    "description": "Tennessee state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "texas",
     "name": "Texas",
     "abbreviation": "TX",
     "rulesUrl": "https://www.txcourts.gov/rules-forms/rules-standards/",
-    "description": "Texas state court rules and civil procedure resources"
+    "description": "Texas state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "utah",
     "name": "Utah",
     "abbreviation": "UT",
     "rulesUrl": "https://www.utcourts.gov/rules/",
-    "description": "Utah state court rules and civil procedure resources"
+    "description": "Utah state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "vermont",
     "name": "Vermont",
     "abbreviation": "VT",
     "rulesUrl": "https://www.vermontjudiciary.org/court-rules",
-    "description": "Vermont state court rules and civil procedure resources"
+    "description": "Vermont state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "virginia",
     "name": "Virginia",
     "abbreviation": "VA",
     "rulesUrl": "http://www.courts.state.va.us/courts/scv/rulesofcourt.pdf",
-    "description": "Virginia state court rules and civil procedure resources"
+    "description": "Virginia state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "washington",
     "name": "Washington",
     "abbreviation": "WA",
     "rulesUrl": "https://www.courts.wa.gov/court_rules/",
-    "description": "Washington state court rules and civil procedure resources"
+    "description": "Washington state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "west-virginia",
     "name": "West Virginia",
     "abbreviation": "WV",
     "rulesUrl": "http://www.courtswv.gov/legal-community/court-rules.html",
-    "description": "West Virginia state court rules and civil procedure resources"
+    "description": "West Virginia state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "wisconsin",
     "name": "Wisconsin",
     "abbreviation": "WI",
     "rulesUrl": "https://www.wicourts.gov/courts/supreme/rules/index.htm",
-    "description": "Wisconsin state court rules and civil procedure resources"
+    "description": "Wisconsin state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   },
   {
     "id": "wyoming",
     "name": "Wyoming",
     "abbreviation": "WY",
     "rulesUrl": "https://www.courts.state.wy.us/court-rules/",
-    "description": "Wyoming state court rules and civil procedure resources"
+    "description": "Wyoming state court rules and civil procedure resources",
+    "sourceType": "court",
+    "lastVerifiedAt": "2026-01-18",
+    "isOfficial": true
   }
 ]
