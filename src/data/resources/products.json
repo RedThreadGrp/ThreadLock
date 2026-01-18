@@ -1,0 +1,72 @@
+[
+  {
+    "sku": "avoiding_common_mistakes",
+    "slug": "common-mistakes",
+    "name": "Avoiding Common Mistakes in Court",
+    "description": "Essential guide to avoiding the most common mistakes self-represented litigants make in family court",
+    "topics": ["hearing-prep", "court-rules"]
+  },
+  {
+    "sku": "basic_motion_template",
+    "slug": "basic-motion",
+    "name": "Basic Motion Template",
+    "description": "Professional template for filing basic motions in family court",
+    "topics": ["motions", "forms"]
+  },
+  {
+    "sku": "case_event_timeline",
+    "slug": "case-timeline",
+    "name": "Case Event Timeline Worksheet",
+    "description": "Organize your case chronologically with this comprehensive timeline worksheet",
+    "topics": ["evidence", "deadlines"]
+  },
+  {
+    "sku": "common_response_timelines",
+    "slug": "common-response",
+    "name": "Common Legal Response Timelines",
+    "description": "Quick reference guide to common legal deadlines and response times",
+    "topics": ["deadlines", "court-rules"]
+  },
+  {
+    "sku": "cross_exam_planning",
+    "slug": "cross-exam",
+    "name": "Direct & Cross-Examination Planning",
+    "description": "Strategic worksheets for planning direct examination and cross-examination questions",
+    "topics": ["hearing-prep", "evidence"]
+  },
+  {
+    "sku": "evidence_log",
+    "slug": "evidence-log",
+    "name": "Evidence Tracking Log",
+    "description": "Comprehensive log for tracking and organizing all evidence in your case",
+    "topics": ["evidence"]
+  },
+  {
+    "sku": "find_court_rules",
+    "slug": "find-rules",
+    "name": "Finding the Right Court Rules",
+    "description": "Step-by-step guide to locating and understanding applicable court rules",
+    "topics": ["court-rules", "self-help"]
+  },
+  {
+    "sku": "pre_hearing_checklist",
+    "slug": "pre-hearing",
+    "name": "Pre-Hearing Preparation Checklist",
+    "description": "Complete checklist to ensure you're fully prepared for your court hearing",
+    "topics": ["hearing-prep"]
+  },
+  {
+    "sku": "proof_of_service_tracker",
+    "slug": "proof-of-service",
+    "name": "Proof of Service Tracker",
+    "description": "Track all document service requirements and deadlines",
+    "topics": ["proof-of-service", "deadlines"]
+  },
+  {
+    "sku": "trial_hearing_quick_ref",
+    "slug": "trial-quick-ref",
+    "name": "Trial & Hearing Quick Reference",
+    "description": "Quick reference guide for trial and hearing procedures",
+    "topics": ["hearing-prep", "court-rules"]
+  }
+]

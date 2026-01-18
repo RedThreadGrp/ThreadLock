@@ -4,10 +4,30 @@ import Image from "next/image";
 import LeadMagnetForm from "../components/LeadMagnetForm";
 import SiteHeader from "../src/components/SiteHeader";
 import HeroBanner from "../src/components/HeroBanner";
+import statesData from "../src/data/resources/states.json";
+import productsData from "../src/data/resources/products.json";
 
 /* Exact filenames in /public */
 const HERO_IMG = "/sandra-seitamaa-JvPDBMvgNls-unsplash.jpg";
 const PRICING_IMG = "/giorgio-trovato-IgAFof1bhTA-unsplash.jpg";
+
+/* Import state rules from JSON */
+const STATE_RULES = statesData.map(state => ({
+  name: state.name,
+  url: state.rulesUrl
+}));
+
+/* Import single items from JSON */
+const SINGLE_ITEMS = productsData.map(product => ({
+  sku: product.sku,
+  name: product.name
+}));
+
+const SKU_TO_SLUG = productsData.reduce((acc, product) => {
+  acc[product.sku] = product.slug;
+  return acc;
+}, {});
+
 const LinkedinIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -25,86 +45,6 @@ const ChevronDownIcon = (props) => (
     <polyline points="6 9 12 15 18 9"></polyline>
   </svg>
 );
-
-/* State rules */
-const STATE_RULES = [
-  { name: "Alabama", url: "https://eforms.alacourt.gov/media/d5464e8e-a228-4107-94d3-882245b7a1f5/rules-of-civil-procedure/" },
-  { name: "Alaska", url: "https://courts.alaska.gov/rules/rules.htm" },
-  { name: "Arizona", url: "https://www.azcourts.gov/rules" },
-  { name: "Arkansas", url: "https://courts.arkansas.gov/rules-and-administrative-orders/rules-of-civil-procedure" },
-  { name: "California", url: "https://www.courts.ca.gov/rules.htm" },
-  { name: "Colorado", url: "https://www.courts.state.co.us/Courts/Supreme_Court/Rule_Categories.cfm?Cat_ID=2" },
-  { name: "Connecticut", url: "https://jud.ct.gov/cbecs/rules.htm" },
-  { name: "Delaware", url: "https://courts.delaware.gov/rules/" },
-  { name: "Florida", url: "https://www.floridabar.org/rules/ctproc/" },
-  { name: "Georgia", url: "https://georgiacourts.gov/rules/" },
-  { name: "Hawaii", url: "https://www.courts.state.hi.us/rules_and_orders/rules_of_court" },
-  { name: "Idaho", url: "https://isc.idaho.gov/rules" },
-  { name: "Illinois", url: "https://www.illinoiscourts.gov/rules-and-orders/supreme-court-rules" },
-  { name: "Indiana", url: "https://www.in.gov/courts/rules/" },
-  { name: "Iowa", url: "https://www.iowacourts.gov/for-attorneys/court-rules" },
-  { name: "Kansas", url: "https://www.kscourts.org/rules" },
-  { name: "Kentucky", url: "https://courts.ky.gov/resources/Legal-Resources/Pages/KentuckyRulesofCourt.aspx" },
-  { name: "Louisiana", url: "https://www.lasc.org/rules/" },
-  { name: "Maine", url: "https://www.courts.maine.gov/rules/index.html" },
-  { name: "Maryland", url: "https://mdcourts.gov/rules" },
-  { name: "Massachusetts", url: "https://www.mass.gov/guides/massachusetts-court-rules" },
-  { name: "Michigan", url: "https://courts.michigan.gov/administration/standards-guidelines/rules/" },
-  { name: "Minnesota", url: "https://www.mncourts.gov/courtrules" },
-  { name: "Mississippi", url: "https://courts.ms.gov/rules/msrulesofcourt/rules_of_civil_procedure.pdf" },
-  { name: "Missouri", url: "https://www.courts.mo.gov/page.jsp?id=677" },
-  { name: "Montana", url: "https://courts.mt.gov/rules/" },
-  { name: "Nebraska", url: "https://supremecourt.nebraska.gov/supreme-court-rules" },
-  { name: "Nevada", url: "https://www.leg.state.nv.us/courtrules/" },
-  { name: "New Hampshire", url: "https://www.courts.nh.gov/rules-orders" },
-  { name: "New Jersey", url: "https://www.njcourts.gov/courts/rules" },
-  { name: "New Mexico", url: "https://www.nmcourts.gov/rules-forms/" },
-  { name: "New York", url: "https://ww2.nycourts.gov/rules/" },
-  { name: "North Carolina", url: "https://www.nccourts.gov/legal-resources/rules-forms" },
-  { name: "North Dakota", url: "https://www.ndcourts.gov/legal-resources/rules" },
-  { name: "Ohio", url: "https://www.supremecourt.ohio.gov/rules/" },
-  { name: "Oklahoma", url: "https://www.oscn.net/applications/oscn/index.asp?ftdb=STOKRU&level=1" },
-  { name: "Oregon", url: "https://www.ojd.state.or.us/rules/" },
-  { name: "Pennsylvania", url: "http://www.pacourts.us/rules-and-forms/" },
-  { name: "Rhode Island", url: "https://www.courts.ri.gov/Pages/rules-of-practice.aspx" },
-  { name: "South Carolina", url: "https://www.sccourts.org/courtReg/" },
-  { name: "South Dakota", url: "https://ujs.sd.gov/Supreme_Court/rules.aspx" },
-  { name: "Tennessee", url: "https://www.tncourts.gov/rules" },
-  { name: "Texas", url: "https://www.txcourts.gov/rules-forms/rules-standards/" },
-  { name: "Utah", url: "https://www.utcourts.gov/rules/" },
-  { name: "Vermont", url: "https://www.vermontjudiciary.org/court-rules" },
-  { name: "Virginia", url: "http://www.courts.state.va.us/courts/scv/rulesofcourt.pdf" },
-  { name: "Washington", url: "https://www.courts.wa.gov/court_rules/" },
-  { name: "West Virginia", url: "http://www.courtswv.gov/legal-community/court-rules.html" },
-  { name: "Wisconsin", url: "https://www.wicourts.gov/courts/supreme/rules/index.htm" },
-  { name: "Wyoming", url: "https://www.courts.state.wy.us/court-rules/" },
-];
-
-/* Single items */
-const SINGLE_ITEMS = [
-  { sku: "avoiding_common_mistakes", name: "Avoiding Common Mistakes in Court" },
-  { sku: "basic_motion_template", name: "Basic Motion Template" },
-  { sku: "case_event_timeline", name: "Case Event Timeline Worksheet" },
-  { sku: "common_response_timelines", name: "Common Legal Response Timelines" },
-  { sku: "cross_exam_planning", name: "Direct & Cross-Examination Planning" },
-  { sku: "evidence_log", name: "Evidence Tracking Log" },
-  { sku: "find_court_rules", name: "Finding the Right Court Rules" },
-  { sku: "pre_hearing_checklist", name: "Pre-Hearing Preparation Checklist" },
-  { sku: "proof_of_service_tracker", name: "Proof of Service Tracker" },
-  { sku: "trial_hearing_quick_ref", name: "Trial & Hearing Quick Reference" },
-];
-const SKU_TO_SLUG = {
-  avoiding_common_mistakes: "common-mistakes",
-  basic_motion_template: "basic-motion",
-  case_event_timeline: "case-timeline",
-  common_response_timelines: "common-response",
-  cross_exam_planning: "cross-exam",
-  evidence_log: "evidence-log",
-  find_court_rules: "find-rules",
-  pre_hearing_checklist: "pre-hearing",
-  proof_of_service_tracker: "proof-of-service",
-  trial_hearing_quick_ref: "trial-quick-ref",
-};
 
 /* Icons for Community Links section */
 
