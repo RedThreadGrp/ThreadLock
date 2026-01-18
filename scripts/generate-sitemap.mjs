@@ -11,9 +11,6 @@ const SITE_URL = SITE_CONFIG.baseUrl;
 const OUTPUT_PATH = path.join(__dirname, '../public/sitemap.xml');
 
 // Load dynamic route data
-const statesData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '../src/data/resources/states.json'), 'utf8')
-);
 const topicsData = JSON.parse(
   fs.readFileSync(path.join(__dirname, '../src/data/resources/topics.json'), 'utf8')
 );
@@ -80,7 +77,6 @@ const ROUTE_CONFIG = {
   '/resources/thanks': { priority: '0.4', changefreq: 'monthly' },
   
   // Dynamic resource pages (default config, will be customized below)
-  '/resources/state': { priority: '0.8', changefreq: 'monthly' },
   '/resources/topic': { priority: '0.8', changefreq: 'monthly' },
   
   // Whitepapers
@@ -177,12 +173,6 @@ function generateSitemap() {
     .filter(routeObj => routeObj !== null && !shouldExclude(routeObj.route))
     .sort((a, b) => a.route.localeCompare(b.route));
   
-  // Add dynamic state routes
-  const stateRoutes = statesData.map(state => ({
-    route: `/resources/state/${state.id}`,
-    mtime: new Date() // Use current date for dynamic routes
-  }));
-  
   // Add dynamic topic routes
   const topicRoutes = topicsData.map(topic => ({
     route: `/resources/topic/${topic.id}`,
@@ -190,7 +180,7 @@ function generateSitemap() {
   }));
   
   // Combine all routes
-  const allRoutes = [...routes, ...stateRoutes, ...topicRoutes];
+  const allRoutes = [...routes, ...topicRoutes];
   
   // Generate XML
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
@@ -199,9 +189,7 @@ function generateSitemap() {
   allRoutes.forEach(routeObj => {
     // Determine config based on route pattern
     let config;
-    if (routeObj.route.startsWith('/resources/state/')) {
-      config = { priority: '0.8', changefreq: 'monthly' };
-    } else if (routeObj.route.startsWith('/resources/topic/')) {
+    if (routeObj.route.startsWith('/resources/topic/')) {
       config = { priority: '0.8', changefreq: 'monthly' };
     } else {
       config = ROUTE_CONFIG[routeObj.route] || { priority: '0.5', changefreq: 'monthly' };
@@ -212,7 +200,7 @@ function generateSitemap() {
     const lastmod = routeObj.mtime.toISOString().split('T')[0];
     
     // Log when using default config to help identify missing configurations
-    if (!ROUTE_CONFIG[routeObj.route] && !routeObj.route.startsWith('/resources/state/') && !routeObj.route.startsWith('/resources/topic/')) {
+    if (!ROUTE_CONFIG[routeObj.route] && !routeObj.route.startsWith('/resources/topic/')) {
       console.log(`  Using default config for: ${routeObj.route}`);
     }
     
