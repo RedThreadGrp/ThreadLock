@@ -14,7 +14,7 @@ export default function StatePage({ state }) {
           <title>State Not Found | ThreadLock</title>
         </Head>
         <div className="min-h-screen bg-gray-50">
-          <SiteHeader />
+          <SiteHeader theme="light" />
           <main className="container mx-auto px-6 py-20">
             <h1 className="text-4xl font-bold text-slate-900 mb-4">State Not Found</h1>
             <p className="text-lg text-slate-600 mb-6">The state you're looking for doesn't exist.</p>
@@ -92,7 +92,7 @@ export default function StatePage({ state }) {
       </Head>
 
       <div className="min-h-screen bg-gray-50">
-        <SiteHeader />
+        <SiteHeader theme="light" />
         
         <main className="container mx-auto px-6 py-12 md:py-20">
           {/* Breadcrumb */}
