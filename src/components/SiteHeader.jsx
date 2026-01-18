@@ -33,6 +33,7 @@ function BrandWordmark({ className = "", darkText = true }) {
 function ResourcesDropdown({ darkText = false }) {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
+    const buttonId = 'resources-menu-button';
 
     const textClasses = darkText ? "text-slate-700" : "text-white";
 
@@ -63,21 +64,23 @@ function ResourcesDropdown({ darkText = false }) {
     return (
         <div className="relative" ref={dropdownRef}>
             <button
+                id={buttonId}
                 onClick={() => setIsOpen(!isOpen)}
                 className={`flex items-center gap-1 ${textClasses} hover:text-orange-600 transition-colors focus:outline-none`}
                 aria-expanded={isOpen}
                 aria-haspopup="true"
             >
                 Resources
-                <ChevronDownIcon className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                <ChevronDownIcon className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
             </button>
 
             {isOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50" role="menu" aria-labelledby={buttonId}>
                     <Link
                         href="/resources"
                         onClick={() => setIsOpen(false)}
                         className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+                        role="menuitem"
                     >
                         Resources
                     </Link>
@@ -85,6 +88,7 @@ function ResourcesDropdown({ darkText = false }) {
                         href="/pricing"
                         onClick={() => setIsOpen(false)}
                         className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+                        role="menuitem"
                     >
                         Pricing
                     </Link>
@@ -94,6 +98,7 @@ function ResourcesDropdown({ darkText = false }) {
                         rel="noopener noreferrer"
                         onClick={() => setIsOpen(false)}
                         className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+                        role="menuitem"
                     >
                         Before You Act
                     </a>
@@ -107,6 +112,7 @@ function ResourcesDropdown({ darkText = false }) {
 function StoriesDropdown({ darkText = false }) {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
+    const buttonId = 'stories-menu-button';
 
     const textClasses = darkText ? "text-slate-700" : "text-white";
 
@@ -137,21 +143,23 @@ function StoriesDropdown({ darkText = false }) {
     return (
         <div className="relative" ref={dropdownRef}>
             <button
+                id={buttonId}
                 onClick={() => setIsOpen(!isOpen)}
                 className={`flex items-center gap-1 ${textClasses} hover:text-orange-600 transition-colors focus:outline-none`}
                 aria-expanded={isOpen}
                 aria-haspopup="true"
             >
                 Stories
-                <ChevronDownIcon className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                <ChevronDownIcon className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
             </button>
 
             {isOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50">
+                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50" role="menu" aria-labelledby={buttonId}>
                     <Link
                         href="/founder-story"
                         onClick={() => setIsOpen(false)}
                         className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+                        role="menuitem"
                     >
                         Our Story
                     </Link>
@@ -159,6 +167,7 @@ function StoriesDropdown({ darkText = false }) {
                         href="/sarahs-story"
                         onClick={() => setIsOpen(false)}
                         className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+                        role="menuitem"
                     >
                         Sarah's Story
                     </Link>
@@ -169,6 +178,9 @@ function StoriesDropdown({ darkText = false }) {
 }
 
 /* ---------------- Header: MODIFIED ---------------- */
+// Constants
+const MOBILE_MENU_MAX_HEIGHT = '32rem'; // Height to accommodate expanded Stories section
+
 const SiteHeader = ({ theme = 'auto' }) => {
     const [open, setOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -219,7 +231,7 @@ const SiteHeader = ({ theme = 'auto' }) => {
                 </button>
             </div>
 
-            <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-[32rem]" : "max-h-0"}`}>
+            <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? `max-h-[${MOBILE_MENU_MAX_HEIGHT}]` : "max-h-0"}`}>
                 <div className="px-4 pb-4 pt-2 space-y-2 bg-white border-t border-slate-200">
                     <div className="space-y-1">
                         <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider px-2 py-1">Resources</p>
