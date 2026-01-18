@@ -5,6 +5,7 @@ import SiteHeader from '../../../src/components/SiteHeader';
 import topicsData from '../../../src/data/resources/topics.json';
 import resourcesData from '../../../src/data/resources/resources.json';
 import productsData from '../../../src/data/resources/products.json';
+import { SITE_CONFIG } from '../../../src/lib/config';
 
 export default function TopicPage({ topic, relatedResources, relatedProducts }) {
   if (!topic) {
@@ -29,7 +30,7 @@ export default function TopicPage({ topic, relatedResources, relatedProducts }) 
 
   const pageTitle = `${topic.name} Resources for Family Court`;
   const pageDescription = topic.description;
-  const canonicalUrl = `https://www.threadlock.ai/resources/topic/${topic.id}`;
+  const canonicalUrl = `${SITE_CONFIG.baseUrl}/resources/topic/${topic.id}`;
 
   return (
     <>
@@ -80,7 +81,7 @@ export default function TopicPage({ topic, relatedResources, relatedProducts }) 
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Resources",
-                    "item": "https://www.threadlock.ai/resources"
+                    "item": `${SITE_CONFIG.baseUrl}/resources`
                   },
                   {
                     "@type": "ListItem",

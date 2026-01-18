@@ -2,11 +2,12 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { SITE_CONFIG } from '../src/lib/config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const SITE_URL = 'https://www.threadlock.ai';
+const SITE_URL = SITE_CONFIG.baseUrl;
 const OUTPUT_PATH = path.join(__dirname, '../public/sitemap.xml');
 
 // Load dynamic route data

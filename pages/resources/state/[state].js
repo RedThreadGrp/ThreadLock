@@ -4,6 +4,7 @@ import Link from 'next/link';
 import SiteHeader from '../../../src/components/SiteHeader';
 import statesData from '../../../src/data/resources/states.json';
 import productsData from '../../../src/data/resources/products.json';
+import { SITE_CONFIG } from '../../../src/lib/config';
 
 export default function StatePage({ state }) {
   if (!state) {
@@ -28,7 +29,7 @@ export default function StatePage({ state }) {
 
   const stateTitle = `${state.name} Court Rules & Legal Resources`;
   const stateDescription = `Official court rules, family law resources, and practical tools for ${state.name}. Navigate family court with confidence using state-specific guidance.`;
-  const canonicalUrl = `https://www.threadlock.ai/resources/state/${state.id}`;
+  const canonicalUrl = `${SITE_CONFIG.baseUrl}/resources/state/${state.id}`;
 
   // Get relevant products for court/legal matters
   const relevantProducts = productsData.filter(p => 
@@ -70,7 +71,7 @@ export default function StatePage({ state }) {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Resources",
-                    "item": "https://www.threadlock.ai/resources"
+                    "item": `${SITE_CONFIG.baseUrl}/resources`
                   },
                   {
                     "@type": "ListItem",
@@ -83,7 +84,7 @@ export default function StatePage({ state }) {
               "publisher": {
                 "@type": "Organization",
                 "name": "ThreadLock",
-                "url": "https://www.threadlock.ai"
+                "url": SITE_CONFIG.baseUrl
               }
             })
           }}

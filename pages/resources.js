@@ -8,6 +8,7 @@ import HeroBanner from "../src/components/HeroBanner";
 import statesData from "../src/data/resources/states.json";
 import productsData from "../src/data/resources/products.json";
 import topicsData from "../src/data/resources/topics.json";
+import { SITE_CONFIG } from "../src/lib/config";
 
 /* Exact filenames in /public */
 const HERO_IMG = "/sandra-seitamaa-JvPDBMvgNls-unsplash.jpg";
@@ -278,20 +279,20 @@ export default function ResourcesPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index,follow" />
         <meta name="description" content="Essential legal resources for family court. Access state-specific court rules, templates, and practical tools designed to empower self-represented litigants." />
-        <link rel="canonical" href="https://www.threadlock.ai/resources" />
+        <link rel="canonical" href={`${SITE_CONFIG.baseUrl}/resources`} />
         
         {/* OpenGraph tags */}
         <meta property="og:title" content="Essential Legal Resources | ThreadLock" />
         <meta property="og:description" content="Navigate family court with confidence. Access state-specific rules and practical tools designed to empower you." />
-        <meta property="og:url" content="https://www.threadlock.ai/resources" />
+        <meta property="og:url" content={`${SITE_CONFIG.baseUrl}/resources`} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.threadlock.ai/og-image.jpg" />
+        <meta property="og:image" content={`${SITE_CONFIG.baseUrl}${SITE_CONFIG.defaultOgImage}`} />
         
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Essential Legal Resources | ThreadLock" />
         <meta name="twitter:description" content="Navigate family court with confidence. Access state-specific rules and practical tools." />
-        <meta name="twitter:image" content="https://www.threadlock.ai/og-image.jpg" />
+        <meta name="twitter:image" content={`${SITE_CONFIG.baseUrl}${SITE_CONFIG.defaultOgImage}`} />
         
         {/* JSON-LD Structured Data */}
         <script
@@ -302,11 +303,11 @@ export default function ResourcesPage() {
               "@type": "WebPage",
               "name": "Essential Legal Resources",
               "description": "Essential legal resources for family court. Access state-specific court rules, templates, and practical tools designed to empower self-represented litigants.",
-              "url": "https://www.threadlock.ai/resources",
+              "url": `${SITE_CONFIG.baseUrl}/resources`,
               "publisher": {
                 "@type": "Organization",
                 "name": "ThreadLock",
-                "url": "https://www.threadlock.ai"
+                "url": SITE_CONFIG.baseUrl
               }
             })
           }}

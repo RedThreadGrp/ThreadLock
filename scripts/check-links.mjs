@@ -21,8 +21,10 @@ const CONFIG = {
   timeout: 8000, // 8 seconds per URL
   maxRedirects: 5,
   retries: 1,
+  retryDelay: 1000, // 1 second between retries
   failThreshold: 0.05, // Fail if more than 5% of total links fail
   reportPath: path.join(__dirname, '../public/link-report.json'),
+  userAgent: 'Mozilla/5.0 (compatible; ThreadLock-LinkChecker/1.0)',
 };
 
 // Load data files
@@ -49,7 +51,7 @@ function makeRequest(url, method = 'HEAD', redirectCount = 0) {
       method,
       timeout: CONFIG.timeout,
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; ThreadLock-LinkChecker/1.0)',
+        'User-Agent': CONFIG.userAgent,
       },
     };
 
@@ -111,8 +113,8 @@ async function checkUrl(url, trustTier = 'C') {
     } catch (error) {
       lastError = error;
       if (attempt < CONFIG.retries) {
-        // Wait a bit before retrying
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        // Wait before retrying
+        await new Promise(resolve => setTimeout(resolve, CONFIG.retryDelay));
       }
     }
   }
