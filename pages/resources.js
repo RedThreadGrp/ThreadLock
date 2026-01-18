@@ -303,7 +303,41 @@ export default function ResourcesPage() {
         <title>Resources | ThreadLock&#8482;</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="noindex,follow" />
+        <meta name="robots" content="index,follow" />
+        <meta name="description" content="Essential legal resources for family court. Access state-specific court rules, templates, and practical tools designed to empower self-represented litigants." />
+        <link rel="canonical" href="https://www.threadlock.ai/resources" />
+        
+        {/* OpenGraph tags */}
+        <meta property="og:title" content="Essential Legal Resources | ThreadLock" />
+        <meta property="og:description" content="Navigate family court with confidence. Access state-specific rules and practical tools designed to empower you." />
+        <meta property="og:url" content="https://www.threadlock.ai/resources" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.threadlock.ai/og-image.jpg" />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Essential Legal Resources | ThreadLock" />
+        <meta name="twitter:description" content="Navigate family court with confidence. Access state-specific rules and practical tools." />
+        <meta name="twitter:image" content="https://www.threadlock.ai/og-image.jpg" />
+        
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "Essential Legal Resources",
+              "description": "Essential legal resources for family court. Access state-specific court rules, templates, and practical tools designed to empower self-represented litigants.",
+              "url": "https://www.threadlock.ai/resources",
+              "publisher": {
+                "@type": "Organization",
+                "name": "ThreadLock",
+                "url": "https://www.threadlock.ai"
+              }
+            })
+          }}
+        />
       </Head>
 
       <div className="bg-gray-50">
