@@ -11,3 +11,6 @@ cypress/videos/
 cypress/results/
 .env.local
 .env.local
+
+# Generated reports
+public/link-report.json
