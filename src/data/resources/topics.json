@@ -1,0 +1,62 @@
+[
+  {
+    "id": "court-rules",
+    "name": "Court Rules",
+    "description": "Official court rules and procedures including civil procedure, family law rules, and local court rules",
+    "slug": "court-rules"
+  },
+  {
+    "id": "proof-of-service",
+    "name": "Proof of Service",
+    "description": "Resources and templates for properly serving legal documents and filing proof of service",
+    "slug": "proof-of-service"
+  },
+  {
+    "id": "evidence",
+    "name": "Evidence & Documentation",
+    "description": "Guidelines for gathering, organizing, and presenting evidence in family court",
+    "slug": "evidence"
+  },
+  {
+    "id": "motions",
+    "name": "Motions & Pleadings",
+    "description": "Templates and guidance for filing motions and legal pleadings",
+    "slug": "motions"
+  },
+  {
+    "id": "deadlines",
+    "name": "Deadlines & Timelines",
+    "description": "Understanding court deadlines, response times, and legal timelines",
+    "slug": "deadlines"
+  },
+  {
+    "id": "self-help",
+    "name": "Self-Help Resources",
+    "description": "Court-provided resources for self-represented litigants",
+    "slug": "self-help"
+  },
+  {
+    "id": "forms",
+    "name": "Court Forms",
+    "description": "Official court forms and templates for various legal procedures",
+    "slug": "forms"
+  },
+  {
+    "id": "hearing-prep",
+    "name": "Hearing Preparation",
+    "description": "Checklists and guidance for preparing for court hearings and trials",
+    "slug": "hearing-prep"
+  },
+  {
+    "id": "custody",
+    "name": "Custody & Parenting",
+    "description": "Resources specific to child custody, visitation, and parenting plans",
+    "slug": "custody"
+  },
+  {
+    "id": "financial",
+    "name": "Financial Disclosures",
+    "description": "Guidelines for financial documentation, child support, and property division",
+    "slug": "financial"
+  }
+]

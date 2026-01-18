@@ -2,12 +2,21 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { SITE_CONFIG } from '../src/lib/config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const SITE_URL = 'https://www.threadlock.ai';
+const SITE_URL = SITE_CONFIG.baseUrl;
 const OUTPUT_PATH = path.join(__dirname, '../public/sitemap.xml');
+
+// Load dynamic route data
+const statesData = JSON.parse(
+  fs.readFileSync(path.join(__dirname, '../src/data/resources/states.json'), 'utf8')
+);
+const topicsData = JSON.parse(
+  fs.readFileSync(path.join(__dirname, '../src/data/resources/topics.json'), 'utf8')
+);
 
 // Pages to exclude from the sitemap
 const EXCLUDED_PAGES = [
@@ -67,8 +76,12 @@ const ROUTE_CONFIG = {
   '/founder-story': { priority: '0.7', changefreq: 'monthly' },
   '/sarahs-story': { priority: '0.7', changefreq: 'monthly' },
   '/investors': { priority: '0.6', changefreq: 'monthly' },
-  '/resources': { priority: '0.7', changefreq: 'weekly' },
+  '/resources': { priority: '0.8', changefreq: 'weekly' },
   '/resources/thanks': { priority: '0.4', changefreq: 'monthly' },
+  
+  // Dynamic resource pages (default config, will be customized below)
+  '/resources/state': { priority: '0.8', changefreq: 'monthly' },
+  '/resources/topic': { priority: '0.8', changefreq: 'monthly' },
   
   // Whitepapers
   '/whitepaper': { priority: '0.7', changefreq: 'monthly' },
@@ -164,18 +177,42 @@ function generateSitemap() {
     .filter(routeObj => routeObj !== null && !shouldExclude(routeObj.route))
     .sort((a, b) => a.route.localeCompare(b.route));
   
+  // Add dynamic state routes
+  const stateRoutes = statesData.map(state => ({
+    route: `/resources/state/${state.id}`,
+    mtime: new Date() // Use current date for dynamic routes
+  }));
+  
+  // Add dynamic topic routes
+  const topicRoutes = topicsData.map(topic => ({
+    route: `/resources/topic/${topic.id}`,
+    mtime: new Date() // Use current date for dynamic routes
+  }));
+  
+  // Combine all routes
+  const allRoutes = [...routes, ...stateRoutes, ...topicRoutes];
+  
   // Generate XML
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
   
-  routes.forEach(routeObj => {
-    const config = ROUTE_CONFIG[routeObj.route] || { priority: '0.5', changefreq: 'monthly' };
+  allRoutes.forEach(routeObj => {
+    // Determine config based on route pattern
+    let config;
+    if (routeObj.route.startsWith('/resources/state/')) {
+      config = { priority: '0.8', changefreq: 'monthly' };
+    } else if (routeObj.route.startsWith('/resources/topic/')) {
+      config = { priority: '0.8', changefreq: 'monthly' };
+    } else {
+      config = ROUTE_CONFIG[routeObj.route] || { priority: '0.5', changefreq: 'monthly' };
+    }
+    
     const url = routeObj.route === '/' ? SITE_URL : `${SITE_URL}${routeObj.route}`;
     // Use file modification time for lastmod to reflect actual content changes
     const lastmod = routeObj.mtime.toISOString().split('T')[0];
     
     // Log when using default config to help identify missing configurations
-    if (!ROUTE_CONFIG[routeObj.route]) {
+    if (!ROUTE_CONFIG[routeObj.route] && !routeObj.route.startsWith('/resources/state/') && !routeObj.route.startsWith('/resources/topic/')) {
       console.log(`  Using default config for: ${routeObj.route}`);
     }
     

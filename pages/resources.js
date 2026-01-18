@@ -1,13 +1,36 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import LeadMagnetForm from "../components/LeadMagnetForm";
 import SiteHeader from "../src/components/SiteHeader";
 import HeroBanner from "../src/components/HeroBanner";
+import statesData from "../src/data/resources/states.json";
+import productsData from "../src/data/resources/products.json";
+import topicsData from "../src/data/resources/topics.json";
+import { SITE_CONFIG } from "../src/lib/config";
 
 /* Exact filenames in /public */
 const HERO_IMG = "/sandra-seitamaa-JvPDBMvgNls-unsplash.jpg";
 const PRICING_IMG = "/giorgio-trovato-IgAFof1bhTA-unsplash.jpg";
+
+/* Import state rules from JSON */
+const STATE_RULES = statesData.map(state => ({
+  name: state.name,
+  url: state.rulesUrl
+}));
+
+/* Import single items from JSON */
+const SINGLE_ITEMS = productsData.map(product => ({
+  sku: product.sku,
+  name: product.name
+}));
+
+const SKU_TO_SLUG = productsData.reduce((acc, product) => {
+  acc[product.sku] = product.slug;
+  return acc;
+}, {});
+
 const LinkedinIcon = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -25,86 +48,6 @@ const ChevronDownIcon = (props) => (
     <polyline points="6 9 12 15 18 9"></polyline>
   </svg>
 );
-
-/* State rules */
-const STATE_RULES = [
-  { name: "Alabama", url: "https://eforms.alacourt.gov/media/d5464e8e-a228-4107-94d3-882245b7a1f5/rules-of-civil-procedure/" },
-  { name: "Alaska", url: "https://courts.alaska.gov/rules/rules.htm" },
-  { name: "Arizona", url: "https://www.azcourts.gov/rules" },
-  { name: "Arkansas", url: "https://courts.arkansas.gov/rules-and-administrative-orders/rules-of-civil-procedure" },
-  { name: "California", url: "https://www.courts.ca.gov/rules.htm" },
-  { name: "Colorado", url: "https://www.courts.state.co.us/Courts/Supreme_Court/Rule_Categories.cfm?Cat_ID=2" },
-  { name: "Connecticut", url: "https://jud.ct.gov/cbecs/rules.htm" },
-  { name: "Delaware", url: "https://courts.delaware.gov/rules/" },
-  { name: "Florida", url: "https://www.floridabar.org/rules/ctproc/" },
-  { name: "Georgia", url: "https://georgiacourts.gov/rules/" },
-  { name: "Hawaii", url: "https://www.courts.state.hi.us/rules_and_orders/rules_of_court" },
-  { name: "Idaho", url: "https://isc.idaho.gov/rules" },
-  { name: "Illinois", url: "https://www.illinoiscourts.gov/rules-and-orders/supreme-court-rules" },
-  { name: "Indiana", url: "https://www.in.gov/courts/rules/" },
-  { name: "Iowa", url: "https://www.iowacourts.gov/for-attorneys/court-rules" },
-  { name: "Kansas", url: "https://www.kscourts.org/rules" },
-  { name: "Kentucky", url: "https://courts.ky.gov/resources/Legal-Resources/Pages/KentuckyRulesofCourt.aspx" },
-  { name: "Louisiana", url: "https://www.lasc.org/rules/" },
-  { name: "Maine", url: "https://www.courts.maine.gov/rules/index.html" },
-  { name: "Maryland", url: "https://mdcourts.gov/rules" },
-  { name: "Massachusetts", url: "https://www.mass.gov/guides/massachusetts-court-rules" },
-  { name: "Michigan", url: "https://courts.michigan.gov/administration/standards-guidelines/rules/" },
-  { name: "Minnesota", url: "https://www.mncourts.gov/courtrules" },
-  { name: "Mississippi", url: "https://courts.ms.gov/rules/msrulesofcourt/rules_of_civil_procedure.pdf" },
-  { name: "Missouri", url: "https://www.courts.mo.gov/page.jsp?id=677" },
-  { name: "Montana", url: "https://courts.mt.gov/rules/" },
-  { name: "Nebraska", url: "https://supremecourt.nebraska.gov/supreme-court-rules" },
-  { name: "Nevada", url: "https://www.leg.state.nv.us/courtrules/" },
-  { name: "New Hampshire", url: "https://www.courts.nh.gov/rules-orders" },
-  { name: "New Jersey", url: "https://www.njcourts.gov/courts/rules" },
-  { name: "New Mexico", url: "https://www.nmcourts.gov/rules-forms/" },
-  { name: "New York", url: "https://ww2.nycourts.gov/rules/" },
-  { name: "North Carolina", url: "https://www.nccourts.gov/legal-resources/rules-forms" },
-  { name: "North Dakota", url: "https://www.ndcourts.gov/legal-resources/rules" },
-  { name: "Ohio", url: "https://www.supremecourt.ohio.gov/rules/" },
-  { name: "Oklahoma", url: "https://www.oscn.net/applications/oscn/index.asp?ftdb=STOKRU&level=1" },
-  { name: "Oregon", url: "https://www.ojd.state.or.us/rules/" },
-  { name: "Pennsylvania", url: "http://www.pacourts.us/rules-and-forms/" },
-  { name: "Rhode Island", url: "https://www.courts.ri.gov/Pages/rules-of-practice.aspx" },
-  { name: "South Carolina", url: "https://www.sccourts.org/courtReg/" },
-  { name: "South Dakota", url: "https://ujs.sd.gov/Supreme_Court/rules.aspx" },
-  { name: "Tennessee", url: "https://www.tncourts.gov/rules" },
-  { name: "Texas", url: "https://www.txcourts.gov/rules-forms/rules-standards/" },
-  { name: "Utah", url: "https://www.utcourts.gov/rules/" },
-  { name: "Vermont", url: "https://www.vermontjudiciary.org/court-rules" },
-  { name: "Virginia", url: "http://www.courts.state.va.us/courts/scv/rulesofcourt.pdf" },
-  { name: "Washington", url: "https://www.courts.wa.gov/court_rules/" },
-  { name: "West Virginia", url: "http://www.courtswv.gov/legal-community/court-rules.html" },
-  { name: "Wisconsin", url: "https://www.wicourts.gov/courts/supreme/rules/index.htm" },
-  { name: "Wyoming", url: "https://www.courts.state.wy.us/court-rules/" },
-];
-
-/* Single items */
-const SINGLE_ITEMS = [
-  { sku: "avoiding_common_mistakes", name: "Avoiding Common Mistakes in Court" },
-  { sku: "basic_motion_template", name: "Basic Motion Template" },
-  { sku: "case_event_timeline", name: "Case Event Timeline Worksheet" },
-  { sku: "common_response_timelines", name: "Common Legal Response Timelines" },
-  { sku: "cross_exam_planning", name: "Direct & Cross-Examination Planning" },
-  { sku: "evidence_log", name: "Evidence Tracking Log" },
-  { sku: "find_court_rules", name: "Finding the Right Court Rules" },
-  { sku: "pre_hearing_checklist", name: "Pre-Hearing Preparation Checklist" },
-  { sku: "proof_of_service_tracker", name: "Proof of Service Tracker" },
-  { sku: "trial_hearing_quick_ref", name: "Trial & Hearing Quick Reference" },
-];
-const SKU_TO_SLUG = {
-  avoiding_common_mistakes: "common-mistakes",
-  basic_motion_template: "basic-motion",
-  case_event_timeline: "case-timeline",
-  common_response_timelines: "common-response",
-  cross_exam_planning: "cross-exam",
-  evidence_log: "evidence-log",
-  find_court_rules: "find-rules",
-  pre_hearing_checklist: "pre-hearing",
-  proof_of_service_tracker: "proof-of-service",
-  trial_hearing_quick_ref: "trial-quick-ref",
-};
 
 /* Icons for Community Links section */
 
@@ -197,6 +140,12 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
 /* Community links */
 const CommunityLinksSection = () => {
   const [rulesOpen, setRulesOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  
+  const filteredStates = STATE_RULES.filter(state =>
+    state.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  
   return (
     <section id="community-links" className="py-20 md:py-24 bg-gray-50 relative z-10">
       <div className="container mx-auto px-6 max-w-4xl">
@@ -226,25 +175,50 @@ const CommunityLinksSection = () => {
             </div>
             <p className="text-slate-600 mb-6">Find the official court and family law rules for your state. <em>(Links go to external government websites)</em></p>
 
-            <button onClick={() => setRulesOpen(!rulesOpen)} className="w-full text-left font-semibold text-slate-800 py-3 px-4 bg-slate-100 hover:bg-slate-200 rounded-lg flex justify-between items-center transition-all">
-              <span>Select Your State</span>
-              <ChevronDownIcon className={`w-5 h-5 transition-transform ${rulesOpen ? 'rotate-180' : ''}`} />
-            </button>
-            <div className={`transition-all duration-300 ease-in-out overflow-hidden ${rulesOpen ? 'max-h-[500px] mt-2' : 'max-h-0'}`}>
-              <div className="py-2 space-y-1 max-h-80 overflow-y-auto">
-                {STATE_RULES.map((state) => (
-                  <a
-                    key={state.name}
-                    href={state.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-slate-800 hover:text-orange-600 font-semibold transition-colors p-2 rounded hover:bg-slate-100"
-                  >
-                    {state.name} &rarr;
-                  </a>
-                ))}
-              </div>
+            {/* Search/Typeahead Input */}
+            <div className="relative mb-3">
+              <input
+                type="text"
+                placeholder="Type your state name..."
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  if (e.target.value && !rulesOpen) setRulesOpen(true);
+                }}
+                onFocus={() => setRulesOpen(true)}
+                className="w-full py-3 px-4 pr-10 border-2 border-slate-200 rounded-lg focus:border-orange-500 focus:outline-none font-semibold"
+              />
+              <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
             </div>
+            
+            {rulesOpen && (
+              <div className="mt-2 py-2 space-y-1 max-h-80 overflow-y-auto border-2 border-slate-200 rounded-lg">
+                {filteredStates.length > 0 ? (
+                  filteredStates.map((state) => (
+                    <a
+                      key={state.name}
+                      href={state.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-slate-800 hover:text-orange-600 font-semibold transition-colors p-2 mx-1 rounded hover:bg-slate-100"
+                    >
+                      {state.name} &rarr;
+                    </a>
+                  ))
+                ) : (
+                  <p className="text-slate-500 text-center py-4">No states found matching "{searchTerm}"</p>
+                )}
+              </div>
+            )}
+            
+            <button 
+              onClick={() => setRulesOpen(!rulesOpen)} 
+              className="w-full mt-2 text-sm text-slate-600 hover:text-slate-900 transition-colors"
+            >
+              {rulesOpen ? 'Hide list' : 'Show all states'}
+            </button>
           </div>
         </div>
       </div>
@@ -303,7 +277,41 @@ export default function ResourcesPage() {
         <title>Resources | ThreadLock&#8482;</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="robots" content="noindex,follow" />
+        <meta name="robots" content="index,follow" />
+        <meta name="description" content="Essential legal resources for family court. Access state-specific court rules, templates, and practical tools designed to empower self-represented litigants." />
+        <link rel="canonical" href={`${SITE_CONFIG.baseUrl}/resources`} />
+        
+        {/* OpenGraph tags */}
+        <meta property="og:title" content="Essential Legal Resources | ThreadLock" />
+        <meta property="og:description" content="Navigate family court with confidence. Access state-specific rules and practical tools designed to empower you." />
+        <meta property="og:url" content={`${SITE_CONFIG.baseUrl}/resources`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content={`${SITE_CONFIG.baseUrl}${SITE_CONFIG.defaultOgImage}`} />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Essential Legal Resources | ThreadLock" />
+        <meta name="twitter:description" content="Navigate family court with confidence. Access state-specific rules and practical tools." />
+        <meta name="twitter:image" content={`${SITE_CONFIG.baseUrl}${SITE_CONFIG.defaultOgImage}`} />
+        
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "Essential Legal Resources",
+              "description": "Essential legal resources for family court. Access state-specific court rules, templates, and practical tools designed to empower self-represented litigants.",
+              "url": `${SITE_CONFIG.baseUrl}/resources`,
+              "publisher": {
+                "@type": "Organization",
+                "name": "ThreadLock",
+                "url": SITE_CONFIG.baseUrl
+              }
+            })
+          }}
+        />
       </Head>
 
       <div className="bg-gray-50">
@@ -321,6 +329,81 @@ export default function ResourcesPage() {
           </section>
 
           <CommunityLinksSection />
+          
+          {/* Browse by Topic Section */}
+          <section className="py-20 md:py-24 bg-white relative z-10">
+            <div className="container mx-auto px-6 max-w-6xl">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 text-center">Browse by Topic</h2>
+              <p className="text-lg text-slate-600 mb-12 text-center">Explore resources organized by legal topics relevant to family court.</p>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {topicsData.map((topic) => (
+                  <Link
+                    key={topic.id}
+                    href={`/resources/topic/${topic.id}`}
+                    className="bg-gray-50 p-6 rounded-xl border border-slate-200 hover:border-orange-500 hover:shadow-lg transition-all"
+                  >
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{topic.name}</h3>
+                    <p className="text-slate-600 mb-3">{topic.description}</p>
+                    <span className="text-orange-600 font-semibold">
+                      Explore {topic.name} →
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* State Resources Quick Links */}
+          <section className="py-20 md:py-24 bg-gray-50 relative z-10">
+            <div className="container mx-auto px-6 max-w-6xl">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 text-center">State-Specific Resources</h2>
+              <p className="text-lg text-slate-600 mb-12 text-center">Access official court rules and resources for your state.</p>
+              
+              <div className="bg-white p-8 rounded-2xl border border-slate-200 mb-8">
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Popular States</h3>
+                <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-3">
+                  {['california', 'texas', 'florida', 'new-york', 'pennsylvania', 'illinois', 'ohio', 'georgia', 'north-carolina', 'michigan'].map((stateId) => {
+                    const state = statesData.find(s => s.id === stateId);
+                    return state ? (
+                      <Link
+                        key={state.id}
+                        href={`/resources/state/${state.id}`}
+                        className="text-center py-3 px-4 bg-gray-50 hover:bg-orange-50 border border-slate-200 hover:border-orange-500 rounded-lg font-semibold text-slate-900 transition-all"
+                      >
+                        {state.name}
+                      </Link>
+                    ) : null;
+                  })}
+                </div>
+              </div>
+
+              <div className="text-center">
+                <p className="text-slate-600 mb-4">Need a different state?</p>
+                <details className="inline-block text-left">
+                  <summary className="cursor-pointer bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-lg inline-flex items-center">
+                    View All 50 States
+                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="mt-4 bg-white p-6 rounded-xl border border-slate-200 shadow-lg max-w-4xl">
+                    <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-3 max-h-96 overflow-y-auto">
+                      {statesData.map((state) => (
+                        <Link
+                          key={state.id}
+                          href={`/resources/state/${state.id}`}
+                          className="block py-2 px-3 text-slate-800 hover:text-orange-600 hover:bg-orange-50 rounded font-medium transition-all"
+                        >
+                          {state.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </section>
           
           {/* Old pricing cards - kept for easy rollback */}
           {SHOW_OLD_CARDS && (

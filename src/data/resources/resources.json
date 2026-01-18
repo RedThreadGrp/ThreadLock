@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ncselfhelp",
+    "title": "National Center for State Courts - Self-Help Resources",
+    "description": "Comprehensive self-help resources and court information from the National Center for State Courts",
+    "url": "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
+    "publisher": "National Center for State Courts",
+    "jurisdictions": ["US"],
+    "topics": ["self-help", "court-rules"],
+    "type": "nonprofit",
+    "lastReviewed": "2024-01-15",
+    "trustTier": "B"
+  },
+  {
+    "id": "uscourts-pro-se",
+    "title": "Federal Courts - Pro Se Litigants",
+    "description": "Official guidance for representing yourself in federal court",
+    "url": "https://www.uscourts.gov/forms/pro-se-forms",
+    "publisher": "United States Courts",
+    "jurisdictions": ["US"],
+    "topics": ["self-help", "forms", "court-rules"],
+    "type": "government",
+    "lastReviewed": "2024-01-15",
+    "trustTier": "A"
+  },
+  {
+    "id": "lsc-lawhelp",
+    "title": "LawHelp.org - Find Legal Help",
+    "description": "Find free or low-cost legal help and self-help resources in your state",
+    "url": "https://www.lawhelp.org",
+    "publisher": "Legal Services Corporation",
+    "jurisdictions": ["US"],
+    "topics": ["self-help"],
+    "type": "nonprofit",
+    "lastReviewed": "2024-01-15",
+    "trustTier": "B"
+  },
+  {
+    "id": "abafreelegal",
+    "title": "ABA Free Legal Answers",
+    "description": "Get free legal advice from volunteer lawyers in your state",
+    "url": "https://www.americanbar.org/groups/probono_public_service/projects_awards/free-legal-answers/",
+    "publisher": "American Bar Association",
+    "jurisdictions": ["US"],
+    "topics": ["self-help"],
+    "type": "nonprofit",
+    "lastReviewed": "2024-01-15",
+    "trustTier": "B"
+  },
+  {
+    "id": "nolo-family-law",
+    "title": "Nolo - Family Law Center",
+    "description": "Legal information and resources for family law matters",
+    "url": "https://www.nolo.com/legal-encyclopedia/family-law",
+    "publisher": "Nolo",
+    "jurisdictions": ["US"],
+    "topics": ["self-help", "custody", "financial"],
+    "type": "reference",
+    "lastReviewed": "2024-01-15",
+    "trustTier": "C"
+  }
+]

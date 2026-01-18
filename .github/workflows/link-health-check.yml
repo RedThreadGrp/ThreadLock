@@ -1,0 +1,89 @@
+name: Link Health Check
+
+on:
+  # Run on PRs that modify resource data files
+  pull_request:
+    paths:
+      - 'src/data/resources/**/*.json'
+      - 'scripts/check-links.mjs'
+  
+  # Run nightly at 2 AM UTC
+  schedule:
+    - cron: '0 2 * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run link checker
+        id: check
+        run: node scripts/check-links.mjs
+        continue-on-error: true
+      
+      - name: Upload link report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: link-report
+          path: public/link-report.json
+          retention-days: 30
+      
+      - name: Comment on PR (if failed)
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('public/link-report.json', 'utf8'));
+            
+            const failed = report.results.filter(r => !r.ok);
+            const tierAFailed = failed.filter(r => r.trustTier === 'A');
+            
+            let comment = '## ❌ Link Health Check Failed\n\n';
+            comment += `**Summary:**\n`;
+            comment += `- Total links checked: ${report.totalChecked}\n`;
+            comment += `- Failed: ${report.failed} (${(report.failureRate * 100).toFixed(2)}%)\n`;
+            comment += `- Critical (Tier A) failures: ${tierAFailed.length}\n\n`;
+            
+            if (tierAFailed.length > 0) {
+              comment += '### 🚨 Critical Link Failures (Tier A)\n\n';
+              tierAFailed.slice(0, 10).forEach(item => {
+                comment += `- **${item.source}**\n`;
+                comment += `  - URL: ${item.url}\n`;
+                comment += `  - Error: ${item.error || 'HTTP ' + item.status}\n\n`;
+              });
+              
+              if (tierAFailed.length > 10) {
+                comment += `_... and ${tierAFailed.length - 10} more critical failures_\n\n`;
+              }
+            }
+            
+            comment += '\n📄 Download the full report from the workflow artifacts.\n';
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+      
+      - name: Fail workflow if links are broken
+        if: steps.check.outcome == 'failure'
+        run: |
+          echo "Link health check failed. Please review the report and fix broken links."
+          exit 1
