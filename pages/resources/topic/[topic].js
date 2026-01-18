@@ -97,7 +97,7 @@ export default function TopicPage({ topic, relatedResources, relatedProducts }) 
       </Head>
 
       <div className="min-h-screen bg-gray-50">
-        <SiteHeader />
+        <SiteHeader theme="light" />
         
         <main className="container mx-auto px-6 py-12 md:py-20">
           {/* Breadcrumb */}

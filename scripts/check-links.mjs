@@ -28,9 +28,6 @@ const CONFIG = {
 };
 
 // Load data files
-const statesData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '../src/data/resources/states.json'), 'utf8')
-);
 const resourcesData = JSON.parse(
   fs.readFileSync(path.join(__dirname, '../src/data/resources/resources.json'), 'utf8')
 );
@@ -139,25 +136,6 @@ async function main() {
 
   // Collect all URLs to check
   const urlsToCheck = [];
-
-  // Add state rules URLs (trustTier A - government)
-  statesData.forEach(state => {
-    urlsToCheck.push({
-      url: state.rulesUrl,
-      trustTier: 'A',
-      source: `State: ${state.name}`,
-      type: 'state-rules',
-    });
-    
-    if (state.selfHelpUrl) {
-      urlsToCheck.push({
-        url: state.selfHelpUrl,
-        trustTier: 'A',
-        source: `State: ${state.name} (Self-Help)`,
-        type: 'state-selfhelp',
-      });
-    }
-  });
 
   // Add curated resources
   resourcesData.forEach(resource => {
