@@ -139,6 +139,12 @@ const PricingSection = ({ onBuyToolkit, onBuyFounders, onPickSingle, onContribMo
 /* Community links */
 const CommunityLinksSection = () => {
   const [rulesOpen, setRulesOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  
+  const filteredStates = STATE_RULES.filter(state =>
+    state.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  
   return (
     <section id="community-links" className="py-20 md:py-24 bg-gray-50 relative z-10">
       <div className="container mx-auto px-6 max-w-4xl">
@@ -168,25 +174,50 @@ const CommunityLinksSection = () => {
             </div>
             <p className="text-slate-600 mb-6">Find the official court and family law rules for your state. <em>(Links go to external government websites)</em></p>
 
-            <button onClick={() => setRulesOpen(!rulesOpen)} className="w-full text-left font-semibold text-slate-800 py-3 px-4 bg-slate-100 hover:bg-slate-200 rounded-lg flex justify-between items-center transition-all">
-              <span>Select Your State</span>
-              <ChevronDownIcon className={`w-5 h-5 transition-transform ${rulesOpen ? 'rotate-180' : ''}`} />
-            </button>
-            <div className={`transition-all duration-300 ease-in-out overflow-hidden ${rulesOpen ? 'max-h-[500px] mt-2' : 'max-h-0'}`}>
-              <div className="py-2 space-y-1 max-h-80 overflow-y-auto">
-                {STATE_RULES.map((state) => (
-                  <a
-                    key={state.name}
-                    href={state.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-slate-800 hover:text-orange-600 font-semibold transition-colors p-2 rounded hover:bg-slate-100"
-                  >
-                    {state.name} &rarr;
-                  </a>
-                ))}
-              </div>
+            {/* Search/Typeahead Input */}
+            <div className="relative mb-3">
+              <input
+                type="text"
+                placeholder="Type your state name..."
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  if (e.target.value && !rulesOpen) setRulesOpen(true);
+                }}
+                onFocus={() => setRulesOpen(true)}
+                className="w-full py-3 px-4 pr-10 border-2 border-slate-200 rounded-lg focus:border-orange-500 focus:outline-none font-semibold"
+              />
+              <svg className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
             </div>
+            
+            {rulesOpen && (
+              <div className="mt-2 py-2 space-y-1 max-h-80 overflow-y-auto border-2 border-slate-200 rounded-lg">
+                {filteredStates.length > 0 ? (
+                  filteredStates.map((state) => (
+                    <a
+                      key={state.name}
+                      href={state.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-slate-800 hover:text-orange-600 font-semibold transition-colors p-2 mx-1 rounded hover:bg-slate-100"
+                    >
+                      {state.name} &rarr;
+                    </a>
+                  ))
+                ) : (
+                  <p className="text-slate-500 text-center py-4">No states found matching "{searchTerm}"</p>
+                )}
+              </div>
+            )}
+            
+            <button 
+              onClick={() => setRulesOpen(!rulesOpen)} 
+              className="w-full mt-2 text-sm text-slate-600 hover:text-slate-900 transition-colors"
+            >
+              {rulesOpen ? 'Hide list' : 'Show all states'}
+            </button>
           </div>
         </div>
       </div>
