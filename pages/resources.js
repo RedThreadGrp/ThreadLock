@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import LeadMagnetForm from "../components/LeadMagnetForm";
 import SiteHeader from "../src/components/SiteHeader";
 import HeroBanner from "../src/components/HeroBanner";
 import statesData from "../src/data/resources/states.json";
 import productsData from "../src/data/resources/products.json";
+import topicsData from "../src/data/resources/topics.json";
 
 /* Exact filenames in /public */
 const HERO_IMG = "/sandra-seitamaa-JvPDBMvgNls-unsplash.jpg";
@@ -295,6 +297,81 @@ export default function ResourcesPage() {
           </section>
 
           <CommunityLinksSection />
+          
+          {/* Browse by Topic Section */}
+          <section className="py-20 md:py-24 bg-white relative z-10">
+            <div className="container mx-auto px-6 max-w-6xl">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 text-center">Browse by Topic</h2>
+              <p className="text-lg text-slate-600 mb-12 text-center">Explore resources organized by legal topics relevant to family court.</p>
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {topicsData.map((topic) => (
+                  <Link
+                    key={topic.id}
+                    href={`/resources/topic/${topic.id}`}
+                    className="bg-gray-50 p-6 rounded-xl border border-slate-200 hover:border-orange-500 hover:shadow-lg transition-all"
+                  >
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{topic.name}</h3>
+                    <p className="text-slate-600 mb-3">{topic.description}</p>
+                    <span className="text-orange-600 font-semibold">
+                      Explore {topic.name} →
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* State Resources Quick Links */}
+          <section className="py-20 md:py-24 bg-gray-50 relative z-10">
+            <div className="container mx-auto px-6 max-w-6xl">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 text-center">State-Specific Resources</h2>
+              <p className="text-lg text-slate-600 mb-12 text-center">Access official court rules and resources for your state.</p>
+              
+              <div className="bg-white p-8 rounded-2xl border border-slate-200 mb-8">
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Popular States</h3>
+                <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-3">
+                  {['california', 'texas', 'florida', 'new-york', 'pennsylvania', 'illinois', 'ohio', 'georgia', 'north-carolina', 'michigan'].map((stateId) => {
+                    const state = statesData.find(s => s.id === stateId);
+                    return state ? (
+                      <Link
+                        key={state.id}
+                        href={`/resources/state/${state.id}`}
+                        className="text-center py-3 px-4 bg-gray-50 hover:bg-orange-50 border border-slate-200 hover:border-orange-500 rounded-lg font-semibold text-slate-900 transition-all"
+                      >
+                        {state.name}
+                      </Link>
+                    ) : null;
+                  })}
+                </div>
+              </div>
+
+              <div className="text-center">
+                <p className="text-slate-600 mb-4">Need a different state?</p>
+                <details className="inline-block text-left">
+                  <summary className="cursor-pointer bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 px-6 rounded-lg inline-flex items-center">
+                    View All 50 States
+                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="mt-4 bg-white p-6 rounded-xl border border-slate-200 shadow-lg max-w-4xl">
+                    <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-3 max-h-96 overflow-y-auto">
+                      {statesData.map((state) => (
+                        <Link
+                          key={state.id}
+                          href={`/resources/state/${state.id}`}
+                          className="block py-2 px-3 text-slate-800 hover:text-orange-600 hover:bg-orange-50 rounded font-medium transition-all"
+                        >
+                          {state.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </section>
           
           {/* Old pricing cards - kept for easy rollback */}
           {SHOW_OLD_CARDS && (
