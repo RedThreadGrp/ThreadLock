@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import FloatingRiskReviewCTA from "../components/FloatingRiskReviewCTA";
 import ResourcesDropdown from "../components/ResourcesDropdown";
 import SiteHeader from "../src/components/SiteHeader";
 
@@ -135,15 +134,12 @@ const HeroSection = () => (
   >
     <div className="absolute inset-0 bg-black/60"></div>
     <div className="relative container mx-auto px-6 py-24 text-center w-full">
-      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
-        <span className="block">Your case.</span>
+      <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
+        <span className="block">Family Court.</span>
         <span className="block mt-2 text-orange-400">Organized.</span>
-        <span className="block mt-4">
-          Take control.
-        </span>
       </h1>
-      <p className="mt-8 text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-        Your secure, all-in-one platform to organize evidence, journal events, and manage your case - whether you&apos;re representing yourself or working with a professional.
+      <p className="mt-8 text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
+        Built for family court. Designed to work with or without an attorney.
       </p>
       <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <Link
@@ -163,6 +159,22 @@ const HeroSection = () => (
   </section>
 );
 
+const DefinitionStrip = () => (
+  <section className="py-12 bg-white border-b border-slate-200">
+    <div className="container mx-auto px-6 max-w-4xl text-center">
+      <p className="text-base md:text-lg text-slate-800 leading-relaxed mb-4">
+        <strong>ThreadLock is a case organization platform for family court matters.</strong>
+      </p>
+      <p className="text-base md:text-lg text-slate-700 leading-relaxed mb-3">
+        It helps self-represented litigants track evidence, events, and documents in a way courts understand.
+      </p>
+      <p className="text-base md:text-lg text-slate-700 leading-relaxed">
+        Designed to work with or without an attorney.
+      </p>
+    </div>
+  </section>
+);
+
 const ValuePropositionSection = () => (
   <section className="py-20 md:py-28 bg-white">
     <div className="container mx-auto px-6">
@@ -171,27 +183,27 @@ const ValuePropositionSection = () => (
           <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
             <FolderIcon className="w-8 h-8" />
           </div>
-          <h3 className="text-2xl font-bold text-slate-800 mb-4">Your All-in-One Hub</h3>
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">Case Materials, One Place</h3>
           <p className="text-slate-600 leading-relaxed">
-            Stop the chaos of messy folders and lost notes. Securely upload documents, add journal entries, and track events in one place.
+            Securely store documents, journal entries, and evidence so nothing gets lost or scattered.
           </p>
         </div>
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
           <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
             <BookOpenIcon className="w-8 h-8" />
           </div>
-          <h3 className="text-2xl font-bold text-slate-800 mb-4">Build Your Timeline</h3>
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">Chronological Case Timeline</h3>
           <p className="text-slate-600 leading-relaxed">
-            See your case chronologically. Our new timeline automatically populates from your entries, giving you a clear view of your story.
+            See your case as the court sees it—ordered by date, with sources attached.
           </p>
         </div>
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
           <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
             <UsersIcon className="w-8 h-8" />
           </div>
-          <h3 className="text-2xl font-bold text-slate-800 mb-4">You Control Your Story</h3>
+          <h3 className="text-2xl font-bold text-slate-800 mb-4">Prepared to Share or Review</h3>
           <p className="text-slate-600 leading-relaxed">
-            Whether you self-represent or seek a review, you are in control. Securely share your organized file with a professional, mediator, or co-parent.
+            Share a clean, organized file with an attorney, mediator, or keep it for your own records.
           </p>
         </div>
       </div>
@@ -419,7 +431,7 @@ const ProductShowcaseSection = () => {
         },
         { 
             title: "Manage Your Case Forms", 
-            description: "Don't waste time searching confusing government websites. Access a library of state-specific legal forms relevant to your case, right from your case hub.", 
+            description: "Prepare court-ready documents and summaries using your organized case information.", 
             mockup: <PdfExportUIMockup /> 
         },
     ];
@@ -778,16 +790,16 @@ export default function Home() {
             <SiteHeader/>
             <main className="flex flex-col w-full overflow-x-hidden">
                 <HeroSection />
+                <DefinitionStrip />
                 <ValuePropositionSection />
-                <OurMissionSection />
                 <FeaturesSection />
                 <ProductShowcaseSection />
                 <WhoItsForSection />
                 <SubscriptionBanner />
+                <OurMissionSection />
                 <FAQSection />
                 <SignupSection />
             </main>
-            <FloatingRiskReviewCTA />
         </div>
     );
 }
