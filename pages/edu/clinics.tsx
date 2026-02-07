@@ -61,11 +61,8 @@ export default function LawClinicsPage() {
 
       <SiteHeader theme="light" />
       
-      <div className="min-h-screen bg-surface text-foreground pt-16">
-        {/* Top glow + subtle grid (token-driven) */}
-        <div className="tl-edu-bg">
-          <div className="tl-edu-grid" />
-        </div>
+      <div className="min-h-screen tl-page-background text-foreground pt-16">
+        {/* Subtle background pattern for consistency with login/signup */}
 
         {/* Hero */}
         <main>
@@ -80,25 +77,25 @@ export default function LawClinicsPage() {
 
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-              Supervise student drafting with review gates and clean approvals
+              Student drafting with built-in supervision
             </h1>
 
             <p className="mt-5 text-base text-muted md:text-lg">
-              Keep limited-scope work organized, attributable, and exportable. Reduce operational chaos without implying legal advice.
+              Organized workflows for limited-scope work. Clear attribution, review gates, and supervisor approvals.
             </p>
 
             <div className="mt-6 flex flex-col items-center justify-center gap-3 md:flex-row">
               <a
                 href="/api/idme/start?returnTo=/edu/clinics#verify"
-                className="w-full rounded-2xl bg-brand-orange px-6 py-3 text-center text-base font-semibold text-white shadow-sm hover:opacity-90 transition md:w-auto"
+                className="w-full rounded-xl bg-brand-orange px-6 py-3 text-center text-base font-semibold text-white shadow-md hover:brightness-90 transition-all transform hover:-translate-y-0.5 md:w-auto"
               >
-                Verify student eligibility (id.me)
+                Verify eligibility
               </a>
               <a
                 href="#clinic"
-                className="w-full rounded-2xl border border-border bg-surface-panel px-6 py-3 text-center text-base font-semibold hover:bg-surface-panel/70 transition md:w-auto"
+                className="w-full rounded-xl border border-border bg-white/80 backdrop-blur-sm px-6 py-3 text-center text-base font-semibold hover:bg-white transition-all transform hover:-translate-y-0.5 md:w-auto shadow-sm"
               >
-                Clinic director onboarding
+                Clinic directors
               </a>
             </div>
 
@@ -110,7 +107,7 @@ export default function LawClinicsPage() {
 
         {/* Trust strip - credibility signals */}
         <section className="mx-auto max-w-6xl px-6 py-6 md:py-8">
-          <div className="rounded-2xl border border-border bg-surface-panel p-6">
+          <div className="rounded-2xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6">
             <div className="grid gap-4 md:grid-cols-5 text-center md:text-left">
               <TrustBadge 
                 icon="✓" 
@@ -186,7 +183,7 @@ export default function LawClinicsPage() {
         {/* Verification + signup */}
         <section id="verify" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-border bg-surface-panel p-6 md:p-10">
+            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
               <h3 className="text-xl font-semibold tracking-tight">Student access (free)</h3>
               <p className="mt-2 text-muted">
                 Verify your enrollment with id.me, then connect to your clinic. If your clinic isn't listed, request it.
@@ -213,7 +210,7 @@ export default function LawClinicsPage() {
                 {/* id.me verification button with real navigation */}
                 <a
                   href="/api/idme/start?returnTo=/edu/clinics#verify"
-                  className="block w-full rounded-2xl bg-brand-orange px-5 py-3 text-center text-base font-semibold text-black shadow-sm hover:opacity-90 transition"
+                  className="block w-full rounded-xl bg-brand-orange px-5 py-3 text-center text-base font-semibold text-white shadow-md hover:brightness-90 transition-all"
                 >
                   Verify with id.me
                 </a>
@@ -232,7 +229,7 @@ export default function LawClinicsPage() {
               </div>
             </div>
 
-            <div id="clinic" className="rounded-3xl border border-border bg-surface-panel p-6 md:p-10">
+            <div id="clinic" className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
               <h3 className="text-xl font-semibold tracking-tight">Clinic / Director onboarding</h3>
               <p className="mt-2 text-muted">
                 Set up supervision workflows, cohort approvals, and program policy defaults. You control who gets access
@@ -246,7 +243,7 @@ export default function LawClinicsPage() {
 
                 <a
                   href="/contact"
-                  className="block w-full rounded-2xl border border-border bg-surface px-5 py-3 text-center text-base font-semibold hover:bg-surface-panel/60 transition"
+                  className="block w-full rounded-xl border border-border bg-white/80 backdrop-blur-sm px-5 py-3 text-center text-base font-semibold hover:bg-white transition-all shadow-sm"
                 >
                   Request clinic setup
                 </a>
@@ -266,7 +263,7 @@ export default function LawClinicsPage() {
 
         {/* Supervision */}
         <section id="supervision" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-          <div className="rounded-3xl border border-border bg-surface-panel p-6 md:p-10">
+          <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Supervision that doesn't fight you</h2>
             <p className="mt-2 text-muted max-w-3xl">
               Your program's credibility depends on oversight. ThreadLock is structured to make supervision obvious,
@@ -284,7 +281,7 @@ export default function LawClinicsPage() {
         {/* Security & governance (careful language) */}
         <section id="security" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-border bg-surface-panel p-6 md:p-10">
+            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
               <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Security & governance</h2>
               <p className="mt-2 text-muted">
                 We avoid sloppy claims. Here's the real promise: strong defaults, least-privilege access, and clear
@@ -316,7 +313,7 @@ export default function LawClinicsPage() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-surface-panel p-6 md:p-10">
+            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
               <h3 className="text-xl font-semibold tracking-tight">Integrations (optional)</h3>
               <p className="mt-2 text-muted">
                 Keep this conservative until each integration is real and contractually covered.
@@ -338,7 +335,7 @@ export default function LawClinicsPage() {
 
         {/* FAQ */}
         <section id="faq" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-          <div className="rounded-3xl border border-border bg-surface-panel p-6 md:p-10">
+          <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">FAQ</h2>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {faqs.map((f) => (
@@ -364,15 +361,15 @@ export default function LawClinicsPage() {
               <div className="flex flex-col gap-3 md:flex-row">
                 <a
                   href="/api/idme/start?returnTo=/edu/clinics#verify"
-                  className="rounded-2xl bg-brand-orange px-5 py-3 text-sm font-semibold text-white hover:opacity-90 transition text-center"
+                  className="rounded-xl bg-brand-orange px-5 py-3 text-sm font-semibold text-white hover:brightness-90 transition-all text-center shadow-md"
                 >
-                  Verify with id.me
+                  Verify eligibility
                 </a>
                 <a
                   href="#clinic"
-                  className="rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold hover:bg-white/15 transition text-center"
+                  className="rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm px-5 py-3 text-sm font-semibold hover:bg-white/15 transition-all text-center"
                 >
-                  Clinic onboarding
+                  For clinics
                 </a>
               </div>
             </div>
