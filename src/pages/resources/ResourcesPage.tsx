@@ -84,6 +84,14 @@ export default function ResourcesPage() {
   const [intent, setIntent] = useState<"All" | Resource["intent"]>("All");
   const [tag, setTag] = useState<"All" | Resource["tag"]>("All");
 
+  const isFiltersActive = intent !== "All" || tag !== "All" || query.trim() !== "";
+
+  const resetFilters = () => {
+    setIntent("All");
+    setTag("All");
+    setQuery("");
+  };
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return RESOURCES.filter((r) => {
@@ -147,7 +155,7 @@ export default function ResourcesPage() {
       </header>
 
       {/* Hero */}
-      <section className="mx-auto max-w-6xl px-6 pt-14 pb-10 md:pt-18 md:pb-14">
+      <section className="mx-auto max-w-6xl px-6 pt-14 pb-10 md:pt-20 md:pb-14">
         <div className="mx-auto max-w-3xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-panel px-3 py-1 text-xs font-semibold text-muted">
             <span className="inline-block h-2 w-2 rounded-full bg-brand-orange" />
@@ -199,7 +207,7 @@ export default function ResourcesPage() {
               <Pill onClick={() => setIntent("Learn")} active={intent === "Learn"}>
                 I need official portals
               </Pill>
-              <Pill onClick={() => { setIntent("All"); setTag("All"); setQuery(""); }} active={intent === "All" && tag === "All" && !query}>
+              <Pill onClick={resetFilters} active={!isFiltersActive}>
                 Reset
               </Pill>
             </div>
