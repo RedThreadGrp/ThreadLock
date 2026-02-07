@@ -33,4 +33,20 @@
     width: 100%;
     padding: 1rem;
   }
+
+  /* ResourcesPage backgrounds - token-safe */
+  .bg-gradient-radial-orange-top {
+    background: radial-gradient(55% 35% at 50% 0%, rgb(251 122 30 / 0.16) 0%, rgb(0 0 0 / 0) 70%);
+  }
+
+  .bg-gradient-radial-navy-left {
+    background: radial-gradient(45% 35% at 15% 10%, rgb(27 58 77 / 0.30) 0%, rgb(0 0 0 / 0) 72%);
+  }
+
+  .bg-grid-subtle {
+    background-image: linear-gradient(to right, rgb(255 255 255 / 0.12) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgb(255 255 255 / 0.12) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.07;
+  }
 }
