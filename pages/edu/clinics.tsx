@@ -55,11 +55,9 @@ function cn(...parts: Array<string | false | null | undefined>) {
 export default function LawClinicsPage() {
   return (
     <div className="min-h-screen bg-surface text-foreground">
-      {/* Top glow + subtle grid (flashy, but token-friendly) */}
-      <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(60%_40%_at_50%_0%,rgba(251,122,30,0.18)_0%,rgba(0,0,0,0)_70%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(45%_35%_at_20%_10%,rgba(27,58,77,0.35)_0%,rgba(0,0,0,0)_70%)]" />
-        <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] bg-[size:56px_56px]" />
+      {/* Top glow + subtle grid (token-driven) */}
+      <div className="tl-edu-bg">
+        <div className="tl-edu-grid" />
       </div>
 
       {/* Nav */}
@@ -231,18 +229,21 @@ export default function LawClinicsPage() {
                   </div>
                 </div>
 
-                {/* Replace this button with your actual id.me OAuth initiation */}
-                <button
-                  type="button"
-                  className="w-full rounded-2xl bg-brand-orange px-5 py-3 text-base font-semibold text-black shadow-sm hover:opacity-90 transition"
-                  onClick={() => {
-                    // TODO(agent): Implement id.me sign-in initiation
-                    // Example: window.location.href = `/api/idme/start?returnTo=/edu/law-clinics#verify`;
-                    alert("TODO: Wire id.me OAuth start");
-                  }}
+                {/* id.me verification button with real navigation */}
+                <a
+                  href="/api/idme/start?returnTo=/edu/clinics#verify"
+                  className="block w-full rounded-2xl bg-brand-orange px-5 py-3 text-center text-base font-semibold text-black shadow-sm hover:opacity-90 transition"
                 >
                   Verify with id.me
-                </button>
+                </a>
+
+                {/* What id.me shares disclosure */}
+                <div className="rounded-2xl border border-border bg-surface p-4 text-xs text-muted">
+                  <div className="font-semibold text-foreground">What id.me shares with us</div>
+                  <div className="mt-2">
+                    We receive verification of student status and a stable identifier from id.me. We do not receive your password. We store only what's necessary to enforce eligibility.
+                  </div>
+                </div>
 
                 <p className="text-xs text-muted">
                   By continuing, you agree to Terms and acknowledge this product does not provide legal advice.
@@ -262,16 +263,12 @@ export default function LawClinicsPage() {
                 <Field label="School / institution" placeholder="University of …" />
                 <Field label="Director / supervisor email" placeholder="director@lawschool.edu" />
 
-                <button
-                  type="button"
-                  className="w-full rounded-2xl border border-border bg-surface px-5 py-3 text-base font-semibold hover:bg-surface-panel/60 transition"
-                  onClick={() => {
-                    // TODO(agent): Wire to CRM / form submit endpoint
-                    alert("TODO: Submit clinic onboarding request");
-                  }}
+                <a
+                  href="/contact"
+                  className="block w-full rounded-2xl border border-border bg-surface px-5 py-3 text-center text-base font-semibold hover:bg-surface-panel/60 transition"
                 >
                   Request clinic setup
-                </button>
+                </a>
 
                 <div className="rounded-2xl border border-border bg-surface p-4 text-sm text-muted">
                   <div className="font-semibold text-foreground">Recommended defaults</div>
