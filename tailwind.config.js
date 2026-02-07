@@ -10,8 +10,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: { navy: '#0B1724', orange: '#F58220' },
+        brand: { 
+          navy: '#1b3a4d',
+          orange: '#fb7a1e'
+        },
         tl: { navy: '#1b3a4d', orange: '#fb7a1e' },
+        surface: '#ffffff',
+        'surface-panel': '#f9fafb',
+        border: '#e5e7eb',
+        foreground: '#111827',
+        muted: '#6b7280',
       },
       dropShadow: { logo: '0 2px 6px rgba(0,0,0,.55)' },
       boxShadow: { plate: '0 8px 24px rgba(0,0,0,.35)' },
