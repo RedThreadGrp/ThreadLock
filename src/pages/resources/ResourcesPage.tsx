@@ -395,10 +395,10 @@ export default function ResourcesPage() {
                   <span className="text-brand-orange font-bold group-hover:translate-x-1 transition-transform duration-200">→</span>
                 </div>
               </div>
-              </a>
-            ))}
-          </div>
-        </section>
+            </a>
+          ))}
+        </div>
+      </section>
 
         {/* Featured Guides */}
         <section id="featured-guides" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
