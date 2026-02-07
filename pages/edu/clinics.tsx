@@ -1,11 +1,7 @@
-// NOTE: Tailwind-only styling. Assumes marketing repo includes tokens.css and Inter via global font-sans.
-// Brand tokens assumed (adjust to your tokens.css naming):
-// - bg-brand-navy / text-brand-navy
-// - text-brand-orange / bg-brand-orange
-// - bg-surface / bg-surface-panel / border-border / text-foreground / text-muted
-// If your repo uses different token classnames, map them here—do NOT replace with hard-coded colors.
-
 import React from "react";
+import Head from "next/head";
+import SiteHeader from "../../src/components/SiteHeader";
+import SiteFooter from "../../src/components/SiteFooter";
 
 type FAQ = { q: string; a: React.ReactNode };
 
@@ -54,151 +50,136 @@ function cn(...parts: Array<string | false | null | undefined>) {
 
 export default function LawClinicsPage() {
   return (
-    <div className="min-h-screen bg-surface text-foreground">
-      {/* Top glow + subtle grid (token-driven) */}
-      <div className="tl-edu-bg">
-        <div className="tl-edu-grid" />
-      </div>
+    <>
+      <Head>
+        <title>ThreadLock EDU — Free for Law Students in Clinics</title>
+        <meta 
+          name="description" 
+          content="Supervise student drafting with review gates and clean approvals. Built for law clinics, pro bono programs, and limited-scope legal aid." 
+        />
+      </Head>
 
-      {/* Nav */}
-      <header className="sticky top-0 z-20 border-b border-border/60 bg-surface/75 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="/" className="flex items-center gap-3">
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-brand-navy text-white shadow-sm">
-              {/* Replace with your real logo component */}
-              <span className="text-sm font-bold">TL</span>
-            </div>
-            <div className="leading-tight">
-              <div className="text-sm font-semibold tracking-tight">
-                ThreadLock <span className="text-brand-orange">EDU</span>
-              </div>
-              <div className="text-xs text-muted">Law clinics • Pro bono • Limited scope</div>
-            </div>
-          </a>
-
-          <nav className="hidden items-center gap-7 text-sm text-muted md:flex">
-            <a className="hover:text-foreground transition" href="#how-it-works">
-              How it works
-            </a>
-            <a className="hover:text-foreground transition" href="#supervision">
-              Supervision
-            </a>
-            <a className="hover:text-foreground transition" href="#security">
-              Security & governance
-            </a>
-            <a className="hover:text-foreground transition" href="#faq">
-              FAQ
-            </a>
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <a
-              href="#verify"
-              className="rounded-xl bg-brand-orange px-4 py-2 text-sm font-semibold text-black shadow-sm hover:opacity-90 transition"
-            >
-              Verify with id.me
-            </a>
-          </div>
+      <SiteHeader theme="light" />
+      
+      <div className="min-h-screen bg-surface text-foreground pt-16">
+        {/* Top glow + subtle grid (token-driven) */}
+        <div className="tl-edu-bg">
+          <div className="tl-edu-grid" />
         </div>
-      </header>
 
-      {/* Hero */}
-      <main>
-        <section className="mx-auto max-w-6xl px-6 pt-16 pb-10 md:pt-20 md:pb-16">
-          <div className="mx-auto max-w-3xl text-center">
+        {/* Hero */}
+        <main>
+        <section className="mx-auto max-w-6xl px-6 pt-8 pb-6 md:pt-12 md:pb-8">
+          {/* Breadcrumb / EDU Badge */}
+          <div className="mb-4 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-panel px-3 py-1 text-xs font-semibold text-muted">
               <span className="inline-block h-2 w-2 rounded-full bg-brand-orange" />
-              Free for verified law students in clinics & approved pro bono programs
+              ThreadLock EDU — Free for verified law students
             </div>
+          </div>
 
-            <h1 className="mt-6 text-4xl font-semibold tracking-tight md:text-6xl">
-              The secure workspace for{" "}
-              <span className="text-brand-orange">unbundled</span> legal aid
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
+              Supervise student drafting with review gates and clean approvals
             </h1>
 
             <p className="mt-5 text-base text-muted md:text-lg">
-              Draft, organize, and supervise limited-scope work with governance that respects client sensitivity. Built
-              to help clinics move faster without turning student work into a compliance hazard.
+              Keep limited-scope work organized, attributable, and exportable. Reduce operational chaos without implying legal advice.
             </p>
 
-            <div className="mt-8 flex flex-col items-center justify-center gap-3 md:flex-row">
+            <div className="mt-6 flex flex-col items-center justify-center gap-3 md:flex-row">
               <a
-                href="#verify"
-                className="w-full rounded-2xl bg-brand-orange px-6 py-4 text-center text-base font-semibold text-black shadow-sm hover:opacity-90 transition md:w-auto"
+                href="/api/idme/start?returnTo=/edu/clinics#verify"
+                className="w-full rounded-2xl bg-brand-orange px-6 py-3 text-center text-base font-semibold text-white shadow-sm hover:opacity-90 transition md:w-auto"
               >
-                Start verification (id.me)
+                Verify student eligibility (id.me)
               </a>
               <a
                 href="#clinic"
-                className="w-full rounded-2xl border border-border bg-surface-panel px-6 py-4 text-center text-base font-semibold hover:bg-surface-panel/70 transition md:w-auto"
+                className="w-full rounded-2xl border border-border bg-surface-panel px-6 py-3 text-center text-base font-semibold hover:bg-surface-panel/70 transition md:w-auto"
               >
-                I'm a clinic director
+                Clinic director onboarding
               </a>
             </div>
 
-            <p className="mt-6 text-xs text-muted">
-              Important: ThreadLock is software, not a law firm. It does not provide legal advice. Supervising attorney
-              review remains required under your clinic's rules.
+            <p className="mt-4 text-center text-xs text-muted">
+              Not a student? <a href="/contact?topic=edu" className="underline hover:text-foreground">Request program access</a>
             </p>
           </div>
         </section>
 
-        {/* Value props */}
-        <section className="mx-auto max-w-6xl px-6 py-10 md:py-14">
-          <div className="grid gap-4 md:grid-cols-3">
-            <FeatureCard
-              title="Drafting with governance"
-              desc="Structured drafting workflows designed for review, revision, and approval. Built to reduce chaos—not replace professional judgment."
-              badge="Workflow"
-            />
-            <FeatureCard
-              title="Clinic supervision built-in"
-              desc="Professor/attorney oversight with clear handoffs: who drafted what, who approved what, and when."
-              badge="Supervision"
-            />
-            <FeatureCard
-              title="Client sensitivity by design"
-              desc="Keep clinic data under clinic control, with strong defaults and auditable actions."
-              badge="Governance"
-            />
+        {/* Trust strip - credibility signals */}
+        <section className="mx-auto max-w-6xl px-6 py-6 md:py-8">
+          <div className="rounded-2xl border border-border bg-surface-panel p-6">
+            <div className="grid gap-4 md:grid-cols-5 text-center md:text-left">
+              <TrustBadge 
+                icon="✓" 
+                text="Supervision-first workflow" 
+              />
+              <TrustBadge 
+                icon="✓" 
+                text="Audit-friendly approvals" 
+              />
+              <TrustBadge 
+                icon="✓" 
+                text="Security-minded defaults" 
+              />
+              <TrustBadge 
+                icon="✓" 
+                text="Eligibility verified via id.me" 
+              />
+              <TrustBadge 
+                icon="✓" 
+                text="No legal advice / not a law firm" 
+              />
+            </div>
           </div>
         </section>
 
-        {/* How it works */}
-        <section id="how-it-works" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-          <div className="rounded-3xl border border-border bg-surface-panel p-6 md:p-10">
-            <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-              <div>
-                <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">How access works</h2>
-                <p className="mt-2 text-muted">
-                  Free access is tied to enrollment and clinic affiliation—verified via id.me.
-                </p>
-              </div>
-              <a
-                href="#verify"
-                className="inline-flex items-center justify-center rounded-2xl bg-brand-navy px-5 py-3 text-sm font-semibold text-white hover:opacity-95 transition"
-              >
-                Go to verification
-              </a>
-            </div>
+        {/* How it works - 3-step flow */}
+        <section id="how-it-works" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">How it works</h2>
+            <p className="mt-2 text-muted max-w-2xl mx-auto">
+              A clear path from eligibility to supervised drafting.
+            </p>
+          </div>
 
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              <StepCard
-                step="1"
-                title="Verify enrollment"
-                desc="Authenticate your student status through id.me. We store only what we need to enforce eligibility."
-              />
-              <StepCard
-                step="2"
-                title="Attach to a clinic"
-                desc="Select your school + clinic program (or request to add one). Clinic admins control cohorts and access."
-              />
-              <StepCard
-                step="3"
-                title="Work under supervision"
-                desc="Draft and organize work product; route outputs to a supervisor for review and approval."
-              />
-            </div>
+          <div className="grid gap-6 md:grid-cols-3 mb-12">
+            <HowItWorksStep
+              step="1"
+              title="Verify eligibility (id.me)"
+              desc="Authenticate your student status through id.me. We store only what we need to enforce eligibility."
+            />
+            <HowItWorksStep
+              step="2"
+              title="Join a clinic cohort"
+              desc="Select your school + clinic program. Clinic admins control cohorts and access."
+            />
+            <HowItWorksStep
+              step="3"
+              title="Draft → review → approve"
+              desc="Work under supervision with review gates, attributable authorship, and supervisor approvals."
+            />
+          </div>
+
+          {/* Feature cards as secondary reinforcement */}
+          <div className="grid gap-4 md:grid-cols-3">
+            <FeatureCard
+              title="Role-based access"
+              desc="Clear separation between student drafting and supervisor review. Approval workflows and audit history."
+              badge="Governance"
+            />
+            <FeatureCard
+              title="Clinic supervision built-in"
+              desc="Attorney oversight with clear handoffs: who drafted what, who approved what, and when."
+              badge="Supervision"
+            />
+            <FeatureCard
+              title="Data controls"
+              desc="Keep clinic data under clinic control, with export, retention, and access revocation aligned to policy."
+              badge="Security"
+            />
           </div>
         </section>
 
@@ -377,39 +358,53 @@ export default function LawClinicsPage() {
               <div>
                 <h3 className="text-2xl font-semibold tracking-tight">Bring your clinic cohort onboard</h3>
                 <p className="mt-2 text-white/80">
-                  Students verify with id.me. Clinics approve cohorts. Supervisors review outputs. Simple.
+                  Students verify with id.me. Clinics approve cohorts. Supervisors review outputs.
                 </p>
               </div>
-              <div className="flex gap-3">
+              <div className="flex flex-col gap-3 md:flex-row">
                 <a
-                  href="#verify"
-                  className="rounded-2xl bg-brand-orange px-5 py-3 text-sm font-semibold text-black hover:opacity-90 transition"
+                  href="/api/idme/start?returnTo=/edu/clinics#verify"
+                  className="rounded-2xl bg-brand-orange px-5 py-3 text-sm font-semibold text-white hover:opacity-90 transition text-center"
                 >
                   Verify with id.me
                 </a>
                 <a
                   href="#clinic"
-                  className="rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold hover:bg-white/15 transition"
+                  className="rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold hover:bg-white/15 transition text-center"
                 >
                   Clinic onboarding
                 </a>
               </div>
             </div>
           </div>
-
-          <div className="mt-8 flex flex-col items-center justify-between gap-3 text-xs text-muted md:flex-row">
-            <div>© {new Date().getFullYear()} ThreadLock. All rights reserved.</div>
-            <div className="flex gap-5">
-              <a className="hover:text-foreground transition" href="/privacy">
-                Privacy
-              </a>
-              <a className="hover:text-foreground transition" href="/terms">
-                Terms
-              </a>
-            </div>
-          </div>
         </section>
       </main>
+    </div>
+
+    <SiteFooter />
+    </>
+  );
+}
+
+function TrustBadge({ icon, text }: { icon: string; text: string }) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="flex-shrink-0 text-brand-orange font-bold">{icon}</span>
+      <span className="text-xs text-muted font-medium">{text}</span>
+    </div>
+  );
+}
+
+function HowItWorksStep({ step, title, desc }: { step: string; title: string; desc: string }) {
+  return (
+    <div className="relative rounded-3xl border border-border bg-surface-panel p-6">
+      <div className="absolute -top-3 -left-3 grid h-10 w-10 place-items-center rounded-full bg-brand-orange text-white font-bold text-lg shadow-md">
+        {step}
+      </div>
+      <div className="mt-2">
+        <div className="text-lg font-semibold tracking-tight">{title}</div>
+        <div className="mt-2 text-sm text-muted leading-relaxed">{desc}</div>
+      </div>
     </div>
   );
 }
@@ -422,18 +417,6 @@ function FeatureCard({ title, desc, badge }: { title: string; desc: string; badg
       </div>
       <div className="mt-4 text-lg font-semibold tracking-tight">{title}</div>
       <div className="mt-2 text-sm text-muted leading-relaxed">{desc}</div>
-    </div>
-  );
-}
-
-function StepCard({ step, title, desc }: { step: string; title: string; desc: string }) {
-  return (
-    <div className="rounded-3xl border border-border bg-surface p-6">
-      <div className="flex items-center gap-3">
-        <div className="grid h-9 w-9 place-items-center rounded-xl bg-brand-navy text-white font-semibold">{step}</div>
-        <div className="font-semibold">{title}</div>
-      </div>
-      <div className="mt-3 text-sm text-muted leading-relaxed">{desc}</div>
     </div>
   );
 }
