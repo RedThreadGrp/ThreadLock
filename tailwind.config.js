@@ -25,6 +25,12 @@ module.exports = {
         'foreground-dark': '#f1f5f9',
         muted: '#6b7280',
         'muted-dark': '#94a3b8',
+        // Token classes for edu/clinics page
+        surface: '#ffffff',
+        'surface-panel': '#f9fafb',
+        border: '#e2e8f0',
+        foreground: '#1e293b',
+        muted: '#64748b',
       },
       dropShadow: { logo: '0 2px 6px rgba(0,0,0,.55)' },
       boxShadow: { plate: '0 8px 24px rgba(0,0,0,.35)' },
