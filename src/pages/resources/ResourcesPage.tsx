@@ -273,53 +273,48 @@ export default function ResourcesPage() {
 
       <SiteHeader />
 
-      <div className="min-h-screen bg-surface text-foreground pb-16">
-        {/* Decorative background - token-safe */}
-        <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-radial-orange-top" />
-        <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-radial-navy-left" />
-        <div className="pointer-events-none fixed inset-0 -z-10 bg-grid-subtle" />
-
+      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-6 pt-14 pb-10 md:pt-20 md:pb-14">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-panel px-3 py-1 text-xs font-semibold text-muted mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border-dark bg-surface-dark-panel px-3 py-1 text-xs font-semibold text-muted-dark mb-6">
               <span className="inline-block h-2 w-2 rounded-full bg-brand-orange" />
               Resource Hub · Updated weekly
             </div>
 
-            <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
+            <h1 className="text-4xl font-semibold tracking-tight md:text-6xl text-foreground-dark">
               Your case, but run like a{" "}
               <span className="text-brand-orange">system</span>
             </h1>
 
-            <p className="mt-5 text-base text-muted md:text-lg max-w-2xl mx-auto">
+            <p className="mt-5 text-base text-muted-dark md:text-lg max-w-2xl mx-auto leading-relaxed">
               Not a library. Not a court brochure. This is a control panel: checklists, templates,
               and tactical guidance to help you move without stepping on rakes.
             </p>
 
-            {/* Value bar */}
-            <div className="mt-8 flex flex-wrap justify-center gap-2 text-xs font-semibold text-muted">
+            {/* Value bar with orange separators */}
+            <div className="mt-8 flex flex-wrap justify-center gap-2 text-xs font-semibold text-muted-dark uppercase tracking-wide">
               <span>Checklists</span>
-              <span>•</span>
+              <span className="text-brand-orange">•</span>
               <span>Templates</span>
-              <span>•</span>
+              <span className="text-brand-orange">•</span>
               <span>Official links</span>
-              <span>•</span>
+              <span className="text-brand-orange">•</span>
               <span>Plain-English explainers</span>
             </div>
 
             {/* Search bar */}
             <div className="mt-8">
-              <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-surface-panel p-2 shadow-sm">
-                <div className="flex items-center gap-3 rounded-2xl bg-surface px-4 py-3">
-                  <div className="grid h-8 w-8 place-items-center rounded-xl bg-brand-navy text-white shrink-0">
+              <div className="mx-auto max-w-2xl rounded-3xl border border-border-dark bg-surface-dark-panel p-2 shadow-sm">
+                <div className="flex items-center gap-3 rounded-2xl bg-surface-dark px-4 py-3 border border-border-dark/50 focus-within:border-brand-orange/50 transition-colors">
+                  <div className="grid h-8 w-8 place-items-center rounded-xl bg-brand-orange text-white shrink-0">
                     <span className="text-xs font-bold">↯</span>
                   </div>
                   <input
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Search resources: 'proof of service', 'hearing tomorrow', 'evidence'…"
-                    className="w-full bg-transparent text-sm outline-none placeholder:text-muted/70"
+                    className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark/70 text-foreground-dark"
                   />
                 </div>
               </div>
@@ -350,8 +345,8 @@ export default function ResourcesPage() {
         <section id="starter-kits" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-8">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Starter Kits</h2>
-              <p className="mt-2 text-muted">
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-foreground-dark">Starter Kits</h2>
+              <p className="mt-2 text-muted-dark">
                 High-value bundles to get you moving fast.
               </p>
             </div>
@@ -363,31 +358,43 @@ export default function ResourcesPage() {
               <a
                 key={kit.href}
                 href={kit.href}
-                className="group rounded-3xl border border-border bg-surface-panel p-6 shadow-sm hover:shadow-md transition"
+                className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
               >
-                <h3 className="text-lg font-semibold tracking-tight group-hover:text-brand-orange transition">
-                  {kit.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed">{kit.description}</p>
+                {/* Orange glow overlay on hover */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <h3 className="text-lg font-semibold tracking-tight text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      {kit.title}
+                    </h3>
+                    {/* Time badge with orange border */}
+                    <span className="shrink-0 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-2 py-0.5 text-xs font-semibold text-brand-orange">
+                      {kit.estimatedTime}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm text-muted-dark leading-relaxed">{kit.description}</p>
 
-                <div className="mt-4">
-                  <div className="text-xs font-semibold text-muted mb-2">What you'll get:</div>
-                  <ul className="space-y-1">
-                    {kit.whatYouGet.map((item, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted">
-                        <span className="text-brand-orange mt-0.5">✓</span>
-                        <span>{item}</span>
-                      </li>
+                  <div className="mt-4">
+                    <div className="text-xs font-semibold text-muted-dark mb-2">What you'll get:</div>
+                    <ul className="space-y-1">
+                      {kit.whatYouGet.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-dark">
+                          <span className="text-brand-orange mt-0.5 text-base">✓</span>
+                          <span>{item}</span>
+                        </li>
                     ))}
                   </ul>
                 </div>
 
                 <div className="mt-5 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-muted">{kit.estimatedTime}</span>
-                  <span className="rounded-full bg-brand-orange px-3 py-1 text-xs font-semibold text-white group-hover:bg-brand-navy transition">
-                    Start here →
+                  <span className="rounded-full bg-brand-orange px-3 py-1 text-xs font-semibold text-white group-hover:bg-brand-navy transition-colors">
+                    Start here
                   </span>
+                  {/* Animated arrow */}
+                  <span className="text-brand-orange font-bold group-hover:translate-x-1 transition-transform duration-200">→</span>
                 </div>
+              </div>
               </a>
             ))}
           </div>
@@ -397,33 +404,39 @@ export default function ResourcesPage() {
         <section id="featured-guides" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-8">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Featured Guides</h2>
-              <p className="mt-2 text-muted">
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-foreground-dark">Featured Guides</h2>
+              <p className="mt-2 text-muted-dark">
                 In-depth resources for serious preparation.
               </p>
             </div>
+            <div className="h-1 w-20 rounded-full bg-brand-orange" />
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
             {/* Primary featured guide */}
             <a
               href={FEATURED_GUIDES[0].href}
-              className="group lg:col-span-2 rounded-3xl border border-border bg-surface-panel p-8 shadow-sm hover:shadow-md transition"
+              className="group relative lg:col-span-2 rounded-3xl border border-border-dark bg-surface-dark-panel p-8 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
             >
-              <div className="flex flex-wrap gap-2 mb-3">
-                {FEATURED_GUIDES[0].tags.map((tag) => (
-                  <span key={tag} className="rounded-full bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange">
-                    {tag}
-                  </span>
-                ))}
+              {/* Orange glow overlay on hover */}
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
+              
+              <div className="relative z-10">
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {FEATURED_GUIDES[0].tags.map((tag) => (
+                    <span key={tag} className="rounded-full bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-2xl font-semibold tracking-tight text-foreground-dark group-hover:text-brand-orange transition-colors">
+                  {FEATURED_GUIDES[0].title}
+                </h3>
+                <p className="mt-3 text-muted-dark leading-relaxed">{FEATURED_GUIDES[0].summary}</p>
+                {FEATURED_GUIDES[0].updated && (
+                  <p className="mt-4 text-xs text-muted-dark">Updated {FEATURED_GUIDES[0].updated}</p>
+                )}
               </div>
-              <h3 className="text-2xl font-semibold tracking-tight group-hover:text-brand-orange transition">
-                {FEATURED_GUIDES[0].title}
-              </h3>
-              <p className="mt-3 text-muted leading-relaxed">{FEATURED_GUIDES[0].summary}</p>
-              {FEATURED_GUIDES[0].updated && (
-                <p className="mt-4 text-xs text-muted">Updated {FEATURED_GUIDES[0].updated}</p>
-              )}
             </a>
 
             {/* Secondary guides */}
@@ -431,19 +444,24 @@ export default function ResourcesPage() {
               <a
                 key={guide.href}
                 href={guide.href}
-                className="group rounded-3xl border border-border bg-surface-panel p-6 shadow-sm hover:shadow-md transition"
+                className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
               >
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {guide.tags.map((tag) => (
-                    <span key={tag} className="rounded-full border border-border bg-surface px-2 py-0.5 text-xs font-semibold text-muted">
-                      {tag}
-                    </span>
-                  ))}
+                {/* Orange glow overlay on hover */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {guide.tags.map((tag) => (
+                      <span key={tag} className="rounded-full border border-border-dark bg-surface-dark px-2 py-0.5 text-xs font-semibold text-muted-dark">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground-dark group-hover:text-brand-orange transition-colors">
+                    {guide.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-dark leading-relaxed">{guide.summary}</p>
                 </div>
-                <h3 className="text-lg font-semibold tracking-tight group-hover:text-brand-orange transition">
-                  {guide.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed">{guide.summary}</p>
               </a>
             ))}
           </div>
@@ -453,11 +471,12 @@ export default function ResourcesPage() {
         <section id="topics" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-8">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Browse by Topic</h2>
-              <p className="mt-2 text-muted">
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-foreground-dark">Browse by Topic</h2>
+              <p className="mt-2 text-muted-dark">
                 Explore focused collections of resources.
               </p>
             </div>
+            <div className="h-1 w-20 rounded-full bg-brand-orange" />
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -465,17 +484,22 @@ export default function ResourcesPage() {
               <a
                 key={topic.slug}
                 href={`/resources/topics/${topic.slug}`}
-                className="group rounded-3xl border border-border bg-surface-panel p-6 shadow-sm hover:shadow-md transition"
+                className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
               >
-                <h3 className="text-lg font-semibold tracking-tight group-hover:text-brand-orange transition">
-                  {topic.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed">{topic.promise}</p>
-                <div className="mt-4 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-muted">{topic.resourceCount} resources</span>
-                  <span className="text-xs font-semibold text-brand-orange group-hover:text-brand-navy transition">
-                    Explore topic →
-                  </span>
+                {/* Orange glow overlay on hover */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <h3 className="text-lg font-semibold tracking-tight text-foreground-dark group-hover:text-brand-orange transition-colors">
+                    {topic.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-dark leading-relaxed">{topic.promise}</p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-muted-dark">{topic.resourceCount} resources</span>
+                    <span className="text-xs font-semibold text-brand-orange group-hover:text-brand-navy transition-colors">
+                      Explore topic →
+                    </span>
+                  </div>
                 </div>
               </a>
             ))}
@@ -485,7 +509,7 @@ export default function ResourcesPage() {
         {/* Filters + Library */}
         <section id="library" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-4">
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">All Resources</h2>
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-foreground-dark">All Resources</h2>
 
             <div className="flex flex-wrap items-center gap-2">
               <Select
@@ -505,7 +529,7 @@ export default function ResourcesPage() {
 
           {/* Results counter + active filters */}
           {isFiltersActive && (
-            <div className="mb-4 flex items-center gap-2 text-sm text-muted">
+            <div className="mb-4 flex items-center gap-2 text-sm text-muted-dark">
               <span>Showing {filtered.length} {filtered.length === 1 ? 'result' : 'results'}</span>
               {(intent !== "All" || tag !== "All") && (
                 <>
@@ -538,37 +562,42 @@ export default function ResourcesPage() {
               <a
                 key={r.href}
                 href={r.href}
-                className="group rounded-3xl border border-border bg-surface-panel p-6 shadow-sm hover:shadow-md transition"
+                className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
               >
-                <h3 className="text-sm font-semibold tracking-tight group-hover:text-brand-orange transition">
-                  {r.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed line-clamp-2">{r.excerpt}</p>
+                {/* Orange glow overlay on hover */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <h3 className="text-sm font-semibold tracking-tight text-foreground-dark group-hover:text-brand-orange transition-colors">
+                    {r.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-dark leading-relaxed line-clamp-2">{r.excerpt}</p>
 
-                <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
-                  <span className={cn(
-                    "rounded-full px-2 py-0.5 font-semibold",
-                    r.intent === "Urgent" 
-                      ? "bg-brand-orange/20 text-brand-orange ring-1 ring-brand-orange/30" 
-                      : "bg-surface text-muted border border-border"
-                  )}>
-                    {r.intent}
-                  </span>
-                  <span className="text-muted">•</span>
-                  <span className="text-muted">{r.topic}</span>
-                  {r.readTime && (
-                    <>
-                      <span className="text-muted">•</span>
-                      <span className="text-muted">{r.readTime}</span>
-                    </>
-                  )}
+                  <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+                    <span className={cn(
+                      "rounded-full px-2 py-0.5 font-semibold",
+                      r.intent === "Urgent" 
+                        ? "bg-brand-orange/20 text-brand-orange ring-1 ring-brand-orange/30" 
+                        : "bg-surface-dark text-muted-dark border border-border-dark"
+                    )}>
+                      {r.intent}
+                    </span>
+                    <span className="text-muted-dark">•</span>
+                    <span className="text-muted-dark">{r.topic}</span>
+                    {r.readTime && (
+                      <>
+                        <span className="text-muted-dark">•</span>
+                        <span className="text-muted-dark">{r.readTime}</span>
+                      </>
+                    )}
+                  </div>
                 </div>
               </a>
             ))}
           </div>
 
           {filtered.length === 0 && (
-            <div className="mt-10 rounded-3xl border border-border bg-surface-panel p-8 text-center text-sm text-muted">
+            <div className="mt-10 rounded-3xl border border-border-dark bg-surface-dark-panel p-8 text-center text-sm text-muted-dark">
               No matches. Try fewer filters, or search for a simpler term (e.g., "service", "exhibits", "forms").
             </div>
           )}
@@ -578,11 +607,12 @@ export default function ResourcesPage() {
         <section id="questions" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-8">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Popular Questions</h2>
-              <p className="mt-2 text-muted">
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-foreground-dark">Popular Questions</h2>
+              <p className="mt-2 text-muted-dark">
                 Quick answers to common concerns.
               </p>
             </div>
+            <div className="h-1 w-20 rounded-full bg-brand-orange" />
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -590,10 +620,13 @@ export default function ResourcesPage() {
               <a
                 key={q.href}
                 href={q.href}
-                className="group rounded-2xl border border-border bg-surface-panel p-4 shadow-sm hover:shadow-md transition flex items-start gap-3"
+                className="group relative rounded-2xl border border-border-dark bg-surface-dark-panel p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 flex items-start gap-3"
               >
+                {/* Orange glow overlay on hover */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
+                
                 <span className="text-brand-orange text-xl shrink-0 mt-0.5">?</span>
-                <span className="text-sm font-medium group-hover:text-brand-orange transition">
+                <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors relative z-10">
                   {q.question}
                 </span>
               </a>
@@ -612,7 +645,7 @@ function Pill({ children, onClick, active }: { children: React.ReactNode; onClic
       onClick={onClick}
       className={cn(
         "rounded-full px-4 py-2 text-xs font-semibold transition",
-        "border border-border bg-surface-panel hover:bg-surface",
+        "border border-border-dark bg-surface-dark-panel hover:bg-surface-dark text-foreground-dark",
         active && "ring-2 ring-brand-orange/30 border-brand-orange/30 bg-brand-orange/5"
       )}
     >
@@ -633,12 +666,12 @@ function Select({
   onChange: (v: string) => void;
 }) {
   return (
-    <label className="flex items-center gap-2 rounded-2xl border border-border bg-surface-panel px-3 py-2">
-      <span className="text-xs font-semibold text-muted">{label}</span>
+    <label className="flex items-center gap-2 rounded-2xl border border-border-dark bg-surface-dark-panel px-3 py-2">
+      <span className="text-xs font-semibold text-muted-dark">{label}</span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="bg-transparent text-xs font-semibold outline-none"
+        className="bg-transparent text-xs font-semibold outline-none text-foreground-dark"
       >
         {options.map((o) => (
           <option key={o} value={o}>
