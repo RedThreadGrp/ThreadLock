@@ -1,5 +1,17 @@
 [
   {
+    "id": "ncselfhelp",
+    "title": "National Center for State Courts - Self-Help Resources",
+    "description": "Comprehensive self-help resources and court information from the National Center for State Courts",
+    "url": "https://www.ncsc.org/resources-courts/access-fairness/self-represented-litigants",
+    "publisher": "National Center for State Courts",
+    "jurisdictions": ["US"],
+    "topics": ["self-help", "court-rules"],
+    "type": "nonprofit",
+    "lastReviewed": "2024-01-15",
+    "trustTier": "B"
+  },
+  {
     "id": "uscourts-pro-se",
     "title": "Federal Courts - Pro Se Litigants",
     "description": "Official guidance for representing yourself in federal court",
