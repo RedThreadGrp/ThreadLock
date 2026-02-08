@@ -10,21 +10,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: { 
-          navy: '#1b3a4d',
-          orange: '#fb7a1e'
-        },
+        brand: { navy: '#0B1724', orange: '#F58220' },
         tl: { navy: '#1b3a4d', orange: '#fb7a1e' },
-        surface: '#ffffff',
-        'surface-panel': '#f9fafb',
-        'surface-dark': '#1e293b',
-        'surface-dark-panel': '#334155',
-        border: '#e5e7eb',
-        'border-dark': '#475569',
-        foreground: '#111827',
-        'foreground-dark': '#f1f5f9',
-        muted: '#6b7280',
-        'muted-dark': '#94a3b8',
         // Token classes for edu/clinics page
         surface: '#ffffff',
         'surface-panel': '#f9fafb',
