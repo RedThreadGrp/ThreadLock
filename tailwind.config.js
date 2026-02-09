@@ -10,14 +10,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: { navy: '#0B1724', orange: '#F58220' },
+        brand: { 
+          navy: '#1b3a4d',
+          orange: '#fb7a1e'
+        },
         tl: { navy: '#1b3a4d', orange: '#fb7a1e' },
-        // Token classes for edu/clinics page
+        // Token classes for light and dark modes
         surface: '#ffffff',
         'surface-panel': '#f9fafb',
-        border: '#e2e8f0',
-        foreground: '#1e293b',
-        muted: '#64748b',
+        'surface-dark': '#1e293b',
+        'surface-dark-panel': '#334155',
+        border: '#e5e7eb',
+        'border-dark': '#475569',
+        foreground: '#111827',
+        'foreground-dark': '#f1f5f9',
+        muted: '#6b7280',
+        'muted-dark': '#94a3b8',
       },
       dropShadow: { logo: '0 2px 6px rgba(0,0,0,.55)' },
       boxShadow: { plate: '0 8px 24px rgba(0,0,0,.35)' },
