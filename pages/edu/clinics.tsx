@@ -59,17 +59,17 @@ export default function LawClinicsPage() {
         />
       </Head>
 
-      <SiteHeader theme="light" />
+      <SiteHeader theme="dark" />
       
-      <div className="min-h-screen tl-page-background text-foreground pt-16">
-        {/* Subtle background pattern for consistency with login/signup */}
+      <div className="min-h-screen tl-auth-background text-white pt-16">
+        {/* Dark navy background with orange dots matching login/signup */}
 
         {/* Hero */}
         <main>
         <section className="mx-auto max-w-6xl px-6 pt-8 pb-6 md:pt-12 md:pb-8">
           {/* Breadcrumb / EDU Badge */}
           <div className="mb-4 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-panel px-3 py-1 text-xs font-semibold text-muted">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-slate-200">
               <span className="inline-block h-2 w-2 rounded-full bg-brand-orange" />
               ThreadLock EDU — Free for verified law students
             </div>
@@ -80,7 +80,7 @@ export default function LawClinicsPage() {
               Student drafting with built-in supervision
             </h1>
 
-            <p className="mt-5 text-base text-muted md:text-lg">
+            <p className="mt-5 text-base text-slate-300 md:text-lg">
               Organized workflows for limited-scope work. Clear attribution, review gates, and supervisor approvals.
             </p>
 
@@ -93,21 +93,21 @@ export default function LawClinicsPage() {
               </a>
               <a
                 href="#clinic"
-                className="w-full rounded-xl border border-border bg-white/80 backdrop-blur-sm px-6 py-3 text-center text-base font-semibold hover:bg-white transition-all transform hover:-translate-y-0.5 md:w-auto shadow-sm"
+                className="w-full rounded-xl border border-white/10 bg-slate-700/40 backdrop-blur-sm px-6 py-3 text-center text-base font-semibold text-white hover:bg-slate-700/60 transition-all transform hover:-translate-y-0.5 md:w-auto shadow-sm"
               >
                 Clinic directors
               </a>
             </div>
 
-            <p className="mt-4 text-center text-xs text-muted">
-              Not a student? <a href="/contact?topic=edu" className="underline hover:text-foreground">Request program access</a>
+            <p className="mt-4 text-center text-xs text-slate-300">
+              Not a student? <a href="/contact?topic=edu" className="underline hover:text-white">Request program access</a>
             </p>
           </div>
         </section>
 
         {/* Trust strip - credibility signals */}
         <section className="mx-auto max-w-6xl px-6 py-6 md:py-8">
-          <div className="rounded-2xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6">
+          <div className="rounded-2xl border border-white/10 bg-slate-700/40 backdrop-blur-sm shadow-sm p-6">
             <div className="grid gap-4 md:grid-cols-5 text-center md:text-left">
               <TrustBadge 
                 icon="✓" 
@@ -136,8 +136,8 @@ export default function LawClinicsPage() {
         {/* How it works - 3-step flow */}
         <section id="how-it-works" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">How it works</h2>
-            <p className="mt-2 text-muted max-w-2xl mx-auto">
+            <h2 className="text-3xl font-semibold tracking-tight md:text-4xl text-white">How it works</h2>
+            <p className="mt-2 text-slate-300 max-w-2xl mx-auto">
               A clear path from eligibility to supervised drafting.
             </p>
           </div>
@@ -183,9 +183,9 @@ export default function LawClinicsPage() {
         {/* Verification + signup */}
         <section id="verify" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
-              <h3 className="text-xl font-semibold tracking-tight">Student access (free)</h3>
-              <p className="mt-2 text-muted">
+            <div className="rounded-3xl border border-white/10 bg-slate-700/40 backdrop-blur-sm shadow-lg p-6 md:p-10">
+              <h3 className="text-xl font-semibold tracking-tight text-white">Student access (free)</h3>
+              <p className="mt-2 text-slate-300">
                 Submit enrollment verification or proof of clinic affiliation. Our team reviews applications within 2 business days.
               </p>
 
@@ -194,11 +194,11 @@ export default function LawClinicsPage() {
                 <Field label="Law school" placeholder="Search or select…" />
                 <Field label="Clinic / program" placeholder="e.g., Housing Clinic, Family Law Clinic" />
 
-                <div className="rounded-2xl border border-border bg-surface p-4">
+                <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-4">
                   <div className="flex items-start gap-3">
                     <div className="mt-0.5 h-5 w-5 rounded-md bg-brand-orange/20 ring-1 ring-brand-orange/40" />
-                    <div className="text-sm text-muted">
-                      <div className="font-semibold text-foreground">Proof of eligibility required</div>
+                    <div className="text-sm text-slate-300">
+                      <div className="font-semibold text-white">Proof of eligibility required</div>
                       <div className="mt-1">
                         Upload one of the following: current enrollment verification, student ID, clinic roster confirmation, or official letter from clinic director.
                       </div>
@@ -209,13 +209,13 @@ export default function LawClinicsPage() {
                 {/* File upload field - visual only, actual submission via email */}
                 <div>
                   <label htmlFor="verification-upload" className="block">
-                    <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Upload verification document</div>
-                    <div className="w-full rounded-2xl border-2 border-dashed border-border bg-surface px-4 py-6 text-center hover:border-brand-orange/40 hover:bg-surface-panel transition-all cursor-pointer">
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-300">Upload verification document</div>
+                    <div className="w-full rounded-2xl border-2 border-dashed border-white/20 bg-slate-800/60 px-4 py-6 text-center hover:border-brand-orange/40 hover:bg-slate-800/80 transition-all cursor-pointer">
                       <input id="verification-upload" type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" disabled />
-                      <div className="text-sm text-muted">
-                        <span className="font-semibold text-foreground">Prepare your document</span>
+                      <div className="text-sm text-slate-300">
+                        <span className="font-semibold text-white">Prepare your document</span>
                       </div>
-                      <div className="mt-1 text-xs text-muted">You'll attach it in your email (PDF, JPG, or PNG, max 10MB)</div>
+                      <div className="mt-1 text-xs text-slate-400">You'll attach it in your email (PDF, JPG, or PNG, max 10MB)</div>
                     </div>
                   </label>
                 </div>
@@ -229,22 +229,22 @@ export default function LawClinicsPage() {
                 </a>
 
                 {/* Verification process disclosure */}
-                <div className="rounded-2xl border border-border bg-surface p-4 text-xs text-muted">
-                  <div className="font-semibold text-foreground">What happens next</div>
+                <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-4 text-xs text-slate-300">
+                  <div className="font-semibold text-white">What happens next</div>
                   <div className="mt-2">
                     Our team will review your submission within 2 business days. Once verified, we'll reach out via email with next steps for clinic onboarding and account setup.
                   </div>
                 </div>
 
-                <p className="text-xs text-muted">
+                <p className="text-xs text-slate-400">
                   By continuing, you agree to Terms and acknowledge this product does not provide legal advice.
                 </p>
               </div>
             </div>
 
-            <div id="clinic" className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
-              <h3 className="text-xl font-semibold tracking-tight">Clinic / Director onboarding</h3>
-              <p className="mt-2 text-muted">
+            <div id="clinic" className="rounded-3xl border border-white/10 bg-slate-700/40 backdrop-blur-sm shadow-lg p-6 md:p-10">
+              <h3 className="text-xl font-semibold tracking-tight text-white">Clinic / Director onboarding</h3>
+              <p className="mt-2 text-slate-300">
                 Set up supervision workflows, cohort approvals, and program policy defaults. You control who gets access
                 and when.
               </p>
@@ -256,13 +256,13 @@ export default function LawClinicsPage() {
 
                 <a
                   href="/contact"
-                  className="block w-full rounded-xl border border-border bg-white/80 backdrop-blur-sm px-5 py-3 text-center text-base font-semibold hover:bg-white transition-all shadow-sm"
+                  className="block w-full rounded-xl border border-white/10 bg-slate-700/40 backdrop-blur-sm px-5 py-3 text-center text-base font-semibold text-white hover:bg-slate-700/60 transition-all shadow-sm"
                 >
                   Request clinic setup
                 </a>
 
-                <div className="rounded-2xl border border-border bg-surface p-4 text-sm text-muted">
-                  <div className="font-semibold text-foreground">Recommended defaults</div>
+                <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-4 text-sm text-slate-300">
+                  <div className="font-semibold text-white">Recommended defaults</div>
                   <ul className="mt-2 list-disc pl-5 space-y-1">
                     <li>Supervisor approval required before any client-facing export</li>
                     <li>Manual verification of student eligibility for program access</li>
@@ -276,9 +276,9 @@ export default function LawClinicsPage() {
 
         {/* Supervision */}
         <section id="supervision" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-          <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Supervision that doesn't fight you</h2>
-            <p className="mt-2 text-muted max-w-3xl">
+          <div className="rounded-3xl border border-white/10 bg-slate-700/40 backdrop-blur-sm shadow-lg p-6 md:p-10">
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-white">Supervision that doesn't fight you</h2>
+            <p className="mt-2 text-slate-300 max-w-3xl">
               Your program's credibility depends on oversight. ThreadLock is structured to make supervision obvious,
               enforceable, and audit-friendly—without turning clinics into ticket queues.
             </p>
@@ -294,13 +294,13 @@ export default function LawClinicsPage() {
         {/* Security & governance */}
         <section id="security" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-brand-orange/30">
-              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Security & governance</h2>
-              <p className="mt-2 text-muted">
+            <div className="rounded-3xl border border-white/10 bg-slate-700/40 backdrop-blur-sm shadow-lg p-6 md:p-10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-[0_0_20px_rgba(245,130,32,0.3)]">
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-white">Security & governance</h2>
+              <p className="mt-2 text-slate-300">
                 Clinic programs need predictable controls. ThreadLock focuses on least-privilege access, review workflows, and auditability.
               </p>
 
-              <ul className="mt-6 space-y-3 text-sm text-muted">
+              <ul className="mt-6 space-y-3 text-sm text-slate-300">
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-brand-orange" />
                   Role-based access controls for student vs supervisor responsibilities
@@ -319,23 +319,23 @@ export default function LawClinicsPage() {
                 </li>
               </ul>
 
-              <div className="mt-6 rounded-2xl border border-border bg-surface p-4 text-xs text-muted">
-                Need additional security documentation for institutional review? <a className="underline hover:text-foreground" href="/contact?topic=security" aria-label="Contact us for security documentation">Contact us</a>.
+              <div className="mt-6 rounded-2xl border border-white/10 bg-slate-800/60 p-4 text-xs text-slate-300">
+                Need additional security documentation for institutional review? <a className="underline hover:text-white" href="/contact?topic=security" aria-label="Contact us for security documentation">Contact us</a>.
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-brand-orange/30">
-              <h3 className="text-xl font-semibold tracking-tight">Integrations</h3>
-              <p className="mt-2 text-muted">
+            <div className="rounded-3xl border border-white/10 bg-slate-700/40 backdrop-blur-sm shadow-lg p-6 md:p-10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-[0_0_20px_rgba(245,130,32,0.3)]">
+              <h3 className="text-xl font-semibold tracking-tight text-white">Integrations</h3>
+              <p className="mt-2 text-slate-300">
                 Student access requires manual verification. Clinic workflow integrations are available for eligible programs.
               </p>
 
               <div className="mt-6 space-y-3">
-                <div className="rounded-2xl border border-border bg-surface p-4">
+                <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-4">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <div className="font-semibold">Clio Grow</div>
-                      <div className="mt-1 text-sm text-muted">
+                      <div className="font-semibold text-white">Clio Grow</div>
+                      <div className="mt-1 text-sm text-slate-300">
                         Secure client intake integration for clinic case management workflows.
                       </div>
                     </div>
@@ -345,11 +345,11 @@ export default function LawClinicsPage() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-border bg-surface p-4">
+                <div className="rounded-2xl border border-white/10 bg-slate-800/60 p-4">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <div className="font-semibold">Manual eligibility verification</div>
-                      <div className="mt-1 text-sm text-muted">
+                      <div className="font-semibold text-white">Manual eligibility verification</div>
+                      <div className="mt-1 text-sm text-slate-300">
                         Document-based verification reviewed by ThreadLock staff within 2 business days.
                       </div>
                     </div>
@@ -360,7 +360,7 @@ export default function LawClinicsPage() {
                 </div>
               </div>
 
-              <div className="mt-6 text-xs text-muted">
+              <div className="mt-6 text-xs text-slate-400">
                 We store only what's necessary to enforce eligibility and support clinic-controlled access decisions.
               </div>
             </div>
@@ -369,13 +369,13 @@ export default function LawClinicsPage() {
 
         {/* FAQ */}
         <section id="faq" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
-          <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
-            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">FAQ</h2>
+          <div className="rounded-3xl border border-white/10 bg-slate-700/40 backdrop-blur-sm shadow-lg p-6 md:p-10">
+            <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-white">FAQ</h2>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {faqs.map((f) => (
-                <div key={f.q} className="rounded-2xl border border-border bg-surface p-5">
-                  <div className="font-semibold">{f.q}</div>
-                  <div className="mt-2 text-sm text-muted">{f.a}</div>
+                <div key={f.q} className="rounded-2xl border border-white/10 bg-slate-800/60 p-5">
+                  <div className="font-semibold text-white">{f.q}</div>
+                  <div className="mt-2 text-sm text-slate-300">{f.a}</div>
                 </div>
               ))}
             </div>
@@ -421,20 +421,20 @@ function TrustBadge({ icon, text }: { icon: string; text: string }) {
   return (
     <div className="flex items-center gap-2">
       <span className="flex-shrink-0 text-brand-orange font-bold">{icon}</span>
-      <span className="text-xs text-muted font-medium">{text}</span>
+      <span className="text-xs text-slate-200 font-medium">{text}</span>
     </div>
   );
 }
 
 function HowItWorksStep({ step, title, desc }: { step: string; title: string; desc: string }) {
   return (
-    <div className="relative rounded-3xl border border-border bg-surface-panel p-6">
+    <div className="relative rounded-3xl border border-white/10 bg-slate-700/40 backdrop-blur-sm p-6">
       <div className="absolute -top-3 -left-3 grid h-10 w-10 place-items-center rounded-full bg-brand-orange text-white font-bold text-lg shadow-md">
         {step}
       </div>
       <div className="mt-2">
-        <div className="text-lg font-semibold tracking-tight">{title}</div>
-        <div className="mt-2 text-sm text-muted leading-relaxed">{desc}</div>
+        <div className="text-lg font-semibold tracking-tight text-white">{title}</div>
+        <div className="mt-2 text-sm text-slate-300 leading-relaxed">{desc}</div>
       </div>
     </div>
   );
@@ -442,21 +442,21 @@ function HowItWorksStep({ step, title, desc }: { step: string; title: string; de
 
 function FeatureCard({ title, desc, badge }: { title: string; desc: string; badge: string }) {
   return (
-    <div className="rounded-3xl border border-border bg-surface-panel p-6 shadow-sm">
-      <div className="inline-flex items-center rounded-full border border-border bg-surface px-3 py-1 text-xs font-semibold text-muted">
+    <div className="rounded-3xl border border-white/10 bg-slate-700/40 backdrop-blur-sm p-6 shadow-sm">
+      <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-slate-200">
         {badge}
       </div>
-      <div className="mt-4 text-lg font-semibold tracking-tight">{title}</div>
-      <div className="mt-2 text-sm text-muted leading-relaxed">{desc}</div>
+      <div className="mt-4 text-lg font-semibold tracking-tight text-white">{title}</div>
+      <div className="mt-2 text-sm text-slate-300 leading-relaxed">{desc}</div>
     </div>
   );
 }
 
 function MiniCard({ title, desc }: { title: string; desc: string }) {
   return (
-    <div className="rounded-3xl border border-border bg-surface p-6">
-      <div className="font-semibold">{title}</div>
-      <div className="mt-2 text-sm text-muted leading-relaxed">{desc}</div>
+    <div className="rounded-3xl border border-white/10 bg-slate-700/40 backdrop-blur-sm p-6">
+      <div className="font-semibold text-white">{title}</div>
+      <div className="mt-2 text-sm text-slate-300 leading-relaxed">{desc}</div>
     </div>
   );
 }
@@ -464,11 +464,11 @@ function MiniCard({ title, desc }: { title: string; desc: string }) {
 function Field({ label, placeholder }: { label: string; placeholder: string }) {
   return (
     <label className="block">
-      <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">{label}</div>
+      <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-300">{label}</div>
       <input
         className={cn(
-          "w-full rounded-2xl border border-border bg-surface px-4 py-3 text-sm",
-          "placeholder:text-muted/70",
+          "w-full rounded-2xl border border-white/10 bg-slate-800/60 px-4 py-3 text-sm text-white",
+          "placeholder:text-slate-400",
           "focus:outline-none focus:ring-2 focus:ring-brand-orange/40 focus:border-brand-orange/40"
         )}
         placeholder={placeholder}
