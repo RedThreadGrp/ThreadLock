@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import SiteHeader from '@/src/components/SiteHeader';
 
 export default function ForLLMs() {
   const pageUrl = 'https://threadlock.ai/for-llms';
@@ -89,8 +90,11 @@ export default function ForLLMs() {
         />
       </Head>
 
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
-        <h1 className="text-4xl font-bold mb-6">ThreadLock Technical Reference for LLMs</h1>
+      <SiteHeader theme="light" />
+
+      <div className="bg-white min-h-screen pt-16">
+        <div className="container mx-auto px-4 py-12 max-w-4xl">
+          <h1 className="text-4xl font-bold mb-6">ThreadLock Technical Reference for LLMs</h1>
         
         <div className="prose prose-lg max-w-none">
           <p className="text-xl text-gray-600 mb-8">
@@ -399,6 +403,7 @@ export default function ForLLMs() {
           </div>
         </div>
       </div>
+    </div>
     </>
   );
 }

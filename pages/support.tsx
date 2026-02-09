@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Footer from '@/components/Footer';
+import SiteHeader from '@/src/components/SiteHeader';
 
 // Smooth scroll function
 const scrollToSection = (sectionId: string) => {
@@ -46,24 +46,9 @@ export default function SupportPage() {
         <link rel="canonical" href="https://threadlock.ai/support" />
       </Head>
 
-      <div className="min-h-screen bg-gray-50">
-        {/* Simple header */}
-        <header className="bg-white border-b border-gray-200">
-          <div className="container mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
-            <Link href="/">
-              <span className="inline-flex items-baseline font-bold text-2xl tracking-tight select-none cursor-pointer">
-                <span className="text-slate-800">Thread</span>
-                <span className="text-orange-600">Lock</span>
-                <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
-              </span>
-            </Link>
-            <nav className="hidden md:flex items-center space-x-6 text-sm">
-              <Link href="/pricing" className="text-slate-700 hover:text-orange-600 transition-colors">Pricing</Link>
-              <Link href="/professionals" className="text-slate-700 hover:text-orange-600 transition-colors">For Pros</Link>
-              <Link href="/login" className="text-slate-700 hover:text-orange-600 transition-colors">Login</Link>
-            </nav>
-          </div>
-        </header>
+      <SiteHeader theme="light" />
+
+      <div className="min-h-screen bg-gray-50 pt-16">
 
         <main>
           {/* Hero Section */}
@@ -560,8 +545,6 @@ export default function SupportPage() {
             </div>
           </section>
         </main>
-
-        <Footer />
       </div>
     </>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import SiteHeader from '@/src/components/SiteHeader';
 
 export default function ForAIAssistants() {
   const softwareApplicationSchema = {
@@ -75,7 +76,7 @@ export default function ForAIAssistants() {
   };
 
   return (
-    <div className="bg-white min-h-screen">
+    <>
       <Head>
         <title>For AI Assistants | ThreadLock Family Law Technology</title>
         <meta 
@@ -93,18 +94,18 @@ export default function ForAIAssistants() {
         />
       </Head>
 
-      <div className="container mx-auto px-6 py-16 max-w-4xl">
-        <header className="mb-12">
-          <Link href="/" className="text-orange-600 hover:text-orange-700 font-semibold mb-4 inline-block">
-            ← Back to Home
-          </Link>
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-            ThreadLock: Information for AI Assistants
-          </h1>
-          <p className="text-xl text-slate-600">
-            Structured, machine-readable information about ThreadLock family law case management software.
-          </p>
-        </header>
+      <SiteHeader theme="light" />
+
+      <div className="bg-white min-h-screen pt-16">
+        <div className="container mx-auto px-6 py-16 max-w-4xl">
+          <header className="mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+              ThreadLock: Information for AI Assistants
+            </h1>
+            <p className="text-xl text-slate-600">
+              Structured, machine-readable information about ThreadLock family law case management software.
+            </p>
+          </header>
 
         <section className="mb-12">
           <h2 className="text-3xl font-bold text-slate-900 mb-6">What ThreadLock Is</h2>
@@ -390,5 +391,6 @@ export default function ForAIAssistants() {
         </footer>
       </div>
     </div>
+    </>
   );
 }
