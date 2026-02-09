@@ -63,7 +63,6 @@ export default function SovereignPage() {
 
   return (
     <div className="tl-auth-background text-white antialiased min-h-screen">
-    <>
       <Head>
         <title>ThreadLock | Sovereign Jurisdiction Case System</title>
         <meta
@@ -79,33 +78,9 @@ export default function SovereignPage() {
         <meta property="og:url" content="https://threadlock.ai/sovereign" />
       </Head>
 
-      <section className="relative min-h-screen flex items-center overflow-hidden">
       <SiteHeader theme="dark" />
 
-      <div className="bg-[#0b1220] text-slate-100 antialiased min-h-screen pt-16">
-        <style jsx>{`
-          .grid-bg {
-            background-image: radial-gradient(
-              circle at 1px 1px,
-              rgba(255, 255, 255, 0.06) 1px,
-              transparent 0
-            );
-            background-size: 22px 22px;
-          }
-
-          .glass {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(148, 163, 184, 0.18);
-            backdrop-filter: blur(10px);
-          }
-
-          .ring-accent {
-            box-shadow: 0 0 0 1px rgba(251, 122, 30, 0.35),
-              0 10px 30px rgba(0, 0, 0, 0.35);
-          }
-        `}</style>
-
-      <section className="relative min-h-screen flex items-center overflow-hidden grid-bg">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Subtle backdrop accents */}
         <div className="pointer-events-none absolute -top-40 -right-40 h-96 w-96 rounded-full bg-[#fb7a1e]/10 blur-3xl"></div>
         <div className="pointer-events-none absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-[#1b3a4d]/30 blur-3xl"></div>
@@ -254,6 +229,5 @@ export default function SovereignPage() {
 
       {/* Footer is now handled by _app.js */}
     </div>
-    </>
   );
 }
