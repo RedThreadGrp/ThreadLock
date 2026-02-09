@@ -355,9 +355,10 @@ export default function BenefitsPage() {
             </form>
           </section>
         </div>
+      </main>
 
-        {/* Footer is now handled by _app.js */}
-      </div>
+      {/* Footer is now handled by _app.js */}
+    </div>
     </>
   );
 }
