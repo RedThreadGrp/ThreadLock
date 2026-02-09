@@ -307,7 +307,7 @@ export default function LawClinicsPage() {
               </ul>
 
               <div className="mt-6 rounded-2xl border border-border bg-surface p-4 text-xs text-muted">
-                Need additional security documentation for institutional review? <a className="underline hover:text-foreground" href="/contact?topic=security">Contact us</a>.
+                Need additional security documentation for institutional review? <a className="underline hover:text-foreground" href="/contact?topic=security" aria-label="Contact us for security documentation">Contact us</a>.
               </div>
             </div>
 
@@ -325,7 +325,7 @@ export default function LawClinicsPage() {
                       Used to verify student status for free access. We do not receive your password.
                     </div>
                   </div>
-                  <div className="shrink-0 rounded-full border border-border bg-surface-panel px-3 py-1 text-xs font-semibold text-muted">
+                  <div className="shrink-0 rounded-full border border-border bg-surface-panel px-3 py-1 text-xs font-semibold text-muted" role="status" aria-label="Integration status: Roadmap">
                     Roadmap
                   </div>
                 </div>
