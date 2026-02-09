@@ -20,7 +20,7 @@ const faqs: FAQ[] = [
     a: (
       <>
         Verified law students receive access at no cost while they remain enrolled and affiliated with a participating
-        clinic or approved pro bono program. We verify eligibility via id.me and re-check periodically.
+        clinic or approved pro bono program. We verify eligibility through document submission and manual review.
       </>
     ),
   },
@@ -86,10 +86,10 @@ export default function LawClinicsPage() {
 
             <div className="mt-6 flex flex-col items-center justify-center gap-3 md:flex-row">
               <a
-                href="/api/idme/start?returnTo=/edu/clinics#verify"
+                href="#verify"
                 className="w-full rounded-xl bg-brand-orange px-6 py-3 text-center text-base font-semibold text-white shadow-md hover:brightness-90 transition-all transform hover:-translate-y-0.5 md:w-auto"
               >
-                Verify eligibility
+                Apply for student access
               </a>
               <a
                 href="#clinic"
@@ -123,7 +123,7 @@ export default function LawClinicsPage() {
               />
               <TrustBadge 
                 icon="✓" 
-                text="Eligibility verified via id.me" 
+                text="Manual eligibility verification" 
               />
               <TrustBadge 
                 icon="✓" 
@@ -145,8 +145,8 @@ export default function LawClinicsPage() {
           <div className="grid gap-6 md:grid-cols-3 mb-12">
             <HowItWorksStep
               step="1"
-              title="Verify eligibility (id.me)"
-              desc="Authenticate your student status through id.me. We store only what we need to enforce eligibility."
+              title="Submit verification documents"
+              desc="Upload your enrollment verification or proof of clinic affiliation. Our team reviews submissions within 2 business days."
             />
             <HowItWorksStep
               step="2"
@@ -186,7 +186,7 @@ export default function LawClinicsPage() {
             <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
               <h3 className="text-xl font-semibold tracking-tight">Student access (free)</h3>
               <p className="mt-2 text-muted">
-                Verify your enrollment with id.me, then connect to your clinic. If your clinic isn't listed, request it.
+                Submit enrollment verification or proof of clinic affiliation. Our team reviews applications within 2 business days.
               </p>
 
               <div className="mt-6 space-y-4">
@@ -198,28 +198,41 @@ export default function LawClinicsPage() {
                   <div className="flex items-start gap-3">
                     <div className="mt-0.5 h-5 w-5 rounded-md bg-brand-orange/20 ring-1 ring-brand-orange/40" />
                     <div className="text-sm text-muted">
-                      <div className="font-semibold text-foreground">Eligibility gate: id.me</div>
+                      <div className="font-semibold text-foreground">Proof of eligibility required</div>
                       <div className="mt-1">
-                        You'll be redirected to id.me to verify student enrollment. When you return, we create a verified
-                        access request for your clinic admin to approve.
+                        Upload one of the following: current enrollment verification, student ID, clinic roster confirmation, or official letter from clinic director.
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* id.me verification button with real navigation */}
+                {/* File upload field - visual only, actual submission via email */}
+                <div>
+                  <label htmlFor="verification-upload" className="block">
+                    <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Upload verification document</div>
+                    <div className="w-full rounded-2xl border-2 border-dashed border-border bg-surface px-4 py-6 text-center hover:border-brand-orange/40 hover:bg-surface-panel transition-all cursor-pointer">
+                      <input id="verification-upload" type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" disabled />
+                      <div className="text-sm text-muted">
+                        <span className="font-semibold text-foreground">Prepare your document</span>
+                      </div>
+                      <div className="mt-1 text-xs text-muted">You'll attach it in your email (PDF, JPG, or PNG, max 10MB)</div>
+                    </div>
+                  </label>
+                </div>
+
+                {/* Submit button - opens email with instructions */}
                 <a
-                  href="/api/idme/start?returnTo=/edu/clinics#verify"
+                  href="mailto:admin@threadlock.ai?subject=EDU%20Access%20Request%20-%20Law%20Student&body=Please%20find%20my%20enrollment%20verification%20document%20attached.%0A%0ASchool%3A%20%0AClinic%2FProgram%3A%20%0A%0AThank%20you%21"
                   className="block w-full rounded-xl bg-brand-orange px-5 py-3 text-center text-base font-semibold text-white shadow-md hover:brightness-90 transition-all"
                 >
-                  Verify with id.me
+                  Email verification documents
                 </a>
 
-                {/* What id.me shares disclosure */}
+                {/* Verification process disclosure */}
                 <div className="rounded-2xl border border-border bg-surface p-4 text-xs text-muted">
-                  <div className="font-semibold text-foreground">What id.me shares with us</div>
+                  <div className="font-semibold text-foreground">What happens next</div>
                   <div className="mt-2">
-                    We receive verification of student status and a stable identifier from id.me. We do not receive your password. We store only what's necessary to enforce eligibility.
+                    Our team will review your submission within 2 business days. Once verified, we'll reach out via email with next steps for clinic onboarding and account setup.
                   </div>
                 </div>
 
@@ -252,7 +265,7 @@ export default function LawClinicsPage() {
                   <div className="font-semibold text-foreground">Recommended defaults</div>
                   <ul className="mt-2 list-disc pl-5 space-y-1">
                     <li>Supervisor approval required before any client-facing export</li>
-                    <li>Time-boxed student access tied to id.me re-verification</li>
+                    <li>Manual verification of student eligibility for program access</li>
                     <li>Audit-friendly activity history for clinic review</li>
                   </ul>
                 </div>
@@ -278,28 +291,27 @@ export default function LawClinicsPage() {
           </div>
         </section>
 
-        {/* Security & governance (careful language) */}
+        {/* Security & governance */}
         <section id="security" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
+            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-brand-orange/30">
               <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Security & governance</h2>
               <p className="mt-2 text-muted">
-                We avoid sloppy claims. Here's the real promise: strong defaults, least-privilege access, and clear
-                boundaries around what the system does and does not do.
+                Clinic programs need predictable controls. ThreadLock focuses on least-privilege access, review workflows, and auditability.
               </p>
 
               <ul className="mt-6 space-y-3 text-sm text-muted">
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-brand-orange" />
-                  Role-based access controls for clinic vs student responsibilities
+                  Role-based access controls for student vs supervisor responsibilities
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-brand-orange" />
-                  Audit-friendly activity history for review and accountability
+                  Review gates and approvals with attributable activity history
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-brand-orange" />
-                  Data controls: export, retention, and access revocation aligned to clinic policy
+                  Data controls aligned to clinic policy (export, retention, revocation)
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-brand-orange" />
@@ -308,26 +320,48 @@ export default function LawClinicsPage() {
               </ul>
 
               <div className="mt-6 rounded-2xl border border-border bg-surface p-4 text-xs text-muted">
-                If you need formal attestations (SOC 2 reports, HIPAA BAAs, etc.), that's a separate commercial track
-                with scoped review. Don't market what you can't prove.
+                Need additional security documentation for institutional review? <a className="underline hover:text-foreground" href="/contact?topic=security" aria-label="Contact us for security documentation">Contact us</a>.
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
-              <h3 className="text-xl font-semibold tracking-tight">Integrations (optional)</h3>
+            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-brand-orange/30">
+              <h3 className="text-xl font-semibold tracking-tight">Integrations</h3>
               <p className="mt-2 text-muted">
-                Keep this conservative until each integration is real and contractually covered.
+                Student access requires manual verification. Clinic workflow integrations are available for eligible programs.
               </p>
 
-              <div className="mt-6 grid gap-3">
-                <IntegrationRow name="id.me" status="Planned / Required" note="Enrollment verification gate for free student access." />
-                <IntegrationRow name="Paladin" status="Optional" note="Volunteer matching / referral intake (only if implemented)." />
-                <IntegrationRow name="Clio" status="Optional" note="Case metadata sync (only if implemented)." />
+              <div className="mt-6 space-y-3">
+                <div className="rounded-2xl border border-border bg-surface p-4">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="font-semibold">Clio Grow</div>
+                      <div className="mt-1 text-sm text-muted">
+                        Secure client intake integration for clinic case management workflows.
+                      </div>
+                    </div>
+                    <div className="shrink-0 rounded-full border border-green-600/30 bg-green-50 px-3 py-1 text-xs font-semibold text-green-700" role="status" aria-label="Integration status: Implemented">
+                      Implemented
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-border bg-surface p-4">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="font-semibold">Manual eligibility verification</div>
+                      <div className="mt-1 text-sm text-muted">
+                        Document-based verification reviewed by ThreadLock staff within 2 business days.
+                      </div>
+                    </div>
+                    <div className="shrink-0 rounded-full border border-green-600/30 bg-green-50 px-3 py-1 text-xs font-semibold text-green-700" role="status" aria-label="Verification method: Active">
+                      Active
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="mt-6 rounded-2xl border border-border bg-surface p-4 text-sm text-muted">
-                Strong opinion: don't list "LexisNexis" unless you have a signed agreement and a working integration.
-                Big logos + no contract = big risk.
+              <div className="mt-6 text-xs text-muted">
+                We store only what's necessary to enforce eligibility and support clinic-controlled access decisions.
               </div>
             </div>
           </div>
@@ -355,15 +389,15 @@ export default function LawClinicsPage() {
               <div>
                 <h3 className="text-2xl font-semibold tracking-tight">Bring your clinic cohort onboard</h3>
                 <p className="mt-2 text-white/80">
-                  Students verify with id.me. Clinics approve cohorts. Supervisors review outputs.
+                  Students submit verification documents. Clinics approve cohorts. Supervisors review outputs.
                 </p>
               </div>
               <div className="flex flex-col gap-3 md:flex-row">
                 <a
-                  href="/api/idme/start?returnTo=/edu/clinics#verify"
+                  href="#verify"
                   className="rounded-xl bg-brand-orange px-5 py-3 text-sm font-semibold text-white hover:brightness-90 transition-all text-center shadow-md"
                 >
-                  Verify eligibility
+                  Apply for access
                 </a>
                 <a
                   href="#clinic"
@@ -423,20 +457,6 @@ function MiniCard({ title, desc }: { title: string; desc: string }) {
     <div className="rounded-3xl border border-border bg-surface p-6">
       <div className="font-semibold">{title}</div>
       <div className="mt-2 text-sm text-muted leading-relaxed">{desc}</div>
-    </div>
-  );
-}
-
-function IntegrationRow({ name, status, note }: { name: string; status: string; note: string }) {
-  return (
-    <div className="flex items-start justify-between gap-4 rounded-2xl border border-border bg-surface p-4">
-      <div>
-        <div className="font-semibold">{name}</div>
-        <div className="mt-1 text-sm text-muted">{note}</div>
-      </div>
-      <div className="shrink-0 rounded-full border border-border bg-surface-panel px-3 py-1 text-xs font-semibold text-muted">
-        {status}
-      </div>
     </div>
   );
 }
