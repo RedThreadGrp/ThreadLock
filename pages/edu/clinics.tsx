@@ -278,28 +278,27 @@ export default function LawClinicsPage() {
           </div>
         </section>
 
-        {/* Security & governance (careful language) */}
+        {/* Security & governance */}
         <section id="security" className="mx-auto max-w-6xl px-6 py-12 md:py-16">
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
+            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-brand-orange/30">
               <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">Security & governance</h2>
               <p className="mt-2 text-muted">
-                We avoid sloppy claims. Here's the real promise: strong defaults, least-privilege access, and clear
-                boundaries around what the system does and does not do.
+                Clinic programs need predictable controls. ThreadLock focuses on least-privilege access, review workflows, and auditability.
               </p>
 
               <ul className="mt-6 space-y-3 text-sm text-muted">
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-brand-orange" />
-                  Role-based access controls for clinic vs student responsibilities
+                  Role-based access controls for student vs supervisor responsibilities
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-brand-orange" />
-                  Audit-friendly activity history for review and accountability
+                  Review gates and approvals with attributable activity history
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-brand-orange" />
-                  Data controls: export, retention, and access revocation aligned to clinic policy
+                  Data controls aligned to clinic policy (export, retention, revocation)
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-brand-orange" />
@@ -308,26 +307,32 @@ export default function LawClinicsPage() {
               </ul>
 
               <div className="mt-6 rounded-2xl border border-border bg-surface p-4 text-xs text-muted">
-                If you need formal attestations (SOC 2 reports, HIPAA BAAs, etc.), that's a separate commercial track
-                with scoped review. Don't market what you can't prove.
+                Need additional security documentation for institutional review? <a className="underline hover:text-foreground" href="/contact?topic=security">Contact us</a>.
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10">
-              <h3 className="text-xl font-semibold tracking-tight">Integrations (optional)</h3>
+            <div className="rounded-3xl border border-border bg-white/80 backdrop-blur-sm shadow-sm p-6 md:p-10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-brand-orange/30">
+              <h3 className="text-xl font-semibold tracking-tight">Eligibility verification</h3>
               <p className="mt-2 text-muted">
-                Keep this conservative until each integration is real and contractually covered.
+                Student access is free for verified enrollment in participating clinics and approved programs.
               </p>
 
-              <div className="mt-6 grid gap-3">
-                <IntegrationRow name="id.me" status="Planned / Required" note="Enrollment verification gate for free student access." />
-                <IntegrationRow name="Paladin" status="Optional" note="Volunteer matching / referral intake (only if implemented)." />
-                <IntegrationRow name="Clio" status="Optional" note="Case metadata sync (only if implemented)." />
+              <div className="mt-6 rounded-2xl border border-border bg-surface p-4">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <div className="font-semibold">id.me</div>
+                    <div className="mt-1 text-sm text-muted">
+                      Used to verify student status for free access. We do not receive your password.
+                    </div>
+                  </div>
+                  <div className="shrink-0 rounded-full border border-border bg-surface-panel px-3 py-1 text-xs font-semibold text-muted">
+                    Roadmap
+                  </div>
+                </div>
               </div>
 
-              <div className="mt-6 rounded-2xl border border-border bg-surface p-4 text-sm text-muted">
-                Strong opinion: don't list "LexisNexis" unless you have a signed agreement and a working integration.
-                Big logos + no contract = big risk.
+              <div className="mt-6 text-xs text-muted">
+                We store only what's necessary to enforce eligibility and support clinic-controlled access decisions.
               </div>
             </div>
           </div>
@@ -423,20 +428,6 @@ function MiniCard({ title, desc }: { title: string; desc: string }) {
     <div className="rounded-3xl border border-border bg-surface p-6">
       <div className="font-semibold">{title}</div>
       <div className="mt-2 text-sm text-muted leading-relaxed">{desc}</div>
-    </div>
-  );
-}
-
-function IntegrationRow({ name, status, note }: { name: string; status: string; note: string }) {
-  return (
-    <div className="flex items-start justify-between gap-4 rounded-2xl border border-border bg-surface p-4">
-      <div>
-        <div className="font-semibold">{name}</div>
-        <div className="mt-1 text-sm text-muted">{note}</div>
-      </div>
-      <div className="shrink-0 rounded-full border border-border bg-surface-panel px-3 py-1 text-xs font-semibold text-muted">
-        {status}
-      </div>
     </div>
   );
 }
