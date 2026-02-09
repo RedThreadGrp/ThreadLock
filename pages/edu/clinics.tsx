@@ -206,26 +206,26 @@ export default function LawClinicsPage() {
                   </div>
                 </div>
 
-                {/* File upload field */}
+                {/* File upload field - visual only, actual submission via email */}
                 <div>
-                  <label className="block">
+                  <label htmlFor="verification-upload" className="block">
                     <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Upload verification document</div>
                     <div className="w-full rounded-2xl border-2 border-dashed border-border bg-surface px-4 py-6 text-center hover:border-brand-orange/40 hover:bg-surface-panel transition-all cursor-pointer">
-                      <input type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" />
+                      <input id="verification-upload" type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" disabled />
                       <div className="text-sm text-muted">
-                        <span className="font-semibold text-foreground">Click to upload</span> or drag and drop
+                        <span className="font-semibold text-foreground">Prepare your document</span>
                       </div>
-                      <div className="mt-1 text-xs text-muted">PDF, JPG, or PNG (max 10MB)</div>
+                      <div className="mt-1 text-xs text-muted">You'll attach it in your email (PDF, JPG, or PNG, max 10MB)</div>
                     </div>
                   </label>
                 </div>
 
-                {/* Submit button */}
+                {/* Submit button - opens email with instructions */}
                 <a
-                  href="mailto:admin@threadlock.ai?subject=EDU%20Access%20Request&body=Please%20attach%20your%20enrollment%20verification%20document."
+                  href="mailto:admin@threadlock.ai?subject=EDU%20Access%20Request%20-%20Law%20Student&body=Please%20find%20my%20enrollment%20verification%20document%20attached.%0A%0ASchool%3A%20%0AClinic%2FProgram%3A%20%0A%0AThank%20you%21"
                   className="block w-full rounded-xl bg-brand-orange px-5 py-3 text-center text-base font-semibold text-white shadow-md hover:brightness-90 transition-all"
                 >
-                  Submit for verification
+                  Email verification documents
                 </a>
 
                 {/* Verification process disclosure */}
