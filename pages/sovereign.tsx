@@ -194,7 +194,7 @@ export default function SovereignPage() {
 
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <input
-                  className="w-full rounded-md bg-black/30 border border-white/10 px-3 py-2 text-sm outline-none focus:border-[#fb7a1e] text-slate-100 placeholder-slate-400"
+                  className="w-full rounded-md bg-surface-dark/30 border border-muted-dark/20 px-3 py-2 text-sm outline-none focus:border-brand-orange text-foreground-dark placeholder:text-muted-dark"
                   placeholder="Organization or Nation"
                   value={formData.organization}
                   onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
