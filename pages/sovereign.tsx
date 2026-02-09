@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
+import SiteHeader from "@/src/components/SiteHeader";
 
 export default function SovereignPage() {
   const [formData, setFormData] = useState({
@@ -61,7 +62,7 @@ export default function SovereignPage() {
   };
 
   return (
-    <div className="bg-[#0b1220] text-slate-100 antialiased min-h-screen">
+    <>
       <Head>
         <title>ThreadLock | Sovereign Jurisdiction Case System</title>
         <meta
@@ -77,27 +78,30 @@ export default function SovereignPage() {
         <meta property="og:url" content="https://threadlock.ai/sovereign" />
       </Head>
 
-      <style jsx>{`
-        .grid-bg {
-          background-image: radial-gradient(
-            circle at 1px 1px,
-            rgba(255, 255, 255, 0.06) 1px,
-            transparent 0
-          );
-          background-size: 22px 22px;
-        }
+      <SiteHeader theme="dark" />
 
-        .glass {
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(148, 163, 184, 0.18);
-          backdrop-filter: blur(10px);
-        }
+      <div className="bg-[#0b1220] text-slate-100 antialiased min-h-screen pt-16">
+        <style jsx>{`
+          .grid-bg {
+            background-image: radial-gradient(
+              circle at 1px 1px,
+              rgba(255, 255, 255, 0.06) 1px,
+              transparent 0
+            );
+            background-size: 22px 22px;
+          }
 
-        .ring-accent {
-          box-shadow: 0 0 0 1px rgba(251, 122, 30, 0.35),
-            0 10px 30px rgba(0, 0, 0, 0.35);
-        }
-      `}</style>
+          .glass {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            backdrop-filter: blur(10px);
+          }
+
+          .ring-accent {
+            box-shadow: 0 0 0 1px rgba(251, 122, 30, 0.35),
+              0 10px 30px rgba(0, 0, 0, 0.35);
+          }
+        `}</style>
 
       <section className="relative min-h-screen flex items-center overflow-hidden grid-bg">
         {/* Subtle backdrop accents */}
@@ -245,6 +249,9 @@ export default function SovereignPage() {
           </div>
         </div>
       </section>
+
+      {/* Footer is now handled by _app.js */}
     </div>
+    </>
   );
 }

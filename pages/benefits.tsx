@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
+import SiteHeader from "@/src/components/SiteHeader";
 
 export default function BenefitsPage() {
   const [formData, setFormData] = useState({
@@ -58,7 +59,7 @@ export default function BenefitsPage() {
   };
 
   return (
-    <div className="bg-slate-950 text-slate-50 antialiased min-h-screen">
+    <>
       <Head>
         <title>The Hidden Cost of Family Court | ThreadLock for Employers</title>
         <meta
@@ -74,64 +75,59 @@ export default function BenefitsPage() {
         <meta property="og:url" content="https://threadlock.ai/benefits" />
       </Head>
 
-      <style jsx>{`
-        .print-color-exact {
-          -webkit-print-color-adjust: exact;
-          print-color-adjust: exact;
-        }
+      <SiteHeader theme="dark" />
 
-        @media print {
-          @page { 
-            size: A4; 
-            margin: 1cm; 
+      <div className="bg-slate-950 text-slate-50 antialiased min-h-screen pt-16">
+        <style jsx>{`
+          .print-color-exact {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
           }
-          
-          body {
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
+
+          @media print {
+            @page { 
+              size: A4; 
+              margin: 1cm; 
+            }
+            
+            body {
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            }
           }
-        }
-      `}</style>
+        `}</style>
 
-      {/* Header */}
-      <header className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-6 pt-8 pb-6 border-b border-slate-700/50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none">
-          <svg width="100%" height="100%">
-            <defs>
-              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f97316" strokeWidth="0.5" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
-        </div>
+        {/* Page Header */}
+        <header className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-6 pt-8 pb-6 border-b border-slate-700/50 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
+            <svg width="100%" height="100%">
+              <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f97316" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+          </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="flex justify-between items-center mb-6">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center">
-                <span className="font-bold text-white text-2xl">T</span>
-              </div>
-              <span className="text-3xl font-bold tracking-tight">
-                <span className="text-white">Thread</span><span className="text-orange-500">Lock</span>
+          <div className="relative z-10 max-w-6xl mx-auto">
+            <div className="flex justify-end items-center mb-6">
+              <span className="text-xs font-bold tracking-widest uppercase text-slate-400 border border-slate-600 px-4 py-2 rounded-full bg-slate-800/50">
+                Workplace Insights Report
               </span>
             </div>
-            <span className="text-xs font-bold tracking-widest uppercase text-slate-400 border border-slate-600 px-4 py-2 rounded-full bg-slate-800/50">
-              Workplace Insights Report
-            </span>
-          </div>
 
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4 leading-tight">
-            The Hidden Cost of <span className="text-orange-500">Family Court</span>
-          </h1>
+            <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4 leading-tight">
+              The Hidden Cost of <span className="text-orange-500">Family Court</span>
+            </h1>
 
-          <div className="relative pl-6 py-3 border-l-4 border-orange-500 bg-slate-800/30 rounded-r-lg max-w-4xl">
-            <p className="text-slate-300 text-base md:text-lg italic leading-relaxed">
-              Beyond the visible hours spent in court and preparing documents, family court proceedings create cascading effects: stress-induced productivity loss, illness-related absences, and operational disruption.
-            </p>
+            <div className="relative pl-6 py-3 border-l-4 border-orange-500 bg-slate-800/30 rounded-r-lg max-w-4xl">
+              <p className="text-slate-300 text-base md:text-lg italic leading-relaxed">
+                Beyond the visible hours spent in court and preparing documents, family court proceedings create cascading effects: stress-induced productivity loss, illness-related absences, and operational disruption.
+              </p>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
       {/* Main Content */}
       <main className="px-6 py-12">
@@ -359,14 +355,9 @@ export default function BenefitsPage() {
             </form>
           </section>
         </div>
-      </main>
 
-      {/* Footer */}
-      <footer className="text-center py-8 px-6 border-t border-slate-800">
-        <p className="text-slate-600 text-sm">
-          © {new Date().getFullYear()} ThreadLock. All rights reserved.
-        </p>
-      </footer>
-    </div>
+        {/* Footer is now handled by _app.js */}
+      </div>
+    </>
   );
 }
