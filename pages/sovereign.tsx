@@ -202,7 +202,7 @@ export default function SovereignPage() {
                 />
 
                 <input
-                  className="w-full rounded-md bg-black/30 border border-white/10 px-3 py-2 text-sm outline-none focus:border-[#fb7a1e] text-slate-100 placeholder-slate-400"
+                  className="w-full rounded-md bg-surface-dark/30 border border-muted-dark/20 px-3 py-2 text-sm outline-none focus:border-brand-orange text-foreground-dark placeholder:text-muted-dark"
                   placeholder="Name and email"
                   value={formData.nameEmail}
                   onChange={(e) => setFormData({ ...formData, nameEmail: e.target.value })}
