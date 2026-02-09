@@ -1,33 +1,10 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import SiteHeader from "@/src/components/SiteHeader";
 
 /* ---------------- SEO (page-level) ---------------- */
 const SITE_URL = "https://threadlock.ai";
-
-/* ---------------- Icons ---------------- */
-const MenuIcon = (props) => (
-  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-    <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
-  </svg>
-);
-const XIcon = (props) => (
-  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" {...props}>
-    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-  </svg>
-);
-const LinkedinIcon = (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-        <rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
-    </svg>
-);
-const GlobeIcon = (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-        <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-    </svg>
-);
 
 /* ---------------- Data for State Rules ---------------- */
 const STATE_RULES = [
@@ -110,59 +87,6 @@ const SKU_TO_SLUG = {
   pre_hearing_checklist: "pre-hearing",
   proof_of_service_tracker: "proof-of-service",
   trial_hearing_quick_ref: "trial-quick-ref",
-};
-
-/* ---------------- Text Brand ---------------- */
-function BrandWordmark({ className = "" }) {
-    return (
-        <span className={`inline-flex items-baseline font-bold text-2xl tracking-tight select-none ${className}`}>
-            <span className="text-slate-800">Thread</span>
-            <span className="text-orange-600">Lock</span>
-            <span className="ml-0.5 align-text-top text-[0.5em] font-black text-slate-500">™</span>
-        </span>
-    );
-}
-
-/* ---------------- Header ---------------- */
-const Header = () => {
-    const [open, setOpen] = useState(false);
-    return (
-        <header className="sticky top-0 left-0 w-full z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
-            <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
-                <Link href="/">
-                    <a><BrandWordmark /></a>
-                </Link>
-
-                <nav className="hidden md:flex items-center space-x-6 text-slate-700 font-semibold">
-                    <Link href="/resources"><a className="text-orange-600 border-b-2 border-orange-600 pb-1">Resources</a></Link>
-                    <Link href="/sarahs-story"><a className="hover:text-orange-600 transition-colors">Her Story</a></Link>
-                    <Link href="/founder-story"><a className="hover:text-orange-600 transition-colors">Founder Story</a></Link>
-                    <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
-                        Create Account
-                    </a>
-                </nav>
-
-                <button
-                    className="md:hidden text-slate-800 p-2"
-                    aria-label="Toggle menu"
-                    onClick={() => setOpen(!open)}
-                >
-                    {open ? <XIcon /> : <MenuIcon />}
-                </button>
-            </div>
-
-            <div className={`md:hidden overflow-hidden transition-[max-height] duration-300 ${open ? "max-h-96" : "max-h-0"}`}>
-                <div className="px-4 pb-4 pt-2 text-slate-800 space-y-2 bg-white border-t border-slate-200">
-                    <Link href="/resources"><a onClick={() => setOpen(false)} className="block py-2 text-orange-600">Resources</a></Link>
-                    <Link href="/sarahs-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Her Story</a></Link>
-                    <Link href="/founder-story"><a onClick={() => setOpen(false)} className="block py-2 hover:text-orange-600">Founder Story</a></Link>
-                    <a href="https://app.threadlock.ai/signup" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
-                        Create Account
-                    </a>
-                </div>
-            </div>
-        </header>
-    );
 };
 
 /* ---------------- Sections ---------------- */
@@ -356,7 +280,7 @@ export default function ResourcesPage() {
             </Head>
 
             <div className="bg-white">
-                <Header />
+                <SiteHeader theme="light" />
                 <main className="flex flex-col w-full overflow-x-hidden pt-16">
                     <PricingSection
                         onBuyToolkit={onBuyToolkit}
