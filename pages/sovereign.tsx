@@ -196,7 +196,7 @@ export default function SovereignPage() {
 
                 <button
                   type="submit"
-                  className="w-full rounded-md bg-[#fb7a1e] text-slate-900 font-extrabold px-4 py-3 hover:brightness-110 transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full rounded-md bg-[#fb7a1e] text-slate-700 font-extrabold px-4 py-3 hover:brightness-110 transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   disabled={formStatus === "submitting"}
                 >
                   {formStatus === "submitting" ? "Sending..." : "Send inquiry"}
