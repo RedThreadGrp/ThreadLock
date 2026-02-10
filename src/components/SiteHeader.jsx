@@ -195,9 +195,9 @@ const SiteHeader = ({ theme = 'auto' }) => {
 
     // Determine if we should use dark text based on theme prop and scroll state
     // theme = 'light' means light background (use dark text)
-    // theme = 'dark' means dark background (use light text)
+    // theme = 'dark' means dark background initially (use light text), but switches to dark text when scrolled
     // theme = 'auto' means use scroll-based detection
-    const shouldUseDarkText = theme === 'light' ? true : theme === 'dark' ? false : isScrolled;
+    const shouldUseDarkText = theme === 'light' ? true : theme === 'dark' ? isScrolled : isScrolled;
 
     const headerClasses = isScrolled
         ? "bg-white/90 backdrop-blur-md border-b border-slate-200"
