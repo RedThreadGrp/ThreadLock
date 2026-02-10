@@ -81,8 +81,7 @@ export default function SovereignPage() {
       <SiteHeader theme="dark" />
 
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Subtle backdrop accents */}
-        <div className="pointer-events-none absolute top-0 right-0 h-96 w-96 rounded-full bg-[#fb7a1e]/10 blur-3xl"></div>
+        {/* Subtle backdrop accent */}
         <div className="pointer-events-none absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-[#1b3a4d]/30 blur-3xl"></div>
 
         <div className="relative mx-auto max-w-6xl px-6 py-20 w-full">
