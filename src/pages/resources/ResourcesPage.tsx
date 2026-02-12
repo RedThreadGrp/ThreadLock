@@ -7,6 +7,7 @@
 
 import React, { useMemo, useState } from "react";
 import Head from "next/head";
+import Link from "next/link";
 import SiteHeader from "@/src/components/SiteHeader";
 
 type Resource = {
@@ -341,6 +342,48 @@ export default function ResourcesPage() {
           </div>
         </section>
 
+        {/* In-page Subnav */}
+        <nav className="sticky top-0 z-10 bg-surface-dark/95 backdrop-blur-sm border-b border-border-dark mb-10">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
+              <a 
+                href="#starter-kits" 
+                className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
+              >
+                Starter Kits
+              </a>
+              <span className="text-border-dark">·</span>
+              <a 
+                href="#featured-guides" 
+                className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
+              >
+                Featured Guides
+              </a>
+              <span className="text-border-dark">·</span>
+              <a 
+                href="#topics" 
+                className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
+              >
+                Topics
+              </a>
+              <span className="text-border-dark">·</span>
+              <a 
+                href="#library" 
+                className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
+              >
+                Library
+              </a>
+              <span className="text-border-dark">·</span>
+              <a 
+                href="#questions" 
+                className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
+              >
+                FAQ / Questions
+              </a>
+            </div>
+          </div>
+        </nav>
+
         {/* Starter Kits */}
         <section id="starter-kits" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-8">
@@ -355,7 +398,7 @@ export default function ResourcesPage() {
 
           <div className="grid gap-6 md:grid-cols-3">
             {STARTER_KITS.map((kit) => (
-              <a
+              <Link
                 key={kit.href}
                 href={kit.href}
                 className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
@@ -395,7 +438,7 @@ export default function ResourcesPage() {
                   <span className="text-brand-orange font-bold group-hover:translate-x-1 transition-transform duration-200">→</span>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
@@ -414,7 +457,7 @@ export default function ResourcesPage() {
 
           <div className="grid gap-6 lg:grid-cols-2">
             {/* Primary featured guide */}
-            <a
+            <Link
               href={FEATURED_GUIDES[0].href}
               className="group relative lg:col-span-2 rounded-3xl border border-border-dark bg-surface-dark-panel p-8 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
             >
@@ -437,11 +480,11 @@ export default function ResourcesPage() {
                   <p className="mt-4 text-xs text-muted-dark">Updated {FEATURED_GUIDES[0].updated}</p>
                 )}
               </div>
-            </a>
+            </Link>
 
             {/* Secondary guides */}
             {FEATURED_GUIDES.slice(1).map((guide) => (
-              <a
+              <Link
                 key={guide.href}
                 href={guide.href}
                 className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
@@ -462,7 +505,7 @@ export default function ResourcesPage() {
                   </h3>
                   <p className="mt-2 text-sm text-muted-dark leading-relaxed">{guide.summary}</p>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
@@ -481,7 +524,7 @@ export default function ResourcesPage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {TOPICS.map((topic) => (
-              <a
+              <Link
                 key={topic.slug}
                 href={`/resources/topics/${topic.slug}`}
                 className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
@@ -501,7 +544,7 @@ export default function ResourcesPage() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
@@ -559,7 +602,7 @@ export default function ResourcesPage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((r) => (
-              <a
+              <Link
                 key={r.href}
                 href={r.href}
                 className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
@@ -592,7 +635,7 @@ export default function ResourcesPage() {
                     )}
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -617,7 +660,7 @@ export default function ResourcesPage() {
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {POPULAR_QUESTIONS.map((q) => (
-              <a
+              <Link
                 key={q.href}
                 href={q.href}
                 className="group relative rounded-2xl border border-border-dark bg-surface-dark-panel p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 flex items-start gap-3"
@@ -629,7 +672,7 @@ export default function ResourcesPage() {
                 <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors relative z-10">
                   {q.question}
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
