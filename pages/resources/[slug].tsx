@@ -6,10 +6,10 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
-import { getResourceBySlug, RESOURCES, ResourceItem } from "@/src/content/resourcesRegistry";
+import { getResourceBySlug, RESOURCES, Resource } from "@/src/content/resourcesRegistry";
 
 type ResourcePageProps = {
-  resource: ResourceItem | null;
+  resource: Resource | null;
   slug: string;
 };
 

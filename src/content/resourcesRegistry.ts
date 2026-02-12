@@ -37,6 +37,10 @@ export interface StarterKit {
   resources: string[];
   status: ResourceStatus;
   body?: string;
+  relatedLinks?: Array<{
+    title: string;
+    href: string;
+  }>;
 }
 
 export interface FeaturedGuide {
@@ -47,6 +51,10 @@ export interface FeaturedGuide {
   updated?: string;
   status: ResourceStatus;
   body?: string;
+  relatedLinks?: Array<{
+    title: string;
+    href: string;
+  }>;
 }
 
 export interface Topic {
@@ -54,6 +62,12 @@ export interface Topic {
   title: string;
   promise: string;
   resourceCount: number;
+  status?: ResourceStatus;
+  body?: string;
+  relatedLinks?: Array<{
+    title: string;
+    href: string;
+  }>;
 }
 
 export interface PopularQuestion {
@@ -61,6 +75,10 @@ export interface PopularQuestion {
   question: string;
   status: ResourceStatus;
   body?: string;
+  relatedLinks?: Array<{
+    title: string;
+    href: string;
+  }>;
 }
 
 // ============================================================================
@@ -99,6 +117,26 @@ export function getResourcesByTag(tag: ResourceTag): Resource[] {
 
 export function getPublishedResources(): Resource[] {
   return RESOURCES.filter((r) => r.status === "published");
+}
+
+export function getGuidesByTopic(topicSlug: string): FeaturedGuide[] {
+  const topic = getTopicBySlug(topicSlug);
+  if (!topic) return [];
+  
+  return FEATURED_GUIDES.filter((g) =>
+    g.tags.some(tag => tag.toLowerCase().includes(topic.title.toLowerCase())) ||
+    g.slug.includes(topicSlug)
+  );
+}
+
+export function getQuestionsByTopic(topicSlug: string): PopularQuestion[] {
+  const topic = getTopicBySlug(topicSlug);
+  if (!topic) return [];
+  
+  return POPULAR_QUESTIONS.filter((q) =>
+    q.question.toLowerCase().includes(topic.title.toLowerCase()) ||
+    q.slug.includes(topicSlug)
+  );
 }
 
 // ============================================================================

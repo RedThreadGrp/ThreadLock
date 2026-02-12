@@ -6,10 +6,10 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
-import { getStarterKitBySlug, getResourceBySlug, STARTER_KITS, StarterKitItem } from "@/src/content/resourcesRegistry";
+import { getStarterKitBySlug, getResourceBySlug, STARTER_KITS, StarterKit } from "@/src/content/resourcesRegistry";
 
 type KitPageProps = {
-  kit: StarterKitItem | null;
+  kit: StarterKit | null;
   slug: string;
 };
 

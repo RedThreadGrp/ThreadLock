@@ -6,10 +6,10 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
-import { getFeaturedGuideBySlug, FEATURED_GUIDES, FeaturedGuideItem } from "@/src/content/resourcesRegistry";
+import { getFeaturedGuideBySlug, FEATURED_GUIDES, FeaturedGuide } from "@/src/content/resourcesRegistry";
 
 type GuidePageProps = {
-  guide: FeaturedGuideItem | null;
+  guide: FeaturedGuide | null;
   slug: string;
 };
 

@@ -12,17 +12,17 @@ import {
   getGuidesByTopic,
   getQuestionsByTopic,
   TOPICS, 
-  TopicItem,
-  ResourceItem,
-  FeaturedGuideItem,
-  QuestionItem
+  Topic,
+  Resource,
+  FeaturedGuide,
+  PopularQuestion
 } from "@/src/content/resourcesRegistry";
 
 type TopicPageProps = {
-  topic: TopicItem | null;
-  resources: ResourceItem[];
-  guides: FeaturedGuideItem[];
-  questions: QuestionItem[];
+  topic: Topic | null;
+  resources: Resource[];
+  guides: FeaturedGuide[];
+  questions: PopularQuestion[];
   slug: string;
 };
 
@@ -31,7 +31,6 @@ export default function TopicPage({ topic, resources, guides, questions, slug }:
     return <TopicNotFound slug={slug} />;
   }
 
-  const isDraft = topic.status === "draft";
   const hasContent = resources.length > 0 || guides.length > 0 || questions.length > 0;
 
   return (
@@ -52,14 +51,6 @@ export default function TopicPage({ topic, resources, guides, questions, slug }:
           >
             ← Back to All Topics
           </Link>
-
-          {/* Draft badge */}
-          {isDraft && (
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange mb-4">
-              <span className="inline-block h-2 w-2 rounded-full bg-brand-orange" />
-              In Progress
-            </div>
-          )}
 
           {/* Title */}
           <h1 className="text-4xl font-semibold tracking-tight text-foreground-dark mb-4">

@@ -6,10 +6,10 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
-import { getQuestionBySlug, POPULAR_QUESTIONS, QuestionItem } from "@/src/content/resourcesRegistry";
+import { getQuestionBySlug, POPULAR_QUESTIONS, PopularQuestion } from "@/src/content/resourcesRegistry";
 
 type QuestionPageProps = {
-  question: QuestionItem | null;
+  question: PopularQuestion | null;
   slug: string;
 };
 
@@ -24,7 +24,7 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
     <>
       <Head>
         <title>{question.question} | ThreadLock Resources</title>
-        <meta name="description" content={question.answer.substring(0, 160)} />
+        <meta name="description" content={question.body?.substring(0, 160) || question.question} />
       </Head>
 
       <SiteHeader />
@@ -58,12 +58,14 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
           </div>
 
           {/* Answer */}
-          <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 mb-8">
-            <div 
-              className="prose prose-invert prose-orange max-w-none text-muted-dark leading-relaxed whitespace-pre-wrap"
-              dangerouslySetInnerHTML={{ __html: question.answer.replace(/\n/g, '<br />') }}
-            />
-          </div>
+          {question.body && (
+            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 mb-8">
+              <div 
+                className="prose prose-invert prose-orange max-w-none text-muted-dark leading-relaxed whitespace-pre-wrap"
+                dangerouslySetInnerHTML={{ __html: question.body.replace(/\n/g, '<br />') }}
+              />
+            </div>
+          )}
 
           {isDraft && (
             <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 text-center mb-12">
