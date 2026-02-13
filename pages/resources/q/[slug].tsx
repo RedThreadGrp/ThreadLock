@@ -9,6 +9,7 @@ import SiteHeader from "@/src/components/SiteHeader";
 import StandardDisclaimer from "@/src/components/StandardDisclaimer";
 import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { getQuestionBySlug, POPULAR_QUESTIONS, PopularQuestion } from "@/src/content/resourcesRegistry";
+import { renderMarkdown, extractPlainText } from "@/src/lib/renderMarkdown";
 
 type QuestionPageProps = {
   question: PopularQuestion | null;
@@ -27,7 +28,11 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
   const metaDesc = question.metaDescription || question.shortAnswer || question.question;
   const canonicalUrl = `https://threadlock.ai/resources/q/${slug}`;
   
-  // Prepare FAQPage Schema for structured data
+  // Prepare FAQPage Schema for structured data with proper answer text
+  const acceptedAnswerText = question.shortAnswer 
+    ? question.shortAnswer 
+    : extractPlainText(question.body || '', 200);
+  
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -36,7 +41,7 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
       "name": question.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": question.shortAnswer || question.body?.substring(0, 200) || question.question
+        "text": acceptedAnswerText
       }
     }]
   };
@@ -46,6 +51,7 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={metaDesc} />
+        {isDraft && <meta name="robots" content="noindex, nofollow" />}
         <link rel="canonical" href={canonicalUrl} />
         <script
           type="application/ld+json"
@@ -99,8 +105,8 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
           {question.body && (
             <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 mb-8">
               <div 
-                className="prose prose-invert prose-orange max-w-none text-muted-dark leading-relaxed whitespace-pre-wrap"
-                dangerouslySetInnerHTML={{ __html: question.body.replace(/\n/g, '<br />') }}
+                className="prose prose-invert prose-orange max-w-none text-muted-dark leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: renderMarkdown(question.body) }}
               />
             </div>
           )}
