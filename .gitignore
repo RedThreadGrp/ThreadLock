@@ -19,3 +19,7 @@ cypress/results/
 # Generated reports
 public/link-report.json
 externalResources.dedupe.report.json
+
+# TypeScript build info
+tsconfig.tsbuildinfo
+*.tsbuildinfo
