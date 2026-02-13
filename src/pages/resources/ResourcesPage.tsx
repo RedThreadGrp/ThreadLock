@@ -10,8 +10,6 @@ import Head from "next/head";
 import Link from "next/link";
 import SiteHeader from "@/src/components/SiteHeader";
 import HeroBanner from "@/src/components/HeroBanner";
-import StandardDisclaimer from "@/src/components/StandardDisclaimer";
-import FeedbackWidget from "@/src/components/FeedbackWidget";
 import {
   EXTERNAL_RESOURCES,
   getUniqueJurisdictions,
@@ -331,7 +329,7 @@ export default function ResourcesPage() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search resources: 'proof of service', 'hearing tomorrow', 'evidence'…"
-                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark/70 text-foreground-dark"
+                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark text-foreground-dark"
                 />
               </div>
             </div>
@@ -723,7 +721,7 @@ export default function ResourcesPage() {
                   value={externalSearch}
                   onChange={(e) => setExternalSearch(e.target.value)}
                   placeholder="Search by name or domain..."
-                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark/70 text-foreground-dark"
+                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark text-foreground-dark"
                 />
               </div>
             </div>
@@ -752,126 +750,132 @@ export default function ResourcesPage() {
               Every jurisdiction with links to official court self-help and local legal aid.
             </p>
             
-            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-border-dark bg-surface-dark-panel">
-                      <th className="text-left px-4 py-3 text-xs font-semibold text-muted-dark uppercase tracking-wide">
-                        State/Territory
-                      </th>
-                      <th className="text-left px-4 py-3 text-xs font-semibold text-muted-dark uppercase tracking-wide">
-                        Court Self-Help
-                      </th>
-                      <th className="text-left px-4 py-3 text-xs font-semibold text-muted-dark uppercase tracking-wide">
-                        Legal Aid
-                      </th>
-                      <th className="text-left px-4 py-3 text-xs font-semibold text-muted-dark uppercase tracking-wide">
-                        Info
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {getAllStateDirectoryEntries()
-                      .filter(entry => 
-                        selectedJurisdiction === "All" || entry.jurisdiction === selectedJurisdiction
-                      )
-                      .map((entry) => {
-                        const deadlines = getDeadlinesForJurisdiction(entry.jurisdiction);
-                        const isExpanded = expandedJurisdiction === entry.jurisdiction;
-                        
-                        return (
-                          <React.Fragment key={entry.jurisdiction}>
-                            <tr className="border-b border-border-dark/30 hover:bg-surface-dark transition-colors">
-                              <td className="px-4 py-3 text-sm font-semibold text-foreground-dark">
-                                {entry.jurisdiction}
-                              </td>
-                              <td className="px-4 py-3">
-                                {entry.court ? (
-                                  <a
-                                    href={entry.court.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    onClick={() => trackResourceClick(entry.court!.id, 'state-directory-court')}
-                                    className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition"
-                                  >
-                                    {entry.court.title.replace(/Self-Help|Forms|Courts?/gi, '').trim() || 'Court Resources'}
-                                    {isHttp(entry.court.url) && (
-                                      <span className="text-xs bg-brand-orange/20 text-brand-orange px-2 py-0.5 rounded">
-                                        HTTP
-                                      </span>
-                                    )}
-                                    <span>↗</span>
-                                  </a>
-                                ) : (
-                                  <span className="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded">
-                                    Missing
-                                  </span>
-                                )}
-                              </td>
-                              <td className="px-4 py-3">
-                                {entry.legalAid ? (
-                                  <a
-                                    href={entry.legalAid.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    onClick={() => trackResourceClick(entry.legalAid!.id, 'state-directory-legal-aid')}
-                                    className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition"
-                                  >
-                                    {entry.legalAid.title.replace(/Legal Aid|Legal Services|Legal Help/gi, '').trim() || 'Legal Aid'}
-                                    <span>↗</span>
-                                  </a>
-                                ) : (
-                                  <span className="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded">
-                                    Missing
-                                  </span>
-                                )}
-                              </td>
-                              <td className="px-4 py-3">
-                                {deadlines && (
-                                  <button
-                                    onClick={() => setExpandedJurisdiction(isExpanded ? null : entry.jurisdiction)}
-                                    className="text-xs text-brand-orange hover:text-brand-orange/80 transition flex items-center gap-1"
-                                  >
-                                    {isExpanded ? '▼' : '▶'} Deadlines
-                                  </button>
-                                )}
-                              </td>
-                            </tr>
-                            {isExpanded && deadlines && (
-                              <tr className="border-b border-border-dark/30 bg-surface-dark/50">
-                                <td colSpan={4} className="px-4 py-4">
-                                  <div className="space-y-3">
-                                    <h4 className="text-sm font-semibold text-foreground-dark">Key Deadlines for {entry.jurisdiction}</h4>
-                                    <div className="grid gap-2 sm:grid-cols-2">
-                                      {deadlines.deadlines.map((deadline, idx) => (
-                                        <div key={idx} className="rounded-lg border border-border-dark bg-surface-dark-panel p-3">
-                                          <div className="flex items-center gap-2 mb-1">
-                                            <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-orange/20 text-brand-orange">
-                                              {deadline.days} days
-                                            </span>
-                                            <span className="text-xs font-semibold text-foreground-dark">
-                                              {deadline.name}
-                                            </span>
-                                          </div>
-                                          <p className="text-xs text-muted-dark">{deadline.description}</p>
-                                        </div>
-                                      ))}
-                                    </div>
-                                    {deadlines.notes && (
-                                      <p className="text-xs text-muted-dark italic">Note: {deadlines.notes}</p>
-                                    )}
-                                  </div>
+            {selectedJurisdiction === "All" ? (
+              <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 text-center">
+                <p className="text-sm text-muted-dark">
+                  Select a state or territory from the "Location" dropdown above to view official court resources and legal aid for that jurisdiction.
+                </p>
+              </div>
+            ) : (
+              <div className="rounded-3xl border border-border-dark bg-surface-dark-panel overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b border-border-dark bg-surface-dark-panel">
+                        <th className="text-left px-4 py-3 text-xs font-semibold text-muted-dark uppercase tracking-wide">
+                          State/Territory
+                        </th>
+                        <th className="text-left px-4 py-3 text-xs font-semibold text-muted-dark uppercase tracking-wide">
+                          Court Self-Help
+                        </th>
+                        <th className="text-left px-4 py-3 text-xs font-semibold text-muted-dark uppercase tracking-wide">
+                          Legal Aid
+                        </th>
+                        <th className="text-left px-4 py-3 text-xs font-semibold text-muted-dark uppercase tracking-wide">
+                          Info
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {getAllStateDirectoryEntries()
+                        .filter(entry => entry.jurisdiction === selectedJurisdiction)
+                        .map((entry) => {
+                          const deadlines = getDeadlinesForJurisdiction(entry.jurisdiction);
+                          const isExpanded = expandedJurisdiction === entry.jurisdiction;
+                          
+                          return (
+                            <React.Fragment key={entry.jurisdiction}>
+                              <tr className="border-b border-border-dark/30 hover:bg-surface-dark transition-colors">
+                                <td className="px-4 py-3 text-sm font-semibold text-foreground-dark">
+                                  {entry.jurisdiction}
+                                </td>
+                                <td className="px-4 py-3">
+                                  {entry.court ? (
+                                    <a
+                                      href={entry.court.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      onClick={() => trackResourceClick(entry.court!.id, 'state-directory-court')}
+                                      className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition"
+                                    >
+                                      {entry.court.title.replace(/Self-Help|Forms|Courts?/gi, '').trim() || 'Court Resources'}
+                                      {isHttp(entry.court.url) && (
+                                        <span className="text-xs bg-brand-orange/20 text-brand-orange px-2 py-0.5 rounded">
+                                          HTTP
+                                        </span>
+                                      )}
+                                      <span>↗</span>
+                                    </a>
+                                  ) : (
+                                    <span className="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded">
+                                      Missing
+                                    </span>
+                                  )}
+                                </td>
+                                <td className="px-4 py-3">
+                                  {entry.legalAid ? (
+                                    <a
+                                      href={entry.legalAid.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      onClick={() => trackResourceClick(entry.legalAid!.id, 'state-directory-legal-aid')}
+                                      className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition"
+                                    >
+                                      {entry.legalAid.title.replace(/Legal Aid|Legal Services|Legal Help/gi, '').trim() || 'Legal Aid'}
+                                      <span>↗</span>
+                                    </a>
+                                  ) : (
+                                    <span className="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded">
+                                      Missing
+                                    </span>
+                                  )}
+                                </td>
+                                <td className="px-4 py-3">
+                                  {deadlines && (
+                                    <button
+                                      onClick={() => setExpandedJurisdiction(isExpanded ? null : entry.jurisdiction)}
+                                      className="text-xs text-brand-orange hover:text-brand-orange/80 transition flex items-center gap-1"
+                                    >
+                                      {isExpanded ? '▼' : '▶'} Deadlines
+                                    </button>
+                                  )}
                                 </td>
                               </tr>
-                            )}
-                          </React.Fragment>
-                        );
-                      })}
-                  </tbody>
-                </table>
+                              {isExpanded && deadlines && (
+                                <tr className="border-b border-border-dark/30 bg-surface-dark/50">
+                                  <td colSpan={4} className="px-4 py-4">
+                                    <div className="space-y-3">
+                                      <h4 className="text-sm font-semibold text-foreground-dark">Key Deadlines for {entry.jurisdiction}</h4>
+                                      <div className="grid gap-2 sm:grid-cols-2">
+                                        {deadlines.deadlines.map((deadline, idx) => (
+                                          <div key={idx} className="rounded-lg border border-border-dark bg-surface-dark-panel p-3">
+                                            <div className="flex items-center gap-2 mb-1">
+                                              <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-orange/20 text-brand-orange">
+                                                {deadline.days} days
+                                              </span>
+                                              <span className="text-xs font-semibold text-foreground-dark">
+                                                {deadline.name}
+                                              </span>
+                                            </div>
+                                            <p className="text-xs text-muted-dark">{deadline.description}</p>
+                                          </div>
+                                        ))}
+                                      </div>
+                                      {deadlines.notes && (
+                                        <p className="text-xs text-muted-dark italic">Note: {deadlines.notes}</p>
+                                      )}
+                                    </div>
+                                  </td>
+                                </tr>
+                              )}
+                            </React.Fragment>
+                          );
+                        })}
+                    </tbody>
+                  </table>
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Other External Resources */}
@@ -951,10 +955,7 @@ export default function ResourcesPage() {
           )}
         </section>
 
-        {/* Standard Disclaimer */}
-        <div className="mx-auto max-w-6xl px-6">
-          <StandardDisclaimer />
-        </div>
+
       </div>
     </>
   );
@@ -993,7 +994,7 @@ function Select({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="bg-transparent text-xs font-semibold outline-none text-foreground-dark"
+        className="bg-surface-dark text-xs font-semibold outline-none text-foreground-dark [&>option]:bg-surface-dark [&>option]:text-foreground-dark"
       >
         {options.map((o) => (
           <option key={o} value={o}>
