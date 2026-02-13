@@ -10,8 +10,6 @@ import Head from "next/head";
 import Link from "next/link";
 import SiteHeader from "@/src/components/SiteHeader";
 import HeroBanner from "@/src/components/HeroBanner";
-import StandardDisclaimer from "@/src/components/StandardDisclaimer";
-import FeedbackWidget from "@/src/components/FeedbackWidget";
 import {
   EXTERNAL_RESOURCES,
   getUniqueJurisdictions,
@@ -331,7 +329,7 @@ export default function ResourcesPage() {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search resources: 'proof of service', 'hearing tomorrow', 'evidence'…"
-                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark/70 text-foreground-dark"
+                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark text-foreground-dark"
                 />
               </div>
             </div>
@@ -723,7 +721,7 @@ export default function ResourcesPage() {
                   value={externalSearch}
                   onChange={(e) => setExternalSearch(e.target.value)}
                   placeholder="Search by name or domain..."
-                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark/70 text-foreground-dark"
+                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark text-foreground-dark"
                 />
               </div>
             </div>
@@ -951,10 +949,7 @@ export default function ResourcesPage() {
           )}
         </section>
 
-        {/* Standard Disclaimer */}
-        <div className="mx-auto max-w-6xl px-6">
-          <StandardDisclaimer />
-        </div>
+
       </div>
     </>
   );
@@ -993,7 +988,7 @@ function Select({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="bg-transparent text-xs font-semibold outline-none text-foreground-dark"
+        className="bg-surface-dark text-xs font-semibold outline-none text-foreground-dark [&>option]:bg-surface-dark [&>option]:text-foreground-dark"
       >
         {options.map((o) => (
           <option key={o} value={o}>
