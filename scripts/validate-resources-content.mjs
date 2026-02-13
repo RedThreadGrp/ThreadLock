@@ -29,7 +29,8 @@ const PLACEHOLDER_PATTERNS = [
   /\[draft\]/i,
   /\[placeholder\]/i,
   /\[coming soon\]/i,
-  /#\w+\s*$/m, // hashtag at end of line
+  // Match hashtags at end of line but not markdown headers
+  /(?<!^|\n)#\w+\s*$/m,
 ];
 
 const errors = [];

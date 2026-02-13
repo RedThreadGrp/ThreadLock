@@ -23,11 +23,11 @@ export function renderMarkdown(text: string): string {
     .replace(/^## (.+)$/gm, '<h2>$1</h2>')
     .replace(/^# (.+)$/gm, '<h1>$1</h1>')
     
-    // Bold (**text**)
+    // Bold (**text**) - process before italic to avoid conflicts
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     
-    // Italic (*text*)
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    // Italic (*text*) - use negative lookahead to avoid matching bold remnants
+    .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
     
     // Links ([text](url))
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-brand-orange hover:underline">$1</a>')
@@ -36,8 +36,8 @@ export function renderMarkdown(text: string): string {
     .replace(/\n\n/g, '</p><p>')
     .replace(/\n/g, '<br />');
   
-  // Wrap in paragraph if not already wrapped
-  if (!html.startsWith('<h') && !html.startsWith('<p')) {
+  // Wrap in paragraph if not already wrapped in block-level elements
+  if (!/^<(h[1-6]|p|div|ul|ol|blockquote)/.test(html)) {
     html = '<p>' + html + '</p>';
   }
   
