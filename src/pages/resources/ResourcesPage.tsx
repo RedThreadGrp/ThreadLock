@@ -9,6 +9,7 @@ import React, { useMemo, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import SiteHeader from "@/src/components/SiteHeader";
+import HeroBanner from "@/src/components/HeroBanner";
 import StandardDisclaimer from "@/src/components/StandardDisclaimer";
 import FeedbackWidget from "@/src/components/FeedbackWidget";
 import {
@@ -310,70 +311,48 @@ export default function ResourcesPage() {
 
       <SiteHeader />
 
+      <HeroBanner
+        image="/annie-spratt-BH8-YFSNEIw-unsplash.jpg"
+        heading={<>Your case, but run like a <span className="text-orange-400">system</span></>}
+        subheading="Not a library. Not a court brochure. This is a control panel: checklists, templates, and tactical guidance to help you move without stepping on rakes."
+      />
+
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
-        {/* Hero */}
-        <section className="mx-auto max-w-6xl px-6 pt-14 pb-10 md:pt-20 md:pb-14">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border-dark bg-surface-dark-panel px-3 py-1 text-xs font-semibold text-muted-dark mb-6">
-              <span className="inline-block h-2 w-2 rounded-full bg-brand-orange" />
-              Resource Hub · Updated weekly
-            </div>
-
-            <h1 className="text-4xl font-semibold tracking-tight md:text-6xl text-foreground-dark">
-              Your case, but run like a{" "}
-              <span className="text-brand-orange">system</span>
-            </h1>
-
-            <p className="mt-5 text-base text-muted-dark md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Not a library. Not a court brochure. This is a control panel: checklists, templates,
-              and tactical guidance to help you move without stepping on rakes.
-            </p>
-
-            {/* Value bar with orange separators */}
-            <div className="mt-8 flex flex-wrap justify-center gap-2 text-xs font-semibold text-muted-dark uppercase tracking-wide">
-              <span>Checklists</span>
-              <span className="text-brand-orange">•</span>
-              <span>Templates</span>
-              <span className="text-brand-orange">•</span>
-              <span>Official links</span>
-              <span className="text-brand-orange">•</span>
-              <span>Plain-English explainers</span>
-            </div>
-
+        {/* Search and Filters Section */}
+        <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
+          <div className="mx-auto max-w-3xl">
             {/* Search bar */}
-            <div className="mt-8">
-              <div className="mx-auto max-w-2xl rounded-3xl border border-border-dark bg-surface-dark-panel p-2 shadow-sm">
-                <div className="flex items-center gap-3 rounded-2xl bg-surface-dark px-4 py-3 border border-border-dark/50 focus-within:border-brand-orange/50 transition-colors">
-                  <div className="grid h-8 w-8 place-items-center rounded-xl bg-brand-orange text-white shrink-0">
-                    <span className="text-xs font-bold">↯</span>
-                  </div>
-                  <input
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search resources: 'proof of service', 'hearing tomorrow', 'evidence'…"
-                    className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark/70 text-foreground-dark"
-                  />
+            <div className="mx-auto max-w-2xl rounded-3xl border border-border-dark bg-surface-dark-panel p-2 shadow-sm">
+              <div className="flex items-center gap-3 rounded-2xl bg-surface-dark px-4 py-3 border border-border-dark/50 focus-within:border-brand-orange/50 transition-colors">
+                <div className="grid h-8 w-8 place-items-center rounded-xl bg-brand-orange text-white shrink-0">
+                  <span className="text-xs font-bold">↯</span>
                 </div>
+                <input
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  placeholder="Search resources: 'proof of service', 'hearing tomorrow', 'evidence'…"
+                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark/70 text-foreground-dark"
+                />
               </div>
+            </div>
 
-              {/* Fast Tracks */}
-              <div className="mt-6 flex flex-wrap justify-center gap-2">
-                <Pill onClick={() => setIntent("Urgent")} active={intent === "Urgent"}>
-                  I have a hearing soon
-                </Pill>
-                <Pill onClick={() => setIntent("Start")} active={intent === "Start"}>
-                  I need to file basics
-                </Pill>
-                <Pill onClick={() => setIntent("Organize")} active={intent === "Organize"}>
-                  I'm organizing evidence
-                </Pill>
-                <Pill onClick={() => setIntent("Learn")} active={intent === "Learn"}>
-                  I need official portals
-                </Pill>
-                <Pill onClick={resetFilters} active={!isFiltersActive}>
-                  Reset
-                </Pill>
-              </div>
+            {/* Fast Tracks */}
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
+              <Pill onClick={() => setIntent("Urgent")} active={intent === "Urgent"}>
+                I have a hearing soon
+              </Pill>
+              <Pill onClick={() => setIntent("Start")} active={intent === "Start"}>
+                I need to file basics
+              </Pill>
+              <Pill onClick={() => setIntent("Organize")} active={intent === "Organize"}>
+                I'm organizing evidence
+              </Pill>
+              <Pill onClick={() => setIntent("Learn")} active={intent === "Learn"}>
+                I need official portals
+              </Pill>
+              <Pill onClick={resetFilters} active={!isFiltersActive}>
+                Reset
+              </Pill>
             </div>
           </div>
         </section>
