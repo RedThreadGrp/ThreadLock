@@ -2181,19 +2181,39 @@ export const FEATURED_GUIDES: FeaturedGuide[] = [
     status: "published",
     body: `# The Complete Guide to Self-Representation in Family Court
 
-[Comprehensive guide content to be developed]
+Self-representation in family court requires organization, preparation, and understanding of court procedures. This guide provides practical guidance for navigating the process.
 
-This guide covers:
-- Understanding your rights and responsibilities
-- Filing procedures from start to finish
-- Court procedures and expectations
-- How to research and apply the law
-- Evidence rules and presentation
-- Courtroom strategy and communication
-- Working with opposing counsel
-- Settlement vs. trial considerations
-- Post-judgment modifications
-- Resources and support`,
+## Understanding Your Rights and Responsibilities
+
+As a self-represented litigant, you have the same rights as represented parties but must follow all court rules and procedures. Courts cannot provide legal advice, but many offer self-help centers and form packets.
+
+## Filing Procedures
+
+Start by filing the appropriate petition or response with your local family court. Each jurisdiction has specific forms, filing fees, and service requirements. Verify local rules before submitting documents.
+
+## Court Procedures and Expectations
+
+Courts expect professional conduct, punctuality, and adherence to procedural rules. Arrive early, dress appropriately, and bring all required documents organized in a binder.
+
+## Evidence Rules and Presentation
+
+Only admissible evidence can be considered. Documents must be authenticated, witnesses must have personal knowledge, and hearsay is generally prohibited. Organize your evidence chronologically with tabs and labels.
+
+## Working with Opposing Counsel
+
+When the other party has an attorney, direct all communication through them. Respond to discovery requests within deadlines and maintain professional correspondence.
+
+## Settlement vs. Trial
+
+Most family court cases settle. Consider mediation or settlement conferences before trial. Settlement gives you control over outcomes rather than leaving decisions to a judge.
+
+## Post-Judgment Modifications
+
+Circumstances change. Courts can modify orders when there is a substantial change in circumstances. Document changes carefully and file modifications properly.
+
+## Disclaimer
+
+This is not legal advice. Family law varies significantly by jurisdiction. Verify all procedures and requirements with your local court. Consider consulting with a licensed attorney for case-specific guidance.`,
   },
   {
     slug: "evidence-authentication",
@@ -2203,19 +2223,73 @@ This guide covers:
     status: "published",
     body: `# Evidence Authentication 101
 
-[Detailed authentication guide to be developed]
+Authentication is the process of proving that evidence is what you claim it to be. Courts require proper authentication before admitting evidence.
 
-This guide covers:
-- Legal requirements for authentication
-- Foundation testimony frameworks
-- Text message authentication
-- Email authentication
-- Photo and video authentication
-- Social media evidence
-- Metadata and technical proof
-- Common objections and responses
-- Self-authentication options
-- Expert witness considerations`,
+## Legal Requirements for Authentication
+
+Federal Rule of Evidence 901 and similar state rules require that evidence be authenticated by testimony or other means showing it is genuine. The standard is "sufficient to support a finding that the item is what the proponent claims."
+
+## Foundation Testimony Framework
+
+To authenticate evidence, you typically need a witness with personal knowledge to testify about:
+- What the item is
+- How they know it
+- When and where it was created or obtained
+- That it has not been altered
+
+## Text Message Authentication
+
+To authenticate text messages:
+1. Testify that you sent or received the messages
+2. Identify the phone numbers involved
+3. Explain how you obtained the screenshots or records
+4. Note any identifying information (profile pictures, previous conversations)
+5. Bring the actual device if possible
+
+## Email Authentication
+
+For emails, establish:
+- The email addresses of sender and recipient
+- Your access to the email account
+- Date and time of the message
+- Context showing the email is genuine
+- Complete headers if authenticity is disputed
+
+## Photo and Video Authentication
+
+Authenticate photos and videos by testifying about:
+- What the image depicts
+- When and where it was taken
+- Who took it
+- That it fairly and accurately represents what it shows
+- That it has not been edited or altered
+
+## Social Media Evidence
+
+Social media posts can be authenticated through:
+- Direct testimony from the person who posted
+- Distinctive characteristics (username, profile details, writing style)
+- Reply posts or comments showing authenticity
+- Metadata from the platform
+
+## Common Objections and Responses
+
+Opposing parties may object based on:
+- Insufficient foundation (response: provide more detail about source)
+- Hearsay (response: explain it's not offered for truth or fits an exception)
+- Relevance (response: explain how it relates to the case)
+
+## Self-Authentication Options
+
+Some documents are self-authenticating under court rules:
+- Official public records with seals
+- Certified copies of public records
+- Newspapers and periodicals
+- Business records with proper affidavits
+
+## Disclaimer
+
+This is general information about evidence authentication. Rules vary by jurisdiction and court. Verify local rules and procedures. Consider consulting with a licensed attorney for case-specific guidance.`,
   },
   {
     slug: "proof-of-service-states",
@@ -2225,18 +2299,75 @@ This guide covers:
     status: "published",
     body: `# Proof of Service State-by-State
 
-[State-specific guide to be developed]
+Proof of service requirements vary by state. This guide provides general information about serving documents in family court proceedings across different jurisdictions.
 
-This comprehensive guide includes:
-- Service requirements for all 50 states
-- Territory-specific rules (Puerto Rico, Guam, etc.)
-- Personal service rules by state
-- Mail service requirements
-- Substituted service procedures
-- Timeline requirements
-- State-specific forms and templates
-- Fee schedules
-- Special rules for military service members`,
+## General Service Requirements
+
+Most states require that court documents be served on the other party using approved methods. Common service methods include:
+- Personal service by a process server or sheriff
+- Service by certified mail (where allowed)
+- Substituted service (leaving documents with another adult)
+- Publication (for parties who cannot be located)
+
+## Timeline Requirements
+
+Most jurisdictions require service within a specific timeframe after filing:
+- Initial petitions: Often 60-120 days
+- Responses: Typically 20-30 days after service
+- Motions and other documents: Usually 5-15 days before hearing
+
+## Personal Service Rules
+
+Personal service requirements are most strict for initial petitions. The server must:
+- Be over 18 years old
+- Not be a party to the case
+- Hand deliver documents directly to the person
+- Complete an affidavit or declaration of service
+
+## Mail Service
+
+Some states allow service by certified or registered mail for certain documents:
+- Usually not permitted for initial divorce or custody petitions
+- May be allowed for modifications and post-judgment motions
+- Requires return receipt as proof
+- May require additional notice methods
+
+## Substituted Service
+
+When personal service is not possible, substituted service may be allowed:
+- Leave documents with a competent adult at residence or workplace
+- Follow up with mail service to the same address
+- File additional affidavit explaining why personal service was not possible
+
+## Proof of Service Documentation
+
+After service, file proof with the court:
+- Affidavit of service or declaration
+- Certified mail receipts
+- Date, time, location, and method of service
+- Physical description of person served
+- Server's signature under penalty of perjury
+
+## Special Considerations
+
+Additional rules may apply for:
+- Service on parties in the military (SCRA requirements)
+- Service on parties in other states
+- Service on parties in other countries
+- Service on government entities
+- Service when protective orders exist
+
+## State-Specific Resources
+
+For detailed state requirements:
+- Check your local court's website for forms and instructions
+- Review your state's family law rules of procedure
+- Contact your court's self-help center
+- Consult your state bar association's resources
+
+## Disclaimer
+
+Service requirements vary significantly by jurisdiction. This is general information only, not legal advice. Always verify current requirements with your local court. Improper service can delay your case or result in dismissal. Consider consulting with a licensed attorney for case-specific guidance.`,
   },
   {
     slug: "parenting-time-calculations",
@@ -2246,19 +2377,88 @@ This comprehensive guide includes:
     status: "published",
     body: `# Understanding Parenting Time Calculations
 
-[Calculation guide to be developed]
+Parenting time calculations determine the percentage of time each parent has with the children. These calculations can affect child support, decision-making authority, and custody labels.
 
-This guide covers:
-- Why overnight calculations matter
-- How courts count overnights
-- Calculating percentage of parenting time
-- Holiday and vacation calculations
-- School year vs. summer schedules
-- Impact on child support calculations
-- Common calculation mistakes
-- Tools and worksheets
-- State-specific calculation rules
-- Documenting time with children`,
+## Why Overnight Calculations Matter
+
+Courts often use overnight counts to:
+- Calculate child support obligations
+- Determine physical custody percentages
+- Assess whether custody is sole or shared
+- Evaluate parenting plan effectiveness
+
+## How Courts Count Overnights
+
+An overnight is typically counted for the parent who has the child when they wake up in the morning. Some courts also count:
+- The location where the child goes to sleep
+- Which parent has the child the majority of the day
+- The parent responsible for getting the child to school
+
+## Calculating Percentage of Parenting Time
+
+Basic calculation: (Your overnights ÷ 365 days) × 100 = Your percentage
+
+Example: 
+- Parent A: 183 overnights = 50.1%
+- Parent B: 182 overnights = 49.9%
+
+## Holiday and Vacation Calculations
+
+Include special provisions:
+- Alternate major holidays (Thanksgiving, Christmas, spring break)
+- Summer vacation blocks (often 1-4 weeks per parent)
+- Three-day weekends
+- School breaks and teacher workdays
+
+Count all overnights, including holidays, in your annual total.
+
+## School Year vs. Summer Schedules
+
+Many parenting plans include different schedules for school year and summer:
+- School year: Often follows weekly patterns (e.g., alternate weeks, 2-2-3)
+- Summer: May include extended blocks with each parent
+- Calculate annual totals using both schedules combined
+
+## Impact on Child Support
+
+Most states' child support formulas adjust based on parenting time:
+- Sole custody (0-10% for non-custodial parent): Full support obligation
+- Shared physical custody (25-50%): Reduced support obligation
+- Equal parenting time (50-50): Support based on income differential
+
+Check your state's child support guidelines for specific thresholds.
+
+## Common Calculation Mistakes
+
+Avoid these errors:
+- Not counting holiday overnights
+- Miscounting February in leap years
+- Forgetting to include vacation time
+- Not accounting for alternating schedules
+- Rounding percentages incorrectly
+
+## Tools and Documentation
+
+To track parenting time:
+- Use calendar apps with color coding for each parent
+- Maintain written logs of actual time spent
+- Document any deviations from the court order
+- Calculate annually and keep records
+- Update calculations when schedules change
+
+## State-Specific Calculation Rules
+
+Some jurisdictions have specific rules:
+- Minimum thresholds for shared custody designation
+- Required calculation methods for support worksheets
+- How to handle midpoint transitions
+- Treatment of overnight visits under 24 hours
+
+Verify your state's requirements with local court rules or the state child support enforcement agency.
+
+## Disclaimer
+
+This is general information about parenting time calculations. Child support and custody laws vary by state. Calculations should be verified with your jurisdiction's guidelines. This is not legal advice. Consider consulting with a licensed attorney or your state's child support enforcement office for case-specific guidance.`,
   },
 ];
 
