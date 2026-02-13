@@ -6,6 +6,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
+import StandardDisclaimer from "@/src/components/StandardDisclaimer";
 import { getQuestionBySlug, POPULAR_QUESTIONS, PopularQuestion } from "@/src/content/resourcesRegistry";
 
 type QuestionPageProps = {
@@ -107,6 +108,9 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
               Browse more questions →
             </Link>
           </div>
+          
+          {/* Standard Disclaimer */}
+          <StandardDisclaimer />
         </div>
       </div>
     </>

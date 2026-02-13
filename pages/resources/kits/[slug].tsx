@@ -6,6 +6,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
+import StandardDisclaimer from "@/src/components/StandardDisclaimer";
 import { getStarterKitBySlug, getResourceBySlug, STARTER_KITS, StarterKit } from "@/src/content/resourcesRegistry";
 
 type KitPageProps = {
@@ -144,6 +145,9 @@ export default function KitPage({ kit, slug }: KitPageProps) {
               </div>
             </div>
           )}
+          
+          {/* Standard Disclaimer */}
+          <StandardDisclaimer />
         </div>
       </div>
     </>

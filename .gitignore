@@ -5,6 +5,9 @@ node_modules/
 .vercel/
 .next/
 
+# Generated reports
+externalResources.dedupe.report.json
+
 # Cypress
 cypress/screenshots/
 cypress/videos/
@@ -14,3 +17,4 @@ cypress/results/
 
 # Generated reports
 public/link-report.json
+externalResources.dedupe.report.json

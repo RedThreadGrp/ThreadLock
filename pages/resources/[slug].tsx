@@ -6,6 +6,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
+import StandardDisclaimer from "@/src/components/StandardDisclaimer";
 import { getResourceBySlug, RESOURCES, Resource } from "@/src/content/resourcesRegistry";
 
 type ResourcePageProps = {
@@ -118,6 +119,9 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
               </div>
             </div>
           )}
+          
+          {/* Standard Disclaimer */}
+          <StandardDisclaimer />
         </div>
       </div>
     </>

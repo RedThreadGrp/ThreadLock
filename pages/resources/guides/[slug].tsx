@@ -6,6 +6,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
+import StandardDisclaimer from "@/src/components/StandardDisclaimer";
 import { getFeaturedGuideBySlug, FEATURED_GUIDES, FeaturedGuide } from "@/src/content/resourcesRegistry";
 
 type GuidePageProps = {
@@ -118,6 +119,9 @@ export default function GuidePage({ guide, slug }: GuidePageProps) {
               </div>
             </div>
           )}
+          
+          {/* Standard Disclaimer */}
+          <StandardDisclaimer />
         </div>
       </div>
     </>
