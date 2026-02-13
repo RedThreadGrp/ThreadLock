@@ -9,6 +9,7 @@ import SiteHeader from "@/src/components/SiteHeader";
 import StandardDisclaimer from "@/src/components/StandardDisclaimer";
 import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { getResourceBySlug, RESOURCES, Resource } from "@/src/content/resourcesRegistry";
+import { renderMarkdown } from "@/src/lib/renderMarkdown";
 
 type ResourcePageProps = {
   resource: Resource | null;
@@ -58,6 +59,7 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={metaDesc} />
+        {isDraft && <meta name="robots" content="noindex, nofollow" />}
         <link rel="canonical" href={canonicalUrl} />
         <script
           type="application/ld+json"
@@ -120,8 +122,8 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
           {resource.body && (
             <div className="prose prose-invert prose-orange max-w-none mb-12">
               <div 
-                className="whitespace-pre-wrap text-muted-dark leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: resource.body.replace(/\n/g, '<br />') }}
+                className="text-muted-dark leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: renderMarkdown(resource.body) }}
               />
             </div>
           )}

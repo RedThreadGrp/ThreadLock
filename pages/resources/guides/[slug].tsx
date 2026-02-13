@@ -9,6 +9,7 @@ import SiteHeader from "@/src/components/SiteHeader";
 import StandardDisclaimer from "@/src/components/StandardDisclaimer";
 import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { getFeaturedGuideBySlug, FEATURED_GUIDES, FeaturedGuide } from "@/src/content/resourcesRegistry";
+import { renderMarkdown } from "@/src/lib/renderMarkdown";
 
 type GuidePageProps = {
   guide: FeaturedGuide | null;
@@ -27,6 +28,7 @@ export default function GuidePage({ guide, slug }: GuidePageProps) {
       <Head>
         <title>{guide.title} | ThreadLock Resources</title>
         <meta name="description" content={guide.summary} />
+        {isDraft && <meta name="robots" content="noindex, nofollow" />}
       </Head>
 
       <SiteHeader />
@@ -84,8 +86,8 @@ export default function GuidePage({ guide, slug }: GuidePageProps) {
           {guide.body && (
             <div className="prose prose-invert prose-orange max-w-none mb-12">
               <div 
-                className="whitespace-pre-wrap text-muted-dark leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: guide.body.replace(/\n/g, '<br />') }}
+                className="text-muted-dark leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: renderMarkdown(guide.body) }}
               />
             </div>
           )}

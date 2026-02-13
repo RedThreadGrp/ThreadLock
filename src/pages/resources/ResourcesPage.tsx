@@ -311,9 +311,13 @@ export default function ResourcesPage() {
 
       <HeroBanner
         image="/annie-spratt-BH8-YFSNEIw-unsplash.jpg"
-        heading={<>Your case, but run like a <span className="text-orange-400">system</span></>}
-        subheading="Not a library. Not a court brochure. This is a control panel: checklists, templates, and tactical guidance to help you move without stepping on rakes."
-      />
+        heading="Resources for self-represented family court work"
+        subheading="Checklists, templates, and plain-English explanations designed to help you stay organized and meet deadlines. No legal advice—just structure."
+      >
+        <p className="text-sm text-slate-300 mt-4">
+          Start with a kit if you're under time pressure.
+        </p>
+      </HeroBanner>
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
         {/* Search and Filters Section */}
