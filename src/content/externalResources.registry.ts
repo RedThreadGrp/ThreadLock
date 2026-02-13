@@ -21,6 +21,7 @@ export interface ExternalResource {
   jurisdiction: string; // State/territory code (e.g., "CA", "TX") or "US" for national
   authority: ResourceAuthority;
   description?: string;
+  lastVerified?: string; // ISO date string when link was last checked
 }
 
 // ============================================================================
@@ -909,6 +910,7 @@ export const EXTERNAL_RESOURCES: ExternalResource[] = [
     jurisdiction: "US",
     authority: "nonprofit",
     description: "National directory of local legal aid programs",
+    lastVerified: "2026-02-01",
   },
   {
     id: "national-legal-aid.US.lsc",
@@ -918,6 +920,7 @@ export const EXTERNAL_RESOURCES: ExternalResource[] = [
     jurisdiction: "US",
     authority: "nonprofit",
     description: "Federal legal aid funding organization",
+    lastVerified: "2026-02-01",
   },
 
   // Child Support Resources
@@ -929,6 +932,7 @@ export const EXTERNAL_RESOURCES: ExternalResource[] = [
     jurisdiction: "US",
     authority: "official",
     description: "Federal Office of Child Support Enforcement",
+    lastVerified: "2026-01-15",
   },
   
   // General & Innovative Tools
@@ -940,6 +944,77 @@ export const EXTERNAL_RESOURCES: ExternalResource[] = [
     jurisdiction: "US",
     authority: "official",
     description: "Federal court forms and resources",
+    lastVerified: "2026-01-20",
+  },
+  {
+    id: "innovative-tools.US.justicetext",
+    title: "JusticeText",
+    url: "https://www.justicetext.com/",
+    category: "innovative-tools",
+    jurisdiction: "US",
+    authority: "private",
+    description: "AI-powered court document transcription service",
+    lastVerified: "2026-02-10",
+  },
+  {
+    id: "innovative-tools.US.courtroom5",
+    title: "Courtroom5",
+    url: "https://www.courtroom5.com/",
+    category: "innovative-tools",
+    jurisdiction: "US",
+    authority: "private",
+    description: "AI legal research and case analysis platform",
+    lastVerified: "2026-02-10",
+  },
+  {
+    id: "general-tools.US.nolo",
+    title: "Nolo Legal Encyclopedia",
+    url: "https://www.nolo.com/legal-encyclopedia",
+    category: "general-tools",
+    jurisdiction: "US",
+    authority: "private",
+    description: "Plain-English legal guides and resources",
+    lastVerified: "2026-02-05",
+  },
+  {
+    id: "general-tools.US.justia",
+    title: "Justia Legal Resources",
+    url: "https://www.justia.com/",
+    category: "general-tools",
+    jurisdiction: "US",
+    authority: "private",
+    description: "Free legal information and lawyer directory",
+    lastVerified: "2026-02-05",
+  },
+  {
+    id: "general-tools.US.findlaw",
+    title: "FindLaw",
+    url: "https://www.findlaw.com/",
+    category: "general-tools",
+    jurisdiction: "US",
+    authority: "private",
+    description: "Legal information, news, and resources",
+    lastVerified: "2026-02-01",
+  },
+  {
+    id: "innovative-tools.US.casetext",
+    title: "Casetext",
+    url: "https://casetext.com/",
+    category: "innovative-tools",
+    jurisdiction: "US",
+    authority: "private",
+    description: "AI legal research with free access to case law",
+    lastVerified: "2026-02-08",
+  },
+  {
+    id: "general-tools.US.pro-se",
+    title: "Pro Se Resources",
+    url: "https://www.uscourts.gov/forms/pro-se-forms",
+    category: "general-tools",
+    jurisdiction: "US",
+    authority: "official",
+    description: "Federal resources for self-represented litigants",
+    lastVerified: "2026-01-25",
   },
 ];
 
@@ -987,4 +1062,27 @@ export function getAllStateDirectoryEntries(): Array<{
     jurisdiction: j,
     ...getStateDirectoryEntry(j),
   }));
+}
+
+// Check if a resource link is stale (>6 months since last verification)
+export function isLinkStale(resource: ExternalResource): boolean {
+  if (!resource.lastVerified) return false;
+  const sixMonthsAgo = new Date();
+  sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
+  const verifiedDate = new Date(resource.lastVerified);
+  return verifiedDate < sixMonthsAgo;
+}
+
+// Format last verified date for display
+export function formatLastVerified(dateString: string | undefined): string {
+  if (!dateString) return "Not verified";
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffTime = Math.abs(now.getTime() - date.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
+  if (diffDays < 30) return "Recently verified";
+  if (diffDays < 90) return "Verified recently";
+  if (diffDays < 180) return `Verified ${Math.floor(diffDays / 30)} months ago`;
+  return `Verified ${Math.floor(diffDays / 30)} months ago`;
 }

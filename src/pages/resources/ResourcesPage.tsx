@@ -15,6 +15,8 @@ import {
   getUniqueJurisdictions,
   getAllStateDirectoryEntries,
   ResourceCategory,
+  isLinkStale,
+  formatLastVerified,
 } from "@/src/content/externalResources.registry";
 import { isHttp, extractDomain } from "@/src/lib/normalizeUrl";
 
@@ -860,7 +862,7 @@ export default function ResourcesPage() {
                       
                       <div className="relative z-10">
                         {/* Authority Badge */}
-                        <div className="flex items-center gap-2 mb-3">
+                        <div className="flex items-center gap-2 mb-3 flex-wrap">
                           {resource.authority === "official" && (
                             <span className="text-xs font-semibold px-2 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
                               Official
@@ -881,6 +883,11 @@ export default function ResourcesPage() {
                               HTTP
                             </span>
                           )}
+                          {resource.lastVerified && isLinkStale(resource) && (
+                            <span className="text-xs font-semibold px-2 py-1 rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30">
+                              Check link
+                            </span>
+                          )}
                         </div>
                         
                         <h4 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-2">
@@ -891,8 +898,15 @@ export default function ResourcesPage() {
                           <p className="text-xs text-muted-dark mb-3">{resource.description}</p>
                         )}
                         
-                        <div className="text-xs text-muted-dark font-mono">
-                          {extractDomain(resource.url)}
+                        <div className="space-y-1">
+                          <div className="text-xs text-muted-dark font-mono">
+                            {extractDomain(resource.url)}
+                          </div>
+                          {resource.lastVerified && (
+                            <div className="text-xs text-muted-dark/70">
+                              {formatLastVerified(resource.lastVerified)}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </a>
