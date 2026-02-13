@@ -21,12 +21,36 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
   }
 
   const isDraft = question.status === "draft";
+  
+  // Prepare SEO title and description
+  const pageTitle = question.seoTitle || `${question.question} | ThreadLock`;
+  const metaDesc = question.metaDescription || question.shortAnswer || question.question;
+  const canonicalUrl = `https://threadlock.ai/resources/q/${slug}`;
+  
+  // Prepare FAQPage Schema for structured data
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [{
+      "@type": "Question",
+      "name": question.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": question.shortAnswer || question.body?.substring(0, 200) || question.question
+      }
+    }]
+  };
 
   return (
     <>
       <Head>
-        <title>{question.question} | ThreadLock Resources</title>
-        <meta name="description" content={question.body?.substring(0, 160) || question.question} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={metaDesc} />
+        <link rel="canonical" href={canonicalUrl} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
       </Head>
 
       <SiteHeader />
@@ -59,6 +83,18 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
             </h1>
           </div>
 
+          {/* Short Answer (if available) */}
+          {question.shortAnswer && (
+            <div className="rounded-3xl border border-brand-orange/30 bg-brand-orange/5 p-6 mb-8">
+              <h2 className="text-sm font-semibold text-brand-orange uppercase tracking-wide mb-2">
+                Short Answer
+              </h2>
+              <p className="text-foreground-dark leading-relaxed">
+                {question.shortAnswer}
+              </p>
+            </div>
+          )}
+
           {/* Answer */}
           {question.body && (
             <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 mb-8">
@@ -80,9 +116,30 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
             </div>
           )}
 
+          {/* Related Questions */}
+          {question.relatedQuestions && question.relatedQuestions.length > 0 && (
+            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+              <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Questions</h2>
+              <div className="grid gap-3">
+                {question.relatedQuestions.map((q) => (
+                  <Link
+                    key={q.href}
+                    href={q.href}
+                    className="group rounded-2xl border border-border-dark bg-surface-dark p-4 hover:border-brand-orange/30 hover:bg-surface-dark-panel transition-all flex items-start gap-3"
+                  >
+                    <span className="text-brand-orange text-lg shrink-0">?</span>
+                    <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      {q.question}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Related Links */}
           {question.relatedLinks && question.relatedLinks.length > 0 && (
-            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <div className="mt-8 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Resources</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {question.relatedLinks.map((link) => (

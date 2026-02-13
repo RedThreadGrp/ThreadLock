@@ -21,12 +21,48 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
   }
 
   const isDraft = resource.status === "draft";
+  
+  // Prepare SEO title and description
+  const pageTitle = resource.seoTitle || `${resource.title} | ThreadLock Resources`;
+  const metaDesc = resource.metaDescription || resource.excerpt;
+  const canonicalUrl = `https://threadlock.ai/resources/${slug}`;
+  
+  // Prepare Article Schema for structured data
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": resource.title,
+    "description": resource.excerpt,
+    "author": {
+      "@type": "Organization",
+      "name": "ThreadLock"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ThreadLock",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://threadlock.ai/logo.png"
+      }
+    },
+    "datePublished": resource.dateModified || "2026-02-13",
+    "dateModified": resource.dateModified || "2026-02-13",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    }
+  };
 
   return (
     <>
       <Head>
-        <title>{resource.title} | ThreadLock Resources</title>
-        <meta name="description" content={resource.summary} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={metaDesc} />
+        <link rel="canonical" href={canonicalUrl} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
       </Head>
 
       <SiteHeader />
@@ -77,7 +113,7 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
 
           {/* Summary */}
           <p className="text-lg text-muted-dark leading-relaxed mb-8 border-l-4 border-brand-orange pl-4">
-            {resource.summary}
+            {resource.excerpt}
           </p>
 
           {/* Body content */}
@@ -101,9 +137,30 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
             </div>
           )}
 
+          {/* Related Questions */}
+          {resource.relatedQuestions && resource.relatedQuestions.length > 0 && (
+            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+              <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Questions</h2>
+              <div className="grid gap-3">
+                {resource.relatedQuestions.map((q) => (
+                  <Link
+                    key={q.href}
+                    href={q.href}
+                    className="group rounded-2xl border border-border-dark bg-surface-dark p-4 hover:border-brand-orange/30 hover:bg-surface-dark-panel transition-all flex items-start gap-3"
+                  >
+                    <span className="text-brand-orange text-lg shrink-0">?</span>
+                    <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      {q.question}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Related Links */}
           {resource.relatedLinks && resource.relatedLinks.length > 0 && (
-            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <div className="mt-8 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Resources</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {resource.relatedLinks.map((link) => (
