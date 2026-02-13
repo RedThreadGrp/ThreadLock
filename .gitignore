@@ -5,6 +5,10 @@ node_modules/
 .vercel/
 .next/
 
+# Generated reports
+externalResources.dedupe.report.json
+link-check-report.json
+
 # Cypress
 cypress/screenshots/
 cypress/videos/
@@ -14,3 +18,8 @@ cypress/results/
 
 # Generated reports
 public/link-report.json
+externalResources.dedupe.report.json
+
+# TypeScript build info
+tsconfig.tsbuildinfo
+*.tsbuildinfo
