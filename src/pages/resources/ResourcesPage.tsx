@@ -408,6 +408,13 @@ export default function ResourcesPage() {
               >
                 FAQ / Questions
               </a>
+              <span className="text-border-dark">·</span>
+              <a 
+                href="#directory" 
+                className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
+              >
+                Official Directory
+              </a>
             </div>
           </div>
         </nav>
