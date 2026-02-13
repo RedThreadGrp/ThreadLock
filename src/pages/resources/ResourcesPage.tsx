@@ -9,6 +9,14 @@ import React, { useMemo, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import SiteHeader from "@/src/components/SiteHeader";
+import StandardDisclaimer from "@/src/components/StandardDisclaimer";
+import {
+  EXTERNAL_RESOURCES,
+  getUniqueJurisdictions,
+  getAllStateDirectoryEntries,
+  ResourceCategory,
+} from "@/src/content/externalResources.registry";
+import { isHttp, extractDomain } from "@/src/lib/normalizeUrl";
 
 type Resource = {
   title: string;
@@ -241,6 +249,11 @@ export default function ResourcesPage() {
   const [query, setQuery] = useState("");
   const [intent, setIntent] = useState<"All" | Resource["intent"]>("All");
   const [tag, setTag] = useState<"All" | Resource["tag"]>("All");
+  
+  // External resources filtering
+  const [externalSearch, setExternalSearch] = useState("");
+  const [selectedJurisdiction, setSelectedJurisdiction] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState<"All" | ResourceCategory>("All");
 
   const isFiltersActive = intent !== "All" || tag !== "All" || query.trim() !== "";
 
@@ -264,6 +277,21 @@ export default function ResourcesPage() {
       return matchQ && matchIntent && matchTag;
     });
   }, [query, intent, tag]);
+
+  // Filter external resources
+  const filteredExternalResources = useMemo(() => {
+    const searchTerm = externalSearch.trim().toLowerCase();
+    return EXTERNAL_RESOURCES.filter((r) => {
+      const matchSearch =
+        !searchTerm ||
+        r.title.toLowerCase().includes(searchTerm) ||
+        extractDomain(r.url).toLowerCase().includes(searchTerm);
+      const matchJurisdiction =
+        selectedJurisdiction === "All" || r.jurisdiction === selectedJurisdiction;
+      const matchCategory = selectedCategory === "All" || r.category === selectedCategory;
+      return matchSearch && matchJurisdiction && matchCategory;
+    });
+  }, [externalSearch, selectedJurisdiction, selectedCategory]);
 
   return (
     <>
@@ -676,6 +704,201 @@ export default function ResourcesPage() {
             ))}
           </div>
         </section>
+
+        {/* Official & Free Resource Directory */}
+        <section id="directory" className="mx-auto max-w-6xl px-6 py-10 md:py-14 border-t border-border-dark">
+          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-8">
+            <div>
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-foreground-dark">
+                Official & Free Resource Directory
+              </h2>
+              <p className="mt-2 text-muted-dark">
+                Vetted links to court systems, legal aid, and trusted tools nationwide.
+              </p>
+            </div>
+            <div className="h-1 w-20 rounded-full bg-brand-orange" />
+          </div>
+
+          {/* Filters */}
+          <div className="mb-8 space-y-4">
+            {/* Search */}
+            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-2">
+              <div className="flex items-center gap-3 rounded-2xl bg-surface-dark px-4 py-3 border border-border-dark/50 focus-within:border-brand-orange/50 transition-colors">
+                <span className="text-brand-orange text-lg">🔍</span>
+                <input
+                  value={externalSearch}
+                  onChange={(e) => setExternalSearch(e.target.value)}
+                  placeholder="Search by name or domain..."
+                  className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark/70 text-foreground-dark"
+                />
+              </div>
+            </div>
+
+            {/* Category and Jurisdiction Filters */}
+            <div className="flex flex-wrap gap-2">
+              <Select
+                label="Category:"
+                value={selectedCategory}
+                options={["All", "state-directory-court", "state-directory-legal-aid", "national-legal-aid", "child-support", "general-tools"] as const}
+                onChange={(v) => setSelectedCategory(v as typeof selectedCategory)}
+              />
+              <Select
+                label="Location:"
+                value={selectedJurisdiction}
+                options={["All", ...getUniqueJurisdictions()]}
+                onChange={setSelectedJurisdiction}
+              />
+            </div>
+          </div>
+
+          {/* State Directory Table */}
+          <div id="state-directory" className="mb-12">
+            <h3 className="text-xl font-semibold text-foreground-dark mb-4">State-by-State Directory</h3>
+            <p className="text-sm text-muted-dark mb-6">
+              Every jurisdiction with links to official court self-help and local legal aid.
+            </p>
+            
+            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-border-dark bg-surface-dark-panel">
+                      <th className="text-left px-4 py-3 text-xs font-semibold text-muted-dark uppercase tracking-wide">
+                        State/Territory
+                      </th>
+                      <th className="text-left px-4 py-3 text-xs font-semibold text-muted-dark uppercase tracking-wide">
+                        Court Self-Help
+                      </th>
+                      <th className="text-left px-4 py-3 text-xs font-semibold text-muted-dark uppercase tracking-wide">
+                        Legal Aid
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {getAllStateDirectoryEntries()
+                      .filter(entry => 
+                        selectedJurisdiction === "All" || entry.jurisdiction === selectedJurisdiction
+                      )
+                      .map((entry) => (
+                        <tr key={entry.jurisdiction} className="border-b border-border-dark/30 hover:bg-surface-dark transition-colors">
+                          <td className="px-4 py-3 text-sm font-semibold text-foreground-dark">
+                            {entry.jurisdiction}
+                          </td>
+                          <td className="px-4 py-3">
+                            {entry.court ? (
+                              <a
+                                href={entry.court.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition"
+                              >
+                                {entry.court.title.replace(/Self-Help|Forms|Courts?/gi, '').trim() || 'Court Resources'}
+                                {isHttp(entry.court.url) && (
+                                  <span className="text-xs bg-brand-orange/20 text-brand-orange px-2 py-0.5 rounded">
+                                    HTTP
+                                  </span>
+                                )}
+                                <span>↗</span>
+                              </a>
+                            ) : (
+                              <span className="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded">
+                                Missing
+                              </span>
+                            )}
+                          </td>
+                          <td className="px-4 py-3">
+                            {entry.legalAid ? (
+                              <a
+                                href={entry.legalAid.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition"
+                              >
+                                {entry.legalAid.title.replace(/Legal Aid|Legal Services|Legal Help/gi, '').trim() || 'Legal Aid'}
+                                <span>↗</span>
+                              </a>
+                            ) : (
+                              <span className="text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded">
+                                Missing
+                              </span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {/* Other External Resources */}
+          {filteredExternalResources.filter(r => 
+            !r.category.startsWith('state-directory')
+          ).length > 0 && (
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-foreground-dark">National Resources & Tools</h3>
+              
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {filteredExternalResources
+                  .filter(r => !r.category.startsWith('state-directory'))
+                  .map((resource) => (
+                    <a
+                      key={resource.id}
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 transition-all"
+                    >
+                      <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity orange-glow-overlay pointer-events-none" />
+                      
+                      <div className="relative z-10">
+                        {/* Authority Badge */}
+                        <div className="flex items-center gap-2 mb-3">
+                          {resource.authority === "official" && (
+                            <span className="text-xs font-semibold px-2 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                              Official
+                            </span>
+                          )}
+                          {resource.authority === "nonprofit" && (
+                            <span className="text-xs font-semibold px-2 py-1 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">
+                              Nonprofit
+                            </span>
+                          )}
+                          {resource.authority === "private" && (
+                            <span className="text-xs font-semibold px-2 py-1 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">
+                              Third-party
+                            </span>
+                          )}
+                          {isHttp(resource.url) && (
+                            <span className="text-xs font-semibold px-2 py-1 rounded-full bg-brand-orange/20 text-brand-orange border border-brand-orange/30">
+                              HTTP
+                            </span>
+                          )}
+                        </div>
+                        
+                        <h4 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-2">
+                          {resource.title}
+                        </h4>
+                        
+                        {resource.description && (
+                          <p className="text-xs text-muted-dark mb-3">{resource.description}</p>
+                        )}
+                        
+                        <div className="text-xs text-muted-dark font-mono">
+                          {extractDomain(resource.url)}
+                        </div>
+                      </div>
+                    </a>
+                  ))}
+              </div>
+            </div>
+          )}
+        </section>
+
+        {/* Standard Disclaimer */}
+        <div className="mx-auto max-w-6xl px-6">
+          <StandardDisclaimer />
+        </div>
       </div>
     </>
   );
