@@ -7,6 +7,7 @@ import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
 import StandardDisclaimer from "@/src/components/StandardDisclaimer";
+import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { 
   getTopicBySlug, 
   getResourcesByTopic, 
@@ -194,6 +195,11 @@ export default function TopicPage({ topic, resources, guides, questions, slug }:
               </div>
             </div>
           )}
+          
+          {/* Feedback Widget */}
+          <div className="mt-8">
+            <FeedbackWidget resourceId={`topic-${slug}`} />
+          </div>
           
           {/* Standard Disclaimer */}
           <StandardDisclaimer />

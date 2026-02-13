@@ -7,6 +7,7 @@ import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
 import StandardDisclaimer from "@/src/components/StandardDisclaimer";
+import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { getFeaturedGuideBySlug, FEATURED_GUIDES, FeaturedGuide } from "@/src/content/resourcesRegistry";
 
 type GuidePageProps = {
@@ -119,6 +120,11 @@ export default function GuidePage({ guide, slug }: GuidePageProps) {
               </div>
             </div>
           )}
+          
+          {/* Feedback Widget */}
+          <div className="mt-8">
+            <FeedbackWidget resourceId={`guide-${slug}`} />
+          </div>
           
           {/* Standard Disclaimer */}
           <StandardDisclaimer />

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
 import StandardDisclaimer from "@/src/components/StandardDisclaimer";
+import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { getQuestionBySlug, POPULAR_QUESTIONS, PopularQuestion } from "@/src/content/resourcesRegistry";
 
 type QuestionPageProps = {
@@ -107,6 +108,11 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
             >
               Browse more questions →
             </Link>
+          </div>
+          
+          {/* Feedback Widget */}
+          <div className="mt-8">
+            <FeedbackWidget resourceId={`question-${slug}`} />
           </div>
           
           {/* Standard Disclaimer */}
