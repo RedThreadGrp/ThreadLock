@@ -7,6 +7,7 @@ import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
 import StandardDisclaimer from "@/src/components/StandardDisclaimer";
+import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { getResourceBySlug, RESOURCES, Resource } from "@/src/content/resourcesRegistry";
 
 type ResourcePageProps = {
@@ -119,6 +120,11 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
               </div>
             </div>
           )}
+          
+          {/* Feedback Widget */}
+          <div className="mt-8">
+            <FeedbackWidget resourceId={`resource-${slug}`} />
+          </div>
           
           {/* Standard Disclaimer */}
           <StandardDisclaimer />
