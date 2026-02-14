@@ -5,11 +5,11 @@ This document provides a comprehensive overview of all accessible routes and pos
 ## Summary
 
 - **Total Routes in Sitemap**: 70
-- **Resources Hub Routes**: 27 (including main hub, questions, guides, kits, and topics)
+- **Resources Hub Routes**: 31 (including main hub, questions, guides, kits, and topics)
 - **Question Pages**: 12
 - **Guide Pages**: 4 (featured guides)
 - **Starter Kit Pages**: 3
-- **Topic Pages**: 4
+- **Topic Pages**: 10
 
 ## Main Resources Hub
 
@@ -33,14 +33,14 @@ These are accessible from the Resources Hub under "Popular Questions" section:
 2. `/resources/q/exhibit-labeling` - How do I label exhibits for court?
 3. `/resources/q/official-forms-location` - Where do I find official court forms?
 4. `/resources/q/text-authentication` - Can I authenticate text messages myself?
-5. `/resources/q/service-deadlines` - How long do I have to serve documents?
-6. `/resources/q/self-service` - Can I serve documents myself?
-7. `/resources/q/improper-service` - What happens if service is improper?
-8. `/resources/q/email-evidence` - Can I use email as evidence?
-9. `/resources/q/photo-authentication` - How do I authenticate photos?
-10. `/resources/q/court-exhibit-rules` - What are the rules for court exhibits?
-11. `/resources/q/deadline-calculation` - How do I calculate court deadlines?
-12. `/resources/q/jurisdiction-filing` - Where do I file my documents?
+5. `/resources/q/hearing-checklist` - What should I bring to my hearing?
+6. `/resources/q/service-deadlines` - How long do I have to serve documents?
+7. `/resources/q/custody-types` - What are the different types of custody?
+8. `/resources/q/mediation-lawyer` - Do I need a lawyer for mediation?
+9. `/resources/q/child-support-calculation` - How is child support calculated?
+10. `/resources/q/modify-parenting-plan` - How do I modify a parenting plan?
+11. `/resources/q/fee-waiver` - Can I get court fees waived?
+12. `/resources/q/respond-to-motion` - How do I respond to a motion?
 
 ### Question Page Features
 Each question page includes:
@@ -57,10 +57,10 @@ Each question page includes:
 
 Featured guides accessible from "Featured Guides" section:
 
-1. `/resources/guides/evidence-authentication` - Evidence Authentication Guide
-2. `/resources/guides/court-filing-basics` - Court Filing Basics
-3. `/resources/guides/deadline-calculator-guide` - Deadline Calculator Guide
-4. `/resources/guides/proof-of-service-states` - Proof of Service State-by-State
+1. `/resources/guides/self-representation-complete` - Complete Guide to Self-Representation
+2. `/resources/guides/evidence-authentication` - Evidence Authentication Guide
+3. `/resources/guides/proof-of-service-states` - Proof of Service State-by-State
+4. `/resources/guides/parenting-time-calculations` - Parenting Time Calculations
 
 ### Guide Page Features
 Each guide includes:
@@ -75,9 +75,9 @@ Each guide includes:
 
 Starter kits accessible from "Starter Kits" section:
 
-1. `/resources/kits/first-filing` - First-Time Filing Kit
-2. `/resources/kits/evidence-gathering` - Evidence Gathering Kit
-3. `/resources/kits/hearing-prep` - Hearing Preparation Kit
+1. `/resources/kits/hearing-soon` - Hearing Soon Kit
+2. `/resources/kits/first-filing` - First-Time Filing Kit
+3. `/resources/kits/evidence` - Evidence Kit
 
 ### Starter Kit Features
 Each kit includes:
@@ -90,10 +90,16 @@ Each kit includes:
 
 Topics accessible from "Browse by Topic" section:
 
-1. `/resources/topic/custody` - Custody & Parenting Time
-2. `/resources/topic/financial` - Financial & Support
-3. `/resources/topic/court-prep` - Court Preparation
-4. `/resources/topic/evidence` - Evidence & Documentation
+1. `/resources/topic/court-rules` - Court Rules & Procedures
+2. `/resources/topic/proof-of-service` - Proof of Service
+3. `/resources/topic/evidence` - Evidence & Documentation
+4. `/resources/topic/motions` - Motions & Filings
+5. `/resources/topic/deadlines` - Deadlines & Timelines
+6. `/resources/topic/self-help` - Self-Help Resources
+7. `/resources/topic/forms` - Court Forms
+8. `/resources/topic/hearing-prep` - Hearing Preparation
+9. `/resources/topic/custody` - Custody & Parenting Time
+10. `/resources/topic/financial` - Financial & Support
 
 ### Topic Page Features
 Each topic page includes:
@@ -126,8 +132,8 @@ Each topic page includes:
 ### From Resources Hub to Topic to Guide
 ```
 /resources
-  → Click "Court Preparation" topic
-  → /resources/topic/court-prep
+  → Click "Hearing Preparation" topic
+  → /resources/topic/hearing-prep
     → Shows filtered guides and questions
     → Click guide
     → View detailed guide content
