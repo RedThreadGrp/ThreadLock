@@ -35,26 +35,39 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`\n🎭 Mock server running on http://localhost:${PORT}\n`);
   
-  // Give server time to start
-  setTimeout(() => {
-    console.log('Running verification against mock server...\n');
-    
-    // Run the verification script against mock server
-    const verify = spawn('node', [
-      'scripts/verify-routes-http.mjs',
-      `--base-url=http://localhost:${PORT}`
-    ], {
-      cwd: process.cwd(),
-      stdio: 'inherit'
+  // Wait for server to be ready by polling
+  const checkServer = () => {
+    http.get(`http://localhost:${PORT}/`, (res) => {
+      if (res.statusCode === 200) {
+        console.log('Server is ready! Running verification...\n');
+        runVerification();
+      } else {
+        setTimeout(checkServer, 100);
+      }
+    }).on('error', () => {
+      setTimeout(checkServer, 100);
     });
-    
-    verify.on('close', (code) => {
-      console.log(`\n\nVerification process exited with code ${code}\n`);
-      server.close();
-      process.exit(code);
-    });
-  }, 1000);
+  };
+  
+  // Start checking after a brief initial delay
+  setTimeout(checkServer, 200);
 });
+
+function runVerification() {
+  const verify = spawn('node', [
+    'scripts/verify-routes-http.mjs',
+    `--base-url=http://localhost:${PORT}`
+  ], {
+    cwd: process.cwd(),
+    stdio: 'inherit'
+  });
+  
+  verify.on('close', (code) => {
+    console.log(`\n\nVerification process exited with code ${code}\n`);
+    server.close();
+    process.exit(code);
+  });
+}
 
 // Handle graceful shutdown
 process.on('SIGINT', () => {

@@ -89,9 +89,7 @@ Expected output:
 ```
 🔀 Testing redirect map...
 
-↪ /old-blog-post → /resources/guides/new-guide (301)
 ✓ /old-blog-post → /resources/guides/new-guide (200)
-↪ /deprecated-page → /new-canonical-page (301)
 ✓ /deprecated-page → /new-canonical-page (200)
 
 ═══ Redirect Map Summary ═══
