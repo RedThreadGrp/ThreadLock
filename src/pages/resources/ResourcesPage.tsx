@@ -82,7 +82,7 @@ const RESOURCES: Resource[] = [
     tag: "Templates",
     topic: "Proof of Service",
     intent: "Start",
-    href: "/resources/proof-of-service",
+    href: "/resources/qa/proof-of-service",
     readTime: "8 min read",
   },
   {
@@ -149,7 +149,7 @@ const STARTER_KITS: StarterKit[] = [
       "Common filing errors guide",
     ],
     estimatedTime: "20 minutes",
-    resources: ["/resources/proof-of-service", "/resources/official-portals", "/resources/filing-basics"],
+    resources: ["/resources/qa/proof-of-service", "/resources/official-portals", "/resources/filing-basics"],
     href: "/resources/kits/first-filing",
   },
   {
@@ -236,7 +236,7 @@ const FEATURED_GUIDES: Guide[] = [
 ];
 
 const POPULAR_QUESTIONS: Question[] = [
-  { question: "What counts as proof of service?", href: "/resources/q/proof-of-service-definition" },
+  { question: "What counts as proof of service?", href: "/resources/qa/proof-of-service" },
   { question: "How do I label exhibits for court?", href: "/resources/q/exhibit-labeling" },
   { question: "Where do I find official court forms?", href: "/resources/q/official-forms-location" },
   { question: "Can I authenticate text messages myself?", href: "/resources/q/text-authentication" },
