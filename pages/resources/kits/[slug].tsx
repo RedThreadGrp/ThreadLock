@@ -6,7 +6,6 @@ import Head from "next/head";
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
-import StandardDisclaimer from "@/src/components/StandardDisclaimer";
 import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { getStarterKitBySlug, getResourceBySlug, STARTER_KITS, StarterKit } from "@/src/content/resourcesRegistry";
 
@@ -151,9 +150,6 @@ export default function KitPage({ kit, slug }: KitPageProps) {
           <div className="mt-8">
             <FeedbackWidget resourceId={`kit-${slug}`} />
           </div>
-          
-          {/* Standard Disclaimer */}
-          <StandardDisclaimer />
         </div>
       </div>
     </>
