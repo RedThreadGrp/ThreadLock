@@ -148,7 +148,11 @@ jobs:
         run: npm run start &
         
       - name: Wait for server
-        run: sleep 10
+        run: |
+          # Wait for server to be ready (more reliable than sleep)
+          npx wait-on http://localhost:3000 --timeout 30000
+          # Alternative: poll until ready
+          # for i in {1..30}; do curl -s http://localhost:3000 && break || sleep 1; done
         
       - name: Verify routes
         run: npm run verify:routes
@@ -215,21 +219,39 @@ This ensures redirects don't "drift" over time.
 
 ## Example 7: Testing Specific Routes
 
-To test just specific routes, you can temporarily modify sitemap.xml or create a custom test file:
+To test just specific routes, you can create a custom test script:
 
 ```javascript
 // scripts/test-specific-routes.mjs
-import { makeRequest } from './verify-routes-http.mjs';
+import http from 'http';
+import https from 'https';
+
+function makeRequest(url) {
+  return new Promise((resolve) => {
+    const urlObj = new URL(url);
+    const protocol = urlObj.protocol === 'https:' ? https : http;
+    
+    const req = protocol.request(url, { method: 'HEAD' }, (res) => {
+      resolve({ statusCode: res.statusCode, url });
+    });
+    
+    req.on('error', (error) => {
+      resolve({ statusCode: null, url, error: error.message });
+    });
+    
+    req.end();
+  });
+}
 
 const routes = [
-  '/resources/q/proof-of-service-definition',
-  '/resources/guides/evidence-authentication',
-  '/pricing'
+  'http://localhost:3000/resources/q/proof-of-service-definition',
+  'http://localhost:3000/resources/guides/evidence-authentication',
+  'http://localhost:3000/pricing'
 ];
 
 for (const route of routes) {
-  const result = await makeRequest(`http://localhost:3000${route}`);
-  console.log(`${route}: ${result.statusCode}`);
+  const result = await makeRequest(route);
+  console.log(`${route}: ${result.statusCode || result.error}`);
 }
 ```
 

@@ -69,7 +69,12 @@ function loadRedirectMap(redirectMapPath) {
 
 /**
  * Make an HTTP request and follow redirects
- * Returns: { statusCode, finalUrl, redirectChain, error }
+ * 
+ * @param {string} url - The URL to request
+ * @param {number} maxRedirects - Maximum number of redirects to follow (default: 5)
+ *                                 This prevents infinite redirect loops and excessive chains.
+ *                                 A redirect chain longer than 5 is typically a configuration error.
+ * @returns {Promise<Object>} { statusCode, finalUrl, redirectChain, error }
  */
 function makeRequest(url, maxRedirects = 5) {
   return new Promise((resolve) => {

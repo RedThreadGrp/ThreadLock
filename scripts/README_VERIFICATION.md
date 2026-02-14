@@ -71,7 +71,10 @@ Add to your CI pipeline:
   run: npm run build && npm run start &
   
 - name: Wait for server
-  run: sleep 10
+  run: |
+    npx wait-on http://localhost:3000 --timeout 30000
+    # Or use curl with retry:
+    # for i in {1..30}; do curl -s http://localhost:3000 && break || sleep 1; done
 
 - name: Verify routes
   run: npm run verify:routes
