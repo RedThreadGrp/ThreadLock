@@ -4,6 +4,7 @@
 import React from 'react';
 import BaseCard from './BaseCard';
 import CardBadge from './CardBadge';
+import { InlineIconLabel, ClockIcon } from '@/components/ui';
 
 type StarterKitCardProps = {
   title: string;
@@ -24,7 +25,9 @@ export default function StarterKitCard({
     <BaseCard href={href} size="default">
       <div className="flex items-center justify-between mb-3">
         <CardBadge variant="orange">
-          ⏱ {estimatedTime}
+          <InlineIconLabel icon={<ClockIcon />} className="gap-1.5">
+            {estimatedTime}
+          </InlineIconLabel>
         </CardBadge>
       </div>
       

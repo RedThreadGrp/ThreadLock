@@ -3,6 +3,7 @@
 // Privacy-preserving: stores feedback locally only
 
 import React, { useState, useEffect } from "react";
+import { InlineIconLabel, ThumbsUpIcon, ThumbsDownIcon } from "@/components/ui";
 
 interface FeedbackWidgetProps {
   resourceId: string;
@@ -77,22 +78,27 @@ export default function FeedbackWidget({ resourceId, compact = false }: Feedback
             <span className="text-xs text-muted-dark">Helpful?</span>
             <button
               onClick={() => handleFeedback(true)}
-              className="text-green-400 hover:text-green-300 transition text-sm"
+              className="flex items-center text-green-400 hover:text-green-300 transition"
               aria-label="Yes, this was helpful"
             >
-              👍
+              <ThumbsUpIcon className="w-4 h-4" />
             </button>
             <button
               onClick={() => handleFeedback(false)}
-              className="text-red-400 hover:text-red-300 transition text-sm"
+              className="flex items-center text-red-400 hover:text-red-300 transition"
               aria-label="No, this was not helpful"
             >
-              👎
+              <ThumbsDownIcon className="w-4 h-4" />
             </button>
           </>
         ) : (
-          <span className="text-xs text-muted-dark">
-            Thanks for your feedback! {feedback ? "👍" : "👎"}
+          <span className="text-xs text-muted-dark flex items-center gap-1">
+            Thanks for your feedback!{" "}
+            {feedback ? (
+              <ThumbsUpIcon className="w-4 h-4 text-green-400" />
+            ) : (
+              <ThumbsDownIcon className="w-4 h-4 text-red-400" />
+            )}
           </span>
         )}
       </div>
@@ -107,15 +113,15 @@ export default function FeedbackWidget({ resourceId, compact = false }: Feedback
           <div className="flex gap-2">
             <button
               onClick={() => handleFeedback(true)}
-              className="flex-1 rounded-full border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:bg-green-500/10 hover:border-green-500/30 hover:text-green-400 transition"
+              className="flex-1 flex items-center justify-center gap-2 rounded-full border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:bg-green-500/10 hover:border-green-500/30 hover:text-green-400 transition"
             >
-              👍 Yes
+              <InlineIconLabel icon={<ThumbsUpIcon />}>Yes</InlineIconLabel>
             </button>
             <button
               onClick={() => handleFeedback(false)}
-              className="flex-1 rounded-full border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-400 transition"
+              className="flex-1 flex items-center justify-center gap-2 rounded-full border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-400 transition"
             >
-              👎 No
+              <InlineIconLabel icon={<ThumbsDownIcon />}>No</InlineIconLabel>
             </button>
           </div>
         </div>
