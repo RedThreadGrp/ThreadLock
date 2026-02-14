@@ -15,6 +15,48 @@ const topicsData = JSON.parse(
   fs.readFileSync(path.join(__dirname, '../src/data/resources/topics.json'), 'utf8')
 );
 
+// Load resourcesRegistry data by dynamically importing it
+const registryPath = path.join(__dirname, '../src/content/resourcesRegistry.ts');
+let POPULAR_QUESTIONS = [];
+let FEATURED_GUIDES = [];
+let STARTER_KITS = [];
+
+// Since we can't directly import TS in this context easily without transpiling,
+// we'll parse the exports from the file
+try {
+  const registryContent = fs.readFileSync(registryPath, 'utf8');
+  
+  // Extract POPULAR_QUESTIONS slugs
+  const questionsMatch = registryContent.match(/export const POPULAR_QUESTIONS[^=]*=\s*\[([\s\S]*?)\];/);
+  if (questionsMatch) {
+    const questionsContent = questionsMatch[1];
+    const slugMatches = [...questionsContent.matchAll(/slug:\s*["']([^"']+)["']/g)];
+    POPULAR_QUESTIONS = slugMatches.map(m => ({ slug: m[1] }));
+  }
+  
+  // Extract FEATURED_GUIDES slugs
+  const guidesMatch = registryContent.match(/export const FEATURED_GUIDES[^=]*=\s*\[([\s\S]*?)\];/);
+  if (guidesMatch) {
+    const guidesContent = guidesMatch[1];
+    const slugMatches = [...guidesContent.matchAll(/slug:\s*["']([^"']+)["']/g)];
+    FEATURED_GUIDES = slugMatches.map(m => ({ slug: m[1] }));
+  }
+  
+  // Extract STARTER_KITS slugs
+  const kitsMatch = registryContent.match(/export const STARTER_KITS[^=]*=\s*\[([\s\S]*?)\];/);
+  if (kitsMatch) {
+    const kitsContent = kitsMatch[1];
+    const slugMatches = [...kitsContent.matchAll(/slug:\s*["']([^"']+)["']/g)];
+    STARTER_KITS = slugMatches.map(m => ({ slug: m[1] }));
+  }
+  
+  console.log(`  Loaded ${POPULAR_QUESTIONS.length} questions`);
+  console.log(`  Loaded ${FEATURED_GUIDES.length} guides`);
+  console.log(`  Loaded ${STARTER_KITS.length} starter kits`);
+} catch (err) {
+  console.error('Error loading resourcesRegistry:', err.message);
+}
+
 // Pages to exclude from the sitemap
 const EXCLUDED_PAGES = [
   '_app',
@@ -179,8 +221,26 @@ function generateSitemap() {
     mtime: new Date() // Use current date for dynamic routes
   }));
   
+  // Add dynamic question routes
+  const questionRoutes = POPULAR_QUESTIONS.map(q => ({
+    route: `/resources/q/${q.slug}`,
+    mtime: new Date()
+  }));
+  
+  // Add dynamic guide routes
+  const guideRoutes = FEATURED_GUIDES.map(g => ({
+    route: `/resources/guides/${g.slug}`,
+    mtime: new Date()
+  }));
+  
+  // Add dynamic starter kit routes
+  const kitRoutes = STARTER_KITS.map(k => ({
+    route: `/resources/kits/${k.slug}`,
+    mtime: new Date()
+  }));
+  
   // Combine all routes
-  const allRoutes = [...routes, ...topicRoutes];
+  const allRoutes = [...routes, ...topicRoutes, ...questionRoutes, ...guideRoutes, ...kitRoutes];
   
   // Generate XML
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
@@ -191,6 +251,12 @@ function generateSitemap() {
     let config;
     if (routeObj.route.startsWith('/resources/topic/')) {
       config = { priority: '0.8', changefreq: 'monthly' };
+    } else if (routeObj.route.startsWith('/resources/q/')) {
+      config = { priority: '0.8', changefreq: 'monthly' };
+    } else if (routeObj.route.startsWith('/resources/guides/')) {
+      config = { priority: '0.9', changefreq: 'monthly' };
+    } else if (routeObj.route.startsWith('/resources/kits/')) {
+      config = { priority: '0.8', changefreq: 'monthly' };
     } else {
       config = ROUTE_CONFIG[routeObj.route] || { priority: '0.5', changefreq: 'monthly' };
     }
@@ -200,7 +266,11 @@ function generateSitemap() {
     const lastmod = routeObj.mtime.toISOString().split('T')[0];
     
     // Log when using default config to help identify missing configurations
-    if (!ROUTE_CONFIG[routeObj.route] && !routeObj.route.startsWith('/resources/topic/')) {
+    if (!ROUTE_CONFIG[routeObj.route] && 
+        !routeObj.route.startsWith('/resources/topic/') &&
+        !routeObj.route.startsWith('/resources/q/') &&
+        !routeObj.route.startsWith('/resources/guides/') &&
+        !routeObj.route.startsWith('/resources/kits/')) {
       console.log(`  Using default config for: ${routeObj.route}`);
     }
     
