@@ -113,13 +113,13 @@ export default function FeedbackWidget({ resourceId, compact = false }: Feedback
           <div className="flex gap-2">
             <button
               onClick={() => handleFeedback(true)}
-              className="flex-1 flex items-center justify-center gap-2 rounded-full border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:bg-green-500/10 hover:border-green-500/30 hover:text-green-400 transition"
+              className="flex-1 flex items-center justify-center rounded-full border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:bg-green-500/10 hover:border-green-500/30 hover:text-green-400 transition"
             >
               <InlineIconLabel icon={<ThumbsUpIcon />}>Yes</InlineIconLabel>
             </button>
             <button
               onClick={() => handleFeedback(false)}
-              className="flex-1 flex items-center justify-center gap-2 rounded-full border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-400 transition"
+              className="flex-1 flex items-center justify-center rounded-full border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-400 transition"
             >
               <InlineIconLabel icon={<ThumbsDownIcon />}>No</InlineIconLabel>
             </button>

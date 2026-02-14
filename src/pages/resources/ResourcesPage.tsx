@@ -448,10 +448,9 @@ export default function ResourcesPage() {
                     <ul className="space-y-1">
                       {kit.whatYouGet.map((item, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-muted-dark">
-                          <span className="flex items-center justify-center w-4 h-4 leading-none text-brand-orange shrink-0">
-                            <CheckIcon className="w-4 h-4" />
-                          </span>
-                          <span>{item}</span>
+                          <InlineIconLabel icon={<CheckIcon className="w-4 h-4 text-brand-orange" />} className="gap-2" iconClassName="w-4 h-4 shrink-0">
+                            {item}
+                          </InlineIconLabel>
                         </li>
                     ))}
                   </ul>
