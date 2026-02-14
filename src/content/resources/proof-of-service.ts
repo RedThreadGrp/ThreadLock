@@ -4,146 +4,185 @@ export const proofOfService: ResourceQAContent = {
   slug: "proof-of-service",
 
   seo: {
-    title: "What is Proof of Service? | ThreadLock Resources",
+    title: "What Counts as Proof of Service? | Definition & Legal Requirements",
     description:
-      "Learn what proof of service means in family court, why it's required, and how to file it correctly to avoid delays in your case.",
+      "Proof of Service is a signed declaration filed with the court confirming legal papers were delivered, detailing time, date, location, method, and server identity.",
   },
 
   hero: {
-    h1: "What is Proof of Service?",
+    h1: "What Counts as Proof of Service?",
     subhead:
-      "Understanding service requirements in family court proceedings",
+      "Definition & legal requirements across common methods and jurisdictions.",
   },
 
   shortAnswer: {
-    label: "Short answer",
-    text: "Proof of service is a legal document that confirms you properly delivered court papers to the other party, as required by court rules. It protects your rights and ensures the other side has notice of legal proceedings.",
+    label: "Short Answer: The Legal Definition",
+    text: "Proof of Service (also known as an Affidavit of Service or Return of Service) is a formal document filed with the court that confirms legal papers were successfully delivered to a party in a case. To count as valid, it must be a signed declaration—typically made under penalty of perjury—detailing the exact time, date, location, and method of delivery, as well as the identity of the person who performed the service.",
   },
 
   sections: [
     {
-      id: "why-required",
-      heading: "Why is proof of service required?",
+      id: "core-requirements",
+      heading: "Core Requirements: What Must Be Included?",
       body: [
         {
-          type: "p",
-          text: "Courts require proof of service to ensure due process—everyone involved in a case must receive proper notice of court filings and hearings. Without valid proof, the court may not accept your paperwork or move forward with your case.",
-        },
-        {
-          type: "callout",
-          kind: "warning",
-          title: "Important",
-          text: "Missing or incorrect proof of service can delay your case by weeks or months. Always follow your court's specific requirements.",
+          type: "ul",
+          items: [
+            "Server Identity: The full name and address of the person who delivered the documents.",
+            "Recipient Identity: The name of the person, business, or entity served.",
+            "Specific Documents: A comprehensive list of every form or notice delivered (e.g., Summons, Complaint, or Order to Show Cause).",
+            "Method of Delivery: A clear statement on whether service was Personal, by Mail, Electronic, or Substituted.",
+            "Timing and Location: The precise date, time, and physical (or digital) address where service occurred.",
+            "The Declaration: A statement affirming the facts are true under penalty of perjury, accompanied by the server's signature.",
+          ],
         },
       ],
     },
     {
-      id: "types-of-service",
-      heading: "Types of service methods",
+      id: "who-can-serve",
+      heading: "Who is Authorized to Serve Documents?",
       body: [
         {
           type: "p",
-          text: "Different documents require different service methods:",
+          text: "Not everyone can sign a Proof of Service. In most jurisdictions, the \"Server\" must meet these three criteria:",
         },
         {
           type: "ul",
           items: [
-            "Personal service: Papers hand-delivered to the person by someone over 18 who is not a party to the case",
-            "Service by mail: Sent via certified or first-class mail with proof of mailing",
-            "Electronic service: Delivery via email or court e-filing system (when permitted)",
-            "Substituted service: Left with someone at home or workplace when personal service isn't possible",
+            "Age: Must be at least 18 years old.",
+            "Disinterest: Must not be a party to the legal case (i.e., not the plaintiff or defendant).",
+            "Capacity: Must be mentally competent and willing to testify about the service if challenged.",
           ],
         },
         {
           type: "callout",
-          kind: "tip",
-          text: "Check your local court rules for which method applies to your document type and situation.",
+          kind: "note",
+          text: "Note: While a third-party friend can often serve papers, hiring a Professional Process Server or using a Sheriff provides \"prima facie\" evidence that service was performed correctly, making it harder for the recipient to contest.",
         },
       ],
     },
     {
-      id: "filing-requirements",
-      heading: "Filing proof of service with the court",
+      id: "requirements-by-method",
+      heading: "Proof of Service Requirements by Method",
       body: [
         {
           type: "p",
-          text: "After serving documents, you must file proof of service with the court clerk. This typically includes:",
+          text: "The details required on your form change depending on how the documents were delivered:",
         },
         {
-          type: "ol",
+          type: "ul",
           items: [
-            "Date, time, and location where service occurred",
-            "Name of person who received the documents",
-            "Method of service used",
-            "Server's signature and contact information",
+            "Personal Service: The declaration must state that the documents were physically handed to the recipient or left in their immediate presence if they refused to touch them.",
+            "Service by Mail: Requires a \"Certificate of Mailing\" stating the documents were placed in a sealed, post-paid envelope and deposited in a USPS mailbox.",
+            "Electronic Service: Proof must include the sender and recipient's email addresses, the date/time of transmission, and confirmation that the transmission was completed without error.",
+            "Substituted Service: This requires \"Due Diligence\" notes. You must document specific failed attempts at personal service before explaining who the documents were left with at the recipient's home or business.",
           ],
         },
-        {
-          type: "p",
-          text: "Many courts provide standardized proof of service forms. Use your court's official form when available.",
-        },
       ],
     },
     {
-      id: "deadlines",
-      heading: "Service deadlines by document type",
+      id: "jurisdiction-forms",
+      heading: "Jurisdiction-Specific Forms & Rules",
       body: [
         {
           type: "p",
-          text: "Different documents have different timing requirements:",
+          text: "Legal requirements vary by state. Using the wrong form can result in your case being delayed or dismissed.",
         },
         {
           type: "table",
-          caption: "Common service deadlines in family court",
-          columns: ["Document Type", "Service Deadline", "Notes"],
+          columns: ["Jurisdiction", "Common Form Name", "Key Requirement"],
           rows: [
             [
-              "Initial petition",
-              "Within 60-90 days of filing",
-              "Varies by state",
+              "Federal (FRCP)",
+              "Certificate of Service",
+              "Governed by Rule 5; required for all filings after the original complaint.",
             ],
-            ["Response to motion", "5-10 days before hearing", "Check local rules"],
-            ["Trial documents", "15-30 days before trial", "Earlier for complex cases"],
+            [
+              "California",
+              "POS-040 / FL-330",
+              "Uses specific forms for civil (POS) vs. family law (FL) matters.",
+            ],
+            [
+              "New York",
+              "Affidavit of Service",
+              "Often requires notarization by the server to be legally valid.",
+            ],
+            [
+              "Texas",
+              "Return of Service",
+              "Must be filed with the court for a specific period before a default judgment is allowed.",
+            ],
+            [
+              "Florida",
+              "Return of Service",
+              "Mandates specific statutory language regarding the \"manner of service.\"",
+            ],
           ],
-          footnote:
-            "Always verify exact deadlines with your local court rules.",
+        },
+      ],
+    },
+    {
+      id: "common-rejections",
+      heading: "Common Reasons Proof of Service is Rejected",
+      body: [
+        {
+          type: "p",
+          text: "To ensure your filing is accepted, avoid these frequent errors:",
+        },
+        {
+          type: "ul",
+          items: [
+            "The Party Served Themselves: A plaintiff cannot sign their own Proof of Service.",
+            "Incomplete Document List: If you served five documents but only listed three, service for the remaining two is technically invalid.",
+            "Missing \"Penalty of Perjury\" Clause: Without this specific legal language, the document is merely a note, not a legal declaration.",
+            "Date Mismatches: The date of service must be on or before the date the Proof of Service was signed.",
+          ],
         },
       ],
     },
   ],
 
   faqs: {
-    heading: "Frequently asked questions",
+    heading: "Frequently Asked Questions (Long-Tail Keywords)",
     items: [
       {
-        id: "who-can-serve",
-        q: "Who can serve court papers?",
-        a: "Any person over age 18 who is not a party to your case can serve papers. This includes professional process servers, sheriff's deputies, or a friend or family member.",
+        id: "notarized",
+        q: "Does a Proof of Service need to be notarized?",
+        a: "In many states (like New York), an Affidavit of Service must be signed in front of a Notary Public. However, in \"Declaration\" states (like California), a signature under penalty of perjury is sufficient.",
       },
       {
-        id: "serve-myself",
-        q: "Can I serve papers myself?",
-        a: "No. You cannot serve your own legal documents in most jurisdictions. You must have someone else who is not involved in the case serve them on your behalf.",
+        id: "efile",
+        q: "Can I file Proof of Service electronically?",
+        a: "Yes, most modern court systems allow for the electronic filing (e-filing) of Proof of Service. In some cases, the e-filing system generates an automated \"Notice of Electronic Filing\" which serves as the legal proof.",
       },
       {
-        id: "wrong-address",
-        q: "What if the other party moved and I don't have their address?",
-        a: "Contact your court clerk about service by publication or posting. You may need to demonstrate that you made reasonable efforts to locate the person first.",
+        id: "lost-proof",
+        q: "What happens if I lose the Proof of Service?",
+        a: "You must contact the server to sign a fresh declaration. If the server is unavailable, you may be required to re-serve the documents to ensure the court record is complete.",
       },
     ],
   },
 
   sources: {
-    heading: "Sources",
+    heading: "Sources Used to Verify Definitions & Requirements",
     items: [
       {
-        name: "Federal Rules of Civil Procedure, Rule 4",
-        note: "Service of process standards",
-        href: "https://www.law.cornell.edu/rules/frcp/rule_4",
+        name: "California Courts Self-Help Guide: Proof of Service (Personal FL-330 / Mail FL-335)",
       },
       {
-        name: "State court service requirements",
-        note: "Vary by jurisdiction",
+        name: "New York State Unified Court System: Affidavit of Service instructions and notarization requirements",
+      },
+      {
+        name: "Federal Rules of Civil Procedure (FRCP): Rule 5 (Serving and Filing Pleadings and Other Papers)",
+      },
+      {
+        name: "Texas Rules of Civil Procedure: Rule 107 (Return of Service)",
+      },
+      {
+        name: "Florida Rules of Civil Procedure: Rule 1.080 (Service and Filing of Pleadings, Papers, and Documents)",
+      },
+      {
+        name: "National Association of Professional Process Servers (NAPPS): Best practices for service declarations",
       },
     ],
   },
