@@ -1,0 +1,7 @@
+{
+  "_comment": "Map of old paths (keys) to canonical paths (values). Keys must redirect to values.",
+  "_description": "This file defines the redirect contract. Any path in keys must redirect to its value.",
+  "_usage": "Add legacy paths here as they are deprecated. The verification script will ensure redirects work.",
+  "redirects": {
+  }
+}
