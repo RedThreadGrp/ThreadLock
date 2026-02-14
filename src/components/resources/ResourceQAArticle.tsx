@@ -140,8 +140,8 @@ function ResourceTable({
         <table className="w-full min-w-[640px] border-separate border-spacing-0 text-left">
           <thead className="bg-white/5">
             <tr>
-              {columns.map((c) => (
-                <th key={c} scope="col" className="px-4 py-3 text-xs font-semibold tracking-wide text-white/80 uppercase border-b border-white/10">
+              {columns.map((c, idx) => (
+                <th key={idx} scope="col" className="px-4 py-3 text-xs font-semibold tracking-wide text-white/80 uppercase border-b border-white/10">
                   {c}
                 </th>
               ))}
@@ -200,8 +200,9 @@ function renderBlock(block: ResourceBodyBlock, key: React.Key) {
 
     case "callout": {
       const styles = CalloutStyles(block.kind);
+      const role = block.kind === "warning" ? "alert" : block.kind === "note" ? "note" : "status";
       return (
-        <aside key={key} className={cx("rounded-2xl p-4", styles.wrapper)} role={block.kind === "warning" ? "alert" : undefined}>
+        <aside key={key} className={cx("rounded-2xl p-4", styles.wrapper)} role={role}>
           {(block.title || block.kind) && (
             <div className={cx("text-xs font-semibold uppercase tracking-wide", styles.title)}>
               {block.title ?? block.kind}
@@ -280,6 +281,7 @@ function Sources({
     <section id="sources" className="scroll-mt-24">
       <h2 className="text-lg font-semibold text-white/95">{heading}</h2>
       <ul className="mt-3 space-y-2 text-sm text-white/80">
+        {/* Note: Using name+index as key is safe here since sources are static content that won't be reordered */}
         {items.map((s, idx) => (
           <li key={`${s.name}-${idx}`} className="leading-6">
             {s.href ? (
