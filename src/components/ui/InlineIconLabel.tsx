@@ -2,7 +2,7 @@
 // Reusable component for consistent icon-text alignment
 
 import React from "react";
-import { cx } from "@/lib/cx";
+import { cx } from "@/src/lib/cx";
 
 type Props = {
   icon: React.ReactNode;

@@ -4,7 +4,7 @@
 import React from 'react';
 import BaseCard from './BaseCard';
 import CardBadge from './CardBadge';
-import { InlineIconLabel, ClockIcon } from '@/components/ui';
+import { InlineIconLabel, ClockIcon } from '@/src/components/ui';
 
 type StarterKitCardProps = {
   title: string;

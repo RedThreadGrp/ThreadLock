@@ -3,7 +3,7 @@
 // Privacy-preserving: stores feedback locally only
 
 import React, { useState, useEffect } from "react";
-import { InlineIconLabel, ThumbsUpIcon, ThumbsDownIcon } from "@/components/ui";
+import { InlineIconLabel, ThumbsUpIcon, ThumbsDownIcon } from "@/src/components/ui";
 
 interface FeedbackWidgetProps {
   resourceId: string;

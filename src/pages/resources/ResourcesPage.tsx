@@ -10,6 +10,7 @@ import Head from "next/head";
 import Link from "next/link";
 import SiteHeader from "@/src/components/SiteHeader";
 import HeroBanner from "@/src/components/HeroBanner";
+import { InlineIconLabel, CheckIcon } from "@/src/components/ui";
 import {
   EXTERNAL_RESOURCES,
   getUniqueJurisdictions,
@@ -447,7 +448,9 @@ export default function ResourcesPage() {
                     <ul className="space-y-1">
                       {kit.whatYouGet.map((item, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-muted-dark">
-                          <span className="text-brand-orange mt-0.5 text-base">✓</span>
+                          <span className="flex items-center justify-center w-4 h-4 leading-none text-brand-orange shrink-0">
+                            <CheckIcon className="w-4 h-4" />
+                          </span>
                           <span>{item}</span>
                         </li>
                     ))}
