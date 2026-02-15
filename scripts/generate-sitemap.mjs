@@ -17,6 +17,7 @@ const topicsData = JSON.parse(
 
 // Load resourcesRegistry data by dynamically importing it
 const registryPath = path.join(__dirname, '../src/content/resourcesRegistry.ts');
+let RESOURCES = [];
 let POPULAR_QUESTIONS = [];
 let FEATURED_GUIDES = [];
 let STARTER_KITS = [];
@@ -25,6 +26,14 @@ let STARTER_KITS = [];
 // we'll parse the exports from the file
 try {
   const registryContent = fs.readFileSync(registryPath, 'utf8');
+  
+  // Extract RESOURCES slugs (the main articles)
+  const resourcesMatch = registryContent.match(/export const RESOURCES[^=]*=\s*\[([\s\S]*?)\];/);
+  if (resourcesMatch) {
+    const resourcesContent = resourcesMatch[1];
+    const slugMatches = [...resourcesContent.matchAll(/slug:\s*["']([^"']+)["']/g)];
+    RESOURCES = slugMatches.map(m => ({ slug: m[1] }));
+  }
   
   // Extract POPULAR_QUESTIONS slugs
   const questionsMatch = registryContent.match(/export const POPULAR_QUESTIONS[^=]*=\s*\[([\s\S]*?)\];/);
@@ -50,6 +59,7 @@ try {
     STARTER_KITS = slugMatches.map(m => ({ slug: m[1] }));
   }
   
+  console.log(`  Loaded ${RESOURCES.length} resources`);
   console.log(`  Loaded ${POPULAR_QUESTIONS.length} questions`);
   console.log(`  Loaded ${FEATURED_GUIDES.length} guides`);
   console.log(`  Loaded ${STARTER_KITS.length} starter kits`);
@@ -119,7 +129,7 @@ const ROUTE_CONFIG = {
   '/resources/thanks': { priority: '0.4', changefreq: 'monthly' },
   
   // Dynamic resource pages (default config, will be customized below)
-  '/resources/topic': { priority: '0.8', changefreq: 'monthly' },
+  '/resources/topics': { priority: '0.8', changefreq: 'monthly' },
   
   // Whitepapers
   '/whitepaper': { priority: '0.7', changefreq: 'monthly' },
@@ -215,10 +225,16 @@ function generateSitemap() {
     .filter(routeObj => routeObj !== null && !shouldExclude(routeObj.route))
     .sort((a, b) => a.route.localeCompare(b.route));
   
-  // Add dynamic topic routes
-  const topicRoutes = topicsData.map(topic => ({
-    route: `/resources/topic/${topic.id}`,
+  // Add dynamic resource routes (main articles)
+  const resourceRoutes = RESOURCES.map(r => ({
+    route: `/resources/${r.slug}`,
     mtime: new Date() // Use current date for dynamic routes
+  }));
+  
+  // Add dynamic topic routes (FIXED: changed from /topic/ to /topics/)
+  const topicRoutes = topicsData.map(topic => ({
+    route: `/resources/topics/${topic.id}`,
+    mtime: new Date()
   }));
   
   // Add dynamic question routes
@@ -240,7 +256,7 @@ function generateSitemap() {
   }));
   
   // Combine all routes
-  const allRoutes = [...routes, ...topicRoutes, ...questionRoutes, ...guideRoutes, ...kitRoutes];
+  const allRoutes = [...routes, ...resourceRoutes, ...topicRoutes, ...questionRoutes, ...guideRoutes, ...kitRoutes];
   
   // Generate XML
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
@@ -249,13 +265,16 @@ function generateSitemap() {
   allRoutes.forEach(routeObj => {
     // Determine config based on route pattern
     let config;
-    if (routeObj.route.startsWith('/resources/topic/')) {
+    if (routeObj.route.startsWith('/resources/topics/')) {
       config = { priority: '0.8', changefreq: 'monthly' };
     } else if (routeObj.route.startsWith('/resources/q/')) {
       config = { priority: '0.8', changefreq: 'monthly' };
     } else if (routeObj.route.startsWith('/resources/guides/')) {
       config = { priority: '0.9', changefreq: 'monthly' };
     } else if (routeObj.route.startsWith('/resources/kits/')) {
+      config = { priority: '0.8', changefreq: 'monthly' };
+    } else if (routeObj.route.startsWith('/resources/') && routeObj.route !== '/resources' && routeObj.route !== '/resources/thanks') {
+      // Individual resource articles (e.g., /resources/hearing-tomorrow)
       config = { priority: '0.8', changefreq: 'monthly' };
     } else {
       config = ROUTE_CONFIG[routeObj.route] || { priority: '0.5', changefreq: 'monthly' };
@@ -267,10 +286,11 @@ function generateSitemap() {
     
     // Log when using default config to help identify missing configurations
     if (!ROUTE_CONFIG[routeObj.route] && 
-        !routeObj.route.startsWith('/resources/topic/') &&
+        !routeObj.route.startsWith('/resources/topics/') &&
         !routeObj.route.startsWith('/resources/q/') &&
         !routeObj.route.startsWith('/resources/guides/') &&
-        !routeObj.route.startsWith('/resources/kits/')) {
+        !routeObj.route.startsWith('/resources/kits/') &&
+        !(routeObj.route.startsWith('/resources/') && routeObj.route !== '/resources' && routeObj.route !== '/resources/thanks')) {
       console.log(`  Using default config for: ${routeObj.route}`);
     }
     
