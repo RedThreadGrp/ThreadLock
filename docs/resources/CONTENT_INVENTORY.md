@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T23:11:33.023Z
+**Generated:** 2026-02-15T23:24:04.881Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -14,12 +14,12 @@
   - special: 1
   - topic: 6
 - **Content Coverage:**
-  - With body content: 24 (63.2%)
-  - With meta description: 35 (92.1%)
-  - With last updated date: 17 (44.7%)
+  - With body content: 23 (60.5%)
+  - With meta description: 34 (89.5%)
+  - With last updated date: 16 (42.1%)
   - With FAQs: 14
   - With sources/links: 1
-  - With issues/notes: 22
+  - With issues/notes: 23
 
 ## Quick Reference
 
@@ -27,7 +27,7 @@
 |-------|------|-------|-------|--------|--------|
 | /resources | unknown | Resources Hub | 0 | pass | ⚠️ 1 |
 | /resources/authentication | resource | Exhibits Guide: Labeling and Organiza... | 2262 | pass | ✅ |
-| /resources/courtroom-prep | resource | Proof of Service Pack | 1224 | pass | ✅ |
+| /resources/courtroom-prep | resource |  | 0 | pass | ⚠️ 2 |
 | /resources/evidence-intake | resource | Evidence Intake: Photos, Texts, Email... | 0 | pass | ⚠️ 2 |
 | /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Organiza... | 0 | fail | ⚠️ 2 |
 | /resources/filing-basics | resource | Exhibits Guide: Labeling and Organiza... | 1567 | pass | ✅ |
@@ -121,26 +121,25 @@
 ### /resources/courtroom-prep
 
 - **Type:** resource
-- **Title:** Proof of Service Pack
+- **Title:** 
 - **Canonical URL:** https://threadlock.ai/resources/courtroom-prep
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
-- **Meta Description:** Stand when judge enters. Say 'Your Honor.' Dress business casual. Speak only when asked. Answer the question. Don't interrupt. Pro se guide.
-- **Last Updated:** 2026-02-13
+- **Meta Description:** ❌ missing
+- **Last Updated:** ❌ missing
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 1224
-- body: 1209
-- excerpt: 15
-
-**Content Structure:**
-- Headings: H1(1), H2(9), H3(18)
-- Paragraphs: 70
-- Lists: 8
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
+
+**⚠️ Issues/Notes:**
+- V2 content from separate file (spread operator in registry)
+- No content (0 words)
 
 ---
 

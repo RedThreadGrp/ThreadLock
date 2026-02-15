@@ -26,6 +26,7 @@ import { financialSnapshot } from "./resources/financial-snapshot";
 import { officialPortals } from "./resources/official-portals";
 import { evidenceIntake } from "./resources/evidence-intake";
 import { proofOfServicePack } from "./resources/proof-of-service-pack";
+import { courtroomPrep } from "./resources/courtroom-prep";
 
 // ============================================================================
 // Type Definitions
@@ -324,8 +325,10 @@ export const RESOURCES: Resource[] = [
     status: "published",
     seoTitle: "Courtroom Etiquette Rules | What to Expect | ThreadLock",
     metaDescription: "Stand when judge enters. Say 'Your Honor.' Dress business casual. Speak only when asked. Answer the question. Don't interrupt. Pro se guide.",
-    dateModified: "2026-02-13",
-    body: `# Courtroom Etiquette and Preparation
+    dateModified: "2026-02-15",
+    contentVersion: 2,
+    blocks: courtroomPrep.blocks,
+    legacyBody: `# Courtroom Etiquette and Preparation
 
 Family court has rules—written and unwritten. Following them won't win your case, but breaking them can hurt your credibility before you even speak.
 
@@ -533,16 +536,7 @@ This guide is based on common courtroom practices in U.S. state trial courts, pa
       { question: "Can I object to the other party's evidence?", href: "/resources/evidence-intake" },
       { question: "What happens if I miss my court date?", href: "/resources/filing-basics" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals" },
-        { name: "Federal Rules of Civil Procedure" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Courtroom procedures and etiquette vary by court. Check local rules."
-    }
+    governance: courtroomPrep.governance
   },
   {
     slug: "filing-basics",
