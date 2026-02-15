@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T21:22:02.792Z
+**Generated:** 2026-02-15T21:28:39.968Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -719,7 +719,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/q/modify-parenting-plan
 - **Content Source:** src/content/resourcesRegistry.ts:POPULAR_QUESTIONS
 - **Meta Description:** Yes, you can modify parenting plans by showing a substantial change in circumstances and that modification serves the child's best interests.
-- **Last Updated:** 2026-02-13
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**

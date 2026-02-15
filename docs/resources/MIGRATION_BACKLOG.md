@@ -5,8 +5,8 @@ Generated: 2026-02-15
 ## Summary
 
 - Total items: 36
-- Todo: 27
-- Migrated: 1
+- Todo: 26
+- Migrated: 2
 - Manual review needed: 0
 - Blocked (slug mismatch): 0
 - Blocked (no content): 2
@@ -36,7 +36,6 @@ Generated: 2026-02-15
 
 | Route | Type | Version | Words | Complexity | Status | Notes |
 |-------|------|---------|-------|------------|--------|-------|
-| /resources/q/modify-parenting-plan | question | v1 | 1093 | simple | todo | Missing sources |
 | /resources/q/fee-waiver | question | v1 | 1003 | simple | todo | Slug/title mismatch: "fee-waiver" vs "What counts as a substantial change in circumstances?"; Missing sources |
 | /resources/q/child-support-calculation | question | v1 | 944 | simple | todo | Slug/title mismatch: "child-support-calculation" vs "How much does mediation cost?"; Missing sources |
 | /resources/q/mediation-lawyer | question | v1 | 863 | simple | todo | Slug/title mismatch: "mediation-lawyer" vs "Can I modify a parenting plan later?"; Missing sources |
@@ -63,6 +62,7 @@ Generated: 2026-02-15
 | /resources/filing-basics | resource | v1 | 1553 | hard | todo | Slug/title mismatch: "filing-basics" vs "Exhibits Guide: Labeling and Organization"; Missing sources |
 | /resources/timeline-tools | resource | v1 | 1454 | hard | todo | Slug/title mismatch: "timeline-tools" vs "Official Court Portals by State"; Missing sources |
 | /resources/courtroom-prep | resource | v1 | 1209 | hard | todo | Slug/title mismatch: "courtroom-prep" vs "Evidence Intake Guide"; Missing sources |
+| /resources/q/modify-parenting-plan | question | v2 | 1093 | simple | migrated | Missing sources |
 | /resources/q/proof-of-service-definition | question | v2 | 0 | simple | migrated | Missing sources; Empty content |
 | /resources/guides/self-representation-complete | guide | v1 | 0 | minimal | blocked-no-content | Missing sources; Empty content |
 | /resources/kits/hearing-soon | kit | v1 | 0 | minimal | blocked-no-content | Missing sources; Missing lastUpdated; Empty content |

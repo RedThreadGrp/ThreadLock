@@ -2,6 +2,9 @@
 // Complete resources registry with TypeScript types and data
 // All content for the ThreadLock Resources Hub
 
+// Import v2 structured content
+import { modifyParentingPlan } from "./resources/modify-parenting-plan";
+
 // ============================================================================
 // Type Definitions
 // ============================================================================
@@ -4383,11 +4386,13 @@ Child support calculations can be complex, especially with self-employment incom
     slug: "modify-parenting-plan",
     question: "Can I modify a parenting plan later?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Can I Modify a Parenting Plan? | ThreadLock",
     metaDescription: "Yes, you can modify parenting plans by showing a substantial change in circumstances and that modification serves the child's best interests.",
     shortAnswer: "Yes, you can modify parenting plans by showing a substantial change in circumstances and that modification serves the child's best interests. Many states require waiting 1-2 years after the initial order unless there's immediate danger to the child.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: modifyParentingPlan,
     body: `# Can I modify a parenting plan later?
 
 ## Short Answer
@@ -4593,16 +4598,7 @@ Modification proceedings can be stressful for children. Pursue modification when
       { question: "Can I relocate with my child?", href: "/resources/q/relocation" },
       { question: "How does a custody evaluation work?", href: "/resources/q/custody-evaluation" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Family Law Statutes" },
-        { name: "State Bar Association Resources" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Modification standards and waiting periods vary by state. Consult local family law."
-    }
+    governance: modifyParentingPlan.governance
   },
   {
     slug: "fee-waiver",
