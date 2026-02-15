@@ -102,7 +102,12 @@ export interface PopularQuestion {
   slug: string;
   question: string;
   status: ResourceStatus;
+  // Content version: 1 = legacy body string, 2 = structured blocks
+  contentVersion: 1 | 2;
+  // Legacy v1 content (deprecated - use blocks for v2)
   body?: string;
+  // v2 structured content
+  blocks?: import("@/src/content/resources/types").ResourceQAContent;
   // SEO fields
   seoTitle?: string;
   metaDescription?: string;
@@ -3028,68 +3033,154 @@ export const POPULAR_QUESTIONS: PopularQuestion[] = [
     slug: "proof-of-service-definition",
     question: "What counts as proof of service?",
     status: "published",
+    contentVersion: 2, // v2 structured content
     seoTitle: "What Counts as Proof of Service? | ThreadLock",
     metaDescription: "Proof of service is a signed declaration under penalty of perjury showing you delivered court documents, when, where, how, and to whom.",
     shortAnswer: "Proof of service is a signed declaration under penalty of perjury that confirms you delivered court documents to all required parties. It must include specific details about when, where, how, and to whom documents were delivered.",
     dateModified: "2026-02-13",
-    body: `# What counts as proof of service?
-
-## Short Answer
-
-Proof of service is a signed declaration under penalty of perjury that confirms you delivered court documents to all required parties. It must include specific details about when, where, how, and to whom documents were delivered. Most jurisdictions require a Proof of Service form (such as FL-335 in California) completed by the person who served the documents.
-
-## Detailed Explanation
-
-### Required Components
-
-Valid proof of service must contain:
-
-- **Server information**: Name and address of the person who served the documents
-- **Service details**: Date, time, and location of service
-- **Method of service**: Personal service, mail, electronic service, or substituted service
-- **Recipient information**: Name and address of person served
-- **Document list**: Specific documents that were served
-- **Declaration under penalty of perjury**: Server's signature affirming truthfulness
-
-### Who Can Serve Documents
-
-The server must be:
-
-- At least 18 years old
-- Not a party to the case
-- Willing to sign a declaration under penalty of perjury
-
-In some cases, professional process servers or law enforcement may serve documents, providing additional authentication.
-
-### Common Forms by Jurisdiction
-
-Different jurisdictions use specific forms:
-
-- **California**: Form FL-335 (Proof of Service by Mail) or FL-330 (Proof of Personal Service)
-- **New York**: Affidavit of Service
-- **Texas**: Certificate of Service or Return of Service
-- **Federal Courts**: Certificate of Service under FRCP Rule 5
-
-### Methods of Service Requiring Proof
-
-Each service method has different proof requirements:
-
-**Personal Service**: Declaration must state documents were hand-delivered to the party
-**Service by Mail**: Must include date of mailing and address used
-**Electronic Service**: Must show method (email, court e-filing system) and confirmation
-**Substituted Service**: Must document attempts at personal service and alternative method used
-
-## State-Specific Variations
-
-**California**: Requires proof of service for all documents filed after the initial petition. Electronic service through court systems generates automatic proof of service records.
-
-**New York**: Requires notarized affidavits of service for certain documents. Personal service affidavits must be filed within prescribed time limits.
-
-**Texas**: Allows informal service acknowledgments in some family law cases but requires formal certificates for contested matters.
-
-**Florida**: Mandates specific formatting for proof of service including certificate of service language on filed documents.
-
-Always verify your jurisdiction's specific requirements for proof of service, as improper proof can invalidate service and delay proceedings.`,
+    // v2 structured blocks
+    blocks: {
+      slug: "proof-of-service-definition",
+      seo: {
+        title: "What Counts as Proof of Service? | ThreadLock",
+        description: "Proof of service is a signed declaration under penalty of perjury showing you delivered court documents, when, where, how, and to whom.",
+      },
+      hero: {
+        h1: "What counts as proof of service?",
+        subhead: null,
+      },
+      shortAnswer: {
+        label: "Short answer",
+        text: "Proof of service is a signed declaration under penalty of perjury that confirms you delivered court documents to all required parties. It must include specific details about when, where, how, and to whom documents were delivered.",
+      },
+      sections: [
+        {
+          id: "required-components",
+          heading: "Required Components",
+          body: [
+            {
+              type: "p",
+              text: "Valid proof of service must contain:",
+            },
+            {
+              type: "ul",
+              items: [
+                "Server information: Name and address of the person who served the documents",
+                "Service details: Date, time, and location of service",
+                "Method of service: Personal service, mail, electronic service, or substituted service",
+                "Recipient information: Name and address of person served",
+                "Document list: Specific documents that were served",
+                "Declaration under penalty of perjury: Server's signature affirming truthfulness",
+              ],
+            },
+          ],
+        },
+        {
+          id: "who-can-serve",
+          heading: "Who Can Serve Documents",
+          body: [
+            {
+              type: "p",
+              text: "The server must be:",
+            },
+            {
+              type: "ul",
+              items: [
+                "At least 18 years old",
+                "Not a party to the case",
+                "Willing to sign a declaration under penalty of perjury",
+              ],
+            },
+            {
+              type: "p",
+              text: "In some cases, professional process servers or law enforcement may serve documents, providing additional authentication.",
+            },
+          ],
+        },
+        {
+          id: "common-forms",
+          heading: "Common Forms by Jurisdiction",
+          body: [
+            {
+              type: "p",
+              text: "Different jurisdictions use specific forms:",
+            },
+            {
+              type: "ul",
+              items: [
+                "California: Form FL-335 (Proof of Service by Mail) or FL-330 (Proof of Personal Service)",
+                "New York: Affidavit of Service",
+                "Texas: Certificate of Service or Return of Service",
+                "Federal Courts: Certificate of Service under FRCP Rule 5",
+              ],
+            },
+          ],
+        },
+        {
+          id: "service-methods",
+          heading: "Methods of Service Requiring Proof",
+          body: [
+            {
+              type: "p",
+              text: "Each service method has different proof requirements:",
+            },
+            {
+              type: "ul",
+              items: [
+                "Personal Service: Declaration must state documents were hand-delivered to the party",
+                "Service by Mail: Must include date of mailing and address used",
+                "Electronic Service: Must show method (email, court e-filing system) and confirmation",
+                "Substituted Service: Must document attempts at personal service and alternative method used",
+              ],
+            },
+          ],
+        },
+        {
+          id: "state-variations",
+          heading: "State-Specific Variations",
+          body: [
+            {
+              type: "p",
+              text: "California: Requires proof of service for all documents filed after the initial petition. Electronic service through court systems generates automatic proof of service records.",
+            },
+            {
+              type: "p",
+              text: "New York: Requires notarized affidavits of service for certain documents. Personal service affidavits must be filed within prescribed time limits.",
+            },
+            {
+              type: "p",
+              text: "Texas: Allows informal service acknowledgments in some family law cases but requires formal certificates for contested matters.",
+            },
+            {
+              type: "p",
+              text: "Florida: Mandates specific formatting for proof of service including certificate of service language on filed documents.",
+            },
+            {
+              type: "callout",
+              kind: "tip",
+              text: "Always verify your jurisdiction's specific requirements for proof of service, as improper proof can invalidate service and delay proceedings.",
+            },
+          ],
+        },
+      ],
+      sources: {
+        heading: "Sources",
+        items: [
+          { name: "Federal Rules of Civil Procedure" },
+          { name: "State Bar Association Resources" },
+        ],
+      },
+      governance: {
+        lastUpdated: "2026-02-15",
+        sources: [
+          { name: "Federal Rules of Civil Procedure" },
+          { name: "State Bar Association Resources" },
+        ],
+        jurisdictionScope: ["US-general"],
+        reviewIntervalDays: 90,
+        accuracyNotes: "Proof of service requirements vary by state. Verify local court rules.",
+      },
+    },
     relatedLinks: [
       { title: "Service of Process Requirements by State", href: "/resources/service-requirements" },
       { title: "California Form FL-335 Instructions", href: "/resources/california-proof-service" },
@@ -3114,6 +3205,7 @@ Always verify your jurisdiction's specific requirements for proof of service, as
     slug: "exhibit-labeling",
     question: "How do I label exhibits for court?",
     status: "published",
+    contentVersion: 1, // Legacy v1 content
     seoTitle: "How to Label Exhibits for Court | ThreadLock",
     metaDescription: "Label exhibits sequentially using letters (Plaintiff) or numbers (Defendant). Include exhibit stickers on each document and reference them in your filings.",
     shortAnswer: "Label exhibits sequentially using letters (A, B, C) for plaintiff's exhibits or numbers (1, 2, 3) for defendant's exhibits. Attach exhibit stickers or tabs to each document and create an exhibit list that describes each item.",
@@ -3209,6 +3301,7 @@ Check your local court's rules or website for jurisdiction-specific requirements
     slug: "official-forms-location",
     question: "Where do I find official court forms?",
     status: "published",
+    contentVersion: 1, // Legacy v1 content
     seoTitle: "Where to Find Official Court Forms | ThreadLock",
     metaDescription: "Official court forms are available on your state or county court website, at the courthouse clerk's office, or through legal aid organizations.",
     shortAnswer: "Official court forms are available on your state or county court website, usually under a 'Forms' or 'Self-Help' section. You can also obtain forms at the courthouse clerk's office or through legal aid organizations that serve your area.",
@@ -3330,6 +3423,7 @@ If you cannot locate needed forms online, contact your courthouse clerk's office
     slug: "text-authentication",
     question: "Can I authenticate text messages myself?",
     status: "published",
+    contentVersion: 1, // Legacy v1 content
     seoTitle: "Can I Authenticate Text Messages Myself? | ThreadLock",
     metaDescription: "Yes, you can self-authenticate text messages by submitting a declaration under penalty of perjury explaining the source, context, and chain of custody.",
     shortAnswer: "Yes, you can self-authenticate text messages by submitting a declaration under penalty of perjury that explains how you obtained the messages, their source, and the context. Include screenshots or exports with visible phone numbers and timestamps as exhibits.",
@@ -3453,6 +3547,7 @@ While self-authentication is generally permitted, having the opposing party stip
     slug: "hearing-checklist",
     question: "What should I bring to a hearing?",
     status: "published",
+    contentVersion: 1, // Legacy v1 content
     seoTitle: "What to Bring to a Court Hearing | ThreadLock",
     metaDescription: "Bring original filed documents, exhibits with tabs, witness lists, notepad, calendar, calculator, and copies for the judge and opposing party.",
     shortAnswer: "Bring original filed documents, marked exhibits with tabs, your witness list, a notepad and pen, a calendar, and a calculator. Also bring copies of all documents for the judge, opposing party, and yourself. Arrive early and dress professionally.",
@@ -3607,6 +3702,7 @@ Call the court clerk's office or check the local rules if you're uncertain about
     slug: "service-deadlines",
     question: "How long do I have to serve documents?",
     status: "published",
+    contentVersion: 1, // Legacy v1 content
     seoTitle: "How Long Do I Have to Serve Documents? | ThreadLock",
     metaDescription: "Service deadlines vary by document type and jurisdiction. Initial petitions typically require 120 days, while motion responses often need 9-16 days notice.",
     shortAnswer: "Service deadlines vary by document type and jurisdiction. Initial petitions typically must be served within 120 days of filing. Motion responses usually require 9-16 days' notice before the hearing, while discovery responses are generally due within 30 days.",
@@ -3759,6 +3855,7 @@ When in doubt, serve earlier than required to avoid disputes and ensure adequate
     slug: "custody-types",
     question: "What's the difference between legal and physical custody?",
     status: "published",
+    contentVersion: 1, // Legacy v1 content
     seoTitle: "Legal vs Physical Custody Explained | ThreadLock",
     metaDescription: "Legal custody is decision-making authority for a child's welfare. Physical custody is where the child lives. Both can be sole or joint arrangements.",
     shortAnswer: "Legal custody refers to the right to make major decisions about a child's welfare (education, healthcare, religion). Physical custody refers to where the child lives and who provides day-to-day care. Both types can be sole or joint.",
@@ -3910,6 +4007,7 @@ Understanding these distinctions helps parents negotiate appropriate arrangement
     slug: "mediation-lawyer",
     question: "Do I need a lawyer for mediation?",
     status: "published",
+    contentVersion: 1, // Legacy v1 content
     seoTitle: "Do I Need a Lawyer for Mediation? | ThreadLock",
     metaDescription: "You're not required to have a lawyer for mediation, but consulting one beforehand helps you understand your rights and evaluate proposed agreements.",
     shortAnswer: "You're not required to have a lawyer for mediation, but consulting one beforehand helps you understand your rights and evaluate proposed agreements. Some people bring attorneys to mediation sessions, while others consult with counsel between sessions.",
@@ -4099,6 +4197,7 @@ At minimum, consult with an attorney before finalizing any mediated agreement to
     slug: "child-support-calculation",
     question: "How do I calculate child support?",
     status: "published",
+    contentVersion: 1, // Legacy v1 content
     seoTitle: "How to Calculate Child Support | ThreadLock",
     metaDescription: "Child support calculations use state-specific guidelines based on both parents' income, time-sharing percentage, and children's needs like healthcare and daycare.",
     shortAnswer: "Child support calculations use state-specific guidelines based on both parents' gross income, the percentage of time each parent has the children, and additional expenses like healthcare and childcare. Most states provide worksheets or online calculators.",
@@ -4284,6 +4383,7 @@ Child support calculations can be complex, especially with self-employment incom
     slug: "modify-parenting-plan",
     question: "Can I modify a parenting plan later?",
     status: "published",
+    contentVersion: 1, // Legacy v1 content
     seoTitle: "Can I Modify a Parenting Plan? | ThreadLock",
     metaDescription: "Yes, you can modify parenting plans by showing a substantial change in circumstances and that modification serves the child's best interests.",
     shortAnswer: "Yes, you can modify parenting plans by showing a substantial change in circumstances and that modification serves the child's best interests. Many states require waiting 1-2 years after the initial order unless there's immediate danger to the child.",
@@ -4508,6 +4608,7 @@ Modification proceedings can be stressful for children. Pursue modification when
     slug: "fee-waiver",
     question: "What if I can't afford court fees?",
     status: "published",
+    contentVersion: 1, // Legacy v1 content
     seoTitle: "Can't Afford Court Fees? Fee Waiver Guide | ThreadLock",
     metaDescription: "Request a fee waiver by filing an application showing your income qualifies under poverty guidelines. Courts waive fees for eligible low-income litigants.",
     shortAnswer: "Request a fee waiver by filing an application showing your income qualifies under federal poverty guidelines or you receive public assistance. If approved, the court waives filing fees, service fees, and sometimes other costs for eligible low-income litigants.",
@@ -4705,6 +4806,7 @@ If your application is denied and you genuinely cannot afford the fees, consult 
     slug: "respond-to-motion",
     question: "How do I respond to a motion?",
     status: "published",
+    contentVersion: 1, // Legacy v1 content
     seoTitle: "How to Respond to a Motion | ThreadLock",
     metaDescription: "Respond to a motion by filing an opposition or response within the deadline (typically 9-21 days), supported by declarations and evidence.",
     shortAnswer: "Respond to a motion by filing a written opposition or response within the deadline (typically 9-21 days before the hearing). Include a declaration under penalty of perjury addressing the motion's claims and supporting evidence. Serve your response on the opposing party and file proof of service.",
