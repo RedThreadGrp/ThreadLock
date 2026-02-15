@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T23:34:21.854Z
+**Generated:** 2026-02-15T23:43:32.203Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -14,12 +14,12 @@
   - special: 1
   - topic: 6
 - **Content Coverage:**
-  - With body content: 23 (60.5%)
-  - With meta description: 34 (89.5%)
-  - With last updated date: 16 (42.1%)
-  - With FAQs: 14
+  - With body content: 22 (57.9%)
+  - With meta description: 33 (86.8%)
+  - With last updated date: 15 (39.5%)
+  - With FAQs: 13
   - With sources/links: 1
-  - With issues/notes: 23
+  - With issues/notes: 24
 
 ## Quick Reference
 
@@ -30,7 +30,7 @@
 | /resources/courtroom-prep | resource |  | 0 | pass | ⚠️ 2 |
 | /resources/evidence-intake | resource | Evidence Intake: Photos, Texts, Email... | 0 | pass | ⚠️ 2 |
 | /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Organiza... | 0 | fail | ⚠️ 2 |
-| /resources/filing-basics | resource | Exhibits Guide: Labeling and Organiza... | 1567 | pass | ✅ |
+| /resources/filing-basics | resource | Federal Rules of Civil Procedure | 0 | pass | ⚠️ 2 |
 | /resources/financial-snapshot | resource |  | 0 | pass | ⚠️ 2 |
 | /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 286 | pass | ⚠️ 1 |
 | /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Calculat... | 481 | pass | ⚠️ 1 |
@@ -196,26 +196,25 @@
 ### /resources/filing-basics
 
 - **Type:** resource
-- **Title:** Exhibits Guide: Labeling and Organization
+- **Title:** Federal Rules of Civil Procedure
 - **Canonical URL:** https://threadlock.ai/resources/filing-basics
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
-- **Meta Description:** File at Clerk of Court (in person or online). Get file-stamped copies. Follow deadlines. Serve opposing party same day. Filing guide.
-- **Last Updated:** 2026-02-13
+- **Meta Description:** ❌ missing
+- **Last Updated:** ❌ missing
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 1567
-- body: 1553
-- excerpt: 14
-
-**Content Structure:**
-- Headings: H1(1), H2(9), H3(16)
-- Paragraphs: 79
-- Lists: 16
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
-- FAQ: ✅ Yes (3 items)
+- FAQ: ❌ No
 - Sources/Links: ❌ No
+
+**⚠️ Issues/Notes:**
+- V2 content from separate file (spread operator in registry)
+- No content (0 words)
 
 ---
 

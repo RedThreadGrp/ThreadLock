@@ -28,6 +28,7 @@ import { evidenceIntake } from "./resources/evidence-intake";
 import { proofOfServicePack } from "./resources/proof-of-service-pack";
 import { courtroomPrep } from "./resources/courtroom-prep";
 import { timelineTools } from "./resources/timeline-tools";
+import { filingBasics } from "./resources/filing-basics";
 
 // ============================================================================
 // Type Definitions
@@ -550,8 +551,10 @@ This guide is based on common courtroom practices in U.S. state trial courts, pa
     status: "published",
     seoTitle: "File Court Documents | Deadlines & E-Filing | ThreadLock",
     metaDescription: "File at Clerk of Court (in person or online). Get file-stamped copies. Follow deadlines. Serve opposing party same day. Filing guide.",
-    dateModified: "2026-02-13",
-    body: `# Filing Basics: Getting Started
+    dateModified: "2026-02-15",
+    contentVersion: 2,
+    blocks: filingBasics.blocks,
+    legacyBody: `# Filing Basics: Getting Started
 
 Filing documents with the court means submitting them to the Clerk of Court so they become part of the official case record. Do it wrong, and your motion might be rejected or your deadline missed.
 
@@ -805,16 +808,7 @@ This guide is based on common filing procedures in U.S. state trial courts. It r
       { question: "How do I prove I served the other party?", href: "/resources/proof-of-service" },
       { question: "Can I file documents after business hours?", href: "/resources/official-portals" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Civil Procedure" },
-        { name: "Local Court Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Filing procedures and deadlines vary by jurisdiction. Verify with your court."
-    }
+    governance: filingBasics.governance
   },
   {
     slug: "timeline-tools",

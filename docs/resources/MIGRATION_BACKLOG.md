@@ -5,8 +5,8 @@ Generated: 2026-02-15
 ## Summary
 
 - Total items: 36
-- Todo: 2
-- Migrated: 26
+- Todo: 1
+- Migrated: 27
 - Manual review needed: 0
 - Blocked (slug mismatch): 0
 - Blocked (no content): 2
@@ -14,9 +14,9 @@ Generated: 2026-02-15
 
 ## Complexity Distribution
 
-- Simple: 26
+- Simple: 27
 - Medium: 0
-- Hard: 2
+- Hard: 1
 - Minimal: 2
 - Content creation: 6
 
@@ -37,7 +37,6 @@ Generated: 2026-02-15
 | Route | Type | Version | Words | Complexity | Status | Notes |
 |-------|------|---------|-------|------------|--------|-------|
 | /resources/authentication | resource | v1 | 2250 | hard | todo | Slug/title mismatch: "authentication" vs "Exhibits Guide: Labeling and Organization"; Missing sources |
-| /resources/filing-basics | resource | v1 | 1553 | hard | todo | Slug/title mismatch: "filing-basics" vs "Exhibits Guide: Labeling and Organization"; Missing sources |
 | /resources/timeline-tools | resource | v2 | 1454 | simple | migrated | Slug/title mismatch: "timeline-tools" vs "Official Court Portals by State"; Missing sources |
 | /resources/q/respond-to-motion | question | v2 | 1215 | simple | migrated | Slug/title mismatch: "respond-to-motion" vs "What are typical court filing fees?"; Missing sources |
 | /resources/q/modify-parenting-plan | question | v2 | 1093 | simple | migrated | Missing sources |
@@ -56,6 +55,7 @@ Generated: 2026-02-15
 | /resources/courtroom-prep | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
 | /resources/evidence-intake | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
 | /resources/exhibits-guide | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
+| /resources/filing-basics | resource | v2 | 0 | simple | migrated | Slug/title mismatch: "filing-basics" vs "Federal Rules of Civil Procedure"; Missing sources; Missing lastUpdated; Empty content |
 | /resources/financial-snapshot | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
 | /resources/hearing-tomorrow | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
 | /resources/kits/evidence | kit | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
