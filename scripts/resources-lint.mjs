@@ -146,18 +146,76 @@ function validateResourcesRegistry() {
     const registryPath = join(rootDir, 'src/content/resourcesRegistry.ts');
     const registryContent = readFileSync(registryPath, 'utf-8');
     
-    // Extract published items and check for governance metadata
-    // This is a regex-based approach since we can't easily import TS
-    
     let checkedItems = 0;
     
-    // Pattern to find published items with their slugs
-    const publishedItemRegex = /{\s*slug:\s*["']([^"']+)["'][^}]*status:\s*["']published["'][^}]*}/gs;
-    const matches = registryContent.matchAll(publishedItemRegex);
+    // Split by objects - look for patterns that indicate object boundaries
+    // Find all {slug: "...", ... status: "published" ... } blocks
+    const slugPattern = /slug:\s*["']([^"']+)["']/g;
+    let match;
     
-    for (const match of matches) {
-      const itemBlock = match[0];
+    while ((match = slugPattern.exec(registryContent)) !== null) {
       const slug = match[1];
+      const startPos = match.index;
+      
+      // Look backward to find the opening brace
+      let openBracePos = startPos;
+      while (openBracePos > 0 && registryContent[openBracePos] !== '{') {
+        openBracePos--;
+      }
+      
+      // Now find the matching closing brace for this object FIRST
+      // We'll count braces, skipping those inside template literals
+      let pos = openBracePos + 1;
+      let braceCount = 1;
+      let inTemplate = false;
+      let inString = false;
+      let stringChar = null;
+      let closeBracePos = openBracePos;
+      
+      while (pos < registryContent.length && braceCount > 0) {
+        const char = registryContent[pos];
+        const prevChar = pos > 0 ? registryContent[pos - 1] : '';
+        
+        // Toggle template literal state
+        if (char === '`' && prevChar !== '\\') {
+          inTemplate = !inTemplate;
+        }
+        // Toggle string state
+        else if ((char === '"' || char === "'") && prevChar !== '\\' && !inTemplate) {
+          if (inString && char === stringChar) {
+            inString = false;
+            stringChar = null;
+          } else if (!inString) {
+            inString = true;
+            stringChar = char;
+          }
+        }
+        // Count braces only when outside strings and templates
+        else if (!inString && !inTemplate) {
+          if (char === '{') braceCount++;
+          else if (char === '}') braceCount--;
+          
+          if (braceCount === 0) {
+            closeBracePos = pos;
+            break;
+          }
+        }
+        
+        pos++;
+      }
+      
+      if (braceCount !== 0) {
+        // Couldn't find matching brace, skip
+        continue;
+      }
+      
+      const itemBlock = registryContent.substring(openBracePos, closeBracePos + 1);
+      
+      // NOW check if this object has status: "published"
+      if (!itemBlock.includes('status: "published"')) {
+        continue;
+      }
+      
       checkedItems++;
       
       // Check if this item has governance metadata
@@ -166,26 +224,17 @@ function validateResourcesRegistry() {
         continue;
       }
       
-      // Extract governance block (simplified check)
-      const govMatch = itemBlock.match(/governance:\s*{([^}]+)}/s);
-      if (!govMatch) {
-        error(`Resource/Question "${slug}": Governance metadata appears malformed`);
-        continue;
-      }
-      
-      const govBlock = govMatch[1];
-      
-      // Check for required fields in governance block
-      if (!govBlock.includes('lastUpdated:')) {
+      // Check for required fields
+      if (!itemBlock.includes('lastUpdated:')) {
         error(`Resource/Question "${slug}": governance.lastUpdated is missing`);
       }
-      if (!govBlock.includes('sources:')) {
+      if (!itemBlock.includes('sources:')) {
         error(`Resource/Question "${slug}": governance.sources is missing`);
       }
-      if (!govBlock.includes('jurisdictionScope:')) {
+      if (!itemBlock.includes('jurisdictionScope:')) {
         error(`Resource/Question "${slug}": governance.jurisdictionScope is missing`);
       }
-      if (!govBlock.includes('reviewIntervalDays:')) {
+      if (!itemBlock.includes('reviewIntervalDays:')) {
         error(`Resource/Question "${slug}": governance.reviewIntervalDays is missing`);
       }
       
@@ -195,7 +244,7 @@ function validateResourcesRegistry() {
                            itemBlock.toLowerCase().includes('state-by-state') ||
                            itemBlock.toLowerCase().includes('varies by state');
       
-      if (isStateByState && !govBlock.includes('accuracyNotes:')) {
+      if (isStateByState && !itemBlock.includes('accuracyNotes:')) {
         warn(`Resource/Question "${slug}": State-by-state content should include governance.accuracyNotes`);
       }
     }
@@ -235,14 +284,49 @@ function validateResourceQAFiles() {
         continue;
       }
       
-      // Check for sources in governance
-      const govMatch = content.match(/governance:\s*{([^}]+(?:{[^}]+}[^}]*)*?)}/s);
-      if (!govMatch) {
+      // Find governance block using brace counting
+      const govStartMatch = content.match(/governance:\s*{/);
+      if (!govStartMatch) {
         error(`ResourceQA "${slug}" (${file}): Governance metadata appears malformed`);
         continue;
       }
       
-      const govBlock = govMatch[1];
+      const govStart = govStartMatch.index + govStartMatch[0].length - 1; // Position of opening brace
+      let pos = govStart + 1;
+      let braceCount = 1;
+      let inString = false;
+      let stringChar = null;
+      let govEnd = govStart;
+      
+      while (pos < content.length && braceCount > 0) {
+        const char = content[pos];
+        const prevChar = pos > 0 ? content[pos - 1] : '';
+        
+        // Toggle string state
+        if ((char === '"' || char === "'") && prevChar !== '\\') {
+          if (inString && char === stringChar) {
+            inString = false;
+            stringChar = null;
+          } else if (!inString) {
+            inString = true;
+            stringChar = char;
+          }
+        }
+        // Count braces only when outside strings
+        else if (!inString) {
+          if (char === '{') braceCount++;
+          else if (char === '}') braceCount--;
+          
+          if (braceCount === 0) {
+            govEnd = pos;
+            break;
+          }
+        }
+        
+        pos++;
+      }
+      
+      const govBlock = content.substring(govStart, govEnd + 1);
       
       // Check required fields
       if (!govBlock.includes('lastUpdated:')) {

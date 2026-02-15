@@ -241,6 +241,16 @@ This is not legal advice. This is basic courtroom hygiene for self-represented l
       { title: "Evidence Intake Guide", href: "/resources/evidence-intake" },
       { title: "Official Court Portals", href: "/resources/official-portals" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Court Self-Help Portals" },
+        { name: "Federal Rules of Civil Procedure" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Courtroom procedures vary by court. Check local rules."
+    }
   },
   {
     slug: "proof-of-service",
@@ -307,6 +317,16 @@ Check your local court rules for specific timing and format requirements.`,
       { title: "Official Court Portals", href: "/resources/official-portals" },
       { title: "Proof of Service State-by-State Guide", href: "/resources/guides/proof-of-service-states" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
+        { name: "State Bar Association Resources" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Proof of service requirements vary by jurisdiction. Always verify with your local court."
+    }
   },
   {
     slug: "evidence-intake",
@@ -421,6 +441,16 @@ Remember: You're building a case, not a scrapbook. Every piece must be findable,
       { title: "Evidence Authentication 101", href: "/resources/guides/evidence-authentication" },
       { title: "Hearing Tomorrow Checklist", href: "/resources/hearing-tomorrow" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Evidence" },
+        { name: "Court Self-Help Portals" }
+      ],
+      jurisdictionScope: ["Federal"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Evidence authentication requirements may vary by state. Consult local rules of evidence."
+    }
   },
   {
     slug: "parenting-plans",
@@ -555,6 +585,16 @@ A good parenting plan is boring, predictable, and specific. Save the drama for s
       { title: "Understanding Parenting Time Calculations", href: "/resources/guides/parenting-time-calculations" },
       { title: "Official Court Portals", href: "/resources/official-portals" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "State Bar Association Resources" },
+        { name: "Court Self-Help Portals" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Parenting plan requirements and terminology vary by state. Consult local family law rules."
+    }
   },
   {
     slug: "financial-snapshot",
@@ -713,6 +753,16 @@ This worksheet isn't legal or financial advice—it's an organizational tool to 
       { title: "Child Support Calculation FAQ", href: "/resources/q/child-support-calculation" },
       { title: "Fee Waiver Information", href: "/resources/q/fee-waiver" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Court Administration Office" },
+        { name: "Legal Aid Organizations" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Income and expense categories may vary by jurisdiction. Financial disclosure requirements differ by state."
+    }
   },
   {
     slug: "official-portals",
@@ -848,6 +898,16 @@ Save money by getting forms from official sources. Spend money on actual legal h
       { title: "Where to Find Official Court Forms FAQ", href: "/resources/q/official-forms-location" },
       { title: "Proof of Service Pack", href: "/resources/proof-of-service" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
+        { name: "State Bar Association Resources" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Court websites and form availability vary by state. Always verify current forms with your local court."
+    }
   },
 
   // Draft resources (new placeholders for starter kit references)
@@ -995,6 +1055,16 @@ This guide was developed by reviewing court rules, evidence presentation standar
       { question: "What if I forgot to label exhibits before filing?", href: "/resources/filing-basics" },
       { question: "Can I add exhibits after the hearing starts?", href: "/resources/courtroom-prep" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Evidence" },
+        { name: "Court Self-Help Portals" }
+      ],
+      jurisdictionScope: ["Federal"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Exhibit requirements and formatting rules vary by jurisdiction. Check local court rules."
+    }
   },
   {
     slug: "courtroom-prep",
@@ -1216,6 +1286,16 @@ This guide is based on common courtroom practices in U.S. state trial courts, pa
       { question: "Can I object to the other party's evidence?", href: "/resources/evidence-intake" },
       { question: "What happens if I miss my court date?", href: "/resources/filing-basics" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Court Self-Help Portals" },
+        { name: "Federal Rules of Civil Procedure" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Courtroom procedures and etiquette vary by court. Check local rules."
+    }
   },
   {
     slug: "filing-basics",
@@ -1483,6 +1563,16 @@ This guide is based on common filing procedures in U.S. state trial courts. It r
       { question: "How do I prove I served the other party?", href: "/resources/proof-of-service" },
       { question: "Can I file documents after business hours?", href: "/resources/official-portals" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Civil Procedure" },
+        { name: "Local Court Rules" }
+      ],
+      jurisdictionScope: ["Federal"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Filing procedures and deadlines vary by jurisdiction. Verify with your court."
+    }
   },
   {
     slug: "timeline-tools",
@@ -1724,6 +1814,16 @@ This guide is based on common practices for organizing and presenting timelines 
       { question: "Can I use a timeline instead of testimony?", href: "/resources/courtroom-prep" },
       { question: "How far back should my timeline go?", href: "/resources/hearing-tomorrow" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Legal Aid Organizations" },
+        { name: "Court Self-Help Portals" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Timeline requirements vary by court. Check local rules on demonstrative aids."
+    }
   },
   {
     slug: "authentication",
@@ -2036,6 +2136,16 @@ This guide is based on common authentication principles found in U.S. state Rule
       { question: "Can I use screenshots from social media?", href: "/resources/guides/evidence-authentication" },
       { question: "Do I need an expert witness to authenticate emails?", href: "/resources/courtroom-prep" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Evidence" },
+        { name: "State Discovery Rules" }
+      ],
+      jurisdictionScope: ["Federal"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Authentication requirements and hearsay exceptions vary by state. Consult local rules of evidence."
+    }
   },
 ];
 
@@ -2058,6 +2168,16 @@ export const STARTER_KITS: StarterKit[] = [
     estimatedTime: "15 minutes",
     resources: ["/resources/hearing-tomorrow", "/resources/exhibits-guide", "/resources/courtroom-prep"],
     status: "published",
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Court Self-Help Portals" },
+        { name: "Legal Aid Organizations" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Courtroom procedures vary by court. This kit provides general guidance."
+    },
     body: `# Hearing Soon Kit
 
 When a hearing is approaching fast, you need immediate, actionable guidance.
@@ -2107,6 +2227,16 @@ Start with the Hearing Tomorrow Checklist, then review the other resources as ne
     estimatedTime: "20 minutes",
     resources: ["/resources/proof-of-service", "/resources/official-portals", "/resources/filing-basics"],
     status: "published",
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
+        { name: "Federal Rules of Civil Procedure" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Filing requirements vary by jurisdiction. Always verify with your local court."
+    },
     body: `# First Filing Kit
 
 Filing your first court documents can feel overwhelming. This kit gets you started on the right foot.
@@ -2154,6 +2284,16 @@ Start with the Official Forms Directory to find your state's resources, then rev
     estimatedTime: "25 minutes",
     resources: ["/resources/evidence-intake", "/resources/timeline-tools", "/resources/authentication"],
     status: "published",
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Evidence" },
+        { name: "Legal Aid Organizations" }
+      ],
+      jurisdictionScope: ["Federal"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Evidence rules and authentication requirements vary by state. Consult local rules."
+    },
     body: `# Evidence Kit
 
 Raw evidence is worthless if you can't find it, authenticate it, or present it clearly. This kit helps you build a usable evidence system.
@@ -2201,6 +2341,16 @@ export const FEATURED_GUIDES: FeaturedGuide[] = [
     tags: ["Court Prep", "Basics", "Complete Guide"],
     updated: "Jan 2026",
     status: "published",
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Civil Procedure" },
+        { name: "Court Self-Help Portals" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 365,
+      accuracyNotes: "Self-representation rules and court procedures vary by state and court."
+    },
     body: `# The Complete Guide to Self-Representation in Family Court
 
 Self-representation in family court requires organization, preparation, and understanding of court procedures. This guide provides practical guidance for navigating the process.
@@ -2243,6 +2393,16 @@ This is not legal advice. Family law varies significantly by jurisdiction. Verif
     summary: "How to make your photos, texts, and emails admissible without hiring an expert.",
     tags: ["Evidence", "Authentication"],
     status: "published",
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Evidence" },
+        { name: "Court Self-Help Portals" }
+      ],
+      jurisdictionScope: ["Federal"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Authentication standards may vary by state. Consult local rules of evidence."
+    },
     body: `# Evidence Authentication 101
 
 Authentication is the process of proving that evidence is what you claim it to be. Courts require proper authentication before admitting evidence.
@@ -2319,6 +2479,16 @@ This is general information about evidence authentication. Rules vary by jurisdi
     summary: "Requirements and templates for every U.S. state and territory.",
     tags: ["Templates", "Proof of Service"],
     status: "published",
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Civil Procedure" },
+        { name: "State Bar Association Resources" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Service requirements vary significantly by state. Always verify with local court."
+    },
     body: `# Proof of Service State-by-State
 
 Proof of service requirements vary by state. This guide provides general information about serving documents in family court proceedings across different jurisdictions.
@@ -2397,6 +2567,16 @@ Service requirements vary significantly by jurisdiction. This is general informa
     summary: "Calculate overnights, holidays, and summer schedules accurately.",
     tags: ["Parenting Plans", "Calculations"],
     status: "published",
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "State Bar Association Resources" },
+        { name: "Child Support Guidelines" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Parenting time calculation methods and custody thresholds vary by state."
+    },
     body: `# Understanding Parenting Time Calculations
 
 Parenting time calculations determine the percentage of time each parent has with the children. These calculations can affect child support, decision-making authority, and custody labels.
@@ -2607,6 +2787,16 @@ Always verify your jurisdiction's specific requirements for proof of service, as
       { question: "Can I serve documents myself?", href: "/resources/q/self-service" },
       { question: "What happens if service is improper?", href: "/resources/q/improper-service" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Civil Procedure" },
+        { name: "State Bar Association Resources" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Proof of service requirements vary by state. Verify local court rules."
+    }
   },
   {
     slug: "exhibit-labeling",
@@ -2692,6 +2882,16 @@ Check your local court's rules or website for jurisdiction-specific requirements
       { question: "What should I bring to a hearing?", href: "/resources/q/hearing-checklist" },
       { question: "How do I organize evidence chronologically?", href: "/resources/q/evidence-organization" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Evidence" },
+        { name: "Local Court Rules" }
+      ],
+      jurisdictionScope: ["Federal"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Exhibit labeling conventions vary by court. Check local rules."
+    }
   },
   {
     slug: "official-forms-location",
@@ -2803,6 +3003,16 @@ If you cannot locate needed forms online, contact your courthouse clerk's office
       { question: "Do I need a lawyer to file forms?", href: "/resources/q/self-representation" },
       { question: "Can I modify forms after filing?", href: "/resources/q/amending-forms" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
+        { name: "State Bar Association Resources" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Form locations and requirements vary by jurisdiction. Verify with your local court."
+    }
   },
   {
     slug: "text-authentication",
@@ -2916,6 +3126,16 @@ While self-authentication is generally permitted, having the opposing party stip
       { question: "Can I use email as evidence?", href: "/resources/q/email-evidence" },
       { question: "How do I authenticate photos?", href: "/resources/q/photo-authentication" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Evidence" },
+        { name: "State Discovery Rules" }
+      ],
+      jurisdictionScope: ["Federal"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Text message authentication standards vary by state. Consult local evidence rules."
+    }
   },
   {
     slug: "hearing-checklist",
@@ -3060,6 +3280,16 @@ Call the court clerk's office or check the local rules if you're uncertain about
       { question: "Can I bring someone with me to court?", href: "/resources/q/courtroom-support" },
       { question: "How do I respond to a motion?", href: "/resources/q/respond-to-motion" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Court Self-Help Portals" },
+        { name: "Local Court Rules" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Hearing requirements vary by court type and jurisdiction. Verify local procedures."
+    }
   },
   {
     slug: "service-deadlines",
@@ -3202,6 +3432,16 @@ When in doubt, serve earlier than required to avoid disputes and ensure adequate
       { question: "How do I calculate court days?", href: "/resources/q/court-days" },
       { question: "Can I get an extension on a deadline?", href: "/resources/q/deadline-extension" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Civil Procedure" },
+        { name: "Local Court Rules" }
+      ],
+      jurisdictionScope: ["Federal"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Service deadlines vary significantly by jurisdiction and document type. Verify local rules."
+    }
   },
   {
     slug: "custody-types",
@@ -3343,6 +3583,16 @@ Understanding these distinctions helps parents negotiate appropriate arrangement
       { question: "How do courts decide custody?", href: "/resources/q/custody-determination" },
       { question: "What is a parenting plan?", href: "/resources/q/parenting-plan-definition" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "State Bar Association Resources" },
+        { name: "Family Law Statutes" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 365,
+      accuracyNotes: "Custody terminology and standards vary significantly by state."
+    }
   },
   {
     slug: "mediation-lawyer",
@@ -3522,6 +3772,16 @@ At minimum, consult with an attorney before finalizing any mediated agreement to
       { question: "What happens if mediation doesn't work?", href: "/resources/q/mediation-failure" },
       { question: "Is mediation required before trial?", href: "/resources/q/mandatory-mediation" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "State Bar Association Resources" },
+        { name: "Family Mediation Standards" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Mediation requirements and attorney representation rules vary by state."
+    }
   },
   {
     slug: "child-support-calculation",
@@ -3697,6 +3957,16 @@ Child support calculations can be complex, especially with self-employment incom
       { question: "What if my ex won't pay child support?", href: "/resources/q/support-enforcement" },
       { question: "How is income calculated for self-employed parents?", href: "/resources/q/self-employment-income" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "State Child Support Guidelines" },
+        { name: "Child Support Enforcement Agency" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Child support calculation methods vary significantly by state. Use your state's official calculator."
+    }
   },
   {
     slug: "modify-parenting-plan",
@@ -3911,6 +4181,16 @@ Modification proceedings can be stressful for children. Pursue modification when
       { question: "Can I relocate with my child?", href: "/resources/q/relocation" },
       { question: "How does a custody evaluation work?", href: "/resources/q/custody-evaluation" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Family Law Statutes" },
+        { name: "State Bar Association Resources" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Modification standards and waiting periods vary by state. Consult local family law."
+    }
   },
   {
     slug: "fee-waiver",
@@ -4098,6 +4378,16 @@ If your application is denied and you genuinely cannot afford the fees, consult 
       { question: "Can I get a free lawyer?", href: "/resources/q/free-legal-help" },
       { question: "What happens if I can't pay court-ordered costs?", href: "/resources/q/court-costs" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Court Administration Office" },
+        { name: "Legal Aid Organizations" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Fee waiver eligibility and procedures vary by jurisdiction. Check local court rules."
+    }
   },
   {
     slug: "respond-to-motion",
@@ -4345,5 +4635,15 @@ If you're uncertain how to respond or the motion requests significant changes, c
       { question: "Do I need to attend the hearing?", href: "/resources/q/hearing-attendance" },
       { question: "Can I file a counter-motion?", href: "/resources/q/counter-motion" },
     ],
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Civil Procedure" },
+        { name: "Local Court Rules" }
+      ],
+      jurisdictionScope: ["Federal"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "Motion response deadlines and procedures vary by jurisdiction. Check local rules."
+    }
   },
 ];
