@@ -1,5 +1,5 @@
-// Prebuild validation script - ensures required Firebase environment variables are present
-// This prevents deployment failures by failing fast with clear error messages
+// Prebuild validation script - checks Firebase environment variables
+// Updated to make Firebase optional - warns if missing but doesn't fail build
 
 const required = [
   "NEXT_PUBLIC_FIREBASE_API_KEY",
@@ -15,15 +15,16 @@ const missing = required.filter(
 );
 
 if (missing.length) {
-  console.error(
-    "\n❌ [env] Missing required NEXT_PUBLIC_* Firebase environment variables:\n"
+  console.warn(
+    "\n⚠️  [env] Missing NEXT_PUBLIC_* Firebase environment variables:\n"
   );
-  missing.forEach((key) => console.error(`   - ${key}`));
-  console.error(
-    "\nPlease set these variables in your .env.local file or deployment environment.\n"
+  missing.forEach((key) => console.warn(`   - ${key}`));
+  console.warn(
+    "\nFirebase features (lead capture) will be disabled. To enable, set these variables in your .env.local file or deployment environment.\n"
   );
-  process.exit(1);
+  // Don't exit - allow build to continue
+} else {
+  console.log("✅ [env] All required NEXT_PUBLIC_* Firebase variables are present:");
+  required.forEach((key) => console.log(`   ✓ ${key}`));
 }
 
-console.log("✅ [env] All required NEXT_PUBLIC_* Firebase variables are present:");
-required.forEach((key) => console.log(`   ✓ ${key}`));

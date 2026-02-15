@@ -565,15 +565,21 @@ export default function ResourcesPage() {
               <Link
                 key={q.href}
                 href={q.href}
-                className="group relative rounded-2xl border border-border-dark bg-surface-dark-panel p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30 flex items-start gap-3"
+                className="group relative rounded-2xl border border-border-dark bg-surface-dark-panel p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
               >
                 {/* Orange glow overlay on hover */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
                 
-                <span className="text-brand-orange text-xl shrink-0 mt-0.5">?</span>
-                <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors relative z-10">
-                  {q.question}
-                </span>
+                <div className="relative z-10">
+                  <InlineIconLabel
+                    icon={<span className="text-brand-orange text-base font-bold">?</span>}
+                    className="gap-3"
+                  >
+                    <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      {q.question}
+                    </span>
+                  </InlineIconLabel>
+                </div>
               </Link>
             ))}
           </div>

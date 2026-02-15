@@ -51,6 +51,11 @@ const nextConfig = {
     return config;
   },
   env: {
+    // Build provenance - available at runtime
+    NEXT_PUBLIC_BUILD_TIMESTAMP: new Date().toISOString(),
+    NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA || "",
+    NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV || "development",
+    
     // Support both NEXT_PUBLIC_* (Next.js standard) and VITE_* (legacy) prefixes
     // Fallback to empty string to prevent build failures when env vars are missing
     NEXT_PUBLIC_FIREBASE_API_KEY:

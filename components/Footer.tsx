@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import BuildProvenance from "@/src/components/BuildProvenance";
 
 function SocialLink({ href, label, children }: React.PropsWithChildren<{href:string; label:string;}>) {
   return (
@@ -65,6 +66,9 @@ export default function Footer() {
           </div>
         </div>
       </section>
+
+      {/* Build Provenance */}
+      <BuildProvenance />
     </footer>
   );
 }
