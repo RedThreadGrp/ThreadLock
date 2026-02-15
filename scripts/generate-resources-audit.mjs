@@ -24,7 +24,8 @@ try {
   if (resourcesMatch) {
     const content = resourcesMatch[1];
     const items = [];
-    const itemRegex = /\{[\s\S]*?slug:\s*["']([^"']+)["'][\s\S]*?title:\s*["']([^"']+)["'][\s\S]*?status:\s*["']([^"']+)["'][\s\S]*?\}/g;
+    // Match with ungreedy pattern between double quotes (handles apostrophes)
+    const itemRegex = /slug:\s*"([^"]+)",[\s\S]*?title:\s*"(.*?)",[\s\S]*?status:\s*"([^"]+)"/g;
     let match;
     while ((match = itemRegex.exec(content)) !== null) {
       items.push({ slug: match[1], title: match[2], status: match[3] });
@@ -37,7 +38,8 @@ try {
   if (questionsMatch) {
     const content = questionsMatch[1];
     const items = [];
-    const itemRegex = /\{[\s\S]*?slug:\s*["']([^"']+)["'][\s\S]*?question:\s*["']([^"']+)["'][\s\S]*?status:\s*["']([^"']+)["'][\s\S]*?\}/g;
+    // Match with ungreedy pattern between double quotes (handles apostrophes)
+    const itemRegex = /slug:\s*"([^"]+)",[\s\S]*?question:\s*"(.*?)",[\s\S]*?status:\s*"([^"]+)"/g;
     let match;
     while ((match = itemRegex.exec(content)) !== null) {
       items.push({ slug: match[1], title: match[2], status: match[3] });
@@ -50,7 +52,8 @@ try {
   if (guidesMatch) {
     const content = guidesMatch[1];
     const items = [];
-    const itemRegex = /\{[\s\S]*?slug:\s*["']([^"']+)["'][\s\S]*?title:\s*["']([^"']+)["'][\s\S]*?status:\s*["']([^"']+)["'][\s\S]*?\}/g;
+    // Match with ungreedy pattern between double quotes (handles apostrophes)
+    const itemRegex = /slug:\s*"([^"]+)",[\s\S]*?title:\s*"(.*?)",[\s\S]*?status:\s*"([^"]+)"/g;
     let match;
     while ((match = itemRegex.exec(content)) !== null) {
       items.push({ slug: match[1], title: match[2], status: match[3] });
@@ -63,7 +66,8 @@ try {
   if (kitsMatch) {
     const content = kitsMatch[1];
     const items = [];
-    const itemRegex = /\{[\s\S]*?slug:\s*["']([^"']+)["'][\s\S]*?title:\s*["']([^"']+)["'][\s\S]*?status:\s*["']([^"']+)["'][\s\S]*?\}/g;
+    // Match with ungreedy pattern between double quotes (handles apostrophes)
+    const itemRegex = /slug:\s*"([^"]+)",[\s\S]*?title:\s*"(.*?)",[\s\S]*?status:\s*"([^"]+)"/g;
     let match;
     while ((match = itemRegex.exec(content)) !== null) {
       items.push({ slug: match[1], title: match[2], status: match[3] });
@@ -76,7 +80,8 @@ try {
   if (topicsMatch) {
     const content = topicsMatch[1];
     const items = [];
-    const itemRegex = /\{[\s\S]*?slug:\s*["']([^"']+)["'][\s\S]*?title:\s*["']([^"']+)["'][\s\S]*?\}/g;
+    // Match with ungreedy pattern between double quotes (handles apostrophes)
+    const itemRegex = /slug:\s*"([^"]+)",[\s\S]*?title:\s*"(.*?)"/g;
     let match;
     while ((match = itemRegex.exec(content)) !== null) {
       items.push({ slug: match[1], title: match[2], status: 'published' });

@@ -1,6 +1,6 @@
 # Resources Routes Audit Report
 
-**Generated:** 2026-02-15T00:07:23.690Z
+**Generated:** 2026-02-15T00:13:26.298Z
 
 ## Summary
 
@@ -47,11 +47,11 @@ Route pattern: `/resources/q/[slug]`
 | `text-authentication` | Can I authenticate text messages myself? | ✅ published | /resources/q/text-authentication | ✅ New Styling |
 | `hearing-checklist` | What should I bring to a hearing? | ✅ published | /resources/q/hearing-checklist | ✅ New Styling |
 | `service-deadlines` | How long do I have to serve documents? | ✅ published | /resources/q/service-deadlines | ✅ New Styling |
-| `custody-types` | What | ✅ published | /resources/q/custody-types | ✅ New Styling |
+| `custody-types` | What's the difference between legal and physical custody? | ✅ published | /resources/q/custody-types | ✅ New Styling |
 | `mediation-lawyer` | Do I need a lawyer for mediation? | ✅ published | /resources/q/mediation-lawyer | ✅ New Styling |
 | `child-support-calculation` | How do I calculate child support? | ✅ published | /resources/q/child-support-calculation | ✅ New Styling |
 | `modify-parenting-plan` | Can I modify a parenting plan later? | ✅ published | /resources/q/modify-parenting-plan | ✅ New Styling |
-| `fee-waiver` | What if I can | ✅ published | /resources/q/fee-waiver | ✅ New Styling |
+| `fee-waiver` | What if I can't afford court fees? | ✅ published | /resources/q/fee-waiver | ✅ New Styling |
 | `respond-to-motion` | How do I respond to a motion? | ✅ published | /resources/q/respond-to-motion | ✅ New Styling |
 
 ## Featured Guides

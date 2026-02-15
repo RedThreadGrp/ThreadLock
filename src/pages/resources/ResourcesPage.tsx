@@ -125,9 +125,6 @@ const POPULAR_QUESTIONS: Question[] = REGISTRY_POPULAR_QUESTIONS
     question: q.question,
     href: `/resources/q/${q.slug}`,
   }));
-  { question: "What if I can't afford court fees?", href: "/resources/q/fee-waiver" },
-  { question: "How do I respond to a motion?", href: "/resources/q/respond-to-motion" },
-];
 
 export default function ResourcesPage() {
   const [query, setQuery] = useState("");
