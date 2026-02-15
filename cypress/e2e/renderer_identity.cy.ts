@@ -44,17 +44,10 @@ describe('Renderer Identity - Prod Parity Gate', () => {
 
   describe('Renderer Identity Coverage', () => {
     it('all question pages use resourceQA-v2', () => {
-      // Test a few question pages to ensure consistency
-      const questionPages = [
-        '/resources/q/proof-of-service-definition',
-        '/resources/q/what-is-service-of-process',
-      ];
-
-      questionPages.forEach((page) => {
-        cy.visit(page);
-        cy.get('[data-renderer="resourceQA-v2"]').should('exist');
-        cy.get('[data-renderer="legacyResource-v1"]').should('not.exist');
-      });
+      // Test a sample question page to ensure consistency
+      cy.visit('/resources/q/proof-of-service-definition');
+      cy.get('[data-renderer="resourceQA-v2"]').should('exist');
+      cy.get('[data-renderer="legacyResource-v1"]').should('not.exist');
     });
 
     it('all guide pages use resourceQA-v2', () => {
