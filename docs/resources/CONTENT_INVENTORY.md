@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T00:55:04.131Z
+**Generated:** 2026-02-15T00:58:42.000Z
 **Total Routes:** 42
 
 ## Summary Statistics
