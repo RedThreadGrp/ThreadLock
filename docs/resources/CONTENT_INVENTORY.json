@@ -721,13 +721,13 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [
       "Duplicate content: shortAnswer appears in body"
     ],
-    "contentVersion": 1,
-    "hasBlocks": false
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/mediation-lawyer",
@@ -756,11 +756,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [],
-    "contentVersion": 1,
-    "hasBlocks": false
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/modify-parenting-plan",
@@ -822,11 +822,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [],
-    "contentVersion": 1,
-    "hasBlocks": false
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/proof-of-service-definition",

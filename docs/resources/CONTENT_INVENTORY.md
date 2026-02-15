@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T21:52:44.675Z
+**Generated:** 2026-02-15T22:00:22.031Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -666,7 +666,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/q/hearing-checklist
 - **Content Source:** src/content/resourcesRegistry.ts:POPULAR_QUESTIONS
 - **Meta Description:** Bring original filed documents, exhibits with tabs, witness lists, notepad, calendar, calculator, and copies for the judge and opposing party.
-- **Last Updated:** 2026-02-13
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -694,7 +694,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/q/mediation-lawyer
 - **Content Source:** src/content/resourcesRegistry.ts:POPULAR_QUESTIONS
 - **Meta Description:** You're not required to have a lawyer for mediation, but consulting one beforehand helps you understand your rights and evaluate proposed agreements.
-- **Last Updated:** 2026-02-13
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -744,7 +744,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/q/official-forms-location
 - **Content Source:** src/content/resourcesRegistry.ts:POPULAR_QUESTIONS
 - **Meta Description:** Official court forms are available on your state or county court website, at the courthouse clerk's office, or through legal aid organizations.
-- **Last Updated:** 2026-02-13
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**

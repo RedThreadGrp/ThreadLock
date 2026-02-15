@@ -9,6 +9,9 @@ import { feeWaiver } from "./resources/fee-waiver";
 import { childSupportCalculation } from "./resources/child-support-calculation";
 import { textAuthentication } from "./resources/text-authentication";
 import { serviceDeadlines } from "./resources/service-deadlines";
+import { mediationLawyer } from "./resources/mediation-lawyer";
+import { hearingChecklist } from "./resources/hearing-checklist";
+import { officialFormsLocation } from "./resources/official-forms-location";
 
 // ============================================================================
 // Type Definitions
@@ -3309,11 +3312,13 @@ Check your local court's rules or website for jurisdiction-specific requirements
     slug: "official-forms-location",
     question: "Where do I find official court forms?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Where to Find Official Court Forms | ThreadLock",
     metaDescription: "Official court forms are available on your state or county court website, at the courthouse clerk's office, or through legal aid organizations.",
     shortAnswer: "Official court forms are available on your state or county court website, usually under a 'Forms' or 'Self-Help' section. You can also obtain forms at the courthouse clerk's office or through legal aid organizations that serve your area.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: officialFormsLocation,
     body: `# Where do I find official court forms?
 
 ## Short Answer
@@ -3416,16 +3421,7 @@ If you cannot locate needed forms online, contact your courthouse clerk's office
       { question: "Do I need a lawyer to file forms?", href: "/resources/q/self-representation" },
       { question: "Can I modify forms after filing?", href: "/resources/q/amending-forms" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
-        { name: "State Bar Association Resources" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Form locations and requirements vary by jurisdiction. Verify with your local court."
-    }
+    governance: officialFormsLocation.governance
   },
   {
     slug: "text-authentication",
@@ -3548,11 +3544,13 @@ While self-authentication is generally permitted, having the opposing party stip
     slug: "hearing-checklist",
     question: "What should I bring to a hearing?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "What to Bring to a Court Hearing | ThreadLock",
     metaDescription: "Bring original filed documents, exhibits with tabs, witness lists, notepad, calendar, calculator, and copies for the judge and opposing party.",
     shortAnswer: "Bring original filed documents, marked exhibits with tabs, your witness list, a notepad and pen, a calendar, and a calculator. Also bring copies of all documents for the judge, opposing party, and yourself. Arrive early and dress professionally.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: hearingChecklist,
     body: `# What should I bring to a hearing?
 
 ## Short Answer
@@ -3688,16 +3686,7 @@ Call the court clerk's office or check the local rules if you're uncertain about
       { question: "Can I bring someone with me to court?", href: "/resources/q/courtroom-support" },
       { question: "How do I respond to a motion?", href: "/resources/q/respond-to-motion" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals" },
-        { name: "Local Court Rules" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Hearing requirements vary by court type and jurisdiction. Verify local procedures."
-    }
+    governance: hearingChecklist.governance
   },
   {
     slug: "service-deadlines",
@@ -3994,11 +3983,13 @@ Understanding these distinctions helps parents negotiate appropriate arrangement
     slug: "mediation-lawyer",
     question: "Do I need a lawyer for mediation?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Do I Need a Lawyer for Mediation? | ThreadLock",
     metaDescription: "You're not required to have a lawyer for mediation, but consulting one beforehand helps you understand your rights and evaluate proposed agreements.",
     shortAnswer: "You're not required to have a lawyer for mediation, but consulting one beforehand helps you understand your rights and evaluate proposed agreements. Some people bring attorneys to mediation sessions, while others consult with counsel between sessions.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: mediationLawyer,
     body: `# Do I need a lawyer for mediation?
 
 ## Short Answer
@@ -4169,16 +4160,7 @@ At minimum, consult with an attorney before finalizing any mediated agreement to
       { question: "What happens if mediation doesn't work?", href: "/resources/q/mediation-failure" },
       { question: "Is mediation required before trial?", href: "/resources/q/mandatory-mediation" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "State Bar Association Resources" },
-        { name: "Family Mediation Standards" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Mediation requirements and attorney representation rules vary by state."
-    }
+    governance: mediationLawyer.governance
   },
   {
     slug: "child-support-calculation",
