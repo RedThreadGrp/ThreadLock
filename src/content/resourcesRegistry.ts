@@ -14,6 +14,9 @@ import { hearingChecklist } from "./resources/hearing-checklist";
 import { officialFormsLocation } from "./resources/official-forms-location";
 import { exhibitLabeling } from "./resources/exhibit-labeling";
 import { respondToMotion } from "./resources/respond-to-motion";
+import { parentingTimeCalculations } from "./resources/parenting-time-calculations";
+import { proofOfServiceStates } from "./resources/proof-of-service-states";
+import { evidenceAuthentication } from "./resources/evidence-authentication";
 
 // ============================================================================
 // Type Definitions
@@ -87,7 +90,9 @@ export interface FeaturedGuide {
   tags: string[];
   updated?: string;
   status: ResourceStatus;
+  contentVersion?: number; // 1 = markdown body, 2 = structured blocks
   body?: string;
+  blocks?: any; // v2 structured content
   relatedLinks?: Array<{
     title: string;
     href: string;
@@ -2411,16 +2416,10 @@ This is not legal advice. Family law varies significantly by jurisdiction. Verif
     summary: "How to make your photos, texts, and emails admissible without hiring an expert.",
     tags: ["Evidence", "Authentication"],
     status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "Court Self-Help Portals" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Authentication standards may vary by state. Consult local rules of evidence."
-    },
+    contentVersion: 2, // v2 structured content
+    // v2 structured blocks
+    blocks: evidenceAuthentication,
+    governance: evidenceAuthentication.governance,
     body: `# Evidence Authentication 101
 
 Authentication is the process of proving that evidence is what you claim it to be. Courts require proper authentication before admitting evidence.
@@ -2497,16 +2496,10 @@ This is general information about evidence authentication. Rules vary by jurisdi
     summary: "Requirements and templates for every U.S. state and territory.",
     tags: ["Templates", "Proof of Service"],
     status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Civil Procedure" },
-        { name: "State Bar Association Resources" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Service requirements vary significantly by state. Always verify with local court."
-    },
+    contentVersion: 2, // v2 structured content
+    // v2 structured blocks
+    blocks: proofOfServiceStates,
+    governance: proofOfServiceStates.governance,
     body: `# Proof of Service State-by-State
 
 Proof of service requirements vary by state. This guide provides general information about serving documents in family court proceedings across different jurisdictions.
@@ -2585,16 +2578,10 @@ Service requirements vary significantly by jurisdiction. This is general informa
     summary: "Calculate overnights, holidays, and summer schedules accurately.",
     tags: ["Parenting Plans", "Calculations"],
     status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "State Bar Association Resources" },
-        { name: "Child Support Guidelines" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Parenting time calculation methods and custody thresholds vary by state."
-    },
+    contentVersion: 2, // v2 structured content
+    // v2 structured blocks
+    blocks: parentingTimeCalculations,
+    governance: parentingTimeCalculations.governance,
     body: `# Understanding Parenting Time Calculations
 
 Parenting time calculations determine the percentage of time each parent has with the children. These calculations can affect child support, decision-making authority, and custody labels.

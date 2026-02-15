@@ -5,8 +5,8 @@ Generated: 2026-02-15
 ## Summary
 
 - Total items: 36
-- Todo: 16
-- Migrated: 12
+- Todo: 13
+- Migrated: 15
 - Manual review needed: 0
 - Blocked (slug mismatch): 0
 - Blocked (no content): 2
@@ -41,10 +41,7 @@ Generated: 2026-02-15
 | /resources/financial-snapshot | resource | v1 | 599 | simple | todo | Slug/title mismatch: "financial-snapshot" vs "Official Court Portals"; Missing sources; Missing lastUpdated |
 | /resources/official-portals | resource | v1 | 448 | simple | todo | Slug/title mismatch: "official-portals" vs "Fee Waiver Information"; Missing sources; Missing lastUpdated |
 | /resources/evidence-intake | resource | v1 | 433 | simple | todo | Slug/title mismatch: "evidence-intake" vs "Proof of Service State-by-State Guide"; Missing sources; Missing lastUpdated |
-| /resources/guides/parenting-time-calculations | guide | v1 | 423 | simple | todo | Missing sources; Missing lastUpdated |
-| /resources/guides/proof-of-service-states | guide | v1 | 394 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/proof-of-service | resource | v1 | 279 | simple | todo | Slug/title mismatch: "proof-of-service" vs "Official Court Portals"; Missing sources; Missing lastUpdated |
-| /resources/guides/evidence-authentication | guide | v1 | 273 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/hearing-tomorrow | resource | v1 | 223 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/kits/first-filing | kit | v1 | 191 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/kits/evidence | kit | v1 | 183 | simple | todo | Missing sources; Missing lastUpdated |
@@ -62,7 +59,10 @@ Generated: 2026-02-15
 | /resources/q/hearing-checklist | question | v2 | 664 | simple | migrated | Slug/title mismatch: "hearing-checklist" vs "What counts as proof of service?"; Missing sources |
 | /resources/q/text-authentication | question | v2 | 602 | simple | migrated | Slug/title mismatch: "text-authentication" vs "What if I can't afford court fees?"; Missing sources |
 | /resources/q/official-forms-location | question | v2 | 529 | simple | migrated | Slug/title mismatch: "official-forms-location" vs "Can I authenticate text messages myself?"; Missing sources |
+| /resources/guides/parenting-time-calculations | guide | v2 | 474 | simple | migrated | Missing sources; Missing lastUpdated |
 | /resources/q/exhibit-labeling | question | v2 | 432 | simple | migrated | Slug/title mismatch: "exhibit-labeling" vs "How long do I have to serve documents?" |
+| /resources/guides/proof-of-service-states | guide | v2 | 423 | simple | migrated | Missing sources; Missing lastUpdated |
+| /resources/guides/evidence-authentication | guide | v2 | 273 | simple | migrated | Missing sources; Missing lastUpdated |
 | /resources/q/proof-of-service-definition | question | v2 | 0 | simple | migrated | Missing sources; Empty content |
 | /resources/guides/self-representation-complete | guide | v1 | 0 | minimal | blocked-no-content | Missing sources; Empty content |
 | /resources/kits/hearing-soon | kit | v1 | 0 | minimal | blocked-no-content | Missing sources; Missing lastUpdated; Empty content |

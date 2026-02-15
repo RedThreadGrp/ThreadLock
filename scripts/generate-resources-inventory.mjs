@@ -167,12 +167,16 @@ function parseResourcesRegistry() {
       const statusMatch = itemText.match(/status:\s*"([^"]+)"/);
       const bodyMatch = itemText.match(/body:\s*`([\s\S]*?)`\s*[,}]/);
       const updatedMatch = itemText.match(/updated:\s*"([^"]+)"/);
+      const contentVersionMatch = itemText.match(/contentVersion:\s*(\d+)/);
+      const hasBlocksField = itemText.includes('blocks:');
       
       guides.push({
         slug,
         title: titleMatch ? titleMatch[1] : '',
         summary: summaryMatch ? summaryMatch[1] : '',
         status: statusMatch ? statusMatch[1] : 'draft',
+        contentVersion: contentVersionMatch ? parseInt(contentVersionMatch[1]) : 1,
+        hasBlocks: hasBlocksField,
         body: bodyMatch ? bodyMatch[1] : '',
         updated: updatedMatch ? updatedMatch[1] : undefined,
       });
@@ -524,6 +528,8 @@ function generateInventoryEntry(route, mapping, baseUrl = 'https://threadlock.ai
     entry.title = content.title || 'missing';
     entry.metaDescription = content.summary || 'missing';
     entry.lastUpdated = content.updated || 'missing';
+    entry.contentVersion = content.contentVersion || null;
+    entry.hasBlocks = content.hasBlocks || null;
     
     const summaryWords = countWords(content.summary);
     const bodyWords = countWords(content.body);

@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T22:06:30.574Z
+**Generated:** 2026-02-15T22:19:43.262Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -33,8 +33,8 @@
 | /resources/filing-basics | resource | Exhibits Guide: Labeling and Organiza... | 1567 | pass | ✅ |
 | /resources/financial-snapshot | resource | Official Court Portals | 610 | pass | ⚠️ 2 |
 | /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 286 | pass | ⚠️ 1 |
-| /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Calculat... | 430 | pass | ⚠️ 1 |
-| /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 403 | pass | ⚠️ 1 |
+| /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Calculat... | 481 | pass | ⚠️ 1 |
+| /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | pass | ⚠️ 1 |
 | /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Representa... | 19 | pass | ✅ |
 | /resources/hearing-tomorrow | resource | Hearing Tomorrow Checklist | 242 | pass | ⚠️ 2 |
 | /resources/kits/evidence | kit | Evidence Kit | 191 | pass | ⚠️ 1 |
@@ -294,13 +294,13 @@
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 430
-- body: 423
+- total: 481
+- body: 474
 - summary: 7
 
 **Content Structure:**
-- Headings: H1(1), H2(9), H3(0)
-- Paragraphs: 20
+- Headings: H1(1), H2(10), H3(0)
+- Paragraphs: 26
 
 **Features:**
 - FAQ: ❌ No
@@ -322,14 +322,13 @@
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 403
-- body: 394
+- total: 432
+- body: 423
 - summary: 9
 
 **Content Structure:**
 - Headings: H1(1), H2(9), H3(0)
 - Paragraphs: 20
-- Lists: 5
 
 **Features:**
 - FAQ: ❌ No
