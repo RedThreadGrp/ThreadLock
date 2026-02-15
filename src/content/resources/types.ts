@@ -31,6 +31,14 @@ export type ResourceSource = {
   href?: string; // optional; ok to omit until you actually have canonical URLs
 };
 
+export type GovernanceMetadata = {
+  lastUpdated: string; // ISO date string (YYYY-MM-DD)
+  sources: ResourceSource[]; // At least 1 required
+  jurisdictionScope: string[]; // e.g., ["US-general"], ["Federal", "California"]
+  reviewIntervalDays: 90 | 180 | 365; // Based on content volatility
+  accuracyNotes?: string; // Optional, useful for "varies by county" disclaimers
+};
+
 export type ResourceQAContent = {
   slug: string;
 
@@ -60,4 +68,7 @@ export type ResourceQAContent = {
     heading?: string; // default "Sources"
     items: ResourceSource[];
   };
+
+  // Governance metadata (required for all content)
+  governance: GovernanceMetadata;
 };

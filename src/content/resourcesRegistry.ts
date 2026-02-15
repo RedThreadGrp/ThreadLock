@@ -12,6 +12,18 @@ export type ResourceTag = "Templates" | "Evidence" | "Court Prep" | "Forms" | "F
 
 export type ResourceIntent = "Urgent" | "Start" | "Organize" | "Learn";
 
+export interface GovernanceMetadata {
+  lastUpdated: string; // ISO date string (YYYY-MM-DD)
+  sources: Array<{
+    name: string;
+    href?: string;
+    note?: string;
+  }>;
+  jurisdictionScope: string[]; // e.g., ["US-general"], ["Federal", "California"]
+  reviewIntervalDays: 90 | 180 | 365; // Based on content volatility
+  accuracyNotes?: string; // Optional, useful for "varies by county" disclaimers
+}
+
 export interface Resource {
   slug: string;
   title: string;
@@ -34,6 +46,8 @@ export interface Resource {
     question: string;
     href: string;
   }>;
+  // Governance metadata (required for published content)
+  governance?: GovernanceMetadata;
 }
 
 export interface StarterKit {
@@ -49,6 +63,8 @@ export interface StarterKit {
     title: string;
     href: string;
   }>;
+  // Governance metadata (required for published content)
+  governance?: GovernanceMetadata;
 }
 
 export interface FeaturedGuide {
@@ -63,6 +79,8 @@ export interface FeaturedGuide {
     title: string;
     href: string;
   }>;
+  // Governance metadata (required for published content)
+  governance?: GovernanceMetadata;
 }
 
 export interface Topic {
@@ -76,6 +94,8 @@ export interface Topic {
     title: string;
     href: string;
   }>;
+  // Governance metadata (required for published content)
+  governance?: GovernanceMetadata;
 }
 
 export interface PopularQuestion {
@@ -96,6 +116,8 @@ export interface PopularQuestion {
     question: string;
     href: string;
   }>;
+  // Governance metadata (required for published content)
+  governance?: GovernanceMetadata;
 }
 
 // ============================================================================
