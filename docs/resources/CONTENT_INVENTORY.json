@@ -224,9 +224,75 @@
     "title": "Evidence Authentication 101",
     "metaDescription": "How to make your photos, texts, and emails admissible without hiring an expert.",
     "wordCount": {
-      "total": 407,
-      "body": 394,
+      "total": 286,
+      "body": 273,
       "summary": 13
+    },
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 8,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 18
+    },
+    "hasFaq": false,
+    "faqCount": 0,
+    "hasSources": false,
+    "sourcesCount": 0,
+    "lastUpdated": "missing",
+    "renderSmokeStatus": "pass",
+    "notes": [
+      "Missing updated date"
+    ]
+  },
+  {
+    "route": "/resources/guides/parenting-time-calculations",
+    "canonicalUrl": "https://threadlock.ai/resources/guides/parenting-time-calculations",
+    "type": "guide",
+    "slug": "parenting-time-calculations",
+    "contentSource": "src/content/resourcesRegistry.ts:FEATURED_GUIDES",
+    "title": "Understanding Parenting Time Calculations",
+    "metaDescription": "Calculate overnights, holidays, and summer schedules accurately.",
+    "wordCount": {
+      "total": 430,
+      "body": 423,
+      "summary": 7
+    },
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 9,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 20
+    },
+    "hasFaq": false,
+    "faqCount": 0,
+    "hasSources": false,
+    "sourcesCount": 0,
+    "lastUpdated": "missing",
+    "renderSmokeStatus": "pass",
+    "notes": [
+      "Missing updated date"
+    ]
+  },
+  {
+    "route": "/resources/guides/proof-of-service-states",
+    "canonicalUrl": "https://threadlock.ai/resources/guides/proof-of-service-states",
+    "type": "guide",
+    "slug": "proof-of-service-states",
+    "contentSource": "src/content/resourcesRegistry.ts:FEATURED_GUIDES",
+    "title": "Proof of Service State-by-State",
+    "metaDescription": "Requirements and templates for every U.S. state and territory.",
+    "wordCount": {
+      "total": 403,
+      "body": 394,
+      "summary": 9
     },
     "blocksSummary": {
       "headings": {
@@ -249,72 +315,6 @@
     ]
   },
   {
-    "route": "/resources/guides/parenting-time-calculations",
-    "canonicalUrl": "https://threadlock.ai/resources/guides/parenting-time-calculations",
-    "type": "guide",
-    "slug": "parenting-time-calculations",
-    "contentSource": "src/content/resourcesRegistry.ts:FEATURED_GUIDES",
-    "title": "Understanding Parenting Time Calculations",
-    "metaDescription": "Calculate overnights, holidays, and summer schedules accurately.",
-    "wordCount": {
-      "total": 481,
-      "body": 474,
-      "summary": 7
-    },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 10,
-        "h3": 0
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 26
-    },
-    "hasFaq": false,
-    "faqCount": 0,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
-    "notes": [
-      "Missing updated date"
-    ]
-  },
-  {
-    "route": "/resources/guides/proof-of-service-states",
-    "canonicalUrl": "https://threadlock.ai/resources/guides/proof-of-service-states",
-    "type": "guide",
-    "slug": "proof-of-service-states",
-    "contentSource": "src/content/resourcesRegistry.ts:FEATURED_GUIDES",
-    "title": "Proof of Service State-by-State",
-    "metaDescription": "Requirements and templates for every U.S. state and territory.",
-    "wordCount": {
-      "total": 432,
-      "body": 423,
-      "summary": 9
-    },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 9,
-        "h3": 0
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 20
-    },
-    "hasFaq": false,
-    "faqCount": 0,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
-    "notes": [
-      "Missing updated date"
-    ]
-  },
-  {
     "route": "/resources/guides/self-representation-complete",
     "canonicalUrl": "https://threadlock.ai/resources/guides/self-representation-complete",
     "type": "guide",
@@ -323,20 +323,11 @@
     "title": "The Complete Guide to Self-Representation in Family Court",
     "metaDescription": "Everything you need to know about representing yourself, from filing basics to courtroom strategy. Updated with 2026 rule changes.",
     "wordCount": {
-      "total": 292,
-      "body": 273,
+      "total": 19,
+      "body": 0,
       "summary": 19
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 8,
-        "h3": 0
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 18
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -388,8 +379,8 @@
     "title": "Evidence Kit",
     "metaDescription": "Capture, organize, and preserve evidence that holds up.",
     "wordCount": {
-      "total": 195,
-      "body": 187,
+      "total": 191,
+      "body": 183,
       "description": 8
     },
     "blocksSummary": {
@@ -421,8 +412,8 @@
     "title": "First Filing Kit",
     "metaDescription": "Start your case right with proper documentation and filing procedures.",
     "wordCount": {
-      "total": 193,
-      "body": 183,
+      "total": 201,
+      "body": 191,
       "description": 10
     },
     "blocksSummary": {
@@ -433,7 +424,7 @@
       },
       "lists": 0,
       "codeBlocks": 0,
-      "paragraphs": 13
+      "paragraphs": 14
     },
     "hasFaq": false,
     "faqCount": 0,
@@ -454,20 +445,11 @@
     "title": "Hearing Soon Kit",
     "metaDescription": "Everything you need when a hearing is approaching fast.",
     "wordCount": {
-      "total": 200,
-      "body": 191,
+      "total": 9,
+      "body": 0,
       "description": 9
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 3,
-        "h3": 5
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 14
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,

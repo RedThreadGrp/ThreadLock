@@ -2674,36 +2674,348 @@ export const TOPICS: Topic[] = [
     title: "Proof of Service",
     promise: "Don't lose on a technicality—get service documentation right.",
     resourceCount: 4,
+    body: `# Proof of Service
+
+Proof of service is one of the most critical—and frequently mishandled—procedural requirements in family court. It's your written evidence that you properly delivered court documents to the other party. Without valid proof of service, your motion can be rejected, your hearing postponed, or your case dismissed entirely, regardless of the merits of your arguments.
+
+## What Is Proof of Service?
+
+Proof of service is a signed declaration under penalty of perjury that documents when, where, how, and to whom you delivered court papers. It proves you gave the other party proper notice and a fair opportunity to respond. Different courts use different forms—California uses FL-335 for mail service and FL-330 for personal service, while New York requires an Affidavit of Service. Federal courts follow specific rules under FRCP Rule 5.
+
+## Service Methods and Documentation
+
+**Personal Service**: Someone over 18 (not you) hand-delivers documents directly to the other party. This is the most reliable method and hardest to contest. The server must complete a declaration detailing the exact date, time, location, and identifying characteristics of the person served.
+
+**Service by Mail**: Documents are mailed to the other party's last known address. Most jurisdictions require adding 5 extra days for the other party to respond. The proof must include the mailing date and complete address used.
+
+**Electronic Service**: Many courts now allow service via email or e-filing portals. This generates automatic proof of service records but requires prior consent from the other party or court authorization.
+
+**Substituted Service**: Used when personal service isn't possible after multiple attempts. The server leaves documents with another adult at the residence or workplace, then follows up by mail. Strict documentation requirements apply.
+
+## Related Resources
+
+For detailed templates and instructions, see our [Proof of Service Pack](/resources/proof-of-service) guide, which includes state-specific requirements. The [Proof of Service State-by-State](/tools/proof-of-service-states) tool provides jurisdiction-specific forms and rules. For common questions, visit [What counts as proof of service?](/resources/q/proof-of-service-definition)
+
+## Common Mistakes
+
+**Using the wrong form**: Each state has specific proof of service forms. California's FL-335 won't work in Texas. Always verify your jurisdiction's required form.
+
+**Serving documents yourself**: You cannot serve your own court papers. The server must be an uninvolved third party who's at least 18 years old.
+
+**Missing the deadline**: Proof of service must be filed by specific deadlines, often several days before a hearing. Late filing can result in continuances or dismissal.
+
+**Incomplete information**: Missing details like exact service time, location, or documents served can invalidate your proof. Fill out every field on the form.
+
+**Skipping proof of service entirely**: Some people assume filing with the court is enough. It's not. You must serve the other party AND file proof that you did so.`,
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Civil Procedure", href: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure" },
+        { name: "California Courts Self-Help Center", href: "https://www.courts.ca.gov/selfhelp-serving.htm" },
+        { name: "American Bar Association - Service of Process", href: "https://www.americanbar.org/" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Service requirements vary significantly by state and case type. Always verify local court rules and deadlines for your specific jurisdiction."
+    }
   },
   {
     slug: "evidence-exhibits",
     title: "Evidence & Exhibits",
     promise: "Capture, preserve, and organize records that are usable in court.",
     resourceCount: 6,
+    body: `# Evidence & Exhibits
+
+Raw evidence means nothing if you can't find it when you need it, authenticate it properly, or present it clearly to a judge. Family court cases often hinge on documentary evidence—text messages, emails, photos, financial records, and written communications. Understanding how to capture, preserve, organize, and label evidence is essential for self-represented litigants.
+
+## What Are Evidence and Exhibits?
+
+**Evidence** is information presented to prove or disprove facts in your case. In family law, this typically includes text messages, emails, photos, financial documents, medical records, school reports, and written agreements.
+
+**Exhibits** are specific pieces of evidence formally marked and presented to the court. During hearings, you'll reference "Exhibit A" or "Exhibit 1" rather than fumbling through stacks of papers. Proper labeling makes your evidence accessible and credible.
+
+## Capturing and Preserving Evidence
+
+For **text messages and emails**, take full screenshots showing timestamps, phone numbers, and complete conversation threads. Don't crop or edit—authenticity is crucial. Save original files with metadata intact. For **photos**, capture images immediately with timestamps and location data enabled. Document the context of what you're photographing.
+
+For **financial records**, collect pay stubs, bank statements, tax returns, and receipts systematically. Keep both electronic and paper copies. Organize chronologically and by category (income, expenses, assets, debts).
+
+## Organizing and Labeling Exhibits
+
+Standard convention assigns **letters (A, B, C)** to plaintiff/petitioner exhibits and **numbers (1, 2, 3)** to defendant/respondent exhibits. Create an exhibit list that includes each designation, a brief description, page count, and relevant dates. Use adhesive exhibit stickers or colored tabs on physical documents, and include exhibit labels in PDF bookmarks for electronic filings.
+
+## Related Resources
+
+Our [Evidence Intake: Photos, Texts, Email](/resources/evidence-intake) guide provides detailed capture and preservation techniques. Learn the formal authentication process in [Evidence Authentication](/tools/evidence-authentication). For courtroom preparation, see [How do I label exhibits for court?](/resources/q/exhibit-labeling)
+
+## Common Mistakes
+
+**Not preserving metadata**: Cropped screenshots or edited photos lose credibility. Keep original files with complete metadata intact.
+
+**Poor organization**: Dumping 200 unsorted text messages on a judge doesn't help your case. Organize chronologically and highlight key messages.
+
+**Missing authentication**: Courts require you to authenticate evidence—proving it's what you claim it is. Include declarations explaining the source and chain of custody.
+
+**Wrong labeling conventions**: Using numbers when you should use letters, or skipping exhibit lists entirely, creates confusion and wastes court time.
+
+**Bringing only one copy**: Always bring three copies of each exhibit—one for the judge, one for the opposing party, and one for yourself.
+
+**Forgetting relevance**: Not all evidence is admissible. Make sure each exhibit directly relates to issues in your case and isn't just emotional clutter.`,
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Federal Rules of Evidence", href: "https://www.law.cornell.edu/rules/fre" },
+        { name: "California Evidence Code", href: "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?tocCode=EVID" },
+        { name: "National Center for State Courts", href: "https://www.ncsc.org/" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Evidence rules vary by jurisdiction. Hearsay exceptions, authentication requirements, and admissibility standards differ between states and between civil and criminal proceedings."
+    }
   },
   {
     slug: "hearings-prep",
     title: "Hearings & Courtroom Prep",
     promise: "Walk in prepared, organized, and coherent under pressure.",
     resourceCount: 5,
+    body: `# Hearings & Courtroom Prep
+
+Walking into a courtroom as a self-represented litigant is intimidating. The judge has limited time, the opposing party may have an attorney, and you need to present facts clearly under pressure. Proper preparation—knowing what to bring, how to organize materials, what to say, and what to avoid—makes the difference between being heard and being dismissed.
+
+## What Is a Court Hearing?
+
+A hearing is a formal proceeding where a judge listens to arguments, reviews evidence, and makes decisions about your case. Family law hearings cover temporary orders, child custody arrangements, support modifications, restraining orders, and trial preparation. Unlike informal mediation, hearings follow strict procedural rules and create binding court orders.
+
+## Essential Preparation
+
+**Documents**: Bring originals of all filed court papers, marked exhibits with tabs, your declaration, proof of service, and previous court orders. Have three copies of everything—one for the judge, one for the opposing party, and one for yourself.
+
+**Exhibits**: Pre-mark evidence with exhibit labels (letters for petitioner, numbers for respondent). Create a formal exhibit list describing each item. Use binders with tabs for organization. Bring originals if authenticity might be challenged.
+
+**Argument Outline**: Write a brief, organized outline of key points you want to make. Focus on facts, not emotions. Prepare questions for the opposing party if they'll testify. Practice your opening statement until it's clear and concise (2-3 minutes maximum).
+
+**Practical Items**: Bring a notepad, pens, calendar, calculator, and relevant statutes or case citations. Dress professionally—business attire shows respect for the court. Arrive 30 minutes early to check in and review materials.
+
+## Courtroom Behavior
+
+Address the judge as "Your Honor." Stand when speaking. Listen carefully to questions and answer directly. Don't interrupt the judge or opposing party. Stay calm even if provoked—emotional outbursts damage your credibility. Take notes during the hearing to reference in future filings.
+
+## Related Resources
+
+For immediate hearing preparation, see [Hearing Tomorrow Checklist](/resources/hearing-tomorrow). Our [Courtroom Prep](/resources/courtroom-prep) guide covers etiquette and strategy. For specific questions, visit [What should I bring to a hearing?](/resources/q/hearing-checklist)
+
+## Common Mistakes
+
+**Arriving unprepared**: Showing up without organized exhibits, copies, or a clear plan makes you look disorganized and wastes the judge's time.
+
+**Rambling or emotional testimony**: Judges want facts, not feelings. Stick to relevant, specific information that supports your legal arguments.
+
+**Ignoring court orders to exchange information**: If you were ordered to share exhibits or witness lists beforehand and didn't, the judge may exclude your evidence.
+
+**Dressing inappropriately**: Casual or revealing clothing undermines your credibility. Treat court like a professional job interview.
+
+**Arguing with the opposing party**: Never speak directly to the other party during a hearing. Address all comments to the judge.
+
+**Bringing children**: Unless they're testifying or it's absolutely unavoidable, don't bring kids to hearings. It's stressful for them and distracting for the court.
+
+**Not having a backup plan**: Technology fails. Bring paper copies even if you plan to use a laptop or tablet.`,
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "National Center for State Courts - Self-Representation", href: "https://www.ncsc.org/selfrepresentation" },
+        { name: "California Courts Self-Help - Courtroom Basics", href: "https://www.courts.ca.gov/selfhelp-courtroom.htm" },
+        { name: "American Bar Association - Going to Court", href: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Courtroom procedures and hearing formats vary by jurisdiction and case type. Check local court rules for specific requirements regarding exhibit exchanges, witness lists, and testimony procedures."
+    }
   },
   {
     slug: "parenting-plans",
     title: "Parenting Plans",
     promise: "Structure routines, transitions, and communication clearly.",
     resourceCount: 3,
+    body: `# Parenting Plans
+
+A parenting plan is a detailed written agreement that describes how you and the other parent will share time, responsibilities, and decision-making for your children. Courts require parenting plans in custody cases because vague arrangements lead to constant disputes. A well-crafted plan reduces conflict, provides predictability for children, and gives you a framework for enforcement when problems arise.
+
+## Core Components of a Parenting Plan
+
+**Regular Schedule**: Define where the child lives during normal weeks. Be specific: "Child resides with Mother Monday 6pm through Thursday 8am, with Father Thursday 8am through Monday 6am." Include school nights and weekends.
+
+**Holidays and Special Days**: List which parent gets which holidays (Thanksgiving, Christmas, spring break, etc.). Specify whether you alternate yearly or split the day. Include birthdays, Mother's Day, Father's Day, and religious holidays.
+
+**Summer and School Breaks**: Address extended time during summer vacation, winter break, and spring break. Specify how parents communicate vacation plans and deadlines for notice.
+
+**Decision-Making Authority**: Clarify who makes major decisions about education, non-emergency healthcare, religious upbringing, and extracurricular activities. Options include joint decision-making, sole authority, or split domains (e.g., one parent decides education, the other decides medical).
+
+**Communication and Exchanges**: Describe how parents will communicate about the child (phone, email, co-parenting app). Specify exchange locations (home, school, public place), times, and who's responsible for transportation.
+
+**Right of First Refusal**: If one parent can't care for the child during their scheduled time, does the other parent get first option before using a babysitter? Specify the timeframe (e.g., "if absence exceeds 4 hours").
+
+## Flexibility vs. Specificity
+
+Parenting plans must balance flexibility with clarity. Courts want specific schedules, but you also need mechanisms for changes. Include provisions for modifying the plan by mutual written agreement, handling emergencies, and resolving disputes (e.g., mediation before going back to court).
+
+## Related Resources
+
+Our comprehensive [Parenting Plan Builder Guide](/resources/parenting-plans) walks through each section with examples. Use the [Parenting Time Calculations](/tools/parenting-time-calculations) tool to calculate overnight percentages for child support purposes.
+
+## Common Mistakes
+
+**Being too vague**: "Reasonable visitation" or "flexible schedule" invites constant arguments. Specify exact days and times.
+
+**Ignoring logistics**: Failing to address who drives, where exchanges happen, or how parents communicate creates daily friction.
+
+**Overcomplicating exchanges**: Complex schedules confuse children and increase conflict. Simpler is usually better, especially for young children.
+
+**Not planning for holidays years in advance**: Alternating holidays prevents annual fights. Specify even/odd years clearly.
+
+**Forgetting about school activities and extracurriculars**: Address who can sign kids up for activities, how costs are split, and whether the other parent's schedule must be accommodated.
+
+**Excluding a modification process**: Circumstances change. Include language about how you'll modify the plan (mutual agreement in writing, mediation, court petition).
+
+**Using the plan to punish the other parent**: Parenting plans should prioritize children's needs, not your desire for control. Unnecessarily restrictive provisions backfire.
+
+**Not addressing technology and communication**: Modern parenting plans should cover video calls, phone access, and social media (who can post photos of children, etc.).`,
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)", href: "https://www.uniformlaws.org/" },
+        { name: "American Academy of Matrimonial Lawyers", href: "https://www.aaml.org/" },
+        { name: "Association of Family and Conciliation Courts", href: "https://www.afccnet.org/" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Parenting plan requirements and enforcement mechanisms vary by state. Some states require specific formats or court-approved templates. Consult local family law rules."
+    }
   },
   {
     slug: "financial-declarations",
     title: "Financial Declarations",
     promise: "Answer financial questions without scrambling for numbers.",
     resourceCount: 4,
+    body: `# Financial Declarations
+
+Family court requires detailed financial information for nearly every case involving child support, spousal support, property division, or attorney's fees. Financial declarations—sometimes called income and expense declarations, financial affidavits, or statements of net worth—force you to disclose your complete financial picture under penalty of perjury. Having this information organized before you need it reduces stress and prevents errors that could hurt your case.
+
+## What Is a Financial Declaration?
+
+A financial declaration is a mandatory court form that itemizes your income, expenses, assets, debts, and sometimes your financial history. Different states use different forms (California's FL-150, New York's Statement of Net Worth, Texas's Financial Information Form), but all serve the same purpose: giving the court and opposing party a complete financial snapshot.
+
+## Required Information Categories
+
+**Income**: List all sources—employment wages, self-employment income, rental income, investment returns, bonuses, overtime, unemployment benefits, disability payments, social security, pensions, and any other money received. Include gross amounts (before taxes) and net amounts (after deductions). Attach recent pay stubs and tax returns.
+
+**Expenses**: Detail monthly costs for housing (rent/mortgage, property tax, insurance, utilities, maintenance), food, clothing, transportation (car payment, gas, insurance, maintenance), medical care, childcare, education, insurance premiums, debt payments, and miscellaneous expenses. Be realistic—inflating expenses is perjury and easily disproved.
+
+**Assets**: Disclose bank accounts, retirement accounts, real property, vehicles, business interests, stocks and bonds, and personal property of significant value. Include current values, how the asset is titled (individual or joint), and acquisition dates.
+
+**Debts**: List credit cards, loans, mortgages, unpaid taxes, and other liabilities. Include current balances, monthly payments, creditor names, and whether debts are individual or joint obligations.
+
+## Accuracy and Supporting Documents
+
+Financial declarations require supporting documentation: pay stubs, tax returns, bank statements, credit card statements, mortgage statements, and loan documents. Courts often require the most recent two years of tax returns and three months of pay stubs. Deliberately hiding assets or misrepresenting income constitutes perjury and can result in sanctions, adverse findings, and even criminal charges.
+
+## Related Resources
+
+Our [Financial Snapshot Worksheet](/resources/financial-snapshot) helps you gather required information methodically. The worksheet organizes data into categories matching most financial declaration forms, making completion faster and more accurate.
+
+## Common Mistakes
+
+**Underreporting income**: Forgetting to include bonuses, side gigs, cash payments, or irregular income. Courts can impute income if they believe you're hiding earnings.
+
+**Overestimating expenses**: Inflating costs to reduce support obligations or increase support claims. Judges spot unrealistic expenses quickly (e.g., claiming $1,500/month groceries for one person).
+
+**Using old information**: Financial declarations require current data. Using numbers from six months ago won't work. Update your information before filing.
+
+**Omitting assets or debts**: "Forgetting" to list a bank account, retirement fund, or valuable item is perjury. Full disclosure is mandatory even if you think the asset is "yours."
+
+**Rounding too much or being imprecise**: Courts want specific numbers, not estimates. "$2,347.12" is better than "about $2,300."
+
+**Not keeping copies**: You'll need to reference your financial declaration multiple times throughout your case. Keep copies with your supporting documents.
+
+**Filing without supporting documents**: Many courts require attaching pay stubs, tax returns, and other verification. A declaration without documentation may be rejected.
+
+**Not updating when circumstances change**: If your income or expenses change significantly during the case, you may need to file an updated financial declaration.`,
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "Internal Revenue Service - Tax Information for Families", href: "https://www.irs.gov/" },
+        { name: "California Courts - Financial Disclosures", href: "https://www.courts.ca.gov/selfhelp-financials.htm" },
+        { name: "American Bar Association - Family Law Financial Issues", href: "https://www.americanbar.org/groups/family_law/" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Financial declaration forms and requirements vary by state. Income calculation methods, expense standards, and mandatory attachments differ by jurisdiction. Consult local court rules and forms."
+    }
   },
   {
     slug: "official-forms",
     title: "Official Forms & Portals",
     promise: "Access state-provided forms and rules—don't pay for free resources.",
     resourceCount: 8,
+    body: `# Official Forms & Portals
+
+Many websites and services charge $50-$300 for court forms that your state provides for free. As a self-represented litigant, knowing where to find official forms, court rules, and self-help resources can save you hundreds of dollars and ensure you're using current, jurisdiction-approved documents. Every state maintains court websites with free forms, instructions, and often video tutorials designed specifically for people without attorneys.
+
+## Why Use Official Sources?
+
+**Cost**: State court websites provide forms at no charge. Commercial sites charge for the same documents.
+
+**Accuracy**: Official forms are current and jurisdiction-specific. Generic forms from online services may be outdated or formatted for the wrong state.
+
+**Instructions**: Court self-help centers provide plain-language guidance written for non-attorneys. Commercial sites often lack detailed instructions or provide confusing legalese.
+
+**Fillable PDFs**: Most official court sites offer fillable PDF forms that you can complete electronically, save, and print or e-file.
+
+## Where to Find Official Forms
+
+**State Court Websites**: Every state has a judiciary website with a forms section and self-help center. California's courts.ca.gov, New York's nycourts.gov, and Texas's txcourts.gov provide comprehensive form libraries. Search "[your state] court forms family law" to find your jurisdiction's site.
+
+**County Court Websites**: Local county court websites often provide additional forms specific to that jurisdiction, local rules, and information about filing procedures and fees.
+
+**Court Clerk's Offices**: Most clerk's offices have physical forms available and staff who can answer procedural questions (though they can't give legal advice).
+
+**Legal Aid Organizations**: State and local legal aid societies provide free forms and instructions tailored to low-income self-represented litigants.
+
+## Federal Court Resources
+
+For federal cases, use uscourts.gov for official forms and PACER (pacer.uscourts.gov) to access case documents. Federal court forms are standardized nationwide, though some districts have local rules and supplemental forms.
+
+## Related Resources
+
+Our [Official Court Portals Directory](/resources/official-portals) provides direct links to all 50 states' court form libraries and self-help resources. For specific questions, see [Where do I find official court forms?](/resources/q/official-forms-location)
+
+## Common Mistakes
+
+**Paying for free forms**: Spending money on forms available for free from your court. Always check official sources first.
+
+**Using generic "nationwide" forms**: Family law forms are state-specific. A California form won't work in Florida. Use forms from your jurisdiction's official court website.
+
+**Using outdated forms**: Court forms are revised regularly. Forms from three years ago may be rejected. Always download the current version from the official website.
+
+**Printing forms and then retyping them**: Most forms are fillable PDFs. Complete them electronically, then print. Don't print blank forms and handwrite information.
+
+**Ignoring court instructions**: Most forms come with detailed instruction sheets. Read these carefully before completing the form.
+
+**Not checking local rules**: State forms are standard, but some counties have local rule modifications or additional required forms. Check your county court's website.
+
+**Assuming one size fits all**: Different case types require different forms. Divorce forms differ from custody modification forms. Use the right forms for your situation.
+
+**Forgetting about e-filing requirements**: Many courts now require or encourage electronic filing. Check whether your court has an e-filing portal and what formats are accepted.`,
+    governance: {
+      lastUpdated: "2026-02-15",
+      sources: [
+        { name: "National Center for State Courts", href: "https://www.ncsc.org/" },
+        { name: "United States Courts - Forms", href: "https://www.uscourts.gov/forms" },
+        { name: "Legal Services Corporation - Court Resources", href: "https://www.lsc.gov/" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 180,
+      accuracyNotes: "Court form availability, e-filing systems, and fee waiver procedures vary by state and county. Some jurisdictions update forms more frequently than others. Always verify you're using the most current version."
+    }
   },
 ];
 
