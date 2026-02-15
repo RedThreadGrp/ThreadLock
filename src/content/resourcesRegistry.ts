@@ -3047,7 +3047,7 @@ export const POPULAR_QUESTIONS: PopularQuestion[] = [
       },
       hero: {
         h1: "What counts as proof of service?",
-        subhead: undefined,
+        subhead: null,
       },
       shortAnswer: {
         label: "Short answer",
