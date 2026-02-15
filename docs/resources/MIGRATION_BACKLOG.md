@@ -5,8 +5,8 @@ Generated: 2026-02-15
 ## Summary
 
 - Total items: 36
-- Todo: 4
-- Migrated: 24
+- Todo: 3
+- Migrated: 25
 - Manual review needed: 0
 - Blocked (slug mismatch): 0
 - Blocked (no content): 2
@@ -14,9 +14,9 @@ Generated: 2026-02-15
 
 ## Complexity Distribution
 
-- Simple: 24
+- Simple: 25
 - Medium: 0
-- Hard: 4
+- Hard: 3
 - Minimal: 2
 - Content creation: 6
 
@@ -39,7 +39,6 @@ Generated: 2026-02-15
 | /resources/authentication | resource | v1 | 2250 | hard | todo | Slug/title mismatch: "authentication" vs "Exhibits Guide: Labeling and Organization"; Missing sources |
 | /resources/filing-basics | resource | v1 | 1553 | hard | todo | Slug/title mismatch: "filing-basics" vs "Exhibits Guide: Labeling and Organization"; Missing sources |
 | /resources/timeline-tools | resource | v1 | 1454 | hard | todo | Slug/title mismatch: "timeline-tools" vs "Official Court Portals by State"; Missing sources |
-| /resources/courtroom-prep | resource | v1 | 1209 | hard | todo | Slug/title mismatch: "courtroom-prep" vs "Proof of Service Pack"; Missing sources |
 | /resources/q/respond-to-motion | question | v2 | 1215 | simple | migrated | Slug/title mismatch: "respond-to-motion" vs "What are typical court filing fees?"; Missing sources |
 | /resources/q/modify-parenting-plan | question | v2 | 1093 | simple | migrated | Missing sources |
 | /resources/q/fee-waiver | question | v2 | 1003 | simple | migrated | Slug/title mismatch: "fee-waiver" vs "What counts as a substantial change in circumstances?"; Missing sources |
@@ -54,6 +53,7 @@ Generated: 2026-02-15
 | /resources/q/exhibit-labeling | question | v2 | 432 | simple | migrated | Slug/title mismatch: "exhibit-labeling" vs "How long do I have to serve documents?" |
 | /resources/guides/proof-of-service-states | guide | v2 | 423 | simple | migrated | Missing sources; Missing lastUpdated |
 | /resources/guides/evidence-authentication | guide | v2 | 273 | simple | migrated | Missing sources; Missing lastUpdated |
+| /resources/courtroom-prep | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
 | /resources/evidence-intake | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
 | /resources/exhibits-guide | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
 | /resources/financial-snapshot | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
