@@ -1,6 +1,5 @@
 node_modules/
 .env
-.env.local
 .env*.local
 .vercel/
 .next/
@@ -13,8 +12,6 @@ link-check-report.json
 cypress/screenshots/
 cypress/videos/
 cypress/results/
-.env.local
-.env.local
 
 # Generated reports
 public/link-report.json
