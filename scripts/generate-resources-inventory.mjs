@@ -86,6 +86,8 @@ function parseResourcesRegistry() {
       const metaDescMatch = itemText.match(/metaDescription:\s*"(.*?)"/);
       const dateModMatch = itemText.match(/dateModified:\s*"([^"]+)"/);
       const readTimeMatch = itemText.match(/readTime:\s*"([^"]+)"/);
+      const contentVersionMatch = itemText.match(/contentVersion:\s*(\d+)/);
+      const hasBlocksField = itemText.includes('blocks:');
       
       // Count relatedQuestions and relatedLinks
       const relatedQuestionsMatch = itemText.match(/relatedQuestions:\s*\[([\s\S]*?)\]/);
@@ -98,6 +100,8 @@ function parseResourcesRegistry() {
         title: titleMatch ? titleMatch[1] : '',
         excerpt: excerptMatch ? excerptMatch[1] : '',
         status: statusMatch ? statusMatch[1] : 'draft',
+        contentVersion: contentVersionMatch ? parseInt(contentVersionMatch[1]) : 1,
+        hasBlocks: hasBlocksField,
         body: bodyMatch ? bodyMatch[1] : '',
         seoTitle: seoTitleMatch ? seoTitleMatch[1] : undefined,
         metaDescription: metaDescMatch ? metaDescMatch[1] : undefined,
@@ -405,8 +409,9 @@ function generateInventoryEntry(route, mapping, baseUrl = 'https://threadlock.ai
   // Check if v2 file exists for this slug
   const v2FilePath = path.join(__dirname, `../src/content/resources/${slug}.ts`);
   const hasV2File = fs.existsSync(v2FilePath);
+  let usedV2Fallback = false;
   
-  if (hasV2File && !content) {
+  if (hasV2File && (!content || !content.body)) {
     // V2 file exists but wasn't parsed by regex (likely due to spread operator)
     // Try to extract basic info from the v2 file
     try {
@@ -421,6 +426,7 @@ function generateInventoryEntry(route, mapping, baseUrl = 'https://threadlock.ai
       entry.hasBlocks = true; // v2 files always have blocks
       entry.renderSmokeStatus = 'pass';
       entry.notes = ['V2 content from separate file (spread operator in registry)'];
+      usedV2Fallback = true;
     } catch (err) {
       // Failed to read v2 file
       entry.notes.push('V2 file exists but failed to parse');
@@ -472,7 +478,7 @@ function generateInventoryEntry(route, mapping, baseUrl = 'https://threadlock.ai
   }
   
   // Extract common fields based on content type
-  if (type === 'resource') {
+  if (type === 'resource' && !usedV2Fallback) {
     entry.title = content.title || 'missing';
     entry.metaDescription = content.metaDescription || content.excerpt || 'missing';
     entry.lastUpdated = content.dateModified || 'missing';

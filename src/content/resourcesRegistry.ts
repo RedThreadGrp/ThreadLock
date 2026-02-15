@@ -21,6 +21,9 @@ import { firstFiling } from "./resources/first-filing";
 import { evidence } from "./resources/evidence";
 import { hearingTomorrow } from "./resources/hearing-tomorrow";
 import { exhibitsGuide } from "./resources/exhibits-guide";
+import { parentingPlans } from "./resources/parenting-plans";
+import { financialSnapshot } from "./resources/financial-snapshot";
+import { officialPortals } from "./resources/official-portals";
 
 // ============================================================================
 // Type Definitions
@@ -417,6 +420,7 @@ Remember: You're building a case, not a scrapbook. Every piece must be findable,
     }
   },
   {
+    ...parentingPlans,
     slug: "parenting-plans",
     title: "Parenting Plan Builder Guide",
     excerpt: "A structured way to describe routines, transitions, holidays, and communication—without writing a manifesto.",
@@ -425,142 +429,15 @@ Remember: You're building a case, not a scrapbook. Every piece must be findable,
     intent: "Start",
     readTime: "12 min read",
     status: "published",
-    body: `# Parenting Plan Builder Guide
-
-A parenting plan is a detailed agreement about how you'll share time and decisions with your child. Courts want specificity, not philosophy.
-
-## Core Components
-
-Every parenting plan should address:
-
-1. **Regular Schedule** - Where the child lives on normal weeks
-2. **Holidays** - Who gets which holidays, how you split them
-3. **Summer/Breaks** - Extended time during school vacations
-4. **Decision-Making** - Who decides on school, medical, religious issues
-5. **Communication** - How parents communicate about the child
-6. **Exchanges** - Where/when/how you hand off the child
-7. **Transportation** - Who drives, who pays
-8. **Right of First Refusal** - If one parent can't watch the child, does the other parent get first option?
-
-## Regular Schedule Examples
-
-### Week On/Week Off
-- Child stays with Parent A for 7 days
-- Exchanges every Monday at 6pm at Parent B's home
-- Simple, works well for older kids, requires flexibility
-
-### 2-2-3 Schedule
-- Parent A: Mon-Tue
-- Parent B: Wed-Thu
-- Alternating Fri-Sat-Sun
-- More frequent contact, better for younger kids
-
-### Every Other Weekend
-- Parent A: Mon-Fri every week
-- Parent B: Fri 6pm to Sun 6pm every other weekend, plus one weeknight dinner
-- Traditional schedule, less disruption to school routine
-
-## Holiday Split Strategies
-
-### Alternating by Year
-- Parent A gets Thanksgiving in odd years, Parent B in even years
-- Reverse for Christmas
-
-### Split Each Holiday
-- Christmas Eve with one parent, Christmas Day with the other
-- Switch who gets which half each year
-
-### Fixed Assignment
-- One parent always gets 4th of July, other always gets Labor Day
-- Works if you each have strong preferences for specific holidays
-
-## Decision-Making Authority
-
-### Joint Legal Custody
-Both parents must agree on major decisions:
-- School enrollment and changes
-- Non-emergency medical treatment
-- Religious upbringing
-- Extracurricular activities requiring significant time/money
-
-### Sole Legal Custody
-One parent makes all major decisions, though good practice is still to consult the other.
-
-### Tie-Breaker Provisions
-If you can't agree:
-- Mediation required before court
-- Specific professional decides (pediatrician for medical, etc.)
-- Status quo continues until resolved
-
-## Communication Guidelines
-
-Be specific about:
-- **Method:** Text, email, phone, co-parenting app?
-- **Response time:** Within 24 hours for routine, immediately for emergencies
-- **Topics:** Child-related only, not personal issues
-- **Tone:** Business-like, no profanity or accusations
-
-Example clause:
-> "All routine communication about the child shall be via the OurFamilyWizard app. Emergency communication may be by phone call. Parents shall respond to routine messages within 24 hours. All communication shall remain respectful and child-focused."
-
-## Exchange Logistics
-
-Specify:
-- Exact location (address, parking lot, public place)
-- Exact time
-- Who is responsible for transportation
-- What happens if someone is late (grace period?)
-- What to do if child is sick
-- What the child should bring (clothes, medications, homework)
-
-Example:
-> "Exchanges shall occur at the parking lot of City Library, 123 Main St. The receiving parent shall arrive by 6:00pm. If the delivering parent is more than 15 minutes late without notice, the receiving parent may leave. Each parent shall ensure the child has sufficient clothing, medications, and school materials."
-
-## Right of First Refusal
-
-If one parent can't care for the child for more than X hours, the other parent gets first chance before a babysitter.
-
-**Pros:** Maximizes child's time with parents  
-**Cons:** Can create conflict, complicates scheduling
-
-Example clause:
-> "If either parent will be unable to care for the child for more than 4 consecutive hours during their parenting time, that parent shall first offer the other parent the opportunity to care for the child before arranging alternate childcare."
-
-## Red Flags to Avoid
-
-- Vague timing: "Parent B gets weekends" (which weekends? what times?)
-- No backup plan for disagreements
-- Overly rigid (no room for flexibility)
-- Overly loose (too much room for argument)
-- Focusing on adult wants instead of child needs
-- Writing a novel (courts prefer clear, concise plans)
-
-## Testing Your Plan
-
-Before you finalize, ask:
-- Does this actually work with work schedules and school?
-- Can I explain this to a third party in 2 minutes?
-- What happens if someone moves?
-- What happens if someone remarries?
-- Is this genuinely in the child's best interest, or am I trying to "win"?
-
-A good parenting plan is boring, predictable, and specific. Save the drama for somewhere else.`,
+    contentVersion: 2,
+    blocks: parentingPlans.blocks,
     relatedLinks: [
       { title: "Understanding Parenting Time Calculations", href: "/resources/guides/parenting-time-calculations" },
       { title: "Official Court Portals", href: "/resources/official-portals" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "State Bar Association Resources" },
-        { name: "Court Self-Help Portals" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Parenting plan requirements and terminology vary by state. Consult local family law rules."
-    }
   },
   {
+    ...financialSnapshot,
     slug: "financial-snapshot",
     title: "Financial Snapshot Worksheet",
     excerpt: "Income, expenses, accounts, and timelines—so you can answer questions without scrambling.",
@@ -569,166 +446,15 @@ A good parenting plan is boring, predictable, and specific. Save the drama for s
     intent: "Organize",
     readTime: "7 min read",
     status: "published",
-    body: `# Financial Snapshot Worksheet
-
-Family court will ask about your finances—often repeatedly. Having this information organized saves time and reduces stress.
-
-## Income Section
-
-### Employment Income
-- Current employer name and address
-- Job title and start date
-- Gross monthly income (before taxes)
-- Net monthly income (after taxes, 401k, insurance)
-- Pay schedule (weekly, bi-weekly, monthly)
-- Recent pay stubs (last 3 months)
-
-### Self-Employment Income
-- Business name and type
-- Average monthly gross income (last 12 months)
-- Business expenses (average monthly)
-- Net self-employment income
-- Tax returns (last 2 years)
-
-### Other Income
-- Social Security or disability benefits
-- Rental property income
-- Investment income (dividends, interest)
-- Child support received from other relationships
-- Spousal support received
-- Unemployment benefits
-- Any other regular income sources
-
-## Expense Section
-
-### Fixed Monthly Expenses
-- Rent or mortgage payment
-- Property tax (if not included in mortgage)
-- Homeowners/renters insurance
-- Utilities (electric, gas, water, sewer, trash)
-- Phone/internet/cable
-- Car payment(s)
-- Car insurance
-- Health insurance (if not through employer)
-- Life insurance
-- Student loan payments
-- Credit card minimum payments
-
-### Variable Monthly Expenses
-- Groceries
-- Gas/transportation
-- Childcare costs
-- Children's activities (sports, music, etc.)
-- Clothing
-- Personal care (haircuts, etc.)
-- Medical expenses not covered by insurance
-- Entertainment/dining out
-- Pet care
-- Subscriptions (streaming services, etc.)
-
-### Periodic Expenses (calculate monthly average)
-- Car maintenance and repairs
-- Home maintenance and repairs
-- Birthday/holiday gifts
-- School expenses
-- Annual memberships
-
-## Assets Section
-
-### Real Property
-- Home (address, current value, amount owed)
-- Other real estate (rental, vacation home, land)
-
-### Vehicles
-- Make, model, year
-- Current value
-- Amount owed
-
-### Financial Accounts
-- Checking account (bank name, approximate balance)
-- Savings account
-- Retirement accounts (401k, IRA, pension)
-- Investment accounts
-- Education savings (529 plans)
-
-### Other Assets
-- Business ownership interests
-- Stocks, bonds, cryptocurrency
-- Valuable collections or items
-- Life insurance cash value
-
-## Debts Section
-
-- Credit cards (balance, minimum payment, creditor)
-- Student loans (balance, monthly payment)
-- Personal loans
-- Medical debt
-- Tax debt
-- Other debts
-
-## Important Dates
-
-- Date of marriage
-- Date of separation
-- Date divorce filed
-- Date of significant financial events (job loss, inheritance, major purchase)
-
-## Supporting Documents to Gather
-
-- Last 2 years of tax returns
-- Last 3 months of pay stubs
-- Last 3 months of bank statements
-- Recent credit card statements
-- Recent loan statements
-- Property tax statements
-- Insurance declarations
-- Retirement account statements
-
-## Tips for Court Forms
-
-- Round to nearest dollar
-- Use monthly figures unless form specifies otherwise
-- Be honest—lying on financial declarations is perjury
-- Update regularly as circumstances change
-- Keep copies of everything you file
-- If you estimate something, mark it as an estimate and be prepared to provide actual figures later
-
-## Common Mistakes
-
-- Forgetting to include all income sources
-- Not accounting for taxes and deductions
-- Guessing at expenses instead of tracking them
-- Omitting debts or assets
-- Using outdated information
-- Not keeping documentation to back up your numbers
-
-## Before Court
-
-Run the numbers:
-- Total monthly income
-- Total monthly expenses
-- Difference (surplus or shortfall?)
-- Does this pass the smell test?
-
-If expenses exceed income significantly, be prepared to explain how you're currently managing.
-
-This worksheet isn't legal or financial advice—it's an organizational tool to help you gather information the court will likely request.`,
+    contentVersion: 2,
+    blocks: financialSnapshot.blocks,
     relatedLinks: [
       { title: "Child Support Calculation FAQ", href: "/resources/q/child-support-calculation" },
       { title: "Fee Waiver Information", href: "/resources/q/fee-waiver" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Administration Office" },
-        { name: "Legal Aid Organizations" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Income and expense categories may vary by jurisdiction. Financial disclosure requirements differ by state."
-    }
   },
   {
+    ...officialPortals,
     slug: "official-portals",
     title: "Official Court Portals Directory",
     excerpt: "Links to state-provided form sites and official rules. Don't pay for free forms.",
@@ -737,141 +463,12 @@ This worksheet isn't legal or financial advice—it's an organizational tool to 
     intent: "Learn",
     readTime: "3 min read",
     status: "published",
-    body: `# Official Court Portals Directory
-
-Many websites charge for court forms that your state provides for free. Use the official sources.
-
-## Federal Courts
-
-**PACER (Public Access to Court Electronic Records)**  
-https://pacer.uscourts.gov/  
-Access federal court documents and case information
-
-**U.S. Courts Forms**  
-https://www.uscourts.gov/forms  
-Free federal court forms
-
-## State Court Portals (Major States)
-
-### California
-- **California Courts Self-Help**  
-  https://www.courts.ca.gov/selfhelp.htm
-- **Forms**: https://www.courts.ca.gov/forms.htm
-- Family law forms, instructions, local court websites
-
-### Texas
-- **Texas Courts Online**  
-  https://www.txcourts.gov/
-- **Texas Law Help**  
-  https://texaslawhelp.org/
-- Free forms and legal information
-
-### Florida
-- **Florida Courts Self-Help**  
-  https://www.flcourts.gov/Resources-Services/Court-Improvement/Family-Courts/Family-Law-Self-Help-Information
-- Comprehensive family law forms and instructions
-
-### New York
-- **NY Courts DIY Forms**  
-  https://www.nycourts.gov/courthelp/DIY/index.shtml
-- Interactive forms for family court
-
-### Illinois
-- **Illinois Courts Self-Help**  
-  https://www.illinoiscourts.gov/self-help/
-- Forms and instructional materials
-
-### Pennsylvania
-- **PA Courts Self-Help**  
-  https://www.pacourts.us/learn/self-help
-- Family law resources and forms
-
-### Ohio
-- **Ohio Supreme Court Forms**  
-  https://www.supremecourt.ohio.gov/JCS/domesticViolence/forms/
-- Domestic relations and family law forms
-
-### Georgia
-- **Georgia Legal Aid**  
-  https://www.georgialegalaid.org/
-- Free forms and self-help resources
-
-### North Carolina
-- **NC Courts Self-Help**  
-  https://www.nccourts.gov/help-topics/family-and-children
-- Family court forms and information
-
-### Michigan
-- **Michigan Legal Help**  
-  https://michiganlegalhelp.org/
-- DIY divorce and family law tools
-
-## What to Look For
-
-When you find your state's court website:
-
-- **Official domain**: Usually ends in .gov or .us
-- **Free access**: State-provided forms are free
-- **Current forms**: Check the revision date
-- **Local rules**: Download your specific county's rules
-- **Filing instructions**: Most sites include step-by-step guides
-- **Fee waiver forms**: If you can't afford filing fees
-
-## Red Flags (Scam Sites)
-
-- Charges for "access" to forms
-- Promises to "file for you" for a fee (unless they're a real attorney)
-- No .gov domain
-- Outdated forms
-- Generic advice not specific to your state
-
-## Local Court Websites
-
-After finding state resources, search for:  
-"[Your County] [Your State] court website"
-
-Local court sites often have:
-- Specific judges' preferences
-- Local filing procedures
-- Court calendars
-- E-filing portals
-- Contact information for clerk's office
-
-## Legal Aid Organizations
-
-If you can't find what you need:
-
-**National**
-- Legal Services Corporation: https://www.lsc.gov/what-legal-aid/find-legal-aid
-- Find free or low-cost legal help in your area
-
-**State-Specific**
-- Search: "[Your State] legal aid"
-- Most states have multiple legal aid organizations
-- Income limits usually apply
-
-## Caution
-
-- These portals provide forms and information, not legal advice
-- Using the right form doesn't guarantee the right outcome
-- When in doubt, consult with a licensed attorney in your jurisdiction
-- Don't rely on out-of-state forms—rules vary significantly
-
-Save money by getting forms from official sources. Spend money on actual legal help if you need it.`,
+    contentVersion: 2,
+    blocks: officialPortals.blocks,
     relatedLinks: [
       { title: "Where to Find Official Court Forms FAQ", href: "/resources/q/official-forms-location" },
       { title: "Proof of Service Pack", href: "/resources/proof-of-service" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
-        { name: "State Bar Association Resources" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Court websites and form availability vary by state. Always verify current forms with your local court."
-    }
   },
 
   // Draft resources (new placeholders for starter kit references)

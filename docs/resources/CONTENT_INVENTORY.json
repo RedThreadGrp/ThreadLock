@@ -183,23 +183,14 @@
     "type": "resource",
     "slug": "financial-snapshot",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Official Court Portals",
-    "metaDescription": "Income, expenses, accounts, and timelines—so you can answer questions without scrambling.",
+    "title": "",
+    "metaDescription": "missing",
     "wordCount": {
-      "total": 610,
-      "body": 599,
-      "excerpt": 11
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 9,
-        "h3": 10
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 29
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -207,9 +198,11 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/guides/evidence-authentication",
@@ -451,23 +444,14 @@
     "type": "resource",
     "slug": "official-portals",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Fee Waiver Information",
-    "metaDescription": "Links to state-provided form sites and official rules. Don't pay for free forms.",
+    "title": "",
+    "metaDescription": "missing",
     "wordCount": {
-      "total": 461,
-      "body": 448,
-      "excerpt": 13
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 7,
-        "h3": 10
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 31
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -475,9 +459,11 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/parenting-plans",
@@ -485,23 +471,14 @@
     "type": "resource",
     "slug": "parenting-plans",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Hearing Tomorrow Checklist",
-    "metaDescription": "A structured way to describe routines, transitions, holidays, and communication—without writing a manifesto.",
+    "title": "",
+    "metaDescription": "missing",
     "wordCount": {
-      "total": 760,
-      "body": 747,
-      "excerpt": 13
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 9,
-        "h3": 9
-      },
-      "lists": 8,
-      "codeBlocks": 0,
-      "paragraphs": 32
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -509,9 +486,11 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/proof-of-service",

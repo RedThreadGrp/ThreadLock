@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T22:36:23.010Z
+**Generated:** 2026-02-15T23:01:34.438Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -14,8 +14,8 @@
   - special: 1
   - topic: 6
 - **Content Coverage:**
-  - With body content: 29 (76.3%)
-  - With meta description: 38 (100.0%)
+  - With body content: 26 (68.4%)
+  - With meta description: 35 (92.1%)
   - With last updated date: 17 (44.7%)
   - With FAQs: 14
   - With sources/links: 1
@@ -31,7 +31,7 @@
 | /resources/evidence-intake | resource | Proof of Service State-by-State Guide | 449 | pass | ⚠️ 2 |
 | /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Organiza... | 0 | fail | ⚠️ 2 |
 | /resources/filing-basics | resource | Exhibits Guide: Labeling and Organiza... | 1567 | pass | ✅ |
-| /resources/financial-snapshot | resource | Official Court Portals | 610 | pass | ⚠️ 2 |
+| /resources/financial-snapshot | resource |  | 0 | pass | ⚠️ 2 |
 | /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 286 | pass | ⚠️ 1 |
 | /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Calculat... | 481 | pass | ⚠️ 1 |
 | /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | pass | ⚠️ 1 |
@@ -40,8 +40,8 @@
 | /resources/kits/evidence | kit | Evidence Kit | 0 | fail | ⚠️ 2 |
 | /resources/kits/first-filing | kit | First Filing Kit | 0 | fail | ⚠️ 2 |
 | /resources/kits/hearing-soon | kit | Hearing Soon Kit | 9 | pass | ⚠️ 1 |
-| /resources/official-portals | resource | Fee Waiver Information | 461 | pass | ⚠️ 2 |
-| /resources/parenting-plans | resource | Hearing Tomorrow Checklist | 760 | pass | ⚠️ 2 |
+| /resources/official-portals | resource |  | 0 | pass | ⚠️ 2 |
+| /resources/parenting-plans | resource |  | 0 | pass | ⚠️ 2 |
 | /resources/proof-of-service | resource | Proof of Service Pack | 290 | pass | ⚠️ 2 |
 | /resources/q/child-support-calculation | question | How much does mediation cost? | 979 | pass | ✅ |
 | /resources/q/custody-types | question | What happens if I miss a filing deadl... | 846 | pass | ✅ |
@@ -228,29 +228,25 @@
 ### /resources/financial-snapshot
 
 - **Type:** resource
-- **Title:** Official Court Portals
+- **Title:** 
 - **Canonical URL:** https://threadlock.ai/resources/financial-snapshot
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
-- **Meta Description:** Income, expenses, accounts, and timelines—so you can answer questions without scrambling.
+- **Meta Description:** ❌ missing
 - **Last Updated:** ❌ missing
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 610
-- body: 599
-- excerpt: 11
-
-**Content Structure:**
-- Headings: H1(1), H2(9), H3(10)
-- Paragraphs: 29
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
 
 **⚠️ Issues/Notes:**
-- Missing metaDescription
-- Missing dateModified
+- V2 content from separate file (spread operator in registry)
+- No content (0 words)
 
 ---
 
@@ -461,59 +457,50 @@
 ### /resources/official-portals
 
 - **Type:** resource
-- **Title:** Fee Waiver Information
+- **Title:** 
 - **Canonical URL:** https://threadlock.ai/resources/official-portals
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
-- **Meta Description:** Links to state-provided form sites and official rules. Don't pay for free forms.
+- **Meta Description:** ❌ missing
 - **Last Updated:** ❌ missing
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 461
-- body: 448
-- excerpt: 13
-
-**Content Structure:**
-- Headings: H1(1), H2(7), H3(10)
-- Paragraphs: 31
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
 
 **⚠️ Issues/Notes:**
-- Missing metaDescription
-- Missing dateModified
+- V2 content from separate file (spread operator in registry)
+- No content (0 words)
 
 ---
 
 ### /resources/parenting-plans
 
 - **Type:** resource
-- **Title:** Hearing Tomorrow Checklist
+- **Title:** 
 - **Canonical URL:** https://threadlock.ai/resources/parenting-plans
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
-- **Meta Description:** A structured way to describe routines, transitions, holidays, and communication—without writing a manifesto.
+- **Meta Description:** ❌ missing
 - **Last Updated:** ❌ missing
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 760
-- body: 747
-- excerpt: 13
-
-**Content Structure:**
-- Headings: H1(1), H2(9), H3(9)
-- Paragraphs: 32
-- Lists: 8
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
 
 **⚠️ Issues/Notes:**
-- Missing metaDescription
-- Missing dateModified
+- V2 content from separate file (spread operator in registry)
+- No content (0 words)
 
 ---
 

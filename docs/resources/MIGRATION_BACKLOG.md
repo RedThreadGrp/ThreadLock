@@ -5,8 +5,8 @@ Generated: 2026-02-15
 ## Summary
 
 - Total items: 36
-- Todo: 9
-- Migrated: 19
+- Todo: 6
+- Migrated: 22
 - Manual review needed: 0
 - Blocked (slug mismatch): 0
 - Blocked (no content): 2
@@ -36,9 +36,6 @@ Generated: 2026-02-15
 
 | Route | Type | Version | Words | Complexity | Status | Notes |
 |-------|------|---------|-------|------------|--------|-------|
-| /resources/parenting-plans | resource | v1 | 747 | simple | todo | Slug/title mismatch: "parenting-plans" vs "Hearing Tomorrow Checklist"; Missing sources; Missing lastUpdated |
-| /resources/financial-snapshot | resource | v1 | 599 | simple | todo | Slug/title mismatch: "financial-snapshot" vs "Official Court Portals"; Missing sources; Missing lastUpdated |
-| /resources/official-portals | resource | v1 | 448 | simple | todo | Slug/title mismatch: "official-portals" vs "Fee Waiver Information"; Missing sources; Missing lastUpdated |
 | /resources/evidence-intake | resource | v1 | 433 | simple | todo | Slug/title mismatch: "evidence-intake" vs "Proof of Service State-by-State Guide"; Missing sources; Missing lastUpdated |
 | /resources/proof-of-service | resource | v1 | 279 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/authentication | resource | v1 | 2250 | hard | todo | Slug/title mismatch: "authentication" vs "Exhibits Guide: Labeling and Organization"; Missing sources |
@@ -60,9 +57,12 @@ Generated: 2026-02-15
 | /resources/guides/proof-of-service-states | guide | v2 | 423 | simple | migrated | Missing sources; Missing lastUpdated |
 | /resources/guides/evidence-authentication | guide | v2 | 273 | simple | migrated | Missing sources; Missing lastUpdated |
 | /resources/exhibits-guide | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
+| /resources/financial-snapshot | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
 | /resources/hearing-tomorrow | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
 | /resources/kits/evidence | kit | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
 | /resources/kits/first-filing | kit | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
+| /resources/official-portals | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
+| /resources/parenting-plans | resource | v2 | 0 | simple | migrated | Missing sources; Missing lastUpdated; Empty content |
 | /resources/q/proof-of-service-definition | question | v2 | 0 | simple | migrated | Missing sources; Empty content |
 | /resources/guides/self-representation-complete | guide | v1 | 0 | minimal | blocked-no-content | Missing sources; Empty content |
 | /resources/kits/hearing-soon | kit | v1 | 0 | minimal | blocked-no-content | Missing sources; Missing lastUpdated; Empty content |
