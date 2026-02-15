@@ -20,6 +20,23 @@ describe('Renderer Identity - Prod Parity Gate', () => {
       cy.get('h1').should('exist');
       cy.contains('proof of service', { matchCase: false }).should('exist');
     });
+    
+    it('must have structured v2 content blocks', () => {
+      // Assert presence of v2 structured sections
+      cy.get('[data-testid="resource.block.section"]').should('have.length.at.least', 1);
+    });
+    
+    it('must not have legacy body markers', () => {
+      // Assert absence of legacy markdown rendering
+      cy.get('[data-testid="legacy-question-body"]').should('not.exist');
+      // Should not have duplicate "Short Answer" heading in body
+      cy.get('.prose').should('not.exist'); // v2 doesn't use prose class
+    });
+    
+    it('short answer appears once only', () => {
+      // v2 should have short answer card but not duplicate in body
+      cy.contains('Short answer').should('have.length', 1);
+    });
   });
 
   describe('/resources/exhibits-guide', () => {

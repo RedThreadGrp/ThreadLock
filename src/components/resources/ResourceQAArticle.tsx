@@ -226,7 +226,7 @@ function renderBlock(block: ResourceBodyBlock, key: React.Key) {
 function Section({ section }: { section: ResourceSection }) {
   const anchor = slugifyId(section.id);
   return (
-    <section id={anchor} className="scroll-mt-24">
+    <section id={anchor} className="scroll-mt-24" data-testid="resource.block.section">
       <h2 className="text-lg font-semibold text-white/95">{section.heading}</h2>
       <div className="mt-3 space-y-4">
         {section.body.map((b, idx) => renderBlock(b, `${section.id}-${idx}`))}
@@ -300,6 +300,59 @@ function Sources({
 }
 
 export function ResourceQAArticle({ content }: Props) {
+  // ============================================================================
+  // HARD CONTRACT CHECK: Enforce v2 schema
+  // ============================================================================
+  // The v2 renderer MUST receive structured content with sections.
+  // This prevents "wrapper-only" implementations that silently fall back to legacy blobs.
+  
+  const hasValidSections = content.sections && content.sections.length > 0;
+  
+  if (!hasValidSections) {
+    // In development: Show explicit error to developers
+    if (process.env.NODE_ENV !== "production") {
+      return (
+        <main className="mx-auto w-full max-w-5xl px-4 pb-16 pt-10">
+          <div className="rounded-2xl border-2 border-red-500 bg-red-500/10 p-6">
+            <h1 className="text-xl font-bold text-red-400">Developer Error: Invalid v2 Content</h1>
+            <p className="mt-2 text-sm text-red-300">
+              The v2 renderer received content without valid sections[].
+            </p>
+            <p className="mt-2 text-sm text-red-300">
+              This content must be migrated to the v2 schema with structured blocks.
+            </p>
+            <pre className="mt-4 overflow-auto rounded bg-black/30 p-4 text-xs text-red-200">
+              {JSON.stringify({ 
+                slug: content.slug, 
+                hasSections: !!content.sections,
+                sectionsLength: content.sections?.length || 0 
+              }, null, 2)}
+            </pre>
+          </div>
+        </main>
+      );
+    }
+    
+    // In production: Show clean "being updated" message (NOT legacy content)
+    return (
+      <main className="mx-auto w-full max-w-5xl px-4 pb-16 pt-10">
+        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
+          <div className="text-4xl mb-4">🔄</div>
+          <h1 className="text-xl font-semibold text-white/95 mb-2">
+            This resource is being updated
+          </h1>
+          <p className="text-sm text-white/70">
+            We're migrating this content to our new format. Please check back soon.
+          </p>
+        </div>
+      </main>
+    );
+  }
+  
+  // ============================================================================
+  // Valid v2 content: Render normally
+  // ============================================================================
+  
   const hasFaqs = Boolean(content.faqs?.items?.length);
   const hasSources = Boolean(content.sources?.items?.length);
 
