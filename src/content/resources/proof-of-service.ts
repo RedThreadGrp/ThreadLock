@@ -186,4 +186,25 @@ export const proofOfService: ResourceQAContent = {
       },
     ],
   },
+
+  governance: {
+    lastUpdated: "2026-02-15",
+    sources: [
+      {
+        name: "California Courts Self-Help Guide: Proof of Service",
+        href: "https://www.courts.ca.gov/selfhelp-serving.htm",
+      },
+      {
+        name: "Federal Rules of Civil Procedure (FRCP): Rule 5",
+        href: "https://www.law.cornell.edu/rules/frcp/rule_5",
+      },
+      {
+        name: "New York State Unified Court System: Affidavit of Service",
+        href: "https://www.nycourts.gov/courthelp/",
+      },
+    ],
+    jurisdictionScope: ["US-general", "Federal", "California", "New York", "Texas", "Florida"],
+    reviewIntervalDays: 180,
+    accuracyNotes: "Service requirements vary significantly by state. Always verify local court rules and specific form requirements for your jurisdiction.",
+  },
 };

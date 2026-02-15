@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T00:58:42.000Z
+**Generated:** 2026-02-15T01:35:47.930Z
 **Total Routes:** 42
 
 ## Summary Statistics
@@ -14,7 +14,7 @@
   - special: 1
   - topic: 10
 - **Content Coverage:**
-  - With body content: 30 (71.4%)
+  - With body content: 28 (66.7%)
   - With meta description: 42 (100.0%)
   - With last updated date: 18 (42.9%)
   - With FAQs: 15
@@ -32,14 +32,14 @@
 | /resources/exhibits-guide | resource | Proof of Service Pack | 771 | pass | ✅ |
 | /resources/filing-basics | resource | Exhibits Guide: Labeling and Organiza... | 1567 | pass | ✅ |
 | /resources/financial-snapshot | resource | Official Court Portals | 610 | pass | ⚠️ 2 |
-| /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 407 | pass | ⚠️ 1 |
-| /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Calculat... | 481 | pass | ⚠️ 1 |
-| /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | pass | ⚠️ 1 |
-| /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Representa... | 292 | pass | ✅ |
+| /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 286 | pass | ⚠️ 1 |
+| /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Calculat... | 430 | pass | ⚠️ 1 |
+| /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 403 | pass | ⚠️ 1 |
+| /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Representa... | 19 | pass | ✅ |
 | /resources/hearing-tomorrow | resource | Hearing Tomorrow Checklist | 242 | pass | ⚠️ 2 |
-| /resources/kits/evidence | kit | Evidence Kit | 195 | pass | ⚠️ 1 |
-| /resources/kits/first-filing | kit | First Filing Kit | 193 | pass | ⚠️ 1 |
-| /resources/kits/hearing-soon | kit | Hearing Soon Kit | 200 | pass | ⚠️ 1 |
+| /resources/kits/evidence | kit | Evidence Kit | 191 | pass | ⚠️ 1 |
+| /resources/kits/first-filing | kit | First Filing Kit | 201 | pass | ⚠️ 1 |
+| /resources/kits/hearing-soon | kit | Hearing Soon Kit | 9 | pass | ⚠️ 1 |
 | /resources/official-portals | resource | Fee Waiver Information | 461 | pass | ⚠️ 2 |
 | /resources/parenting-plans | resource | Hearing Tomorrow Checklist | 760 | pass | ⚠️ 2 |
 | /resources/proof-of-service | resource | Official Court Portals | 290 | pass | ⚠️ 2 |
@@ -270,14 +270,13 @@
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 407
-- body: 394
+- total: 286
+- body: 273
 - summary: 13
 
 **Content Structure:**
-- Headings: H1(1), H2(9), H3(0)
-- Paragraphs: 20
-- Lists: 5
+- Headings: H1(1), H2(8), H3(0)
+- Paragraphs: 18
 
 **Features:**
 - FAQ: ❌ No
@@ -299,13 +298,13 @@
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 481
-- body: 474
+- total: 430
+- body: 423
 - summary: 7
 
 **Content Structure:**
-- Headings: H1(1), H2(10), H3(0)
-- Paragraphs: 26
+- Headings: H1(1), H2(9), H3(0)
+- Paragraphs: 20
 
 **Features:**
 - FAQ: ❌ No
@@ -327,13 +326,14 @@
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 432
-- body: 423
+- total: 403
+- body: 394
 - summary: 9
 
 **Content Structure:**
 - Headings: H1(1), H2(9), H3(0)
 - Paragraphs: 20
+- Lists: 5
 
 **Features:**
 - FAQ: ❌ No
@@ -355,13 +355,9 @@
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 292
-- body: 273
+- total: 19
+- body: 0
 - summary: 19
-
-**Content Structure:**
-- Headings: H1(1), H2(8), H3(0)
-- Paragraphs: 18
 
 **Features:**
 - FAQ: ❌ No
@@ -409,8 +405,8 @@
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 195
-- body: 187
+- total: 191
+- body: 183
 - description: 8
 
 **Content Structure:**
@@ -437,13 +433,13 @@
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 193
-- body: 183
+- total: 201
+- body: 191
 - description: 10
 
 **Content Structure:**
 - Headings: H1(1), H2(3), H3(5)
-- Paragraphs: 13
+- Paragraphs: 14
 
 **Features:**
 - FAQ: ❌ No
@@ -465,13 +461,9 @@
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 200
-- body: 191
+- total: 9
+- body: 0
 - description: 9
-
-**Content Structure:**
-- Headings: H1(1), H2(3), H3(5)
-- Paragraphs: 14
 
 **Features:**
 - FAQ: ❌ No

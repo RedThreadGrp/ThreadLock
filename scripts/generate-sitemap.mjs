@@ -10,17 +10,13 @@ const __dirname = path.dirname(__filename);
 const SITE_URL = SITE_CONFIG.baseUrl;
 const OUTPUT_PATH = path.join(__dirname, '../public/sitemap.xml');
 
-// Load dynamic route data
-const topicsData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '../src/data/resources/topics.json'), 'utf8')
-);
-
 // Load resourcesRegistry data by dynamically importing it
 const registryPath = path.join(__dirname, '../src/content/resourcesRegistry.ts');
 let RESOURCES = [];
 let POPULAR_QUESTIONS = [];
 let FEATURED_GUIDES = [];
 let STARTER_KITS = [];
+let TOPICS = [];
 
 // Since we can't directly import TS in this context easily without transpiling,
 // we'll parse the exports from the file
@@ -59,10 +55,19 @@ try {
     STARTER_KITS = slugMatches.map(m => ({ slug: m[1] }));
   }
   
+  // Extract TOPICS slugs
+  const topicsMatch = registryContent.match(/export const TOPICS[^=]*=\s*\[([\s\S]*?)\];/);
+  if (topicsMatch) {
+    const topicsContent = topicsMatch[1];
+    const slugMatches = [...topicsContent.matchAll(/slug:\s*["']([^"']+)["']/g)];
+    TOPICS = slugMatches.map(m => ({ slug: m[1] }));
+  }
+  
   console.log(`  Loaded ${RESOURCES.length} resources`);
   console.log(`  Loaded ${POPULAR_QUESTIONS.length} questions`);
   console.log(`  Loaded ${FEATURED_GUIDES.length} guides`);
   console.log(`  Loaded ${STARTER_KITS.length} starter kits`);
+  console.log(`  Loaded ${TOPICS.length} topics`);
 } catch (err) {
   console.error('Error loading resourcesRegistry:', err.message);
 }
@@ -231,9 +236,9 @@ function generateSitemap() {
     mtime: new Date() // Use current date for dynamic routes
   }));
   
-  // Add dynamic topic routes (FIXED: changed from /topic/ to /topics/)
-  const topicRoutes = topicsData.map(topic => ({
-    route: `/resources/topics/${topic.id}`,
+  // Add dynamic topic routes (using TypeScript registry)
+  const topicRoutes = TOPICS.map(topic => ({
+    route: `/resources/topics/${topic.slug}`,
     mtime: new Date()
   }));
   

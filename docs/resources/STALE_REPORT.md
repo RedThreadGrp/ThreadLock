@@ -1,0 +1,73 @@
+# Resources Staleness Report
+
+**Generated:** 2026-02-15
+
+This report identifies content that may be outdated based on governance metadata.
+
+## Legend
+
+- 🟢 **FRESH**: Within review interval
+- 🟡 **WARNING**: Approaching review interval (>80% of threshold)
+- 🔴 **STALE**: Past review interval, needs immediate review
+- ⚠️ **NO_POLICY**: Missing governance metadata
+- ❓ **UNKNOWN**: Invalid or missing lastUpdated date
+
+## Summary
+
+| Status | Count | Percentage |
+|--------|-------|------------|
+| 🟢 Fresh | 31 | 100.0% |
+| 🟡 Warning | 0 | 0.0% |
+| 🔴 Stale | 0 | 0.0% |
+| ⚠️ No Policy | 0 | 0.0% |
+| ❓ Unknown | 0 | 0.0% |
+| **TOTAL** | **31** | **100.0%** |
+
+## 🟢 Fresh Content
+
+These items are within their review interval and are considered current.
+
+| Route | Title | Last Updated | Days Old | Review Interval | Source |
+|-------|-------|--------------|----------|-----------------|--------|
+| /resources/hearing-tomorrow | Hearing Tomorrow Checklist | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/proof-of-service | Proof of Service Pack | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/evidence-intake | Evidence Intake: Photos, Texts, Email | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/parenting-plans | Parenting Plan Builder Guide | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/financial-snapshot | Financial Snapshot Worksheet | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/official-portals | Official Court Portals Directory | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/exhibits-guide | Exhibits Guide: Labeling and Organization | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/courtroom-prep | Courtroom Etiquette and Preparation | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/filing-basics | Filing Basics: Getting Started | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/timeline-tools | Timeline Organization Tools | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/authentication | Authentication Basics for Digital Evidence | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/hearing-soon | Hearing Soon Kit | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/first-filing | First Filing Kit | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/evidence | Evidence Kit | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/self-representation-complete | The Complete Guide to Self-Representation in Family Court | 2026-02-15 | 1 | 365 days | resourcesRegistry.ts |
+| /resources/evidence-authentication | Evidence Authentication 101 | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/proof-of-service-states | Proof of Service State-by-State | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/parenting-time-calculations | Understanding Parenting Time Calculations | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/proof-of-service-definition | Service of Process Requirements by State | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/exhibit-labeling | Preparing Evidence for Court | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/official-forms-location | Court Forms by State | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/text-authentication | How to Label Exhibits for Court | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/hearing-checklist | Courtroom Etiquette Guide | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/service-deadlines | What Counts as Proof of Service? | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/custody-types | Creating a Parenting Plan | 2026-02-15 | 1 | 365 days | resourcesRegistry.ts |
+| /resources/mediation-lawyer | Finding a Family Law Mediator | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/child-support-calculation | Child Support Guidelines by State | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/modify-parenting-plan | Legal vs Physical Custody Explained | 2026-02-15 | 1 | 180 days | resourcesRegistry.ts |
+| /resources/fee-waiver | Where to Find Official Court Forms | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/respond-to-motion | How Long Do I Have to Serve Documents? | 2026-02-15 | 1 | 90 days | resourcesRegistry.ts |
+| /resources/q/proof-of-service | What Counts as Proof of Service? | 2026-02-15 | 1 | 180 days | proof-of-service.ts |
+
+## Recommendations
+
+1. **Review Stale Content First**: Focus on the 0 items marked as 🔴 STALE.
+2. **Add Governance Metadata**: 0 items are missing governance metadata.
+3. **Plan for Warning Items**: 0 items will become stale soon.
+4. **Regular Reviews**: Run this report weekly to stay on top of content freshness.
+
+---
+
+*This report is automatically generated by `pnpm resources:stale`*
