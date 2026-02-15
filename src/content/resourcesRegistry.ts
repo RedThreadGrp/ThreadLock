@@ -7,6 +7,8 @@ import { modifyParentingPlan } from "./resources/modify-parenting-plan";
 import { custodyTypes } from "./resources/custody-types";
 import { feeWaiver } from "./resources/fee-waiver";
 import { childSupportCalculation } from "./resources/child-support-calculation";
+import { textAuthentication } from "./resources/text-authentication";
+import { serviceDeadlines } from "./resources/service-deadlines";
 
 // ============================================================================
 // Type Definitions
@@ -3429,11 +3431,13 @@ If you cannot locate needed forms online, contact your courthouse clerk's office
     slug: "text-authentication",
     question: "Can I authenticate text messages myself?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Can I Authenticate Text Messages Myself? | ThreadLock",
     metaDescription: "Yes, you can self-authenticate text messages by submitting a declaration under penalty of perjury explaining the source, context, and chain of custody.",
     shortAnswer: "Yes, you can self-authenticate text messages by submitting a declaration under penalty of perjury that explains how you obtained the messages, their source, and the context. Include screenshots or exports with visible phone numbers and timestamps as exhibits.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: textAuthentication,
     body: `# Can I authenticate text messages myself?
 
 ## Short Answer
@@ -3538,16 +3542,7 @@ While self-authentication is generally permitted, having the opposing party stip
       { question: "Can I use email as evidence?", href: "/resources/q/email-evidence" },
       { question: "How do I authenticate photos?", href: "/resources/q/photo-authentication" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "State Discovery Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Text message authentication standards vary by state. Consult local evidence rules."
-    }
+    governance: textAuthentication.governance
   },
   {
     slug: "hearing-checklist",
@@ -3708,11 +3703,13 @@ Call the court clerk's office or check the local rules if you're uncertain about
     slug: "service-deadlines",
     question: "How long do I have to serve documents?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "How Long Do I Have to Serve Documents? | ThreadLock",
     metaDescription: "Service deadlines vary by document type and jurisdiction. Initial petitions typically require 120 days, while motion responses often need 9-16 days notice.",
     shortAnswer: "Service deadlines vary by document type and jurisdiction. Initial petitions typically must be served within 120 days of filing. Motion responses usually require 9-16 days' notice before the hearing, while discovery responses are generally due within 30 days.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: serviceDeadlines,
     body: `# How long do I have to serve documents?
 
 ## Short Answer
@@ -3846,16 +3843,7 @@ When in doubt, serve earlier than required to avoid disputes and ensure adequate
       { question: "How do I calculate court days?", href: "/resources/q/court-days" },
       { question: "Can I get an extension on a deadline?", href: "/resources/q/deadline-extension" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Civil Procedure" },
-        { name: "Local Court Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Service deadlines vary significantly by jurisdiction and document type. Verify local rules."
-    }
+    governance: serviceDeadlines.governance
   },
   {
     slug: "custody-types",

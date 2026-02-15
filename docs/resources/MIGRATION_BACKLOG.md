@@ -5,8 +5,8 @@ Generated: 2026-02-15
 ## Summary
 
 - Total items: 36
-- Todo: 23
-- Migrated: 5
+- Todo: 21
+- Migrated: 7
 - Manual review needed: 0
 - Blocked (slug mismatch): 0
 - Blocked (no content): 2
@@ -38,10 +38,8 @@ Generated: 2026-02-15
 |-------|------|---------|-------|------------|--------|-------|
 | /resources/q/mediation-lawyer | question | v1 | 863 | simple | todo | Slug/title mismatch: "mediation-lawyer" vs "Can I modify a parenting plan later?"; Missing sources |
 | /resources/exhibits-guide | resource | v1 | 759 | simple | todo | Slug/title mismatch: "exhibits-guide" vs "Proof of Service Pack"; Missing sources |
-| /resources/q/service-deadlines | question | v1 | 750 | simple | todo | Slug/title mismatch: "service-deadlines" vs "What should I wear to court?"; Missing sources |
 | /resources/parenting-plans | resource | v1 | 747 | simple | todo | Slug/title mismatch: "parenting-plans" vs "Hearing Tomorrow Checklist"; Missing sources; Missing lastUpdated |
 | /resources/q/hearing-checklist | question | v1 | 664 | simple | todo | Slug/title mismatch: "hearing-checklist" vs "What counts as proof of service?"; Missing sources |
-| /resources/q/text-authentication | question | v1 | 602 | simple | todo | Slug/title mismatch: "text-authentication" vs "What if I can't afford court fees?"; Missing sources |
 | /resources/financial-snapshot | resource | v1 | 599 | simple | todo | Slug/title mismatch: "financial-snapshot" vs "Official Court Portals"; Missing sources; Missing lastUpdated |
 | /resources/q/official-forms-location | question | v1 | 529 | simple | todo | Slug/title mismatch: "official-forms-location" vs "Can I authenticate text messages myself?"; Missing sources |
 | /resources/official-portals | resource | v1 | 448 | simple | todo | Slug/title mismatch: "official-portals" vs "Fee Waiver Information"; Missing sources; Missing lastUpdated |
@@ -63,6 +61,8 @@ Generated: 2026-02-15
 | /resources/q/fee-waiver | question | v2 | 1003 | simple | migrated | Slug/title mismatch: "fee-waiver" vs "What counts as a substantial change in circumstances?"; Missing sources |
 | /resources/q/child-support-calculation | question | v2 | 944 | simple | migrated | Slug/title mismatch: "child-support-calculation" vs "How much does mediation cost?"; Missing sources |
 | /resources/q/custody-types | question | v2 | 809 | simple | migrated | Slug/title mismatch: "custody-types" vs "What happens if I miss a filing deadline?"; Missing sources |
+| /resources/q/service-deadlines | question | v2 | 750 | simple | migrated | Slug/title mismatch: "service-deadlines" vs "What should I wear to court?"; Missing sources |
+| /resources/q/text-authentication | question | v2 | 602 | simple | migrated | Slug/title mismatch: "text-authentication" vs "What if I can't afford court fees?"; Missing sources |
 | /resources/q/proof-of-service-definition | question | v2 | 0 | simple | migrated | Missing sources; Empty content |
 | /resources/guides/self-representation-complete | guide | v1 | 0 | minimal | blocked-no-content | Missing sources; Empty content |
 | /resources/kits/hearing-soon | kit | v1 | 0 | minimal | blocked-no-content | Missing sources; Missing lastUpdated; Empty content |
