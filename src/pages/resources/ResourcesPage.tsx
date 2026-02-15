@@ -19,6 +19,18 @@ import {
   isLinkStale,
   formatLastVerified,
 } from "@/src/content/externalResources.registry";
+import {
+  RESOURCES as REGISTRY_RESOURCES,
+  STARTER_KITS as REGISTRY_STARTER_KITS,
+  TOPICS as REGISTRY_TOPICS,
+  FEATURED_GUIDES as REGISTRY_FEATURED_GUIDES,
+  POPULAR_QUESTIONS as REGISTRY_POPULAR_QUESTIONS,
+  Resource as RegistryResource,
+  StarterKit as RegistryStarterKit,
+  Topic as RegistryTopic,
+  FeaturedGuide as RegistryFeaturedGuide,
+  PopularQuestion as RegistryPopularQuestion,
+} from "@/src/content/resourcesRegistry";
 import { isHttp, extractDomain } from "@/src/lib/normalizeUrl";
 import { trackResourceClick } from "@/src/lib/analytics";
 import { getDeadlinesForJurisdiction, hasDeadlines } from "@/src/content/stateDeadlines.registry";
@@ -66,186 +78,53 @@ function cn(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
 }
 
-const RESOURCES: Resource[] = [
-  {
-    title: "Hearing Tomorrow Checklist",
-    excerpt: "A practical walkthrough for what to bring, how to label exhibits, and what to avoid saying when you're nervous.",
-    tag: "Court Prep",
-    topic: "Hearings & Courtroom Prep",
-    intent: "Urgent",
-    href: "/resources/hearing-tomorrow",
-    readTime: "5 min read",
-  },
-  {
-    title: "Proof of Service Pack",
-    excerpt: "Templates + plain-English guidance so you don't lose on a technicality.",
-    tag: "Templates",
-    topic: "Proof of Service",
-    intent: "Start",
-    href: "/resources/q/proof-of-service-definition",
-    readTime: "8 min read",
-  },
-  {
-    title: "Evidence Intake: Photos, Texts, Email",
-    excerpt: "How to capture, preserve, and organize records so they're usable later. (Not legal advice. Just hygiene.)",
-    tag: "Evidence",
-    topic: "Evidence & Exhibits",
-    intent: "Organize",
-    href: "/resources/evidence-intake",
-    readTime: "10 min read",
-  },
-  {
-    title: "Parenting Plan Builder Guide",
-    excerpt: "A structured way to describe routines, transitions, holidays, and communication—without writing a manifesto.",
-    tag: "Basics",
-    topic: "Parenting Plans",
-    intent: "Start",
-    href: "/resources/parenting-plans",
-    readTime: "12 min read",
-  },
-  {
-    title: "Financial Snapshot Worksheet",
-    excerpt: "Income, expenses, accounts, and timelines—so you can answer questions without scrambling.",
-    tag: "Finance",
-    topic: "Financial Declarations",
-    intent: "Organize",
-    href: "/resources/financial-snapshot",
-    readTime: "7 min read",
-  },
-  {
-    title: "Official Court Portals Directory",
-    excerpt: "Links to state-provided form sites and official rules. Don't pay for free forms.",
-    tag: "Forms",
-    topic: "Official Forms & Portals",
-    intent: "Learn",
-    href: "/resources/official-portals",
-    readTime: "3 min read",
-  },
-];
+// Transform registry data to match local types for rendering
+const RESOURCES: Resource[] = REGISTRY_RESOURCES
+  .filter(r => r.status === 'published')
+  .map(r => ({
+    title: r.title,
+    excerpt: r.excerpt,
+    tag: r.tag,
+    topic: r.topic,
+    intent: r.intent,
+    href: `/resources/${r.slug}`,
+    readTime: r.readTime,
+  }));
 
-const STARTER_KITS: StarterKit[] = [
-  {
-    title: "Hearing Soon Kit",
-    description: "Everything you need when a hearing is approaching fast.",
-    whatYouGet: [
-      "Hearing Tomorrow Checklist",
-      "Exhibit labeling guidelines",
-      "Courtroom etiquette basics",
-      "What to bring checklist",
-      "Common mistakes to avoid",
-    ],
-    estimatedTime: "15 minutes",
-    resources: ["/resources/hearing-tomorrow", "/resources/exhibits-guide", "/resources/courtroom-prep"],
-    href: "/resources/kits/hearing-soon",
-  },
-  {
-    title: "First Filing Kit",
-    description: "Start your case right with proper documentation and filing procedures.",
-    whatYouGet: [
-      "Proof of service templates",
-      "Official forms directory",
-      "Filing hygiene checklist",
-      "Court rules overview",
-      "Common filing errors guide",
-    ],
-    estimatedTime: "20 minutes",
-    resources: ["/resources/q/proof-of-service-definition", "/resources/official-portals", "/resources/filing-basics"],
-    href: "/resources/kits/first-filing",
-  },
-  {
-    title: "Evidence Kit",
-    description: "Capture, organize, and preserve evidence that holds up.",
-    whatYouGet: [
-      "Evidence intake templates",
-      "Photo/text preservation guide",
-      "Timeline organization tools",
-      "Authentication basics",
-      "Digital evidence checklist",
-    ],
-    estimatedTime: "25 minutes",
-    resources: ["/resources/evidence-intake", "/resources/timeline-tools", "/resources/authentication"],
-    href: "/resources/kits/evidence",
-  },
-];
+const STARTER_KITS: StarterKit[] = REGISTRY_STARTER_KITS
+  .filter(k => k.status === 'published')
+  .map(k => ({
+    title: k.title,
+    description: k.description,
+    whatYouGet: k.whatYouGet,
+    estimatedTime: k.estimatedTime,
+    resources: k.resources,
+    href: `/resources/kits/${k.slug}`,
+  }));
 
-const TOPICS: Topic[] = [
-  {
-    title: "Proof of Service",
-    promise: "Don't lose on a technicality—get service documentation right.",
-    resourceCount: 4,
-    slug: "proof-of-service",
-  },
-  {
-    title: "Evidence & Exhibits",
-    promise: "Capture, preserve, and organize records that are usable in court.",
-    resourceCount: 6,
-    slug: "evidence-exhibits",
-  },
-  {
-    title: "Hearings & Courtroom Prep",
-    promise: "Walk in prepared, organized, and coherent under pressure.",
-    resourceCount: 5,
-    slug: "hearings-prep",
-  },
-  {
-    title: "Parenting Plans",
-    promise: "Structure routines, transitions, and communication clearly.",
-    resourceCount: 3,
-    slug: "parenting-plans",
-  },
-  {
-    title: "Financial Declarations",
-    promise: "Answer financial questions without scrambling for numbers.",
-    resourceCount: 4,
-    slug: "financial-declarations",
-  },
-  {
-    title: "Official Forms & Portals",
-    promise: "Access state-provided forms and rules—don't pay for free resources.",
-    resourceCount: 8,
-    slug: "official-forms",
-  },
-];
+const TOPICS: Topic[] = REGISTRY_TOPICS.map(t => ({
+  title: t.title,
+  promise: t.promise,
+  resourceCount: t.resourceCount,
+  slug: t.slug,
+}));
 
-const FEATURED_GUIDES: Guide[] = [
-  {
-    title: "The Complete Guide to Self-Representation in Family Court",
-    summary: "Everything you need to know about representing yourself, from filing basics to courtroom strategy. Updated with 2026 rule changes.",
-    tags: ["Court Prep", "Basics", "Complete Guide"],
-    updated: "Jan 2026",
-    href: "/resources/guides/self-representation-complete",
-  },
-  {
-    title: "Evidence Authentication 101",
-    summary: "How to make your photos, texts, and emails admissible without hiring an expert.",
-    tags: ["Evidence", "Authentication"],
-    href: "/resources/guides/evidence-authentication",
-  },
-  {
-    title: "Proof of Service State-by-State",
-    summary: "Requirements and templates for every U.S. state and territory.",
-    tags: ["Templates", "Proof of Service"],
-    href: "/resources/guides/proof-of-service-states",
-  },
-  {
-    title: "Understanding Parenting Time Calculations",
-    summary: "Calculate overnights, holidays, and summer schedules accurately.",
-    tags: ["Parenting Plans", "Calculations"],
-    href: "/resources/guides/parenting-time-calculations",
-  },
-];
+const FEATURED_GUIDES: Guide[] = REGISTRY_FEATURED_GUIDES
+  .filter(g => g.status === 'published')
+  .map(g => ({
+    title: g.title,
+    summary: g.summary,
+    tags: g.tags,
+    updated: g.updated,
+    href: `/resources/guides/${g.slug}`,
+  }));
 
-const POPULAR_QUESTIONS: Question[] = [
-  { question: "What counts as proof of service?", href: "/resources/q/proof-of-service-definition" },
-  { question: "How do I label exhibits for court?", href: "/resources/q/exhibit-labeling" },
-  { question: "Where do I find official court forms?", href: "/resources/q/official-forms-location" },
-  { question: "Can I authenticate text messages myself?", href: "/resources/q/text-authentication" },
-  { question: "What should I bring to a hearing?", href: "/resources/q/hearing-checklist" },
-  { question: "How long do I have to serve documents?", href: "/resources/q/service-deadlines" },
-  { question: "What's the difference between legal and physical custody?", href: "/resources/q/custody-types" },
-  { question: "Do I need a lawyer for mediation?", href: "/resources/q/mediation-lawyer" },
-  { question: "How do I calculate child support?", href: "/resources/q/child-support-calculation" },
-  { question: "Can I modify a parenting plan later?", href: "/resources/q/modify-parenting-plan" },
+const POPULAR_QUESTIONS: Question[] = REGISTRY_POPULAR_QUESTIONS
+  .filter(q => q.status === 'published')
+  .map(q => ({
+    question: q.question,
+    href: `/resources/q/${q.slug}`,
+  }));
   { question: "What if I can't afford court fees?", href: "/resources/q/fee-waiver" },
   { question: "How do I respond to a motion?", href: "/resources/q/respond-to-motion" },
 ];
