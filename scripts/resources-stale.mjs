@@ -59,6 +59,56 @@ function getStalenessStatus(daysSince, reviewIntervalDays) {
   return 'FRESH';
 }
 
+// Helper function to extract a balanced object from text starting at a position
+function extractBalancedObject(text, startPos) {
+  let braceCount = 0;
+  let inString = false;
+  let stringChar = null;
+  let escaped = false;
+  let start = -1;
+  
+  for (let i = startPos; i < text.length; i++) {
+    const char = text[i];
+    const prevChar = i > 0 ? text[i - 1] : '';
+    
+    // Handle escape sequences
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (char === '\\') {
+      escaped = true;
+      continue;
+    }
+    
+    // Handle strings
+    if ((char === '"' || char === "'" || char === '`') && !inString) {
+      inString = true;
+      stringChar = char;
+      continue;
+    }
+    if (char === stringChar && inString && prevChar !== '\\') {
+      inString = false;
+      stringChar = null;
+      continue;
+    }
+    if (inString) continue;
+    
+    // Count braces
+    if (char === '{') {
+      if (braceCount === 0) start = i;
+      braceCount++;
+    } else if (char === '}') {
+      braceCount--;
+      if (braceCount === 0 && start !== -1) {
+        return text.substring(start, i + 1);
+      }
+    }
+  }
+  
+  return null;
+}
+
 // Extract content items from resourcesRegistry.ts
 function extractRegistryItems() {
   const items = [];
@@ -67,41 +117,76 @@ function extractRegistryItems() {
     const registryPath = join(rootDir, 'src/content/resourcesRegistry.ts');
     const registryContent = readFileSync(registryPath, 'utf-8');
     
-    // Extract published items with governance metadata
-    // This is a simplified regex-based approach
-    const itemRegex = /{\s*slug:\s*["']([^"']+)["'][\s\S]*?status:\s*["']published["'][\s\S]*?(?=},|\];)/g;
-    const matches = registryContent.matchAll(itemRegex);
+    // Find all published items by looking for slug + status pattern
+    const slugRegex = /slug:\s*["']([^"']+)["']/g;
+    let match;
     
-    for (const match of matches) {
-      const itemBlock = match[0];
+    while ((match = slugRegex.exec(registryContent)) !== null) {
       const slug = match[1];
+      const matchPos = match.index;
+      
+      // Try to extract the full object containing this slug
+      // Go backwards to find the opening brace
+      let objectStart = matchPos;
+      let braceCount = 0;
+      for (let i = matchPos; i >= 0; i--) {
+        const char = registryContent[i];
+        if (char === '}') braceCount++;
+        if (char === '{') {
+          braceCount--;
+          if (braceCount < 0) {
+            objectStart = i;
+            break;
+          }
+        }
+      }
+      
+      // Extract the balanced object
+      const itemBlock = extractBalancedObject(registryContent, objectStart);
+      if (!itemBlock) continue;
+      
+      // Check if this is a published item
+      if (!itemBlock.includes('status:') || !itemBlock.includes('"published"') && !itemBlock.includes("'published'")) {
+        continue;
+      }
       
       // Extract title
       const titleMatch = itemBlock.match(/title:\s*["']([^"']+)["']/);
       const title = titleMatch ? titleMatch[1] : 'Unknown';
       
       // Extract governance metadata
-      const govMatch = itemBlock.match(/governance:\s*{([^}]+(?:{[^}]+}[^}]*)*?)}/s);
-      
-      if (govMatch) {
-        const govBlock = govMatch[1];
+      if (itemBlock.includes('governance:')) {
+        const govPos = itemBlock.indexOf('governance:');
+        const govStartBrace = itemBlock.indexOf('{', govPos);
+        const govBlock = extractBalancedObject(itemBlock, govStartBrace);
         
-        // Extract lastUpdated
-        const lastUpdatedMatch = govBlock.match(/lastUpdated:\s*["']([^"']+)["']/);
-        const lastUpdated = lastUpdatedMatch ? lastUpdatedMatch[1] : null;
-        
-        // Extract reviewIntervalDays
-        const reviewMatch = govBlock.match(/reviewIntervalDays:\s*(\d+)/);
-        const reviewIntervalDays = reviewMatch ? parseInt(reviewMatch[1]) : null;
-        
-        items.push({
-          route: `/resources/${slug}`,
-          title,
-          lastUpdated,
-          reviewIntervalDays,
-          type: 'resource',
-          source: 'resourcesRegistry.ts',
-        });
+        if (govBlock) {
+          // Extract lastUpdated
+          const lastUpdatedMatch = govBlock.match(/lastUpdated:\s*["']([^"']+)["']/);
+          const lastUpdated = lastUpdatedMatch ? lastUpdatedMatch[1] : null;
+          
+          // Extract reviewIntervalDays
+          const reviewMatch = govBlock.match(/reviewIntervalDays:\s*(\d+)/);
+          const reviewIntervalDays = reviewMatch ? parseInt(reviewMatch[1]) : null;
+          
+          items.push({
+            route: `/resources/${slug}`,
+            title,
+            lastUpdated,
+            reviewIntervalDays,
+            type: 'resource',
+            source: 'resourcesRegistry.ts',
+          });
+        } else {
+          items.push({
+            route: `/resources/${slug}`,
+            title,
+            lastUpdated: null,
+            reviewIntervalDays: null,
+            type: 'resource',
+            source: 'resourcesRegistry.ts',
+          });
+        }
       } else {
         // Item without governance metadata
         items.push({
@@ -145,28 +230,39 @@ function extractResourceQAFiles() {
       const h1Match = content.match(/h1:\s*["']([^"']+)["']/);
       const title = h1Match ? h1Match[1] : 'Unknown';
       
-      // Extract governance metadata
-      const govMatch = content.match(/governance:\s*{([^}]+(?:{[^}]+}[^}]*)*?)}/s);
-      
-      if (govMatch) {
-        const govBlock = govMatch[1];
+      // Extract governance metadata using balanced object extraction
+      if (content.includes('governance:')) {
+        const govPos = content.indexOf('governance:');
+        const govStartBrace = content.indexOf('{', govPos);
+        const govBlock = extractBalancedObject(content, govStartBrace);
         
-        // Extract lastUpdated
-        const lastUpdatedMatch = govBlock.match(/lastUpdated:\s*["']([^"']+)["']/);
-        const lastUpdated = lastUpdatedMatch ? lastUpdatedMatch[1] : null;
-        
-        // Extract reviewIntervalDays
-        const reviewMatch = govBlock.match(/reviewIntervalDays:\s*(\d+)/);
-        const reviewIntervalDays = reviewMatch ? parseInt(reviewMatch[1]) : null;
-        
-        items.push({
-          route: `/resources/q/${slug}`,
-          title,
-          lastUpdated,
-          reviewIntervalDays,
-          type: 'question',
-          source: file,
-        });
+        if (govBlock) {
+          // Extract lastUpdated
+          const lastUpdatedMatch = govBlock.match(/lastUpdated:\s*["']([^"']+)["']/);
+          const lastUpdated = lastUpdatedMatch ? lastUpdatedMatch[1] : null;
+          
+          // Extract reviewIntervalDays
+          const reviewMatch = govBlock.match(/reviewIntervalDays:\s*(\d+)/);
+          const reviewIntervalDays = reviewMatch ? parseInt(reviewMatch[1]) : null;
+          
+          items.push({
+            route: `/resources/q/${slug}`,
+            title,
+            lastUpdated,
+            reviewIntervalDays,
+            type: 'question',
+            source: file,
+          });
+        } else {
+          items.push({
+            route: `/resources/q/${slug}`,
+            title,
+            lastUpdated: null,
+            reviewIntervalDays: null,
+            type: 'question',
+            source: file,
+          });
+        }
       } else {
         // Item without governance metadata
         items.push({
