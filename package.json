@@ -9,6 +9,7 @@
     "lint": "next lint",
     "prebuild": "node scripts/check-next-env.mjs && node scripts/validate-resources-content.mjs",
     "generate-sitemap": "node scripts/generate-sitemap.mjs",
+    "resources:inventory": "node scripts/generate-resources-inventory.mjs",
     "check-resources": "node scripts/check-resources-coverage.mjs",
     "validate:resources": "node scripts/validate-resources.mjs",
     "validate:content": "node scripts/validate-resources-content.mjs",
