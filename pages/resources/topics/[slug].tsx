@@ -7,6 +7,7 @@ import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
 import FeedbackWidget from "@/src/components/FeedbackWidget";
+import { InlineIconLabel } from "@/src/components/ui/InlineIconLabel";
 import { 
   getTopicBySlug, 
   getResourcesByTopic, 
@@ -151,13 +152,19 @@ export default function TopicPage({ topic, resources, guides, questions, slug }:
                   <Link
                     key={question.slug}
                     href={`/resources/q/${question.slug}`}
-                    className="group relative rounded-2xl border border-border-dark bg-surface-dark-panel p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 transition-all flex items-start gap-3"
+                    className="group relative rounded-2xl border border-border-dark bg-surface-dark-panel p-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 transition-all"
                   >
                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity orange-glow-overlay pointer-events-none" />
-                    <span className="text-brand-orange text-xl shrink-0 mt-0.5">?</span>
-                    <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors relative z-10">
-                      {question.question}
-                    </span>
+                    <div className="relative z-10">
+                      <InlineIconLabel
+                        icon={<span className="text-brand-orange text-base font-bold">?</span>}
+                        className="gap-3"
+                      >
+                        <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
+                          {question.question}
+                        </span>
+                      </InlineIconLabel>
+                    </div>
                   </Link>
                 ))}
               </div>

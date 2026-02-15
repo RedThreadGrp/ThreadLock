@@ -63,11 +63,11 @@ export function InlineIconLabel({
   iconClassName,
 }: Props) {
   return (
-    <span className={cx("inline-flex items-center gap-2", className)}>
+    <span className={cx("inline-flex items-center gap-2", className)} data-testid="resource-card-row">
       <span className={cx("flex items-center justify-center leading-none", iconClassName || "w-4 h-4")}>
         {icon}
       </span>
-      <span className="leading-tight">{children}</span>
+      <span className="leading-none">{children}</span>
     </span>
   );
 }

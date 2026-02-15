@@ -212,3 +212,43 @@ describe('Resources Hub - Accessibility', () => {
     });
   });
 });
+
+describe('Resources Hub - Topic Pages', () => {
+  it('topic page common questions have proper alignment', () => {
+    // Visit a topic page that has questions
+    cy.visit('/resources/topics/proof-of-service');
+    
+    // Check that question cards exist
+    cy.get('a[href^="/resources/q/"]').should('have.length.at.least', 1);
+    
+    // Get the first question card's InlineIconLabel component
+    cy.get('a[href^="/resources/q/"]').first().within(() => {
+      // Check for the data-testid attribute
+      cy.get('[data-testid="resource-card-row"]').should('exist')
+        .and('have.class', 'inline-flex')
+        .and('have.class', 'items-center');
+      
+      // Verify icon wrapper has fixed size and leading-none
+      cy.get('[data-testid="resource-card-row"] > span').first()
+        .should('have.class', 'w-4')
+        .and('have.class', 'h-4')
+        .and('have.class', 'leading-none');
+      
+      // Verify text wrapper has leading-none
+      cy.get('[data-testid="resource-card-row"] > span').last()
+        .should('have.class', 'leading-none');
+    });
+  });
+  
+  it('topic page question links route correctly to /resources/q/', () => {
+    cy.visit('/resources/topics/proof-of-service');
+    
+    // Get the first question link and verify href structure
+    cy.get('a[href^="/resources/q/"]').first().should('have.attr', 'href').and('match', /^\/resources\/q\/[\w-]+$/);
+    
+    // Click and verify navigation
+    cy.get('a[href^="/resources/q/"]').first().click();
+    cy.url().should('include', '/resources/q/');
+    cy.get('h1').should('exist'); // Should have a heading on the question page
+  });
+});
