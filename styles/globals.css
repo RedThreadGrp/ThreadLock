@@ -8,19 +8,57 @@
     --tl-brand-orange: #f58220;  /* app login button orange – use this everywhere */
     --tl-navy: #1b3a4d;          /* ThreadLock navy token */
     --tl-orange: #fb7a1e;        /* ThreadLock orange token */
+
+    /* Canonical Background Tokens (Single Source) */
+    --tl-login-bg: #1e293b;              /* slate[800] */
+    --tl-login-grad-start: rgba(15, 23, 42, 0.8); /* slate[900] @ 80% */
+    --tl-login-grad-end: #1e293b;
+
+    /* Pattern - references brand orange for consistency */
+    --tl-pattern-orange: #F58220;        /* same as --tl-brand-orange */
+    --tl-pattern-opacity: 0.4;
+
+    /* Text Tiers */
+    --tl-text-strong: #f8fafc;           /* slate[50] - headings, high-emphasis */
+    --tl-text-default: #cbd5e1;          /* slate[300] - body copy default */
+    --tl-text-muted: #94a3b8;            /* slate[400] - secondary text */
   }
 }
 
+body {
+  background-color: var(--tl-login-bg);
+  background-image:
+    radial-gradient(ellipse at top, var(--tl-login-grad-start) 0%, var(--tl-login-grad-end) 100%),
+    /* Note: SVG pattern uses hardcoded #F58220 and opacity 0.4. If tokens change, update the data URI manually. */
+    url("data:image/svg+xml,%3Csvg%20width='60'%20height='60'%20viewBox='0%200%2060%2060'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cg%20fill='none'%20fill-rule='evenodd'%3E%3Cg%20fill='%23F58220'%20fill-opacity='0.4'%3E%3Cpath%20d='M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%, 60px 60px;
+  background-position: center, 0 0;
+  background-attachment: fixed;
+  color: var(--tl-text-default);
+}
+
 @layer utilities {
+  /* Text Utility Classes (Canonical Text Tiers) */
+  .tl-text-default {
+    color: var(--tl-text-default);
+  }
+
+  .tl-text-strong {
+    color: var(--tl-text-strong);
+  }
+
+  .tl-text-muted {
+    color: var(--tl-text-muted);
+  }
+
   /* Full-height dotted navy background similar to app login screen */
   .tl-auth-background {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--tl-brand-navy);
-    background-image: radial-gradient(circle at 2px 2px, rgba(245, 130, 32, 0.12) 2px, transparent 2px);
-    background-size: 32px 32px;
+    background-color: transparent;
+    background-image: none;
   }
 
   /* White background with dotted pattern for main pages */
