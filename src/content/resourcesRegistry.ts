@@ -4,6 +4,9 @@
 
 // Import v2 structured content
 import { modifyParentingPlan } from "./resources/modify-parenting-plan";
+import { custodyTypes } from "./resources/custody-types";
+import { feeWaiver } from "./resources/fee-waiver";
+import { childSupportCalculation } from "./resources/child-support-calculation";
 
 // ============================================================================
 // Type Definitions
@@ -3858,11 +3861,13 @@ When in doubt, serve earlier than required to avoid disputes and ensure adequate
     slug: "custody-types",
     question: "What's the difference between legal and physical custody?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Legal vs Physical Custody Explained | ThreadLock",
     metaDescription: "Legal custody is decision-making authority for a child's welfare. Physical custody is where the child lives. Both can be sole or joint arrangements.",
     shortAnswer: "Legal custody refers to the right to make major decisions about a child's welfare (education, healthcare, religion). Physical custody refers to where the child lives and who provides day-to-day care. Both types can be sole or joint.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: custodyTypes,
     body: `# What's the difference between legal and physical custody?
 
 ## Short Answer
@@ -3995,16 +4000,7 @@ Understanding these distinctions helps parents negotiate appropriate arrangement
       { question: "How do courts decide custody?", href: "/resources/q/custody-determination" },
       { question: "What is a parenting plan?", href: "/resources/q/parenting-plan-definition" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "State Bar Association Resources" },
-        { name: "Family Law Statutes" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 365,
-      accuracyNotes: "Custody terminology and standards vary significantly by state."
-    }
+    governance: custodyTypes.governance
   },
   {
     slug: "mediation-lawyer",
@@ -4200,11 +4196,13 @@ At minimum, consult with an attorney before finalizing any mediated agreement to
     slug: "child-support-calculation",
     question: "How do I calculate child support?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "How to Calculate Child Support | ThreadLock",
     metaDescription: "Child support calculations use state-specific guidelines based on both parents' income, time-sharing percentage, and children's needs like healthcare and daycare.",
     shortAnswer: "Child support calculations use state-specific guidelines based on both parents' gross income, the percentage of time each parent has the children, and additional expenses like healthcare and childcare. Most states provide worksheets or online calculators.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: childSupportCalculation,
     body: `# How do I calculate child support?
 
 ## Short Answer
@@ -4371,16 +4369,7 @@ Child support calculations can be complex, especially with self-employment incom
       { question: "What if my ex won't pay child support?", href: "/resources/q/support-enforcement" },
       { question: "How is income calculated for self-employed parents?", href: "/resources/q/self-employment-income" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "State Child Support Guidelines" },
-        { name: "Child Support Enforcement Agency" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Child support calculation methods vary significantly by state. Use your state's official calculator."
-    }
+    governance: childSupportCalculation.governance
   },
   {
     slug: "modify-parenting-plan",
@@ -4604,11 +4593,13 @@ Modification proceedings can be stressful for children. Pursue modification when
     slug: "fee-waiver",
     question: "What if I can't afford court fees?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Can't Afford Court Fees? Fee Waiver Guide | ThreadLock",
     metaDescription: "Request a fee waiver by filing an application showing your income qualifies under poverty guidelines. Courts waive fees for eligible low-income litigants.",
     shortAnswer: "Request a fee waiver by filing an application showing your income qualifies under federal poverty guidelines or you receive public assistance. If approved, the court waives filing fees, service fees, and sometimes other costs for eligible low-income litigants.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: feeWaiver,
     body: `# What if I can't afford court fees?
 
 ## Short Answer
@@ -4787,16 +4778,7 @@ If your application is denied and you genuinely cannot afford the fees, consult 
       { question: "Can I get a free lawyer?", href: "/resources/q/free-legal-help" },
       { question: "What happens if I can't pay court-ordered costs?", href: "/resources/q/court-costs" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Administration Office" },
-        { name: "Legal Aid Organizations" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Fee waiver eligibility and procedures vary by jurisdiction. Check local court rules."
-    }
+    governance: feeWaiver.governance
   },
   {
     slug: "respond-to-motion",

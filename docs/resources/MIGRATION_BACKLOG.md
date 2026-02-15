@@ -5,8 +5,8 @@ Generated: 2026-02-15
 ## Summary
 
 - Total items: 36
-- Todo: 26
-- Migrated: 2
+- Todo: 23
+- Migrated: 5
 - Manual review needed: 0
 - Blocked (slug mismatch): 0
 - Blocked (no content): 2
@@ -36,10 +36,7 @@ Generated: 2026-02-15
 
 | Route | Type | Version | Words | Complexity | Status | Notes |
 |-------|------|---------|-------|------------|--------|-------|
-| /resources/q/fee-waiver | question | v1 | 1003 | simple | todo | Slug/title mismatch: "fee-waiver" vs "What counts as a substantial change in circumstances?"; Missing sources |
-| /resources/q/child-support-calculation | question | v1 | 944 | simple | todo | Slug/title mismatch: "child-support-calculation" vs "How much does mediation cost?"; Missing sources |
 | /resources/q/mediation-lawyer | question | v1 | 863 | simple | todo | Slug/title mismatch: "mediation-lawyer" vs "Can I modify a parenting plan later?"; Missing sources |
-| /resources/q/custody-types | question | v1 | 809 | simple | todo | Slug/title mismatch: "custody-types" vs "What happens if I miss a filing deadline?"; Missing sources |
 | /resources/exhibits-guide | resource | v1 | 759 | simple | todo | Slug/title mismatch: "exhibits-guide" vs "Proof of Service Pack"; Missing sources |
 | /resources/q/service-deadlines | question | v1 | 750 | simple | todo | Slug/title mismatch: "service-deadlines" vs "What should I wear to court?"; Missing sources |
 | /resources/parenting-plans | resource | v1 | 747 | simple | todo | Slug/title mismatch: "parenting-plans" vs "Hearing Tomorrow Checklist"; Missing sources; Missing lastUpdated |
@@ -63,6 +60,9 @@ Generated: 2026-02-15
 | /resources/timeline-tools | resource | v1 | 1454 | hard | todo | Slug/title mismatch: "timeline-tools" vs "Official Court Portals by State"; Missing sources |
 | /resources/courtroom-prep | resource | v1 | 1209 | hard | todo | Slug/title mismatch: "courtroom-prep" vs "Evidence Intake Guide"; Missing sources |
 | /resources/q/modify-parenting-plan | question | v2 | 1093 | simple | migrated | Missing sources |
+| /resources/q/fee-waiver | question | v2 | 1003 | simple | migrated | Slug/title mismatch: "fee-waiver" vs "What counts as a substantial change in circumstances?"; Missing sources |
+| /resources/q/child-support-calculation | question | v2 | 944 | simple | migrated | Slug/title mismatch: "child-support-calculation" vs "How much does mediation cost?"; Missing sources |
+| /resources/q/custody-types | question | v2 | 809 | simple | migrated | Slug/title mismatch: "custody-types" vs "What happens if I miss a filing deadline?"; Missing sources |
 | /resources/q/proof-of-service-definition | question | v2 | 0 | simple | migrated | Missing sources; Empty content |
 | /resources/guides/self-representation-complete | guide | v1 | 0 | minimal | blocked-no-content | Missing sources; Empty content |
 | /resources/kits/hearing-soon | kit | v1 | 0 | minimal | blocked-no-content | Missing sources; Missing lastUpdated; Empty content |

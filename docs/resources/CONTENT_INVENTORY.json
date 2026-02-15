@@ -589,11 +589,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [],
-    "contentVersion": 1,
-    "hasBlocks": false
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/custody-types",
@@ -622,11 +622,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [],
-    "contentVersion": 1,
-    "hasBlocks": false
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/exhibit-labeling",
@@ -688,11 +688,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [],
-    "contentVersion": 1,
-    "hasBlocks": false
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/hearing-checklist",

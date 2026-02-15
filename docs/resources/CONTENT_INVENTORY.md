@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T21:28:39.968Z
+**Generated:** 2026-02-15T21:50:13.090Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -566,7 +566,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/q/child-support-calculation
 - **Content Source:** src/content/resourcesRegistry.ts:POPULAR_QUESTIONS
 - **Meta Description:** Child support calculations use state-specific guidelines based on both parents' income, time-sharing percentage, and children's needs like healthcare and daycare.
-- **Last Updated:** 2026-02-13
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -591,7 +591,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/q/custody-types
 - **Content Source:** src/content/resourcesRegistry.ts:POPULAR_QUESTIONS
 - **Meta Description:** Legal custody is decision-making authority for a child's welfare. Physical custody is where the child lives. Both can be sole or joint arrangements.
-- **Last Updated:** 2026-02-13
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -641,7 +641,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/q/fee-waiver
 - **Content Source:** src/content/resourcesRegistry.ts:POPULAR_QUESTIONS
 - **Meta Description:** Request a fee waiver by filing an application showing your income qualifies under poverty guidelines. Courts waive fees for eligible low-income litigants.
-- **Last Updated:** 2026-02-13
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**
