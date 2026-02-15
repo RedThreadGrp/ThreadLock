@@ -4,13 +4,13 @@ Generated: 2026-02-15
 
 ## Summary
 
-- Total items: 40
-- Todo: 8
-- Migrated: 0
+- Total items: 36
+- Todo: 7
+- Migrated: 1
 - Manual review needed: 0
 - Blocked (slug mismatch): 20
 - Blocked (no content): 2
-- Needs content creation: 10
+- Needs content creation: 6
 
 ## Complexity Distribution
 
@@ -18,7 +18,7 @@ Generated: 2026-02-15
 - Medium: 1
 - Hard: 4
 - Minimal: 2
-- Content creation: 10
+- Content creation: 6
 
 ## Triage Rules
 
@@ -39,11 +39,11 @@ Generated: 2026-02-15
 | /resources/q/modify-parenting-plan | question | v1 | 1093 | simple | todo | Missing sources |
 | /resources/guides/parenting-time-calculations | guide | v1 | 423 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/guides/proof-of-service-states | guide | v1 | 394 | simple | todo | Missing sources; Missing lastUpdated |
-| /resources/q/proof-of-service-definition | question | v1 | 394 | simple | todo | Missing sources |
 | /resources/guides/evidence-authentication | guide | v1 | 273 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/hearing-tomorrow | resource | v1 | 223 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/kits/first-filing | kit | v1 | 191 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/kits/evidence | kit | v1 | 183 | simple | todo | Missing sources; Missing lastUpdated |
+| /resources/q/proof-of-service-definition | question | v2 | 0 | simple | migrated | Missing sources; Empty content |
 | /resources/q/fee-waiver | question | v1 | 1003 | simple | blocked-slug-mismatch | Slug/title mismatch: "fee-waiver" vs "What counts as a substantial change in circumstances?"; Missing sources |
 | /resources/q/child-support-calculation | question | v1 | 944 | simple | blocked-slug-mismatch | Slug/title mismatch: "child-support-calculation" vs "How much does mediation cost?"; Missing sources |
 | /resources/q/mediation-lawyer | question | v1 | 863 | simple | blocked-slug-mismatch | Slug/title mismatch: "mediation-lawyer" vs "Can I modify a parenting plan later?"; Missing sources |
@@ -57,7 +57,7 @@ Generated: 2026-02-15
 | /resources/q/official-forms-location | question | v1 | 529 | simple | blocked-slug-mismatch | Slug/title mismatch: "official-forms-location" vs "Can I authenticate text messages myself?"; Missing sources |
 | /resources/official-portals | resource | v1 | 448 | simple | blocked-slug-mismatch | Slug/title mismatch: "official-portals" vs "Fee Waiver Information"; Missing sources; Missing lastUpdated |
 | /resources/evidence-intake | resource | v1 | 433 | simple | blocked-slug-mismatch | Slug/title mismatch: "evidence-intake" vs "Proof of Service State-by-State Guide"; Missing sources; Missing lastUpdated |
-| /resources/q/exhibit-labeling | question | v1 | 432 | simple | blocked-slug-mismatch | Slug/title mismatch: "exhibit-labeling" vs "How long do I have to serve documents?"; Missing sources |
+| /resources/q/exhibit-labeling | question | v1 | 432 | simple | blocked-slug-mismatch | Slug/title mismatch: "exhibit-labeling" vs "How long do I have to serve documents?" |
 | /resources/proof-of-service | resource | v1 | 279 | simple | blocked-slug-mismatch | Slug/title mismatch: "proof-of-service" vs "Official Court Portals"; Missing sources; Missing lastUpdated |
 | /resources/q/respond-to-motion | question | v1 | 1215 | medium | blocked-slug-mismatch | Slug/title mismatch: "respond-to-motion" vs "What are typical court filing fees?"; Missing sources |
 | /resources/authentication | resource | v1 | 2250 | hard | blocked-slug-mismatch | Slug/title mismatch: "authentication" vs "Exhibits Guide: Labeling and Organization"; Missing sources |
@@ -66,16 +66,12 @@ Generated: 2026-02-15
 | /resources/courtroom-prep | resource | v1 | 1209 | hard | blocked-slug-mismatch | Slug/title mismatch: "courtroom-prep" vs "Evidence Intake Guide"; Missing sources |
 | /resources/guides/self-representation-complete | guide | v1 | 0 | minimal | blocked-no-content | Missing sources; Empty content |
 | /resources/kits/hearing-soon | kit | v1 | 0 | minimal | blocked-no-content | Missing sources; Missing lastUpdated; Empty content |
-| /resources/topics/court-rules | topic | v1 | 0 | content-creation | needs-content | Missing sources; Missing lastUpdated; Empty content; Topic hub: needs 250-500 word intro + curated links |
-| /resources/topics/custody | topic | v1 | 0 | content-creation | needs-content | Missing sources; Missing lastUpdated; Empty content; Topic hub: needs 250-500 word intro + curated links |
-| /resources/topics/deadlines | topic | v1 | 0 | content-creation | needs-content | Missing sources; Missing lastUpdated; Empty content; Topic hub: needs 250-500 word intro + curated links |
-| /resources/topics/evidence | topic | v1 | 0 | content-creation | needs-content | Missing sources; Missing lastUpdated; Empty content; Topic hub: needs 250-500 word intro + curated links |
-| /resources/topics/financial | topic | v1 | 0 | content-creation | needs-content | Missing sources; Missing lastUpdated; Empty content; Topic hub: needs 250-500 word intro + curated links |
-| /resources/topics/forms | topic | v1 | 0 | content-creation | needs-content | Missing sources; Missing lastUpdated; Empty content; Topic hub: needs 250-500 word intro + curated links |
-| /resources/topics/hearing-prep | topic | v1 | 0 | content-creation | needs-content | Missing sources; Missing lastUpdated; Empty content; Topic hub: needs 250-500 word intro + curated links |
-| /resources/topics/motions | topic | v1 | 0 | content-creation | needs-content | Missing sources; Missing lastUpdated; Empty content; Topic hub: needs 250-500 word intro + curated links |
-| /resources/topics/proof-of-service | topic | v1 | 0 | content-creation | needs-content | Missing sources; Missing lastUpdated; Empty content; Topic hub: needs 250-500 word intro + curated links |
-| /resources/topics/self-help | topic | v1 | 0 | content-creation | needs-content | Missing sources; Missing lastUpdated; Empty content; Topic hub: needs 250-500 word intro + curated links |
+| /resources/topics/financial-declarations | topic | v1 | 545 | content-creation | needs-content | Missing sources; Missing lastUpdated; Topic hub: needs 250-500 word intro + curated links |
+| /resources/topics/official-forms | topic | v1 | 512 | content-creation | needs-content | Missing sources; Missing lastUpdated; Topic hub: needs 250-500 word intro + curated links |
+| /resources/topics/parenting-plans | topic | v1 | 494 | content-creation | needs-content | Missing sources; Missing lastUpdated; Topic hub: needs 250-500 word intro + curated links |
+| /resources/topics/hearings-prep | topic | v1 | 484 | content-creation | needs-content | Missing sources; Missing lastUpdated; Topic hub: needs 250-500 word intro + curated links |
+| /resources/topics/proof-of-service | topic | v1 | 450 | content-creation | needs-content | Missing sources; Missing lastUpdated; Topic hub: needs 250-500 word intro + curated links |
+| /resources/topics/evidence-exhibits | topic | v1 | 434 | content-creation | needs-content | Missing sources; Missing lastUpdated; Topic hub: needs 250-500 word intro + curated links |
 
 ## Migration Status Definitions
 

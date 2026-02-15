@@ -591,7 +591,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/q/custody-types",
@@ -622,7 +624,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/q/exhibit-labeling",
@@ -649,11 +653,13 @@
     },
     "hasFaq": true,
     "faqCount": 3,
-    "hasSources": false,
-    "sourcesCount": 0,
+    "hasSources": true,
+    "sourcesCount": 2,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/q/fee-waiver",
@@ -684,7 +690,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/q/hearing-checklist",
@@ -717,7 +725,9 @@
     "renderSmokeStatus": "pass",
     "notes": [
       "Duplicate content: shortAnswer appears in body"
-    ]
+    ],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/q/mediation-lawyer",
@@ -748,7 +758,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/q/modify-parenting-plan",
@@ -779,7 +791,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/q/official-forms-location",
@@ -810,7 +824,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/q/proof-of-service-definition",
@@ -821,27 +837,20 @@
     "title": "What counts as proof of service?",
     "metaDescription": "Proof of service is a signed declaration under penalty of perjury showing you delivered court documents, when, where, how, and to whom.",
     "wordCount": {
-      "total": 430,
-      "body": 394,
+      "total": 36,
+      "body": 0,
       "shortAnswer": 36
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 3,
-        "h3": 4
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 23
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/respond-to-motion",
@@ -872,7 +881,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/q/service-deadlines",
@@ -903,7 +914,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/q/text-authentication",
@@ -934,7 +947,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/thanks",
@@ -992,18 +1007,28 @@
     "notes": []
   },
   {
-    "route": "/resources/topics/court-rules",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/court-rules",
+    "route": "/resources/topics/evidence-exhibits",
+    "canonicalUrl": "https://threadlock.ai/resources/topics/evidence-exhibits",
     "type": "topic",
-    "slug": "court-rules",
+    "slug": "evidence-exhibits",
     "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Court Rules",
-    "metaDescription": "Official court rules and procedures including civil procedure, family law rules, and local court rules",
+    "title": "Evidence & Exhibits",
+    "metaDescription": "Capture, preserve, and organize records that are usable in court.",
     "wordCount": {
-      "total": 15,
-      "description": 15
+      "total": 444,
+      "body": 434,
+      "promise": 10
     },
-    "blocksSummary": {},
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 19
+    },
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1011,23 +1036,32 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   },
   {
-    "route": "/resources/topics/custody",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/custody",
+    "route": "/resources/topics/financial-declarations",
+    "canonicalUrl": "https://threadlock.ai/resources/topics/financial-declarations",
     "type": "topic",
-    "slug": "custody",
+    "slug": "financial-declarations",
     "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Custody & Parenting",
-    "metaDescription": "Resources specific to child custody, visitation, and parenting plans",
+    "title": "Financial Declarations",
+    "metaDescription": "Answer financial questions without scrambling for numbers.",
     "wordCount": {
-      "total": 9,
-      "description": 9
+      "total": 552,
+      "body": 545,
+      "promise": 7
     },
-    "blocksSummary": {},
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 22
+    },
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1035,23 +1069,32 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   },
   {
-    "route": "/resources/topics/deadlines",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/deadlines",
+    "route": "/resources/topics/hearings-prep",
+    "canonicalUrl": "https://threadlock.ai/resources/topics/hearings-prep",
     "type": "topic",
-    "slug": "deadlines",
+    "slug": "hearings-prep",
     "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Deadlines & Timelines",
-    "metaDescription": "Understanding court deadlines, response times, and legal timelines",
+    "title": "Hearings & Courtroom Prep",
+    "metaDescription": "Walk in prepared, organized, and coherent under pressure.",
     "wordCount": {
-      "total": 8,
-      "description": 8
+      "total": 492,
+      "body": 484,
+      "promise": 8
     },
-    "blocksSummary": {},
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 21
+    },
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1059,23 +1102,32 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   },
   {
-    "route": "/resources/topics/evidence",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/evidence",
+    "route": "/resources/topics/official-forms",
+    "canonicalUrl": "https://threadlock.ai/resources/topics/official-forms",
     "type": "topic",
-    "slug": "evidence",
+    "slug": "official-forms",
     "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Evidence & Documentation",
-    "metaDescription": "Guidelines for gathering, organizing, and presenting evidence in family court",
+    "title": "Official Forms & Portals",
+    "metaDescription": "Access state-provided forms and rules—don't pay for free resources.",
     "wordCount": {
-      "total": 10,
-      "description": 10
+      "total": 521,
+      "body": 512,
+      "promise": 9
     },
-    "blocksSummary": {},
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 25
+    },
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1083,23 +1135,32 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   },
   {
-    "route": "/resources/topics/financial",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/financial",
+    "route": "/resources/topics/parenting-plans",
+    "canonicalUrl": "https://threadlock.ai/resources/topics/parenting-plans",
     "type": "topic",
-    "slug": "financial",
+    "slug": "parenting-plans",
     "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Financial Disclosures",
-    "metaDescription": "Guidelines for financial documentation, child support, and property division",
+    "title": "Parenting Plans",
+    "metaDescription": "Structure routines, transitions, and communication clearly.",
     "wordCount": {
-      "total": 9,
-      "description": 9
+      "total": 500,
+      "body": 494,
+      "promise": 6
     },
-    "blocksSummary": {},
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 4,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 22
+    },
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1107,79 +1168,6 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
-      "No lastUpdated field in schema"
-    ]
-  },
-  {
-    "route": "/resources/topics/forms",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/forms",
-    "type": "topic",
-    "slug": "forms",
-    "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Court Forms",
-    "metaDescription": "Official court forms and templates for various legal procedures",
-    "wordCount": {
-      "total": 9,
-      "description": 9
-    },
-    "blocksSummary": {},
-    "hasFaq": false,
-    "faqCount": 0,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
-    "notes": [
-      "Content from topics.json only (not in registry)",
-      "No lastUpdated field in schema"
-    ]
-  },
-  {
-    "route": "/resources/topics/hearing-prep",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/hearing-prep",
-    "type": "topic",
-    "slug": "hearing-prep",
-    "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Hearing Preparation",
-    "metaDescription": "Checklists and guidance for preparing for court hearings and trials",
-    "wordCount": {
-      "total": 10,
-      "description": 10
-    },
-    "blocksSummary": {},
-    "hasFaq": false,
-    "faqCount": 0,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
-    "notes": [
-      "Content from topics.json only (not in registry)",
-      "No lastUpdated field in schema"
-    ]
-  },
-  {
-    "route": "/resources/topics/motions",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/motions",
-    "type": "topic",
-    "slug": "motions",
-    "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Motions & Pleadings",
-    "metaDescription": "Templates and guidance for filing motions and legal pleadings",
-    "wordCount": {
-      "total": 9,
-      "description": 9
-    },
-    "blocksSummary": {},
-    "hasFaq": false,
-    "faqCount": 0,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
-    "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   },
@@ -1192,34 +1180,20 @@
     "title": "Proof of Service",
     "metaDescription": "Don't lose on a technicality—get service documentation right.",
     "wordCount": {
-      "total": 8,
-      "body": 0,
+      "total": 458,
+      "body": 450,
       "promise": 8
     },
-    "blocksSummary": {},
-    "hasFaq": false,
-    "faqCount": 0,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
-    "notes": [
-      "No lastUpdated field in schema"
-    ]
-  },
-  {
-    "route": "/resources/topics/self-help",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/self-help",
-    "type": "topic",
-    "slug": "self-help",
-    "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Self-Help Resources",
-    "metaDescription": "Court-provided resources for self-represented litigants",
-    "wordCount": {
-      "total": 5,
-      "description": 5
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 4,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 17
     },
-    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1227,7 +1201,6 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   }

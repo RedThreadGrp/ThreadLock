@@ -26,6 +26,11 @@ function calculateComplexity(item) {
     return 'content-creation';
   }
   
+  // If already v2 with blocks, treat as simple (already migrated)
+  if (item.contentVersion === 2 || item.hasBlocks) {
+    return 'simple'; // Don't treat as minimal just because body is 0
+  }
+  
   // Zero or minimal content
   if (wordCount < 100) {
     return 'minimal';
@@ -87,8 +92,8 @@ function getMigrationStatus(item) {
     return 'blocked-slug-mismatch';
   }
   
-  // Check if already v2
-  if (item.contentVersion === 2 || item.slug === 'proof-of-service') {
+  // Check if already v2 - use contentVersion from inventory or check for blocks structure
+  if (item.contentVersion === 2 || item.hasBlocks) {
     return 'migrated';
   }
   

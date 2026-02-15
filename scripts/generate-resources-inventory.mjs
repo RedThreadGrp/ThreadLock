@@ -126,6 +126,8 @@ function parseResourcesRegistry() {
       const metaDescMatch = itemText.match(/metaDescription:\s*"(.*?)"/);
       const shortAnswerMatch = itemText.match(/shortAnswer:\s*"(.*?)"/);
       const dateModMatch = itemText.match(/dateModified:\s*"([^"]+)"/);
+      const contentVersionMatch = itemText.match(/contentVersion:\s*(\d+)/);
+      const hasBlocksField = itemText.includes('blocks:');
       
       // Count relatedQuestions and relatedLinks
       const relatedQuestionsMatch = itemText.match(/relatedQuestions:\s*\[([\s\S]*?)\]/);
@@ -137,6 +139,8 @@ function parseResourcesRegistry() {
         slug,
         question: questionMatch ? questionMatch[1] : '',
         status: statusMatch ? statusMatch[1] : 'draft',
+        contentVersion: contentVersionMatch ? parseInt(contentVersionMatch[1]) : 1,
+        hasBlocks: hasBlocksField,
         body: bodyMatch ? bodyMatch[1] : '',
         seoTitle: seoTitleMatch ? seoTitleMatch[1] : undefined,
         metaDescription: metaDescMatch ? metaDescMatch[1] : undefined,
@@ -478,6 +482,8 @@ function generateInventoryEntry(route, mapping, baseUrl = 'https://threadlock.ai
     entry.title = content.question || 'missing';
     entry.metaDescription = content.metaDescription || content.shortAnswer || 'missing';
     entry.lastUpdated = content.dateModified || 'missing';
+    entry.contentVersion = content.contentVersion || 1;
+    entry.hasBlocks = content.hasBlocks || false;
     
     const shortAnswerWords = countWords(content.shortAnswer);
     const bodyWords = countWords(content.body);
