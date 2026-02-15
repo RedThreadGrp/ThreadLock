@@ -27,6 +27,7 @@ import { officialPortals } from "./resources/official-portals";
 import { evidenceIntake } from "./resources/evidence-intake";
 import { proofOfServicePack } from "./resources/proof-of-service-pack";
 import { courtroomPrep } from "./resources/courtroom-prep";
+import { timelineTools } from "./resources/timeline-tools";
 
 // ============================================================================
 // Type Definitions
@@ -827,6 +828,8 @@ This guide is based on common filing procedures in U.S. state trial courts. It r
     seoTitle: "How to Create a Case Timeline | Organize Events | ThreadLock",
     metaDescription: "List events chronologically with dates, descriptions, and evidence. Include witnesses. Focus on relevant facts. Essential for custody cases.",
     dateModified: "2026-02-13",
+    contentVersion: 2,
+    blocks: timelineTools,
     body: `# Timeline Organization Tools
 
 A timeline is a chronological record of events relevant to your case. It helps judges see patterns, understand context, and evaluate credibility.
@@ -1055,16 +1058,7 @@ This guide is based on common practices for organizing and presenting timelines 
       { question: "Can I use a timeline instead of testimony?", href: "/resources/courtroom-prep" },
       { question: "How far back should my timeline go?", href: "/resources/hearing-tomorrow" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Legal Aid Organizations" },
-        { name: "Court Self-Help Portals" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Timeline requirements vary by court. Check local rules on demonstrative aids."
-    }
+    governance: timelineTools.governance
   },
   {
     slug: "authentication",

@@ -52,7 +52,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/courtroom-prep",
@@ -164,7 +166,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": false
   },
   {
     "route": "/resources/financial-snapshot",
@@ -950,7 +954,9 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/topics/evidence-exhibits",

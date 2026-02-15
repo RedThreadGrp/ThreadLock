@@ -482,6 +482,8 @@ function generateInventoryEntry(route, mapping, baseUrl = 'https://threadlock.ai
     entry.title = content.title || 'missing';
     entry.metaDescription = content.metaDescription || content.excerpt || 'missing';
     entry.lastUpdated = content.dateModified || 'missing';
+    entry.contentVersion = content.contentVersion || 1;
+    entry.hasBlocks = content.hasBlocks || (hasV2File && content.contentVersion === 2) || false;
     
     const excerptWords = countWords(content.excerpt);
     const bodyWords = countWords(content.body);
