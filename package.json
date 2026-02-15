@@ -14,6 +14,8 @@
     "resources:stale": "node scripts/resources-stale.mjs",
     "resources:routes-audit": "node scripts/resources-routes-audit.mjs",
     "resources:check-icons": "node scripts/check-inline-icon-label-usage.mjs",
+    "resources:backlog": "node scripts/resources/generate-migration-backlog.mjs",
+    "resources:migrate": "node scripts/resources/migrate-v1-to-v2.mjs",
     "check-resources": "node scripts/check-resources-coverage.mjs",
     "validate:resources": "node scripts/validate-resources.mjs",
     "validate:content": "node scripts/validate-resources-content.mjs",
