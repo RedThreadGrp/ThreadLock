@@ -20,6 +20,7 @@ import { evidenceAuthentication } from "./resources/evidence-authentication";
 import { firstFiling } from "./resources/first-filing";
 import { evidence } from "./resources/evidence";
 import { hearingTomorrow } from "./resources/hearing-tomorrow";
+import { exhibitsGuide } from "./resources/exhibits-guide";
 
 // ============================================================================
 // Type Definitions
@@ -875,159 +876,9 @@ Save money by getting forms from official sources. Spend money on actual legal h
 
   // Draft resources (new placeholders for starter kit references)
   {
-    slug: "exhibits-guide",
-    title: "Exhibits Guide: Labeling and Organization",
-    excerpt: "How to label, organize, and present exhibits so they're clear and professional.",
-    tag: "Court Prep",
-    topic: "Hearings & Courtroom Prep",
-    intent: "Urgent",
-    readTime: "6 min read",
-    status: "published",
-    seoTitle: "Label Court Exhibits | Step-by-Step Guide | ThreadLock",
-    metaDescription: "Label exhibits A, B, C in bottom right. Bring 3 copies. Create exhibit list. Step-by-step guide for organizing exhibits in family court.",
-    dateModified: "2026-02-13",
-    body: `# Exhibits Guide: Labeling and Organization
-
-Exhibits are physical or digital evidence you present to the judge. Proper labeling and organization make your evidence easier to reference and harder to dispute.
-
-## Short Answer
-
-**Use letters (A, B, C) for your exhibits.** Label each page in the bottom right corner. Create an exhibit list that describes each item. Bring three copies: one for you, one for the judge, one for the opposing party. Organize chronologically or by topic, whichever tells your story more clearly.
-
-## How to Label Exhibits Properly
-
-### The Standard Format
-
-Most family courts expect:
-- **Your exhibits:** Letters (A, B, C, D, etc.)
-- **Opposing party's exhibits:** Numbers (1, 2, 3, 4, etc.)
-- **Label placement:** Bottom right corner of each page
-- **Label size:** Clear and legible, typically 12-14pt font
-
-### Labeling Multi-Page Exhibits
-
-If Exhibit A has 5 pages:
-- Page 1: "Exhibit A - Page 1 of 5"
-- Page 2: "Exhibit A - Page 2 of 5"
-- And so on
-
-This prevents pages from being misplaced or disputed.
-
-### Creating Your Exhibit List
-
-An exhibit list is a table that describes each exhibit. It's typically filed with your motion or presented at the hearing.
-
-**Basic format:**
-
-| Exhibit | Description | Date |
-|---------|-------------|------|
-| A | Text messages between parties | 03/15/2025 - 04/20/2025 |
-| B | Bank statement showing missed payment | May 2025 |
-| C | Email from opposing party re: custody | 06/10/2025 |
-
-The Clerk of Court or local rules may have a specific exhibit list template. Check before creating your own.
-
-## Organizing Exhibits for Presentation
-
-### Two Main Approaches
-
-**1. Chronological Order**
-Best for showing patterns over time or a sequence of events.
-
-Example:
-- Exhibit A: January emails
-- Exhibit B: February text messages
-- Exhibit C: March incident report
-
-**2. Topic-Based Order**
-Best for addressing multiple issues separately.
-
-Example:
-- Exhibit A: Financial records
-- Exhibit B: Communication about custody
-- Exhibit C: Medical documentation
-
-Choose the method that makes your narrative clearer.
-
-### Physical Organization Tips
-
-- **Use binder tabs** for each exhibit
-- **Three-hole punch** all documents
-- **Keep exhibits in order** at all times
-- **Don't remove anything** once assembled
-- **Practice referencing** exhibits before the hearing
-
-## What to Bring to Court
-
-**Minimum requirements:**
-- **Original exhibits** (for the judge)
-- **Two complete copies** (one for opposing party, one for you)
-- **Exhibit list** (3 copies)
-- **Binder or folder** to keep everything organized
-- **Case number and hearing date** clearly marked on the cover
-
-Some judges require advance submission of exhibits. Check your local rules or the hearing notice for deadlines.
-
-## Common Labeling Mistakes to Avoid
-
-### Using Numbers Instead of Letters
-If you're the petitioner or moving party, stick with letters. Using numbers can confuse the record.
-
-### Inconsistent Labeling
-Don't label something "Exhibit A" in your motion and then call it "Text Messages" in court. Use consistent references throughout.
-
-### Missing Page Numbers
-Multi-page exhibits without page numbers are easy to dispute. Always use "Page X of Y" format.
-
-### Forgetting Copies
-If you show up with only one copy, the judge may continue the hearing until you provide copies for all parties. Bring three sets minimum.
-
-### Labeling After Filing
-Label exhibits before you file your motion or submit documents to the Clerk of Court. Retroactive labeling creates confusion.
-
-## State-Specific Variations
-
-**Important:** This guide reflects common practices in U.S. family courts, but each jurisdiction has specific requirements:
-
-- Some courts require **exhibit lists to be filed 48 hours before the hearing**
-- Some courts use **color-coded labels** (e.g., yellow for petitioner, blue for respondent)
-- Some courts require **electronic submission** through an e-filing portal
-- Some courts prohibit **loose documents** and require binding
-
-**Always check:**
-- Local Rules of Civil Procedure for your county
-- Standing orders from your assigned judge
-- Any instructions in your hearing notice
-
-When in doubt, call the Clerk of Court and ask for exhibit requirements.
-
-## About This Resource
-
-This guide was developed by reviewing court rules, evidence presentation standards, and common practices across U.S. family court systems. It reflects procedures typically found in state trial courts handling domestic relations matters.
-
-**This is not legal advice.** Exhibit requirements vary significantly by jurisdiction. Consult your local court rules or an attorney licensed in your state for case-specific guidance.
-
-**For urgent hearings,** also review the [Hearing Tomorrow Checklist](/resources/hearing-tomorrow) for a complete preparation overview, including what else to bring and how to present yourself in court.`,
-    relatedLinks: [
-      { title: "Hearing Tomorrow Checklist", href: "/resources/hearing-tomorrow" },
-      { title: "Evidence Intake Guide", href: "/resources/evidence-intake" },
-      { title: "Official Court Portals by State", href: "/resources/official-portals" },
-    ],
-    relatedQuestions: [
-      { question: "How do I authenticate text messages for court?", href: "/resources/authentication" },
-      { question: "What if I forgot to label exhibits before filing?", href: "/resources/filing-basics" },
-      { question: "Can I add exhibits after the hearing starts?", href: "/resources/courtroom-prep" },
-    ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "Court Self-Help Portals" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Exhibit requirements and formatting rules vary by jurisdiction. Check local court rules."
-    }
+    ...exhibitsGuide,
+    contentVersion: 2,
+    blocks: exhibitsGuide.blocks,
   },
   {
     slug: "courtroom-prep",

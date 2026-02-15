@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T22:34:38.123Z
+**Generated:** 2026-02-15T22:36:23.010Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -14,12 +14,12 @@
   - special: 1
   - topic: 6
 - **Content Coverage:**
-  - With body content: 30 (78.9%)
+  - With body content: 29 (76.3%)
   - With meta description: 38 (100.0%)
-  - With last updated date: 18 (47.4%)
-  - With FAQs: 15
+  - With last updated date: 17 (44.7%)
+  - With FAQs: 14
   - With sources/links: 1
-  - With issues/notes: 21
+  - With issues/notes: 22
 
 ## Quick Reference
 
@@ -27,9 +27,9 @@
 |-------|------|-------|-------|--------|--------|
 | /resources | unknown | Resources Hub | 0 | pass | ⚠️ 1 |
 | /resources/authentication | resource | Exhibits Guide: Labeling and Organiza... | 2262 | pass | ✅ |
-| /resources/courtroom-prep | resource | Evidence Intake Guide | 1224 | pass | ✅ |
+| /resources/courtroom-prep | resource | Proof of Service Pack | 1224 | pass | ✅ |
 | /resources/evidence-intake | resource | Proof of Service State-by-State Guide | 449 | pass | ⚠️ 2 |
-| /resources/exhibits-guide | resource | Proof of Service Pack | 771 | pass | ✅ |
+| /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Organiza... | 0 | fail | ⚠️ 2 |
 | /resources/filing-basics | resource | Exhibits Guide: Labeling and Organiza... | 1567 | pass | ✅ |
 | /resources/financial-snapshot | resource | Official Court Portals | 610 | pass | ⚠️ 2 |
 | /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 286 | pass | ⚠️ 1 |
@@ -121,7 +121,7 @@
 ### /resources/courtroom-prep
 
 - **Type:** resource
-- **Title:** Evidence Intake Guide
+- **Title:** Proof of Service Pack
 - **Canonical URL:** https://threadlock.ai/resources/courtroom-prep
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** Stand when judge enters. Say 'Your Honor.' Dress business casual. Speak only when asked. Answer the question. Don't interrupt. Pro se guide.
@@ -139,7 +139,7 @@
 - Lists: 8
 
 **Features:**
-- FAQ: ✅ Yes (3 items)
+- FAQ: ❌ No
 - Sources/Links: ❌ No
 
 ---
@@ -177,26 +177,25 @@
 ### /resources/exhibits-guide
 
 - **Type:** resource
-- **Title:** Proof of Service Pack
+- **Title:** Exhibits Guide: Labeling and Organization
 - **Canonical URL:** https://threadlock.ai/resources/exhibits-guide
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
-- **Meta Description:** Label exhibits A, B, C in bottom right. Bring 3 copies. Create exhibit list. Step-by-step guide for organizing exhibits in family court.
-- **Last Updated:** 2026-02-13
-- **Render Status:** ✅ pass
+- **Meta Description:** How to label, organize, and present exhibits so they're clear and professional.
+- **Last Updated:** ❌ missing
+- **Render Status:** ❌ fail
 
 **Word Count:**
-- total: 771
-- body: 759
-- excerpt: 12
-
-**Content Structure:**
-- Headings: H1(1), H2(7), H3(10)
-- Paragraphs: 42
-- Lists: 2
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
+
+**⚠️ Issues/Notes:**
+- V2 content from separate file (spread operator in registry)
+- No content found in registry
 
 ---
 

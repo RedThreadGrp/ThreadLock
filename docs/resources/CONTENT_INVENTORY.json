@@ -60,7 +60,7 @@
     "type": "resource",
     "slug": "courtroom-prep",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Evidence Intake Guide",
+    "title": "Proof of Service Pack",
     "metaDescription": "Stand when judge enters. Say 'Your Honor.' Dress business casual. Speak only when asked. Answer the question. Don't interrupt. Pro se guide.",
     "wordCount": {
       "total": 1224,
@@ -77,8 +77,8 @@
       "codeBlocks": 0,
       "paragraphs": 70
     },
-    "hasFaq": true,
-    "faqCount": 3,
+    "hasFaq": false,
+    "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
@@ -125,30 +125,26 @@
     "type": "resource",
     "slug": "exhibits-guide",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Proof of Service Pack",
-    "metaDescription": "Label exhibits A, B, C in bottom right. Bring 3 copies. Create exhibit list. Step-by-step guide for organizing exhibits in family court.",
+    "title": "Exhibits Guide: Labeling and Organization",
+    "metaDescription": "How to label, organize, and present exhibits so they're clear and professional.",
     "wordCount": {
-      "total": 771,
-      "body": 759,
-      "excerpt": 12
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 7,
-        "h3": 10
-      },
-      "lists": 2,
-      "codeBlocks": 0,
-      "paragraphs": 42
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
-    "renderSmokeStatus": "pass",
-    "notes": []
+    "lastUpdated": "missing",
+    "renderSmokeStatus": "fail",
+    "notes": [
+      "V2 content from separate file (spread operator in registry)",
+      "No content found in registry"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/filing-basics",
