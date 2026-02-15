@@ -44,7 +44,7 @@ export default function TopicPage({ topic, resources, guides, questions, slug }:
 
       <SiteHeader />
 
-      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
+      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="legacyResource-v1">
         <div className="mx-auto max-w-6xl px-6 pt-14 pb-10">
           {/* Back link */}
           <Link 

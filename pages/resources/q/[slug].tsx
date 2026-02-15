@@ -7,6 +7,7 @@ import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
 import FeedbackWidget from "@/src/components/FeedbackWidget";
+import { InlineIconLabel } from "@/src/components/ui/InlineIconLabel";
 import { getQuestionBySlug, POPULAR_QUESTIONS, PopularQuestion } from "@/src/content/resourcesRegistry";
 import { renderMarkdown, extractPlainText } from "@/src/lib/renderMarkdown";
 
@@ -60,7 +61,7 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
 
       <SiteHeader />
 
-      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
+      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resourceQA-v2">
         <div className="mx-auto max-w-4xl px-6 pt-14 pb-10">
           {/* Back link */}
           <Link 
@@ -130,12 +131,16 @@ export default function QuestionPage({ question, slug }: QuestionPageProps) {
                   <Link
                     key={q.href}
                     href={q.href}
-                    className="group rounded-2xl border border-border-dark bg-surface-dark p-4 hover:border-brand-orange/30 hover:bg-surface-dark-panel transition-all flex items-start gap-3"
+                    className="group rounded-2xl border border-border-dark bg-surface-dark p-4 hover:border-brand-orange/30 hover:bg-surface-dark-panel transition-all"
                   >
-                    <span className="text-brand-orange text-lg shrink-0">?</span>
-                    <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
-                      {q.question}
-                    </span>
+                    <InlineIconLabel
+                      icon={<span className="text-brand-orange text-base font-bold">?</span>}
+                      className="gap-3"
+                    >
+                      <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
+                        {q.question}
+                      </span>
+                    </InlineIconLabel>
                   </Link>
                 ))}
               </div>
