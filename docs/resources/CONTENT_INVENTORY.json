@@ -29,30 +29,26 @@
     "type": "resource",
     "slug": "authentication",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Exhibits Guide: Labeling and Organization",
-    "metaDescription": "Testify: (1) you sent/received it, (2) from this phone number, (3) on this date, (4) accurate screenshot. Include metadata. Don't edit.",
+    "title": "Federal Rules of Evidence - Rule 901 (Authenticating or Identifying Evidence)",
+    "metaDescription": "missing",
     "wordCount": {
-      "total": 2262,
-      "body": 2250,
-      "excerpt": 12
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 9,
-        "h3": 22
-      },
-      "lists": 23,
-      "codeBlocks": 0,
-      "paragraphs": 99
-    },
-    "hasFaq": true,
-    "faqCount": 3,
+    "blocksSummary": {},
+    "hasFaq": false,
+    "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/courtroom-prep",
@@ -60,30 +56,26 @@
     "type": "resource",
     "slug": "courtroom-prep",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Evidence Intake Guide",
-    "metaDescription": "Stand when judge enters. Say 'Your Honor.' Dress business casual. Speak only when asked. Answer the question. Don't interrupt. Pro se guide.",
+    "title": "",
+    "metaDescription": "missing",
     "wordCount": {
-      "total": 1224,
-      "body": 1209,
-      "excerpt": 15
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 9,
-        "h3": 18
-      },
-      "lists": 8,
-      "codeBlocks": 0,
-      "paragraphs": 70
-    },
-    "hasFaq": true,
-    "faqCount": 3,
+    "blocksSummary": {},
+    "hasFaq": false,
+    "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/evidence-intake",
@@ -91,23 +83,14 @@
     "type": "resource",
     "slug": "evidence-intake",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Proof of Service State-by-State Guide",
-    "metaDescription": "How to capture, preserve, and organize records so they're usable later. (Not legal advice. Just hygiene.)",
+    "title": "Evidence Intake: Photos, Texts, Email | Capture & Preserve Guide",
+    "metaDescription": "How to capture, preserve, and organize photos, texts, and emails so they're usable in court. Learn proper evidence intake procedures and authentication basics.",
     "wordCount": {
-      "total": 449,
-      "body": 433,
-      "excerpt": 16
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 6,
-        "h3": 9
-      },
-      "lists": 5,
-      "codeBlocks": 0,
-      "paragraphs": 23
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -115,9 +98,11 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/exhibits-guide",
@@ -125,30 +110,26 @@
     "type": "resource",
     "slug": "exhibits-guide",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Proof of Service Pack",
-    "metaDescription": "Label exhibits A, B, C in bottom right. Bring 3 copies. Create exhibit list. Step-by-step guide for organizing exhibits in family court.",
+    "title": "Exhibits Guide: Labeling and Organization",
+    "metaDescription": "How to label, organize, and present exhibits so they're clear and professional.",
     "wordCount": {
-      "total": 771,
-      "body": 759,
-      "excerpt": 12
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 7,
-        "h3": 10
-      },
-      "lists": 2,
-      "codeBlocks": 0,
-      "paragraphs": 42
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
-    "renderSmokeStatus": "pass",
-    "notes": []
+    "lastUpdated": "missing",
+    "renderSmokeStatus": "fail",
+    "notes": [
+      "V2 content from separate file (spread operator in registry)",
+      "No content found in registry"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/filing-basics",
@@ -156,54 +137,14 @@
     "type": "resource",
     "slug": "filing-basics",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Exhibits Guide: Labeling and Organization",
-    "metaDescription": "File at Clerk of Court (in person or online). Get file-stamped copies. Follow deadlines. Serve opposing party same day. Filing guide.",
+    "title": "Federal Rules of Civil Procedure",
+    "metaDescription": "missing",
     "wordCount": {
-      "total": 1567,
-      "body": 1553,
-      "excerpt": 14
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 9,
-        "h3": 16
-      },
-      "lists": 16,
-      "codeBlocks": 0,
-      "paragraphs": 79
-    },
-    "hasFaq": true,
-    "faqCount": 3,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
-    "renderSmokeStatus": "pass",
-    "notes": []
-  },
-  {
-    "route": "/resources/financial-snapshot",
-    "canonicalUrl": "https://threadlock.ai/resources/financial-snapshot",
-    "type": "resource",
-    "slug": "financial-snapshot",
-    "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Official Court Portals",
-    "metaDescription": "Income, expenses, accounts, and timelines—so you can answer questions without scrambling.",
-    "wordCount": {
-      "total": 610,
-      "body": 599,
-      "excerpt": 11
-    },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 9,
-        "h3": 10
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 29
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -211,9 +152,38 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
+  },
+  {
+    "route": "/resources/financial-snapshot",
+    "canonicalUrl": "https://threadlock.ai/resources/financial-snapshot",
+    "type": "resource",
+    "slug": "financial-snapshot",
+    "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
+    "title": "",
+    "metaDescription": "missing",
+    "wordCount": {
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
+    },
+    "blocksSummary": {},
+    "hasFaq": false,
+    "faqCount": 0,
+    "hasSources": false,
+    "sourcesCount": 0,
+    "lastUpdated": "missing",
+    "renderSmokeStatus": "pass",
+    "notes": [
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/guides/evidence-authentication",
@@ -246,7 +216,9 @@
     "renderSmokeStatus": "pass",
     "notes": [
       "Missing updated date"
-    ]
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/guides/parenting-time-calculations",
@@ -257,9 +229,44 @@
     "title": "Understanding Parenting Time Calculations",
     "metaDescription": "Calculate overnights, holidays, and summer schedules accurately.",
     "wordCount": {
-      "total": 430,
-      "body": 423,
+      "total": 481,
+      "body": 474,
       "summary": 7
+    },
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 10,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 26
+    },
+    "hasFaq": false,
+    "faqCount": 0,
+    "hasSources": false,
+    "sourcesCount": 0,
+    "lastUpdated": "missing",
+    "renderSmokeStatus": "pass",
+    "notes": [
+      "Missing updated date"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
+  },
+  {
+    "route": "/resources/guides/proof-of-service-states",
+    "canonicalUrl": "https://threadlock.ai/resources/guides/proof-of-service-states",
+    "type": "guide",
+    "slug": "proof-of-service-states",
+    "contentSource": "src/content/resourcesRegistry.ts:FEATURED_GUIDES",
+    "title": "Proof of Service State-by-State",
+    "metaDescription": "Requirements and templates for every U.S. state and territory.",
+    "wordCount": {
+      "total": 432,
+      "body": 423,
+      "summary": 9
     },
     "blocksSummary": {
       "headings": {
@@ -279,40 +286,9 @@
     "renderSmokeStatus": "pass",
     "notes": [
       "Missing updated date"
-    ]
-  },
-  {
-    "route": "/resources/guides/proof-of-service-states",
-    "canonicalUrl": "https://threadlock.ai/resources/guides/proof-of-service-states",
-    "type": "guide",
-    "slug": "proof-of-service-states",
-    "contentSource": "src/content/resourcesRegistry.ts:FEATURED_GUIDES",
-    "title": "Proof of Service State-by-State",
-    "metaDescription": "Requirements and templates for every U.S. state and territory.",
-    "wordCount": {
-      "total": 403,
-      "body": 394,
-      "summary": 9
-    },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 9,
-        "h3": 0
-      },
-      "lists": 5,
-      "codeBlocks": 0,
-      "paragraphs": 20
-    },
-    "hasFaq": false,
-    "faqCount": 0,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
-    "notes": [
-      "Missing updated date"
-    ]
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/guides/self-representation-complete",
@@ -334,7 +310,9 @@
     "sourcesCount": 0,
     "lastUpdated": "Jan 2026",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 1,
+    "hasBlocks": null
   },
   {
     "route": "/resources/hearing-tomorrow",
@@ -345,30 +323,23 @@
     "title": "Hearing Tomorrow Checklist",
     "metaDescription": "A practical walkthrough for what to bring, how to label exhibits, and what to avoid saying when you're nervous.",
     "wordCount": {
-      "total": 242,
-      "body": 223,
-      "excerpt": 19
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 5,
-        "h3": 0
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 13
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
     "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
+    "renderSmokeStatus": "fail",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content found in registry"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/kits/evidence",
@@ -379,29 +350,23 @@
     "title": "Evidence Kit",
     "metaDescription": "Capture, organize, and preserve evidence that holds up.",
     "wordCount": {
-      "total": 191,
-      "body": 183,
-      "description": 8
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 3,
-        "h3": 5
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 13
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
     "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
+    "renderSmokeStatus": "fail",
     "notes": [
-      "No lastUpdated field in schema"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content found in registry"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/kits/first-filing",
@@ -412,29 +377,23 @@
     "title": "First Filing Kit",
     "metaDescription": "Start your case right with proper documentation and filing procedures.",
     "wordCount": {
-      "total": 201,
-      "body": 191,
-      "description": 10
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 3,
-        "h3": 5
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 14
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
     "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
+    "renderSmokeStatus": "fail",
     "notes": [
-      "No lastUpdated field in schema"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content found in registry"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/kits/hearing-soon",
@@ -466,23 +425,14 @@
     "type": "resource",
     "slug": "official-portals",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Fee Waiver Information",
-    "metaDescription": "Links to state-provided form sites and official rules. Don't pay for free forms.",
+    "title": "",
+    "metaDescription": "missing",
     "wordCount": {
-      "total": 461,
-      "body": 448,
-      "excerpt": 13
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 7,
-        "h3": 10
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 31
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -490,9 +440,11 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/parenting-plans",
@@ -500,23 +452,14 @@
     "type": "resource",
     "slug": "parenting-plans",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Hearing Tomorrow Checklist",
-    "metaDescription": "A structured way to describe routines, transitions, holidays, and communication—without writing a manifesto.",
+    "title": "",
+    "metaDescription": "missing",
     "wordCount": {
-      "total": 760,
-      "body": 747,
-      "excerpt": 13
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 9,
-        "h3": 9
-      },
-      "lists": 8,
-      "codeBlocks": 0,
-      "paragraphs": 32
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -524,9 +467,11 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/proof-of-service",
@@ -534,23 +479,14 @@
     "type": "resource",
     "slug": "proof-of-service",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Official Court Portals",
-    "metaDescription": "Templates + plain-English guidance so you don't lose on a technicality.",
+    "title": "What Counts as Proof of Service? | Definition & Legal Requirements",
+    "metaDescription": "Proof of Service is a signed declaration filed with the court confirming legal papers were delivered, detailing time, date, location, method, and server identity.",
     "wordCount": {
-      "total": 290,
-      "body": 279,
-      "excerpt": 11
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 5,
-        "h3": 3
-      },
-      "lists": 4,
-      "codeBlocks": 0,
-      "paragraphs": 18
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -558,9 +494,11 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/child-support-calculation",
@@ -589,9 +527,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/custody-types",
@@ -620,9 +560,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/exhibit-labeling",
@@ -649,11 +591,13 @@
     },
     "hasFaq": true,
     "faqCount": 3,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "hasSources": true,
+    "sourcesCount": 2,
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/fee-waiver",
@@ -682,9 +626,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/hearing-checklist",
@@ -713,11 +659,13 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [
       "Duplicate content: shortAnswer appears in body"
-    ]
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/mediation-lawyer",
@@ -746,9 +694,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/modify-parenting-plan",
@@ -777,9 +727,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/official-forms-location",
@@ -808,9 +760,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/proof-of-service-definition",
@@ -821,27 +775,20 @@
     "title": "What counts as proof of service?",
     "metaDescription": "Proof of service is a signed declaration under penalty of perjury showing you delivered court documents, when, where, how, and to whom.",
     "wordCount": {
-      "total": 430,
-      "body": 394,
+      "total": 36,
+      "body": 0,
       "shortAnswer": 36
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 3,
-        "h3": 4
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 23
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/respond-to-motion",
@@ -870,9 +817,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/service-deadlines",
@@ -901,9 +850,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/text-authentication",
@@ -932,9 +883,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/thanks",
@@ -989,21 +942,33 @@
     "sourcesCount": 0,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
-    "notes": []
+    "notes": [],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
-    "route": "/resources/topics/court-rules",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/court-rules",
+    "route": "/resources/topics/evidence-exhibits",
+    "canonicalUrl": "https://threadlock.ai/resources/topics/evidence-exhibits",
     "type": "topic",
-    "slug": "court-rules",
+    "slug": "evidence-exhibits",
     "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Court Rules",
-    "metaDescription": "Official court rules and procedures including civil procedure, family law rules, and local court rules",
+    "title": "Evidence & Exhibits",
+    "metaDescription": "Capture, preserve, and organize records that are usable in court.",
     "wordCount": {
-      "total": 15,
-      "description": 15
+      "total": 444,
+      "body": 434,
+      "promise": 10
     },
-    "blocksSummary": {},
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 19
+    },
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1011,23 +976,32 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   },
   {
-    "route": "/resources/topics/custody",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/custody",
+    "route": "/resources/topics/financial-declarations",
+    "canonicalUrl": "https://threadlock.ai/resources/topics/financial-declarations",
     "type": "topic",
-    "slug": "custody",
+    "slug": "financial-declarations",
     "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Custody & Parenting",
-    "metaDescription": "Resources specific to child custody, visitation, and parenting plans",
+    "title": "Financial Declarations",
+    "metaDescription": "Answer financial questions without scrambling for numbers.",
     "wordCount": {
-      "total": 9,
-      "description": 9
+      "total": 552,
+      "body": 545,
+      "promise": 7
     },
-    "blocksSummary": {},
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 22
+    },
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1035,23 +1009,32 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   },
   {
-    "route": "/resources/topics/deadlines",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/deadlines",
+    "route": "/resources/topics/hearings-prep",
+    "canonicalUrl": "https://threadlock.ai/resources/topics/hearings-prep",
     "type": "topic",
-    "slug": "deadlines",
+    "slug": "hearings-prep",
     "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Deadlines & Timelines",
-    "metaDescription": "Understanding court deadlines, response times, and legal timelines",
+    "title": "Hearings & Courtroom Prep",
+    "metaDescription": "Walk in prepared, organized, and coherent under pressure.",
     "wordCount": {
-      "total": 8,
-      "description": 8
+      "total": 492,
+      "body": 484,
+      "promise": 8
     },
-    "blocksSummary": {},
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 21
+    },
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1059,23 +1042,32 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   },
   {
-    "route": "/resources/topics/evidence",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/evidence",
+    "route": "/resources/topics/official-forms",
+    "canonicalUrl": "https://threadlock.ai/resources/topics/official-forms",
     "type": "topic",
-    "slug": "evidence",
+    "slug": "official-forms",
     "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Evidence & Documentation",
-    "metaDescription": "Guidelines for gathering, organizing, and presenting evidence in family court",
+    "title": "Official Forms & Portals",
+    "metaDescription": "Access state-provided forms and rules—don't pay for free resources.",
     "wordCount": {
-      "total": 10,
-      "description": 10
+      "total": 521,
+      "body": 512,
+      "promise": 9
     },
-    "blocksSummary": {},
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 5,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 25
+    },
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1083,23 +1075,32 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   },
   {
-    "route": "/resources/topics/financial",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/financial",
+    "route": "/resources/topics/parenting-plans",
+    "canonicalUrl": "https://threadlock.ai/resources/topics/parenting-plans",
     "type": "topic",
-    "slug": "financial",
+    "slug": "parenting-plans",
     "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Financial Disclosures",
-    "metaDescription": "Guidelines for financial documentation, child support, and property division",
+    "title": "Parenting Plans",
+    "metaDescription": "Structure routines, transitions, and communication clearly.",
     "wordCount": {
-      "total": 9,
-      "description": 9
+      "total": 500,
+      "body": 494,
+      "promise": 6
     },
-    "blocksSummary": {},
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 4,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 22
+    },
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1107,79 +1108,6 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
-      "No lastUpdated field in schema"
-    ]
-  },
-  {
-    "route": "/resources/topics/forms",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/forms",
-    "type": "topic",
-    "slug": "forms",
-    "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Court Forms",
-    "metaDescription": "Official court forms and templates for various legal procedures",
-    "wordCount": {
-      "total": 9,
-      "description": 9
-    },
-    "blocksSummary": {},
-    "hasFaq": false,
-    "faqCount": 0,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
-    "notes": [
-      "Content from topics.json only (not in registry)",
-      "No lastUpdated field in schema"
-    ]
-  },
-  {
-    "route": "/resources/topics/hearing-prep",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/hearing-prep",
-    "type": "topic",
-    "slug": "hearing-prep",
-    "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Hearing Preparation",
-    "metaDescription": "Checklists and guidance for preparing for court hearings and trials",
-    "wordCount": {
-      "total": 10,
-      "description": 10
-    },
-    "blocksSummary": {},
-    "hasFaq": false,
-    "faqCount": 0,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
-    "notes": [
-      "Content from topics.json only (not in registry)",
-      "No lastUpdated field in schema"
-    ]
-  },
-  {
-    "route": "/resources/topics/motions",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/motions",
-    "type": "topic",
-    "slug": "motions",
-    "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Motions & Pleadings",
-    "metaDescription": "Templates and guidance for filing motions and legal pleadings",
-    "wordCount": {
-      "total": 9,
-      "description": 9
-    },
-    "blocksSummary": {},
-    "hasFaq": false,
-    "faqCount": 0,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
-    "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   },
@@ -1192,34 +1120,20 @@
     "title": "Proof of Service",
     "metaDescription": "Don't lose on a technicality—get service documentation right.",
     "wordCount": {
-      "total": 8,
-      "body": 0,
+      "total": 458,
+      "body": 450,
       "promise": 8
     },
-    "blocksSummary": {},
-    "hasFaq": false,
-    "faqCount": 0,
-    "hasSources": false,
-    "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
-    "notes": [
-      "No lastUpdated field in schema"
-    ]
-  },
-  {
-    "route": "/resources/topics/self-help",
-    "canonicalUrl": "https://threadlock.ai/resources/topics/self-help",
-    "type": "topic",
-    "slug": "self-help",
-    "contentSource": "src/content/resourcesRegistry.ts:TOPICS + src/data/resources/topics.json",
-    "title": "Self-Help Resources",
-    "metaDescription": "Court-provided resources for self-represented litigants",
-    "wordCount": {
-      "total": 5,
-      "description": 5
+    "blocksSummary": {
+      "headings": {
+        "h1": 1,
+        "h2": 4,
+        "h3": 0
+      },
+      "lists": 0,
+      "codeBlocks": 0,
+      "paragraphs": 17
     },
-    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -1227,7 +1141,6 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Content from topics.json only (not in registry)",
       "No lastUpdated field in schema"
     ]
   }

@@ -351,7 +351,33 @@ function validateResourceQAFiles() {
         error(`ResourceQA "${slug}" (${file}): governance.reviewIntervalDays is missing`);
       }
       
-      // Check for shortAnswer duplication in body
+      // V2 SPECIFIC VALIDATIONS
+      // These are v2 structured content files (ResourceQAContent)
+      
+      // Check 1: Must have sections array with at least 1 section
+      if (!content.includes('sections:')) {
+        error(`ResourceQA v2 "${slug}" (${file}): Missing sections array`);
+      } else {
+        // Check if sections array is empty
+        const sectionsMatch = content.match(/sections:\s*\[([^\]]*(?:\[[^\]]*\][^\]]*)*?)\]/s);
+        if (sectionsMatch) {
+          const sectionsContent = sectionsMatch[1].trim();
+          if (sectionsContent === '') {
+            error(`ResourceQA v2 "${slug}" (${file}): sections array is empty (must have at least 1 section)`);
+          }
+        }
+      }
+      
+      // Check 2: No duplicate section headings
+      const headingMatches = [...content.matchAll(/heading:\s*["']([^"']+)["']/g)];
+      const headings = headingMatches.map(m => m[1]);
+      const uniqueHeadings = new Set(headings);
+      if (headings.length > uniqueHeadings.size) {
+        const duplicates = headings.filter((h, i) => headings.indexOf(h) !== i);
+        error(`ResourceQA v2 "${slug}" (${file}): Duplicate section headings found: ${[...new Set(duplicates)].join(', ')}`);
+      }
+      
+      // Check 3: Check for shortAnswer duplication in body
       const shortAnswerMatch = content.match(/shortAnswer:\s*{[^}]*text:\s*["']([^"']+)["']/s);
       const sectionsMatch = content.match(/sections:\s*\[([^\]]+(?:\[[^\]]+\][^\]]*)*?)\]/s);
       
@@ -359,11 +385,22 @@ function validateResourceQAFiles() {
         const shortAnswerText = shortAnswerMatch[1];
         const sectionsContent = sectionsMatch[1];
         
-        // Simple check if short answer appears in sections
-        const normalizedShort = shortAnswerText.toLowerCase().substring(0, 100);
-        if (sectionsContent.toLowerCase().includes(normalizedShort)) {
-          warn(`ResourceQA "${slug}" (${file}): shortAnswer may be duplicated in body sections`);
+        // More robust check for shortAnswer duplication
+        const normalizedShort = shortAnswerText.toLowerCase().trim();
+        const normalizedSections = sectionsContent.toLowerCase();
+        
+        // Check if the full short answer or significant portion (first 50+ chars) appears in sections
+        if (normalizedShort.length > 50) {
+          const shortSnippet = normalizedShort.substring(0, 50);
+          if (normalizedSections.includes(shortSnippet)) {
+            error(`ResourceQA v2 "${slug}" (${file}): shortAnswer text is repeated in section body. Remove duplication.`);
+          }
         }
+      }
+      
+      // Check 4: Must have shortAnswer
+      if (!content.includes('shortAnswer:')) {
+        error(`ResourceQA v2 "${slug}" (${file}): Missing shortAnswer (required for v2)`);
       }
     }
     

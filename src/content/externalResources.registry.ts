@@ -957,16 +957,6 @@ export const EXTERNAL_RESOURCES: ExternalResource[] = [
     lastVerified: "2026-02-10",
   },
   {
-    id: "innovative-tools.US.courtroom5",
-    title: "Courtroom5",
-    url: "https://www.courtroom5.com/",
-    category: "innovative-tools",
-    jurisdiction: "US",
-    authority: "private",
-    description: "AI legal research and case analysis platform",
-    lastVerified: "2026-02-10",
-  },
-  {
     id: "general-tools.US.nolo",
     title: "Nolo Legal Encyclopedia",
     url: "https://www.nolo.com/legal-encyclopedia",

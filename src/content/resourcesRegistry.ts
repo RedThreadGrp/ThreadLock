@@ -2,6 +2,35 @@
 // Complete resources registry with TypeScript types and data
 // All content for the ThreadLock Resources Hub
 
+// Import v2 structured content
+import { modifyParentingPlan } from "./resources/modify-parenting-plan";
+import { custodyTypes } from "./resources/custody-types";
+import { feeWaiver } from "./resources/fee-waiver";
+import { childSupportCalculation } from "./resources/child-support-calculation";
+import { textAuthentication } from "./resources/text-authentication";
+import { serviceDeadlines } from "./resources/service-deadlines";
+import { mediationLawyer } from "./resources/mediation-lawyer";
+import { hearingChecklist } from "./resources/hearing-checklist";
+import { officialFormsLocation } from "./resources/official-forms-location";
+import { exhibitLabeling } from "./resources/exhibit-labeling";
+import { respondToMotion } from "./resources/respond-to-motion";
+import { parentingTimeCalculations } from "./resources/parenting-time-calculations";
+import { proofOfServiceStates } from "./resources/proof-of-service-states";
+import { evidenceAuthentication } from "./resources/evidence-authentication";
+import { firstFiling } from "./resources/first-filing";
+import { evidence } from "./resources/evidence";
+import { hearingTomorrow } from "./resources/hearing-tomorrow";
+import { exhibitsGuide } from "./resources/exhibits-guide";
+import { parentingPlans } from "./resources/parenting-plans";
+import { financialSnapshot } from "./resources/financial-snapshot";
+import { officialPortals } from "./resources/official-portals";
+import { evidenceIntake } from "./resources/evidence-intake";
+import { proofOfServicePack } from "./resources/proof-of-service-pack";
+import { courtroomPrep } from "./resources/courtroom-prep";
+import { timelineTools } from "./resources/timeline-tools";
+import { filingBasics } from "./resources/filing-basics";
+import { authentication } from "./resources/authentication";
+
 // ============================================================================
 // Type Definitions
 // ============================================================================
@@ -74,7 +103,9 @@ export interface FeaturedGuide {
   tags: string[];
   updated?: string;
   status: ResourceStatus;
+  contentVersion?: number; // 1 = markdown body, 2 = structured blocks
   body?: string;
+  blocks?: any; // v2 structured content
   relatedLinks?: Array<{
     title: string;
     href: string;
@@ -190,74 +221,12 @@ export function getQuestionsByTopic(topicSlug: string): PopularQuestion[] {
 export const RESOURCES: Resource[] = [
   // Published resources (existing 6)
   {
-    slug: "hearing-tomorrow",
-    title: "Hearing Tomorrow Checklist",
-    excerpt: "A practical walkthrough for what to bring, how to label exhibits, and what to avoid saying when you're nervous.",
-    tag: "Court Prep",
-    topic: "Hearings & Courtroom Prep",
-    intent: "Urgent",
-    readTime: "5 min read",
-    status: "published",
-    body: `# Hearing Tomorrow Checklist
-
-When you have a hearing coming up fast, you need a system—not a panic attack.
-
-## What to Bring
-
-- All filed documents (originals + 2 copies)
-- Exhibits labeled and organized (A, B, C, etc.)
-- Calendar showing relevant dates
-- Notes on key points you want to make
-- Photo ID and case number
-
-## Exhibit Labeling
-
-- Use letters (A, B, C) for your exhibits
-- Numbers (1, 2, 3) are typically for the other party's exhibits
-- Label each page in the bottom right corner
-- Bring extra copies for the judge and opposing party
-
-## What to Avoid
-
-- Don't interrupt the judge
-- Don't argue with the other party directly
-- Don't bring up irrelevant history
-- Don't read from a script word-for-word
-- Don't show emotion—stick to facts
-
-## Before You Walk In
-
-- Arrive 15 minutes early
-- Turn off your phone completely
-- Use the restroom
-- Take three deep breaths
-- Remember: you're presenting facts, not arguing
-
-## In the Courtroom
-
-- Stand when the judge enters
-- Address the judge as "Your Honor"
-- Speak clearly and at a normal pace
-- Answer only what's asked
-- If you don't know, say "I don't know"
-
-This is not legal advice. This is basic courtroom hygiene for self-represented litigants.`,
-    relatedLinks: [
-      { title: "Evidence Intake Guide", href: "/resources/evidence-intake" },
-      { title: "Official Court Portals", href: "/resources/official-portals" },
-    ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals" },
-        { name: "Federal Rules of Civil Procedure" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Courtroom procedures vary by court. Check local rules."
-    }
+    ...hearingTomorrow,
+    contentVersion: 2,
+    blocks: hearingTomorrow.blocks,
   },
   {
+    ...proofOfServicePack,
     slug: "proof-of-service",
     title: "Proof of Service Pack",
     excerpt: "Templates + plain-English guidance so you don't lose on a technicality.",
@@ -266,74 +235,15 @@ This is not legal advice. This is basic courtroom hygiene for self-represented l
     intent: "Start",
     readTime: "8 min read",
     status: "published",
-    body: `# Proof of Service Pack
-
-Don't lose your case because you couldn't prove you served documents properly.
-
-## What is Proof of Service?
-
-It's written evidence that you delivered court documents to the other party in a legally acceptable way. Without it, your filing may be rejected or your motion denied.
-
-## Three Main Service Methods
-
-### 1. Personal Service
-Someone over 18 (not you) hands documents directly to the other party.
-
-**Pros:** Most reliable, hard to contest  
-**Cons:** Requires finding someone to do it, other party might avoid
-
-### 2. Mail Service
-Send via certified mail with return receipt requested.
-
-**Pros:** Easy to document, works if other party won't cooperate  
-**Cons:** Slower, timing rules vary by jurisdiction
-
-### 3. Substituted Service
-Leave with someone at their home/work if personal service fails after reasonable attempts.
-
-**Pros:** Works when other party is avoiding service  
-**Cons:** Stricter rules, may require court approval first
-
-## What to Document
-
-- Date, time, and location of service
-- Name of person served
-- Method of service used
-- Description of documents served
-- Server's signature and contact information
-
-## Common Mistakes
-
-- Serving documents yourself (not allowed in most cases)
-- Not keeping the proof of service for your records
-- Missing the deadline to file proof of service with the court
-- Using an interested party (like your mom) as the server
-- Not serving ALL required parties
-
-## After Service
-
-1. Server fills out Proof of Service form
-2. Server signs under penalty of perjury
-3. You file the Proof of Service with the court
-4. Keep copies for your records
-
-Check your local court rules for specific timing and format requirements.`,
+    contentVersion: 2,
+    blocks: proofOfServicePack.blocks,
     relatedLinks: [
       { title: "Official Court Portals", href: "/resources/official-portals" },
       { title: "Proof of Service State-by-State Guide", href: "/resources/guides/proof-of-service-states" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
-        { name: "State Bar Association Resources" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Proof of service requirements vary by jurisdiction. Always verify with your local court."
-    }
   },
   {
+    ...evidenceIntake,
     slug: "evidence-intake",
     title: "Evidence Intake: Photos, Texts, Email",
     excerpt: "How to capture, preserve, and organize records so they're usable later. (Not legal advice. Just hygiene.)",
@@ -342,122 +252,15 @@ Check your local court rules for specific timing and format requirements.`,
     intent: "Organize",
     readTime: "10 min read",
     status: "published",
-    body: `# Evidence Intake: Photos, Texts, Email
-
-Raw evidence is worthless if you can't find it, authenticate it, or present it clearly.
-
-## Capture: Lock It Down Immediately
-
-### Text Messages
-- Screenshot the ENTIRE conversation thread
-- Include timestamps and phone numbers
-- Capture multiple screens if needed—show context
-- Don't crop or edit
-- Back up to cloud storage immediately
-
-### Emails
-- Save as PDF with full headers visible
-- Include sender, recipient, date, subject
-- Download attachments separately
-- Print a backup copy
-- Note any replies or threads
-
-### Photos
-- Take multiple shots from different angles
-- Include context (what room, what building)
-- Don't alter, filter, or crop original files
-- Note date/time/location in metadata
-- Store originals separately from edited versions
-
-## Preserve: Don't Lose It
-
-- Use three storage locations: device, cloud, external drive
-- Don't delete originals, even if you have copies
-- Create dated folders: YYYY-MM-DD format
-- Name files descriptively: \`2026-01-15_text_custody_exchange.png\`
-- Keep access logs if possible
-
-## Organize: Make It Findable
-
-### Create a Master Index
-Spreadsheet with columns:
-- Date of incident
-- Type of evidence (text, email, photo)
-- File name
-- Brief description
-- Relevance to case (custody, support, contempt, etc.)
-- Storage location
-
-### Use Consistent Naming
-\`YYYY-MM-DD_type_topic_sequence.ext\`
-
-Examples:
-- \`2026-01-15_text_missed_pickup_01.png\`
-- \`2026-02-03_email_threat_financial_01.pdf\`
-- \`2026-03-10_photo_property_damage_01.jpg\`
-
-### Chronological Timeline
-Create a simple timeline document showing:
-- Date
-- What happened
-- Evidence file names
-- Witnesses (if any)
-
-## Authentication: Prove It's Real
-
-Courts won't accept evidence if you can't prove it's authentic.
-
-### For Text Messages
-Be ready to testify:
-- This is my phone number
-- This is the other party's phone number
-- I took these screenshots on [date]
-- I haven't altered the images
-
-### For Emails
-- Print with full headers
-- Verify sender domain matches known email
-- Note if you replied (shows authenticity)
-
-### For Photos
-- I took this photo on [date]
-- This is [location/object/person]
-- This accurately represents what I saw
-- I haven't edited or altered it
-
-## Red Flags to Avoid
-
-- Screenshots with battery/time cropped out (looks suspicious)
-- Edited photos without disclosure
-- Missing context (one text without conversation)
-- Unclear dates or sources
-- No backup copies
-
-## Day-of-Hearing Preparation
-
-1. Print physical copies of key evidence
-2. Bring originals on your device as backup
-3. Label exhibits A, B, C (not by date)
-4. Create an exhibit list with descriptions
-5. Practice explaining each piece calmly
-
-Remember: You're building a case, not a scrapbook. Every piece must be findable, provable, and presentable.`,
+    contentVersion: 2,
+    blocks: evidenceIntake.blocks,
     relatedLinks: [
       { title: "Evidence Authentication 101", href: "/resources/guides/evidence-authentication" },
       { title: "Hearing Tomorrow Checklist", href: "/resources/hearing-tomorrow" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "Court Self-Help Portals" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Evidence authentication requirements may vary by state. Consult local rules of evidence."
-    }
   },
   {
+    ...parentingPlans,
     slug: "parenting-plans",
     title: "Parenting Plan Builder Guide",
     excerpt: "A structured way to describe routines, transitions, holidays, and communication—without writing a manifesto.",
@@ -466,142 +269,15 @@ Remember: You're building a case, not a scrapbook. Every piece must be findable,
     intent: "Start",
     readTime: "12 min read",
     status: "published",
-    body: `# Parenting Plan Builder Guide
-
-A parenting plan is a detailed agreement about how you'll share time and decisions with your child. Courts want specificity, not philosophy.
-
-## Core Components
-
-Every parenting plan should address:
-
-1. **Regular Schedule** - Where the child lives on normal weeks
-2. **Holidays** - Who gets which holidays, how you split them
-3. **Summer/Breaks** - Extended time during school vacations
-4. **Decision-Making** - Who decides on school, medical, religious issues
-5. **Communication** - How parents communicate about the child
-6. **Exchanges** - Where/when/how you hand off the child
-7. **Transportation** - Who drives, who pays
-8. **Right of First Refusal** - If one parent can't watch the child, does the other parent get first option?
-
-## Regular Schedule Examples
-
-### Week On/Week Off
-- Child stays with Parent A for 7 days
-- Exchanges every Monday at 6pm at Parent B's home
-- Simple, works well for older kids, requires flexibility
-
-### 2-2-3 Schedule
-- Parent A: Mon-Tue
-- Parent B: Wed-Thu
-- Alternating Fri-Sat-Sun
-- More frequent contact, better for younger kids
-
-### Every Other Weekend
-- Parent A: Mon-Fri every week
-- Parent B: Fri 6pm to Sun 6pm every other weekend, plus one weeknight dinner
-- Traditional schedule, less disruption to school routine
-
-## Holiday Split Strategies
-
-### Alternating by Year
-- Parent A gets Thanksgiving in odd years, Parent B in even years
-- Reverse for Christmas
-
-### Split Each Holiday
-- Christmas Eve with one parent, Christmas Day with the other
-- Switch who gets which half each year
-
-### Fixed Assignment
-- One parent always gets 4th of July, other always gets Labor Day
-- Works if you each have strong preferences for specific holidays
-
-## Decision-Making Authority
-
-### Joint Legal Custody
-Both parents must agree on major decisions:
-- School enrollment and changes
-- Non-emergency medical treatment
-- Religious upbringing
-- Extracurricular activities requiring significant time/money
-
-### Sole Legal Custody
-One parent makes all major decisions, though good practice is still to consult the other.
-
-### Tie-Breaker Provisions
-If you can't agree:
-- Mediation required before court
-- Specific professional decides (pediatrician for medical, etc.)
-- Status quo continues until resolved
-
-## Communication Guidelines
-
-Be specific about:
-- **Method:** Text, email, phone, co-parenting app?
-- **Response time:** Within 24 hours for routine, immediately for emergencies
-- **Topics:** Child-related only, not personal issues
-- **Tone:** Business-like, no profanity or accusations
-
-Example clause:
-> "All routine communication about the child shall be via the OurFamilyWizard app. Emergency communication may be by phone call. Parents shall respond to routine messages within 24 hours. All communication shall remain respectful and child-focused."
-
-## Exchange Logistics
-
-Specify:
-- Exact location (address, parking lot, public place)
-- Exact time
-- Who is responsible for transportation
-- What happens if someone is late (grace period?)
-- What to do if child is sick
-- What the child should bring (clothes, medications, homework)
-
-Example:
-> "Exchanges shall occur at the parking lot of City Library, 123 Main St. The receiving parent shall arrive by 6:00pm. If the delivering parent is more than 15 minutes late without notice, the receiving parent may leave. Each parent shall ensure the child has sufficient clothing, medications, and school materials."
-
-## Right of First Refusal
-
-If one parent can't care for the child for more than X hours, the other parent gets first chance before a babysitter.
-
-**Pros:** Maximizes child's time with parents  
-**Cons:** Can create conflict, complicates scheduling
-
-Example clause:
-> "If either parent will be unable to care for the child for more than 4 consecutive hours during their parenting time, that parent shall first offer the other parent the opportunity to care for the child before arranging alternate childcare."
-
-## Red Flags to Avoid
-
-- Vague timing: "Parent B gets weekends" (which weekends? what times?)
-- No backup plan for disagreements
-- Overly rigid (no room for flexibility)
-- Overly loose (too much room for argument)
-- Focusing on adult wants instead of child needs
-- Writing a novel (courts prefer clear, concise plans)
-
-## Testing Your Plan
-
-Before you finalize, ask:
-- Does this actually work with work schedules and school?
-- Can I explain this to a third party in 2 minutes?
-- What happens if someone moves?
-- What happens if someone remarries?
-- Is this genuinely in the child's best interest, or am I trying to "win"?
-
-A good parenting plan is boring, predictable, and specific. Save the drama for somewhere else.`,
+    contentVersion: 2,
+    blocks: parentingPlans.blocks,
     relatedLinks: [
       { title: "Understanding Parenting Time Calculations", href: "/resources/guides/parenting-time-calculations" },
       { title: "Official Court Portals", href: "/resources/official-portals" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "State Bar Association Resources" },
-        { name: "Court Self-Help Portals" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Parenting plan requirements and terminology vary by state. Consult local family law rules."
-    }
   },
   {
+    ...financialSnapshot,
     slug: "financial-snapshot",
     title: "Financial Snapshot Worksheet",
     excerpt: "Income, expenses, accounts, and timelines—so you can answer questions without scrambling.",
@@ -610,166 +286,15 @@ A good parenting plan is boring, predictable, and specific. Save the drama for s
     intent: "Organize",
     readTime: "7 min read",
     status: "published",
-    body: `# Financial Snapshot Worksheet
-
-Family court will ask about your finances—often repeatedly. Having this information organized saves time and reduces stress.
-
-## Income Section
-
-### Employment Income
-- Current employer name and address
-- Job title and start date
-- Gross monthly income (before taxes)
-- Net monthly income (after taxes, 401k, insurance)
-- Pay schedule (weekly, bi-weekly, monthly)
-- Recent pay stubs (last 3 months)
-
-### Self-Employment Income
-- Business name and type
-- Average monthly gross income (last 12 months)
-- Business expenses (average monthly)
-- Net self-employment income
-- Tax returns (last 2 years)
-
-### Other Income
-- Social Security or disability benefits
-- Rental property income
-- Investment income (dividends, interest)
-- Child support received from other relationships
-- Spousal support received
-- Unemployment benefits
-- Any other regular income sources
-
-## Expense Section
-
-### Fixed Monthly Expenses
-- Rent or mortgage payment
-- Property tax (if not included in mortgage)
-- Homeowners/renters insurance
-- Utilities (electric, gas, water, sewer, trash)
-- Phone/internet/cable
-- Car payment(s)
-- Car insurance
-- Health insurance (if not through employer)
-- Life insurance
-- Student loan payments
-- Credit card minimum payments
-
-### Variable Monthly Expenses
-- Groceries
-- Gas/transportation
-- Childcare costs
-- Children's activities (sports, music, etc.)
-- Clothing
-- Personal care (haircuts, etc.)
-- Medical expenses not covered by insurance
-- Entertainment/dining out
-- Pet care
-- Subscriptions (streaming services, etc.)
-
-### Periodic Expenses (calculate monthly average)
-- Car maintenance and repairs
-- Home maintenance and repairs
-- Birthday/holiday gifts
-- School expenses
-- Annual memberships
-
-## Assets Section
-
-### Real Property
-- Home (address, current value, amount owed)
-- Other real estate (rental, vacation home, land)
-
-### Vehicles
-- Make, model, year
-- Current value
-- Amount owed
-
-### Financial Accounts
-- Checking account (bank name, approximate balance)
-- Savings account
-- Retirement accounts (401k, IRA, pension)
-- Investment accounts
-- Education savings (529 plans)
-
-### Other Assets
-- Business ownership interests
-- Stocks, bonds, cryptocurrency
-- Valuable collections or items
-- Life insurance cash value
-
-## Debts Section
-
-- Credit cards (balance, minimum payment, creditor)
-- Student loans (balance, monthly payment)
-- Personal loans
-- Medical debt
-- Tax debt
-- Other debts
-
-## Important Dates
-
-- Date of marriage
-- Date of separation
-- Date divorce filed
-- Date of significant financial events (job loss, inheritance, major purchase)
-
-## Supporting Documents to Gather
-
-- Last 2 years of tax returns
-- Last 3 months of pay stubs
-- Last 3 months of bank statements
-- Recent credit card statements
-- Recent loan statements
-- Property tax statements
-- Insurance declarations
-- Retirement account statements
-
-## Tips for Court Forms
-
-- Round to nearest dollar
-- Use monthly figures unless form specifies otherwise
-- Be honest—lying on financial declarations is perjury
-- Update regularly as circumstances change
-- Keep copies of everything you file
-- If you estimate something, mark it as an estimate and be prepared to provide actual figures later
-
-## Common Mistakes
-
-- Forgetting to include all income sources
-- Not accounting for taxes and deductions
-- Guessing at expenses instead of tracking them
-- Omitting debts or assets
-- Using outdated information
-- Not keeping documentation to back up your numbers
-
-## Before Court
-
-Run the numbers:
-- Total monthly income
-- Total monthly expenses
-- Difference (surplus or shortfall?)
-- Does this pass the smell test?
-
-If expenses exceed income significantly, be prepared to explain how you're currently managing.
-
-This worksheet isn't legal or financial advice—it's an organizational tool to help you gather information the court will likely request.`,
+    contentVersion: 2,
+    blocks: financialSnapshot.blocks,
     relatedLinks: [
       { title: "Child Support Calculation FAQ", href: "/resources/q/child-support-calculation" },
       { title: "Fee Waiver Information", href: "/resources/q/fee-waiver" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Administration Office" },
-        { name: "Legal Aid Organizations" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Income and expense categories may vary by jurisdiction. Financial disclosure requirements differ by state."
-    }
   },
   {
+    ...officialPortals,
     slug: "official-portals",
     title: "Official Court Portals Directory",
     excerpt: "Links to state-provided form sites and official rules. Don't pay for free forms.",
@@ -778,298 +303,19 @@ This worksheet isn't legal or financial advice—it's an organizational tool to 
     intent: "Learn",
     readTime: "3 min read",
     status: "published",
-    body: `# Official Court Portals Directory
-
-Many websites charge for court forms that your state provides for free. Use the official sources.
-
-## Federal Courts
-
-**PACER (Public Access to Court Electronic Records)**  
-https://pacer.uscourts.gov/  
-Access federal court documents and case information
-
-**U.S. Courts Forms**  
-https://www.uscourts.gov/forms  
-Free federal court forms
-
-## State Court Portals (Major States)
-
-### California
-- **California Courts Self-Help**  
-  https://www.courts.ca.gov/selfhelp.htm
-- **Forms**: https://www.courts.ca.gov/forms.htm
-- Family law forms, instructions, local court websites
-
-### Texas
-- **Texas Courts Online**  
-  https://www.txcourts.gov/
-- **Texas Law Help**  
-  https://texaslawhelp.org/
-- Free forms and legal information
-
-### Florida
-- **Florida Courts Self-Help**  
-  https://www.flcourts.gov/Resources-Services/Court-Improvement/Family-Courts/Family-Law-Self-Help-Information
-- Comprehensive family law forms and instructions
-
-### New York
-- **NY Courts DIY Forms**  
-  https://www.nycourts.gov/courthelp/DIY/index.shtml
-- Interactive forms for family court
-
-### Illinois
-- **Illinois Courts Self-Help**  
-  https://www.illinoiscourts.gov/self-help/
-- Forms and instructional materials
-
-### Pennsylvania
-- **PA Courts Self-Help**  
-  https://www.pacourts.us/learn/self-help
-- Family law resources and forms
-
-### Ohio
-- **Ohio Supreme Court Forms**  
-  https://www.supremecourt.ohio.gov/JCS/domesticViolence/forms/
-- Domestic relations and family law forms
-
-### Georgia
-- **Georgia Legal Aid**  
-  https://www.georgialegalaid.org/
-- Free forms and self-help resources
-
-### North Carolina
-- **NC Courts Self-Help**  
-  https://www.nccourts.gov/help-topics/family-and-children
-- Family court forms and information
-
-### Michigan
-- **Michigan Legal Help**  
-  https://michiganlegalhelp.org/
-- DIY divorce and family law tools
-
-## What to Look For
-
-When you find your state's court website:
-
-- **Official domain**: Usually ends in .gov or .us
-- **Free access**: State-provided forms are free
-- **Current forms**: Check the revision date
-- **Local rules**: Download your specific county's rules
-- **Filing instructions**: Most sites include step-by-step guides
-- **Fee waiver forms**: If you can't afford filing fees
-
-## Red Flags (Scam Sites)
-
-- Charges for "access" to forms
-- Promises to "file for you" for a fee (unless they're a real attorney)
-- No .gov domain
-- Outdated forms
-- Generic advice not specific to your state
-
-## Local Court Websites
-
-After finding state resources, search for:  
-"[Your County] [Your State] court website"
-
-Local court sites often have:
-- Specific judges' preferences
-- Local filing procedures
-- Court calendars
-- E-filing portals
-- Contact information for clerk's office
-
-## Legal Aid Organizations
-
-If you can't find what you need:
-
-**National**
-- Legal Services Corporation: https://www.lsc.gov/what-legal-aid/find-legal-aid
-- Find free or low-cost legal help in your area
-
-**State-Specific**
-- Search: "[Your State] legal aid"
-- Most states have multiple legal aid organizations
-- Income limits usually apply
-
-## Caution
-
-- These portals provide forms and information, not legal advice
-- Using the right form doesn't guarantee the right outcome
-- When in doubt, consult with a licensed attorney in your jurisdiction
-- Don't rely on out-of-state forms—rules vary significantly
-
-Save money by getting forms from official sources. Spend money on actual legal help if you need it.`,
+    contentVersion: 2,
+    blocks: officialPortals.blocks,
     relatedLinks: [
       { title: "Where to Find Official Court Forms FAQ", href: "/resources/q/official-forms-location" },
       { title: "Proof of Service Pack", href: "/resources/proof-of-service" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
-        { name: "State Bar Association Resources" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Court websites and form availability vary by state. Always verify current forms with your local court."
-    }
   },
 
   // Draft resources (new placeholders for starter kit references)
   {
-    slug: "exhibits-guide",
-    title: "Exhibits Guide: Labeling and Organization",
-    excerpt: "How to label, organize, and present exhibits so they're clear and professional.",
-    tag: "Court Prep",
-    topic: "Hearings & Courtroom Prep",
-    intent: "Urgent",
-    readTime: "6 min read",
-    status: "published",
-    seoTitle: "Label Court Exhibits | Step-by-Step Guide | ThreadLock",
-    metaDescription: "Label exhibits A, B, C in bottom right. Bring 3 copies. Create exhibit list. Step-by-step guide for organizing exhibits in family court.",
-    dateModified: "2026-02-13",
-    body: `# Exhibits Guide: Labeling and Organization
-
-Exhibits are physical or digital evidence you present to the judge. Proper labeling and organization make your evidence easier to reference and harder to dispute.
-
-## Short Answer
-
-**Use letters (A, B, C) for your exhibits.** Label each page in the bottom right corner. Create an exhibit list that describes each item. Bring three copies: one for you, one for the judge, one for the opposing party. Organize chronologically or by topic, whichever tells your story more clearly.
-
-## How to Label Exhibits Properly
-
-### The Standard Format
-
-Most family courts expect:
-- **Your exhibits:** Letters (A, B, C, D, etc.)
-- **Opposing party's exhibits:** Numbers (1, 2, 3, 4, etc.)
-- **Label placement:** Bottom right corner of each page
-- **Label size:** Clear and legible, typically 12-14pt font
-
-### Labeling Multi-Page Exhibits
-
-If Exhibit A has 5 pages:
-- Page 1: "Exhibit A - Page 1 of 5"
-- Page 2: "Exhibit A - Page 2 of 5"
-- And so on
-
-This prevents pages from being misplaced or disputed.
-
-### Creating Your Exhibit List
-
-An exhibit list is a table that describes each exhibit. It's typically filed with your motion or presented at the hearing.
-
-**Basic format:**
-
-| Exhibit | Description | Date |
-|---------|-------------|------|
-| A | Text messages between parties | 03/15/2025 - 04/20/2025 |
-| B | Bank statement showing missed payment | May 2025 |
-| C | Email from opposing party re: custody | 06/10/2025 |
-
-The Clerk of Court or local rules may have a specific exhibit list template. Check before creating your own.
-
-## Organizing Exhibits for Presentation
-
-### Two Main Approaches
-
-**1. Chronological Order**
-Best for showing patterns over time or a sequence of events.
-
-Example:
-- Exhibit A: January emails
-- Exhibit B: February text messages
-- Exhibit C: March incident report
-
-**2. Topic-Based Order**
-Best for addressing multiple issues separately.
-
-Example:
-- Exhibit A: Financial records
-- Exhibit B: Communication about custody
-- Exhibit C: Medical documentation
-
-Choose the method that makes your narrative clearer.
-
-### Physical Organization Tips
-
-- **Use binder tabs** for each exhibit
-- **Three-hole punch** all documents
-- **Keep exhibits in order** at all times
-- **Don't remove anything** once assembled
-- **Practice referencing** exhibits before the hearing
-
-## What to Bring to Court
-
-**Minimum requirements:**
-- **Original exhibits** (for the judge)
-- **Two complete copies** (one for opposing party, one for you)
-- **Exhibit list** (3 copies)
-- **Binder or folder** to keep everything organized
-- **Case number and hearing date** clearly marked on the cover
-
-Some judges require advance submission of exhibits. Check your local rules or the hearing notice for deadlines.
-
-## Common Labeling Mistakes to Avoid
-
-### Using Numbers Instead of Letters
-If you're the petitioner or moving party, stick with letters. Using numbers can confuse the record.
-
-### Inconsistent Labeling
-Don't label something "Exhibit A" in your motion and then call it "Text Messages" in court. Use consistent references throughout.
-
-### Missing Page Numbers
-Multi-page exhibits without page numbers are easy to dispute. Always use "Page X of Y" format.
-
-### Forgetting Copies
-If you show up with only one copy, the judge may continue the hearing until you provide copies for all parties. Bring three sets minimum.
-
-### Labeling After Filing
-Label exhibits before you file your motion or submit documents to the Clerk of Court. Retroactive labeling creates confusion.
-
-## State-Specific Variations
-
-**Important:** This guide reflects common practices in U.S. family courts, but each jurisdiction has specific requirements:
-
-- Some courts require **exhibit lists to be filed 48 hours before the hearing**
-- Some courts use **color-coded labels** (e.g., yellow for petitioner, blue for respondent)
-- Some courts require **electronic submission** through an e-filing portal
-- Some courts prohibit **loose documents** and require binding
-
-**Always check:**
-- Local Rules of Civil Procedure for your county
-- Standing orders from your assigned judge
-- Any instructions in your hearing notice
-
-When in doubt, call the Clerk of Court and ask for exhibit requirements.
-
-## About This Resource
-
-This guide was developed by reviewing court rules, evidence presentation standards, and common practices across U.S. family court systems. It reflects procedures typically found in state trial courts handling domestic relations matters.
-
-**This is not legal advice.** Exhibit requirements vary significantly by jurisdiction. Consult your local court rules or an attorney licensed in your state for case-specific guidance.
-
-**For urgent hearings,** also review the [Hearing Tomorrow Checklist](/resources/hearing-tomorrow) for a complete preparation overview, including what else to bring and how to present yourself in court.`,
-    relatedLinks: [
-      { title: "Hearing Tomorrow Checklist", href: "/resources/hearing-tomorrow" },
-      { title: "Evidence Intake Guide", href: "/resources/evidence-intake" },
-      { title: "Official Court Portals by State", href: "/resources/official-portals" },
-    ],
-    relatedQuestions: [
-      { question: "How do I authenticate text messages for court?", href: "/resources/authentication" },
-      { question: "What if I forgot to label exhibits before filing?", href: "/resources/filing-basics" },
-      { question: "Can I add exhibits after the hearing starts?", href: "/resources/courtroom-prep" },
-    ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "Court Self-Help Portals" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Exhibit requirements and formatting rules vary by jurisdiction. Check local court rules."
-    }
+    ...exhibitsGuide,
+    contentVersion: 2,
+    blocks: exhibitsGuide.blocks,
   },
   {
     slug: "courtroom-prep",
@@ -1082,8 +328,10 @@ This guide was developed by reviewing court rules, evidence presentation standar
     status: "published",
     seoTitle: "Courtroom Etiquette Rules | What to Expect | ThreadLock",
     metaDescription: "Stand when judge enters. Say 'Your Honor.' Dress business casual. Speak only when asked. Answer the question. Don't interrupt. Pro se guide.",
-    dateModified: "2026-02-13",
-    body: `# Courtroom Etiquette and Preparation
+    dateModified: "2026-02-15",
+    contentVersion: 2,
+    blocks: courtroomPrep.blocks,
+    legacyBody: `# Courtroom Etiquette and Preparation
 
 Family court has rules—written and unwritten. Following them won't win your case, but breaking them can hurt your credibility before you even speak.
 
@@ -1291,16 +539,7 @@ This guide is based on common courtroom practices in U.S. state trial courts, pa
       { question: "Can I object to the other party's evidence?", href: "/resources/evidence-intake" },
       { question: "What happens if I miss my court date?", href: "/resources/filing-basics" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals" },
-        { name: "Federal Rules of Civil Procedure" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Courtroom procedures and etiquette vary by court. Check local rules."
-    }
+    governance: courtroomPrep.governance
   },
   {
     slug: "filing-basics",
@@ -1313,8 +552,10 @@ This guide is based on common courtroom practices in U.S. state trial courts, pa
     status: "published",
     seoTitle: "File Court Documents | Deadlines & E-Filing | ThreadLock",
     metaDescription: "File at Clerk of Court (in person or online). Get file-stamped copies. Follow deadlines. Serve opposing party same day. Filing guide.",
-    dateModified: "2026-02-13",
-    body: `# Filing Basics: Getting Started
+    dateModified: "2026-02-15",
+    contentVersion: 2,
+    blocks: filingBasics.blocks,
+    legacyBody: `# Filing Basics: Getting Started
 
 Filing documents with the court means submitting them to the Clerk of Court so they become part of the official case record. Do it wrong, and your motion might be rejected or your deadline missed.
 
@@ -1568,16 +809,7 @@ This guide is based on common filing procedures in U.S. state trial courts. It r
       { question: "How do I prove I served the other party?", href: "/resources/proof-of-service" },
       { question: "Can I file documents after business hours?", href: "/resources/official-portals" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Civil Procedure" },
-        { name: "Local Court Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Filing procedures and deadlines vary by jurisdiction. Verify with your court."
-    }
+    governance: filingBasics.governance
   },
   {
     slug: "timeline-tools",
@@ -1591,6 +823,8 @@ This guide is based on common filing procedures in U.S. state trial courts. It r
     seoTitle: "How to Create a Case Timeline | Organize Events | ThreadLock",
     metaDescription: "List events chronologically with dates, descriptions, and evidence. Include witnesses. Focus on relevant facts. Essential for custody cases.",
     dateModified: "2026-02-13",
+    contentVersion: 2,
+    blocks: timelineTools,
     body: `# Timeline Organization Tools
 
 A timeline is a chronological record of events relevant to your case. It helps judges see patterns, understand context, and evaluate credibility.
@@ -1819,16 +1053,7 @@ This guide is based on common practices for organizing and presenting timelines 
       { question: "Can I use a timeline instead of testimony?", href: "/resources/courtroom-prep" },
       { question: "How far back should my timeline go?", href: "/resources/hearing-tomorrow" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Legal Aid Organizations" },
-        { name: "Court Self-Help Portals" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Timeline requirements vary by court. Check local rules on demonstrative aids."
-    }
+    governance: timelineTools.governance
   },
   {
     slug: "authentication",
@@ -1841,8 +1066,10 @@ This guide is based on common practices for organizing and presenting timelines 
     status: "published",
     seoTitle: "How to Authenticate Text Messages for Court | ThreadLock",
     metaDescription: "Testify: (1) you sent/received it, (2) from this phone number, (3) on this date, (4) accurate screenshot. Include metadata. Don't edit.",
-    dateModified: "2026-02-13",
-    body: `# Authentication Basics for Digital Evidence
+    dateModified: "2026-02-15",
+    contentVersion: 2,
+    blocks: authentication.blocks,
+    legacyBody: `# Authentication Basics for Digital Evidence
 
 Authentication means proving that evidence is what you claim it is. Without authentication, the judge won't admit your text messages, emails, or photos—no matter how important they are.
 
@@ -2141,16 +1368,7 @@ This guide is based on common authentication principles found in U.S. state Rule
       { question: "Can I use screenshots from social media?", href: "/resources/guides/evidence-authentication" },
       { question: "Do I need an expert witness to authenticate emails?", href: "/resources/courtroom-prep" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "State Discovery Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Authentication requirements and hearsay exceptions vary by state. Consult local rules of evidence."
-    }
+    governance: authentication.governance
   },
 ];
 
@@ -2219,118 +1437,14 @@ Plan for **15 minutes** to review all materials. Ideally, review the night befor
 Start with the Hearing Tomorrow Checklist, then review the other resources as needed.`,
   },
   {
-    slug: "first-filing",
-    title: "First Filing Kit",
-    description: "Start your case right with proper documentation and filing procedures.",
-    whatYouGet: [
-      "Proof of service templates",
-      "Official forms directory",
-      "Filing hygiene checklist",
-      "Court rules overview",
-      "Common filing errors guide",
-    ],
-    estimatedTime: "20 minutes",
-    resources: ["/resources/proof-of-service", "/resources/official-portals", "/resources/filing-basics"],
-    status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
-        { name: "Federal Rules of Civil Procedure" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Filing requirements vary by jurisdiction. Always verify with your local court."
-    },
-    body: `# First Filing Kit
-
-Filing your first court documents can feel overwhelming. This kit gets you started on the right foot.
-
-## What's Included
-
-### 1. Proof of Service Templates
-Ready-to-use templates with plain-English guidance so you don't lose on a technicality.
-
-### 2. Official Forms Directory
-Links to free, state-provided forms and court portals. Don't pay for what should be free.
-
-### 3. Filing Hygiene Checklist
-Step-by-step process for filing documents correctly, getting file-stamped copies, and tracking deadlines.
-
-### 4. Court Rules Overview
-What you need to know about formatting, deadlines, and local court requirements.
-
-### 5. Common Filing Errors Guide
-Learn the most frequent mistakes and how to avoid them—missing signatures, wrong forms, missed deadlines.
-
-## Time Required
-
-Plan for **20 minutes** to review all materials before you file anything.
-
-## Who This Is For
-
-- People filing their first family court documents
-- Self-represented litigants starting a divorce, custody, or support case
-- Anyone who needs to understand filing basics
-
-Start with the Official Forms Directory to find your state's resources, then review Proof of Service before you file anything.`,
+    ...firstFiling,
+    contentVersion: 2,
+    blocks: firstFiling.blocks,
   },
   {
-    slug: "evidence",
-    title: "Evidence Kit",
-    description: "Capture, organize, and preserve evidence that holds up.",
-    whatYouGet: [
-      "Evidence intake templates",
-      "Photo/text preservation guide",
-      "Timeline organization tools",
-      "Authentication basics",
-      "Digital evidence checklist",
-    ],
-    estimatedTime: "25 minutes",
-    resources: ["/resources/evidence-intake", "/resources/timeline-tools", "/resources/authentication"],
-    status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "Legal Aid Organizations" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Evidence rules and authentication requirements vary by state. Consult local rules."
-    },
-    body: `# Evidence Kit
-
-Raw evidence is worthless if you can't find it, authenticate it, or present it clearly. This kit helps you build a usable evidence system.
-
-## What's Included
-
-### 1. Evidence Intake Templates
-How to capture, preserve, and organize photos, texts, emails, and documents so they're usable later.
-
-### 2. Photo/Text Preservation Guide
-Detailed instructions on backing up digital evidence, maintaining originals, and avoiding common mistakes.
-
-### 3. Timeline Organization Tools
-Build a clear, chronological timeline linking events to evidence files.
-
-### 4. Authentication Basics
-How to prove your evidence is real and admissible in court—foundation testimony, metadata, and more.
-
-### 5. Digital Evidence Checklist
-A practical checklist to ensure you've captured and organized everything correctly.
-
-## Time Required
-
-Plan for **25 minutes** to review all materials and set up your evidence system.
-
-## Who This Is For
-
-- Anyone collecting evidence for a family court case
-- People with texts, emails, or photos they need to preserve
-- Self-represented litigants who need to organize evidence professionally
-
-Start with the Evidence Intake guide to set up your system, then use Timeline Tools to organize chronologically.`,
+    ...evidence,
+    contentVersion: 2,
+    blocks: evidence.blocks,
   },
 ];
 
@@ -2398,16 +1512,10 @@ This is not legal advice. Family law varies significantly by jurisdiction. Verif
     summary: "How to make your photos, texts, and emails admissible without hiring an expert.",
     tags: ["Evidence", "Authentication"],
     status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "Court Self-Help Portals" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Authentication standards may vary by state. Consult local rules of evidence."
-    },
+    contentVersion: 2, // v2 structured content
+    // v2 structured blocks
+    blocks: evidenceAuthentication,
+    governance: evidenceAuthentication.governance,
     body: `# Evidence Authentication 101
 
 Authentication is the process of proving that evidence is what you claim it to be. Courts require proper authentication before admitting evidence.
@@ -2484,16 +1592,10 @@ This is general information about evidence authentication. Rules vary by jurisdi
     summary: "Requirements and templates for every U.S. state and territory.",
     tags: ["Templates", "Proof of Service"],
     status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Civil Procedure" },
-        { name: "State Bar Association Resources" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Service requirements vary significantly by state. Always verify with local court."
-    },
+    contentVersion: 2, // v2 structured content
+    // v2 structured blocks
+    blocks: proofOfServiceStates,
+    governance: proofOfServiceStates.governance,
     body: `# Proof of Service State-by-State
 
 Proof of service requirements vary by state. This guide provides general information about serving documents in family court proceedings across different jurisdictions.
@@ -2572,16 +1674,10 @@ Service requirements vary significantly by jurisdiction. This is general informa
     summary: "Calculate overnights, holidays, and summer schedules accurately.",
     tags: ["Parenting Plans", "Calculations"],
     status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "State Bar Association Resources" },
-        { name: "Child Support Guidelines" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Parenting time calculation methods and custody thresholds vary by state."
-    },
+    contentVersion: 2, // v2 structured content
+    // v2 structured blocks
+    blocks: parentingTimeCalculations,
+    governance: parentingTimeCalculations.governance,
     body: `# Understanding Parenting Time Calculations
 
 Parenting time calculations determine the percentage of time each parent has with the children. These calculations can affect child support, decision-making authority, and custody labels.
@@ -3205,11 +2301,13 @@ export const POPULAR_QUESTIONS: PopularQuestion[] = [
     slug: "exhibit-labeling",
     question: "How do I label exhibits for court?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "How to Label Exhibits for Court | ThreadLock",
     metaDescription: "Label exhibits sequentially using letters (Plaintiff) or numbers (Defendant). Include exhibit stickers on each document and reference them in your filings.",
     shortAnswer: "Label exhibits sequentially using letters (A, B, C) for plaintiff's exhibits or numbers (1, 2, 3) for defendant's exhibits. Attach exhibit stickers or tabs to each document and create an exhibit list that describes each item.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: exhibitLabeling,
     body: `# How do I label exhibits for court?
 
 ## Short Answer
@@ -3286,26 +2384,19 @@ Check your local court's rules or website for jurisdiction-specific requirements
       { question: "What should I bring to a hearing?", href: "/resources/q/hearing-checklist" },
       { question: "How do I organize evidence chronologically?", href: "/resources/q/evidence-organization" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "Local Court Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Exhibit labeling conventions vary by court. Check local rules."
-    }
+    governance: exhibitLabeling.governance
   },
   {
     slug: "official-forms-location",
     question: "Where do I find official court forms?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Where to Find Official Court Forms | ThreadLock",
     metaDescription: "Official court forms are available on your state or county court website, at the courthouse clerk's office, or through legal aid organizations.",
     shortAnswer: "Official court forms are available on your state or county court website, usually under a 'Forms' or 'Self-Help' section. You can also obtain forms at the courthouse clerk's office or through legal aid organizations that serve your area.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: officialFormsLocation,
     body: `# Where do I find official court forms?
 
 ## Short Answer
@@ -3408,26 +2499,19 @@ If you cannot locate needed forms online, contact your courthouse clerk's office
       { question: "Do I need a lawyer to file forms?", href: "/resources/q/self-representation" },
       { question: "Can I modify forms after filing?", href: "/resources/q/amending-forms" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
-        { name: "State Bar Association Resources" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Form locations and requirements vary by jurisdiction. Verify with your local court."
-    }
+    governance: officialFormsLocation.governance
   },
   {
     slug: "text-authentication",
     question: "Can I authenticate text messages myself?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Can I Authenticate Text Messages Myself? | ThreadLock",
     metaDescription: "Yes, you can self-authenticate text messages by submitting a declaration under penalty of perjury explaining the source, context, and chain of custody.",
     shortAnswer: "Yes, you can self-authenticate text messages by submitting a declaration under penalty of perjury that explains how you obtained the messages, their source, and the context. Include screenshots or exports with visible phone numbers and timestamps as exhibits.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: textAuthentication,
     body: `# Can I authenticate text messages myself?
 
 ## Short Answer
@@ -3532,26 +2616,19 @@ While self-authentication is generally permitted, having the opposing party stip
       { question: "Can I use email as evidence?", href: "/resources/q/email-evidence" },
       { question: "How do I authenticate photos?", href: "/resources/q/photo-authentication" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "State Discovery Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Text message authentication standards vary by state. Consult local evidence rules."
-    }
+    governance: textAuthentication.governance
   },
   {
     slug: "hearing-checklist",
     question: "What should I bring to a hearing?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "What to Bring to a Court Hearing | ThreadLock",
     metaDescription: "Bring original filed documents, exhibits with tabs, witness lists, notepad, calendar, calculator, and copies for the judge and opposing party.",
     shortAnswer: "Bring original filed documents, marked exhibits with tabs, your witness list, a notepad and pen, a calendar, and a calculator. Also bring copies of all documents for the judge, opposing party, and yourself. Arrive early and dress professionally.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: hearingChecklist,
     body: `# What should I bring to a hearing?
 
 ## Short Answer
@@ -3687,26 +2764,19 @@ Call the court clerk's office or check the local rules if you're uncertain about
       { question: "Can I bring someone with me to court?", href: "/resources/q/courtroom-support" },
       { question: "How do I respond to a motion?", href: "/resources/q/respond-to-motion" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals" },
-        { name: "Local Court Rules" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Hearing requirements vary by court type and jurisdiction. Verify local procedures."
-    }
+    governance: hearingChecklist.governance
   },
   {
     slug: "service-deadlines",
     question: "How long do I have to serve documents?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "How Long Do I Have to Serve Documents? | ThreadLock",
     metaDescription: "Service deadlines vary by document type and jurisdiction. Initial petitions typically require 120 days, while motion responses often need 9-16 days notice.",
     shortAnswer: "Service deadlines vary by document type and jurisdiction. Initial petitions typically must be served within 120 days of filing. Motion responses usually require 9-16 days' notice before the hearing, while discovery responses are generally due within 30 days.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: serviceDeadlines,
     body: `# How long do I have to serve documents?
 
 ## Short Answer
@@ -3840,26 +2910,19 @@ When in doubt, serve earlier than required to avoid disputes and ensure adequate
       { question: "How do I calculate court days?", href: "/resources/q/court-days" },
       { question: "Can I get an extension on a deadline?", href: "/resources/q/deadline-extension" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Civil Procedure" },
-        { name: "Local Court Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Service deadlines vary significantly by jurisdiction and document type. Verify local rules."
-    }
+    governance: serviceDeadlines.governance
   },
   {
     slug: "custody-types",
     question: "What's the difference between legal and physical custody?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Legal vs Physical Custody Explained | ThreadLock",
     metaDescription: "Legal custody is decision-making authority for a child's welfare. Physical custody is where the child lives. Both can be sole or joint arrangements.",
     shortAnswer: "Legal custody refers to the right to make major decisions about a child's welfare (education, healthcare, religion). Physical custody refers to where the child lives and who provides day-to-day care. Both types can be sole or joint.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: custodyTypes,
     body: `# What's the difference between legal and physical custody?
 
 ## Short Answer
@@ -3992,26 +3055,19 @@ Understanding these distinctions helps parents negotiate appropriate arrangement
       { question: "How do courts decide custody?", href: "/resources/q/custody-determination" },
       { question: "What is a parenting plan?", href: "/resources/q/parenting-plan-definition" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "State Bar Association Resources" },
-        { name: "Family Law Statutes" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 365,
-      accuracyNotes: "Custody terminology and standards vary significantly by state."
-    }
+    governance: custodyTypes.governance
   },
   {
     slug: "mediation-lawyer",
     question: "Do I need a lawyer for mediation?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Do I Need a Lawyer for Mediation? | ThreadLock",
     metaDescription: "You're not required to have a lawyer for mediation, but consulting one beforehand helps you understand your rights and evaluate proposed agreements.",
     shortAnswer: "You're not required to have a lawyer for mediation, but consulting one beforehand helps you understand your rights and evaluate proposed agreements. Some people bring attorneys to mediation sessions, while others consult with counsel between sessions.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: mediationLawyer,
     body: `# Do I need a lawyer for mediation?
 
 ## Short Answer
@@ -4182,26 +3238,19 @@ At minimum, consult with an attorney before finalizing any mediated agreement to
       { question: "What happens if mediation doesn't work?", href: "/resources/q/mediation-failure" },
       { question: "Is mediation required before trial?", href: "/resources/q/mandatory-mediation" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "State Bar Association Resources" },
-        { name: "Family Mediation Standards" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Mediation requirements and attorney representation rules vary by state."
-    }
+    governance: mediationLawyer.governance
   },
   {
     slug: "child-support-calculation",
     question: "How do I calculate child support?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "How to Calculate Child Support | ThreadLock",
     metaDescription: "Child support calculations use state-specific guidelines based on both parents' income, time-sharing percentage, and children's needs like healthcare and daycare.",
     shortAnswer: "Child support calculations use state-specific guidelines based on both parents' gross income, the percentage of time each parent has the children, and additional expenses like healthcare and childcare. Most states provide worksheets or online calculators.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: childSupportCalculation,
     body: `# How do I calculate child support?
 
 ## Short Answer
@@ -4368,26 +3417,19 @@ Child support calculations can be complex, especially with self-employment incom
       { question: "What if my ex won't pay child support?", href: "/resources/q/support-enforcement" },
       { question: "How is income calculated for self-employed parents?", href: "/resources/q/self-employment-income" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "State Child Support Guidelines" },
-        { name: "Child Support Enforcement Agency" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Child support calculation methods vary significantly by state. Use your state's official calculator."
-    }
+    governance: childSupportCalculation.governance
   },
   {
     slug: "modify-parenting-plan",
     question: "Can I modify a parenting plan later?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Can I Modify a Parenting Plan? | ThreadLock",
     metaDescription: "Yes, you can modify parenting plans by showing a substantial change in circumstances and that modification serves the child's best interests.",
     shortAnswer: "Yes, you can modify parenting plans by showing a substantial change in circumstances and that modification serves the child's best interests. Many states require waiting 1-2 years after the initial order unless there's immediate danger to the child.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: modifyParentingPlan,
     body: `# Can I modify a parenting plan later?
 
 ## Short Answer
@@ -4593,26 +3635,19 @@ Modification proceedings can be stressful for children. Pursue modification when
       { question: "Can I relocate with my child?", href: "/resources/q/relocation" },
       { question: "How does a custody evaluation work?", href: "/resources/q/custody-evaluation" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Family Law Statutes" },
-        { name: "State Bar Association Resources" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Modification standards and waiting periods vary by state. Consult local family law."
-    }
+    governance: modifyParentingPlan.governance
   },
   {
     slug: "fee-waiver",
     question: "What if I can't afford court fees?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "Can't Afford Court Fees? Fee Waiver Guide | ThreadLock",
     metaDescription: "Request a fee waiver by filing an application showing your income qualifies under poverty guidelines. Courts waive fees for eligible low-income litigants.",
     shortAnswer: "Request a fee waiver by filing an application showing your income qualifies under federal poverty guidelines or you receive public assistance. If approved, the court waives filing fees, service fees, and sometimes other costs for eligible low-income litigants.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: feeWaiver,
     body: `# What if I can't afford court fees?
 
 ## Short Answer
@@ -4791,26 +3826,19 @@ If your application is denied and you genuinely cannot afford the fees, consult 
       { question: "Can I get a free lawyer?", href: "/resources/q/free-legal-help" },
       { question: "What happens if I can't pay court-ordered costs?", href: "/resources/q/court-costs" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Administration Office" },
-        { name: "Legal Aid Organizations" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Fee waiver eligibility and procedures vary by jurisdiction. Check local court rules."
-    }
+    governance: feeWaiver.governance
   },
   {
     slug: "respond-to-motion",
     question: "How do I respond to a motion?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "How to Respond to a Motion | ThreadLock",
     metaDescription: "Respond to a motion by filing an opposition or response within the deadline (typically 9-21 days), supported by declarations and evidence.",
     shortAnswer: "Respond to a motion by filing a written opposition or response within the deadline (typically 9-21 days before the hearing). Include a declaration under penalty of perjury addressing the motion's claims and supporting evidence. Serve your response on the opposing party and file proof of service.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: respondToMotion,
     body: `# How do I respond to a motion?
 
 ## Short Answer
@@ -5049,15 +4077,6 @@ If you're uncertain how to respond or the motion requests significant changes, c
       { question: "Do I need to attend the hearing?", href: "/resources/q/hearing-attendance" },
       { question: "Can I file a counter-motion?", href: "/resources/q/counter-motion" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Civil Procedure" },
-        { name: "Local Court Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Motion response deadlines and procedures vary by jurisdiction. Check local rules."
-    }
+    governance: respondToMotion.governance
   },
 ];

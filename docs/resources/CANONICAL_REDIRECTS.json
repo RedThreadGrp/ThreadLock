@@ -1,0 +1,125 @@
+{
+  "redirects": [
+    {
+      "from": "/resources/q/fee-waiver",
+      "to": "/resources/q/fee-waiver",
+      "reason": "Slug matches content: 'What if I can't afford court fees?' - No redirect needed",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/q/child-support-calculation",
+      "to": "/resources/q/child-support-calculation",
+      "reason": "Slug matches content: 'How do I calculate child support?' - No redirect needed",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/q/mediation-lawyer",
+      "to": "/resources/q/mediation-lawyer",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/q/custody-types",
+      "to": "/resources/q/custody-types",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/exhibits-guide",
+      "to": "/resources/exhibits-guide",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/q/service-deadlines",
+      "to": "/resources/q/service-deadlines",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/parenting-plans",
+      "to": "/resources/parenting-plans",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/q/hearing-checklist",
+      "to": "/resources/q/hearing-checklist",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/q/text-authentication",
+      "to": "/resources/q/text-authentication",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/financial-snapshot",
+      "to": "/resources/financial-snapshot",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/q/official-forms-location",
+      "to": "/resources/q/official-forms-location",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/official-portals",
+      "to": "/resources/official-portals",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/evidence-intake",
+      "to": "/resources/evidence-intake",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/q/exhibit-labeling",
+      "to": "/resources/q/exhibit-labeling",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/proof-of-service",
+      "to": "/resources/proof-of-service",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/q/respond-to-motion",
+      "to": "/resources/q/respond-to-motion",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/authentication",
+      "to": "/resources/authentication",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/filing-basics",
+      "to": "/resources/filing-basics",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/timeline-tools",
+      "to": "/resources/timeline-tools",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    },
+    {
+      "from": "/resources/courtroom-prep",
+      "to": "/resources/courtroom-prep",
+      "reason": "Slug mismatch with inventory title - Needs content audit",
+      "status": "canonical"
+    }
+  ],
+  "note": "Current implementation: All routes are canonical (no redirects). Slug/title mismatches exist due to inventory generator bug mixing up question titles. Once content audit is complete and proper canonical URLs are determined, update 'to' fields and set status to 'redirect' for items that need 301 redirects."
+}
