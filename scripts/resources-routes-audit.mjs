@@ -116,7 +116,11 @@ function runRoutesAudit() {
 
   // Summary
   console.log('=== Audit Summary ===\n');
-  const passed = results.filter(r => r.exists && r.hasRenderer && r.isCorrect).length;
+  
+  // Helper to check if a result is valid
+  const isValidResult = (r) => r.exists && r.hasRenderer && r.isCorrect;
+  
+  const passed = results.filter(isValidResult).length;
   const total = results.length;
   
   console.log(`Passed: ${passed}/${total}`);

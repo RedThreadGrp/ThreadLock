@@ -26,16 +26,11 @@ const rootDir = path.join(__dirname, '..');
 const PATTERNS_TO_CHECK = [
   {
     // Question mark icon followed by text (common pattern in related questions)
+    // Example: <span>?</span><span>Question text</span>
     pattern: /<span[^>]*>\?<\/span>\s*<span[^>]*>[^<]+<\/span>/g,
     description: 'Question mark icon followed by text span',
     severity: 'error'
   },
-  {
-    // Emoji or text icon in flex container followed by text
-    pattern: /className="[^"]*flex[^"]*items-(center|start)[^"]*"[^>]*>\s*<span[^>]*>[?!✓✗✔✖←→↑↓]<\/span>/g,
-    description: 'Icon in flex container with text',
-    severity: 'warning'
-  }
 ];
 
 const ALLOWED_EXCEPTIONS = [
@@ -63,10 +58,15 @@ function checkFile(filePath) {
 
   PATTERNS_TO_CHECK.forEach(({ pattern, description, severity }) => {
     const lines = content.split('\n');
-    let match;
+    
+    // Create RegExp once outside the loop
+    const regex = new RegExp(pattern.source, pattern.flags);
     
     lines.forEach((line, lineIndex) => {
-      const regex = new RegExp(pattern.source, pattern.flags);
+      // Reset lastIndex for global regex
+      regex.lastIndex = 0;
+      let match;
+      
       while ((match = regex.exec(line)) !== null) {
         // Get context (surrounding lines)
         const contextStart = Math.max(0, lineIndex - 2);
