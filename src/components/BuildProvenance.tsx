@@ -3,40 +3,24 @@
 // Shows commit SHA, build timestamp, and environment
 
 import React from 'react';
+import { getBuildInfo, logBuildInfo } from '@/src/lib/buildInfo';
 
 interface BuildProvenanceProps {
   inline?: boolean;
 }
 
 export default function BuildProvenance({ inline = false }: BuildProvenanceProps) {
-  const commitSha = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA || 
-                    process.env.VERCEL_GIT_COMMIT_SHA || 
-                    'local-dev';
-  
-  const buildTimestamp = process.env.NEXT_PUBLIC_BUILD_TIMESTAMP || 
-                         new Date().toISOString();
-  
-  const environment = process.env.NEXT_PUBLIC_VERCEL_ENV || 
-                     process.env.VERCEL_ENV || 
-                     'development';
+  // Log build info to console on mount
+  React.useEffect(() => {
+    logBuildInfo();
+  }, []);
 
-  // Short SHA (first 7 chars)
-  const shortSha = commitSha.substring(0, 7);
-
-  // Format timestamp
-  const formattedTime = new Date(buildTimestamp).toLocaleString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    timeZoneName: 'short'
-  });
+  const buildInfo = getBuildInfo();
 
   if (inline) {
     return (
       <span className="text-xs text-muted">
-        Build: {shortSha} • {environment} • {formattedTime}
+        Build: {buildInfo.shortSha} • {buildInfo.env} • {buildInfo.formattedTime}
       </span>
     );
   }
@@ -45,11 +29,11 @@ export default function BuildProvenance({ inline = false }: BuildProvenanceProps
     <div className="text-xs text-muted text-center py-2 border-t border-border">
       <div className="max-w-7xl mx-auto px-4">
         <span>Build: </span>
-        <span className="font-mono">{shortSha}</span>
+        <span className="font-mono">{buildInfo.shortSha}</span>
         <span className="mx-2">•</span>
-        <span>{environment}</span>
+        <span>{buildInfo.env}</span>
         <span className="mx-2">•</span>
-        <span>{formattedTime}</span>
+        <span>{buildInfo.formattedTime}</span>
       </div>
     </div>
   );

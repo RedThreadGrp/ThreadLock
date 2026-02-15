@@ -31,12 +31,4 @@ if (typeof window !== "undefined" && !("__ENV_DIAG__" in window)) {
   } else {
     console.warn("[firebase] not initialized - missing required env vars");
   }
-  
-  // Log build info
-  const buildInfo = {
-    sha: process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA?.substring(0, 7) || 'local',
-    env: process.env.NEXT_PUBLIC_VERCEL_ENV || 'development',
-    timestamp: process.env.NEXT_PUBLIC_BUILD_TIMESTAMP || 'unknown'
-  };
-  console.info("[build]", buildInfo);
 }
