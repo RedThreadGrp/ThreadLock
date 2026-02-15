@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T22:19:43.262Z
+**Generated:** 2026-02-15T22:27:38.589Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -14,7 +14,7 @@
   - special: 1
   - topic: 6
 - **Content Coverage:**
-  - With body content: 33 (86.8%)
+  - With body content: 30 (78.9%)
   - With meta description: 38 (100.0%)
   - With last updated date: 18 (47.4%)
   - With FAQs: 15
@@ -36,13 +36,13 @@
 | /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Calculat... | 481 | pass | ⚠️ 1 |
 | /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | pass | ⚠️ 1 |
 | /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Representa... | 19 | pass | ✅ |
-| /resources/hearing-tomorrow | resource | Hearing Tomorrow Checklist | 242 | pass | ⚠️ 2 |
-| /resources/kits/evidence | kit | Evidence Kit | 191 | pass | ⚠️ 1 |
-| /resources/kits/first-filing | kit | First Filing Kit | 201 | pass | ⚠️ 1 |
+| /resources/hearing-tomorrow | resource | Hearing Tomorrow Checklist | 0 | fail | ⚠️ 2 |
+| /resources/kits/evidence | kit | Evidence Kit | 0 | fail | ⚠️ 2 |
+| /resources/kits/first-filing | kit | First Filing Kit | 0 | fail | ⚠️ 2 |
 | /resources/kits/hearing-soon | kit | Hearing Soon Kit | 9 | pass | ⚠️ 1 |
 | /resources/official-portals | resource | Fee Waiver Information | 461 | pass | ⚠️ 2 |
 | /resources/parenting-plans | resource | Hearing Tomorrow Checklist | 760 | pass | ⚠️ 2 |
-| /resources/proof-of-service | resource | Official Court Portals | 290 | pass | ⚠️ 2 |
+| /resources/proof-of-service | resource | Proof of Service Pack | 290 | pass | ⚠️ 2 |
 | /resources/q/child-support-calculation | question | How much does mediation cost? | 979 | pass | ✅ |
 | /resources/q/custody-types | question | What happens if I miss a filing deadl... | 846 | pass | ✅ |
 | /resources/q/exhibit-labeling | question | How long do I have to serve documents? | 468 | pass | ✅ |
@@ -368,24 +368,20 @@
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** A practical walkthrough for what to bring, how to label exhibits, and what to avoid saying when you're nervous.
 - **Last Updated:** ❌ missing
-- **Render Status:** ✅ pass
+- **Render Status:** ❌ fail
 
 **Word Count:**
-- total: 242
-- body: 223
-- excerpt: 19
-
-**Content Structure:**
-- Headings: H1(1), H2(5), H3(0)
-- Paragraphs: 13
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
 
 **⚠️ Issues/Notes:**
-- Missing metaDescription
-- Missing dateModified
+- V2 content from separate file (spread operator in registry)
+- No content found in registry
 
 ---
 
@@ -397,23 +393,20 @@
 - **Content Source:** src/content/resourcesRegistry.ts:STARTER_KITS
 - **Meta Description:** Capture, organize, and preserve evidence that holds up.
 - **Last Updated:** ❌ missing
-- **Render Status:** ✅ pass
+- **Render Status:** ❌ fail
 
 **Word Count:**
-- total: 191
-- body: 183
-- description: 8
-
-**Content Structure:**
-- Headings: H1(1), H2(3), H3(5)
-- Paragraphs: 13
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
 
 **⚠️ Issues/Notes:**
-- No lastUpdated field in schema
+- V2 content from separate file (spread operator in registry)
+- No content found in registry
 
 ---
 
@@ -425,23 +418,20 @@
 - **Content Source:** src/content/resourcesRegistry.ts:STARTER_KITS
 - **Meta Description:** Start your case right with proper documentation and filing procedures.
 - **Last Updated:** ❌ missing
-- **Render Status:** ✅ pass
+- **Render Status:** ❌ fail
 
 **Word Count:**
-- total: 201
-- body: 191
-- description: 10
-
-**Content Structure:**
-- Headings: H1(1), H2(3), H3(5)
-- Paragraphs: 14
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
 
 **⚠️ Issues/Notes:**
-- No lastUpdated field in schema
+- V2 content from separate file (spread operator in registry)
+- No content found in registry
 
 ---
 
@@ -531,7 +521,7 @@
 ### /resources/proof-of-service
 
 - **Type:** resource
-- **Title:** Official Court Portals
+- **Title:** Proof of Service Pack
 - **Canonical URL:** https://threadlock.ai/resources/proof-of-service
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** Templates + plain-English guidance so you don't lose on a technicality.

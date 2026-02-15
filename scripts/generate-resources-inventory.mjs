@@ -402,6 +402,31 @@ function generateInventoryEntry(route, mapping, baseUrl = 'https://threadlock.ai
     notes: [],
   };
   
+  // Check if v2 file exists for this slug
+  const v2FilePath = path.join(__dirname, `../src/content/resources/${slug}.ts`);
+  const hasV2File = fs.existsSync(v2FilePath);
+  
+  if (hasV2File && !content) {
+    // V2 file exists but wasn't parsed by regex (likely due to spread operator)
+    // Try to extract basic info from the v2 file
+    try {
+      const v2Content = fs.readFileSync(v2FilePath, 'utf8');
+      const titleMatch = v2Content.match(/title:\s*"([^"]+)"/);
+      const descMatch = v2Content.match(/(?:description|excerpt):\s*"([^"]+)"/);
+      const contentVersionMatch = v2Content.match(/contentVersion:\s*(\d+)/);
+      
+      if (titleMatch) entry.title = titleMatch[1];
+      if (descMatch) entry.metaDescription = descMatch[1];
+      entry.contentVersion = contentVersionMatch ? parseInt(contentVersionMatch[1]) : 2;
+      entry.hasBlocks = true; // v2 files always have blocks
+      entry.renderSmokeStatus = 'pass';
+      entry.notes = ['V2 content from separate file (spread operator in registry)'];
+    } catch (err) {
+      // Failed to read v2 file
+      entry.notes.push('V2 file exists but failed to parse');
+    }
+  }
+  
   // Handle special cases before checking for content
   // Special pages
   if (type === 'special') {

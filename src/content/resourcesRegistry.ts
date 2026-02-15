@@ -17,6 +17,9 @@ import { respondToMotion } from "./resources/respond-to-motion";
 import { parentingTimeCalculations } from "./resources/parenting-time-calculations";
 import { proofOfServiceStates } from "./resources/proof-of-service-states";
 import { evidenceAuthentication } from "./resources/evidence-authentication";
+import { firstFiling } from "./resources/first-filing";
+import { evidence } from "./resources/evidence";
+import { hearingTomorrow } from "./resources/hearing-tomorrow";
 
 // ============================================================================
 // Type Definitions
@@ -208,72 +211,9 @@ export function getQuestionsByTopic(topicSlug: string): PopularQuestion[] {
 export const RESOURCES: Resource[] = [
   // Published resources (existing 6)
   {
-    slug: "hearing-tomorrow",
-    title: "Hearing Tomorrow Checklist",
-    excerpt: "A practical walkthrough for what to bring, how to label exhibits, and what to avoid saying when you're nervous.",
-    tag: "Court Prep",
-    topic: "Hearings & Courtroom Prep",
-    intent: "Urgent",
-    readTime: "5 min read",
-    status: "published",
-    body: `# Hearing Tomorrow Checklist
-
-When you have a hearing coming up fast, you need a system—not a panic attack.
-
-## What to Bring
-
-- All filed documents (originals + 2 copies)
-- Exhibits labeled and organized (A, B, C, etc.)
-- Calendar showing relevant dates
-- Notes on key points you want to make
-- Photo ID and case number
-
-## Exhibit Labeling
-
-- Use letters (A, B, C) for your exhibits
-- Numbers (1, 2, 3) are typically for the other party's exhibits
-- Label each page in the bottom right corner
-- Bring extra copies for the judge and opposing party
-
-## What to Avoid
-
-- Don't interrupt the judge
-- Don't argue with the other party directly
-- Don't bring up irrelevant history
-- Don't read from a script word-for-word
-- Don't show emotion—stick to facts
-
-## Before You Walk In
-
-- Arrive 15 minutes early
-- Turn off your phone completely
-- Use the restroom
-- Take three deep breaths
-- Remember: you're presenting facts, not arguing
-
-## In the Courtroom
-
-- Stand when the judge enters
-- Address the judge as "Your Honor"
-- Speak clearly and at a normal pace
-- Answer only what's asked
-- If you don't know, say "I don't know"
-
-This is not legal advice. This is basic courtroom hygiene for self-represented litigants.`,
-    relatedLinks: [
-      { title: "Evidence Intake Guide", href: "/resources/evidence-intake" },
-      { title: "Official Court Portals", href: "/resources/official-portals" },
-    ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals" },
-        { name: "Federal Rules of Civil Procedure" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Courtroom procedures vary by court. Check local rules."
-    }
+    ...hearingTomorrow,
+    contentVersion: 2,
+    blocks: hearingTomorrow.blocks,
   },
   {
     slug: "proof-of-service",
@@ -2237,118 +2177,14 @@ Plan for **15 minutes** to review all materials. Ideally, review the night befor
 Start with the Hearing Tomorrow Checklist, then review the other resources as needed.`,
   },
   {
-    slug: "first-filing",
-    title: "First Filing Kit",
-    description: "Start your case right with proper documentation and filing procedures.",
-    whatYouGet: [
-      "Proof of service templates",
-      "Official forms directory",
-      "Filing hygiene checklist",
-      "Court rules overview",
-      "Common filing errors guide",
-    ],
-    estimatedTime: "20 minutes",
-    resources: ["/resources/proof-of-service", "/resources/official-portals", "/resources/filing-basics"],
-    status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
-        { name: "Federal Rules of Civil Procedure" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Filing requirements vary by jurisdiction. Always verify with your local court."
-    },
-    body: `# First Filing Kit
-
-Filing your first court documents can feel overwhelming. This kit gets you started on the right foot.
-
-## What's Included
-
-### 1. Proof of Service Templates
-Ready-to-use templates with plain-English guidance so you don't lose on a technicality.
-
-### 2. Official Forms Directory
-Links to free, state-provided forms and court portals. Don't pay for what should be free.
-
-### 3. Filing Hygiene Checklist
-Step-by-step process for filing documents correctly, getting file-stamped copies, and tracking deadlines.
-
-### 4. Court Rules Overview
-What you need to know about formatting, deadlines, and local court requirements.
-
-### 5. Common Filing Errors Guide
-Learn the most frequent mistakes and how to avoid them—missing signatures, wrong forms, missed deadlines.
-
-## Time Required
-
-Plan for **20 minutes** to review all materials before you file anything.
-
-## Who This Is For
-
-- People filing their first family court documents
-- Self-represented litigants starting a divorce, custody, or support case
-- Anyone who needs to understand filing basics
-
-Start with the Official Forms Directory to find your state's resources, then review Proof of Service before you file anything.`,
+    ...firstFiling,
+    contentVersion: 2,
+    blocks: firstFiling.blocks,
   },
   {
-    slug: "evidence",
-    title: "Evidence Kit",
-    description: "Capture, organize, and preserve evidence that holds up.",
-    whatYouGet: [
-      "Evidence intake templates",
-      "Photo/text preservation guide",
-      "Timeline organization tools",
-      "Authentication basics",
-      "Digital evidence checklist",
-    ],
-    estimatedTime: "25 minutes",
-    resources: ["/resources/evidence-intake", "/resources/timeline-tools", "/resources/authentication"],
-    status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "Legal Aid Organizations" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Evidence rules and authentication requirements vary by state. Consult local rules."
-    },
-    body: `# Evidence Kit
-
-Raw evidence is worthless if you can't find it, authenticate it, or present it clearly. This kit helps you build a usable evidence system.
-
-## What's Included
-
-### 1. Evidence Intake Templates
-How to capture, preserve, and organize photos, texts, emails, and documents so they're usable later.
-
-### 2. Photo/Text Preservation Guide
-Detailed instructions on backing up digital evidence, maintaining originals, and avoiding common mistakes.
-
-### 3. Timeline Organization Tools
-Build a clear, chronological timeline linking events to evidence files.
-
-### 4. Authentication Basics
-How to prove your evidence is real and admissible in court—foundation testimony, metadata, and more.
-
-### 5. Digital Evidence Checklist
-A practical checklist to ensure you've captured and organized everything correctly.
-
-## Time Required
-
-Plan for **25 minutes** to review all materials and set up your evidence system.
-
-## Who This Is For
-
-- Anyone collecting evidence for a family court case
-- People with texts, emails, or photos they need to preserve
-- Self-represented litigants who need to organize evidence professionally
-
-Start with the Evidence Intake guide to set up your system, then use Timeline Tools to organize chronologically.`,
+    ...evidence,
+    contentVersion: 2,
+    blocks: evidence.blocks,
   },
 ];
 

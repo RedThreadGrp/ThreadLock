@@ -353,30 +353,23 @@
     "title": "Hearing Tomorrow Checklist",
     "metaDescription": "A practical walkthrough for what to bring, how to label exhibits, and what to avoid saying when you're nervous.",
     "wordCount": {
-      "total": 242,
-      "body": 223,
-      "excerpt": 19
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 5,
-        "h3": 0
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 13
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
     "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
+    "renderSmokeStatus": "fail",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content found in registry"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/kits/evidence",
@@ -387,29 +380,23 @@
     "title": "Evidence Kit",
     "metaDescription": "Capture, organize, and preserve evidence that holds up.",
     "wordCount": {
-      "total": 191,
-      "body": 183,
-      "description": 8
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 3,
-        "h3": 5
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 13
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
     "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
+    "renderSmokeStatus": "fail",
     "notes": [
-      "No lastUpdated field in schema"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content found in registry"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/kits/first-filing",
@@ -420,29 +407,23 @@
     "title": "First Filing Kit",
     "metaDescription": "Start your case right with proper documentation and filing procedures.",
     "wordCount": {
-      "total": 201,
-      "body": 191,
-      "description": 10
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 3,
-        "h3": 5
-      },
-      "lists": 0,
-      "codeBlocks": 0,
-      "paragraphs": 14
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
     "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
+    "renderSmokeStatus": "fail",
     "notes": [
-      "No lastUpdated field in schema"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content found in registry"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/kits/hearing-soon",
@@ -542,7 +523,7 @@
     "type": "resource",
     "slug": "proof-of-service",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Official Court Portals",
+    "title": "Proof of Service Pack",
     "metaDescription": "Templates + plain-English guidance so you don't lose on a technicality.",
     "wordCount": {
       "total": 290,
