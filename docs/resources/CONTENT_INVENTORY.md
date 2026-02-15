@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T23:01:34.438Z
+**Generated:** 2026-02-15T23:11:33.023Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -14,7 +14,7 @@
   - special: 1
   - topic: 6
 - **Content Coverage:**
-  - With body content: 26 (68.4%)
+  - With body content: 24 (63.2%)
   - With meta description: 35 (92.1%)
   - With last updated date: 17 (44.7%)
   - With FAQs: 14
@@ -28,7 +28,7 @@
 | /resources | unknown | Resources Hub | 0 | pass | ⚠️ 1 |
 | /resources/authentication | resource | Exhibits Guide: Labeling and Organiza... | 2262 | pass | ✅ |
 | /resources/courtroom-prep | resource | Proof of Service Pack | 1224 | pass | ✅ |
-| /resources/evidence-intake | resource | Proof of Service State-by-State Guide | 449 | pass | ⚠️ 2 |
+| /resources/evidence-intake | resource | Evidence Intake: Photos, Texts, Email... | 0 | pass | ⚠️ 2 |
 | /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Organiza... | 0 | fail | ⚠️ 2 |
 | /resources/filing-basics | resource | Exhibits Guide: Labeling and Organiza... | 1567 | pass | ✅ |
 | /resources/financial-snapshot | resource |  | 0 | pass | ⚠️ 2 |
@@ -42,7 +42,7 @@
 | /resources/kits/hearing-soon | kit | Hearing Soon Kit | 9 | pass | ⚠️ 1 |
 | /resources/official-portals | resource |  | 0 | pass | ⚠️ 2 |
 | /resources/parenting-plans | resource |  | 0 | pass | ⚠️ 2 |
-| /resources/proof-of-service | resource | Proof of Service Pack | 290 | pass | ⚠️ 2 |
+| /resources/proof-of-service | resource | What Counts as Proof of Service? | De... | 0 | pass | ⚠️ 2 |
 | /resources/q/child-support-calculation | question | How much does mediation cost? | 979 | pass | ✅ |
 | /resources/q/custody-types | question | What happens if I miss a filing deadl... | 846 | pass | ✅ |
 | /resources/q/exhibit-labeling | question | How long do I have to serve documents? | 468 | pass | ✅ |
@@ -147,30 +147,25 @@
 ### /resources/evidence-intake
 
 - **Type:** resource
-- **Title:** Proof of Service State-by-State Guide
+- **Title:** Evidence Intake: Photos, Texts, Email | Capture & Preserve Guide
 - **Canonical URL:** https://threadlock.ai/resources/evidence-intake
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
-- **Meta Description:** How to capture, preserve, and organize records so they're usable later. (Not legal advice. Just hygiene.)
+- **Meta Description:** How to capture, preserve, and organize photos, texts, and emails so they're usable in court. Learn proper evidence intake procedures and authentication basics.
 - **Last Updated:** ❌ missing
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 449
-- body: 433
-- excerpt: 16
-
-**Content Structure:**
-- Headings: H1(1), H2(6), H3(9)
-- Paragraphs: 23
-- Lists: 5
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
 
 **⚠️ Issues/Notes:**
-- Missing metaDescription
-- Missing dateModified
+- V2 content from separate file (spread operator in registry)
+- No content (0 words)
 
 ---
 
@@ -507,30 +502,25 @@
 ### /resources/proof-of-service
 
 - **Type:** resource
-- **Title:** Proof of Service Pack
+- **Title:** What Counts as Proof of Service? | Definition & Legal Requirements
 - **Canonical URL:** https://threadlock.ai/resources/proof-of-service
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
-- **Meta Description:** Templates + plain-English guidance so you don't lose on a technicality.
+- **Meta Description:** Proof of Service is a signed declaration filed with the court confirming legal papers were delivered, detailing time, date, location, method, and server identity.
 - **Last Updated:** ❌ missing
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 290
-- body: 279
-- excerpt: 11
-
-**Content Structure:**
-- Headings: H1(1), H2(5), H3(3)
-- Paragraphs: 18
-- Lists: 4
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
 
 **⚠️ Issues/Notes:**
-- Missing metaDescription
-- Missing dateModified
+- V2 content from separate file (spread operator in registry)
+- No content (0 words)
 
 ---
 

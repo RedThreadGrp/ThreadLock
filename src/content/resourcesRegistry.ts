@@ -24,6 +24,8 @@ import { exhibitsGuide } from "./resources/exhibits-guide";
 import { parentingPlans } from "./resources/parenting-plans";
 import { financialSnapshot } from "./resources/financial-snapshot";
 import { officialPortals } from "./resources/official-portals";
+import { evidenceIntake } from "./resources/evidence-intake";
+import { proofOfServicePack } from "./resources/proof-of-service-pack";
 
 // ============================================================================
 // Type Definitions
@@ -220,6 +222,7 @@ export const RESOURCES: Resource[] = [
     blocks: hearingTomorrow.blocks,
   },
   {
+    ...proofOfServicePack,
     slug: "proof-of-service",
     title: "Proof of Service Pack",
     excerpt: "Templates + plain-English guidance so you don't lose on a technicality.",
@@ -228,74 +231,15 @@ export const RESOURCES: Resource[] = [
     intent: "Start",
     readTime: "8 min read",
     status: "published",
-    body: `# Proof of Service Pack
-
-Don't lose your case because you couldn't prove you served documents properly.
-
-## What is Proof of Service?
-
-It's written evidence that you delivered court documents to the other party in a legally acceptable way. Without it, your filing may be rejected or your motion denied.
-
-## Three Main Service Methods
-
-### 1. Personal Service
-Someone over 18 (not you) hands documents directly to the other party.
-
-**Pros:** Most reliable, hard to contest  
-**Cons:** Requires finding someone to do it, other party might avoid
-
-### 2. Mail Service
-Send via certified mail with return receipt requested.
-
-**Pros:** Easy to document, works if other party won't cooperate  
-**Cons:** Slower, timing rules vary by jurisdiction
-
-### 3. Substituted Service
-Leave with someone at their home/work if personal service fails after reasonable attempts.
-
-**Pros:** Works when other party is avoiding service  
-**Cons:** Stricter rules, may require court approval first
-
-## What to Document
-
-- Date, time, and location of service
-- Name of person served
-- Method of service used
-- Description of documents served
-- Server's signature and contact information
-
-## Common Mistakes
-
-- Serving documents yourself (not allowed in most cases)
-- Not keeping the proof of service for your records
-- Missing the deadline to file proof of service with the court
-- Using an interested party (like your mom) as the server
-- Not serving ALL required parties
-
-## After Service
-
-1. Server fills out Proof of Service form
-2. Server signs under penalty of perjury
-3. You file the Proof of Service with the court
-4. Keep copies for your records
-
-Check your local court rules for specific timing and format requirements.`,
+    contentVersion: 2,
+    blocks: proofOfServicePack.blocks,
     relatedLinks: [
       { title: "Official Court Portals", href: "/resources/official-portals" },
       { title: "Proof of Service State-by-State Guide", href: "/resources/guides/proof-of-service-states" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
-        { name: "State Bar Association Resources" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Proof of service requirements vary by jurisdiction. Always verify with your local court."
-    }
   },
   {
+    ...evidenceIntake,
     slug: "evidence-intake",
     title: "Evidence Intake: Photos, Texts, Email",
     excerpt: "How to capture, preserve, and organize records so they're usable later. (Not legal advice. Just hygiene.)",
@@ -304,120 +248,12 @@ Check your local court rules for specific timing and format requirements.`,
     intent: "Organize",
     readTime: "10 min read",
     status: "published",
-    body: `# Evidence Intake: Photos, Texts, Email
-
-Raw evidence is worthless if you can't find it, authenticate it, or present it clearly.
-
-## Capture: Lock It Down Immediately
-
-### Text Messages
-- Screenshot the ENTIRE conversation thread
-- Include timestamps and phone numbers
-- Capture multiple screens if needed—show context
-- Don't crop or edit
-- Back up to cloud storage immediately
-
-### Emails
-- Save as PDF with full headers visible
-- Include sender, recipient, date, subject
-- Download attachments separately
-- Print a backup copy
-- Note any replies or threads
-
-### Photos
-- Take multiple shots from different angles
-- Include context (what room, what building)
-- Don't alter, filter, or crop original files
-- Note date/time/location in metadata
-- Store originals separately from edited versions
-
-## Preserve: Don't Lose It
-
-- Use three storage locations: device, cloud, external drive
-- Don't delete originals, even if you have copies
-- Create dated folders: YYYY-MM-DD format
-- Name files descriptively: \`2026-01-15_text_custody_exchange.png\`
-- Keep access logs if possible
-
-## Organize: Make It Findable
-
-### Create a Master Index
-Spreadsheet with columns:
-- Date of incident
-- Type of evidence (text, email, photo)
-- File name
-- Brief description
-- Relevance to case (custody, support, contempt, etc.)
-- Storage location
-
-### Use Consistent Naming
-\`YYYY-MM-DD_type_topic_sequence.ext\`
-
-Examples:
-- \`2026-01-15_text_missed_pickup_01.png\`
-- \`2026-02-03_email_threat_financial_01.pdf\`
-- \`2026-03-10_photo_property_damage_01.jpg\`
-
-### Chronological Timeline
-Create a simple timeline document showing:
-- Date
-- What happened
-- Evidence file names
-- Witnesses (if any)
-
-## Authentication: Prove It's Real
-
-Courts won't accept evidence if you can't prove it's authentic.
-
-### For Text Messages
-Be ready to testify:
-- This is my phone number
-- This is the other party's phone number
-- I took these screenshots on [date]
-- I haven't altered the images
-
-### For Emails
-- Print with full headers
-- Verify sender domain matches known email
-- Note if you replied (shows authenticity)
-
-### For Photos
-- I took this photo on [date]
-- This is [location/object/person]
-- This accurately represents what I saw
-- I haven't edited or altered it
-
-## Red Flags to Avoid
-
-- Screenshots with battery/time cropped out (looks suspicious)
-- Edited photos without disclosure
-- Missing context (one text without conversation)
-- Unclear dates or sources
-- No backup copies
-
-## Day-of-Hearing Preparation
-
-1. Print physical copies of key evidence
-2. Bring originals on your device as backup
-3. Label exhibits A, B, C (not by date)
-4. Create an exhibit list with descriptions
-5. Practice explaining each piece calmly
-
-Remember: You're building a case, not a scrapbook. Every piece must be findable, provable, and presentable.`,
+    contentVersion: 2,
+    blocks: evidenceIntake.blocks,
     relatedLinks: [
       { title: "Evidence Authentication 101", href: "/resources/guides/evidence-authentication" },
       { title: "Hearing Tomorrow Checklist", href: "/resources/hearing-tomorrow" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "Court Self-Help Portals" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Evidence authentication requirements may vary by state. Consult local rules of evidence."
-    }
   },
   {
     ...parentingPlans,

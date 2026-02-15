@@ -91,23 +91,14 @@
     "type": "resource",
     "slug": "evidence-intake",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Proof of Service State-by-State Guide",
-    "metaDescription": "How to capture, preserve, and organize records so they're usable later. (Not legal advice. Just hygiene.)",
+    "title": "Evidence Intake: Photos, Texts, Email | Capture & Preserve Guide",
+    "metaDescription": "How to capture, preserve, and organize photos, texts, and emails so they're usable in court. Learn proper evidence intake procedures and authentication basics.",
     "wordCount": {
-      "total": 449,
-      "body": 433,
-      "excerpt": 16
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 6,
-        "h3": 9
-      },
-      "lists": 5,
-      "codeBlocks": 0,
-      "paragraphs": 23
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -115,9 +106,11 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/exhibits-guide",
@@ -498,23 +491,14 @@
     "type": "resource",
     "slug": "proof-of-service",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Proof of Service Pack",
-    "metaDescription": "Templates + plain-English guidance so you don't lose on a technicality.",
+    "title": "What Counts as Proof of Service? | Definition & Legal Requirements",
+    "metaDescription": "Proof of Service is a signed declaration filed with the court confirming legal papers were delivered, detailing time, date, location, method, and server identity.",
     "wordCount": {
-      "total": 290,
-      "body": 279,
-      "excerpt": 11
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 5,
-        "h3": 3
-      },
-      "lists": 4,
-      "codeBlocks": 0,
-      "paragraphs": 18
-    },
+    "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
@@ -522,9 +506,11 @@
     "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
     "notes": [
-      "Missing metaDescription",
-      "Missing dateModified"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/child-support-calculation",
