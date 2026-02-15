@@ -7,6 +7,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.threadlock.ai/__dev/pattern-parity</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://www.threadlock.ai/accessibility</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -313,61 +319,37 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.threadlock.ai/resources/topics/court-rules</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.threadlock.ai/resources/topics/proof-of-service</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.threadlock.ai/resources/topics/evidence</loc>
+    <loc>https://www.threadlock.ai/resources/topics/evidence-exhibits</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.threadlock.ai/resources/topics/motions</loc>
+    <loc>https://www.threadlock.ai/resources/topics/hearings-prep</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.threadlock.ai/resources/topics/deadlines</loc>
+    <loc>https://www.threadlock.ai/resources/topics/parenting-plans</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.threadlock.ai/resources/topics/self-help</loc>
+    <loc>https://www.threadlock.ai/resources/topics/financial-declarations</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.threadlock.ai/resources/topics/forms</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.threadlock.ai/resources/topics/hearing-prep</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.threadlock.ai/resources/topics/custody</loc>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.threadlock.ai/resources/topics/financial</loc>
+    <loc>https://www.threadlock.ai/resources/topics/official-forms</loc>
     <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
