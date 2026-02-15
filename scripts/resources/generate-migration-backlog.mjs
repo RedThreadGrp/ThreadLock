@@ -87,10 +87,8 @@ function getMigrationStatus(item) {
     return 'blocked-no-content';
   }
   
-  // Check for slug/title mismatches
-  if (detectSlugTitleMismatch(item)) {
-    return 'blocked-slug-mismatch';
-  }
+  // Slug/title mismatches are no longer blocking - we have redirect infrastructure
+  // (Keeping the detection for notes, but not blocking migration)
   
   // Check if already v2 - use contentVersion from inventory or check for blocks structure
   if (item.contentVersion === 2 || item.hasBlocks) {
