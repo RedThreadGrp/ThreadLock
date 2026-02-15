@@ -29,32 +29,26 @@
     "type": "resource",
     "slug": "authentication",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Exhibits Guide: Labeling and Organization",
-    "metaDescription": "Testify: (1) you sent/received it, (2) from this phone number, (3) on this date, (4) accurate screenshot. Include metadata. Don't edit.",
+    "title": "Federal Rules of Evidence - Rule 901 (Authenticating or Identifying Evidence)",
+    "metaDescription": "missing",
     "wordCount": {
-      "total": 2262,
-      "body": 2250,
-      "excerpt": 12
+      "total": 0,
+      "body": 0,
+      "excerpt": 0
     },
-    "blocksSummary": {
-      "headings": {
-        "h1": 1,
-        "h2": 9,
-        "h3": 22
-      },
-      "lists": 23,
-      "codeBlocks": 0,
-      "paragraphs": 99
-    },
-    "hasFaq": true,
-    "faqCount": 3,
+    "blocksSummary": {},
+    "hasFaq": false,
+    "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "missing",
     "renderSmokeStatus": "pass",
-    "notes": [],
-    "contentVersion": 1,
-    "hasBlocks": false
+    "notes": [
+      "V2 content from separate file (spread operator in registry)",
+      "No content (0 words)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/courtroom-prep",

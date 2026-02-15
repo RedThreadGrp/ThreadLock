@@ -29,6 +29,7 @@ import { proofOfServicePack } from "./resources/proof-of-service-pack";
 import { courtroomPrep } from "./resources/courtroom-prep";
 import { timelineTools } from "./resources/timeline-tools";
 import { filingBasics } from "./resources/filing-basics";
+import { authentication } from "./resources/authentication";
 
 // ============================================================================
 // Type Definitions
@@ -1065,8 +1066,10 @@ This guide is based on common practices for organizing and presenting timelines 
     status: "published",
     seoTitle: "How to Authenticate Text Messages for Court | ThreadLock",
     metaDescription: "Testify: (1) you sent/received it, (2) from this phone number, (3) on this date, (4) accurate screenshot. Include metadata. Don't edit.",
-    dateModified: "2026-02-13",
-    body: `# Authentication Basics for Digital Evidence
+    dateModified: "2026-02-15",
+    contentVersion: 2,
+    blocks: authentication.blocks,
+    legacyBody: `# Authentication Basics for Digital Evidence
 
 Authentication means proving that evidence is what you claim it is. Without authentication, the judge won't admit your text messages, emails, or photos—no matter how important they are.
 
@@ -1365,16 +1368,7 @@ This guide is based on common authentication principles found in U.S. state Rule
       { question: "Can I use screenshots from social media?", href: "/resources/guides/evidence-authentication" },
       { question: "Do I need an expert witness to authenticate emails?", href: "/resources/courtroom-prep" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "State Discovery Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Authentication requirements and hearsay exceptions vary by state. Consult local rules of evidence."
-    }
+    governance: authentication.governance
   },
 ];
 

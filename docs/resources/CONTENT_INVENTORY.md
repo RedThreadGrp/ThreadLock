@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T23:43:32.203Z
+**Generated:** 2026-02-15T23:46:06.995Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -14,19 +14,19 @@
   - special: 1
   - topic: 6
 - **Content Coverage:**
-  - With body content: 22 (57.9%)
-  - With meta description: 33 (86.8%)
-  - With last updated date: 15 (39.5%)
-  - With FAQs: 13
+  - With body content: 21 (55.3%)
+  - With meta description: 32 (84.2%)
+  - With last updated date: 14 (36.8%)
+  - With FAQs: 12
   - With sources/links: 1
-  - With issues/notes: 24
+  - With issues/notes: 25
 
 ## Quick Reference
 
 | Route | Type | Title | Words | Status | Issues |
 |-------|------|-------|-------|--------|--------|
 | /resources | unknown | Resources Hub | 0 | pass | ⚠️ 1 |
-| /resources/authentication | resource | Exhibits Guide: Labeling and Organiza... | 2262 | pass | ✅ |
+| /resources/authentication | resource | Federal Rules of Evidence - Rule 901 ... | 0 | pass | ⚠️ 2 |
 | /resources/courtroom-prep | resource |  | 0 | pass | ⚠️ 2 |
 | /resources/evidence-intake | resource | Evidence Intake: Photos, Texts, Email... | 0 | pass | ⚠️ 2 |
 | /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Organiza... | 0 | fail | ⚠️ 2 |
@@ -95,26 +95,25 @@
 ### /resources/authentication
 
 - **Type:** resource
-- **Title:** Exhibits Guide: Labeling and Organization
+- **Title:** Federal Rules of Evidence - Rule 901 (Authenticating or Identifying Evidence)
 - **Canonical URL:** https://threadlock.ai/resources/authentication
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
-- **Meta Description:** Testify: (1) you sent/received it, (2) from this phone number, (3) on this date, (4) accurate screenshot. Include metadata. Don't edit.
-- **Last Updated:** 2026-02-13
+- **Meta Description:** ❌ missing
+- **Last Updated:** ❌ missing
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 2262
-- body: 2250
-- excerpt: 12
-
-**Content Structure:**
-- Headings: H1(1), H2(9), H3(22)
-- Paragraphs: 99
-- Lists: 23
+- total: 0
+- body: 0
+- excerpt: 0
 
 **Features:**
-- FAQ: ✅ Yes (3 items)
+- FAQ: ❌ No
 - Sources/Links: ❌ No
+
+**⚠️ Issues/Notes:**
+- V2 content from separate file (spread operator in registry)
+- No content (0 words)
 
 ---
 
