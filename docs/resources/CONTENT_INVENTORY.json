@@ -655,11 +655,11 @@
     "faqCount": 3,
     "hasSources": true,
     "sourcesCount": 2,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [],
-    "contentVersion": 1,
-    "hasBlocks": false
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/fee-waiver",
@@ -879,11 +879,11 @@
     "faqCount": 3,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "2026-02-13",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [],
-    "contentVersion": 1,
-    "hasBlocks": false
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/q/service-deadlines",

@@ -5,8 +5,8 @@ Generated: 2026-02-15
 ## Summary
 
 - Total items: 36
-- Todo: 18
-- Migrated: 10
+- Todo: 16
+- Migrated: 12
 - Manual review needed: 0
 - Blocked (slug mismatch): 0
 - Blocked (no content): 2
@@ -14,8 +14,8 @@ Generated: 2026-02-15
 
 ## Complexity Distribution
 
-- Simple: 23
-- Medium: 1
+- Simple: 24
+- Medium: 0
 - Hard: 4
 - Minimal: 2
 - Content creation: 6
@@ -41,7 +41,6 @@ Generated: 2026-02-15
 | /resources/financial-snapshot | resource | v1 | 599 | simple | todo | Slug/title mismatch: "financial-snapshot" vs "Official Court Portals"; Missing sources; Missing lastUpdated |
 | /resources/official-portals | resource | v1 | 448 | simple | todo | Slug/title mismatch: "official-portals" vs "Fee Waiver Information"; Missing sources; Missing lastUpdated |
 | /resources/evidence-intake | resource | v1 | 433 | simple | todo | Slug/title mismatch: "evidence-intake" vs "Proof of Service State-by-State Guide"; Missing sources; Missing lastUpdated |
-| /resources/q/exhibit-labeling | question | v1 | 432 | simple | todo | Slug/title mismatch: "exhibit-labeling" vs "How long do I have to serve documents?" |
 | /resources/guides/parenting-time-calculations | guide | v1 | 423 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/guides/proof-of-service-states | guide | v1 | 394 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/proof-of-service | resource | v1 | 279 | simple | todo | Slug/title mismatch: "proof-of-service" vs "Official Court Portals"; Missing sources; Missing lastUpdated |
@@ -49,11 +48,11 @@ Generated: 2026-02-15
 | /resources/hearing-tomorrow | resource | v1 | 223 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/kits/first-filing | kit | v1 | 191 | simple | todo | Missing sources; Missing lastUpdated |
 | /resources/kits/evidence | kit | v1 | 183 | simple | todo | Missing sources; Missing lastUpdated |
-| /resources/q/respond-to-motion | question | v1 | 1215 | medium | todo | Slug/title mismatch: "respond-to-motion" vs "What are typical court filing fees?"; Missing sources |
 | /resources/authentication | resource | v1 | 2250 | hard | todo | Slug/title mismatch: "authentication" vs "Exhibits Guide: Labeling and Organization"; Missing sources |
 | /resources/filing-basics | resource | v1 | 1553 | hard | todo | Slug/title mismatch: "filing-basics" vs "Exhibits Guide: Labeling and Organization"; Missing sources |
 | /resources/timeline-tools | resource | v1 | 1454 | hard | todo | Slug/title mismatch: "timeline-tools" vs "Official Court Portals by State"; Missing sources |
 | /resources/courtroom-prep | resource | v1 | 1209 | hard | todo | Slug/title mismatch: "courtroom-prep" vs "Evidence Intake Guide"; Missing sources |
+| /resources/q/respond-to-motion | question | v2 | 1215 | simple | migrated | Slug/title mismatch: "respond-to-motion" vs "What are typical court filing fees?"; Missing sources |
 | /resources/q/modify-parenting-plan | question | v2 | 1093 | simple | migrated | Missing sources |
 | /resources/q/fee-waiver | question | v2 | 1003 | simple | migrated | Slug/title mismatch: "fee-waiver" vs "What counts as a substantial change in circumstances?"; Missing sources |
 | /resources/q/child-support-calculation | question | v2 | 944 | simple | migrated | Slug/title mismatch: "child-support-calculation" vs "How much does mediation cost?"; Missing sources |
@@ -63,6 +62,7 @@ Generated: 2026-02-15
 | /resources/q/hearing-checklist | question | v2 | 664 | simple | migrated | Slug/title mismatch: "hearing-checklist" vs "What counts as proof of service?"; Missing sources |
 | /resources/q/text-authentication | question | v2 | 602 | simple | migrated | Slug/title mismatch: "text-authentication" vs "What if I can't afford court fees?"; Missing sources |
 | /resources/q/official-forms-location | question | v2 | 529 | simple | migrated | Slug/title mismatch: "official-forms-location" vs "Can I authenticate text messages myself?"; Missing sources |
+| /resources/q/exhibit-labeling | question | v2 | 432 | simple | migrated | Slug/title mismatch: "exhibit-labeling" vs "How long do I have to serve documents?" |
 | /resources/q/proof-of-service-definition | question | v2 | 0 | simple | migrated | Missing sources; Empty content |
 | /resources/guides/self-representation-complete | guide | v1 | 0 | minimal | blocked-no-content | Missing sources; Empty content |
 | /resources/kits/hearing-soon | kit | v1 | 0 | minimal | blocked-no-content | Missing sources; Missing lastUpdated; Empty content |

@@ -12,6 +12,8 @@ import { serviceDeadlines } from "./resources/service-deadlines";
 import { mediationLawyer } from "./resources/mediation-lawyer";
 import { hearingChecklist } from "./resources/hearing-checklist";
 import { officialFormsLocation } from "./resources/official-forms-location";
+import { exhibitLabeling } from "./resources/exhibit-labeling";
+import { respondToMotion } from "./resources/respond-to-motion";
 
 // ============================================================================
 // Type Definitions
@@ -3216,11 +3218,13 @@ export const POPULAR_QUESTIONS: PopularQuestion[] = [
     slug: "exhibit-labeling",
     question: "How do I label exhibits for court?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "How to Label Exhibits for Court | ThreadLock",
     metaDescription: "Label exhibits sequentially using letters (Plaintiff) or numbers (Defendant). Include exhibit stickers on each document and reference them in your filings.",
     shortAnswer: "Label exhibits sequentially using letters (A, B, C) for plaintiff's exhibits or numbers (1, 2, 3) for defendant's exhibits. Attach exhibit stickers or tabs to each document and create an exhibit list that describes each item.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: exhibitLabeling,
     body: `# How do I label exhibits for court?
 
 ## Short Answer
@@ -3297,16 +3301,7 @@ Check your local court's rules or website for jurisdiction-specific requirements
       { question: "What should I bring to a hearing?", href: "/resources/q/hearing-checklist" },
       { question: "How do I organize evidence chronologically?", href: "/resources/q/evidence-organization" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence" },
-        { name: "Local Court Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Exhibit labeling conventions vary by court. Check local rules."
-    }
+    governance: exhibitLabeling.governance
   },
   {
     slug: "official-forms-location",
@@ -4754,11 +4749,13 @@ If your application is denied and you genuinely cannot afford the fees, consult 
     slug: "respond-to-motion",
     question: "How do I respond to a motion?",
     status: "published",
-    contentVersion: 1, // Legacy v1 content
+    contentVersion: 2, // v2 structured content
     seoTitle: "How to Respond to a Motion | ThreadLock",
     metaDescription: "Respond to a motion by filing an opposition or response within the deadline (typically 9-21 days), supported by declarations and evidence.",
     shortAnswer: "Respond to a motion by filing a written opposition or response within the deadline (typically 9-21 days before the hearing). Include a declaration under penalty of perjury addressing the motion's claims and supporting evidence. Serve your response on the opposing party and file proof of service.",
-    dateModified: "2026-02-13",
+    dateModified: "2026-02-15",
+    // v2 structured blocks
+    blocks: respondToMotion,
     body: `# How do I respond to a motion?
 
 ## Short Answer
@@ -4997,15 +4994,6 @@ If you're uncertain how to respond or the motion requests significant changes, c
       { question: "Do I need to attend the hearing?", href: "/resources/q/hearing-attendance" },
       { question: "Can I file a counter-motion?", href: "/resources/q/counter-motion" },
     ],
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Civil Procedure" },
-        { name: "Local Court Rules" }
-      ],
-      jurisdictionScope: ["Federal"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "Motion response deadlines and procedures vary by jurisdiction. Check local rules."
-    }
+    governance: respondToMotion.governance
   },
 ];

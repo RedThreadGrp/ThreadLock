@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-15T22:00:22.031Z
+**Generated:** 2026-02-15T22:06:30.574Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -616,7 +616,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/q/exhibit-labeling
 - **Content Source:** src/content/resourcesRegistry.ts:POPULAR_QUESTIONS
 - **Meta Description:** Label exhibits sequentially using letters (Plaintiff) or numbers (Defendant). Include exhibit stickers on each document and reference them in your filings.
-- **Last Updated:** 2026-02-13
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -790,7 +790,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/q/respond-to-motion
 - **Content Source:** src/content/resourcesRegistry.ts:POPULAR_QUESTIONS
 - **Meta Description:** Respond to a motion by filing an opposition or response within the deadline (typically 9-21 days), supported by declarations and evidence.
-- **Last Updated:** 2026-02-13
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**
