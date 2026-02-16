@@ -144,30 +144,48 @@ export const mediationLawyer: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "American Bar Association - Mediation Guide",
+        title: "Dispute Resolution - Mediation",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/dispute_resolution/resources/DisputeResolutionProcesses/mediation/",
+        lastAccessed: "2026-02-16",
+        note: "Standards and best practices for mediation"
       },
       {
-        name: "State Mediation Program Requirements",
+        title: "Model Standards of Conduct for Mediators",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/dispute_resolution/policy/model_standards_conduct_mediation/",
+        lastAccessed: "2026-02-16",
+        note: "Professional standards for mediators"
       },
       {
-        name: "Association for Conflict Resolution - Standards of Practice",
+        title: "Family Mediation",
+        organization: "Association for Conflict Resolution",
+        url: "https://www.acrnet.org/",
+        lastAccessed: "2026-02-16",
+        note: "Professional organization standards of practice"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "American Bar Association - Mediation Resources",
-        note: "Standards and best practices for mediation",
+        title: "Dispute Resolution - Mediation",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/dispute_resolution/resources/DisputeResolutionProcesses/mediation/",
+        lastAccessed: "2026-02-16",
+        note: "Standards and best practices for mediation"
       },
       {
-        name: "State Court Mediation Programs",
-        note: "Jurisdiction-specific mediation rules",
+        title: "Court-Connected Mediation Programs",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/alternative-dispute-resolution/mediation/state-links",
+        lastAccessed: "2026-02-16",
+        note: "Jurisdiction-specific mediation rules"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Mediation rules and attorney participation requirements vary by jurisdiction. Some courts mandate mediation before trial. Court-connected mediation programs may have different rules than private mediation. Attorney participation costs and practices differ significantly by region and case type.",
   },

@@ -162,30 +162,48 @@ export const modifyParentingPlan: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "State Family Law Statutes - Modification of Custody Orders",
+        title: "Child Custody Modification",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/family_law/resources/",
+        lastAccessed: "2026-02-16",
+        note: "Legal standards and modification procedures"
       },
       {
-        name: "American Bar Association - Child Custody Modification Guide",
+        title: "Family Law",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/wex/family_law",
+        lastAccessed: "2026-02-16",
+        note: "Legal principles for custody modification"
       },
       {
-        name: "National Conference of State Legislatures - Child Custody Laws",
+        title: "Child Custody Laws",
+        organization: "National Conference of State Legislatures",
+        url: "https://www.ncsl.org/research/human-services/child-custody.aspx",
+        lastAccessed: "2026-02-16",
+        note: "State-by-state custody law variations"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "State Family Law Statutes",
-        note: "Statutory requirements for custody modification",
+        title: "Family Law - Custody Modification",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/wex/family_law",
+        lastAccessed: "2026-02-16",
+        note: "Statutory requirements for custody modification"
       },
       {
-        name: "American Bar Association - Child Custody Guide",
-        note: "Legal standards and procedures",
+        title: "Child Custody",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/family_law/resources/",
+        lastAccessed: "2026-02-16",
+        note: "Legal standards and procedures"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Modification requirements vary by state. Check local family law statutes for specific rules and waiting periods in your jurisdiction.",
   },

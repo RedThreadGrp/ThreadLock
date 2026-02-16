@@ -141,13 +141,33 @@ export const timelineTools: ResourcePage = {
     ]
   },
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
-      { name: "Legal Aid Organizations", href: "https://www.lsc.gov/what-legal-aid/find-legal-aid" },
-      { name: "Court Self-Help Portals", href: "https://www.courts.ca.gov/selfhelp.htm" },
-      { name: "State Bar Practice Guides" }
+      { 
+        title: "Find Legal Aid",
+        organization: "Legal Services Corporation",
+        url: "https://www.lsc.gov/what-legal-aid/find-legal-aid",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Locate free or low-cost legal assistance"
+      },
+      { 
+        title: "Self-Help Center",
+        organization: "California Courts",
+        url: "https://www.courts.ca.gov/selfhelp.htm",
+        jurisdiction: "California",
+        lastAccessed: "2026-02-16",
+        note: "Example state court self-help resources"
+      },
+      { 
+        title: "Evidence and Trial Presentation",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/litigation/resources/",
+        lastAccessed: "2026-02-16",
+        note: "Practice guidance on demonstrative aids"
+      }
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Timeline requirements vary by court. Check local rules on demonstrative aids and pre-trial submissions."
   }

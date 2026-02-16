@@ -137,13 +137,32 @@ export const financialSnapshot: ResourcePage = {
     ]
   },
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
-      { name: "State Bar Association Resources" },
-      { name: "Court Self-Help Portals" },
-      { name: "Financial Declaration Form Instructions" }
+      { 
+        title: "Family Law Resources",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/family_law/resources/",
+        lastAccessed: "2026-02-16",
+        note: "Financial disclosure standards and best practices"
+      },
+      { 
+        title: "Self-Help Resources",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        lastAccessed: "2026-02-16",
+        note: "State-specific financial declaration resources"
+      },
+      { 
+        title: "Family Court Self-Help",
+        organization: "California Courts",
+        url: "https://www.courts.ca.gov/selfhelp-finance.htm",
+        jurisdiction: "California",
+        lastAccessed: "2026-02-16",
+        note: "Example state financial declaration guidance"
+      }
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Financial declaration requirements and forms vary by state. Consult your local family court rules for specific requirements."
   }
