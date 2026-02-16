@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-16T01:48:33.795Z
+**Generated:** 2026-02-16T17:59:46.149Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -30,11 +30,11 @@
 |-------|------|-------|-------|---|--------|--------|
 | /resources | unknown | Resources Hub | 0 | — | pass | ⚠️ 1 |
 | /resources/authentication | resource | Federal Rules of Evidence - Rule... | 0 | V2 | pass | ⚠️ 2 |
-| /resources/courtroom-prep | resource |  | 0 | V2 | pass | ⚠️ 2 |
+| /resources/courtroom-prep | resource | Federal Rules of Civil Procedure | 0 | V2 | pass | ⚠️ 2 |
 | /resources/evidence-intake | resource | Evidence Intake: Photos, Texts, ... | 0 | V2 | pass | ⚠️ 2 |
 | /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Org... | 0 | V2 | fail | ⚠️ 2 |
 | /resources/filing-basics | resource | Federal Rules of Civil Procedure | 0 | V2 | pass | ⚠️ 2 |
-| /resources/financial-snapshot | resource |  | 0 | V2 | pass | ⚠️ 2 |
+| /resources/financial-snapshot | resource | Family Law Resources | 0 | V2 | pass | ⚠️ 2 |
 | /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 407 | V2 | pass | ⚠️ 1 |
 | /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Cal... | 481 | V2 | pass | ⚠️ 1 |
 | /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | V2 | pass | ⚠️ 1 |
@@ -43,8 +43,8 @@
 | /resources/kits/evidence | kit | Evidence Kit | 0 | V2 | fail | ⚠️ 2 |
 | /resources/kits/first-filing | kit | First Filing Kit | 0 | V2 | fail | ⚠️ 2 |
 | /resources/kits/hearing-soon | kit | Hearing Soon Kit | 0 | V2 | fail | ⚠️ 2 |
-| /resources/official-portals | resource |  | 0 | V2 | pass | ⚠️ 2 |
-| /resources/parenting-plans | resource |  | 0 | V2 | pass | ⚠️ 2 |
+| /resources/official-portals | resource | Forms | 0 | V2 | pass | ⚠️ 2 |
+| /resources/parenting-plans | resource | Child Custody and Parenting Time | 0 | V2 | pass | ⚠️ 2 |
 | /resources/proof-of-service | resource | What Counts as Proof of Service?... | 0 | V2 | pass | ⚠️ 2 |
 | /resources/q/child-support-calculation | question | How much does mediation cost? | 979 | V2 | pass | ✅ |
 | /resources/q/custody-types | question | What happens if I miss a filing ... | 846 | V2 | pass | ✅ |
@@ -98,7 +98,7 @@
 ### /resources/authentication
 
 - **Type:** resource
-- **Title:** Federal Rules of Evidence - Rule 901 (Authenticating or Identifying Evidence)
+- **Title:** Federal Rules of Evidence - Rule 901
 - **Canonical URL:** https://threadlock.ai/resources/authentication
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** ❌ missing
@@ -123,7 +123,7 @@
 ### /resources/courtroom-prep
 
 - **Type:** resource
-- **Title:** 
+- **Title:** Federal Rules of Civil Procedure
 - **Canonical URL:** https://threadlock.ai/resources/courtroom-prep
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** ❌ missing
@@ -223,7 +223,7 @@
 ### /resources/financial-snapshot
 
 - **Type:** resource
-- **Title:** 
+- **Title:** Family Law Resources
 - **Canonical URL:** https://threadlock.ai/resources/financial-snapshot
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** ❌ missing
@@ -457,7 +457,7 @@
 ### /resources/official-portals
 
 - **Type:** resource
-- **Title:** 
+- **Title:** Forms
 - **Canonical URL:** https://threadlock.ai/resources/official-portals
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** ❌ missing
@@ -482,7 +482,7 @@
 ### /resources/parenting-plans
 
 - **Type:** resource
-- **Title:** 
+- **Title:** Child Custody and Parenting Time
 - **Canonical URL:** https://threadlock.ai/resources/parenting-plans
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** ❌ missing

@@ -1,6 +1,6 @@
 # V2 Content Standard Audit Report
 
-**Generated:** 2026-02-16T01:48:33.796Z
+**Generated:** 2026-02-16T17:59:46.151Z
 **Audit Purpose:** Track migration to contentVersion: 2 (structured blocks) standard
 
 ## Executive Summary
@@ -36,11 +36,11 @@ The V2 standard requires:
 | Route | Type | Title | Words | Has Blocks | Notes |
 |-------|------|-------|-------|------------|-------|
 | /resources/authentication | resource | Federal Rules of Evidence - Rule... | 0 | ✅ | V2 content from separate file ... |
-| /resources/courtroom-prep | resource |  | 0 | ✅ | V2 content from separate file ... |
+| /resources/courtroom-prep | resource | Federal Rules of Civil Procedure | 0 | ✅ | V2 content from separate file ... |
 | /resources/evidence-intake | resource | Evidence Intake: Photos, Texts, ... | 0 | ✅ | V2 content from separate file ... |
 | /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Org... | 0 | ✅ | V2 content from separate file ... |
 | /resources/filing-basics | resource | Federal Rules of Civil Procedure | 0 | ✅ | V2 content from separate file ... |
-| /resources/financial-snapshot | resource |  | 0 | ✅ | V2 content from separate file ... |
+| /resources/financial-snapshot | resource | Family Law Resources | 0 | ✅ | V2 content from separate file ... |
 | /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 407 | ✅ | Missing updated date... |
 | /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Cal... | 481 | ✅ | Missing updated date... |
 | /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | ✅ | Missing updated date... |
@@ -49,8 +49,8 @@ The V2 standard requires:
 | /resources/kits/evidence | kit | Evidence Kit | 0 | ✅ | V2 content from separate file ... |
 | /resources/kits/first-filing | kit | First Filing Kit | 0 | ✅ | V2 content from separate file ... |
 | /resources/kits/hearing-soon | kit | Hearing Soon Kit | 0 | ✅ | V2 content from separate file ... |
-| /resources/official-portals | resource |  | 0 | ✅ | V2 content from separate file ... |
-| /resources/parenting-plans | resource |  | 0 | ✅ | V2 content from separate file ... |
+| /resources/official-portals | resource | Forms | 0 | ✅ | V2 content from separate file ... |
+| /resources/parenting-plans | resource | Child Custody and Parenting Time | 0 | ✅ | V2 content from separate file ... |
 | /resources/proof-of-service | resource | What Counts as Proof of Service?... | 0 | ✅ | V2 content from separate file ... |
 | /resources/q/child-support-calculation | question | How much does mediation cost? | 979 | ✅ | — |
 | /resources/q/custody-types | question | What happens if I miss a filing ... | 846 | ✅ | — |

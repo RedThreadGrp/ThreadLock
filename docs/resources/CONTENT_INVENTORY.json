@@ -29,7 +29,7 @@
     "type": "resource",
     "slug": "authentication",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Federal Rules of Evidence - Rule 901 (Authenticating or Identifying Evidence)",
+    "title": "Federal Rules of Evidence - Rule 901",
     "metaDescription": "missing",
     "wordCount": {
       "total": 0,
@@ -56,7 +56,7 @@
     "type": "resource",
     "slug": "courtroom-prep",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "",
+    "title": "Federal Rules of Civil Procedure",
     "metaDescription": "missing",
     "wordCount": {
       "total": 0,
@@ -164,7 +164,7 @@
     "type": "resource",
     "slug": "financial-snapshot",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "",
+    "title": "Family Law Resources",
     "metaDescription": "missing",
     "wordCount": {
       "total": 0,
@@ -430,7 +430,7 @@
     "type": "resource",
     "slug": "official-portals",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "",
+    "title": "Forms",
     "metaDescription": "missing",
     "wordCount": {
       "total": 0,
@@ -457,7 +457,7 @@
     "type": "resource",
     "slug": "parenting-plans",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "",
+    "title": "Child Custody and Parenting Time",
     "metaDescription": "missing",
     "wordCount": {
       "total": 0,
