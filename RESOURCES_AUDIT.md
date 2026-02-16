@@ -1,15 +1,15 @@
 # Resources Routes Audit Report
 
-**Generated:** 2026-02-15T00:13:26.298Z
+**Generated:** 2026-02-16T18:13:43.728Z
 
 ## Summary
 
-- **Total Resources:** 11
-- **Total Questions:** 12
+- **Total Resources:** 9
+- **Total Questions:** 14
 - **Total Guides:** 4
-- **Total Starter Kits:** 3
+- **Total Starter Kits:** 0
 - **Total Topics:** 6
-- **Grand Total Routes:** 36
+- **Grand Total Routes:** 33
 
 ## Styling Legend
 
@@ -23,13 +23,11 @@ Route pattern: `/resources/[slug]`
 
 | Slug | Title | Status | Route | Styling |
 |------|-------|--------|-------|----------|
-| `hearing-tomorrow` | Hearing Tomorrow Checklist | ✅ published | /resources/hearing-tomorrow | ✅ New Styling |
 | `proof-of-service` | Proof of Service Pack | ✅ published | /resources/proof-of-service | ✅ New Styling |
 | `evidence-intake` | Evidence Intake: Photos, Texts, Email | ✅ published | /resources/evidence-intake | ✅ New Styling |
 | `parenting-plans` | Parenting Plan Builder Guide | ✅ published | /resources/parenting-plans | ✅ New Styling |
 | `financial-snapshot` | Financial Snapshot Worksheet | ✅ published | /resources/financial-snapshot | ✅ New Styling |
 | `official-portals` | Official Court Portals Directory | ✅ published | /resources/official-portals | ✅ New Styling |
-| `exhibits-guide` | Exhibits Guide: Labeling and Organization | ✅ published | /resources/exhibits-guide | ✅ New Styling |
 | `courtroom-prep` | Courtroom Etiquette and Preparation | ✅ published | /resources/courtroom-prep | ✅ New Styling |
 | `filing-basics` | Filing Basics: Getting Started | ✅ published | /resources/filing-basics | ✅ New Styling |
 | `timeline-tools` | Timeline Organization Tools | ✅ published | /resources/timeline-tools | ✅ New Styling |
@@ -42,7 +40,7 @@ Route pattern: `/resources/q/[slug]`
 | Slug | Question | Status | Route | Styling |
 |------|----------|--------|-------|----------|
 | `proof-of-service-definition` | What counts as proof of service? | ✅ published | /resources/q/proof-of-service-definition | ✅ New Styling |
-| `exhibit-labeling` | How do I label exhibits for court? | ✅ published | /resources/q/exhibit-labeling | ✅ New Styling |
+| `proof-of-service-definition` | How long do I have to serve documents? | ✅ published | /resources/q/proof-of-service-definition | ✅ New Styling |
 | `official-forms-location` | Where do I find official court forms? | ✅ published | /resources/q/official-forms-location | ✅ New Styling |
 | `text-authentication` | Can I authenticate text messages myself? | ✅ published | /resources/q/text-authentication | ✅ New Styling |
 | `hearing-checklist` | What should I bring to a hearing? | ✅ published | /resources/q/hearing-checklist | ✅ New Styling |
@@ -53,6 +51,8 @@ Route pattern: `/resources/q/[slug]`
 | `modify-parenting-plan` | Can I modify a parenting plan later? | ✅ published | /resources/q/modify-parenting-plan | ✅ New Styling |
 | `fee-waiver` | What if I can't afford court fees? | ✅ published | /resources/q/fee-waiver | ✅ New Styling |
 | `respond-to-motion` | How do I respond to a motion? | ✅ published | /resources/q/respond-to-motion | ✅ New Styling |
+| `filing-fees` | What are typical court filing fees? | ✅ published | /resources/q/filing-fees | ✅ New Styling |
+| `free-legal-help` | Can I get a free lawyer? | ✅ published | /resources/q/free-legal-help | ✅ New Styling |
 
 ## Featured Guides
 
@@ -71,9 +71,6 @@ Route pattern: `/resources/kits/[slug]`
 
 | Slug | Title | Status | Route | Styling |
 |------|-------|--------|-------|----------|
-| `hearing-soon` | Hearing Soon Kit | ✅ published | /resources/kits/hearing-soon | ✅ New Styling |
-| `first-filing` | First Filing Kit | ✅ published | /resources/kits/first-filing | ✅ New Styling |
-| `evidence` | Evidence Kit | ✅ published | /resources/kits/evidence | ✅ New Styling |
 
 ## Topics
 

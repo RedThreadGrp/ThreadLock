@@ -29,7 +29,7 @@
     "type": "resource",
     "slug": "authentication",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Federal Rules of Evidence - Rule 901 (Authenticating or Identifying Evidence)",
+    "title": "Federal Rules of Evidence - Rule 901",
     "metaDescription": "missing",
     "wordCount": {
       "total": 0,
@@ -41,7 +41,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
@@ -56,7 +56,7 @@
     "type": "resource",
     "slug": "courtroom-prep",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "",
+    "title": "Federal Rules of Civil Procedure",
     "metaDescription": "missing",
     "wordCount": {
       "total": 0,
@@ -68,7 +68,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
@@ -95,7 +95,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
+    "lastUpdated": "2026-02-16",
     "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
@@ -122,11 +122,11 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "fail",
+    "lastUpdated": "2026-02-16",
+    "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
-      "No content found in registry"
+      "No content (0 words)"
     ],
     "contentVersion": 2,
     "hasBlocks": true
@@ -149,7 +149,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
+    "lastUpdated": "2026-02-15",
     "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
@@ -164,7 +164,7 @@
     "type": "resource",
     "slug": "financial-snapshot",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "",
+    "title": "Family Law Resources",
     "metaDescription": "missing",
     "wordCount": {
       "total": 0,
@@ -176,7 +176,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
+    "lastUpdated": "2026-02-16",
     "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
@@ -212,7 +212,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
+    "lastUpdated": "2026-02-16",
     "renderSmokeStatus": "pass",
     "notes": [
       "Missing updated date"
@@ -247,7 +247,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
+    "lastUpdated": "2026-02-16",
     "renderSmokeStatus": "pass",
     "notes": [
       "Missing updated date"
@@ -282,7 +282,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
+    "lastUpdated": "2026-02-16",
     "renderSmokeStatus": "pass",
     "notes": [
       "Missing updated date"
@@ -308,7 +308,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "Jan 2026",
+    "lastUpdated": "2026-02-16",
     "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)"
@@ -334,11 +334,11 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "fail",
+    "lastUpdated": "2026-02-16",
+    "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
-      "No content found in registry"
+      "No content (0 words)"
     ],
     "contentVersion": 2,
     "hasBlocks": true
@@ -349,23 +349,24 @@
     "type": "kit",
     "slug": "evidence",
     "contentSource": "src/content/resourcesRegistry.ts:STARTER_KITS",
-    "title": "Evidence Kit",
-    "metaDescription": "Capture, organize, and preserve evidence that holds up.",
+    "title": "missing",
+    "metaDescription": "missing",
     "wordCount": {
       "total": 0,
       "body": 0,
-      "excerpt": 0
+      "description": 0
     },
     "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "fail",
+    "lastUpdated": "2026-02-16",
+    "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
-      "No content found in registry"
+      "Missing title",
+      "No content (0 words)"
     ],
     "contentVersion": 2,
     "hasBlocks": true
@@ -376,23 +377,24 @@
     "type": "kit",
     "slug": "first-filing",
     "contentSource": "src/content/resourcesRegistry.ts:STARTER_KITS",
-    "title": "First Filing Kit",
-    "metaDescription": "Start your case right with proper documentation and filing procedures.",
+    "title": "missing",
+    "metaDescription": "missing",
     "wordCount": {
       "total": 0,
       "body": 0,
-      "excerpt": 0
+      "description": 0
     },
     "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "fail",
+    "lastUpdated": "2026-02-16",
+    "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
-      "No content found in registry"
+      "Missing title",
+      "No content (0 words)"
     ],
     "contentVersion": 2,
     "hasBlocks": true
@@ -403,23 +405,24 @@
     "type": "kit",
     "slug": "hearing-soon",
     "contentSource": "src/content/resourcesRegistry.ts:STARTER_KITS",
-    "title": "Hearing Soon Kit",
-    "metaDescription": "Everything you need when a hearing is approaching fast.",
+    "title": "missing",
+    "metaDescription": "missing",
     "wordCount": {
       "total": 0,
       "body": 0,
-      "excerpt": 0
+      "description": 0
     },
     "blocksSummary": {},
     "hasFaq": false,
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
-    "renderSmokeStatus": "fail",
+    "lastUpdated": "2026-02-16",
+    "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
-      "No content found in registry"
+      "Missing title",
+      "No content (0 words)"
     ],
     "contentVersion": 2,
     "hasBlocks": true
@@ -430,7 +433,7 @@
     "type": "resource",
     "slug": "official-portals",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "",
+    "title": "Forms",
     "metaDescription": "missing",
     "wordCount": {
       "total": 0,
@@ -442,7 +445,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
+    "lastUpdated": "2026-02-16",
     "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
@@ -457,7 +460,7 @@
     "type": "resource",
     "slug": "parenting-plans",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "",
+    "title": "Child Custody and Parenting Time",
     "metaDescription": "missing",
     "wordCount": {
       "total": 0,
@@ -469,7 +472,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
+    "lastUpdated": "2026-02-16",
     "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
@@ -496,7 +499,7 @@
     "faqCount": 0,
     "hasSources": false,
     "sourcesCount": 0,
-    "lastUpdated": "missing",
+    "lastUpdated": "2026-02-16",
     "renderSmokeStatus": "pass",
     "notes": [
       "V2 content from separate file (spread operator in registry)",
@@ -924,7 +927,7 @@
     "type": "resource",
     "slug": "timeline-tools",
     "contentSource": "src/content/resourcesRegistry.ts:RESOURCES",
-    "title": "Official Court Portals by State",
+    "title": "Timeline Organization Tools",
     "metaDescription": "List events chronologically with dates, descriptions, and evidence. Include witnesses. Focus on relevant facts. Essential for custody cases.",
     "wordCount": {
       "total": 1466,
@@ -943,8 +946,8 @@
     },
     "hasFaq": true,
     "faqCount": 3,
-    "hasSources": false,
-    "sourcesCount": 0,
+    "hasSources": true,
+    "sourcesCount": 3,
     "lastUpdated": "2026-02-13",
     "renderSmokeStatus": "pass",
     "notes": [],

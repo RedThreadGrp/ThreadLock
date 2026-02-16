@@ -291,6 +291,18 @@ export const authentication: ResourcePage = {
       {
         question: "Do I need an expert witness to authenticate digital evidence?",
         answer: "No, in most family court cases. Your own testimony is sufficient to authenticate screenshots of texts, emails, or photos you sent/received. Expert witnesses are typically only needed in complex cases involving: (1) allegations of sophisticated tampering, (2) forensic recovery of deleted data, or (3) analysis of metadata in contested evidence. For routine text messages and emails, your testimony is enough."
+      },
+      {
+        question: "What if I deleted the original text messages?",
+        answer: "If you still have screenshots taken before deletion, those screenshots can be authenticated through your testimony. Explain when you took the screenshot, that it accurately represents the conversation, and why the original messages are no longer available. Some phones allow message recovery through backups (iCloud, Google). If you don't have screenshots or backups, you may be able to subpoena phone records from your carrier showing messages were sent/received on specific dates, though these records typically don't include message content. The lesson: always take screenshots of important messages immediately."
+      },
+      {
+        question: "Can I use screenshots from social media?",
+        answer: "Yes, but authenticate them properly. Testify under oath: (1) this is a screenshot from [social media platform], (2) taken from the account of [username], (3) on [date], (4) showing [content], and (5) this is an accurate, unaltered image. Include visible indicators like the URL, account name, timestamp, and profile picture. For Facebook or Instagram posts, photograph the entire screen including browser address bar. For challenged authenticity, consider having a witness (friend or family member) verify they saw the same content. Social media companies can be subpoenaed for official records, though this is expensive and time-consuming."
+      },
+      {
+        question: "Do I need an expert witness to authenticate emails?",
+        answer: "No. Emails are routinely authenticated through personal testimony without expert witnesses. Testify: (1) you sent or received this email, (2) it's from/to [email address] belonging to [person], (3) the header information (from, to, date, subject) is accurate, and (4) you haven't altered the content. Print emails with full headers visible (sender/recipient addresses, date, time). If authenticity is challenged, you can also log into your email account in court to show the original. Experts are only needed if there's a serious dispute about tampering or sophisticated forgery, which is rare in family court."
       }
     ]
   },

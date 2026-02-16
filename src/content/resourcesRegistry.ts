@@ -32,6 +32,9 @@ import { filingBasics } from "./resources/filing-basics";
 import { authentication } from "./resources/authentication";
 import { hearingSoon } from "./resources/hearing-soon";
 import { selfRepresentationComplete } from "./resources/self-representation-complete";
+import { filingFees } from "./resources/filing-fees";
+import { freeLegalHelp } from "./resources/free-legal-help";
+import { legalAid } from "./resources/legal-aid";
 
 // ============================================================================
 // Type Definitions
@@ -224,6 +227,8 @@ export const RESOURCES: Resource[] = [
   // Published resources (existing 6)
   {
     ...hearingTomorrow,
+    slug: "hearing-tomorrow",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: hearingTomorrow.blocks,
   },
@@ -237,6 +242,7 @@ export const RESOURCES: Resource[] = [
     intent: "Start",
     readTime: "8 min read",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: proofOfServicePack.blocks,
     relatedLinks: [
@@ -254,6 +260,7 @@ export const RESOURCES: Resource[] = [
     intent: "Organize",
     readTime: "10 min read",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: evidenceIntake.blocks,
     relatedLinks: [
@@ -271,6 +278,7 @@ export const RESOURCES: Resource[] = [
     intent: "Start",
     readTime: "12 min read",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: parentingPlans.blocks,
     relatedLinks: [
@@ -288,6 +296,7 @@ export const RESOURCES: Resource[] = [
     intent: "Organize",
     readTime: "7 min read",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: financialSnapshot.blocks,
     relatedLinks: [
@@ -305,6 +314,7 @@ export const RESOURCES: Resource[] = [
     intent: "Learn",
     readTime: "3 min read",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: officialPortals.blocks,
     relatedLinks: [
@@ -316,6 +326,8 @@ export const RESOURCES: Resource[] = [
   // Draft resources (new placeholders for starter kit references)
   {
     ...exhibitsGuide,
+    slug: "exhibits-guide",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: exhibitsGuide.blocks,
   },
@@ -1372,6 +1384,11 @@ This guide is based on common authentication principles found in U.S. state Rule
     ],
     governance: authentication.governance
   },
+  {
+    ...legalAid,
+    contentVersion: 2,
+    blocks: legalAid.blocks,
+  },
 ];
 
 // ============================================================================
@@ -1381,16 +1398,22 @@ This guide is based on common authentication principles found in U.S. state Rule
 export const STARTER_KITS: StarterKit[] = [
   {
     ...hearingSoon,
+    slug: "hearing-soon",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: hearingSoon.blocks,
   },
   {
     ...firstFiling,
+    slug: "first-filing",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: firstFiling.blocks,
   },
   {
     ...evidence,
+    slug: "evidence",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: evidence.blocks,
   },
@@ -1408,6 +1431,7 @@ export const FEATURED_GUIDES: FeaturedGuide[] = [
     tags: ["Court Prep", "Basics", "Complete Guide"],
     updated: "Jan 2026",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2, // v2 structured content
     blocks: selfRepresentationComplete,
     governance: selfRepresentationComplete.governance,
@@ -1418,6 +1442,7 @@ export const FEATURED_GUIDES: FeaturedGuide[] = [
     summary: "How to make your photos, texts, and emails admissible without hiring an expert.",
     tags: ["Evidence", "Authentication"],
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2, // v2 structured content
     // v2 structured blocks
     blocks: evidenceAuthentication,
@@ -1498,6 +1523,7 @@ This is general information about evidence authentication. Rules vary by jurisdi
     summary: "Requirements and templates for every U.S. state and territory.",
     tags: ["Templates", "Proof of Service"],
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2, // v2 structured content
     // v2 structured blocks
     blocks: proofOfServiceStates,
@@ -1580,6 +1606,7 @@ Service requirements vary significantly by jurisdiction. This is general informa
     summary: "Calculate overnights, holidays, and summer schedules accurately.",
     tags: ["Parenting Plans", "Calculations"],
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2, // v2 structured content
     // v2 structured blocks
     blocks: parentingTimeCalculations,
@@ -3984,5 +4011,55 @@ If you're uncertain how to respond or the motion requests significant changes, c
       { question: "Can I file a counter-motion?", href: "/resources/q/counter-motion" },
     ],
     governance: respondToMotion.governance
+  },
+  {
+    slug: "filing-fees",
+    question: "What are typical court filing fees?",
+    status: "published",
+    contentVersion: 2,
+    seoTitle: "What Are Typical Court Filing Fees? | ThreadLock",
+    metaDescription: "Court filing fees vary by state and case type, typically ranging from $200-$500 for family law cases. Fee waivers may be available.",
+    shortAnswer: "Court filing fees vary by state and case type but typically range from $200-$500 for initiating a family law case. Additional fees apply for motions, responses, and other filings. Fee waivers are available for qualifying low-income litigants.",
+    dateModified: "2026-02-16",
+    blocks: filingFees.blocks,
+    body: `# What are typical court filing fees?
+
+## Short Answer
+
+Court filing fees vary by state and case type but typically range from $200-$500 for initiating a family law case. Additional fees apply for motions, responses, and other filings. Fee waivers are available for qualifying low-income litigants.`,
+    relatedLinks: [
+      { title: "Fee Waiver Information", href: "/resources/q/fee-waiver" },
+      { title: "Where to Find Official Court Forms", href: "/resources/q/official-forms-location" },
+    ],
+    relatedQuestions: [
+      { question: "What if I can't afford court fees?", href: "/resources/q/fee-waiver" },
+      { question: "Can I get a free lawyer?", href: "/resources/q/free-legal-help" },
+    ],
+    governance: filingFees.governance
+  },
+  {
+    slug: "free-legal-help",
+    question: "Can I get a free lawyer?",
+    status: "published",
+    contentVersion: 2,
+    seoTitle: "Can I Get a Free Lawyer? | ThreadLock",
+    metaDescription: "Free legal representation is limited in family law. Legal aid organizations, pro bono programs, and law school clinics offer free help to qualifying low-income individuals.",
+    shortAnswer: "Free legal representation in family law is limited and typically available only to low-income individuals facing serious issues like domestic violence or child custody threats. Legal aid organizations, pro bono programs, and law school clinics offer free or reduced-cost assistance to those who qualify.",
+    dateModified: "2026-02-16",
+    blocks: freeLegalHelp.blocks,
+    body: `# Can I get a free lawyer?
+
+## Short Answer
+
+Free legal representation in family law is limited and typically available only to low-income individuals facing serious issues like domestic violence or child custody threats. Legal aid organizations, pro bono programs, and law school clinics offer free or reduced-cost assistance to those who qualify.`,
+    relatedLinks: [
+      { title: "Legal Aid Organizations Directory", href: "/resources/legal-aid" },
+      { title: "Fee Waiver Information", href: "/resources/q/fee-waiver" },
+    ],
+    relatedQuestions: [
+      { question: "What are typical court filing fees?", href: "/resources/q/filing-fees" },
+      { question: "What if I can't afford court fees?", href: "/resources/q/fee-waiver" },
+    ],
+    governance: freeLegalHelp.governance
   },
 ];

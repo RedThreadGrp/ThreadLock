@@ -1,6 +1,6 @@
 # V2 Content Standard Audit Report
 
-**Generated:** 2026-02-16T01:48:33.796Z
+**Generated:** 2026-02-16T18:22:19.282Z
 **Audit Purpose:** Track migration to contentVersion: 2 (structured blocks) standard
 
 ## Executive Summary
@@ -36,21 +36,21 @@ The V2 standard requires:
 | Route | Type | Title | Words | Has Blocks | Notes |
 |-------|------|-------|-------|------------|-------|
 | /resources/authentication | resource | Federal Rules of Evidence - Rule... | 0 | ✅ | V2 content from separate file ... |
-| /resources/courtroom-prep | resource |  | 0 | ✅ | V2 content from separate file ... |
+| /resources/courtroom-prep | resource | Federal Rules of Civil Procedure | 0 | ✅ | V2 content from separate file ... |
 | /resources/evidence-intake | resource | Evidence Intake: Photos, Texts, ... | 0 | ✅ | V2 content from separate file ... |
 | /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Org... | 0 | ✅ | V2 content from separate file ... |
 | /resources/filing-basics | resource | Federal Rules of Civil Procedure | 0 | ✅ | V2 content from separate file ... |
-| /resources/financial-snapshot | resource |  | 0 | ✅ | V2 content from separate file ... |
+| /resources/financial-snapshot | resource | Family Law Resources | 0 | ✅ | V2 content from separate file ... |
 | /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 407 | ✅ | Missing updated date... |
 | /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Cal... | 481 | ✅ | Missing updated date... |
 | /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | ✅ | Missing updated date... |
 | /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Repre... | 19 | ✅ | V2 content from separate file ... |
 | /resources/hearing-tomorrow | resource | Hearing Tomorrow Checklist | 0 | ✅ | V2 content from separate file ... |
-| /resources/kits/evidence | kit | Evidence Kit | 0 | ✅ | V2 content from separate file ... |
-| /resources/kits/first-filing | kit | First Filing Kit | 0 | ✅ | V2 content from separate file ... |
-| /resources/kits/hearing-soon | kit | Hearing Soon Kit | 0 | ✅ | V2 content from separate file ... |
-| /resources/official-portals | resource |  | 0 | ✅ | V2 content from separate file ... |
-| /resources/parenting-plans | resource |  | 0 | ✅ | V2 content from separate file ... |
+| /resources/kits/evidence | kit | missing | 0 | ✅ | V2 content from separate file ... |
+| /resources/kits/first-filing | kit | missing | 0 | ✅ | V2 content from separate file ... |
+| /resources/kits/hearing-soon | kit | missing | 0 | ✅ | V2 content from separate file ... |
+| /resources/official-portals | resource | Forms | 0 | ✅ | V2 content from separate file ... |
+| /resources/parenting-plans | resource | Child Custody and Parenting Time | 0 | ✅ | V2 content from separate file ... |
 | /resources/proof-of-service | resource | What Counts as Proof of Service?... | 0 | ✅ | V2 content from separate file ... |
 | /resources/q/child-support-calculation | question | How much does mediation cost? | 979 | ✅ | — |
 | /resources/q/custody-types | question | What happens if I miss a filing ... | 846 | ✅ | — |
@@ -64,7 +64,7 @@ The V2 standard requires:
 | /resources/q/respond-to-motion | question | What are typical court filing fees? | 1261 | ✅ | — |
 | /resources/q/service-deadlines | question | What should I wear to court? | 788 | ✅ | — |
 | /resources/q/text-authentication | question | What if I can't afford court fees? | 640 | ✅ | — |
-| /resources/timeline-tools | resource | Official Court Portals by State | 1466 | ✅ | — |
+| /resources/timeline-tools | resource | Timeline Organization Tools | 1466 | ✅ | — |
 
 ## V1 Legacy Content (0 total)
 
@@ -93,8 +93,8 @@ These items are candidates for migration to V2 structured format:
 
 ### V2 Content Quality
 
-- **With lastUpdated date:** 14/30 (46.7%)
-- **With sources:** 1/30 (3.3%)
+- **With lastUpdated date:** 30/30 (100.0%)
+- **With sources:** 2/30 (6.7%)
 - **With FAQs:** 12/30
 
 ## Next Steps

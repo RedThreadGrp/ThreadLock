@@ -168,6 +168,14 @@ export const exhibitsGuide: ResourcePage = {
       {
         question: "How many copies of exhibits do I need to bring?",
         answer: "Bring at least three complete sets: one original for the judge, one copy for the opposing party, and one for yourself. Some courts require additional copies for court staff or witnesses. Check your local rules or call the clerk's office to confirm the exact number needed."
+      },
+      {
+        question: "How do I authenticate text messages for court?",
+        answer: "Authentication means proving that evidence is what you claim it is. For text messages, take full-screen screenshots showing the phone number, timestamp, and complete conversation thread. Don't crop or edit images. Include a written declaration under penalty of perjury stating: (1) you took the screenshots from your phone, (2) they accurately represent the messages, (3) the phone number belongs to the other party, and (4) the dates and times are correct. Some judges may also require you to bring the original phone to court for verification."
+      },
+      {
+        question: "Can I add exhibits after the hearing starts?",
+        answer: "Maybe, but it's risky and not recommended. Courts generally require exhibits to be exchanged with the opposing party before the hearing (typically 5-10 days in advance, depending on jurisdiction). If you try to introduce new exhibits during the hearing, the judge may refuse to admit them unless you can show good cause for the late submission. The opposing party can object, arguing they didn't have time to review or prepare a response. In emergencies (like discovering critical evidence the day before), you can file a motion to admit late exhibits, but success isn't guaranteed. Always label and exchange exhibits according to your court's deadlines."
       }
     ]
   },
