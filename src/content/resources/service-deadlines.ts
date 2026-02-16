@@ -146,31 +146,61 @@ export const serviceDeadlines: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "Federal Rules of Civil Procedure - Rules 4, 5, 6 (Service and Time Computation)",
+        title: "Federal Rules of Civil Procedure - Rule 4",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Service of process requirements and timing"
       },
       {
-        name: "State Rules of Civil Procedure - Service of Process Requirements",
+        title: "Federal Rules of Civil Procedure - Rule 5",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Service and filing of pleadings and other papers"
       },
       {
-        name: "Local Court Rules - Specific Timing Requirements",
+        title: "Federal Rules of Civil Procedure - Rule 6",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Computing and extending time requirements"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "Federal Rules of Civil Procedure",
-        href: "https://www.law.cornell.edu/rules/frcp",
-        note: "Rules 4, 5, and 6 govern service and time computation",
+        title: "Federal Rules of Civil Procedure - Rule 4",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Service of process requirements and timing"
       },
       {
-        name: "State Rules of Civil Procedure",
-        note: "Service deadlines vary by state",
+        title: "Federal Rules of Civil Procedure - Rule 5",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Service and filing of pleadings and other papers"
+      },
+      {
+        title: "Federal Rules of Civil Procedure - Rule 6",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Computing and extending time requirements"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["federal"],
     reviewIntervalDays: 180,
     accuracyNotes: "Service deadlines vary significantly by jurisdiction (federal vs. state), case type (civil, family, criminal), and document type. Some courts have adopted e-filing systems that may affect service timing. Local court rules often modify statewide rules. Emergency or expedited procedures have different timelines. Always consult your specific court's rules and calendar.",
   },

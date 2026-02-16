@@ -295,25 +295,34 @@ export const authentication: ResourcePage = {
     ]
   },
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        title: "Federal Rules of Evidence - Rule 901 (Authenticating or Identifying Evidence)",
-        url: "https://www.law.cornell.edu/rules/fre/rule_901",
-        type: "primary"
+        title: "Federal Rules of Evidence - Rule 901",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Authenticating or identifying evidence - requirement and methods"
       },
       {
-        title: "Federal Rules of Evidence - Rule 902 (Evidence That Is Self-Authenticating)",
-        url: "https://www.law.cornell.edu/rules/fre/rule_902",
-        type: "primary"
+        title: "Federal Rules of Evidence - Rule 902",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Evidence that is self-authenticating"
       },
       {
-        title: "American Bar Association - Digital Evidence Resources",
-        url: "https://www.americanbar.org/groups/judicial/resources/",
-        type: "secondary"
+        title: "Federal Rules of Evidence",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/rules/fre",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Complete text of Federal Rules of Evidence with annotations"
       }
     ],
-    jurisdictionScope: "U.S. state trial courts (general principles based on Federal Rules of Evidence model)",
+    jurisdictionScope: ["federal"],
     reviewIntervalDays: 180,
     accuracyNotes: "Authentication requirements vary by jurisdiction and judge. Some judges are more lenient in family court proceedings, while others strictly enforce evidentiary rules even for pro se litigants. Digital evidence authentication is an evolving area of law as technology changes. State recording consent laws vary—some require all-party consent, others only one-party consent. Always check your state's specific requirements before recording conversations."
   }
