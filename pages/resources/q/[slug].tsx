@@ -88,7 +88,7 @@ function QuestionPageV2({ question, slug }: QuestionPageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resourceQA-v2">
-        <div className="pt-28">
+        <div className="pt-36">
           <ResourceQAArticle content={question.blocks} />
         </div>
         
@@ -207,7 +207,7 @@ function QuestionPageV1({ question, slug }: QuestionPageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="legacyResource-v1" data-testid="legacy-question-body">
-        <div className="mx-auto max-w-4xl px-6 pt-28 pb-10">
+        <div className="mx-auto max-w-4xl px-6 pt-36 pb-10">
           {/* Back link */}
           <Link 
             href="/resources#questions" 
