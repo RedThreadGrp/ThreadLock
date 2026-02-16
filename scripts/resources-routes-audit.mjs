@@ -46,6 +46,7 @@ const ROUTES_TO_CHECK = [
 
 /**
  * Check if a file exists and contains the expected renderer
+ * Note: Some pages (like guides) may have conditional rendering based on content version
  */
 function checkRouteBinding(routeInfo) {
   const filePath = path.join(rootDir, routeInfo.file);
@@ -57,7 +58,8 @@ function checkRouteBinding(routeInfo) {
       exists: false,
       hasRenderer: false,
       renderer: null,
-      error: `File not found: ${routeInfo.file}`
+      error: `File not found: ${routeInfo.file}`,
+      usesConditionalRendering: false
     };
   }
 
@@ -65,16 +67,27 @@ function checkRouteBinding(routeInfo) {
   const content = fs.readFileSync(filePath, 'utf-8');
 
   // Check for renderer identity
-  const rendererMatch = content.match(/data-renderer="([^"]+)"/);
-  const hasRenderer = !!rendererMatch;
-  const renderer = rendererMatch ? rendererMatch[1] : null;
+  const rendererMatches = [...content.matchAll(/data-renderer="([^"]+)"/g)];
+  const hasRenderer = rendererMatches.length > 0;
+  
+  // Check if file uses conditional rendering (content version routing)
+  const usesConditionalRendering = content.includes('contentVersion') && 
+                                   content.includes('ResourceQAArticle');
+  
+  // If multiple renderers found, it's using conditional rendering
+  const uniqueRenderers = [...new Set(rendererMatches.map(m => m[1]))];
+  const renderer = uniqueRenderers.length === 1 ? uniqueRenderers[0] : 
+                   uniqueRenderers.length > 1 ? 'conditional' : null;
 
   return {
     ...routeInfo,
     exists: true,
     hasRenderer,
     renderer,
-    isCorrect: renderer === routeInfo.expectedRenderer,
+    renderers: uniqueRenderers,
+    usesConditionalRendering,
+    isCorrect: renderer === routeInfo.expectedRenderer || 
+               (usesConditionalRendering && uniqueRenderers.includes(routeInfo.expectedRenderer)),
     error: null
   };
 }
@@ -102,6 +115,16 @@ function runRoutesAudit() {
       console.log(`  ❌ ERROR: No renderer identity found`);
       console.log(`     Expected: data-renderer="${result.expectedRenderer}"`);
       hasErrors = true;
+    } else if (result.usesConditionalRendering) {
+      console.log(`  ℹ️  CONDITIONAL: Routes to different renderers based on content`);
+      console.log(`     Renderers found: ${result.renderers.join(', ')}`);
+      console.log(`     Expected: data-renderer="${result.expectedRenderer}"`);
+      if (result.renderers.includes(result.expectedRenderer)) {
+        console.log(`     ✓ Includes expected renderer`);
+      } else {
+        console.log(`     ⚠️  Does not include expected renderer`);
+        hasErrors = true;
+      }
     } else if (!result.isCorrect) {
       console.log(`  ❌ ERROR: Wrong renderer identity`);
       console.log(`     Found: data-renderer="${result.renderer}"`);
