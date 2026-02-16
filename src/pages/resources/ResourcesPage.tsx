@@ -162,6 +162,53 @@ export default function ResourcesPage() {
     });
   }, [query, intent, tag]);
 
+  // Filter starter kits based on search query
+  const filteredStarterKits = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return STARTER_KITS;
+    return STARTER_KITS.filter((kit) => {
+      return (
+        kit.title.toLowerCase().includes(q) ||
+        kit.description.toLowerCase().includes(q) ||
+        kit.whatYouGet.some(item => item.toLowerCase().includes(q))
+      );
+    });
+  }, [query]);
+
+  // Filter featured guides based on search query
+  const filteredFeaturedGuides = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return FEATURED_GUIDES;
+    return FEATURED_GUIDES.filter((guide) => {
+      return (
+        guide.title.toLowerCase().includes(q) ||
+        guide.summary.toLowerCase().includes(q) ||
+        guide.tags.some(tag => tag.toLowerCase().includes(q))
+      );
+    });
+  }, [query]);
+
+  // Filter topics based on search query
+  const filteredTopics = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return TOPICS;
+    return TOPICS.filter((topic) => {
+      return (
+        topic.title.toLowerCase().includes(q) ||
+        topic.promise.toLowerCase().includes(q)
+      );
+    });
+  }, [query]);
+
+  // Filter popular questions based on search query
+  const filteredPopularQuestions = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return POPULAR_QUESTIONS;
+    return POPULAR_QUESTIONS.filter((question) => {
+      return question.question.toLowerCase().includes(q);
+    });
+  }, [query]);
+
   // Filter external resources
   const filteredExternalResources = useMemo(() => {
     const searchTerm = externalSearch.trim().toLowerCase();
@@ -201,35 +248,54 @@ export default function ResourcesPage() {
         <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
           <div className="mx-auto max-w-3xl">
             {/* Search bar */}
-            <div className="mx-auto max-w-2xl rounded-3xl border border-border-dark bg-surface-dark-panel p-2 shadow-sm">
+            <form 
+              onSubmit={(e) => {
+                e.preventDefault();
+                // Scroll to first results section when search is submitted
+                const firstSection = document.querySelector('#starter-kits');
+                if (firstSection) {
+                  firstSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className="mx-auto max-w-2xl rounded-3xl border border-border-dark bg-surface-dark-panel p-2 shadow-sm"
+            >
               <div className="flex items-center gap-3 rounded-2xl bg-surface-dark px-4 py-3 border border-border-dark/50 focus-within:border-brand-orange/50 transition-colors">
                 <div className="grid h-8 w-8 place-items-center rounded-xl bg-brand-orange text-white shrink-0">
                   <span className="text-xs font-bold">↯</span>
                 </div>
                 <input
+                  data-testid="resources.search.input"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search resources: 'proof of service', 'hearing tomorrow', 'evidence'…"
                   className="w-full bg-transparent text-sm outline-none placeholder:text-muted-dark text-foreground-dark"
                 />
+                <button
+                  type="submit"
+                  data-testid="resources.search.button"
+                  className="shrink-0 rounded-xl bg-brand-orange px-4 py-2 text-xs font-semibold text-white hover:bg-brand-navy transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/50"
+                  aria-label="Search resources"
+                >
+                  Search
+                </button>
               </div>
-            </div>
+            </form>
 
             {/* Fast Tracks */}
             <div className="mt-6 flex flex-wrap justify-center gap-2">
-              <Pill onClick={() => setIntent("Urgent")} active={intent === "Urgent"}>
+              <Pill onClick={() => setIntent("Urgent")} active={intent === "Urgent"} data-testid="resources.search.chip">
                 I have a hearing soon
               </Pill>
-              <Pill onClick={() => setIntent("Start")} active={intent === "Start"}>
+              <Pill onClick={() => setIntent("Start")} active={intent === "Start"} data-testid="resources.search.chip">
                 I need to file basics
               </Pill>
-              <Pill onClick={() => setIntent("Organize")} active={intent === "Organize"}>
+              <Pill onClick={() => setIntent("Organize")} active={intent === "Organize"} data-testid="resources.search.chip">
                 I'm organizing evidence
               </Pill>
-              <Pill onClick={() => setIntent("Learn")} active={intent === "Learn"}>
+              <Pill onClick={() => setIntent("Learn")} active={intent === "Learn"} data-testid="resources.search.chip">
                 I need official portals
               </Pill>
-              <Pill onClick={resetFilters} active={!isFiltersActive}>
+              <Pill onClick={resetFilters} active={!isFiltersActive} data-testid="resources.search.chip">
                 Reset
               </Pill>
             </div>
@@ -237,9 +303,9 @@ export default function ResourcesPage() {
         </section>
 
         {/* In-page Subnav */}
-        <nav className="sticky top-0 z-10 bg-surface-dark/95 backdrop-blur-sm border-b border-border-dark mb-10">
+        <nav className="sticky top-0 z-10 bg-surface-dark/95 backdrop-blur-sm border-b border-border-dark mb-10" data-testid="resources.subnav">
           <div className="mx-auto max-w-6xl px-6">
-            <div className="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
+            <div className="flex items-center justify-center gap-1 overflow-x-auto py-3 scrollbar-hide">
               <a 
                 href="#starter-kits" 
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
@@ -298,7 +364,7 @@ export default function ResourcesPage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {STARTER_KITS.map((kit) => (
+            {filteredStarterKits.map((kit) => (
               <Link
                 key={kit.href}
                 href={kit.href}
@@ -359,33 +425,35 @@ export default function ResourcesPage() {
 
           <div className="grid gap-6 lg:grid-cols-2">
             {/* Primary featured guide */}
-            <Link
-              href={FEATURED_GUIDES[0].href}
-              className="group relative lg:col-span-2 rounded-3xl border border-border-dark bg-surface-dark-panel p-8 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
-            >
-              {/* Orange glow overlay on hover */}
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
-              
-              <div className="relative z-10">
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {FEATURED_GUIDES[0].tags.map((tag) => (
-                    <span key={tag} className="rounded-full bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange">
-                      {tag}
-                    </span>
-                  ))}
+            {filteredFeaturedGuides.length > 0 && (
+              <Link
+                href={filteredFeaturedGuides[0].href}
+                className="group relative lg:col-span-2 rounded-3xl border border-border-dark bg-surface-dark-panel p-8 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
+              >
+                {/* Orange glow overlay on hover */}
+                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {filteredFeaturedGuides[0].tags.map((tag) => (
+                      <span key={tag} className="rounded-full bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-2xl font-semibold tracking-tight text-foreground-dark group-hover:text-brand-orange transition-colors">
+                    {filteredFeaturedGuides[0].title}
+                  </h3>
+                  <p className="mt-3 text-muted-dark leading-relaxed">{filteredFeaturedGuides[0].summary}</p>
+                  {filteredFeaturedGuides[0].updated && (
+                    <p className="mt-4 text-xs text-muted-dark">Updated {filteredFeaturedGuides[0].updated}</p>
+                  )}
                 </div>
-                <h3 className="text-2xl font-semibold tracking-tight text-foreground-dark group-hover:text-brand-orange transition-colors">
-                  {FEATURED_GUIDES[0].title}
-                </h3>
-                <p className="mt-3 text-muted-dark leading-relaxed">{FEATURED_GUIDES[0].summary}</p>
-                {FEATURED_GUIDES[0].updated && (
-                  <p className="mt-4 text-xs text-muted-dark">Updated {FEATURED_GUIDES[0].updated}</p>
-                )}
-              </div>
-            </Link>
+              </Link>
+            )}
 
             {/* Secondary guides */}
-            {FEATURED_GUIDES.slice(1).map((guide) => (
+            {filteredFeaturedGuides.slice(1).map((guide) => (
               <Link
                 key={guide.href}
                 href={guide.href}
@@ -425,7 +493,7 @@ export default function ResourcesPage() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {TOPICS.map((topic) => (
+            {filteredTopics.map((topic) => (
               <Link
                 key={topic.slug}
                 href={`/resources/topics/${topic.slug}`}
@@ -561,7 +629,7 @@ export default function ResourcesPage() {
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {POPULAR_QUESTIONS.map((q) => (
+            {filteredPopularQuestions.map((q) => (
               <Link
                 key={q.href}
                 href={q.href}
@@ -849,11 +917,12 @@ export default function ResourcesPage() {
   );
 }
 
-function Pill({ children, onClick, active }: { children: React.ReactNode; onClick: () => void; active?: boolean }) {
+function Pill({ children, onClick, active, 'data-testid': dataTestId }: { children: React.ReactNode; onClick: () => void; active?: boolean; 'data-testid'?: string }) {
   return (
     <button
       type="button"
       onClick={onClick}
+      data-testid={dataTestId}
       className={cn(
         "rounded-full px-4 py-2 text-xs font-semibold transition",
         "border border-border-dark bg-surface-dark-panel hover:bg-surface-dark text-foreground-dark",
