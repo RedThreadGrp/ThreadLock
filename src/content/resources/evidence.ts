@@ -16,13 +16,34 @@ export const evidence: DivorceKit = {
   resources: ["/resources/evidence-intake", "/resources/timeline-tools", "/resources/authentication"],
   status: "published",
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
-      { name: "Federal Rules of Evidence", href: "https://www.law.cornell.edu/rules/fre" },
-      { name: "Legal Aid Organizations", href: "https://www.lawhelp.org" },
-      { name: "State Bar Evidence Guides" }
+      { 
+        title: "Federal Rules of Evidence",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Authentication and admissibility standards"
+      },
+      { 
+        title: "Federal Rules of Evidence",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/rules/fre",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Complete text with annotations"
+      },
+      { 
+        title: "Find Legal Aid",
+        organization: "Legal Services Corporation",
+        url: "https://www.lsc.gov/what-legal-aid/find-legal-aid",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Free or low-cost legal assistance"
+      }
     ],
-    jurisdictionScope: ["Federal"],
+    jurisdictionScope: ["federal"],
     reviewIntervalDays: 180,
     accuracyNotes: "Evidence rules and authentication requirements vary by state. Consult local rules."
   },

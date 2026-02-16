@@ -16,12 +16,25 @@ export const hearingSoon: DivorceKit = {
   resources: ["/resources/hearing-tomorrow", "/resources/exhibits-guide", "/resources/courtroom-prep"],
   status: "published",
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
-      { name: "Court Self-Help Portals" },
-      { name: "Legal Aid Organizations" }
+      { 
+        title: "Court Procedures",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        lastAccessed: "2026-02-16",
+        note: "General courtroom procedures and hearing guidance"
+      },
+      { 
+        title: "Find Legal Aid",
+        organization: "Legal Services Corporation",
+        url: "https://www.lsc.gov/what-legal-aid/find-legal-aid",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Free or low-cost legal assistance"
+      }
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Courtroom procedures vary by court. This kit provides general guidance."
   },

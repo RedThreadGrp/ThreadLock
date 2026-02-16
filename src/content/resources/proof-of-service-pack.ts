@@ -157,23 +157,34 @@ export const proofOfServicePack: ResourcePage = {
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     reviewIntervalDays: 180,
     sources: [
       {
-        name: "Federal Rules of Civil Procedure Rule 5",
-        url: "https://www.federalrulesofcivilprocedure.org/frcp/title-iii-pleadings-and-motions/rule-5-serving-and-filing-pleadings-and-other-papers/",
+        title: "Federal Rules of Civil Procedure - Rule 5",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Service and filing requirements"
       },
       {
-        name: "State Bar Service of Process Guides",
-        note: "Check your state bar website for specific service rules",
+        title: "Federal Rules of Civil Procedure - Rule 5",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/rules/frcp/rule_5",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Serving and filing pleadings and other papers"
       },
       {
-        name: "Court Clerk's Offices",
-        note: "Local court websites provide jurisdiction-specific proof of service forms and requirements",
+        title: "Self-Help Resources",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/information-and-resources/state-court-websites",
+        lastAccessed: "2026-02-16",
+        note: "State-specific service rules and forms"
       },
     ],
-    jurisdictionScope: "General proof of service procedures applicable across U.S. courts",
+    jurisdictionScope: ["multi-state"],
     accuracyNotes:
       "Service requirements vary significantly by state and even by county. Deadlines, acceptable methods, and form requirements differ. Always verify with your local court rules. Electronic service rules are expanding but not uniformly accepted.",
   },

@@ -186,18 +186,45 @@ export const selfRepresentationComplete: ResourceQAContent = {
   sources: {
     heading: "Sources",
     items: [
-      { name: "Federal Rules of Civil Procedure" },
-      { name: "Court Self-Help Portals" },
+      { 
+        title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "General court procedures for self-representation"
+      },
+      { 
+        title: "Representing Yourself in Court",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/forms/pro-se-forms",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Pro se litigant resources and guidance"
+      }
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
-      { name: "Federal Rules of Civil Procedure" },
-      { name: "Court Self-Help Portals" }
+      { 
+        title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "General procedures and requirements"
+      },
+      { 
+        title: "Self-Help Resources",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        lastAccessed: "2026-02-16",
+        note: "State-specific pro se resources"
+      }
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 365,
     accuracyNotes: "Self-representation rules and court procedures vary by state and court."
   },
