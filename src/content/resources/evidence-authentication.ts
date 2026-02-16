@@ -156,30 +156,53 @@ export const evidenceAuthentication: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "Federal Rules of Evidence - Rule 901 (Authentication)",
+        title: "Federal Rules of Evidence - Rule 901",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Authenticating or identifying evidence"
       },
       {
-        name: "Federal Rules of Evidence - Rule 902 (Self-Authenticating Evidence)",
+        title: "Federal Rules of Evidence - Rule 902",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Evidence that is self-authenticating"
       },
       {
-        name: "Court Self-Help Portals - Evidence Guides",
+        title: "Federal Rules of Evidence",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/rules/fre",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Complete text with annotations on authentication"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "Federal Rules of Evidence",
-        note: "Authentication standards (Rules 901-902)",
+        title: "Federal Rules of Evidence - Rules 901 and 902",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Authentication standards (Rules 901-902)"
       },
       {
-        name: "Court Self-Help Portals",
-        note: "Practical guidance for self-represented litigants",
+        title: "Federal Rules of Evidence",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/rules/fre",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Complete text with annotations and case law"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["federal"],
     reviewIntervalDays: 180,
     accuracyNotes: "Authentication standards are based on Federal Rules of Evidence but state rules may vary. Digital evidence authentication is evolving with technology. Social media authentication presents unique challenges. Courts have discretion in determining whether authentication is sufficient. Self-authenticating categories differ slightly by jurisdiction. Consult your state's rules of evidence for specific requirements.",
   },
