@@ -1,6 +1,6 @@
 # Production Resources Routes Audit Report
 
-**Generated:** 2026-02-16T00:35:12.597Z  
+**Generated:** 2026-02-16T00:37:31.690Z  
 **Production URL:** https://www.threadlock.ai  
 **Total Routes Tested:** 35
 
@@ -39,7 +39,7 @@
 Call log:
   - navigating to "https://www.threadlock.ai/resources/proof-of-service", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-proof-of-service-1771202109729.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-proof-of-service-1771202248747.png)
 
 ### /resources/evidence-intake
 
@@ -52,7 +52,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/evidence-intake", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-evidence-intake-1771202109843.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-evidence-intake-1771202248858.png)
 
 ### /resources/parenting-plans
 
@@ -65,7 +65,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/parenting-plans", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-parenting-plans-1771202109925.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-parenting-plans-1771202248936.png)
 
 ### /resources/financial-snapshot
 
@@ -78,7 +78,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/financial-snapshot", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-financial-snapshot-1771202110007.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-financial-snapshot-1771202249021.png)
 
 ### /resources/official-portals
 
@@ -91,7 +91,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/official-portals", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-official-portals-1771202110091.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-official-portals-1771202249105.png)
 
 ### /resources/courtroom-prep
 
@@ -104,7 +104,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/courtroom-prep", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-courtroom-prep-1771202110175.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-courtroom-prep-1771202249186.png)
 
 ### /resources/filing-basics
 
@@ -117,7 +117,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/filing-basics", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-filing-basics-1771202110258.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-filing-basics-1771202249270.png)
 
 ### /resources/timeline-tools
 
@@ -130,7 +130,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/timeline-tools", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-timeline-tools-1771202110341.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-timeline-tools-1771202249355.png)
 
 ### /resources/authentication
 
@@ -143,7 +143,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/authentication", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-authentication-1771202110425.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-resource-authentication-1771202249436.png)
 
 ### /resources/q/proof-of-service-definition
 
@@ -156,7 +156,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/proof-of-service-definition", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-proof-of-service-definition-1771202110508.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-proof-of-service-definition-1771202249520.png)
 
 ### /resources/q/proof-of-service-definition
 
@@ -169,7 +169,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/proof-of-service-definition", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-proof-of-service-definition-1771202110592.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-proof-of-service-definition-1771202249604.png)
 
 ### /resources/q/exhibit-labeling
 
@@ -182,7 +182,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/exhibit-labeling", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-exhibit-labeling-1771202110678.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-exhibit-labeling-1771202249686.png)
 
 ### /resources/q/official-forms-location
 
@@ -195,7 +195,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/official-forms-location", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-official-forms-location-1771202110759.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-official-forms-location-1771202249777.png)
 
 ### /resources/q/text-authentication
 
@@ -208,7 +208,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/text-authentication", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-text-authentication-1771202110842.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-text-authentication-1771202249871.png)
 
 ### /resources/q/hearing-checklist
 
@@ -221,7 +221,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/hearing-checklist", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-hearing-checklist-1771202110944.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-hearing-checklist-1771202249972.png)
 
 ### /resources/q/service-deadlines
 
@@ -234,7 +234,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/service-deadlines", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-service-deadlines-1771202111025.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-service-deadlines-1771202250052.png)
 
 ### /resources/q/custody-types
 
@@ -247,7 +247,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/custody-types", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-custody-types-1771202111108.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-custody-types-1771202250136.png)
 
 ### /resources/q/mediation-lawyer
 
@@ -260,7 +260,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/mediation-lawyer", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-mediation-lawyer-1771202111192.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-mediation-lawyer-1771202250220.png)
 
 ### /resources/q/child-support-calculation
 
@@ -273,7 +273,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/child-support-calculation", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-child-support-calculation-1771202111274.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-child-support-calculation-1771202250303.png)
 
 ### /resources/q/modify-parenting-plan
 
@@ -286,7 +286,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/modify-parenting-plan", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-modify-parenting-plan-1771202111360.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-modify-parenting-plan-1771202250386.png)
 
 ### /resources/q/fee-waiver
 
@@ -299,7 +299,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/fee-waiver", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-fee-waiver-1771202111441.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-fee-waiver-1771202250469.png)
 
 ### /resources/q/respond-to-motion
 
@@ -312,7 +312,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/q/respond-to-motion", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-question-respond-to-motion-1771202111507.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-question-respond-to-motion-1771202250553.png)
 
 ### /resources/guides/self-representation-complete
 
@@ -325,7 +325,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/guides/self-representation-complete", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-guide-self-representation-complete-1771202111591.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-guide-self-representation-complete-1771202250636.png)
 
 ### /resources/guides/evidence-authentication
 
@@ -338,7 +338,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/guides/evidence-authentication", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-guide-evidence-authentication-1771202111675.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-guide-evidence-authentication-1771202250720.png)
 
 ### /resources/guides/proof-of-service-states
 
@@ -351,7 +351,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/guides/proof-of-service-states", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-guide-proof-of-service-states-1771202111759.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-guide-proof-of-service-states-1771202250802.png)
 
 ### /resources/guides/parenting-time-calculations
 
@@ -364,7 +364,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/guides/parenting-time-calculations", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-guide-parenting-time-calculations-1771202111842.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-guide-parenting-time-calculations-1771202250885.png)
 
 ### /resources/kits/hearing-soon
 
@@ -377,7 +377,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/kits/hearing-soon", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-kit-hearing-soon-1771202111925.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-kit-hearing-soon-1771202250951.png)
 
 ### /resources/topics/proof-of-service
 
@@ -390,7 +390,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/topics/proof-of-service", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-proof-of-service-1771202111990.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-proof-of-service-1771202251018.png)
 
 ### /resources/topics/evidence-exhibits
 
@@ -403,7 +403,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/topics/evidence-exhibits", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-evidence-exhibits-1771202112057.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-evidence-exhibits-1771202251104.png)
 
 ### /resources/topics/hearings-prep
 
@@ -416,7 +416,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/topics/hearings-prep", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-hearings-prep-1771202112123.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-hearings-prep-1771202251188.png)
 
 ### /resources/topics/parenting-plans
 
@@ -429,7 +429,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/topics/parenting-plans", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-parenting-plans-1771202112190.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-parenting-plans-1771202251270.png)
 
 ### /resources/topics/financial-declarations
 
@@ -442,7 +442,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/topics/financial-declarations", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-financial-declarations-1771202112256.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-financial-declarations-1771202251353.png)
 
 ### /resources/topics/official-forms
 
@@ -455,7 +455,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/topics/official-forms", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-official-forms-1771202112325.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-topic-official-forms-1771202251438.png)
 
 ### /resources
 
@@ -468,7 +468,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-special-hub-1771202112410.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-special-hub-1771202251521.png)
 
 ### /resources/thanks
 
@@ -481,7 +481,7 @@ Call log:
 Call log:
   - navigating to "https://www.threadlock.ai/resources/thanks", waiting until "domcontentloaded"
 , No renderer identity found
-- **Screenshot:** [View](../../artifacts/resources-audit/error-special-thanks-1771202112492.png)
+- **Screenshot:** [View](../../artifacts/resources-audit/error-special-thanks-1771202251602.png)
 
 ## Complete Results
 

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-02-16T00:35:12.598Z",
+  "timestamp": "2026-02-16T00:37:31.691Z",
   "baseUrl": "https://www.threadlock.ai",
   "summary": {
     "healthy": 0,
@@ -24,9 +24,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-proof-of-service-1771202109729.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-proof-of-service-1771202248747.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/proof-of-service\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/proof-of-service\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:09.719Z"
+      "timestamp": "2026-02-16T00:37:28.737Z"
     },
     {
       "type": "resource",
@@ -38,9 +38,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-evidence-intake-1771202109843.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-evidence-intake-1771202248858.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/evidence-intake\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/evidence-intake\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:09.836Z"
+      "timestamp": "2026-02-16T00:37:28.848Z"
     },
     {
       "type": "resource",
@@ -52,9 +52,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-parenting-plans-1771202109925.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-parenting-plans-1771202248936.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/parenting-plans\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/parenting-plans\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:09.917Z"
+      "timestamp": "2026-02-16T00:37:28.929Z"
     },
     {
       "type": "resource",
@@ -66,9 +66,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-financial-snapshot-1771202110007.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-financial-snapshot-1771202249021.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/financial-snapshot\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/financial-snapshot\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.000Z"
+      "timestamp": "2026-02-16T00:37:29.014Z"
     },
     {
       "type": "resource",
@@ -80,9 +80,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-official-portals-1771202110091.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-official-portals-1771202249105.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/official-portals\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/official-portals\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.084Z"
+      "timestamp": "2026-02-16T00:37:29.098Z"
     },
     {
       "type": "resource",
@@ -94,9 +94,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-courtroom-prep-1771202110175.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-courtroom-prep-1771202249186.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/courtroom-prep\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/courtroom-prep\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.168Z"
+      "timestamp": "2026-02-16T00:37:29.179Z"
     },
     {
       "type": "resource",
@@ -108,9 +108,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-filing-basics-1771202110258.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-filing-basics-1771202249270.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/filing-basics\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/filing-basics\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.250Z"
+      "timestamp": "2026-02-16T00:37:29.262Z"
     },
     {
       "type": "resource",
@@ -122,9 +122,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-timeline-tools-1771202110341.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-timeline-tools-1771202249355.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/timeline-tools\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/timeline-tools\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.334Z"
+      "timestamp": "2026-02-16T00:37:29.347Z"
     },
     {
       "type": "resource",
@@ -136,9 +136,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-authentication-1771202110425.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-resource-authentication-1771202249436.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/authentication\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/authentication\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.418Z"
+      "timestamp": "2026-02-16T00:37:29.429Z"
     },
     {
       "type": "question",
@@ -150,9 +150,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-proof-of-service-definition-1771202110508.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-proof-of-service-definition-1771202249520.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/proof-of-service-definition\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/proof-of-service-definition\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.501Z"
+      "timestamp": "2026-02-16T00:37:29.513Z"
     },
     {
       "type": "question",
@@ -164,9 +164,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-proof-of-service-definition-1771202110592.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-proof-of-service-definition-1771202249604.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/proof-of-service-definition\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/proof-of-service-definition\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.584Z"
+      "timestamp": "2026-02-16T00:37:29.596Z"
     },
     {
       "type": "question",
@@ -178,9 +178,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-exhibit-labeling-1771202110678.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-exhibit-labeling-1771202249686.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/exhibit-labeling\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/exhibit-labeling\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.670Z"
+      "timestamp": "2026-02-16T00:37:29.679Z"
     },
     {
       "type": "question",
@@ -192,9 +192,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-official-forms-location-1771202110759.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-official-forms-location-1771202249777.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/official-forms-location\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/official-forms-location\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.751Z"
+      "timestamp": "2026-02-16T00:37:29.762Z"
     },
     {
       "type": "question",
@@ -206,9 +206,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-text-authentication-1771202110842.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-text-authentication-1771202249871.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/text-authentication\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/text-authentication\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.835Z"
+      "timestamp": "2026-02-16T00:37:29.864Z"
     },
     {
       "type": "question",
@@ -220,9 +220,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-hearing-checklist-1771202110944.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-hearing-checklist-1771202249972.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/hearing-checklist\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/hearing-checklist\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:10.936Z"
+      "timestamp": "2026-02-16T00:37:29.964Z"
     },
     {
       "type": "question",
@@ -234,9 +234,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-service-deadlines-1771202111025.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-service-deadlines-1771202250052.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/service-deadlines\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/service-deadlines\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.018Z"
+      "timestamp": "2026-02-16T00:37:30.045Z"
     },
     {
       "type": "question",
@@ -248,9 +248,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-custody-types-1771202111108.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-custody-types-1771202250136.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/custody-types\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/custody-types\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.101Z"
+      "timestamp": "2026-02-16T00:37:30.129Z"
     },
     {
       "type": "question",
@@ -262,9 +262,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-mediation-lawyer-1771202111192.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-mediation-lawyer-1771202250220.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/mediation-lawyer\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/mediation-lawyer\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.184Z"
+      "timestamp": "2026-02-16T00:37:30.213Z"
     },
     {
       "type": "question",
@@ -276,9 +276,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-child-support-calculation-1771202111274.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-child-support-calculation-1771202250303.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/child-support-calculation\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/child-support-calculation\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.267Z"
+      "timestamp": "2026-02-16T00:37:30.296Z"
     },
     {
       "type": "question",
@@ -290,9 +290,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-modify-parenting-plan-1771202111360.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-modify-parenting-plan-1771202250386.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/modify-parenting-plan\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/modify-parenting-plan\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.353Z"
+      "timestamp": "2026-02-16T00:37:30.379Z"
     },
     {
       "type": "question",
@@ -304,9 +304,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-fee-waiver-1771202111441.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-fee-waiver-1771202250469.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/fee-waiver\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/fee-waiver\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.434Z"
+      "timestamp": "2026-02-16T00:37:30.462Z"
     },
     {
       "type": "question",
@@ -318,9 +318,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-respond-to-motion-1771202111507.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-question-respond-to-motion-1771202250553.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/q/respond-to-motion\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/q/respond-to-motion\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.499Z"
+      "timestamp": "2026-02-16T00:37:30.545Z"
     },
     {
       "type": "guide",
@@ -332,9 +332,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-guide-self-representation-complete-1771202111591.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-guide-self-representation-complete-1771202250636.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/guides/self-representation-complete\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/guides/self-representation-complete\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.584Z"
+      "timestamp": "2026-02-16T00:37:30.629Z"
     },
     {
       "type": "guide",
@@ -346,9 +346,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-guide-evidence-authentication-1771202111675.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-guide-evidence-authentication-1771202250720.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/guides/evidence-authentication\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/guides/evidence-authentication\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.667Z"
+      "timestamp": "2026-02-16T00:37:30.712Z"
     },
     {
       "type": "guide",
@@ -360,9 +360,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-guide-proof-of-service-states-1771202111759.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-guide-proof-of-service-states-1771202250802.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/guides/proof-of-service-states\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/guides/proof-of-service-states\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.752Z"
+      "timestamp": "2026-02-16T00:37:30.796Z"
     },
     {
       "type": "guide",
@@ -374,9 +374,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-guide-parenting-time-calculations-1771202111842.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-guide-parenting-time-calculations-1771202250885.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/guides/parenting-time-calculations\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/guides/parenting-time-calculations\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.834Z"
+      "timestamp": "2026-02-16T00:37:30.879Z"
     },
     {
       "type": "kit",
@@ -388,9 +388,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-kit-hearing-soon-1771202111925.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-kit-hearing-soon-1771202250951.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/kits/hearing-soon\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/kits/hearing-soon\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.918Z"
+      "timestamp": "2026-02-16T00:37:30.944Z"
     },
     {
       "type": "topic",
@@ -402,9 +402,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-proof-of-service-1771202111990.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-proof-of-service-1771202251018.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/topics/proof-of-service\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/topics/proof-of-service\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:11.983Z"
+      "timestamp": "2026-02-16T00:37:31.011Z"
     },
     {
       "type": "topic",
@@ -416,9 +416,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-evidence-exhibits-1771202112057.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-evidence-exhibits-1771202251104.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/topics/evidence-exhibits\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/topics/evidence-exhibits\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:12.050Z"
+      "timestamp": "2026-02-16T00:37:31.097Z"
     },
     {
       "type": "topic",
@@ -430,9 +430,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-hearings-prep-1771202112123.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-hearings-prep-1771202251188.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/topics/hearings-prep\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/topics/hearings-prep\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:12.116Z"
+      "timestamp": "2026-02-16T00:37:31.181Z"
     },
     {
       "type": "topic",
@@ -444,9 +444,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-parenting-plans-1771202112190.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-parenting-plans-1771202251270.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/topics/parenting-plans\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/topics/parenting-plans\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:12.183Z"
+      "timestamp": "2026-02-16T00:37:31.263Z"
     },
     {
       "type": "topic",
@@ -458,9 +458,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-financial-declarations-1771202112256.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-financial-declarations-1771202251353.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/topics/financial-declarations\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/topics/financial-declarations\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:12.249Z"
+      "timestamp": "2026-02-16T00:37:31.346Z"
     },
     {
       "type": "topic",
@@ -472,9 +472,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-official-forms-1771202112325.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-topic-official-forms-1771202251438.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/topics/official-forms\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/topics/official-forms\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:12.318Z"
+      "timestamp": "2026-02-16T00:37:31.431Z"
     },
     {
       "type": "special",
@@ -486,9 +486,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-special-hub-1771202112410.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-special-hub-1771202251521.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:12.402Z"
+      "timestamp": "2026-02-16T00:37:31.514Z"
     },
     {
       "type": "special",
@@ -500,9 +500,9 @@
       "renderer": null,
       "isBeingUpdated": false,
       "consoleErrors": [],
-      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-special-thanks-1771202112492.png",
+      "screenshotPath": "/home/runner/work/ThreadLock/ThreadLock/artifacts/resources-audit/error-special-thanks-1771202251602.png",
       "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.threadlock.ai/resources/thanks\nCall log:\n  - navigating to \"https://www.threadlock.ai/resources/thanks\", waiting until \"domcontentloaded\"\n",
-      "timestamp": "2026-02-16T00:35:12.484Z"
+      "timestamp": "2026-02-16T00:37:31.595Z"
     }
   ]
 }
