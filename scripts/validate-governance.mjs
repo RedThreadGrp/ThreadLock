@@ -145,62 +145,119 @@ function extractGovernanceFromFile(filePath) {
     return null; // File doesn't have governance (might be types.ts or README)
   }
   
-  // Try to parse the governance block using regex
-  // This is a simple parser - for production, consider using a proper TS parser
-  const governanceMatch = content.match(/governance:\s*\{([^}]+(?:\{[^}]*\}[^}]*)*)\}/s);
-  if (!governanceMatch) {
+  // Extract governance block by finding matching braces
+  const governanceStart = content.indexOf('governance:');
+  if (governanceStart === -1) {
     return null;
   }
   
+  // Find the opening brace after 'governance:'
+  const openBraceIndex = content.indexOf('{', governanceStart);
+  if (openBraceIndex === -1) {
+    return null;
+  }
+  
+  // Find the matching closing brace by counting braces
+  let braceCount = 1;
+  let i = openBraceIndex + 1;
+  while (i < content.length && braceCount > 0) {
+    if (content[i] === '{') braceCount++;
+    if (content[i] === '}') braceCount--;
+    i++;
+  }
+  
+  if (braceCount !== 0) {
+    return null; // Unmatched braces
+  }
+  
+  const governanceBlock = content.substring(openBraceIndex, i);
+  
   try {
-    // Extract the governance block and try to evaluate it
-    const governanceBlock = governanceMatch[0];
-    
     // Extract lastUpdated
     const lastUpdatedMatch = governanceBlock.match(/lastUpdated:\s*["']([^"']+)["']/);
     const lastUpdated = lastUpdatedMatch ? lastUpdatedMatch[1] : null;
     
-    // Extract jurisdictionScope
-    const jurisdictionMatch = governanceBlock.match(/jurisdictionScope:\s*\[([^\]]+)\]/);
-    const jurisdictionScope = jurisdictionMatch 
-      ? jurisdictionMatch[1].split(',').map(s => s.trim().replace(/["']/g, ''))
-      : [];
+    // Extract jurisdictionScope array
+    const jurisdictionMatch = governanceBlock.match(/jurisdictionScope:\s*\[([^\]]*)\]/s);
+    let jurisdictionScope = [];
+    if (jurisdictionMatch) {
+      const jurisdictionContent = jurisdictionMatch[1];
+      // Extract string values from array
+      const scopeMatches = jurisdictionContent.match(/["']([^"']+)["']/g);
+      if (scopeMatches) {
+        jurisdictionScope = scopeMatches.map(s => s.replace(/["']/g, ''));
+      }
+    }
     
-    // Extract sources array
-    const sourcesMatch = governanceBlock.match(/sources:\s*\[([^\]]+(?:\{[^\}]*\}[^\]]*)*)\]/s);
-    let sources = [];
-    
-    if (sourcesMatch) {
-      // Try to extract source objects
-      const sourcesContent = sourcesMatch[1];
-      const sourceObjects = sourcesContent.match(/\{[^\}]*\}/g);
-      if (sourceObjects) {
-        sources = sourceObjects.map(sourceStr => {
-          const titleMatch = sourceStr.match(/title:\s*["']([^"']+)["']/);
-          const orgMatch = sourceStr.match(/organization:\s*["']([^"']+)["']/);
-          const urlMatch = sourceStr.match(/url:\s*["']([^"']+)["']/);
-          const lastAccessedMatch = sourceStr.match(/lastAccessed:\s*["']([^"']+)["']/);
-          const jurisdictionMatch = sourceStr.match(/jurisdiction:\s*["']([^"']+)["']/);
-          const noteMatch = sourceStr.match(/note:\s*["']([^"']+)["']/);
-          
-          return {
-            title: titleMatch ? titleMatch[1] : null,
-            organization: orgMatch ? orgMatch[1] : null,
-            url: urlMatch ? urlMatch[1] : null,
-            lastAccessed: lastAccessedMatch ? lastAccessedMatch[1] : null,
-            jurisdiction: jurisdictionMatch ? jurisdictionMatch[1] : undefined,
-            note: noteMatch ? noteMatch[1] : undefined,
-          };
-        });
+    // Extract sources array by finding the sources: [ ... ] block
+    const sourcesStart = governanceBlock.indexOf('sources:');
+    if (sourcesStart !== -1) {
+      const sourcesArrayStart = governanceBlock.indexOf('[', sourcesStart);
+      if (sourcesArrayStart !== -1) {
+        // Find matching ] for sources array
+        let bracketCount = 1;
+        let j = sourcesArrayStart + 1;
+        while (j < governanceBlock.length && bracketCount > 0) {
+          if (governanceBlock[j] === '[') bracketCount++;
+          if (governanceBlock[j] === ']') bracketCount--;
+          j++;
+        }
+        
+        const sourcesArrayContent = governanceBlock.substring(sourcesArrayStart + 1, j - 1);
+        
+        // Extract individual source objects
+        const sources = [];
+        let objStart = -1;
+        let objBraceCount = 0;
+        
+        for (let k = 0; k < sourcesArrayContent.length; k++) {
+          if (sourcesArrayContent[k] === '{') {
+            if (objBraceCount === 0) {
+              objStart = k;
+            }
+            objBraceCount++;
+          } else if (sourcesArrayContent[k] === '}') {
+            objBraceCount--;
+            if (objBraceCount === 0 && objStart !== -1) {
+              const sourceObjStr = sourcesArrayContent.substring(objStart, k + 1);
+              
+              // Extract fields from this source object
+              const titleMatch = sourceObjStr.match(/title:\s*["']([^"']+)["']/s);
+              const orgMatch = sourceObjStr.match(/organization:\s*["']([^"']+)["']/s);
+              const urlMatch = sourceObjStr.match(/url:\s*["']([^"']+)["']/s);
+              const lastAccessedMatch = sourceObjStr.match(/lastAccessed:\s*["']([^"']+)["']/s);
+              const jurisdictionMatch = sourceObjStr.match(/jurisdiction:\s*["']([^"']+)["']/s);
+              const noteMatch = sourceObjStr.match(/note:\s*["']([^"']+)["']/s);
+              
+              sources.push({
+                title: titleMatch ? titleMatch[1] : null,
+                organization: orgMatch ? orgMatch[1] : null,
+                url: urlMatch ? urlMatch[1] : null,
+                lastAccessed: lastAccessedMatch ? lastAccessedMatch[1] : null,
+                jurisdiction: jurisdictionMatch ? jurisdictionMatch[1] : undefined,
+                note: noteMatch ? noteMatch[1] : undefined,
+              });
+              
+              objStart = -1;
+            }
+          }
+        }
+        
+        return {
+          lastUpdated,
+          jurisdictionScope,
+          sources,
+        };
       }
     }
     
     return {
       lastUpdated,
       jurisdictionScope,
-      sources,
+      sources: [],
     };
   } catch (err) {
+    console.error(`Error parsing governance in file: ${err.message}`);
     return null;
   }
 }
