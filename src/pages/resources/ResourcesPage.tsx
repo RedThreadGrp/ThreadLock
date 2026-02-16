@@ -252,9 +252,14 @@ export default function ResourcesPage() {
               onSubmit={(e) => {
                 e.preventDefault();
                 // Scroll to first results section when search is submitted
+                // Respect user's motion preferences for accessibility
                 const firstSection = document.querySelector('#starter-kits');
                 if (firstSection) {
-                  firstSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                  firstSection.scrollIntoView({ 
+                    behavior: prefersReducedMotion ? 'auto' : 'smooth', 
+                    block: 'start' 
+                  });
                 }
               }}
               className="mx-auto max-w-2xl rounded-3xl border border-border-dark bg-surface-dark-panel p-2 shadow-sm"
@@ -283,19 +288,19 @@ export default function ResourcesPage() {
 
             {/* Fast Tracks */}
             <div className="mt-6 flex flex-wrap justify-center gap-2">
-              <Pill onClick={() => setIntent("Urgent")} active={intent === "Urgent"} data-testid="resources.search.chip">
+              <Pill onClick={() => setIntent("Urgent")} active={intent === "Urgent"} dataTestId="resources.search.chip">
                 I have a hearing soon
               </Pill>
-              <Pill onClick={() => setIntent("Start")} active={intent === "Start"} data-testid="resources.search.chip">
+              <Pill onClick={() => setIntent("Start")} active={intent === "Start"} dataTestId="resources.search.chip">
                 I need to file basics
               </Pill>
-              <Pill onClick={() => setIntent("Organize")} active={intent === "Organize"} data-testid="resources.search.chip">
+              <Pill onClick={() => setIntent("Organize")} active={intent === "Organize"} dataTestId="resources.search.chip">
                 I'm organizing evidence
               </Pill>
-              <Pill onClick={() => setIntent("Learn")} active={intent === "Learn"} data-testid="resources.search.chip">
+              <Pill onClick={() => setIntent("Learn")} active={intent === "Learn"} dataTestId="resources.search.chip">
                 I need official portals
               </Pill>
-              <Pill onClick={resetFilters} active={!isFiltersActive} data-testid="resources.search.chip">
+              <Pill onClick={resetFilters} active={!isFiltersActive} dataTestId="resources.search.chip">
                 Reset
               </Pill>
             </div>
@@ -917,7 +922,7 @@ export default function ResourcesPage() {
   );
 }
 
-function Pill({ children, onClick, active, 'data-testid': dataTestId }: { children: React.ReactNode; onClick: () => void; active?: boolean; 'data-testid'?: string }) {
+function Pill({ children, onClick, active, dataTestId }: { children: React.ReactNode; onClick: () => void; active?: boolean; dataTestId?: string }) {
   return (
     <button
       type="button"
