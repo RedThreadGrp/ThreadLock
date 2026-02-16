@@ -70,7 +70,7 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="legacyResource-v1">
-        <div className="mx-auto max-w-4xl px-6 pt-20 pb-10">
+        <div className="mx-auto max-w-4xl px-6 pt-28 pb-10">
           {/* Back link */}
           <Link 
             href="/resources" 
@@ -204,7 +204,7 @@ function ResourceNotFound({ slug }: { slug: string }) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
-        <div className="mx-auto max-w-4xl px-6 pt-14 pb-10">
+        <div className="mx-auto max-w-4xl px-6 pt-28 pb-10">
           <Link 
             href="/resources" 
             className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"

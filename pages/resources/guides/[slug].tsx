@@ -60,7 +60,7 @@ function GuidePageV2({ guide, slug }: GuidePageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resourceQA-v2">
-        <div className="pt-20">
+        <div className="pt-28">
           <ResourceQAArticle content={guide.blocks} />
         </div>
         
@@ -116,7 +116,7 @@ function GuidePageV1({ guide, slug }: GuidePageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="legacyResource-v1">
-        <div className="mx-auto max-w-4xl px-6 pt-14 pb-10">
+        <div className="mx-auto max-w-4xl px-6 pt-28 pb-10">
           {/* Back link */}
           <Link 
             href="/resources#featured-guides" 
