@@ -135,7 +135,7 @@ const KnowledgeSpotlightSection: React.FC = () => {
             Expert Resources for Your Case
           </h2>
           <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
-            Moving through family court requires more than tools—it requires knowledge. 
+            Moving through family court requires more than tools. It requires knowledge. 
             Access our free libraries designed to bridge the gap between your evidence 
             and the courtroom.
           </p>
@@ -158,7 +158,7 @@ const KnowledgeSpotlightSection: React.FC = () => {
             icon={<ClipboardListIcon className="w-8 h-8" />}
             title="Case Blueprints"
             highlights={[
-              "Step-by-step documentation recipes",
+              "Step by step documentation recipes",
               "Missed visitation tracking",
               "Expense documentation",
               "Conflict logging",
@@ -169,11 +169,11 @@ const KnowledgeSpotlightSection: React.FC = () => {
 
           <PillarCard
             icon={<FileTextIcon className="w-8 h-8" />}
-            title="Court-Ready Guides"
+            title="Preparation Guides"
             highlights={[
               "Jurisdictional PDF checklists",
-              '"Before You Act" guides',
-              "Self-represented litigant preparation",
+              "Before You Act guides",
+              "Self represented litigant preparation",
             ]}
             ctaText="Get Free Guides"
             ctaLink="/resources/guides"
