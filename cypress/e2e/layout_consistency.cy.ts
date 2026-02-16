@@ -1,5 +1,6 @@
 describe("Marketing Layout Consistency", () => {
-  const pages = ["/", "/resources", "/sarahs-story", "/founder-story"];
+  const allPages = ["/", "/resources", "/sarahs-story", "/founder-story"];
+  const pagesWithHero = ["/", "/sarahs-story", "/founder-story"];
   const headerHeightSelector = "header";
   const heroSelector = "section[style*='background-image']";
 
@@ -20,14 +21,20 @@ describe("Marketing Layout Consistency", () => {
         baselineHeroHeight = h as number;
       })
       .then(() => {
-        ["/resources", "/sarahs-story", "/founder-story"].forEach((page) => {
+        // Check header consistency on all pages
+        allPages.slice(1).forEach((page) => {
           cy.visit(page)
             .get("header")
             .invoke("outerHeight")
             .then((h) => {
               expect(Math.abs((h as number) - baselineHeaderHeight)).to.be.lessThan(4);
             });
-          cy.get("section[style*='background-image']")
+        });
+        
+        // Check hero consistency only on pages that have hero sections
+        pagesWithHero.slice(1).forEach((page) => {
+          cy.visit(page)
+            .get("section[style*='background-image']")
             .invoke("outerHeight")
             .then((h) => {
               // Increased tolerance to 150px to accommodate content-driven height variations
