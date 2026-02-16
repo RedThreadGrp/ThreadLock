@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import ResourcesDropdown from "../components/ResourcesDropdown";
 import SiteHeader from "../src/components/SiteHeader";
+import KnowledgeSpotlightSection from "../src/components/KnowledgeSpotlightSection";
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -796,6 +797,7 @@ export default function Home() {
                 <ProductShowcaseSection />
                 <WhoItsForSection />
                 <SubscriptionBanner />
+                <KnowledgeSpotlightSection />
                 <OurMissionSection />
                 <FAQSection />
                 <SignupSection />
