@@ -7,6 +7,7 @@ import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
 import FeedbackWidget from "@/src/components/FeedbackWidget";
+import { ResourceQAArticle } from "@/src/components/resources/ResourceQAArticle";
 import { getFeaturedGuideBySlug, FEATURED_GUIDES, FeaturedGuide } from "@/src/content/resourcesRegistry";
 import { renderMarkdown } from "@/src/lib/renderMarkdown";
 
@@ -21,6 +22,88 @@ export default function GuidePage({ guide, slug }: GuidePageProps) {
   }
 
   const isDraft = guide.status === "draft";
+  
+  // ============================================================================
+  // CONTENT VERSION ROUTING
+  // ============================================================================
+  // v2 content uses structured blocks renderer
+  // v1 content uses legacy markdown renderer
+  
+  if (guide.contentVersion === 2 && guide.blocks) {
+    // v2 Route: Use ResourceQAArticle component with structured blocks
+    return <GuidePageV2 guide={guide} slug={slug} />;
+  }
+  
+  // v1 Route: Use legacy renderer (existing code below)
+  return <GuidePageV1 guide={guide} slug={slug} />;
+}
+
+// ============================================================================
+// V2 Renderer: Structured blocks with ResourceQAArticle
+// ============================================================================
+
+function GuidePageV2({ guide, slug }: GuidePageProps) {
+  if (!guide || !guide.blocks) return null;
+  
+  const isDraft = guide.status === "draft";
+  const pageTitle = `${guide.title} | ThreadLock Resources`;
+  const metaDesc = guide.summary;
+  
+  return (
+    <>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={metaDesc} />
+        {isDraft && <meta name="robots" content="noindex, nofollow" />}
+      </Head>
+
+      <SiteHeader />
+
+      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resourceQA-v2">
+        <div className="pt-14">
+          <ResourceQAArticle content={guide.blocks} />
+        </div>
+        
+        {/* Related content and feedback */}
+        <div className="mx-auto max-w-4xl px-6 pb-10">
+          {/* Related Links */}
+          {guide.relatedLinks && guide.relatedLinks.length > 0 && (
+            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+              <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Resources</h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {guide.relatedLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="group rounded-2xl border border-border-dark bg-surface-dark p-4 hover:border-brand-orange/30 hover:bg-surface-dark-panel transition-all"
+                  >
+                    <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      {link.title} →
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+          
+          {/* Feedback Widget */}
+          <div className="mt-8">
+            <FeedbackWidget resourceId={`guide-${slug}`} />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ============================================================================
+// V1 Renderer: Legacy markdown body
+// ============================================================================
+
+function GuidePageV1({ guide, slug }: GuidePageProps) {
+  if (!guide) return null;
+  
+  const isDraft = guide.status === "draft";
 
   return (
     <>
@@ -32,7 +115,7 @@ export default function GuidePage({ guide, slug }: GuidePageProps) {
 
       <SiteHeader />
 
-      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resourceQA-v2">
+      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="legacyResource-v1">
         <div className="mx-auto max-w-4xl px-6 pt-14 pb-10">
           {/* Back link */}
           <Link 

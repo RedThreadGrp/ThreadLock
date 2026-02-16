@@ -13,6 +13,7 @@
     "resources:lint": "node scripts/resources-lint.mjs",
     "resources:stale": "node scripts/resources-stale.mjs",
     "resources:routes-audit": "node scripts/resources-routes-audit.mjs",
+    "resources:prod-audit": "node scripts/resources-prod-audit.mjs",
     "resources:check-icons": "node scripts/check-inline-icon-label-usage.mjs",
     "resources:backlog": "node scripts/resources/generate-migration-backlog.mjs",
     "resources:migrate": "node scripts/resources/migrate-v1-to-v2.mjs",
@@ -38,11 +39,13 @@
     "stripe": "^16.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@types/react": "19.2.2",
     "autoprefixer": "^10.4.19",
     "cypress": "13.13.2",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.33",
+    "playwright": "^1.58.2",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.9.3"
