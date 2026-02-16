@@ -74,7 +74,8 @@ function parseResourcesRegistry() {
   const resourcesMatch = content.match(/export const RESOURCES[^=]*=\s*\[([\s\S]*?)\];/);
   if (resourcesMatch) {
     const resContent = resourcesMatch[1];
-    const itemRegex = /\{[\s\S]*?slug:\s*"([^"]+)"[\s\S]*?\}/g;
+    // Match entries that may start with spread operator (...) or opening brace ({)
+    const itemRegex = /(?:\.\.\.[\w]+,|\{)[\s\S]*?slug:\s*"([^"]+)"[\s\S]*?\n\s*\},/g;
     let item;
     while ((item = itemRegex.exec(resContent)) !== null) {
       const slug = item[1];
@@ -174,6 +175,7 @@ function parseResourcesRegistry() {
       const statusMatch = itemText.match(/status:\s*"([^"]+)"/);
       const bodyMatch = itemText.match(/body:\s*`([\s\S]*?)`\s*[,}]/);
       const updatedMatch = itemText.match(/updated:\s*"([^"]+)"/);
+      const dateModMatch = itemText.match(/dateModified:\s*"([^"]+)"/);
       const contentVersionMatch = itemText.match(/contentVersion:\s*(\d+)/);
       const hasBlocksField = itemText.includes('blocks:');
       
@@ -186,6 +188,7 @@ function parseResourcesRegistry() {
         hasBlocks: hasBlocksField,
         body: bodyMatch ? bodyMatch[1] : '',
         updated: updatedMatch ? updatedMatch[1] : undefined,
+        dateModified: dateModMatch ? dateModMatch[1] : undefined,
       });
     }
   }
@@ -194,7 +197,8 @@ function parseResourcesRegistry() {
   const kitsMatch = content.match(/export const STARTER_KITS[^=]*=\s*\[([\s\S]*?)\];/);
   if (kitsMatch) {
     const kContent = kitsMatch[1];
-    const itemRegex = /\{[\s\S]*?slug:\s*"([^"]+)"[\s\S]*?\}/g;
+    // Match entries that may start with spread operator (...) or opening brace ({)
+    const itemRegex = /(?:\.\.\.[\w]+,|\{)[\s\S]*?slug:\s*"([^"]+)"[\s\S]*?\n\s*\},/g;
     let item;
     while ((item = itemRegex.exec(kContent)) !== null) {
       const slug = item[1];
@@ -204,6 +208,9 @@ function parseResourcesRegistry() {
       const descMatch = itemText.match(/description:\s*"(.*?)"/);
       const statusMatch = itemText.match(/status:\s*"([^"]+)"/);
       const bodyMatch = itemText.match(/body:\s*`([\s\S]*?)`\s*[,}]/);
+      const dateModMatch = itemText.match(/dateModified:\s*"([^"]+)"/);
+      const contentVersionMatch = itemText.match(/contentVersion:\s*(\d+)/);
+      const hasBlocksField = itemText.includes('blocks:');
       
       kits.push({
         slug,
@@ -211,6 +218,9 @@ function parseResourcesRegistry() {
         description: descMatch ? descMatch[1] : '',
         status: statusMatch ? statusMatch[1] : 'draft',
         body: bodyMatch ? bodyMatch[1] : '',
+        dateModified: dateModMatch ? dateModMatch[1] : undefined,
+        contentVersion: contentVersionMatch ? parseInt(contentVersionMatch[1]) : 1,
+        hasBlocks: hasBlocksField,
       });
     }
   }
@@ -429,6 +439,12 @@ function generateInventoryEntry(route, mapping, baseUrl = 'https://threadlock.ai
       entry.hasBlocks = true; // v2 files always have blocks
       entry.renderSmokeStatus = 'pass';
       entry.notes = ['V2 content from separate file (spread operator in registry)'];
+      
+      // If registry content was parsed and has dateModified, use it
+      if (content && content.dateModified) {
+        entry.lastUpdated = content.dateModified;
+      }
+      
       usedV2Fallback = true;
     } catch (err) {
       // Failed to read v2 file
@@ -563,7 +579,7 @@ function generateInventoryEntry(route, mapping, baseUrl = 'https://threadlock.ai
   if (type === 'guide') {
     entry.title = content.title || 'missing';
     entry.metaDescription = content.summary || 'missing';
-    entry.lastUpdated = content.updated || 'missing';
+    entry.lastUpdated = content.dateModified || content.updated || 'missing';
     entry.contentVersion = content.contentVersion || null;
     entry.hasBlocks = content.hasBlocks || null;
     
@@ -592,7 +608,9 @@ function generateInventoryEntry(route, mapping, baseUrl = 'https://threadlock.ai
   if (type === 'kit') {
     entry.title = content.title || 'missing';
     entry.metaDescription = content.description || 'missing';
-    entry.lastUpdated = 'missing';
+    entry.lastUpdated = content.dateModified || 'missing';
+    entry.contentVersion = content.contentVersion || null;
+    entry.hasBlocks = content.hasBlocks || null;
     
     const descWords = countWords(content.description);
     const bodyWords = countWords(content.body);
@@ -611,7 +629,9 @@ function generateInventoryEntry(route, mapping, baseUrl = 'https://threadlock.ai
       entry.sourcesCount = content.relatedLinks.length;
     }
     
-    entry.notes.push('No lastUpdated field in schema');
+    if (!content.dateModified) {
+      entry.notes.push('Missing dateModified');
+    }
   }
   
   if (type === 'topic') {

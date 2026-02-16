@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-16T17:59:46.149Z
+**Generated:** 2026-02-16T18:22:19.281Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -18,10 +18,10 @@
   - V1 (legacy markdown): 8
 - **Content Coverage:**
   - With body content: 21 (55.3%)
-  - With meta description: 32 (84.2%)
-  - With last updated date: 14 (36.8%)
+  - With meta description: 29 (76.3%)
+  - With last updated date: 30 (78.9%)
   - With FAQs: 12
-  - With sources/links: 1
+  - With sources/links: 2
   - With issues/notes: 26
 
 ## Quick Reference
@@ -32,17 +32,17 @@
 | /resources/authentication | resource | Federal Rules of Evidence - Rule... | 0 | V2 | pass | ⚠️ 2 |
 | /resources/courtroom-prep | resource | Federal Rules of Civil Procedure | 0 | V2 | pass | ⚠️ 2 |
 | /resources/evidence-intake | resource | Evidence Intake: Photos, Texts, ... | 0 | V2 | pass | ⚠️ 2 |
-| /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Org... | 0 | V2 | fail | ⚠️ 2 |
+| /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Org... | 0 | V2 | pass | ⚠️ 2 |
 | /resources/filing-basics | resource | Federal Rules of Civil Procedure | 0 | V2 | pass | ⚠️ 2 |
 | /resources/financial-snapshot | resource | Family Law Resources | 0 | V2 | pass | ⚠️ 2 |
 | /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 407 | V2 | pass | ⚠️ 1 |
 | /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Cal... | 481 | V2 | pass | ⚠️ 1 |
 | /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | V2 | pass | ⚠️ 1 |
 | /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Repre... | 19 | V2 | pass | ⚠️ 1 |
-| /resources/hearing-tomorrow | resource | Hearing Tomorrow Checklist | 0 | V2 | fail | ⚠️ 2 |
-| /resources/kits/evidence | kit | Evidence Kit | 0 | V2 | fail | ⚠️ 2 |
-| /resources/kits/first-filing | kit | First Filing Kit | 0 | V2 | fail | ⚠️ 2 |
-| /resources/kits/hearing-soon | kit | Hearing Soon Kit | 0 | V2 | fail | ⚠️ 2 |
+| /resources/hearing-tomorrow | resource | Hearing Tomorrow Checklist | 0 | V2 | pass | ⚠️ 2 |
+| /resources/kits/evidence | kit | missing | 0 | V2 | pass | ⚠️ 3 |
+| /resources/kits/first-filing | kit | missing | 0 | V2 | pass | ⚠️ 3 |
+| /resources/kits/hearing-soon | kit | missing | 0 | V2 | pass | ⚠️ 3 |
 | /resources/official-portals | resource | Forms | 0 | V2 | pass | ⚠️ 2 |
 | /resources/parenting-plans | resource | Child Custody and Parenting Time | 0 | V2 | pass | ⚠️ 2 |
 | /resources/proof-of-service | resource | What Counts as Proof of Service?... | 0 | V2 | pass | ⚠️ 2 |
@@ -59,7 +59,7 @@
 | /resources/q/service-deadlines | question | What should I wear to court? | 788 | V2 | pass | ✅ |
 | /resources/q/text-authentication | question | What if I can't afford court fees? | 640 | V2 | pass | ✅ |
 | /resources/thanks | special | Resources Thanks Page | 0 | — | pass | ⚠️ 1 |
-| /resources/timeline-tools | resource | Official Court Portals by State | 1466 | V2 | pass | ✅ |
+| /resources/timeline-tools | resource | Timeline Organization Tools | 1466 | V2 | pass | ✅ |
 | /resources/topics/evidence-exhibits | topic | Evidence & Exhibits | 444 | — | pass | ⚠️ 1 |
 | /resources/topics/financial-declarations | topic | Financial Declarations | 552 | — | pass | ⚠️ 1 |
 | /resources/topics/hearings-prep | topic | Hearings & Courtroom Prep | 492 | — | pass | ⚠️ 1 |
@@ -102,7 +102,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/authentication
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** ❌ missing
-- **Last Updated:** ❌ missing
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -127,7 +127,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/courtroom-prep
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** ❌ missing
-- **Last Updated:** ❌ missing
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -152,7 +152,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/evidence-intake
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** How to capture, preserve, and organize photos, texts, and emails so they're usable in court. Learn proper evidence intake procedures and authentication basics.
-- **Last Updated:** ❌ missing
+- **Last Updated:** 2026-02-16
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -177,8 +177,8 @@
 - **Canonical URL:** https://threadlock.ai/resources/exhibits-guide
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** How to label, organize, and present exhibits so they're clear and professional.
-- **Last Updated:** ❌ missing
-- **Render Status:** ❌ fail
+- **Last Updated:** 2026-02-16
+- **Render Status:** ✅ pass
 
 **Word Count:**
 - total: 0
@@ -191,7 +191,7 @@
 
 **⚠️ Issues/Notes:**
 - V2 content from separate file (spread operator in registry)
-- No content found in registry
+- No content (0 words)
 
 ---
 
@@ -202,7 +202,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/filing-basics
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** ❌ missing
-- **Last Updated:** ❌ missing
+- **Last Updated:** 2026-02-15
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -227,7 +227,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/financial-snapshot
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** ❌ missing
-- **Last Updated:** ❌ missing
+- **Last Updated:** 2026-02-16
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -252,7 +252,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/guides/evidence-authentication
 - **Content Source:** src/content/resourcesRegistry.ts:FEATURED_GUIDES
 - **Meta Description:** How to make your photos, texts, and emails admissible without hiring an expert.
-- **Last Updated:** ❌ missing
+- **Last Updated:** 2026-02-16
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -281,7 +281,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/guides/parenting-time-calculations
 - **Content Source:** src/content/resourcesRegistry.ts:FEATURED_GUIDES
 - **Meta Description:** Calculate overnights, holidays, and summer schedules accurately.
-- **Last Updated:** ❌ missing
+- **Last Updated:** 2026-02-16
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -309,7 +309,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/guides/proof-of-service-states
 - **Content Source:** src/content/resourcesRegistry.ts:FEATURED_GUIDES
 - **Meta Description:** Requirements and templates for every U.S. state and territory.
-- **Last Updated:** ❌ missing
+- **Last Updated:** 2026-02-16
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -337,7 +337,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/guides/self-representation-complete
 - **Content Source:** src/content/resourcesRegistry.ts:FEATURED_GUIDES
 - **Meta Description:** Everything you need to know about representing yourself, from filing basics to courtroom strategy. Updated with 2026 rule changes.
-- **Last Updated:** Jan 2026
+- **Last Updated:** 2026-02-16
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -361,8 +361,8 @@
 - **Canonical URL:** https://threadlock.ai/resources/hearing-tomorrow
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** A practical walkthrough for what to bring, how to label exhibits, and what to avoid saying when you're nervous.
-- **Last Updated:** ❌ missing
-- **Render Status:** ❌ fail
+- **Last Updated:** 2026-02-16
+- **Render Status:** ✅ pass
 
 **Word Count:**
 - total: 0
@@ -375,24 +375,24 @@
 
 **⚠️ Issues/Notes:**
 - V2 content from separate file (spread operator in registry)
-- No content found in registry
+- No content (0 words)
 
 ---
 
 ### /resources/kits/evidence
 
 - **Type:** kit
-- **Title:** Evidence Kit
+- **Title:** missing
 - **Canonical URL:** https://threadlock.ai/resources/kits/evidence
 - **Content Source:** src/content/resourcesRegistry.ts:STARTER_KITS
-- **Meta Description:** Capture, organize, and preserve evidence that holds up.
-- **Last Updated:** ❌ missing
-- **Render Status:** ❌ fail
+- **Meta Description:** ❌ missing
+- **Last Updated:** 2026-02-16
+- **Render Status:** ✅ pass
 
 **Word Count:**
 - total: 0
 - body: 0
-- excerpt: 0
+- description: 0
 
 **Features:**
 - FAQ: ❌ No
@@ -400,24 +400,25 @@
 
 **⚠️ Issues/Notes:**
 - V2 content from separate file (spread operator in registry)
-- No content found in registry
+- Missing title
+- No content (0 words)
 
 ---
 
 ### /resources/kits/first-filing
 
 - **Type:** kit
-- **Title:** First Filing Kit
+- **Title:** missing
 - **Canonical URL:** https://threadlock.ai/resources/kits/first-filing
 - **Content Source:** src/content/resourcesRegistry.ts:STARTER_KITS
-- **Meta Description:** Start your case right with proper documentation and filing procedures.
-- **Last Updated:** ❌ missing
-- **Render Status:** ❌ fail
+- **Meta Description:** ❌ missing
+- **Last Updated:** 2026-02-16
+- **Render Status:** ✅ pass
 
 **Word Count:**
 - total: 0
 - body: 0
-- excerpt: 0
+- description: 0
 
 **Features:**
 - FAQ: ❌ No
@@ -425,24 +426,25 @@
 
 **⚠️ Issues/Notes:**
 - V2 content from separate file (spread operator in registry)
-- No content found in registry
+- Missing title
+- No content (0 words)
 
 ---
 
 ### /resources/kits/hearing-soon
 
 - **Type:** kit
-- **Title:** Hearing Soon Kit
+- **Title:** missing
 - **Canonical URL:** https://threadlock.ai/resources/kits/hearing-soon
 - **Content Source:** src/content/resourcesRegistry.ts:STARTER_KITS
-- **Meta Description:** Everything you need when a hearing is approaching fast.
-- **Last Updated:** ❌ missing
-- **Render Status:** ❌ fail
+- **Meta Description:** ❌ missing
+- **Last Updated:** 2026-02-16
+- **Render Status:** ✅ pass
 
 **Word Count:**
 - total: 0
 - body: 0
-- excerpt: 0
+- description: 0
 
 **Features:**
 - FAQ: ❌ No
@@ -450,7 +452,8 @@
 
 **⚠️ Issues/Notes:**
 - V2 content from separate file (spread operator in registry)
-- No content found in registry
+- Missing title
+- No content (0 words)
 
 ---
 
@@ -461,7 +464,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/official-portals
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** ❌ missing
-- **Last Updated:** ❌ missing
+- **Last Updated:** 2026-02-16
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -486,7 +489,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/parenting-plans
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** ❌ missing
-- **Last Updated:** ❌ missing
+- **Last Updated:** 2026-02-16
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -511,7 +514,7 @@
 - **Canonical URL:** https://threadlock.ai/resources/proof-of-service
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** Proof of Service is a signed declaration filed with the court confirming legal papers were delivered, detailing time, date, location, method, and server identity.
-- **Last Updated:** ❌ missing
+- **Last Updated:** 2026-02-16
 - **Render Status:** ✅ pass
 
 **Word Count:**
@@ -855,7 +858,7 @@
 ### /resources/timeline-tools
 
 - **Type:** resource
-- **Title:** Official Court Portals by State
+- **Title:** Timeline Organization Tools
 - **Canonical URL:** https://threadlock.ai/resources/timeline-tools
 - **Content Source:** src/content/resourcesRegistry.ts:RESOURCES
 - **Meta Description:** List events chronologically with dates, descriptions, and evidence. Include witnesses. Focus on relevant facts. Essential for custody cases.
@@ -874,7 +877,7 @@
 
 **Features:**
 - FAQ: ✅ Yes (3 items)
-- Sources/Links: ❌ No
+- Sources/Links: ✅ Yes (3 items)
 
 ---
 

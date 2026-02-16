@@ -227,6 +227,8 @@ export const RESOURCES: Resource[] = [
   // Published resources (existing 6)
   {
     ...hearingTomorrow,
+    slug: "hearing-tomorrow",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: hearingTomorrow.blocks,
   },
@@ -240,6 +242,7 @@ export const RESOURCES: Resource[] = [
     intent: "Start",
     readTime: "8 min read",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: proofOfServicePack.blocks,
     relatedLinks: [
@@ -257,6 +260,7 @@ export const RESOURCES: Resource[] = [
     intent: "Organize",
     readTime: "10 min read",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: evidenceIntake.blocks,
     relatedLinks: [
@@ -274,6 +278,7 @@ export const RESOURCES: Resource[] = [
     intent: "Start",
     readTime: "12 min read",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: parentingPlans.blocks,
     relatedLinks: [
@@ -291,6 +296,7 @@ export const RESOURCES: Resource[] = [
     intent: "Organize",
     readTime: "7 min read",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: financialSnapshot.blocks,
     relatedLinks: [
@@ -308,6 +314,7 @@ export const RESOURCES: Resource[] = [
     intent: "Learn",
     readTime: "3 min read",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: officialPortals.blocks,
     relatedLinks: [
@@ -319,6 +326,8 @@ export const RESOURCES: Resource[] = [
   // Draft resources (new placeholders for starter kit references)
   {
     ...exhibitsGuide,
+    slug: "exhibits-guide",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: exhibitsGuide.blocks,
   },
@@ -1389,16 +1398,22 @@ This guide is based on common authentication principles found in U.S. state Rule
 export const STARTER_KITS: StarterKit[] = [
   {
     ...hearingSoon,
+    slug: "hearing-soon",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: hearingSoon.blocks,
   },
   {
     ...firstFiling,
+    slug: "first-filing",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: firstFiling.blocks,
   },
   {
     ...evidence,
+    slug: "evidence",
+    dateModified: "2026-02-16",
     contentVersion: 2,
     blocks: evidence.blocks,
   },
@@ -1416,6 +1431,7 @@ export const FEATURED_GUIDES: FeaturedGuide[] = [
     tags: ["Court Prep", "Basics", "Complete Guide"],
     updated: "Jan 2026",
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2, // v2 structured content
     blocks: selfRepresentationComplete,
     governance: selfRepresentationComplete.governance,
@@ -1426,6 +1442,7 @@ export const FEATURED_GUIDES: FeaturedGuide[] = [
     summary: "How to make your photos, texts, and emails admissible without hiring an expert.",
     tags: ["Evidence", "Authentication"],
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2, // v2 structured content
     // v2 structured blocks
     blocks: evidenceAuthentication,
@@ -1506,6 +1523,7 @@ This is general information about evidence authentication. Rules vary by jurisdi
     summary: "Requirements and templates for every U.S. state and territory.",
     tags: ["Templates", "Proof of Service"],
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2, // v2 structured content
     // v2 structured blocks
     blocks: proofOfServiceStates,
@@ -1588,6 +1606,7 @@ Service requirements vary significantly by jurisdiction. This is general informa
     summary: "Calculate overnights, holidays, and summer schedules accurately.",
     tags: ["Parenting Plans", "Calculations"],
     status: "published",
+    dateModified: "2026-02-16",
     contentVersion: 2, // v2 structured content
     // v2 structured blocks
     blocks: parentingTimeCalculations,
