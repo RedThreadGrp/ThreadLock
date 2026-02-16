@@ -332,21 +332,33 @@ export const courtroomPrep: ResourcePage = {
     ]
   },
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
-      {
-        name: "Federal Rules of Civil Procedure - Courtroom Conduct",
-        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure"
+      { 
+        title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "General courtroom procedures and conduct"
       },
-      {
-        name: "State Bar Association Self-Help Resources",
-        url: "https://www.americanbar.org/groups/legal_services/flh-home/"
+      { 
+        title: "Court Procedures - How Courts Work",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        lastAccessed: "2026-02-16",
+        note: "Courtroom etiquette and procedures for self-represented litigants"
       },
-      {
-        name: "Local Court Rules and Procedures"
+      { 
+        title: "Representing Yourself in Court",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/forms/pro-se-forms",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Pro se litigant guidance and resources"
       }
     ],
-    jurisdictionScope: "General courtroom etiquette principles apply across most U.S. family courts. Specific rules of procedure may vary by jurisdiction.",
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Courtroom customs may vary by jurisdiction. Always check local court rules and observe other cases before yours to understand specific courtroom culture."
   }

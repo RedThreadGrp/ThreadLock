@@ -30,6 +30,8 @@ import { courtroomPrep } from "./resources/courtroom-prep";
 import { timelineTools } from "./resources/timeline-tools";
 import { filingBasics } from "./resources/filing-basics";
 import { authentication } from "./resources/authentication";
+import { hearingSoon } from "./resources/hearing-soon";
+import { selfRepresentationComplete } from "./resources/self-representation-complete";
 
 // ============================================================================
 // Type Definitions
@@ -1378,63 +1380,9 @@ This guide is based on common authentication principles found in U.S. state Rule
 
 export const STARTER_KITS: StarterKit[] = [
   {
-    slug: "hearing-soon",
-    title: "Hearing Soon Kit",
-    description: "Everything you need when a hearing is approaching fast.",
-    whatYouGet: [
-      "Hearing Tomorrow Checklist",
-      "Exhibit labeling guidelines",
-      "Courtroom etiquette basics",
-      "What to bring checklist",
-      "Common mistakes to avoid",
-    ],
-    estimatedTime: "15 minutes",
-    resources: ["/resources/hearing-tomorrow", "/resources/exhibits-guide", "/resources/courtroom-prep"],
-    status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Court Self-Help Portals" },
-        { name: "Legal Aid Organizations" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Courtroom procedures vary by court. This kit provides general guidance."
-    },
-    body: `# Hearing Soon Kit
-
-When a hearing is approaching fast, you need immediate, actionable guidance.
-
-## What's Included
-
-This kit bundles the most critical resources for hearing preparation into one streamlined package.
-
-### 1. Hearing Tomorrow Checklist
-A practical walkthrough covering what to bring, how to label exhibits, and what to avoid saying when nerves hit.
-
-### 2. Exhibit Labeling Guidelines
-Clear instructions on labeling your evidence properly so it's organized and professional.
-
-### 3. Courtroom Etiquette Basics
-What to expect, how to address the judge, when to speak, and how to present yourself.
-
-### 4. What to Bring
-Complete checklist of documents, copies, and materials you need in your bag.
-
-### 5. Common Mistakes to Avoid
-Learn from others' errors—don't interrupt, don't argue, don't bring irrelevant history.
-
-## Time Required
-
-Plan for **15 minutes** to review all materials. Ideally, review the night before and again the morning of your hearing.
-
-## Who This Is For
-
-- First-time court attendees
-- Anyone with a hearing in the next 1-7 days
-- Self-represented litigants who need fast, focused guidance
-
-Start with the Hearing Tomorrow Checklist, then review the other resources as needed.`,
+    ...hearingSoon,
+    contentVersion: 2,
+    blocks: hearingSoon.blocks,
   },
   {
     ...firstFiling,
@@ -1460,51 +1408,9 @@ export const FEATURED_GUIDES: FeaturedGuide[] = [
     tags: ["Court Prep", "Basics", "Complete Guide"],
     updated: "Jan 2026",
     status: "published",
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Civil Procedure" },
-        { name: "Court Self-Help Portals" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 365,
-      accuracyNotes: "Self-representation rules and court procedures vary by state and court."
-    },
-    body: `# The Complete Guide to Self-Representation in Family Court
-
-Self-representation in family court requires organization, preparation, and understanding of court procedures. This guide provides practical guidance for navigating the process.
-
-## Understanding Your Rights and Responsibilities
-
-As a self-represented litigant, you have the same rights as represented parties but must follow all court rules and procedures. Courts cannot provide legal advice, but many offer self-help centers and form packets.
-
-## Filing Procedures
-
-Start by filing the appropriate petition or response with your local family court. Each jurisdiction has specific forms, filing fees, and service requirements. Verify local rules before submitting documents.
-
-## Court Procedures and Expectations
-
-Courts expect professional conduct, punctuality, and adherence to procedural rules. Arrive early, dress appropriately, and bring all required documents organized in a binder.
-
-## Evidence Rules and Presentation
-
-Only admissible evidence can be considered. Documents must be authenticated, witnesses must have personal knowledge, and hearsay is generally prohibited. Organize your evidence chronologically with tabs and labels.
-
-## Working with Opposing Counsel
-
-When the other party has an attorney, direct all communication through them. Respond to discovery requests within deadlines and maintain professional correspondence.
-
-## Settlement vs. Trial
-
-Most family court cases settle. Consider mediation or settlement conferences before trial. Settlement gives you control over outcomes rather than leaving decisions to a judge.
-
-## Post-Judgment Modifications
-
-Circumstances change. Courts can modify orders when there is a substantial change in circumstances. Document changes carefully and file modifications properly.
-
-## Disclaimer
-
-This is not legal advice. Family law varies significantly by jurisdiction. Verify all procedures and requirements with your local court. Consider consulting with a licensed attorney for case-specific guidance.`,
+    contentVersion: 2, // v2 structured content
+    blocks: selfRepresentationComplete,
+    governance: selfRepresentationComplete.governance,
   },
   {
     slug: "evidence-authentication",

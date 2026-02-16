@@ -191,31 +191,50 @@ export const childSupportCalculation: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "State Child Support Guidelines and Worksheets",
+        title: "Child Support Guidelines by State",
+        organization: "National Conference of State Legislatures",
+        url: "https://www.ncsl.org/research/human-services/child-support-guidelines.aspx",
+        lastAccessed: "2026-02-16",
+        note: "State-by-state child support calculation methods"
       },
       {
-        name: "National Conference of State Legislatures - Child Support Guidelines",
+        title: "Office of Child Support Enforcement",
+        organization: "U.S. Department of Health and Human Services",
+        url: "https://www.acf.hhs.gov/css",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Federal child support programs and resources"
       },
       {
-        name: "U.S. Department of Health and Human Services - Office of Child Support Enforcement",
+        title: "Child Support Information",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/family_law/resources/",
+        lastAccessed: "2026-02-16",
+        note: "General child support guidance and legal principles"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "State Child Support Guidelines",
-        note: "Specific calculation formulas and worksheets",
+        title: "Child Support Guidelines",
+        organization: "National Conference of State Legislatures",
+        url: "https://www.ncsl.org/research/human-services/child-support-guidelines.aspx",
+        lastAccessed: "2026-02-16",
+        note: "Specific calculation formulas and worksheets by state"
       },
       {
-        name: "Office of Child Support Enforcement",
-        href: "https://www.acf.hhs.gov/css",
-        note: "Federal oversight and resources",
+        title: "Office of Child Support Enforcement",
+        organization: "U.S. Department of Health and Human Services",
+        url: "https://www.acf.hhs.gov/css",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Federal oversight and resources"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Child support calculation methods vary significantly by state. Some states review and update guidelines every 4 years. Income thresholds, add-on expenses, and time-sharing adjustments differ by jurisdiction. Always use your state's official calculator or worksheet for accurate calculations.",
   },

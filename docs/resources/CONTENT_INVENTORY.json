@@ -194,19 +194,19 @@
     "title": "Evidence Authentication 101",
     "metaDescription": "How to make your photos, texts, and emails admissible without hiring an expert.",
     "wordCount": {
-      "total": 286,
-      "body": 273,
+      "total": 407,
+      "body": 394,
       "summary": 13
     },
     "blocksSummary": {
       "headings": {
         "h1": 1,
-        "h2": 8,
+        "h2": 9,
         "h3": 0
       },
-      "lists": 0,
+      "lists": 5,
       "codeBlocks": 0,
-      "paragraphs": 18
+      "paragraphs": 20
     },
     "hasFaq": false,
     "faqCount": 0,
@@ -310,9 +310,11 @@
     "sourcesCount": 0,
     "lastUpdated": "Jan 2026",
     "renderSmokeStatus": "pass",
-    "notes": [],
-    "contentVersion": 1,
-    "hasBlocks": null
+    "notes": [
+      "V2 content from separate file (spread operator in registry)"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/hearing-tomorrow",
@@ -404,9 +406,9 @@
     "title": "Hearing Soon Kit",
     "metaDescription": "Everything you need when a hearing is approaching fast.",
     "wordCount": {
-      "total": 9,
+      "total": 0,
       "body": 0,
-      "description": 9
+      "excerpt": 0
     },
     "blocksSummary": {},
     "hasFaq": false,
@@ -414,10 +416,13 @@
     "hasSources": false,
     "sourcesCount": 0,
     "lastUpdated": "missing",
-    "renderSmokeStatus": "pass",
+    "renderSmokeStatus": "fail",
     "notes": [
-      "No lastUpdated field in schema"
-    ]
+      "V2 content from separate file (spread operator in registry)",
+      "No content found in registry"
+    ],
+    "contentVersion": 2,
+    "hasBlocks": true
   },
   {
     "route": "/resources/official-portals",

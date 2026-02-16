@@ -175,30 +175,59 @@ export const exhibitLabeling: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "Local Court Rules - Evidence and Exhibit Requirements",
+        title: "Federal Rules of Evidence - Rule 901",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Authentication and identification requirements for evidence"
       },
       {
-        name: "Federal Rules of Evidence - Authentication and Identification",
+        title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "General exhibit and evidence procedures"
       },
       {
-        name: "Court Clerk's Office - Exhibit Preparation Guidelines",
+        title: "Model Standards for Exhibits",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/judicial/resources/",
+        lastAccessed: "2026-02-16",
+        note: "Best practices for exhibit preparation"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "Local Court Rules",
-        note: "Exhibit labeling requirements by jurisdiction",
+        title: "Federal Rules of Evidence - Rule 901",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Authentication standards for exhibits"
       },
       {
-        name: "Federal Rules of Evidence",
-        note: "Authentication standards for exhibits",
+        title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "General exhibit procedures"
+      },
+      {
+        title: "Model Standards for Exhibits",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/judicial/resources/",
+        lastAccessed: "2026-02-16",
+        note: "Best practices for exhibit labeling and organization"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Exhibit labeling conventions vary by court. Some jurisdictions have specific requirements for tab colors, label placement, or numbering systems. E-filing systems may have different exhibit handling procedures. Always check your local court rules or ask the clerk about specific exhibit requirements before your hearing.",
   },

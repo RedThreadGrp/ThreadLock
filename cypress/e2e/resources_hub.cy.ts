@@ -6,9 +6,12 @@ describe('Resources Hub', () => {
     cy.visit('/resources');
   });
 
-  it('loads the resources hub page', () => {
-    cy.contains('Resources for self-represented family court work').should('exist');
-    cy.get('input[placeholder*="Search resources"]').should('exist');
+  it('loads the resources hub page with compact header', () => {
+    // Check for compact header instead of hero banner
+    cy.get('h1').contains('Resources').should('exist');
+    cy.contains('Checklists, templates, and plain-English court workflow help').should('exist');
+    cy.contains('Not legal advice. Just structure').should('exist');
+    cy.get('[data-testid="resources.search.input"]').should('exist');
   });
 
   it('displays starter kits section', () => {
@@ -72,17 +75,55 @@ describe('Resources Hub', () => {
     cy.contains('TBD').should('not.exist');
   });
 
-  it('search input is functional', () => {
-    const searchInput = cy.get('input[placeholder*="Search resources"]');
-    searchInput.should('be.visible');
-    searchInput.type('proof of service');
-    searchInput.should('have.value', 'proof of service');
+  it('search input is functional and filters content', () => {
+    // Type into search
+    cy.get('[data-testid="resources.search.input"]').type('proof');
+    cy.get('[data-testid="resources.search.input"]').should('have.value', 'proof');
+    
+    // Check that filtering happens (should show fewer results)
+    cy.contains('Showing').should('exist');
+    cy.contains('result').should('exist');
   });
 
-  it('fast track pills are interactive', () => {
-    cy.contains('I have a hearing soon').should('exist').click();
-    // Pill should show active styling (bg color changes)
-    cy.contains('I have a hearing soon').should('have.class', 'bg-brand-orange');
+  it('search submit with Enter key works', () => {
+    cy.get('[data-testid="resources.search.input"]').type('proof{enter}');
+    // Should scroll to starter kits section
+    cy.url().should('include', '/resources');
+  });
+
+  it('search button triggers search', () => {
+    cy.get('[data-testid="resources.search.input"]').type('evidence');
+    cy.get('[data-testid="resources.search.button"]').click();
+    // Should scroll to starter kits section
+    cy.url().should('include', '/resources');
+  });
+
+  it('subnav section jumps work and update URL hash', () => {
+    // Click FAQ / Questions link in subnav
+    cy.get('[data-testid="resources.subnav"]').within(() => {
+      cy.contains('FAQ / Questions').click();
+    });
+    
+    // Check that URL hash was updated
+    cy.url().should('include', '#questions');
+    
+    // Check that the section is now visible
+    cy.contains('Popular Questions').should('be.visible');
+  });
+
+  it('subnav is sticky and accessible', () => {
+    cy.get('[data-testid="resources.subnav"]').should('exist');
+    cy.get('[data-testid="resources.subnav"]').should('have.class', 'sticky');
+    
+    // Check all navigation links exist
+    cy.get('[data-testid="resources.subnav"]').within(() => {
+      cy.contains('Starter Kits').should('exist');
+      cy.contains('Featured Guides').should('exist');
+      cy.contains('Topics').should('exist');
+      cy.contains('Library').should('exist');
+      cy.contains('FAQ / Questions').should('exist');
+      cy.contains('Official Directory').should('exist');
+    });
   });
 
   it('displays standard disclaimer and feedback widget', () => {

@@ -303,25 +303,33 @@ export const filingBasics: ResourcePage = {
     ]
   },
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
         title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
         url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
-        type: "primary"
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Federal court filing and service requirements"
       },
       {
-        title: "State Bar Association - Filing Resources",
-        url: "https://www.americanbar.org/groups/public_education/resources/",
-        type: "secondary"
+        title: "Filing a Lawsuit",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/services-forms/filing-lawsuit",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Official guidance on federal court filing procedures"
       },
       {
-        title: "Local Court Rules and Standing Orders",
-        url: "https://www.courts.ca.gov/rules.htm",
-        type: "primary"
+        title: "Court Procedures",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/court-procedures/",
+        lastAccessed: "2026-02-16",
+        note: "General court filing procedures and requirements"
       }
     ],
-    jurisdictionScope: "U.S. state trial courts (general principles)",
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Filing procedures, deadline calculation methods, and e-filing availability vary significantly by jurisdiction. Always verify with your specific court's local rules and the Clerk of Court office. Some states have mandatory e-filing; others allow but don't require it; some don't offer it at all."
   }

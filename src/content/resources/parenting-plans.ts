@@ -127,12 +127,31 @@ export const parentingPlans: ResourcePage = {
     ]
   },
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
-      { name: "State Bar Association Resources" },
-      { name: "Court Self-Help Portals" }
+      { 
+        title: "Child Custody and Parenting Time",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/family_law/resources/family_law_101/",
+        lastAccessed: "2026-02-16",
+        note: "Family law best practices and parenting plan guidance"
+      },
+      { 
+        title: "Family Law Self-Help",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        lastAccessed: "2026-02-16",
+        note: "State-by-state family court resources"
+      },
+      { 
+        title: "Model Standards of Practice for Family Courts",
+        organization: "Association of Family and Conciliation Courts",
+        url: "https://www.afccnet.org/",
+        lastAccessed: "2026-02-16",
+        note: "Professional standards for parenting plans and custody arrangements"
+      }
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Parenting plan requirements and terminology vary by state. Consult local family law rules."
   }

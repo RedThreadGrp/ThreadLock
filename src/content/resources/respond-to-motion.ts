@@ -201,30 +201,51 @@ export const respondToMotion: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "State Rules of Civil Procedure - Motion Practice and Response Requirements",
+        title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Motion practice and response requirements"
       },
       {
-        name: "Local Court Rules - Motion Response Timelines and Formatting",
+        title: "Federal Rules of Civil Procedure",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/rules/frcp",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Complete text with annotations on motion procedures"
       },
       {
-        name: "Court Self-Help Centers - Motion Response Guides",
+        title: "Self-Help Resources",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        lastAccessed: "2026-02-16",
+        note: "State-specific motion response guides"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "State Rules of Civil Procedure",
-        note: "Motion response requirements by jurisdiction",
+        title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Motion response requirements by jurisdiction"
       },
       {
-        name: "Local Court Rules",
-        note: "Court-specific deadlines and procedures",
+        title: "Self-Help Resources",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        lastAccessed: "2026-02-16",
+        note: "Court-specific deadlines and procedures"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Motion response deadlines, formatting requirements, and procedures vary significantly by jurisdiction and court type. Some courts count days differently (calendar days vs. court days). E-filing systems may affect service timing. Emergency or ex parte motions have different response timelines. Always check your specific court's local rules for motion response requirements.",
   },

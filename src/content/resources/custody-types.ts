@@ -172,30 +172,58 @@ export const custodyTypes: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "State Family Law Statutes - Custody Types and Definitions",
+        title: "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)",
+        organization: "Uniform Law Commission",
+        url: "https://www.uniformlaws.org/committees/community-home?CommunityKey=4c6bd37f-a1d0-4f0f-bf4d-aebaf6bd9a64",
+        jurisdiction: "Multi-State",
+        lastAccessed: "2026-02-16"
       },
       {
-        name: "American Bar Association - Child Custody Guide",
+        title: "Child Custody and Visitation",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/child_custody/",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-16"
       },
       {
-        name: "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)",
+        title: "Family Law - Custody and Visitation",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/wex/custody",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-16"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "State Family Law Statutes",
-        note: "Legal definitions of custody types",
+        title: "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)",
+        organization: "Uniform Law Commission",
+        url: "https://www.uniformlaws.org/committees/community-home?CommunityKey=4c6bd37f-a1d0-4f0f-bf4d-aebaf6bd9a64",
+        jurisdiction: "Multi-State",
+        lastAccessed: "2026-02-16",
+        note: "Model law adopted by all 50 states for interstate custody matters"
       },
       {
-        name: "American Bar Association - Child Custody Guide",
-        note: "Legal standards and common arrangements",
+        title: "Child Custody and Visitation",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/child_custody/",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-16",
+        note: "Legal definitions and standards for custody arrangements"
+      },
+      {
+        title: "Family Law - Custody and Visitation",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/wex/custody",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-16",
+        note: "Legal definitions of custody types and arrangements"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Custody terminology and arrangements vary by state. Some jurisdictions use 'parenting time' instead of 'custody' or 'visitation'. Check local family law for specific requirements.",
   },

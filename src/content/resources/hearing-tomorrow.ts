@@ -15,13 +15,33 @@ export const hearingTomorrow: ResourcePage = {
     { title: "Official Court Portals", href: "/resources/official-portals" },
   ],
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
-      { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
-      { name: "Federal Rules of Civil Procedure", href: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure" },
-      { name: "State Bar Self-Help Centers" }
+      { 
+        title: "Court Procedures - How Courts Work",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        lastAccessed: "2026-02-16",
+        note: "Courtroom procedures and expectations"
+      },
+      { 
+        title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Federal court procedures and rules"
+      },
+      { 
+        title: "Representing Yourself in Court",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/forms/pro-se-forms",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Resources for self-represented litigants"
+      }
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Courtroom procedures vary by jurisdiction. Always check your local court rules."
   },

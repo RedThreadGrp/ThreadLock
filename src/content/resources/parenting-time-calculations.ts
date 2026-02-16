@@ -172,30 +172,48 @@ export const parentingTimeCalculations: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "State Bar Association - Parenting Time Guidelines",
+        title: "Child Custody and Parenting Time",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/family_law/resources/",
+        lastAccessed: "2026-02-16",
+        note: "Parenting time calculation standards and best practices"
       },
       {
-        name: "Child Support Guidelines - Custody Threshold Standards",
+        title: "Child Support Guidelines",
+        organization: "National Conference of State Legislatures",
+        url: "https://www.ncsl.org/research/human-services/child-support-guidelines.aspx",
+        lastAccessed: "2026-02-16",
+        note: "State custody thresholds and support impacts"
       },
       {
-        name: "Family Court Services - Parenting Plan Worksheets",
+        title: "Family Court Self-Help",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/family/child-support/state-links",
+        lastAccessed: "2026-02-16",
+        note: "State-specific parenting plan resources"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "State Bar Association Resources",
-        note: "Parenting time calculation methods",
+        title: "Family Law Resources",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/family_law/resources/",
+        lastAccessed: "2026-02-16",
+        note: "Parenting time calculation methods"
       },
       {
-        name: "Child Support Guidelines",
-        note: "Custody thresholds and support impacts",
+        title: "Child Support Guidelines",
+        organization: "National Conference of State Legislatures",
+        url: "https://www.ncsl.org/research/human-services/child-support-guidelines.aspx",
+        lastAccessed: "2026-02-16",
+        note: "Custody thresholds and support impacts"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Parenting time calculation methods, custody thresholds, and terminology vary significantly by state. Some states count daytime hours, others only overnights. Custody labels (sole, shared, joint) have different definitions by jurisdiction. Child support formulas incorporate parenting time differently. Always check your state's specific family law statutes and child support guidelines.",
   },

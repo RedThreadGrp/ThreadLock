@@ -236,30 +236,50 @@ export const hearingChecklist: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "Local Court Rules - Hearing Procedures and Evidence Requirements",
+        title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "General hearing and trial procedures"
       },
       {
-        name: "State Bar Self-Help Resources - Court Appearance Guides",
+        title: "Court Procedures - How Courts Work",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        lastAccessed: "2026-02-16",
+        note: "Court appearance and hearing guidance"
       },
       {
-        name: "Court Self-Help Centers - Hearing Preparation Checklists",
+        title: "Self-Help Resources",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        lastAccessed: "2026-02-16",
+        note: "State-specific hearing preparation resources"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "Local Court Rules",
-        note: "Specific hearing procedures and document requirements",
+        title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Specific hearing procedures and document requirements"
       },
       {
-        name: "Court Self-Help Centers",
-        note: "Practical guidance for self-represented litigants",
+        title: "Self-Help Resources",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        lastAccessed: "2026-02-16",
+        note: "Practical guidance for self-represented litigants"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Hearing procedures, document requirements, and courtroom rules vary significantly by court and jurisdiction. Some courts have specific exhibit formatting requirements. Electronic device policies differ by court. Check your local court's website or contact the clerk's office for court-specific rules before your hearing.",
   },

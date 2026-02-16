@@ -16,12 +16,26 @@ export const firstFiling: DivorceKit = {
   resources: ["/resources/proof-of-service", "/resources/official-portals", "/resources/filing-basics"],
   status: "published",
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
-      { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
-      { name: "Federal Rules of Civil Procedure", href: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure" }
+      { 
+        title: "Forms",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/forms",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Federal court forms and instructions"
+      },
+      { 
+        title: "Federal Rules of Civil Procedure",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Filing and service requirements"
+      }
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 90,
     accuracyNotes: "Filing requirements vary by jurisdiction. Always verify with your local court."
   },

@@ -163,30 +163,50 @@ export const proofOfServiceStates: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "Federal Rules of Civil Procedure - Service of Process",
+        title: "Federal Rules of Civil Procedure - Rules 4 and 5",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Federal service of process standards"
       },
       {
-        name: "State Bar Association - Service Requirements by State",
+        title: "State Court Service Requirements",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/information-and-resources/state-court-websites",
+        lastAccessed: "2026-02-16",
+        note: "Directory of state court websites with service rules"
       },
       {
-        name: "Court Clerk Offices - Local Service Rules",
+        title: "Service of Process Guide",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/litigation/resources/",
+        lastAccessed: "2026-02-16",
+        note: "Best practices for service compliance"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "Federal Rules of Civil Procedure",
-        note: "Federal service standards",
+        title: "Federal Rules of Civil Procedure - Rules 4 and 5",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Federal service standards"
       },
       {
-        name: "State Bar Association Resources",
-        note: "State-specific service requirements",
+        title: "State Court Websites",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/information-and-resources/state-court-websites",
+        lastAccessed: "2026-02-16",
+        note: "State-specific service requirements"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 90,
     accuracyNotes: "Service requirements vary significantly by state and court type. Some states have adopted electronic service rules. Timing requirements differ for initial petitions vs. other filings. Out-of-state service may require compliance with multiple jurisdictions. Service by publication procedures and costs vary widely. Always verify current rules with your local court clerk before serving documents.",
   },
