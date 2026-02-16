@@ -245,7 +245,7 @@ export default function ResourcesPage() {
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
         {/* Compact Header with Search */}
-        <section className="mx-auto max-w-6xl px-6 pt-16 pb-4">
+        <section className="mx-auto max-w-6xl px-6 pt-32 pb-4">
           <div className="mx-auto max-w-3xl text-center mb-6">
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground-dark mb-3">
               Resources
