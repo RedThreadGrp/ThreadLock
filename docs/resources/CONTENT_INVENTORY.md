@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-16T01:39:31.052Z
+**Generated:** 2026-02-16T01:48:33.795Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -14,15 +14,15 @@
   - special: 1
   - topic: 6
 - **Content Version:**
-  - V2 (structured blocks): 28
-  - V1 (legacy markdown): 10
+  - V2 (structured blocks): 30
+  - V1 (legacy markdown): 8
 - **Content Coverage:**
   - With body content: 21 (55.3%)
   - With meta description: 32 (84.2%)
   - With last updated date: 14 (36.8%)
   - With FAQs: 12
   - With sources/links: 1
-  - With issues/notes: 25
+  - With issues/notes: 26
 
 ## Quick Reference
 
@@ -35,14 +35,14 @@
 | /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Org... | 0 | V2 | fail | ⚠️ 2 |
 | /resources/filing-basics | resource | Federal Rules of Civil Procedure | 0 | V2 | pass | ⚠️ 2 |
 | /resources/financial-snapshot | resource |  | 0 | V2 | pass | ⚠️ 2 |
-| /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 286 | V2 | pass | ⚠️ 1 |
+| /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 407 | V2 | pass | ⚠️ 1 |
 | /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Cal... | 481 | V2 | pass | ⚠️ 1 |
 | /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | V2 | pass | ⚠️ 1 |
-| /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Repre... | 19 | V1 | pass | ✅ |
+| /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Repre... | 19 | V2 | pass | ⚠️ 1 |
 | /resources/hearing-tomorrow | resource | Hearing Tomorrow Checklist | 0 | V2 | fail | ⚠️ 2 |
 | /resources/kits/evidence | kit | Evidence Kit | 0 | V2 | fail | ⚠️ 2 |
 | /resources/kits/first-filing | kit | First Filing Kit | 0 | V2 | fail | ⚠️ 2 |
-| /resources/kits/hearing-soon | kit | Hearing Soon Kit | 9 | — | pass | ⚠️ 1 |
+| /resources/kits/hearing-soon | kit | Hearing Soon Kit | 0 | V2 | fail | ⚠️ 2 |
 | /resources/official-portals | resource |  | 0 | V2 | pass | ⚠️ 2 |
 | /resources/parenting-plans | resource |  | 0 | V2 | pass | ⚠️ 2 |
 | /resources/proof-of-service | resource | What Counts as Proof of Service?... | 0 | V2 | pass | ⚠️ 2 |
@@ -256,13 +256,14 @@
 - **Render Status:** ✅ pass
 
 **Word Count:**
-- total: 286
-- body: 273
+- total: 407
+- body: 394
 - summary: 13
 
 **Content Structure:**
-- Headings: H1(1), H2(8), H3(0)
-- Paragraphs: 18
+- Headings: H1(1), H2(9), H3(0)
+- Paragraphs: 20
+- Lists: 5
 
 **Features:**
 - FAQ: ❌ No
@@ -347,6 +348,9 @@
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
+
+**⚠️ Issues/Notes:**
+- V2 content from separate file (spread operator in registry)
 
 ---
 
@@ -433,19 +437,20 @@
 - **Content Source:** src/content/resourcesRegistry.ts:STARTER_KITS
 - **Meta Description:** Everything you need when a hearing is approaching fast.
 - **Last Updated:** ❌ missing
-- **Render Status:** ✅ pass
+- **Render Status:** ❌ fail
 
 **Word Count:**
-- total: 9
+- total: 0
 - body: 0
-- description: 9
+- excerpt: 0
 
 **Features:**
 - FAQ: ❌ No
 - Sources/Links: ❌ No
 
 **⚠️ Issues/Notes:**
-- No lastUpdated field in schema
+- V2 content from separate file (spread operator in registry)
+- No content found in registry
 
 ---
 

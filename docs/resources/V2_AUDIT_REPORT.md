@@ -1,6 +1,6 @@
 # V2 Content Standard Audit Report
 
-**Generated:** 2026-02-16T01:39:31.053Z
+**Generated:** 2026-02-16T01:48:33.796Z
 **Audit Purpose:** Track migration to contentVersion: 2 (structured blocks) standard
 
 ## Executive Summary
@@ -8,8 +8,8 @@
 ### Overall V2 Adoption
 
 - **Total Content Items:** 30
-- **V2 (Structured Blocks):** 28 (93.3%)
-- **V1 (Legacy Markdown):** 2 (6.7%)
+- **V2 (Structured Blocks):** 30 (100.0%)
+- **V1 (Legacy Markdown):** 0 (0.0%)
 
 ### V2 Adoption by Content Type
 
@@ -17,8 +17,8 @@
 |------|-------|----|----|------|
 | resource | 11 | 11 | 0 | 100.0% |
 | question | 12 | 12 | 0 | 100.0% |
-| guide | 4 | 3 | 1 | 75.0% |
-| kit | 3 | 2 | 1 | 66.7% |
+| guide | 4 | 4 | 0 | 100.0% |
+| kit | 3 | 3 | 0 | 100.0% |
 
 ## V2 Standard Compliance
 
@@ -29,9 +29,9 @@ The V2 standard requires:
 - ✅ Proper sections with IDs for TOC/anchors
 - ✅ Separate FAQs and sources sections
 
-## V2 Content Items (28 total)
+## V2 Content Items (30 total)
 
-### Published V2 Content (28)
+### Published V2 Content (30)
 
 | Route | Type | Title | Words | Has Blocks | Notes |
 |-------|------|-------|-------|------------|-------|
@@ -41,12 +41,14 @@ The V2 standard requires:
 | /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Org... | 0 | ✅ | V2 content from separate file ... |
 | /resources/filing-basics | resource | Federal Rules of Civil Procedure | 0 | ✅ | V2 content from separate file ... |
 | /resources/financial-snapshot | resource |  | 0 | ✅ | V2 content from separate file ... |
-| /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 286 | ✅ | Missing updated date... |
+| /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 407 | ✅ | Missing updated date... |
 | /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Cal... | 481 | ✅ | Missing updated date... |
 | /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | ✅ | Missing updated date... |
+| /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Repre... | 19 | ✅ | V2 content from separate file ... |
 | /resources/hearing-tomorrow | resource | Hearing Tomorrow Checklist | 0 | ✅ | V2 content from separate file ... |
 | /resources/kits/evidence | kit | Evidence Kit | 0 | ✅ | V2 content from separate file ... |
 | /resources/kits/first-filing | kit | First Filing Kit | 0 | ✅ | V2 content from separate file ... |
+| /resources/kits/hearing-soon | kit | Hearing Soon Kit | 0 | ✅ | V2 content from separate file ... |
 | /resources/official-portals | resource |  | 0 | ✅ | V2 content from separate file ... |
 | /resources/parenting-plans | resource |  | 0 | ✅ | V2 content from separate file ... |
 | /resources/proof-of-service | resource | What Counts as Proof of Service?... | 0 | ✅ | V2 content from separate file ... |
@@ -64,16 +66,14 @@ The V2 standard requires:
 | /resources/q/text-authentication | question | What if I can't afford court fees? | 640 | ✅ | — |
 | /resources/timeline-tools | resource | Official Court Portals by State | 1466 | ✅ | — |
 
-## V1 Legacy Content (2 total)
+## V1 Legacy Content (0 total)
 
-### Published V1 Content Awaiting Migration (2)
+### Published V1 Content Awaiting Migration (0)
 
 These items are candidates for migration to V2 structured format:
 
 | Route | Type | Title | Words | Priority |
 |-------|------|-------|-------|----------|
-| /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Repre... | 19 | 🔵 Low |
-| /resources/kits/hearing-soon | kit | Hearing Soon Kit | 9 | 🔵 Low |
 
 ## Migration Recommendations
 
@@ -87,17 +87,15 @@ These items are candidates for migration to V2 structured format:
 
 ### Low Priority
 
-2 items:
-- /resources/guides/self-representation-complete (19 words)
-- /resources/kits/hearing-soon (9 words)
+0 items:
 
 ## Quality Metrics
 
 ### V2 Content Quality
 
-- **With lastUpdated date:** 13/28 (46.4%)
-- **With sources:** 1/28 (3.6%)
-- **With FAQs:** 12/28
+- **With lastUpdated date:** 14/30 (46.7%)
+- **With sources:** 1/30 (3.3%)
+- **With FAQs:** 12/30
 
 ## Next Steps
 
@@ -115,6 +113,6 @@ These items are candidates for migration to V2 structured format:
    - Validate structured blocks are properly formatted
 
 4. **Low Priority Migration**
-   - Handle remaining 2 items
+   - Handle remaining 0 items
    - May require content expansion first
 
