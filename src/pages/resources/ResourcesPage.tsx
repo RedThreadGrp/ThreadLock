@@ -146,6 +146,17 @@ export default function ResourcesPage() {
     setQuery("");
   };
 
+  // Helper function for smooth scrolling to sections
+  const scrollToSection = (sectionId: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const section = document.querySelector(`#${sectionId}`);
+    if (section) {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+      window.history.pushState(null, '', `#${sectionId}`);
+    }
+  };
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return RESOURCES.filter((r) => {
@@ -295,15 +306,7 @@ export default function ResourcesPage() {
             <div className="flex items-center justify-center gap-1 overflow-x-auto py-3 scrollbar-hide">
               <a 
                 href="#starter-kits"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const section = document.querySelector('#starter-kits');
-                  if (section) {
-                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-                    window.history.pushState(null, '', '#starter-kits');
-                  }
-                }}
+                onClick={scrollToSection('starter-kits')}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 Starter Kits
@@ -311,15 +314,7 @@ export default function ResourcesPage() {
               <span className="text-border-dark">·</span>
               <a 
                 href="#featured-guides"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const section = document.querySelector('#featured-guides');
-                  if (section) {
-                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-                    window.history.pushState(null, '', '#featured-guides');
-                  }
-                }}
+                onClick={scrollToSection('featured-guides')}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 Featured Guides
@@ -327,15 +322,7 @@ export default function ResourcesPage() {
               <span className="text-border-dark">·</span>
               <a 
                 href="#topics"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const section = document.querySelector('#topics');
-                  if (section) {
-                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-                    window.history.pushState(null, '', '#topics');
-                  }
-                }}
+                onClick={scrollToSection('topics')}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 Topics
@@ -343,15 +330,7 @@ export default function ResourcesPage() {
               <span className="text-border-dark">·</span>
               <a 
                 href="#library"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const section = document.querySelector('#library');
-                  if (section) {
-                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-                    window.history.pushState(null, '', '#library');
-                  }
-                }}
+                onClick={scrollToSection('library')}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 Library
@@ -359,15 +338,7 @@ export default function ResourcesPage() {
               <span className="text-border-dark">·</span>
               <a 
                 href="#questions"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const section = document.querySelector('#questions');
-                  if (section) {
-                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-                    window.history.pushState(null, '', '#questions');
-                  }
-                }}
+                onClick={scrollToSection('questions')}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 FAQ / Questions
@@ -375,15 +346,7 @@ export default function ResourcesPage() {
               <span className="text-border-dark">·</span>
               <a 
                 href="#directory"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const section = document.querySelector('#directory');
-                  if (section) {
-                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
-                    window.history.pushState(null, '', '#directory');
-                  }
-                }}
+                onClick={scrollToSection('directory')}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 Official Directory
