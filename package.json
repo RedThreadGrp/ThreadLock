@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prebuild": "node scripts/check-next-env.mjs && node scripts/validate-resources-content.mjs",
+    "prebuild": "node scripts/check-next-env.mjs && node scripts/validate-governance.mjs && node scripts/validate-resources-content.mjs",
     "generate-sitemap": "node scripts/generate-sitemap.mjs",
     "resources:inventory": "node scripts/generate-resources-inventory.mjs",
     "resources:lint": "node scripts/resources-lint.mjs",
