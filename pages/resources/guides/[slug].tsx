@@ -60,7 +60,7 @@ function GuidePageV2({ guide, slug }: GuidePageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resourceQA-v2">
-        <div className="pt-14">
+        <div className="pt-20">
           <ResourceQAArticle content={guide.blocks} />
         </div>
         
