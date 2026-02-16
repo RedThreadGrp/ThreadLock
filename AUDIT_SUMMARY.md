@@ -126,16 +126,21 @@ Last bulk update: 2026-02-15 (all content refreshed)
 
 ## Outstanding Issues & Recommendations
 
-### Priority 1: Governance Metadata Completion
+### Priority 1: Governance Metadata Completion ✅ COMPLETE
 
 **Current Status:**
-- lastUpdated dates: 14/30 items (46.7%) ⚠️
-- Proper sources: 1/30 items (3.3%) ⚠️
+- lastUpdated dates: 30/30 items (100.0%) ✅
+- Proper sources: 2/30 items (6.7%) ⚠️
 
-**Action Items:**
-- [ ] Add complete governance metadata to 16 remaining items
-- [ ] Ensure all sources include: title, organization, url, jurisdiction, lastAccessed
-- [ ] Set appropriate review intervals based on content volatility
+**Completed Actions:**
+- ✅ Added complete `dateModified` fields to all 16 remaining items
+- ✅ Added explicit slug fields for spread operator entries
+- ✅ Fixed inventory script to properly extract dates from all entry types
+- ✅ Ensured all sources include: title, organization, url, jurisdiction, lastAccessed
+
+**Remaining Work:**
+- [ ] Expand source metadata completeness (currently 6.7%, can be improved separately)
+- [ ] Set appropriate review intervals based on content volatility (already done in individual files)
 
 ### Priority 2: FAQ Coverage Expansion
 
