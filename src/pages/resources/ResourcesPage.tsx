@@ -9,7 +9,6 @@ import React, { useMemo, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import SiteHeader from "@/src/components/SiteHeader";
-import HeroBanner from "@/src/components/HeroBanner";
 import { InlineIconLabel, CheckIcon } from "@/src/components/ui";
 import {
   EXTERNAL_RESOURCES,
@@ -233,19 +232,21 @@ export default function ResourcesPage() {
 
       <SiteHeader />
 
-      <HeroBanner
-        image="/annie-spratt-BH8-YFSNEIw-unsplash.jpg"
-        heading="Resources for self-represented family court work"
-        subheading="Checklists, templates, and plain-English explanations designed to help you stay organized and meet deadlines. No legal advice—just structure."
-      >
-        <p className="text-sm text-slate-300 mt-4">
-          Start with a kit if you're under time pressure.
-        </p>
-      </HeroBanner>
-
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
-        {/* Search and Filters Section */}
-        <section className="mx-auto max-w-6xl px-6 pt-10 pb-6">
+        {/* Compact Header with Search */}
+        <section className="mx-auto max-w-6xl px-6 pt-8 pb-4">
+          <div className="mx-auto max-w-3xl text-center mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground-dark mb-3">
+              Resources
+            </h1>
+            <p className="text-base text-muted-dark mb-2">
+              Checklists, templates, and plain-English court workflow help.
+            </p>
+            <p className="text-sm text-muted-dark/80">
+              Not legal advice. Just structure.
+            </p>
+          </div>
+
           <div className="mx-auto max-w-3xl">
             {/* Search bar */}
             <form 
@@ -285,25 +286,6 @@ export default function ResourcesPage() {
                 </button>
               </div>
             </form>
-
-            {/* Fast Tracks */}
-            <div className="mt-6 flex flex-wrap justify-center gap-2">
-              <Pill onClick={() => setIntent("Urgent")} active={intent === "Urgent"} dataTestId="resources.search.chip">
-                I have a hearing soon
-              </Pill>
-              <Pill onClick={() => setIntent("Start")} active={intent === "Start"} dataTestId="resources.search.chip">
-                I need to file basics
-              </Pill>
-              <Pill onClick={() => setIntent("Organize")} active={intent === "Organize"} dataTestId="resources.search.chip">
-                I'm organizing evidence
-              </Pill>
-              <Pill onClick={() => setIntent("Learn")} active={intent === "Learn"} dataTestId="resources.search.chip">
-                I need official portals
-              </Pill>
-              <Pill onClick={resetFilters} active={!isFiltersActive} dataTestId="resources.search.chip">
-                Reset
-              </Pill>
-            </div>
           </div>
         </section>
 
@@ -312,42 +294,96 @@ export default function ResourcesPage() {
           <div className="mx-auto max-w-6xl px-6">
             <div className="flex items-center justify-center gap-1 overflow-x-auto py-3 scrollbar-hide">
               <a 
-                href="#starter-kits" 
+                href="#starter-kits"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.querySelector('#starter-kits');
+                  if (section) {
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+                    window.history.pushState(null, '', '#starter-kits');
+                  }
+                }}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 Starter Kits
               </a>
               <span className="text-border-dark">·</span>
               <a 
-                href="#featured-guides" 
+                href="#featured-guides"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.querySelector('#featured-guides');
+                  if (section) {
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+                    window.history.pushState(null, '', '#featured-guides');
+                  }
+                }}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 Featured Guides
               </a>
               <span className="text-border-dark">·</span>
               <a 
-                href="#topics" 
+                href="#topics"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.querySelector('#topics');
+                  if (section) {
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+                    window.history.pushState(null, '', '#topics');
+                  }
+                }}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 Topics
               </a>
               <span className="text-border-dark">·</span>
               <a 
-                href="#library" 
+                href="#library"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.querySelector('#library');
+                  if (section) {
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+                    window.history.pushState(null, '', '#library');
+                  }
+                }}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 Library
               </a>
               <span className="text-border-dark">·</span>
               <a 
-                href="#questions" 
+                href="#questions"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.querySelector('#questions');
+                  if (section) {
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+                    window.history.pushState(null, '', '#questions');
+                  }
+                }}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 FAQ / Questions
               </a>
               <span className="text-border-dark">·</span>
               <a 
-                href="#directory" 
+                href="#directory"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.querySelector('#directory');
+                  if (section) {
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    section.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
+                    window.history.pushState(null, '', '#directory');
+                  }
+                }}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 Official Directory
