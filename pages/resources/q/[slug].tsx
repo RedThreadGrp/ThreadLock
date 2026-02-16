@@ -88,7 +88,9 @@ function QuestionPageV2({ question, slug }: QuestionPageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resourceQA-v2">
-        <ResourceQAArticle content={question.blocks} />
+        <div className="mx-auto max-w-5xl px-4 pt-14 pb-10">
+          <ResourceQAArticle content={question.blocks} />
+        </div>
         
         {/* Related content and feedback */}
         <div className="mx-auto max-w-4xl px-6 pb-10">
