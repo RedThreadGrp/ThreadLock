@@ -1,6 +1,6 @@
 # Resources Content Inventory
 
-**Generated:** 2026-02-16T01:36:12.004Z
+**Generated:** 2026-02-16T01:38:51.363Z
 **Total Routes:** 38
 
 ## Summary Statistics
@@ -13,6 +13,9 @@
   - question: 12
   - special: 1
   - topic: 6
+- **Content Version:**
+  - V2 (structured blocks): 28
+  - V1 (legacy markdown): 10
 - **Content Coverage:**
   - With body content: 21 (55.3%)
   - With meta description: 32 (84.2%)
@@ -23,46 +26,46 @@
 
 ## Quick Reference
 
-| Route | Type | Title | Words | Status | Issues |
-|-------|------|-------|-------|--------|--------|
-| /resources | unknown | Resources Hub | 0 | pass | ⚠️ 1 |
-| /resources/authentication | resource | Federal Rules of Evidence - Rule 901 ... | 0 | pass | ⚠️ 2 |
-| /resources/courtroom-prep | resource |  | 0 | pass | ⚠️ 2 |
-| /resources/evidence-intake | resource | Evidence Intake: Photos, Texts, Email... | 0 | pass | ⚠️ 2 |
-| /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Organiza... | 0 | fail | ⚠️ 2 |
-| /resources/filing-basics | resource | Federal Rules of Civil Procedure | 0 | pass | ⚠️ 2 |
-| /resources/financial-snapshot | resource |  | 0 | pass | ⚠️ 2 |
-| /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 286 | pass | ⚠️ 1 |
-| /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Calculat... | 481 | pass | ⚠️ 1 |
-| /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | pass | ⚠️ 1 |
-| /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Representa... | 19 | pass | ✅ |
-| /resources/hearing-tomorrow | resource | Hearing Tomorrow Checklist | 0 | fail | ⚠️ 2 |
-| /resources/kits/evidence | kit | Evidence Kit | 0 | fail | ⚠️ 2 |
-| /resources/kits/first-filing | kit | First Filing Kit | 0 | fail | ⚠️ 2 |
-| /resources/kits/hearing-soon | kit | Hearing Soon Kit | 9 | pass | ⚠️ 1 |
-| /resources/official-portals | resource |  | 0 | pass | ⚠️ 2 |
-| /resources/parenting-plans | resource |  | 0 | pass | ⚠️ 2 |
-| /resources/proof-of-service | resource | What Counts as Proof of Service? | De... | 0 | pass | ⚠️ 2 |
-| /resources/q/child-support-calculation | question | How much does mediation cost? | 979 | pass | ✅ |
-| /resources/q/custody-types | question | What happens if I miss a filing deadl... | 846 | pass | ✅ |
-| /resources/q/exhibit-labeling | question | How long do I have to serve documents? | 468 | pass | ✅ |
-| /resources/q/fee-waiver | question | What counts as a substantial change i... | 1041 | pass | ✅ |
-| /resources/q/hearing-checklist | question | What counts as proof of service? | 702 | pass | ⚠️ 1 |
-| /resources/q/mediation-lawyer | question | Can I modify a parenting plan later? | 899 | pass | ✅ |
-| /resources/q/modify-parenting-plan | question | Can I modify child support later? | 1131 | pass | ✅ |
-| /resources/q/official-forms-location | question | Can I authenticate text messages myself? | 567 | pass | ✅ |
-| /resources/q/proof-of-service-definition | question | What counts as proof of service? | 36 | pass | ✅ |
-| /resources/q/respond-to-motion | question | What are typical court filing fees? | 1261 | pass | ✅ |
-| /resources/q/service-deadlines | question | What should I wear to court? | 788 | pass | ✅ |
-| /resources/q/text-authentication | question | What if I can't afford court fees? | 640 | pass | ✅ |
-| /resources/thanks | special | Resources Thanks Page | 0 | pass | ⚠️ 1 |
-| /resources/timeline-tools | resource | Official Court Portals by State | 1466 | pass | ✅ |
-| /resources/topics/evidence-exhibits | topic | Evidence & Exhibits | 444 | pass | ⚠️ 1 |
-| /resources/topics/financial-declarations | topic | Financial Declarations | 552 | pass | ⚠️ 1 |
-| /resources/topics/hearings-prep | topic | Hearings & Courtroom Prep | 492 | pass | ⚠️ 1 |
-| /resources/topics/official-forms | topic | Official Forms & Portals | 521 | pass | ⚠️ 1 |
-| /resources/topics/parenting-plans | topic | Parenting Plans | 500 | pass | ⚠️ 1 |
-| /resources/topics/proof-of-service | topic | Proof of Service | 458 | pass | ⚠️ 1 |
+| Route | Type | Title | Words | V | Status | Issues |
+|-------|------|-------|-------|---|--------|--------|
+| /resources | unknown | Resources Hub | 0 | — | pass | ⚠️ 1 |
+| /resources/authentication | resource | Federal Rules of Evidence - Rule... | 0 | V2 | pass | ⚠️ 2 |
+| /resources/courtroom-prep | resource |  | 0 | V2 | pass | ⚠️ 2 |
+| /resources/evidence-intake | resource | Evidence Intake: Photos, Texts, ... | 0 | V2 | pass | ⚠️ 2 |
+| /resources/exhibits-guide | resource | Exhibits Guide: Labeling and Org... | 0 | V2 | fail | ⚠️ 2 |
+| /resources/filing-basics | resource | Federal Rules of Civil Procedure | 0 | V2 | pass | ⚠️ 2 |
+| /resources/financial-snapshot | resource |  | 0 | V2 | pass | ⚠️ 2 |
+| /resources/guides/evidence-authentication | guide | Evidence Authentication 101 | 286 | V2 | pass | ⚠️ 1 |
+| /resources/guides/parenting-time-calculations | guide | Understanding Parenting Time Cal... | 481 | V2 | pass | ⚠️ 1 |
+| /resources/guides/proof-of-service-states | guide | Proof of Service State-by-State | 432 | V2 | pass | ⚠️ 1 |
+| /resources/guides/self-representation-complete | guide | The Complete Guide to Self-Repre... | 19 | V1 | pass | ✅ |
+| /resources/hearing-tomorrow | resource | Hearing Tomorrow Checklist | 0 | V2 | fail | ⚠️ 2 |
+| /resources/kits/evidence | kit | Evidence Kit | 0 | V2 | fail | ⚠️ 2 |
+| /resources/kits/first-filing | kit | First Filing Kit | 0 | V2 | fail | ⚠️ 2 |
+| /resources/kits/hearing-soon | kit | Hearing Soon Kit | 9 | — | pass | ⚠️ 1 |
+| /resources/official-portals | resource |  | 0 | V2 | pass | ⚠️ 2 |
+| /resources/parenting-plans | resource |  | 0 | V2 | pass | ⚠️ 2 |
+| /resources/proof-of-service | resource | What Counts as Proof of Service?... | 0 | V2 | pass | ⚠️ 2 |
+| /resources/q/child-support-calculation | question | How much does mediation cost? | 979 | V2 | pass | ✅ |
+| /resources/q/custody-types | question | What happens if I miss a filing ... | 846 | V2 | pass | ✅ |
+| /resources/q/exhibit-labeling | question | How long do I have to serve docu... | 468 | V2 | pass | ✅ |
+| /resources/q/fee-waiver | question | What counts as a substantial cha... | 1041 | V2 | pass | ✅ |
+| /resources/q/hearing-checklist | question | What counts as proof of service? | 702 | V2 | pass | ⚠️ 1 |
+| /resources/q/mediation-lawyer | question | Can I modify a parenting plan la... | 899 | V2 | pass | ✅ |
+| /resources/q/modify-parenting-plan | question | Can I modify child support later? | 1131 | V2 | pass | ✅ |
+| /resources/q/official-forms-location | question | Can I authenticate text messages... | 567 | V2 | pass | ✅ |
+| /resources/q/proof-of-service-definition | question | What counts as proof of service? | 36 | V2 | pass | ✅ |
+| /resources/q/respond-to-motion | question | What are typical court filing fees? | 1261 | V2 | pass | ✅ |
+| /resources/q/service-deadlines | question | What should I wear to court? | 788 | V2 | pass | ✅ |
+| /resources/q/text-authentication | question | What if I can't afford court fees? | 640 | V2 | pass | ✅ |
+| /resources/thanks | special | Resources Thanks Page | 0 | — | pass | ⚠️ 1 |
+| /resources/timeline-tools | resource | Official Court Portals by State | 1466 | V2 | pass | ✅ |
+| /resources/topics/evidence-exhibits | topic | Evidence & Exhibits | 444 | — | pass | ⚠️ 1 |
+| /resources/topics/financial-declarations | topic | Financial Declarations | 552 | — | pass | ⚠️ 1 |
+| /resources/topics/hearings-prep | topic | Hearings & Courtroom Prep | 492 | — | pass | ⚠️ 1 |
+| /resources/topics/official-forms | topic | Official Forms & Portals | 521 | — | pass | ⚠️ 1 |
+| /resources/topics/parenting-plans | topic | Parenting Plans | 500 | — | pass | ⚠️ 1 |
+| /resources/topics/proof-of-service | topic | Proof of Service | 458 | — | pass | ⚠️ 1 |
 
 ---
 

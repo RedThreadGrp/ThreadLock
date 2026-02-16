@@ -7,10 +7,12 @@
  * - Content structure (word count, blocks, sections)
  * - Quality checks (missing metadata, duplicate content)
  * - Content sources and mappings
+ * - V2 Migration Status (contentVersion: 2 structured blocks audit)
  * 
  * Outputs:
  * - docs/resources/CONTENT_INVENTORY.json (machine-readable)
  * - docs/resources/CONTENT_INVENTORY.md (human-readable)
+ * - docs/resources/V2_AUDIT_REPORT.md (v2 migration audit)
  */
 
 import fs from 'fs';
@@ -23,6 +25,7 @@ const __dirname = path.dirname(__filename);
 const SITEMAP_PATH = path.join(__dirname, '../public/sitemap.xml');
 const OUTPUT_JSON = path.join(__dirname, '../docs/resources/CONTENT_INVENTORY.json');
 const OUTPUT_MD = path.join(__dirname, '../docs/resources/CONTENT_INVENTORY.md');
+const V2_AUDIT_MD = path.join(__dirname, '../docs/resources/V2_AUDIT_REPORT.md');
 const REGISTRY_PATH = path.join(__dirname, '../src/content/resourcesRegistry.ts');
 const TOPICS_DATA_PATH = path.join(__dirname, '../src/data/resources/topics.json');
 
@@ -667,6 +670,8 @@ function generateMarkdownReport(inventory) {
     withFaq: 0,
     withSources: 0,
     issues: 0,
+    v2Count: 0,
+    v1Count: 0,
   };
   
   inventory.forEach(entry => {
@@ -677,6 +682,8 @@ function generateMarkdownReport(inventory) {
     if (entry.hasFaq) stats.withFaq++;
     if (entry.hasSources) stats.withSources++;
     if (entry.notes.length > 0) stats.issues++;
+    if (entry.contentVersion === 2) stats.v2Count++;
+    if (entry.contentVersion === 1 || !entry.contentVersion) stats.v1Count++;
   });
   
   md += `## Summary Statistics\n\n`;
@@ -684,6 +691,9 @@ function generateMarkdownReport(inventory) {
   Object.entries(stats.byType).forEach(([type, count]) => {
     md += `  - ${type}: ${count}\n`;
   });
+  md += `- **Content Version:**\n`;
+  md += `  - V2 (structured blocks): ${stats.v2Count}\n`;
+  md += `  - V1 (legacy markdown): ${stats.v1Count}\n`;
   md += `- **Content Coverage:**\n`;
   md += `  - With body content: ${stats.withBody} (${((stats.withBody/stats.total)*100).toFixed(1)}%)\n`;
   md += `  - With meta description: ${stats.withMeta} (${((stats.withMeta/stats.total)*100).toFixed(1)}%)\n`;
@@ -694,14 +704,15 @@ function generateMarkdownReport(inventory) {
   
   // Quick reference table
   md += `## Quick Reference\n\n`;
-  md += `| Route | Type | Title | Words | Status | Issues |\n`;
-  md += `|-------|------|-------|-------|--------|--------|\n`;
+  md += `| Route | Type | Title | Words | V | Status | Issues |\n`;
+  md += `|-------|------|-------|-------|---|--------|--------|\n`;
   
   inventory.forEach(entry => {
     const issueCount = entry.notes.length;
     const issueIcon = issueCount > 0 ? `⚠️ ${issueCount}` : '✅';
-    const title = entry.title.length > 40 ? entry.title.substring(0, 37) + '...' : entry.title;
-    md += `| ${entry.route} | ${entry.type} | ${title} | ${entry.wordCount.total} | ${entry.renderSmokeStatus} | ${issueIcon} |\n`;
+    const title = entry.title.length > 35 ? entry.title.substring(0, 32) + '...' : entry.title;
+    const versionIcon = entry.contentVersion === 2 ? 'V2' : entry.contentVersion === 1 ? 'V1' : '—';
+    md += `| ${entry.route} | ${entry.type} | ${title} | ${entry.wordCount.total} | ${versionIcon} | ${entry.renderSmokeStatus} | ${issueIcon} |\n`;
   });
   
   md += `\n---\n\n`;
@@ -761,6 +772,166 @@ function generateMarkdownReport(inventory) {
 }
 
 /**
+ * Generate V2 Migration Audit Report
+ */
+function generateV2AuditReport(inventory) {
+  const timestamp = new Date().toISOString();
+  
+  let md = `# V2 Content Standard Audit Report\n\n`;
+  md += `**Generated:** ${timestamp}\n`;
+  md += `**Audit Purpose:** Track migration to contentVersion: 2 (structured blocks) standard\n\n`;
+  
+  // Filter and categorize content
+  const contentItems = inventory.filter(e => 
+    ['resource', 'question', 'guide', 'kit'].includes(e.type)
+  );
+  
+  const v2Items = contentItems.filter(e => e.contentVersion === 2);
+  const v1Items = contentItems.filter(e => e.contentVersion === 1 || !e.contentVersion);
+  
+  const v2Published = v2Items.filter(e => !e.notes.some(n => n.includes('draft')));
+  const v1Published = v1Items.filter(e => !e.notes.some(n => n.includes('draft')));
+  
+  // Calculate v2 adoption stats
+  const totalContent = contentItems.length;
+  const v2Count = v2Items.length;
+  const v2Percentage = totalContent > 0 ? ((v2Count / totalContent) * 100).toFixed(1) : 0;
+  
+  // Stats by type
+  const statsByType = {};
+  ['resource', 'question', 'guide', 'kit'].forEach(type => {
+    const typeItems = contentItems.filter(e => e.type === type);
+    const typeV2 = v2Items.filter(e => e.type === type);
+    statsByType[type] = {
+      total: typeItems.length,
+      v2: typeV2.length,
+      v1: typeItems.length - typeV2.length,
+      percentage: typeItems.length > 0 ? ((typeV2.length / typeItems.length) * 100).toFixed(1) : 0
+    };
+  });
+  
+  md += `## Executive Summary\n\n`;
+  md += `### Overall V2 Adoption\n\n`;
+  md += `- **Total Content Items:** ${totalContent}\n`;
+  md += `- **V2 (Structured Blocks):** ${v2Count} (${v2Percentage}%)\n`;
+  md += `- **V1 (Legacy Markdown):** ${v1Items.length} (${(100 - v2Percentage).toFixed(1)}%)\n\n`;
+  
+  md += `### V2 Adoption by Content Type\n\n`;
+  md += `| Type | Total | V2 | V1 | V2 % |\n`;
+  md += `|------|-------|----|----|------|\n`;
+  Object.entries(statsByType).forEach(([type, stats]) => {
+    md += `| ${type} | ${stats.total} | ${stats.v2} | ${stats.v1} | ${stats.percentage}% |\n`;
+  });
+  md += `\n`;
+  
+  md += `## V2 Standard Compliance\n\n`;
+  md += `The V2 standard requires:\n`;
+  md += `- ✅ \`contentVersion: 2\` in registry\n`;
+  md += `- ✅ Structured \`blocks\` using ResourceBodyBlock types\n`;
+  md += `- ✅ Governance metadata (lastUpdated, sources, jurisdictionScope)\n`;
+  md += `- ✅ Proper sections with IDs for TOC/anchors\n`;
+  md += `- ✅ Separate FAQs and sources sections\n\n`;
+  
+  md += `## V2 Content Items (${v2Count} total)\n\n`;
+  md += `### Published V2 Content (${v2Published.length})\n\n`;
+  md += `| Route | Type | Title | Words | Has Blocks | Notes |\n`;
+  md += `|-------|------|-------|-------|------------|-------|\n`;
+  
+  v2Published.forEach(entry => {
+    const title = entry.title.length > 35 ? entry.title.substring(0, 32) + '...' : entry.title;
+    const blocksIcon = entry.hasBlocks ? '✅' : '⚠️';
+    const notes = entry.notes.length > 0 ? entry.notes[0].substring(0, 30) + '...' : '—';
+    md += `| ${entry.route} | ${entry.type} | ${title} | ${entry.wordCount.total} | ${blocksIcon} | ${notes} |\n`;
+  });
+  
+  if (v2Items.length > v2Published.length) {
+    const v2Draft = v2Items.filter(e => e.notes.some(n => n.includes('draft')));
+    md += `\n### Draft V2 Content (${v2Draft.length})\n\n`;
+    md += `| Route | Type | Title |\n`;
+    md += `|-------|------|-------|\n`;
+    v2Draft.forEach(entry => {
+      const title = entry.title.length > 40 ? entry.title.substring(0, 37) + '...' : entry.title;
+      md += `| ${entry.route} | ${entry.type} | ${title} |\n`;
+    });
+  }
+  
+  md += `\n## V1 Legacy Content (${v1Items.length} total)\n\n`;
+  md += `### Published V1 Content Awaiting Migration (${v1Published.length})\n\n`;
+  md += `These items are candidates for migration to V2 structured format:\n\n`;
+  md += `| Route | Type | Title | Words | Priority |\n`;
+  md += `|-------|------|-------|-------|----------|\n`;
+  
+  v1Published.forEach(entry => {
+    const title = entry.title.length > 35 ? entry.title.substring(0, 32) + '...' : entry.title;
+    const wordCount = entry.wordCount.total;
+    // Priority: High for guides/resources with substantial content, Medium for questions, Low for others
+    let priority = '🔵 Low';
+    if (wordCount > 500 && (entry.type === 'resource' || entry.type === 'guide')) priority = '🔴 High';
+    else if (wordCount > 200 && entry.type === 'question') priority = '🟡 Medium';
+    
+    md += `| ${entry.route} | ${entry.type} | ${title} | ${wordCount} | ${priority} |\n`;
+  });
+  
+  md += `\n## Migration Recommendations\n\n`;
+  md += `### High Priority (Migrate First)\n\n`;
+  const highPriority = v1Published.filter(e => 
+    e.wordCount.total > 500 && (e.type === 'resource' || e.type === 'guide')
+  );
+  md += `${highPriority.length} items:\n`;
+  highPriority.forEach(e => {
+    md += `- ${e.route} (${e.wordCount.total} words)\n`;
+  });
+  
+  md += `\n### Medium Priority (Questions)\n\n`;
+  const medPriority = v1Published.filter(e => 
+    e.wordCount.total > 200 && e.type === 'question'
+  );
+  md += `${medPriority.length} items:\n`;
+  medPriority.forEach(e => {
+    md += `- ${e.route} (${e.wordCount.total} words)\n`;
+  });
+  
+  md += `\n### Low Priority\n\n`;
+  const lowPriority = v1Published.filter(e => {
+    const words = e.wordCount.total;
+    return !(words > 500 && (e.type === 'resource' || e.type === 'guide')) &&
+           !(words > 200 && e.type === 'question');
+  });
+  md += `${lowPriority.length} items:\n`;
+  lowPriority.forEach(e => {
+    md += `- ${e.route} (${e.wordCount.total} words)\n`;
+  });
+  
+  md += `\n## Quality Metrics\n\n`;
+  md += `### V2 Content Quality\n\n`;
+  const v2WithGovernance = v2Items.filter(e => 
+    e.lastUpdated && e.lastUpdated !== 'missing'
+  ).length;
+  const v2WithSources = v2Items.filter(e => e.hasSources).length;
+  
+  md += `- **With lastUpdated date:** ${v2WithGovernance}/${v2Count} (${((v2WithGovernance/v2Count)*100).toFixed(1)}%)\n`;
+  md += `- **With sources:** ${v2WithSources}/${v2Count} (${((v2WithSources/v2Count)*100).toFixed(1)}%)\n`;
+  md += `- **With FAQs:** ${v2Items.filter(e => e.hasFaq).length}/${v2Count}\n\n`;
+  
+  md += `## Next Steps\n\n`;
+  md += `1. **Migrate High Priority Items** (${highPriority.length} items)\n`;
+  md += `   - Focus on resources/guides with >500 words\n`;
+  md += `   - These have the most content value\n\n`;
+  md += `2. **Batch Migrate Questions** (${medPriority.length} items)\n`;
+  md += `   - Questions follow similar structure\n`;
+  md += `   - Can use migration script for bulk conversion\n\n`;
+  md += `3. **Quality Review V2 Content**\n`;
+  md += `   - Add missing governance metadata\n`;
+  md += `   - Ensure all have sources and lastUpdated\n`;
+  md += `   - Validate structured blocks are properly formatted\n\n`;
+  md += `4. **Low Priority Migration**\n`;
+  md += `   - Handle remaining ${lowPriority.length} items\n`;
+  md += `   - May require content expansion first\n\n`;
+  
+  return md;
+}
+
+/**
  * Main function
  */
 function main() {
@@ -799,18 +970,27 @@ function main() {
   fs.writeFileSync(OUTPUT_MD, markdown, 'utf8');
   console.log(`  ✓ Written to ${OUTPUT_MD}\n`);
   
+  // Step 6: Generate V2 Audit Report
+  console.log('Step 6: Generating V2 Migration Audit...');
+  const v2Audit = generateV2AuditReport(inventory);
+  fs.writeFileSync(V2_AUDIT_MD, v2Audit, 'utf8');
+  console.log(`  ✓ Written to ${V2_AUDIT_MD}\n`);
+  
   // Summary
   const issues = inventory.filter(e => e.notes.length > 0).length;
   const failing = inventory.filter(e => e.renderSmokeStatus === 'fail').length;
+  const v2Count = inventory.filter(e => e.contentVersion === 2).length;
   
   console.log('✅ Content Inventory Generated Successfully!\n');
   console.log(`📊 Summary:`);
   console.log(`   Total routes: ${inventory.length}`);
+  console.log(`   V2 content items: ${v2Count}`);
   console.log(`   Routes with issues: ${issues}`);
   console.log(`   Routes failing smoke test: ${failing}`);
   console.log(`\n📁 Output files:`);
   console.log(`   - ${OUTPUT_JSON}`);
   console.log(`   - ${OUTPUT_MD}`);
+  console.log(`   - ${V2_AUDIT_MD}`);
   
   if (failing > 0) {
     console.log(`\n⚠️  Warning: ${failing} route(s) have no content in registry`);
