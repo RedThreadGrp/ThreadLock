@@ -170,31 +170,53 @@ export const feeWaiver: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "Federal Poverty Guidelines (U.S. Department of Health and Human Services)",
+        title: "Federal Poverty Guidelines",
+        organization: "U.S. Department of Health and Human Services",
+        url: "https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Annual poverty level calculations for fee waiver eligibility"
       },
       {
-        name: "State Court Self-Help Centers - Fee Waiver Information",
+        title: "28 U.S.C. § 1915 - Proceedings in Forma Pauperis",
+        organization: "U.S. Government Publishing Office",
+        url: "https://www.govinfo.gov/content/pkg/USCODE-2011-title28/html/USCODE-2011-title28-partV-chap123-sec1915.htm",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Federal statute governing fee waivers"
       },
       {
-        name: "28 U.S.C. § 1915 - Proceedings in Forma Pauperis (Federal Courts)",
+        title: "Fee Waiver Information",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/services-forms/fees/fee-waivers",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Official guidance on federal court fee waivers"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "Federal Poverty Guidelines",
-        href: "https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines",
-        note: "Annual poverty level calculations",
+        title: "Federal Poverty Guidelines",
+        organization: "U.S. Department of Health and Human Services",
+        url: "https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Annual poverty level calculations"
       },
       {
-        name: "28 U.S.C. § 1915 - Federal In Forma Pauperis Statute",
-        note: "Federal court fee waiver provisions",
+        title: "28 U.S.C. § 1915 - Proceedings in Forma Pauperis",
+        organization: "U.S. Government Publishing Office",
+        url: "https://www.govinfo.gov/content/pkg/USCODE-2011-title28/html/USCODE-2011-title28-partV-chap123-sec1915.htm",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Federal in forma pauperis statute"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Fee waiver requirements, forms, and procedures vary by state and court type (civil, family, probate). Poverty guidelines are updated annually. Check your local court's self-help center for jurisdiction-specific forms and income thresholds.",
   },

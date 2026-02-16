@@ -167,31 +167,52 @@ export const textAuthentication: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        name: "Federal Rules of Evidence 901 - Authentication Requirements",
+        title: "Federal Rules of Evidence - Rule 901",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Authentication requirements for electronic evidence"
       },
       {
-        name: "State Evidence Codes - Electronic Records Authentication",
+        title: "Federal Rules of Evidence",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/rules/fre",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Complete text with annotations on authentication"
       },
       {
-        name: "Case Law on Text Message Authentication in Family Law Cases",
+        title: "Electronic Evidence Guide",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/litigation/resources/",
+        lastAccessed: "2026-02-16",
+        note: "Best practices for authenticating digital communications"
       },
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
       {
-        name: "Federal Rules of Evidence 901",
-        href: "https://www.law.cornell.edu/rules/fre/rule_901",
-        note: "Authentication and identification requirements",
+        title: "Federal Rules of Evidence - Rule 901",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Authentication and identification requirements"
       },
       {
-        name: "State Evidence Codes",
-        note: "State-specific authentication standards",
+        title: "Federal Rules of Evidence - Rule 901",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/rules/fre/rule_901",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Detailed authentication requirements with case annotations"
       },
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["federal"],
     reviewIntervalDays: 180,
     accuracyNotes: "Authentication requirements for electronic evidence vary by jurisdiction. Federal courts and most state courts follow similar foundational authentication principles, but specific procedural requirements differ. Some courts have specific rules for electronic evidence. Technology changes rapidly; newer messaging platforms may require updated authentication methods.",
   },
