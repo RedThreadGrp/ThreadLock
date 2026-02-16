@@ -299,6 +299,18 @@ export const filingBasics: ResourcePage = {
       {
         question: "Do I need a lawyer to file court documents?",
         answer: "No. You have the right to represent yourself (called appearing \"pro se\" or \"in propria persona\"). Courts must accept filings from self-represented litigants. However, you're held to the same standards as attorneys—the same deadlines, formatting requirements, and procedural rules apply. Consider consulting with a lawyer even if you can't afford full representation; many offer limited-scope services to review documents before filing."
+      },
+      {
+        question: "What happens if I file the wrong document?",
+        answer: "If you realize it immediately, contact the Clerk of Court to see if you can retrieve and replace it before the other party is served. If it's already served, file the correct document with a notice explaining the error. Title it \"Notice of Correction\" or \"Amended [Document Name].\" In some cases, you may need to file a motion to withdraw the incorrect filing. The opposing party may object if they've already prepared a response. Don't ignore the mistake—courts take document accuracy seriously, and deliberate misfilings can result in sanctions."
+      },
+      {
+        question: "How do I prove I served the other party?",
+        answer: "File a Proof of Service form (also called Certificate of Service or Affidavit of Service) with the court. This document must be completed by the person who served the documents (not you) and states under penalty of perjury the date, time, location, and method of service. Most jurisdictions have standard forms: California uses FL-335 (mail) and FL-330 (personal service), federal courts use a Certificate of Service. Include details like the recipient's full name, service address, and which documents were served. File this proof within the required timeframe (varies by jurisdiction, typically within a few days of service)."
+      },
+      {
+        question: "Can I file documents after business hours?",
+        answer: "If your court has an e-filing system, yes—you can file electronically 24/7. The filing timestamp determines whether you met the deadline (usually by 11:59 PM on the due date). In-person filing is limited to Clerk of Court business hours (typically 8 AM - 5 PM weekdays). Some courthouses have drop boxes for after-hours filing, but check if your jurisdiction accepts this method and how it affects filing dates. Weekend and holiday filings depend on your court's rules and e-filing system capabilities. Some courts consider next business day as the filing date for after-hours submissions."
       }
     ]
   },
