@@ -155,13 +155,33 @@ export const officialPortals: ResourcePage = {
     ]
   },
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
-      { name: "U.S. Courts Forms", href: "https://www.uscourts.gov/forms" },
-      { name: "State Court Self-Help Portals" },
-      { name: "State Bar Association Resources" }
+      { 
+        title: "Forms",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/forms",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Federal court forms and resources"
+      },
+      { 
+        title: "State Court Websites",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/information-and-resources/state-court-websites",
+        lastAccessed: "2026-02-16",
+        note: "Directory of official state court websites"
+      },
+      { 
+        title: "Find Legal Aid",
+        organization: "Legal Services Corporation",
+        url: "https://www.lsc.gov/what-legal-aid/find-legal-aid",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Federally funded legal aid locator"
+      }
     ],
-    jurisdictionScope: ["US-general"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 90,
     accuracyNotes: "Court websites and form availability vary by state. Always verify current forms with your local court."
   }

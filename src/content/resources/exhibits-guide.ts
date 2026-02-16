@@ -195,13 +195,33 @@ export const exhibitsGuide: ResourcePage = {
   ],
   
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     sources: [
-      { name: "Federal Rules of Evidence", href: "https://www.law.cornell.edu/rules/fre" },
-      { name: "Court Self-Help Portals", href: "https://www.uscourts.gov/forms" },
-      { name: "State Bar Association Evidence Guides", href: "https://www.americanbar.org/" }
+      { 
+        title: "Federal Rules of Evidence",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Authentication and exhibit admission standards"
+      },
+      { 
+        title: "Federal Rules of Evidence",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/rules/fre",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Complete text with annotations"
+      },
+      { 
+        title: "Court Procedures",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        lastAccessed: "2026-02-16",
+        note: "Evidence presentation and exhibit preparation guidance"
+      }
     ],
-    jurisdictionScope: ["US-general", "Federal"],
+    jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
     accuracyNotes: "Exhibit requirements vary significantly by jurisdiction. Some courts have specific color-coding, numbering systems, or electronic filing requirements. Always verify with your local court rules and clerk's office."
   }

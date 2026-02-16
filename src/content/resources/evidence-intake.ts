@@ -161,23 +161,35 @@ export const evidenceIntake: ResourcePage = {
   },
 
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-16",
     reviewIntervalDays: 180,
     sources: [
       {
-        name: "Federal Rules of Evidence Rule 901",
-        url: "https://www.federalevidence.com/rules-of-evidence#rule901",
+        title: "Federal Rules of Evidence - Rule 901",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Authentication requirements for evidence"
       },
       {
-        name: "Digital Evidence Preservation Best Practices",
-        url: "https://www.nist.gov/digital-evidence",
+        title: "Digital Evidence and Forensics",
+        organization: "National Institute of Standards and Technology (NIST)",
+        url: "https://www.nist.gov/topics/digital-evidence-forensics",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Digital evidence preservation standards and best practices"
       },
       {
-        name: "Court Self-Help Centers",
-        note: "Local court websites for evidence filing procedures",
+        title: "Federal Rules of Evidence",
+        organization: "Legal Information Institute, Cornell Law School",
+        url: "https://www.law.cornell.edu/rules/fre",
+        jurisdiction: "Federal",
+        lastAccessed: "2026-02-16",
+        note: "Complete text with annotations on evidence standards"
       },
     ],
-    jurisdictionScope: "General evidence intake procedures applicable across U.S. courts",
+    jurisdictionScope: ["federal"],
     accuracyNotes:
       "Evidence authentication requirements may vary by state. Digital evidence standards continue to evolve with technology. Always check local court rules for specific formatting and filing requirements.",
   },
