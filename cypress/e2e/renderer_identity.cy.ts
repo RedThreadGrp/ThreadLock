@@ -27,8 +27,8 @@ describe('Renderer Identity - Prod Parity Gate', () => {
     });
     
     it('must not have legacy body markers', () => {
-      // Assert absence of legacy markdown rendering
-      cy.get('[data-testid="legacy-question-body"]').should('not.exist');
+      // Assert absence of legacy markdown rendering - this checks for v1 CONTENT structure
+      cy.get('[data-testid="question-v1-content"]').should('not.exist');
       // Should not have duplicate "Short Answer" heading in body
       cy.get('.prose').should('not.exist'); // v2 doesn't use prose class
     });
