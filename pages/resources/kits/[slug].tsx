@@ -8,6 +8,8 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
 import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { getStarterKitBySlug, getResourceBySlug, STARTER_KITS, StarterKit } from "@/src/content/resourcesRegistry";
+import { ResourceLayoutV2 } from "@/src/components/resources/ResourceLayoutV2";
+import { SectionCard, SectionCardGrid } from "@/src/components/resources/SectionCard";
 
 type KitPageProps = {
   kit: StarterKit | null;
@@ -21,6 +23,41 @@ export default function KitPage({ kit, slug }: KitPageProps) {
 
   const isDraft = kit.status === "draft";
 
+  const header = (
+    <>
+      {/* Back link */}
+      <Link 
+        href="/resources#starter-kits" 
+        className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"
+      >
+        ← Back to Starter Kits
+      </Link>
+
+      {/* Draft badge */}
+      {isDraft && (
+        <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange mb-4">
+          <span className="inline-block h-2 w-2 rounded-full bg-brand-orange" />
+          In Progress
+        </div>
+      )}
+
+      {/* Title & time */}
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <h1 className="text-4xl font-semibold tracking-tight text-foreground-dark">
+          {kit.title}
+        </h1>
+        <span className="shrink-0 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-3 py-1 text-sm font-semibold text-brand-orange">
+          {kit.estimatedTime}
+        </span>
+      </div>
+
+      {/* Description */}
+      <p className="text-lg text-muted-dark leading-relaxed mb-8 border-l-4 border-brand-orange pl-4">
+        {kit.description}
+      </p>
+    </>
+  );
+
   return (
     <>
       <Head>
@@ -30,41 +67,14 @@ export default function KitPage({ kit, slug }: KitPageProps) {
 
       <SiteHeader />
 
-      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="legacyResource-v1">
-        <div className="mx-auto max-w-4xl px-6 pt-36 pb-10">
-          {/* Back link */}
-          <Link 
-            href="/resources#starter-kits" 
-            className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"
-          >
-            ← Back to Starter Kits
-          </Link>
-
-          {/* Draft badge */}
-          {isDraft && (
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange mb-4">
-              <span className="inline-block h-2 w-2 rounded-full bg-brand-orange" />
-              In Progress
-            </div>
-          )}
-
-          {/* Title & time */}
-          <div className="flex items-start justify-between gap-4 mb-4">
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground-dark">
-              {kit.title}
-            </h1>
-            <span className="shrink-0 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-3 py-1 text-sm font-semibold text-brand-orange">
-              {kit.estimatedTime}
-            </span>
-          </div>
-
-          {/* Description */}
-          <p className="text-lg text-muted-dark leading-relaxed mb-8 border-l-4 border-brand-orange pl-4">
-            {kit.description}
-          </p>
-
+      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
+        <ResourceLayoutV2 
+          dataRenderer="kit-v1" 
+          maxWidth="narrow"
+          header={header}
+        >
           {/* What you'll get */}
-          <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 mb-8">
+          <SectionCard className="mb-8">
             <h2 className="text-xl font-semibold text-foreground-dark mb-4">What You'll Get</h2>
             <ul className="space-y-3">
               {kit.whatYouGet.map((item, i) => (
@@ -74,13 +84,13 @@ export default function KitPage({ kit, slug }: KitPageProps) {
                 </li>
               ))}
             </ul>
-          </div>
+          </SectionCard>
 
           {/* Included Resources */}
           {kit.resources && kit.resources.length > 0 && (
-            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 mb-8">
+            <SectionCard className="mb-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Included Resources</h2>
-              <div className="grid gap-4 sm:grid-cols-2">
+              <SectionCardGrid columns={2}>
                 {kit.resources.map((resourceSlug) => {
                   const resource = getResourceBySlug(resourceSlug);
                   if (!resource) return null;
@@ -89,20 +99,21 @@ export default function KitPage({ kit, slug }: KitPageProps) {
                     <Link
                       key={resourceSlug}
                       href={`/resources/${resourceSlug}`}
-                      className="group rounded-2xl border border-border-dark bg-surface-dark p-4 hover:border-brand-orange/30 hover:bg-surface-dark-panel transition-all"
                     >
-                      <h3 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-1">
-                        {resource.title}
-                      </h3>
-                      <p className="text-xs text-muted-dark line-clamp-2">{resource.summary}</p>
-                      {resource.status === "draft" && (
-                        <span className="inline-block mt-2 text-xs text-brand-orange">In Progress</span>
-                      )}
+                      <SectionCard hover padding="small" radius="rounded-2xl">
+                        <h3 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-1">
+                          {resource.title}
+                        </h3>
+                        <p className="text-xs text-muted-dark line-clamp-2">{resource.summary}</p>
+                        {resource.status === "draft" && (
+                          <span className="inline-block mt-2 text-xs text-brand-orange">In Progress</span>
+                        )}
+                      </SectionCard>
                     </Link>
                   );
                 })}
-              </div>
-            </div>
+              </SectionCardGrid>
+            </SectionCard>
           )}
 
           {/* Body content */}
@@ -116,41 +127,42 @@ export default function KitPage({ kit, slug }: KitPageProps) {
           )}
 
           {isDraft && (
-            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 text-center mb-12">
+            <SectionCard className="text-center mb-12">
               <h3 className="text-lg font-semibold text-foreground-dark mb-2">
                 This kit is still being assembled
               </h3>
               <p className="text-sm text-muted-dark">
                 Check back soon for the complete bundle, or explore the included resources above.
               </p>
-            </div>
+            </SectionCard>
           )}
 
           {/* Related Links */}
           {kit.relatedLinks && kit.relatedLinks.length > 0 && (
-            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <SectionCard className="mt-12">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Kits & Resources</h2>
-              <div className="grid gap-3 sm:grid-cols-2">
+              <SectionCardGrid columns={2}>
                 {kit.relatedLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="group rounded-2xl border border-border-dark bg-surface-dark p-4 hover:border-brand-orange/30 hover:bg-surface-dark-panel transition-all"
                   >
-                    <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
-                      {link.title} →
-                    </span>
+                    <SectionCard hover padding="small" radius="rounded-2xl">
+                      <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
+                        {link.title} →
+                      </span>
+                    </SectionCard>
                   </Link>
                 ))}
-              </div>
-            </div>
+              </SectionCardGrid>
+            </SectionCard>
           )}
           
           {/* Feedback Widget */}
           <div className="mt-8">
             <FeedbackWidget resourceId={`kit-${slug}`} />
           </div>
-        </div>
+        </ResourceLayoutV2>
       </div>
     </>
   );
@@ -166,7 +178,7 @@ function KitNotFound({ slug }: { slug: string }) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
-        <div className="mx-auto max-w-4xl px-6 pt-14 pb-10">
+        <ResourceLayoutV2 dataRenderer="kit-not-found" maxWidth="narrow" includeTopPadding={false}>
           <Link 
             href="/resources#starter-kits" 
             className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"
@@ -174,22 +186,24 @@ function KitNotFound({ slug }: { slug: string }) {
             ← Back to Starter Kits
           </Link>
 
-          <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-12 text-center">
-            <div className="text-6xl mb-4">📦</div>
-            <h1 className="text-3xl font-semibold text-foreground-dark mb-4">
-              Kit Not Found
-            </h1>
-            <p className="text-muted-dark mb-8 max-w-md mx-auto">
-              We couldn't find the kit "{slug}". It may have been moved or removed.
-            </p>
-            <Link 
-              href="/resources#starter-kits"
-              className="inline-block rounded-full bg-brand-orange px-6 py-3 text-sm font-semibold text-white hover:bg-brand-navy transition-colors"
-            >
-              View All Kits
-            </Link>
-          </div>
-        </div>
+          <SectionCard>
+            <div className="text-center">
+              <div className="text-6xl mb-4">📦</div>
+              <h1 className="text-3xl font-semibold text-foreground-dark mb-4">
+                Kit Not Found
+              </h1>
+              <p className="text-muted-dark mb-8 max-w-md mx-auto">
+                We couldn't find the kit "{slug}". It may have been moved or removed.
+              </p>
+              <Link 
+                href="/resources#starter-kits"
+                className="inline-block rounded-full bg-brand-orange px-6 py-3 text-sm font-semibold text-white hover:bg-brand-navy transition-colors"
+              >
+                View All Kits
+              </Link>
+            </div>
+          </SectionCard>
+        </ResourceLayoutV2>
       </div>
     </>
   );

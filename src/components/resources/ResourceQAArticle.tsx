@@ -7,6 +7,7 @@ import type {
   ResourceSource,
   CalloutKind,
 } from "@/src/content/resources/types";
+import { ResourceLayoutV2 } from "./ResourceLayoutV2";
 
 type Props = {
   content: ResourceQAContent;
@@ -312,7 +313,7 @@ export function ResourceQAArticle({ content }: Props) {
     // In development: Show explicit error to developers
     if (process.env.NODE_ENV !== "production") {
       return (
-        <main className="mx-auto w-full max-w-5xl px-4 pb-16">
+        <ResourceLayoutV2 dataRenderer="resourceQA-v2-error" maxWidth="medium" includeTopPadding={false}>
           <div className="rounded-2xl border-2 border-red-500 bg-red-500/10 p-6">
             <h1 className="text-xl font-bold text-red-400">Developer Error: Invalid v2 Content</h1>
             <p className="mt-2 text-sm text-red-300">
@@ -329,13 +330,13 @@ export function ResourceQAArticle({ content }: Props) {
               }, null, 2)}
             </pre>
           </div>
-        </main>
+        </ResourceLayoutV2>
       );
     }
     
     // In production: Show clean "being updated" message (NOT legacy content)
     return (
-      <main className="mx-auto w-full max-w-5xl px-4 pb-16">
+      <ResourceLayoutV2 dataRenderer="resourceQA-v2-error" maxWidth="medium" includeTopPadding={false}>
         <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
           <div className="text-4xl mb-4">🔄</div>
           <h1 className="text-xl font-semibold text-white/95 mb-2">
@@ -345,7 +346,7 @@ export function ResourceQAArticle({ content }: Props) {
             We're migrating this content to our new format. Please check back soon.
           </p>
         </div>
-      </main>
+      </ResourceLayoutV2>
     );
   }
   
@@ -356,37 +357,43 @@ export function ResourceQAArticle({ content }: Props) {
   const hasFaqs = Boolean(content.faqs?.items?.length);
   const hasSources = Boolean(content.sources?.items?.length);
 
+  const header = (
+    <header className="space-y-2">
+      <h1 className="text-2xl font-semibold tracking-tight text-white/95">
+        {content.hero.h1}
+      </h1>
+      {content.hero.subhead ? (
+        <p className="text-sm leading-6 text-white/70">{content.hero.subhead}</p>
+      ) : null}
+    </header>
+  );
+
+  const sidebar = (
+    <>
+      <ShortAnswerCard label={content.shortAnswer.label} text={content.shortAnswer.text} />
+      <Toc sections={content.sections} hasFaqs={hasFaqs} hasSources={hasSources} />
+    </>
+  );
+
   return (
-    <main className="mx-auto w-full max-w-5xl px-4 pb-16">
-      <header className="space-y-2">
-        <h1 className="text-2xl font-semibold tracking-tight text-white/95">
-          {content.hero.h1}
-        </h1>
-        {content.hero.subhead ? (
-          <p className="text-sm leading-6 text-white/70">{content.hero.subhead}</p>
-        ) : null}
-      </header>
+    <ResourceLayoutV2
+      dataRenderer="resourceQA-v2"
+      maxWidth="medium"
+      header={header}
+      sidebar={sidebar}
+      includeTopPadding={false}
+    >
+      {content.sections.map((s) => (
+        <Section key={s.id} section={s} />
+      ))}
 
-      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-12">
-        <div className="lg:col-span-4 space-y-6">
-          <ShortAnswerCard label={content.shortAnswer.label} text={content.shortAnswer.text} />
-          <Toc sections={content.sections} hasFaqs={hasFaqs} hasSources={hasSources} />
-        </div>
+      {hasFaqs ? (
+        <Faqs heading={content.faqs?.heading} items={content.faqs!.items} />
+      ) : null}
 
-        <article className="lg:col-span-8 space-y-10">
-          {content.sections.map((s) => (
-            <Section key={s.id} section={s} />
-          ))}
-
-          {hasFaqs ? (
-            <Faqs heading={content.faqs?.heading} items={content.faqs!.items} />
-          ) : null}
-
-          {hasSources ? (
-            <Sources heading={content.sources?.heading} items={content.sources!.items} />
-          ) : null}
-        </article>
-      </div>
-    </main>
+      {hasSources ? (
+        <Sources heading={content.sources?.heading} items={content.sources!.items} />
+      ) : null}
+    </ResourceLayoutV2>
   );
 }

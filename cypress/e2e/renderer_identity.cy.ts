@@ -27,8 +27,8 @@ describe('Renderer Identity - Prod Parity Gate', () => {
     });
     
     it('must not have legacy body markers', () => {
-      // Assert absence of legacy markdown rendering
-      cy.get('[data-testid="legacy-question-body"]').should('not.exist');
+      // Assert absence of legacy markdown rendering - this checks for v1 CONTENT structure
+      cy.get('[data-testid="question-v1-content"]').should('not.exist');
       // Should not have duplicate "Short Answer" heading in body
       cy.get('.prose').should('not.exist'); // v2 doesn't use prose class
     });
@@ -44,12 +44,12 @@ describe('Renderer Identity - Prod Parity Gate', () => {
       cy.visit('/resources/exhibits-guide');
     });
 
-    it('must contain legacyResource-v1 renderer (legacy page)', () => {
-      cy.get('[data-renderer="legacyResource-v1"]').should('exist');
+    it('must contain resource-v2 renderer (v2 migrated page)', () => {
+      cy.get('[data-renderer="resource-v2"]').should('exist');
     });
 
-    it('must not contain resourceQA-v2 renderer', () => {
-      cy.get('[data-renderer="resourceQA-v2"]').should('not.exist');
+    it('must not contain legacyResource-v1 renderer', () => {
+      cy.get('[data-renderer="legacyResource-v1"]').should('not.exist');
     });
 
     it('renders the correct page content', () => {
@@ -74,11 +74,11 @@ describe('Renderer Identity - Prod Parity Gate', () => {
       cy.get('[data-renderer="legacyResource-v1"]').should('not.exist');
     });
 
-    it('legacy resource pages use legacyResource-v1', () => {
-      // Test legacy pages
+    it('v2 migrated resource pages use resource-v2', () => {
+      // Test v2 migrated pages
       cy.visit('/resources/exhibits-guide');
-      cy.get('[data-renderer="legacyResource-v1"]').should('exist');
-      cy.get('[data-renderer="resourceQA-v2"]').should('not.exist');
+      cy.get('[data-renderer="resource-v2"]').should('exist');
+      cy.get('[data-renderer="legacyResource-v1"]').should('not.exist');
     });
   });
 
