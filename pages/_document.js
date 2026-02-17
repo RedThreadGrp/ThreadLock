@@ -54,6 +54,62 @@ export default class MyDocument extends Document {
               }),
             }}
           />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": ["SoftwareApplication", "LegalService"],
+                name: "ThreadLock",
+                applicationCategory: "LegalTech",
+                applicationSubCategory: "Case Management",
+                description: "AI-powered family law case management software for custody disputes, child support, and family court evidence management. Helps self-represented litigants and legal professionals organize evidence, document incidents, and prepare for court.",
+                operatingSystem: "Web",
+                url: siteUrl,
+                creator: {
+                  "@type": "Organization",
+                  name: "ThreadLock",
+                  url: siteUrl,
+                },
+                serviceType: "Legal Technology Platform",
+                areaServed: {
+                  "@type": "Country",
+                  name: "United States",
+                },
+                audience: [
+                  {
+                    "@type": "Audience",
+                    audienceType: "Self-Represented Litigants",
+                  },
+                  {
+                    "@type": "Audience",
+                    audienceType: "Legal Professionals",
+                  },
+                  {
+                    "@type": "Audience",
+                    audienceType: "Parents in Family Court",
+                  },
+                ],
+                featureList: [
+                  "Evidence management and organization",
+                  "Incident journal with AI suggestions",
+                  "Chronological timeline builder",
+                  "Document scanning and OCR",
+                  "Secure document storage",
+                  "Exhibit preparation tools",
+                  "Case planner",
+                  "Professional review integration",
+                ],
+                keywords: "family law, custody evidence, child support documentation, court exhibits, self-represented litigant, legal case management, evidence timeline, family court, custody dispute, co-parenting documentation",
+                offers: {
+                  "@type": "Offer",
+                  price: "29",
+                  priceCurrency: "USD",
+                  priceValidUntil: "2026-12-31",
+                },
+              }),
+            }}
+          />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>
