@@ -10,6 +10,8 @@ import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { InlineIconLabel } from "@/src/components/ui/InlineIconLabel";
 import { getResourceBySlug, RESOURCES, Resource } from "@/src/content/resourcesRegistry";
 import { renderMarkdown } from "@/src/lib/renderMarkdown";
+import { ResourceLayoutV2 } from "@/src/components/resources/ResourceLayoutV2";
+import { SectionCard, SectionCardGrid } from "@/src/components/resources/SectionCard";
 
 type ResourcePageProps = {
   resource: Resource | null;
@@ -54,6 +56,57 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
     }
   };
 
+  const header = (
+    <>
+      {/* Back link */}
+      <Link 
+        href="/resources" 
+        className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"
+      >
+        ← Back to Resources
+      </Link>
+
+      {/* Draft badge */}
+      {isDraft && (
+        <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange mb-4">
+          <span className="inline-block h-2 w-2 rounded-full bg-brand-orange" />
+          In Progress
+        </div>
+      )}
+
+      {/* Title */}
+      <h1 className="text-4xl font-semibold tracking-tight text-foreground-dark mb-4">
+        {resource.title}
+      </h1>
+
+      {/* Metadata */}
+      <div className="flex flex-wrap items-center gap-3 text-sm text-muted-dark mb-8">
+        {resource.tag && (
+          <span className="rounded-full bg-surface-dark-panel border border-border-dark px-3 py-1">
+            {resource.tag}
+          </span>
+        )}
+        {resource.topic && (
+          <>
+            <span>•</span>
+            <span>{resource.topic}</span>
+          </>
+        )}
+        {resource.readTime && (
+          <>
+            <span>•</span>
+            <span>{resource.readTime}</span>
+          </>
+        )}
+      </div>
+
+      {/* Summary */}
+      <p className="text-lg text-muted-dark leading-relaxed mb-8 border-l-4 border-brand-orange pl-4">
+        {resource.excerpt}
+      </p>
+    </>
+  );
+
   return (
     <>
       <Head>
@@ -69,55 +122,12 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
 
       <SiteHeader />
 
-      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resource-v2">
-        <div className="mx-auto max-w-4xl px-6 pt-36 pb-10">
-          {/* Back link */}
-          <Link 
-            href="/resources" 
-            className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"
-          >
-            ← Back to Resources
-          </Link>
-
-          {/* Draft badge */}
-          {isDraft && (
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange mb-4">
-              <span className="inline-block h-2 w-2 rounded-full bg-brand-orange" />
-              In Progress
-            </div>
-          )}
-
-          {/* Title */}
-          <h1 className="text-4xl font-semibold tracking-tight text-foreground-dark mb-4">
-            {resource.title}
-          </h1>
-
-          {/* Metadata */}
-          <div className="flex flex-wrap items-center gap-3 text-sm text-muted-dark mb-8">
-            {resource.tag && (
-              <span className="rounded-full bg-surface-dark-panel border border-border-dark px-3 py-1">
-                {resource.tag}
-              </span>
-            )}
-            {resource.topic && (
-              <>
-                <span>•</span>
-                <span>{resource.topic}</span>
-              </>
-            )}
-            {resource.readTime && (
-              <>
-                <span>•</span>
-                <span>{resource.readTime}</span>
-              </>
-            )}
-          </div>
-
-          {/* Summary */}
-          <p className="text-lg text-muted-dark leading-relaxed mb-8 border-l-4 border-brand-orange pl-4">
-            {resource.excerpt}
-          </p>
-
+      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
+        <ResourceLayoutV2 
+          dataRenderer="resource-article-v1" 
+          maxWidth="narrow"
+          header={header}
+        >
           {/* Body content */}
           {resource.body && (
             <div className="prose prose-invert prose-orange max-w-none mb-12">
@@ -129,66 +139,68 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
           )}
 
           {isDraft && (
-            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 text-center mb-12">
+            <SectionCard className="text-center mb-12">
               <h3 className="text-lg font-semibold text-foreground-dark mb-2">
                 This resource is still being developed
               </h3>
               <p className="text-sm text-muted-dark">
                 Check back soon for complete content, or explore our related resources below.
               </p>
-            </div>
+            </SectionCard>
           )}
 
           {/* Related Questions */}
           {resource.relatedQuestions && resource.relatedQuestions.length > 0 && (
-            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <SectionCard className="mt-12">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Questions</h2>
               <div className="grid gap-3">
                 {resource.relatedQuestions.map((q) => (
                   <Link
                     key={q.href}
                     href={q.href}
-                    className="group rounded-2xl border border-border-dark bg-surface-dark p-4 hover:border-brand-orange/30 hover:bg-surface-dark-panel transition-all"
                   >
-                    <InlineIconLabel
-                      icon={<span className="text-brand-orange text-base font-bold">?</span>}
-                      className="gap-3"
-                    >
-                      <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
-                        {q.question}
-                      </span>
-                    </InlineIconLabel>
+                    <SectionCard hover padding="small" radius="rounded-2xl">
+                      <InlineIconLabel
+                        icon={<span className="text-brand-orange text-base font-bold">?</span>}
+                        className="gap-3"
+                      >
+                        <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
+                          {q.question}
+                        </span>
+                      </InlineIconLabel>
+                    </SectionCard>
                   </Link>
                 ))}
               </div>
-            </div>
+            </SectionCard>
           )}
 
           {/* Related Links */}
           {resource.relatedLinks && resource.relatedLinks.length > 0 && (
-            <div className="mt-8 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <SectionCard className="mt-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Resources</h2>
-              <div className="grid gap-3 sm:grid-cols-2">
+              <SectionCardGrid columns={2}>
                 {resource.relatedLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="group rounded-2xl border border-border-dark bg-surface-dark p-4 hover:border-brand-orange/30 hover:bg-surface-dark-panel transition-all"
                   >
-                    <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
-                      {link.title} →
-                    </span>
+                    <SectionCard hover padding="small" radius="rounded-2xl">
+                      <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
+                        {link.title} →
+                      </span>
+                    </SectionCard>
                   </Link>
                 ))}
-              </div>
-            </div>
+              </SectionCardGrid>
+            </SectionCard>
           )}
           
           {/* Feedback Widget */}
           <div className="mt-8">
             <FeedbackWidget resourceId={`resource-${slug}`} />
           </div>
-        </div>
+        </ResourceLayoutV2>
       </div>
     </>
   );
@@ -204,7 +216,7 @@ function ResourceNotFound({ slug }: { slug: string }) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
-        <div className="mx-auto max-w-4xl px-6 pt-36 pb-10">
+        <ResourceLayoutV2 dataRenderer="resource-not-found" maxWidth="narrow">
           <Link 
             href="/resources" 
             className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"
@@ -212,22 +224,24 @@ function ResourceNotFound({ slug }: { slug: string }) {
             ← Back to Resources
           </Link>
 
-          <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-12 text-center">
-            <div className="text-6xl mb-4">📚</div>
-            <h1 className="text-3xl font-semibold text-foreground-dark mb-4">
-              Resource Not Found
-            </h1>
-            <p className="text-muted-dark mb-8 max-w-md mx-auto">
-              We couldn't find the resource "{slug}". It may have been moved or removed.
-            </p>
-            <Link 
-              href="/resources"
-              className="inline-block rounded-full bg-brand-orange px-6 py-3 text-sm font-semibold text-white hover:bg-brand-navy transition-colors"
-            >
-              Browse All Resources
-            </Link>
-          </div>
-        </div>
+          <SectionCard>
+            <div className="text-center">
+              <div className="text-6xl mb-4">📚</div>
+              <h1 className="text-3xl font-semibold text-foreground-dark mb-4">
+                Resource Not Found
+              </h1>
+              <p className="text-muted-dark mb-8 max-w-md mx-auto">
+                We couldn't find the resource "{slug}". It may have been moved or removed.
+              </p>
+              <Link 
+                href="/resources"
+                className="inline-block rounded-full bg-brand-orange px-6 py-3 text-sm font-semibold text-white hover:bg-brand-navy transition-colors"
+              >
+                Browse All Resources
+              </Link>
+            </div>
+          </SectionCard>
+        </ResourceLayoutV2>
       </div>
     </>
   );
