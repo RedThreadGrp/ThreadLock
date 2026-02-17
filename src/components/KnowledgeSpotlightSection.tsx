@@ -52,7 +52,7 @@ const PillarCard: React.FC<PillarCardProps> = ({
       <ul className="space-y-3 mb-6 flex-grow">
         {highlights.map((highlight, index) => (
           <li key={index} className="flex items-start">
-            <span className="text-brand-orange mr-2 mt-1 text-lg">•</span>
+            <span className="text-brand-orange mr-2 text-lg">•</span>
             <span className="text-muted-dark leading-relaxed">{highlight}</span>
           </li>
         ))}
