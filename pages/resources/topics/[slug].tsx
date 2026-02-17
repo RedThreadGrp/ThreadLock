@@ -19,6 +19,7 @@ import {
   FeaturedGuide,
   PopularQuestion
 } from "@/src/content/resourcesRegistry";
+import { renderMarkdown } from "@/src/lib/renderMarkdown";
 
 type TopicPageProps = {
   topic: Topic | null;
@@ -73,8 +74,8 @@ export default function TopicPage({ topic, resources, guides, questions, slug }:
           {topic.body && (
             <div className="prose prose-invert prose-orange max-w-none mb-12">
               <div 
-                className="whitespace-pre-wrap text-muted-dark leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: topic.body.replace(/\n/g, '<br />') }}
+                className="text-muted-dark leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: renderMarkdown(topic.body) }}
               />
             </div>
           )}
