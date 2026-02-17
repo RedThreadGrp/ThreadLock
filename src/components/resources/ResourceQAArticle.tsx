@@ -313,7 +313,7 @@ export function ResourceQAArticle({ content }: Props) {
     // In development: Show explicit error to developers
     if (process.env.NODE_ENV !== "production") {
       return (
-        <ResourceLayoutV2 dataRenderer="resourceQA-v2-error" maxWidth="medium">
+        <ResourceLayoutV2 dataRenderer="resourceQA-v2-error" maxWidth="medium" includeTopPadding={false}>
           <div className="rounded-2xl border-2 border-red-500 bg-red-500/10 p-6">
             <h1 className="text-xl font-bold text-red-400">Developer Error: Invalid v2 Content</h1>
             <p className="mt-2 text-sm text-red-300">
@@ -336,7 +336,7 @@ export function ResourceQAArticle({ content }: Props) {
     
     // In production: Show clean "being updated" message (NOT legacy content)
     return (
-      <ResourceLayoutV2 dataRenderer="resourceQA-v2-error" maxWidth="medium">
+      <ResourceLayoutV2 dataRenderer="resourceQA-v2-error" maxWidth="medium" includeTopPadding={false}>
         <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
           <div className="text-4xl mb-4">🔄</div>
           <h1 className="text-xl font-semibold text-white/95 mb-2">
@@ -381,6 +381,7 @@ export function ResourceQAArticle({ content }: Props) {
       maxWidth="medium"
       header={header}
       sidebar={sidebar}
+      includeTopPadding={false}
     >
       {content.sections.map((s) => (
         <Section key={s.id} section={s} />

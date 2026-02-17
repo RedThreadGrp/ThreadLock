@@ -37,6 +37,12 @@ export interface ResourceLayoutV2Props {
    * Rendered before the main grid/article area
    */
   header?: React.ReactNode;
+  
+  /**
+   * Include top padding for fixed header offset
+   * Default: true (pt-36 for main content, pt-14 for error pages)
+   */
+  includeTopPadding?: boolean;
 }
 
 const MAX_WIDTH_CLASSES: Record<MaxWidthSize, string> = {
@@ -73,12 +79,14 @@ export function ResourceLayoutV2({
   maxWidth = "medium",
   dataRenderer,
   header,
+  includeTopPadding = true,
 }: ResourceLayoutV2Props) {
   const maxWidthClass = MAX_WIDTH_CLASSES[maxWidth];
+  const topPaddingClass = includeTopPadding ? "pt-36" : "";
 
   return (
     <main
-      className={`mx-auto w-full ${maxWidthClass} px-4 pb-16`}
+      className={`mx-auto w-full ${maxWidthClass} px-4 ${topPaddingClass} pb-16`}
       data-renderer={dataRenderer}
     >
       {header && <div className="mb-8">{header}</div>}
