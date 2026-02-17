@@ -8,6 +8,8 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import SiteHeader from "@/src/components/SiteHeader";
 import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { getLegalGlossaryTermBySlug, getAllLegalGlossarySlugs, LegalGlossaryTerm } from "@/src/content/legalGlossary";
+import { ResourceLayoutV2 } from "@/src/components/resources/ResourceLayoutV2";
+import { SectionCard, SectionCardGrid } from "@/src/components/resources/SectionCard";
 
 type GlossaryPageProps = {
   term: LegalGlossaryTerm | null;
@@ -32,6 +34,23 @@ export default function LegalGlossaryPage({ term, slug }: GlossaryPageProps) {
     "inDefinedTermSet": "https://threadlock.ai/resources/legal-glossary"
   };
 
+  const header = (
+    <>
+      {/* Breadcrumb */}
+      <Link 
+        href="/resources" 
+        className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"
+      >
+        ← Back to Resources
+      </Link>
+
+      {/* Term Title */}
+      <h1 className="text-3xl sm:text-4xl font-bold text-foreground-dark mb-6">
+        {term.term}
+      </h1>
+    </>
+  );
+
   return (
     <>
       <Head>
@@ -47,22 +66,13 @@ export default function LegalGlossaryPage({ term, slug }: GlossaryPageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
-        <div className="mx-auto max-w-4xl px-6 pt-36 pb-10">
-          {/* Breadcrumb */}
-          <Link 
-            href="/resources" 
-            className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"
-          >
-            ← Back to Resources
-          </Link>
-
-          {/* Main Content */}
-          <article className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 sm:p-12">
-            {/* Term Title */}
-            <h1 className="text-3xl sm:text-4xl font-bold text-foreground-dark mb-6">
-              {term.term}
-            </h1>
-
+        <ResourceLayoutV2 
+          dataRenderer="glossary-v2" 
+          maxWidth="narrow"
+          header={header}
+        >
+          {/* Main Content Card */}
+          <SectionCard>
             {/* Definition Section */}
             <section className="mb-8">
               <h2 className="text-xl font-semibold text-brand-orange mb-3">Definition</h2>
@@ -80,54 +90,56 @@ export default function LegalGlossaryPage({ term, slug }: GlossaryPageProps) {
             </section>
 
             {/* ThreadLock Integration Section */}
-            <section className="mb-8">
+            <section className="mb-8 last:mb-0">
               <h2 className="text-xl font-semibold text-brand-orange mb-3">How ThreadLock Supports This</h2>
               <p className="text-base text-muted-dark leading-relaxed">
                 {term.threadlockIntegration}
               </p>
             </section>
+          </SectionCard>
 
-            {/* Related Terms */}
-            {term.relatedTerms && term.relatedTerms.length > 0 && (
-              <section className="mb-8">
-                <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Terms</h2>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  {term.relatedTerms.map((relatedSlug) => (
-                    <Link
-                      key={relatedSlug}
-                      href={`/resources/legal-glossary/${relatedSlug}`}
-                      className="group rounded-2xl border border-border-dark bg-surface-dark p-4 hover:border-brand-orange/30 hover:bg-surface-dark-panel transition-all"
-                    >
+          {/* Related Terms */}
+          {term.relatedTerms && term.relatedTerms.length > 0 && (
+            <SectionCard className="mt-8">
+              <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Terms</h2>
+              <SectionCardGrid columns={2}>
+                {term.relatedTerms.map((relatedSlug) => (
+                  <Link
+                    key={relatedSlug}
+                    href={`/resources/legal-glossary/${relatedSlug}`}
+                  >
+                    <SectionCard hover padding="small">
                       <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors capitalize">
                         {relatedSlug.replace(/-/g, ' ')} →
                       </span>
-                    </Link>
-                  ))}
-                </div>
-              </section>
-            )}
+                    </SectionCard>
+                  </Link>
+                ))}
+              </SectionCardGrid>
+            </SectionCard>
+          )}
 
-            {/* Related Jurisdiction */}
-            {term.relatedJurisdiction && (
-              <section className="mb-8">
-                <h2 className="text-xl font-semibold text-foreground-dark mb-4">State-Specific Guide</h2>
-                <Link
-                  href={`/jurisdictions/${term.relatedJurisdiction}`}
-                  className="group rounded-2xl border border-border-dark bg-surface-dark p-4 hover:border-brand-orange/30 hover:bg-surface-dark-panel transition-all inline-block"
-                >
+          {/* Related Jurisdiction */}
+          {term.relatedJurisdiction && (
+            <SectionCard className="mt-8">
+              <h2 className="text-xl font-semibold text-foreground-dark mb-4">State-Specific Guide</h2>
+              <Link
+                href={`/jurisdictions/${term.relatedJurisdiction}`}
+              >
+                <SectionCard hover padding="small">
                   <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors capitalize">
                     {term.relatedJurisdiction.replace(/-/g, ' ')} Evidence Guide →
                   </span>
-                </Link>
-              </section>
-            )}
-          </article>
+                </SectionCard>
+              </Link>
+            </SectionCard>
+          )}
 
           {/* Feedback Widget */}
           <div className="mt-8">
             <FeedbackWidget resourceId={`glossary-${slug}`} />
           </div>
-        </div>
+        </ResourceLayoutV2>
       </div>
     </>
   );
@@ -143,7 +155,7 @@ function TermNotFound({ slug }: { slug: string }) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
-        <div className="mx-auto max-w-4xl px-6 pt-36 pb-10">
+        <ResourceLayoutV2 dataRenderer="glossary-not-found" maxWidth="narrow">
           <Link 
             href="/resources" 
             className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"
@@ -151,22 +163,24 @@ function TermNotFound({ slug }: { slug: string }) {
             ← Back to Resources
           </Link>
 
-          <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-12 text-center">
-            <div className="text-6xl mb-4">📖</div>
-            <h1 className="text-3xl font-semibold text-foreground-dark mb-4">
-              Term Not Found
-            </h1>
-            <p className="text-muted-dark mb-8 max-w-md mx-auto">
-              We couldn't find the glossary term "{slug}". It may have been moved or removed.
-            </p>
-            <Link 
-              href="/resources"
-              className="inline-block rounded-full bg-brand-orange px-6 py-3 text-sm font-semibold text-white hover:bg-brand-navy transition-colors"
-            >
-              Browse All Resources
-            </Link>
-          </div>
-        </div>
+          <SectionCard>
+            <div className="text-center">
+              <div className="text-6xl mb-4">📖</div>
+              <h1 className="text-3xl font-semibold text-foreground-dark mb-4">
+                Term Not Found
+              </h1>
+              <p className="text-muted-dark mb-8 max-w-md mx-auto">
+                We couldn't find the glossary term "{slug}". It may have been moved or removed.
+              </p>
+              <Link 
+                href="/resources"
+                className="inline-block rounded-full bg-brand-orange px-6 py-3 text-sm font-semibold text-white hover:bg-brand-navy transition-colors"
+              >
+                Browse All Resources
+              </Link>
+            </div>
+          </SectionCard>
+        </ResourceLayoutV2>
       </div>
     </>
   );
