@@ -268,13 +268,13 @@ const SubscriptionBanner = () => (
             <div className="mt-6 pt-6 border-t border-slate-200">
               <h5 className="font-semibold text-slate-900 mb-2">Add-on:</h5>
               <p className="text-sm text-slate-700 mb-1">
-                <strong>BYOA (Bring Your Own Attorney) Seat</strong>
+                <strong>Attorney Seat</strong>
               </p>
               <p className="text-2xl font-bold text-orange-600">
                 +$19<span className="text-sm font-normal text-slate-500">/month per seat</span>
               </p>
               <p className="text-sm text-slate-600 mt-2">
-                Pay for a secure, collaborative seat for your existing attorney.
+                Add a secure, collaborative seat for your attorney.
               </p>
             </div>
           </div>
@@ -299,10 +299,10 @@ const SubscriptionBanner = () => (
           </div>
           <div className="mb-6">
             <p className="text-5xl font-bold text-slate-900">
-              $99
+              $300
               <span className="text-lg font-normal text-slate-600">/month</span>
             </p>
-            <p className="text-sm text-slate-700 mt-2">Annual plan available with 2 months free</p>
+            <p className="text-sm text-slate-700 mt-2">Includes five client seats</p>
           </div>
           <div className="flex-grow">
             <h4 className="font-semibold text-slate-900 mb-4">Features:</h4>
@@ -327,7 +327,11 @@ const SubscriptionBanner = () => (
               </li>
               <li className="flex items-center">
                 <CheckmarkIcon color="green-600" />
-                <span className="text-slate-800">5 Client Seats Included (BYOA)</span>
+                <span className="text-slate-800">5 Client Seats Included</span>
+              </li>
+              <li className="flex items-center">
+                <CheckmarkIcon color="green-600" />
+                <span className="text-slate-800">Additional seats available (bulk or individual)</span>
               </li>
               <li className="flex items-center">
                 <CheckmarkIcon color="green-600" />
@@ -796,8 +800,8 @@ export default function Home() {
                 <FeaturesSection />
                 <ProductShowcaseSection />
                 <WhoItsForSection />
-                <SubscriptionBanner />
                 <KnowledgeSpotlightSection />
+                <SubscriptionBanner />
                 <OurMissionSection />
                 <FAQSection />
                 <SignupSection />

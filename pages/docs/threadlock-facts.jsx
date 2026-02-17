@@ -193,7 +193,7 @@ export default function ThreadLockFacts() {
             <div>
               <h3 className="text-2xl font-bold text-slate-800 mb-4">Collaboration & Professional Tools</h3>
               <ul className="grid md:grid-cols-2 gap-3 text-slate-700">
-                <li>✓ Secure attorney access (BYOA seats)</li>
+                <li>✓ Secure attorney access seats</li>
                 <li>✓ Professional review queue (Pro)</li>
                 <li>✓ Client management dashboard (Pro)</li>
                 <li>✓ Clio practice management integration (Pro)</li>

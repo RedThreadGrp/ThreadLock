@@ -182,7 +182,7 @@ export default function FamilyLawCalifornia() {
                 Collaborating with a California family law attorney? Grant them secure access to your ThreadLock account. Save money on attorney time by providing organized, court-ready materials.
               </p>
               <ul className="text-slate-600 space-y-2 ml-4">
-                <li>• Secure attorney access (BYOA seats)</li>
+                <li>• Secure attorney access seats</li>
                 <li>• Share organized case files</li>
                 <li>• Reduce attorney preparation costs</li>
                 <li>• Works with California State Bar members</li>

@@ -369,7 +369,7 @@ export default function FamilyLawNational() {
                     time (and your money) by handing them a perfectly organized case file.
                   </p>
                   <ul className="text-slate-600 space-y-2 ml-4">
-                    <li>• Secure attorney access (BYOA seats)</li>
+                    <li>• Secure attorney access seats</li>
                     <li>• Professional review tools (Pro plan)</li>
                     <li>• Selective document sharing</li>
                     <li>• Works with attorneys in any state</li>
