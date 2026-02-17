@@ -1,0 +1,6 @@
+# Deployment Trigger
+
+This file is used to force deployments when needed.
+
+Last updated: 2026-02-17T21:24:00Z
+Reason: Force redeployment to ensure PR #82 changes are live
