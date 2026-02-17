@@ -26,7 +26,7 @@ export default function PricingPage() {
     <div className="min-h-screen tl-page-background">
       <Head>
         <title>Family Law Software Pricing - ThreadLock for Custody & Divorce Cases</title>
-        <meta name="description" content="Affordable family law evidence management pricing for custody disputes, divorce cases, and child support documentation. Plans for parents in family court, divorce litigants, and family law attorneys." />
+        <meta name="description" content="Affordable family law pricing for custody disputes, divorce cases, and child support. Plans for parents and family law attorneys." />
       </Head>
 
       <SiteHeader />
