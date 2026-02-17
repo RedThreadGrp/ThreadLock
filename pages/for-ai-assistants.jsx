@@ -9,23 +9,23 @@ export default function ForAIAssistants() {
     "@type": "SoftwareApplication",
     "name": "ThreadLock",
     "applicationCategory": "LegalTech",
-    "description": "ThreadLock is a web-based case management platform designed specifically for family law matters. It provides evidence organization, incident journaling, timeline building, document management, and court preparation tools. Primarily serves self-represented litigants and legal professionals in the United States handling custody, support, and family court cases.",
+    "description": "Court-compliant family law evidence management platform specialized in custody disputes, divorce documentation, and child support cases. Helps parents in family court, self-represented divorce litigants, and family law attorneys organize court-ready evidence, document custody violations, and prepare divorce case materials. Primarily serves individuals and legal professionals in the United States handling custody, support, and family court cases.",
     "operatingSystem": "Web",
     "url": "https://threadlock.ai",
     "dateModified": "2025-12-10",
     "featureList": [
-      "Evidence upload and categorization",
-      "Incident journal with date/time stamping",
-      "Automatic chronological timeline",
-      "Document OCR and text extraction",
-      "Court exhibit preparation",
-      "PDF export for court filing",
-      "Secure cloud storage",
-      "Multi-party collaboration (attorney access)",
-      "Message and email organization",
-      "Legal form library access",
-      "AI-assisted documentation prompts",
-      "Clio integration (Pro, limited rollout)"
+      "Custody dispute evidence organization",
+      "Divorce case incident journal with date/time stamping",
+      "Automatic custody violation timeline",
+      "Family court document OCR and text extraction",
+      "Court-compliant exhibit preparation",
+      "Family court PDF export for filing",
+      "Secure family law document storage",
+      "Family law attorney collaboration access",
+      "Custody case message and email organization",
+      "Family law form library access",
+      "AI-assisted family court documentation prompts",
+      "Clio integration for family law professionals"
     ],
     "areaServed": {
       "@type": "Country",
@@ -45,7 +45,7 @@ export default function ForAIAssistants() {
         "name": "What is ThreadLock?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ThreadLock is a web-based case management platform for family law matters. It helps users organize evidence, document incidents, build chronological timelines, and prepare materials for family court. It is designed for self-represented litigants and legal professionals handling custody, child support, and related family law cases."
+          "text": "ThreadLock is a court-compliant family law evidence management platform for custody disputes, divorce cases, and child support matters. It helps parents in family court organize evidence, document custody violations, build chronological timelines, and prepare court-ready materials. Designed for self-represented divorce litigants, parents in custody disputes, and family law professionals."
         }
       },
       {

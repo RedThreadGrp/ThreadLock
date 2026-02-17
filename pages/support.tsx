@@ -31,15 +31,15 @@ export default function SupportPage() {
   return (
     <>
       <Head>
-        <title>Support | ThreadLock</title>
+        <title>Family Law Software Support | ThreadLock Help for Custody & Divorce Cases</title>
         <meta 
           name="description" 
-          content="Get help with ThreadLock and ThreadLock Pro: troubleshooting, Clio integration, billing questions, and contact options for self-represented litigants and legal professionals." 
+          content="Get help with ThreadLock family law evidence management: custody dispute documentation, divorce case organization, family court exhibit preparation, and support for parents and family law attorneys." 
         />
-        <meta property="og:title" content="Support | ThreadLock" />
+        <meta property="og:title" content="Family Law Software Support | ThreadLock" />
         <meta 
           property="og:description" 
-          content="Get help with ThreadLock and ThreadLock Pro: troubleshooting, Clio integration, billing questions, and contact options for self-represented litigants and legal professionals." 
+          content="Get help with ThreadLock family law evidence management: custody dispute documentation, divorce case organization, family court exhibit preparation, and support for parents and family law attorneys." 
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://threadlock.ai/support" />
