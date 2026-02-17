@@ -253,15 +253,18 @@ function Faqs({
           const panelId = `faq-panel-${fid}`;
           return (
             <details key={f.id} id={fid} className="group rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-              <summary id={btnId} className="cursor-pointer list-none text-sm font-semibold text-white/90 outline-none">
-                <span className="mr-2 inline-block align-middle text-orange-300">Q</span>
-                {f.q}
-                <span className="float-right text-white/50 group-open:text-white/70">
-                  ▾
+              <summary id={btnId} className="cursor-pointer list-none text-sm font-semibold text-white/90 outline-none flex items-start gap-2">
+                <span className="text-orange-300 shrink-0 leading-[1.4]">Q</span>
+                <span className="flex-1">
+                  {f.q}
+                  <span className="float-right text-white/50 group-open:text-white/70 ml-2">
+                    ▾
+                  </span>
                 </span>
               </summary>
-              <div id={panelId} aria-labelledby={btnId} className="mt-3 text-sm leading-6 text-white/85">
-                {f.a}
+              <div id={panelId} aria-labelledby={btnId} className="mt-3 text-sm leading-6 text-white/85 flex items-start gap-2">
+                <span className="text-orange-300 shrink-0 leading-[1.4]">A</span>
+                <span className="flex-1">{f.a}</span>
               </div>
             </details>
           );
