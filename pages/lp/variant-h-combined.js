@@ -349,6 +349,7 @@ const SubscriptionBanner = ({ onCTAClick }) => (
               <span className="text-lg font-normal text-slate-600">/month</span>
             </p>
             <p className="text-sm text-slate-700 mt-2">Includes five client seats</p>
+            <p className="text-sm text-slate-700 mt-1">Annual plan: $3,300/year (one month free)</p>
           </div>
           <div className="flex-grow">
             <h4 className="font-semibold text-slate-900 mb-4">Features:</h4>
