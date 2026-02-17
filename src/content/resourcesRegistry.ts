@@ -1728,7 +1728,7 @@ Proof of service is a signed declaration under penalty of perjury that documents
 
 ## Related Resources
 
-For detailed templates and instructions, see our [Proof of Service Pack](/resources/proof-of-service) guide, which includes state-specific requirements. The [Proof of Service State-by-State](/tools/proof-of-service-states) tool provides jurisdiction-specific forms and rules. For common questions, visit [What counts as proof of service?](/resources/q/proof-of-service-definition)
+For detailed templates and instructions, see our [Proof of Service Pack](/resources/proof-of-service) guide, which includes state-specific requirements. The [Proof of Service State-by-State](/resources/guides/proof-of-service-states) tool provides jurisdiction-specific forms and rules. For common questions, visit [What counts as proof of service?](/resources/q/proof-of-service-definition)
 
 ## Common Mistakes
 
@@ -1780,7 +1780,7 @@ Standard convention assigns **letters (A, B, C)** to plaintiff/petitioner exhibi
 
 ## Related Resources
 
-Our [Evidence Intake: Photos, Texts, Email](/resources/evidence-intake) guide provides detailed capture and preservation techniques. Learn the formal authentication process in [Evidence Authentication](/tools/evidence-authentication). For courtroom preparation, see [How do I label exhibits for court?](/resources/q/exhibit-labeling)
+Our [Evidence Intake: Photos, Texts, Email](/resources/evidence-intake) guide provides detailed capture and preservation techniques. Learn the formal authentication process in [Evidence Authentication](/resources/guides/evidence-authentication). For courtroom preparation, see [How do I label exhibits for court?](/resources/q/exhibit-labeling)
 
 ## Common Mistakes
 
@@ -1894,7 +1894,7 @@ Parenting plans must balance flexibility with clarity. Courts want specific sche
 
 ## Related Resources
 
-Our comprehensive [Parenting Plan Builder Guide](/resources/parenting-plans) walks through each section with examples. Use the [Parenting Time Calculations](/tools/parenting-time-calculations) tool to calculate overnight percentages for child support purposes.
+Our comprehensive [Parenting Plan Builder Guide](/resources/parenting-plans) walks through each section with examples. Use the [Parenting Time Calculations](/resources/guides/parenting-time-calculations) tool to calculate overnight percentages for child support purposes.
 
 ## Common Mistakes
 
