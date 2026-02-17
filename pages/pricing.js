@@ -93,13 +93,13 @@ export default function PricingPage() {
                   <div className="mt-6 pt-6 border-t border-slate-200">
                     <h5 className="font-semibold text-slate-900 mb-2">Add-on:</h5>
                     <p className="text-sm text-slate-700 mb-1">
-                      <strong>BYOA (Bring Your Own Attorney) Seat</strong>
+                      <strong>Attorney Seat</strong>
                     </p>
                     <p className="text-2xl font-bold text-orange-600">
                       +$19<span className="text-sm font-normal text-slate-500">/month per seat</span>
                     </p>
                     <p className="text-sm text-slate-600 mt-2">
-                      Pay for a secure, collaborative seat for your existing attorney.
+                      Add a secure, collaborative seat for your attorney.
                     </p>
                   </div>
                 </div>
@@ -124,10 +124,11 @@ export default function PricingPage() {
                 </div>
                 <div className="mb-6">
                   <p className="text-5xl font-bold text-slate-900">
-                    $99
+                    $300
                     <span className="text-lg font-normal text-slate-600">/month</span>
                   </p>
-                  <p className="text-sm text-slate-700 mt-2">Annual plan available with 2 months free</p>
+                  <p className="text-sm text-slate-700 mt-2">Includes five client seats</p>
+                  <p className="text-sm text-slate-700 mt-1">Annual plan: $3,300/year (one month free)</p>
                 </div>
                 <div className="flex-grow">
                   <h4 className="font-semibold text-slate-900 mb-4">Features:</h4>
@@ -162,7 +163,13 @@ export default function PricingPage() {
                       <svg className="w-5 h-5 text-green-600 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path d="M5 13l4 4L19 7"/>
                       </svg>
-                      <span className="text-slate-800">5 Client Seats Included (BYOA)</span>
+                      <span className="text-slate-800">5 Client Seats Included</span>
+                    </li>
+                    <li className="flex items-center">
+                      <svg className="w-5 h-5 text-green-600 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path d="M5 13l4 4L19 7"/>
+                      </svg>
+                      <span className="text-slate-800">Additional seats available (bulk or individual)</span>
                     </li>
                     <li className="flex items-center">
                       <svg className="w-5 h-5 text-green-600 mr-2 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">

@@ -182,7 +182,7 @@ export default function FamilyLawOregon() {
                 Collaborating with an Oregon family law attorney? Grant them secure access to your ThreadLock account. Arrive at consultations with organized materials and save money on attorney time.
               </p>
               <ul className="text-slate-600 space-y-2 ml-4">
-                <li>• Secure attorney access (BYOA seats)</li>
+                <li>• Secure attorney access seats</li>
                 <li>• Share organized case files</li>
                 <li>• Save on attorney preparation time</li>
                 <li>• Works with Oregon State Bar members</li>
