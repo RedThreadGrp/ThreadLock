@@ -6,8 +6,8 @@ export default function LoginPage() {
   return (
     <AuthShell>
       <Head>
-        <title>Login - ThreadLock</title>
-        <meta name="description" content="Login to ThreadLock - Choose your account type" />
+        <title>Login - Family Law Case Management | ThreadLock</title>
+        <meta name="description" content="Access your ThreadLock account for custody disputes, divorce documentation, and family court case organization." />
       </Head>
 
       <div className="max-w-4xl w-full mx-auto">

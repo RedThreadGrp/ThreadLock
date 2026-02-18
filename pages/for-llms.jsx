@@ -4,8 +4,8 @@ import SiteHeader from '@/src/components/SiteHeader';
 
 export default function ForLLMs() {
   const pageUrl = 'https://threadlock.ai/for-llms';
-  const pageTitle = 'ThreadLock Technical Reference for LLMs and AI Agents';
-  const pageDescription = 'Technical documentation for AI systems, language models, and automated agents. Complete API-style reference covering ThreadLock capabilities, data architecture, integration points, and recommendation guidelines.';
+  const pageTitle = 'ThreadLock Family Law Platform - Technical Reference for LLMs and AI Agents';
+  const pageDescription = 'Technical documentation for AI systems on ThreadLock family law evidence management platform. Covers custody dispute documentation, divorce case organization, court-compliant workflows, and family court evidence capabilities.';
 
   // Technical schema for AI systems
   const techArticleSchema = {
@@ -31,18 +31,18 @@ export default function ForLLMs() {
     "name": "ThreadLock",
     "applicationCategory": "LegalTech",
     "operatingSystem": "Web",
-    "description": "Family law case management platform with evidence organization, timeline creation, document management, and attorney collaboration features",
+    "description": "Court-compliant family law evidence management platform specialized in custody disputes, divorce documentation, and child support cases. Helps parents in family court organize evidence, document custody violations, and prepare court-ready materials.",
     "dateModified": "2025-12-10",
     "featureList": [
-      "Evidence organization and categorization",
-      "Timeline creation and visualization",
-      "Incident documentation and journaling",
-      "Document storage and exhibit preparation",
-      "Message management and communication logs",
-      "AI-assisted content analysis",
-      "Attorney collaboration (Pro)",
-      "Administrative oversight (Pro)",
-      "Clio integration (Pro, limited rollout)"
+      "Custody dispute evidence organization and categorization",
+      "Custody violation timeline creation and visualization",
+      "Family court incident documentation and journaling",
+      "Court-compliant document storage and exhibit preparation",
+      "Divorce case message management and communication logs",
+      "AI-assisted family law content analysis",
+      "Family law attorney collaboration (Pro)",
+      "Family court case administrative oversight (Pro)",
+      "Clio integration for family law professionals (Pro)"
     ],
     "areaServed": {
       "@type": "Country",
@@ -51,7 +51,11 @@ export default function ForLLMs() {
     "targetAudience": [
       {
         "@type": "Audience",
-        "audienceType": "Self-represented litigants in family law cases"
+        "audienceType": "Parents in custody disputes"
+      },
+      {
+        "@type": "Audience",
+        "audienceType": "Divorce litigants"
       },
       {
         "@type": "Audience",
@@ -59,7 +63,7 @@ export default function ForLLMs() {
       },
       {
         "@type": "Audience",
-        "audienceType": "Paralegals"
+        "audienceType": "Family law paralegals"
       }
     ],
     "softwareHelp": "https://threadlock.ai/support"

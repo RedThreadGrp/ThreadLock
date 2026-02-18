@@ -655,7 +655,7 @@ export default function Home() {
         "@type": "SoftwareApplication",
         "name": "ThreadLock",
         "applicationCategory": "LegalTech",
-        "description": "AI-powered family law case management software for custody disputes, child support, and family court evidence management. Helps self-represented litigants and legal professionals organize evidence, document incidents, and prepare for court.",
+        "description": "Court-compliant family law evidence management platform specialized in custody disputes, divorce documentation, and child support cases. Helps parents in family court, self-represented divorce litigants, and family law attorneys organize court-ready evidence, document custody violations, and prepare divorce case materials.",
         "operatingSystem": "Web",
         "url": "https://threadlock.ai",
         "screenshot": "https://threadlock.ai/screenshot-1-request-pool.png",
@@ -692,19 +692,20 @@ export default function Home() {
             }
         ],
         "featureList": [
-            "Evidence management and organization",
-            "Incident journal with AI suggestions",
-            "Chronological timeline builder",
-            "Document scanning and OCR",
-            "Court-ready PDF export",
-            "Secure document storage",
-            "Exhibit preparation tools",
-            "Filings management",
-            "Message organization",
-            "Case planner",
-            "AI-assisted documentation",
-            "Professional review integration",
-            "Collaborative attorney access"
+            "Custody dispute evidence organization",
+            "Divorce case documentation management",
+            "Family court incident journal with AI",
+            "Custody violation timeline builder",
+            "Court-compliant document scanning and OCR",
+            "Family court PDF exhibit export",
+            "Secure divorce document storage",
+            "Family court exhibit preparation",
+            "Child support case filings management",
+            "Custody case message organization",
+            "Divorce case planner",
+            "AI-assisted family law documentation",
+            "Family law attorney review integration",
+            "Collaborative family law attorney access"
         ],
         "areaServed": {
             "@type": "Country",
@@ -713,18 +714,22 @@ export default function Home() {
         "audience": [
             {
                 "@type": "Audience",
-                "audienceType": "Self-Represented Litigants"
+                "audienceType": "Parents in Custody Disputes"
             },
             {
                 "@type": "Audience",
-                "audienceType": "Legal Professionals"
+                "audienceType": "Divorce Litigants"
             },
             {
                 "@type": "Audience",
-                "audienceType": "Parents"
+                "audienceType": "Family Law Attorneys"
+            },
+            {
+                "@type": "Audience",
+                "audienceType": "Self-Represented Parents in Family Court"
             }
         ],
-        "keywords": "family law, custody evidence, child support documentation, court exhibits, self-represented litigant, legal case management, evidence timeline, family court, custody dispute, co-parenting documentation",
+        "keywords": "family law software, custody dispute evidence, divorce documentation, child support case management, family court exhibits, custody violation documentation, divorce case preparation, parenting time evidence, family law attorney tools, pro se divorce, custody battle organization, family court evidence, divorce court documentation, child custody evidence tracker",
         "softwareHelp": "https://threadlock.ai/resources",
         "installUrl": "https://app.threadlock.ai/signup"
     };
@@ -733,13 +738,13 @@ export default function Home() {
         "@context": "https://schema.org",
         "@type": "LegalService",
         "name": "ThreadLock Family Law Technology",
-        "description": "Technology platform providing case management tools for family law matters including custody, support, and evidence organization. Not a law firm.",
+        "description": "Family law technology platform providing specialized case management tools for custody disputes, divorce proceedings, child support cases, and family court evidence organization. Not a law firm.",
         "url": "https://threadlock.ai",
         "areaServed": {
             "@type": "Country",
             "name": "United States"
         },
-        "serviceType": "Legal Technology Platform",
+        "serviceType": "Family Law Technology Platform",
         "provider": {
             "@type": "Organization",
             "name": "ThreadLock",
@@ -777,8 +782,8 @@ export default function Home() {
     return (
         <div className="bg-white">
             <Head>
-                <title>ThreadLock™ | Your case. Organized. Take control.</title>
-                <meta name="description" content="Take control of the chaos. ThreadLock is your secure, all-in-one platform to organize evidence, journal events, and manage documents for your legal matters." />
+                <title>ThreadLock™ | Family Law Evidence Management - Custody Disputes, Divorce & Child Support</title>
+                <meta name="description" content="Court-compliant family law platform for custody disputes, divorce cases, and child support documentation. Organize evidence, document custody violations, and prepare court-ready materials for family court proceedings." />
                 <link rel="canonical" href="https://threadlock.ai/" />
                 <script
                     type="application/ld+json"

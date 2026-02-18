@@ -25,8 +25,8 @@ export default function PricingPage() {
   return (
     <div className="min-h-screen tl-page-background">
       <Head>
-        <title>Pricing - ThreadLock</title>
-        <meta name="description" content="ThreadLock pricing plans for individuals, professionals, and businesses" />
+        <title>Family Law Software Pricing - ThreadLock for Custody & Divorce Cases</title>
+        <meta name="description" content="Affordable family law pricing for custody disputes, divorce cases, and child support. Plans for parents and family law attorneys." />
       </Head>
 
       <SiteHeader />

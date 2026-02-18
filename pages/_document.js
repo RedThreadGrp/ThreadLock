@@ -5,9 +5,9 @@ export default class MyDocument extends Document {
   render() {
     const siteUrl = "https://threadlock.ai";
     const title =
-      "ThreadLock™ | Family Law Technology for Custody, Support, and Evidence Management";
+      "ThreadLock™ | Family Law Evidence Management for Custody Disputes, Divorce & Family Court";
     const desc =
-      "AI-powered family law software designed for custody disputes, child support, and family court evidence management. Make the system make sense.";
+      "Court-compliant family law documentation platform for custody disputes, divorce proceedings, and child support cases. AI-powered evidence organization helps parents and legal professionals prepare court-ready materials for family court.";
     const ogImage = `${siteUrl}/og-image.jpg?v=2025-08-21a`;
 
     return (
@@ -62,8 +62,8 @@ export default class MyDocument extends Document {
                 "@type": ["SoftwareApplication", "LegalService"],
                 name: "ThreadLock",
                 applicationCategory: "LegalTech",
-                applicationSubCategory: "Case Management",
-                description: "AI-powered family law case management software for custody disputes, child support, and family court evidence management. Helps self-represented litigants and legal professionals organize evidence, document incidents, and prepare for court.",
+                applicationSubCategory: "Family Law Case Management",
+                description: "Court-compliant family law evidence management platform specialized in custody disputes, divorce documentation, and child support cases. Helps parents in family court, self-represented litigants, and family law attorneys organize court-ready evidence, document custody violations, and prepare divorce case materials.",
                 operatingSystem: "Web",
                 url: siteUrl,
                 creator: {
@@ -89,18 +89,31 @@ export default class MyDocument extends Document {
                     "@type": "Audience",
                     audienceType: "Parents in Family Court",
                   },
+                  {
+                    "@type": "Audience",
+                    audienceType: "Divorce Litigants",
+                  },
+                  {
+                    "@type": "Audience",
+                    audienceType: "Custody Battle Participants",
+                  },
+                  {
+                    "@type": "Audience",
+                    audienceType: "Family Law Attorneys",
+                  },
                 ],
                 featureList: [
-                  "Evidence management and organization",
-                  "Incident journal with AI suggestions",
-                  "Chronological timeline builder",
-                  "Document scanning and OCR",
-                  "Secure document storage",
-                  "Exhibit preparation tools",
-                  "Case planner",
-                  "Professional review integration",
+                  "Custody dispute evidence organization",
+                  "Divorce case documentation management",
+                  "Family court incident journal with AI",
+                  "Custody violation timeline builder",
+                  "Court-compliant document scanning and OCR",
+                  "Secure family law document storage",
+                  "Family court exhibit preparation",
+                  "Child support case planner",
+                  "Family law attorney review integration",
                 ],
-                keywords: "family law, custody evidence, child support documentation, court exhibits, self-represented litigant, legal case management, evidence timeline, family court, custody dispute, co-parenting documentation",
+                keywords: "family law software, custody dispute evidence, divorce documentation, child support case management, family court exhibits, custody violation documentation, divorce case preparation, parenting time evidence, family law attorney tools, pro se divorce, custody battle organization, family court evidence, divorce court documentation, child custody evidence tracker",
                 offers: {
                   "@type": "Offer",
                   price: "29",
