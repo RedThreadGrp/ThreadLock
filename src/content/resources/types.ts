@@ -92,3 +92,27 @@ export type ResourceQAContent = {
   // Governance metadata (required for all content)
   governance: GovernanceMetadata;
 };
+
+// ResourcePage type for v2 content with blocks structure
+export type ResourcePage = {
+  slug?: string;
+  contentVersion: 2;
+  
+  seo?: {
+    title: string;
+    description: string;
+  };
+  
+  hero?: {
+    h1: string;
+    subhead?: string;
+  };
+  
+  blocks: {
+    shortAnswer: string;
+    sections: ResourceSection[];
+    faqs?: ResourceFAQ[];
+  };
+  
+  governance?: GovernanceMetadata;
+};
