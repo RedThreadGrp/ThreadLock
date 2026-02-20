@@ -12,6 +12,7 @@ import { getResourceBySlug, RESOURCES, Resource } from "@/src/content/resourcesR
 import { renderMarkdown } from "@/src/lib/renderMarkdown";
 import { ResourceLayoutV2 } from "@/src/components/resources/ResourceLayoutV2";
 import { SectionCard, SectionCardGrid } from "@/src/components/resources/SectionCard";
+import { ResourceQAArticle } from "@/src/components/resources/ResourceQAArticle";
 
 type ResourcePageProps = {
   resource: Resource | null;
@@ -23,6 +24,178 @@ export default function ResourcePage({ resource, slug }: ResourcePageProps) {
     return <ResourceNotFound slug={slug} />;
   }
 
+  const isDraft = resource.status === "draft";
+  
+  // ============================================================================
+  // CONTENT VERSION ROUTING
+  // ============================================================================
+  // v2 content uses structured blocks renderer
+  // v1 content uses legacy markdown renderer
+  
+  if (resource.contentVersion === 2) {
+    // v2 Route: Use ResourceQAArticle component with structured blocks
+    if (!resource.blocks) {
+      throw new Error(
+        `Resource "${slug}" is marked as contentVersion: 2 but has no blocks. ` +
+        `This is a content authoring error.`
+      );
+    }
+    
+    return <ResourcePageV2 resource={resource} slug={slug} />;
+  }
+  
+  // v1 Route: Use legacy renderer (existing code below)
+  return <ResourcePageV1 resource={resource} slug={slug} />;
+}
+
+// ============================================================================
+// V2 Renderer: Structured blocks with ResourceQAArticle
+// ============================================================================
+
+function ResourcePageV2({ resource, slug }: ResourcePageProps) {
+  if (!resource || !resource.blocks) return null;
+  
+  const isDraft = resource.status === "draft";
+  const pageTitle = resource.seoTitle || resource.seo?.title || `${resource.title} | ThreadLock Resources`;
+  const metaDesc = resource.metaDescription || resource.seo?.description || resource.excerpt;
+  const canonicalUrl = `https://threadlock.ai/resources/${slug}`;
+  
+  // Transform ResourcePage structure to ResourceQAContent structure
+  const contentForArticle = {
+    slug: resource.slug,
+    seo: resource.seo || {
+      title: pageTitle,
+      description: metaDesc
+    },
+    hero: resource.hero || {
+      h1: resource.title,
+      subhead: resource.excerpt
+    },
+    shortAnswer: {
+      text: resource.blocks.shortAnswer
+    },
+    sections: resource.blocks.sections,
+    faqs: resource.blocks.faqs ? {
+      items: resource.blocks.faqs
+    } : undefined,
+    sources: resource.governance?.sources ? {
+      items: resource.governance.sources
+    } : undefined,
+    governance: resource.governance
+  };
+  
+  // Article schema for v2
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": resource.title,
+    "description": resource.excerpt,
+    "author": {
+      "@type": "Organization",
+      "name": "ThreadLock"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ThreadLock",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://threadlock.ai/logo.png"
+      }
+    },
+    "datePublished": resource.dateModified || "2026-02-13",
+    "dateModified": resource.dateModified || "2026-02-13",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    }
+  };
+
+  return (
+    <>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={metaDesc} />
+        {isDraft && <meta name="robots" content="noindex, nofollow" />}
+        <link rel="canonical" href={canonicalUrl} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+      </Head>
+
+      <SiteHeader />
+
+      <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resource-v2">
+        <div className="pt-36">
+          <ResourceQAArticle content={contentForArticle} />
+        </div>
+        
+        {/* Related content and feedback */}
+        <div className="mx-auto max-w-4xl px-6 pb-10">
+          {/* Related Questions */}
+          {resource.relatedQuestions && resource.relatedQuestions.length > 0 && (
+            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+              <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Questions</h2>
+              <div className="grid gap-3">
+                {resource.relatedQuestions.map((q) => (
+                  <Link
+                    key={q.href}
+                    href={q.href}
+                  >
+                    <div className="group rounded-2xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition-colors">
+                      <InlineIconLabel
+                        icon={<span className="text-brand-orange text-base font-bold">?</span>}
+                        className="gap-3"
+                      >
+                        <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
+                          {q.question}
+                        </span>
+                      </InlineIconLabel>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Related Links */}
+          {resource.relatedLinks && resource.relatedLinks.length > 0 && (
+            <div className="mt-8 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+              <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Resources</h2>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {resource.relatedLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                  >
+                    <div className="group rounded-2xl border border-white/10 bg-white/5 p-4 hover:bg-white/10 transition-colors">
+                      <span className="text-sm font-medium text-foreground-dark group-hover:text-brand-orange transition-colors">
+                        {link.title} →
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+          
+          {/* Feedback Widget */}
+          <div className="mt-8">
+            <FeedbackWidget resourceId={`resource-${slug}`} />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ============================================================================
+// V1 Renderer: Legacy markdown-based content
+// ============================================================================
+
+function ResourcePageV1({ resource, slug }: ResourcePageProps) {
+  if (!resource) return null;
+  
   const isDraft = resource.status === "draft";
   
   // Prepare SEO title and description

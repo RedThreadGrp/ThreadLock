@@ -70,7 +70,17 @@ export interface Resource {
   intent: ResourceIntent;
   readTime?: string;
   status: ResourceStatus;
+  contentVersion?: number; // 1 = markdown body, 2 = structured blocks
   body?: string;
+  blocks?: any; // v2 structured content
+  seo?: {
+    title: string;
+    description: string;
+  };
+  hero?: {
+    h1: string;
+    subhead?: string;
+  };
   // SEO fields
   seoTitle?: string;
   metaDescription?: string;
