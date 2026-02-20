@@ -1754,7 +1754,6 @@ This is general information about parenting time calculations. Child support and
       sources: hearingSoon.governance?.sources ? {
         items: hearingSoon.governance.sources,
       } : undefined,
-      governance: hearingSoon.governance,
     },
     governance: hearingSoon.governance,
   },
@@ -1783,7 +1782,6 @@ This is general information about parenting time calculations. Child support and
       sources: firstFiling.governance?.sources ? {
         items: firstFiling.governance.sources,
       } : undefined,
-      governance: firstFiling.governance,
     },
     governance: firstFiling.governance,
   },
@@ -1812,7 +1810,6 @@ This is general information about parenting time calculations. Child support and
       sources: evidence.governance?.sources ? {
         items: evidence.governance.sources,
       } : undefined,
-      governance: evidence.governance,
     },
     governance: evidence.governance,
   },
