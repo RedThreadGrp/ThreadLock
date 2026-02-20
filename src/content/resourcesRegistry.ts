@@ -2118,6 +2118,58 @@ Our [Official Court Portals Directory](/resources/official-portals) provides dir
       accuracyNotes: "Court form availability, e-filing systems, and fee waiver procedures vary by state and county. Some jurisdictions update forms more frequently than others. Always verify you're using the most current version."
     }
   },
+  {
+    slug: "ai-digital-evidence",
+    title: "AI & Digital Evidence",
+    promise: "Navigate citation verification, AI disclosure, and digital evidence authentication.",
+    resourceCount: 3,
+    body: `# AI & Digital Evidence
+
+The intersection of artificial intelligence and digital evidence creates new challenges for family court proceedings. As generative AI tools become commonplace in legal research and document drafting, courts face a verification crisis: How do we ensure citations are real? How do we authenticate digital evidence? How do we maintain trust in the legal system when fabricated content is trivially easy to create?
+
+## The Verification Crisis
+
+AI language models can generate convincing legal citations that don't exist. They hallucinate case names, fabricate holdings, and cite non-existent statutes. Meanwhile, deepfakes, manipulated screenshots, and edited digital evidence undermine the reliability of photos, videos, and electronic communications. Family court litigants—many self-represented—need practical guidance on verification standards, disclosure requirements, and authentication procedures.
+
+## Core Challenges
+
+**Citation Integrity**: Legal research tools powered by AI can produce fabricated cases with realistic case names, docket numbers, and legal reasoning. Without verification against authoritative legal databases, these fictional citations make their way into court filings. Pro se litigants using AI assistants may unknowingly submit false authority.
+
+**AI Disclosure Standards**: Courts are beginning to require disclosure when AI tools are used in legal drafting. The question isn't whether AI should be banned—it's how to require transparency and human verification of AI-generated content. Model rules and local orders establish disclosure frameworks.
+
+**Digital Evidence Authentication**: Screenshots can be edited. Metadata can be manipulated. Email headers can be forged. Establishing the authenticity of digital evidence requires understanding capture methods, preservation techniques, and chain-of-custody documentation. Evidence Passport frameworks provide structured authentication standards.
+
+## Policy Development
+
+Family courts need practical, implementable policies that balance AI's utility with safeguards against fabrication. Model local rules establish standards for mandatory AI disclosure, human-in-the-loop certification of all citations and factual claims, Evidence Passport requirements for contested digital evidence, and graduated sanctions frameworks that distinguish good-faith errors from knowing fabrication.
+
+## Related Resources
+
+Our [The Verification Crisis in Family Court](/resources/verification-crisis-family-court) article provides research analysis on citation integrity and structural challenges. The [Model Local Rule: Verification of Generative AI & Digital Evidence](/resources/model-local-rule-ai-verification) offers a policy framework for courts to adopt disclosure and verification standards. For practical verification workflows, see [Citation Authentication: Verifying Legal Authority](/resources/citation-authentication).
+
+## Best Practices for Litigants
+
+**Verify Every Citation**: If you use AI tools for legal research, check every case citation against Westlaw, LexisNexis, Google Scholar, or official court websites. Confirm the case exists, the citation is accurate, and the holding matches what you're claiming.
+
+**Disclose AI Use**: Even if your court doesn't require it yet, disclose when you've used AI tools in document preparation. Transparency protects you from sanctions if errors are discovered later.
+
+**Document Digital Evidence Provenance**: For digital evidence you plan to introduce, document how it was captured, when it was captured, what device was used, and whether any editing or processing occurred. Preserve original files with metadata intact.
+
+**Maintain Chain of Custody**: From capture to courtroom, document who had access to digital evidence and when. Use screenshots with timestamps, save original files immediately, and avoid editing or manipulation.
+
+**Seek Human Verification**: AI can assist with research and drafting, but a human must verify all factual claims and legal citations. Don't rely blindly on AI output—use it as a starting point for human-verified research.`,
+    governance: {
+      lastUpdated: "2026-02-20",
+      sources: [
+        { name: "Federal Rules of Evidence - Rule 901 (Authentication)", href: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence" },
+        { name: "ABA Formal Opinion 512: Generative AI Tools", href: "https://www.americanbar.org/" },
+        { name: "National Center for State Courts - AI Guidelines", href: "https://www.ncsc.org/" }
+      ],
+      jurisdictionScope: ["US-general"],
+      reviewIntervalDays: 90,
+      accuracyNotes: "AI disclosure standards and digital evidence authentication requirements are rapidly evolving as of February 2026. Individual courts and jurisdictions are adopting varying approaches. This guidance reflects emerging best practices but may not match specific local rules in all jurisdictions."
+    }
+  },
 ];
 
 // ============================================================================
