@@ -97,23 +97,6 @@ export interface Resource {
   governance?: GovernanceMetadata;
 }
 
-export interface StarterKit {
-  slug: string;
-  title: string;
-  description: string;
-  whatYouGet: string[];
-  estimatedTime: string;
-  resources: string[];
-  status: ResourceStatus;
-  body?: string;
-  relatedLinks?: Array<{
-    title: string;
-    href: string;
-  }>;
-  // Governance metadata (required for published content)
-  governance?: GovernanceMetadata;
-}
-
 export interface FeaturedGuide {
   slug: string;
   title: string;
@@ -180,10 +163,6 @@ export interface PopularQuestion {
 
 export function getResourceBySlug(slug: string): Resource | undefined {
   return RESOURCES.find((r) => r.slug === slug);
-}
-
-export function getStarterKitBySlug(slug: string): StarterKit | undefined {
-  return STARTER_KITS.find((k) => k.slug === slug);
 }
 
 export function getFeaturedGuideBySlug(slug: string): FeaturedGuide | undefined {
@@ -1472,32 +1451,8 @@ This guide is based on common authentication principles found in U.S. state Rule
 // Starter Kits Data (3 items)
 // ============================================================================
 
-export const STARTER_KITS: StarterKit[] = [
-  {
-    ...hearingSoon,
-    slug: "hearing-soon",
-    dateModified: "2026-02-16",
-    contentVersion: 2,
-    blocks: hearingSoon.blocks,
-  },
-  {
-    ...firstFiling,
-    slug: "first-filing",
-    dateModified: "2026-02-16",
-    contentVersion: 2,
-    blocks: firstFiling.blocks,
-  },
-  {
-    ...evidence,
-    slug: "evidence",
-    dateModified: "2026-02-16",
-    contentVersion: 2,
-    blocks: evidence.blocks,
-  },
-];
-
 // ============================================================================
-// Featured Guides Data (4 items)
+// Featured Guides Data (7 items - includes converted starter kits)
 // ============================================================================
 
 export const FEATURED_GUIDES: FeaturedGuide[] = [
@@ -1772,6 +1727,43 @@ Verify your state's requirements with local court rules or the state child suppo
 ## Disclaimer
 
 This is general information about parenting time calculations. Child support and custody laws vary by state. Calculations should be verified with your jurisdiction's guidelines. This is not legal advice. Consider consulting with a licensed attorney or your state's child support enforcement office for case-specific guidance.`,
+  },
+  // Converted from Starter Kits
+  {
+    slug: "hearing-soon",
+    title: "Hearing Preparation Guide",
+    summary: "Everything you need when a hearing is approaching fast - comprehensive guides for exhibit preparation, courtroom conduct, and hearing readiness.",
+    tags: ["Court Prep", "Hearing", "Exhibits"],
+    updated: "Feb 2026",
+    status: "published",
+    dateModified: "2026-02-20",
+    contentVersion: 2,
+    blocks: hearingSoon.blocks,
+    governance: hearingSoon.governance,
+  },
+  {
+    slug: "first-filing",
+    title: "First Filing Guide",
+    summary: "Start your case right with proper documentation and filing procedures. Includes proof of service templates, official forms directory, and filing hygiene checklist.",
+    tags: ["Filing", "Basics", "Forms"],
+    updated: "Feb 2026",
+    status: "published",
+    dateModified: "2026-02-16",
+    contentVersion: 2,
+    blocks: firstFiling.blocks,
+    governance: firstFiling.governance,
+  },
+  {
+    slug: "evidence-management",
+    title: "Evidence Management Guide",
+    summary: "Capture, organize, and preserve evidence that holds up. Includes evidence intake templates, authentication basics, and timeline organization tools.",
+    tags: ["Evidence", "Organization", "Documentation"],
+    updated: "Feb 2026",
+    status: "published",
+    dateModified: "2026-02-16",
+    contentVersion: 2,
+    blocks: evidence.blocks,
+    governance: evidence.governance,
   },
 ];
 

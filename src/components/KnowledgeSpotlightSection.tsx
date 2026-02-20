@@ -83,7 +83,7 @@ const KnowledgeSpotlightSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           <PillarCard
             title="The Evidence Wiki"
             highlights={[
@@ -93,18 +93,6 @@ const KnowledgeSpotlightSection: React.FC = () => {
             ]}
             ctaText="Browse the Wiki"
             ctaLink="/resources/wiki"
-          />
-
-          <PillarCard
-            title="Case Blueprints"
-            highlights={[
-              "Step by step documentation recipes",
-              "Missed visitation tracking",
-              "Expense documentation",
-              "Conflict logging",
-            ]}
-            ctaText="View Blueprints"
-            ctaLink="/resources/blueprints"
           />
 
           <PillarCard
