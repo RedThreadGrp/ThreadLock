@@ -10,11 +10,108 @@ import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { getStarterKitBySlug, getResourceBySlug, STARTER_KITS, StarterKit } from "@/src/content/resourcesRegistry";
 import { ResourceLayoutV2 } from "@/src/components/resources/ResourceLayoutV2";
 import { SectionCard, SectionCardGrid } from "@/src/components/resources/SectionCard";
+import type { ResourceBodyBlock } from "@/src/content/resources/types";
 
 type KitPageProps = {
   kit: StarterKit | null;
   slug: string;
 };
+
+// Render structured content blocks (for contentVersion 2)
+function renderBlock(block: ResourceBodyBlock, key: React.Key) {
+  switch (block.type) {
+    case "p":
+      return (
+        <p key={key} className="text-sm leading-6 text-white/85">
+          {block.text}
+        </p>
+      );
+
+    case "ul":
+      return (
+        <ul key={key} className="space-y-2 text-sm text-white/85">
+          {block.items.map((it, i) => (
+            <li key={i} className="flex items-start gap-3 leading-6">
+              <span className="text-brand-orange mt-0.5 flex-shrink-0">✓</span>
+              <span>{it}</span>
+            </li>
+          ))}
+        </ul>
+      );
+
+    case "ol":
+      return (
+        <ol key={key} className="list-decimal pl-5 space-y-2 text-sm text-white/85">
+          {block.items.map((it, i) => (
+            <li key={i} className="leading-6">
+              {it}
+            </li>
+          ))}
+        </ol>
+      );
+
+    case "callout":
+      const borderColorClass = {
+        note: "border-blue-500/50",
+        warning: "border-yellow-500/50",
+        tip: "border-green-500/50",
+      }[block.kind];
+
+      return (
+        <div key={key} className={`border-l-4 ${borderColorClass} bg-white/5 p-4 space-y-2`}>
+          {block.title && (
+            <p className="text-sm font-semibold text-white">
+              {block.title}
+            </p>
+          )}
+          <p className="text-sm leading-6 text-white/85">
+            {block.text}
+          </p>
+        </div>
+      );
+
+    case "table":
+      return (
+        <div key={key} className="overflow-x-auto">
+          {block.caption && (
+            <p className="text-sm font-semibold text-white mb-2">
+              {block.caption}
+            </p>
+          )}
+          <table className="min-w-full border border-white/20">
+            <thead>
+              <tr className="bg-white/10">
+                {block.columns.map((col, i) => (
+                  <th key={i} className="border border-white/20 px-3 py-2 text-left text-sm font-semibold text-white">
+                    {col}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows.map((row, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white/5" : ""}>
+                  {row.map((cell, j) => (
+                    <td key={j} className="border border-white/20 px-3 py-2 text-sm text-white/85">
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {block.footnote && (
+            <p className="text-xs text-white/60 mt-2 italic">
+              {block.footnote}
+            </p>
+          )}
+        </div>
+      );
+
+    default:
+      return null;
+  }
+}
 
 export default function KitPage({ kit, slug }: KitPageProps) {
   if (!kit) {
@@ -116,14 +213,129 @@ export default function KitPage({ kit, slug }: KitPageProps) {
             </SectionCard>
           )}
 
-          {/* Body content */}
-          {kit.body && (
+          {/* Body content - V2 structured blocks */}
+          {(kit as any).blocks?.sections && (
+            <div className="space-y-8">
+              {(kit as any).blocks.sections.map((section: any, idx: number) => (
+                <SectionCard key={section.id || idx} id={section.id}>
+                  <h2 className="text-xl font-semibold text-foreground-dark mb-4">
+                    {section.heading}
+                  </h2>
+                  <div className="space-y-4">
+                    {section.body.map((block: ResourceBodyBlock, blockIdx: number) => 
+                      renderBlock(block, `${section.id}-${blockIdx}`)
+                    )}
+                  </div>
+                </SectionCard>
+              ))}
+            </div>
+          )}
+
+          {/* Body content - V1 legacy string */}
+          {kit.body && !(kit as any).blocks?.sections && (
             <div className="prose prose-invert prose-orange max-w-none mb-12">
               <div 
                 className="whitespace-pre-wrap text-muted-dark leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: kit.body.replace(/\n/g, '<br />') }}
               />
             </div>
+          )}
+
+          {/* PDF Downloads - Hearing Soon Kit specific */}
+          {kit.slug === "hearing-soon" && (
+            <SectionCard className="mt-8">
+              <h2 className="text-xl font-semibold text-foreground-dark mb-4">Download PDF Resources</h2>
+              <p className="text-sm text-muted-dark mb-4">
+                Save these guides for offline reference. Right-click and select "Save As" to download.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a 
+                  href="/resources/hearing-soon/exhibit_guidelines.pdf" 
+                  download
+                  className="flex items-start gap-3 p-4 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors group"
+                >
+                  <span className="text-brand-orange text-2xl flex-shrink-0 mt-1">📄</span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      Exhibit Guidelines
+                    </h3>
+                    <p className="text-xs text-muted-dark mt-1">
+                      8 pages • Labeling standards and organization
+                    </p>
+                  </div>
+                </a>
+
+                <a 
+                  href="/resources/hearing-soon/hearing_checklist.pdf" 
+                  download
+                  className="flex items-start gap-3 p-4 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors group"
+                >
+                  <span className="text-brand-orange text-2xl flex-shrink-0 mt-1">📄</span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      Hearing Checklist
+                    </h3>
+                    <p className="text-xs text-muted-dark mt-1">
+                      5 pages • 24-hour preparation guide
+                    </p>
+                  </div>
+                </a>
+
+                <a 
+                  href="/resources/hearing-soon/common_mistakes.pdf" 
+                  download
+                  className="flex items-start gap-3 p-4 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors group"
+                >
+                  <span className="text-brand-orange text-2xl flex-shrink-0 mt-1">📄</span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      Common Mistakes
+                    </h3>
+                    <p className="text-xs text-muted-dark mt-1">
+                      2 pages • Errors to avoid in family court
+                    </p>
+                  </div>
+                </a>
+
+                <a 
+                  href="/resources/hearing-soon/courtroom_etiquette.pdf" 
+                  download
+                  className="flex items-start gap-3 p-4 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors group"
+                >
+                  <span className="text-brand-orange text-2xl flex-shrink-0 mt-1">📄</span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      Courtroom Etiquette
+                    </h3>
+                    <p className="text-xs text-muted-dark mt-1">
+                      1 page • Conduct and communication guide
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </SectionCard>
+          )}
+
+          {/* FAQs - V2 structured content */}
+          {(kit as any).blocks?.faqs && (kit as any).blocks.faqs.length > 0 && (
+            <SectionCard className="mt-8">
+              <h2 className="text-xl font-semibold text-foreground-dark mb-4">Frequently Asked Questions</h2>
+              <div className="space-y-3">
+                {(kit as any).blocks.faqs.map((faq: any, idx: number) => (
+                  <details key={idx} className="group rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                    <summary className="cursor-pointer list-none text-sm font-semibold text-white/90 outline-none flex items-start gap-2">
+                      <span className="text-brand-orange shrink-0 leading-[1.4]">Q</span>
+                      <span className="flex-1">{faq.question}</span>
+                      <span className="text-white/40 shrink-0 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div className="mt-3 text-sm leading-6 text-white/85 flex items-start gap-2 pl-6">
+                      <span className="text-brand-orange shrink-0 leading-[1.4] font-semibold">A</span>
+                      <p className="flex-1">{faq.answer}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </SectionCard>
           )}
 
           {isDraft && (
