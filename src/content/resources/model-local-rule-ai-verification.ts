@@ -285,28 +285,33 @@ export const modelLocalRuleAIVerification: ResourcePage = {
 
     faqs: [
       {
-        question: "Can courts adopt this rule without legislative approval?",
-        answer:
+        id: "adopt-without-legislature",
+        q: "Can courts adopt this rule without legislative approval?",
+        a:
           "Yes, in most jurisdictions. Courts have inherent authority to adopt local rules governing practice and procedure. This Model Local Rule addresses procedural verification requirements, not substantive law. Check your state's rules of civil procedure for the specific process to adopt local rules.",
       },
       {
-        question: "Does this rule prohibit AI use?",
-        answer:
+        id: "prohibit-ai-use",
+        q: "Does this rule prohibit AI use?",
+        a:
           "No. The rule requires disclosure and verification, not prohibition. Parties may use AI tools for research, drafting, and analysis provided they disclose such use and verify all citations and factual claims. The goal is transparency and accountability, not technological restriction.",
       },
       {
-        question: "How does this affect self-represented litigants?",
-        answer:
+        id: "affect-pro-se",
+        q: "How does this affect self-represented litigants?",
+        a:
           "The rule applies equally to all parties but includes protections for pro se litigants: simple disclosure forms, access to verification resources through self-help centers, educational materials in plain language, and graduated sanctions that consider party sophistication. The safe harbor protects good-faith efforts even if unintentional errors occur.",
       },
       {
-        question: "What counts as 'AI use' requiring disclosure?",
-        answer:
+        id: "what-counts-as-ai",
+        q: "What counts as 'AI use' requiring disclosure?",
+        a:
           "Disclosure is required for any use of generative AI tools (ChatGPT, Claude, Bard, etc.) in legal research, citation generation, or document drafting. This includes asking AI to find cases, summarize legal standards, draft motion text, or generate arguments. It does not include spell-checkers, grammar tools, or form auto-fill features that don't generate substantive legal content.",
       },
       {
-        question: "What is the Evidence Passport requirement?",
-        answer:
+        id: "evidence-passport-requirement",
+        q: "What is the Evidence Passport requirement?",
+        a:
           "The Evidence Passport is metadata documentation for digital evidence. It's only required when evidence is contested or when the court specifically orders it. It documents how evidence was captured, preserved, and submitted to court. Courts can provide a simple template form rather than requiring parties to create documentation from scratch.",
       },
     ],

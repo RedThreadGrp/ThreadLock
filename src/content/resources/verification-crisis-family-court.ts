@@ -386,23 +386,27 @@ export const verificationCrisisFamilyCourt: ResourcePage = {
 
     faqs: [
       {
-        question: "Should courts ban AI tools in legal proceedings?",
-        answer:
+        id: "courts-ban-ai",
+        q: "Should courts ban AI tools in legal proceedings?",
+        a:
           "No. Prohibition is unenforceable and denies access to tools that can help self-represented litigants draft coherent motions. The solution is mandatory disclosure with human verification, not technological prohibition. Courts should require transparency about AI use while providing guidance on acceptable practices.",
       },
       {
-        question: "How can judges detect AI-generated citations without checking every case?",
-        answer:
+        id: "detect-ai-citations",
+        q: "How can judges detect AI-generated citations without checking every case?",
+        a:
           "Courts should adopt structural safeguards rather than relying on post-hoc detection. Require certification under penalty of perjury that all citations have been verified. Mandate disclosure of AI use in research and drafting. Provide clear consequences for fabrication. This shifts the burden from judges to the parties who submit the documents.",
       },
       {
-        question: "What is an Evidence Passport?",
-        answer:
+        id: "evidence-passport-definition",
+        q: "What is an Evidence Passport?",
+        a:
           "An Evidence Passport is a standardized metadata package that documents the provenance of digital evidence. It includes capture timestamps, chain of custody records, authentication basis, and disclosure of any editing or AI processing. This allows courts to verify evidence authenticity without requiring expert witnesses.",
       },
       {
-        question: "How does ThreadLock help with evidence verification?",
-        answer:
+        id: "threadlock-verification-help",
+        q: "How does ThreadLock help with evidence verification?",
+        a:
           "ThreadLock provides infrastructure for structured evidence management. The platform captures evidence with immutable timestamps, maintains audit logs, organizes documentation chronologically, and generates court-ready export packages. This transforms informal evidence collection into litigation-grade documentation with built-in provenance tracking.",
       },
     ],

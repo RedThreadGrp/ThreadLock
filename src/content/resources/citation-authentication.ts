@@ -170,23 +170,27 @@ export const citationAuthentication: ResourcePage = {
 
     faqs: [
       {
-        question: "What happens if I cite a case that turns out not to exist?",
-        answer:
+        id: "cite-nonexistent-case",
+        q: "What happens if I cite a case that turns out not to exist?",
+        a:
           "If the error was unintentional and made in good faith, you can file an amended brief correcting the citation. However, repeated errors or failure to verify citations when using AI tools can result in sanctions. Courts take citation accuracy seriously because fabricated citations undermine the integrity of legal proceedings.",
       },
       {
-        question: "Do I need to verify every citation if I'm using AI?",
-        answer:
+        id: "verify-every-ai-citation",
+        q: "Do I need to verify every citation if I'm using AI?",
+        a:
           "Yes. When using AI tools for legal research, you must verify every single citation before including it in a court filing. AI tools frequently generate fabricated citations that sound plausible but don't exist. Some courts now require certification that all citations have been verified when AI tools were used.",
       },
       {
-        question: "Can I use AI to verify citations?",
-        answer:
+        id: "ai-verify-citations",
+        q: "Can I use AI to verify citations?",
+        a:
           "No. You must use authoritative legal research databases or official court sources to verify citations. AI tools cannot reliably verify their own outputs and may confirm fabricated citations with additional fabricated information. Use Google Scholar, Westlaw, LexisNexis, CourtListener, or official court websites for verification.",
       },
       {
-        question: "How do I know if a legal research database is authoritative?",
-        answer:
+        id: "authoritative-database",
+        q: "How do I know if a legal research database is authoritative?",
+        a:
           "Authoritative sources include: official court websites, Google Scholar Case Law, Westlaw, LexisNexis, CourtListener, Casetext, Fastcase, Justia, and official government publications (GPO for federal materials). Wikipedia, legal blogs, and AI tools are NOT authoritative sources for citation verification.",
       },
     ],
