@@ -316,6 +316,28 @@ export default function KitPage({ kit, slug }: KitPageProps) {
             </SectionCard>
           )}
 
+          {/* FAQs - V2 structured content */}
+          {(kit as any).blocks?.faqs && (kit as any).blocks.faqs.length > 0 && (
+            <SectionCard className="mt-8">
+              <h2 className="text-xl font-semibold text-foreground-dark mb-4">Frequently Asked Questions</h2>
+              <div className="space-y-3">
+                {(kit as any).blocks.faqs.map((faq: any, idx: number) => (
+                  <details key={idx} className="group rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                    <summary className="cursor-pointer list-none text-sm font-semibold text-white/90 outline-none flex items-start gap-2">
+                      <span className="text-brand-orange shrink-0 leading-[1.4]">Q</span>
+                      <span className="flex-1">{faq.question}</span>
+                      <span className="text-white/40 shrink-0 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div className="mt-3 text-sm leading-6 text-white/85 flex items-start gap-2 pl-6">
+                      <span className="text-brand-orange shrink-0 leading-[1.4] font-semibold">A</span>
+                      <p className="flex-1">{faq.answer}</p>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </SectionCard>
+          )}
+
           {isDraft && (
             <SectionCard className="text-center mb-12">
               <h3 className="text-lg font-semibold text-foreground-dark mb-2">
