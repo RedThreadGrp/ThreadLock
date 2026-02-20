@@ -241,6 +241,81 @@ export default function KitPage({ kit, slug }: KitPageProps) {
             </div>
           )}
 
+          {/* PDF Downloads - Hearing Soon Kit specific */}
+          {kit.slug === "hearing-soon" && (
+            <SectionCard className="mt-8">
+              <h2 className="text-xl font-semibold text-foreground-dark mb-4">Download PDF Resources</h2>
+              <p className="text-sm text-muted-dark mb-4">
+                Save these guides for offline reference. Right-click and select "Save As" to download.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a 
+                  href="/resources/hearing-soon/exhibit_guidelines.pdf" 
+                  download
+                  className="flex items-start gap-3 p-4 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors group"
+                >
+                  <span className="text-brand-orange text-2xl flex-shrink-0 mt-1">📄</span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      Exhibit Guidelines
+                    </h3>
+                    <p className="text-xs text-muted-dark mt-1">
+                      8 pages • Labeling standards and organization
+                    </p>
+                  </div>
+                </a>
+
+                <a 
+                  href="/resources/hearing-soon/hearing_checklist.pdf" 
+                  download
+                  className="flex items-start gap-3 p-4 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors group"
+                >
+                  <span className="text-brand-orange text-2xl flex-shrink-0 mt-1">📄</span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      Hearing Checklist
+                    </h3>
+                    <p className="text-xs text-muted-dark mt-1">
+                      5 pages • 24-hour preparation guide
+                    </p>
+                  </div>
+                </a>
+
+                <a 
+                  href="/resources/hearing-soon/common_mistakes.pdf" 
+                  download
+                  className="flex items-start gap-3 p-4 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors group"
+                >
+                  <span className="text-brand-orange text-2xl flex-shrink-0 mt-1">📄</span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      Common Mistakes
+                    </h3>
+                    <p className="text-xs text-muted-dark mt-1">
+                      2 pages • Errors to avoid in family court
+                    </p>
+                  </div>
+                </a>
+
+                <a 
+                  href="/resources/hearing-soon/courtroom_etiquette.pdf" 
+                  download
+                  className="flex items-start gap-3 p-4 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors group"
+                >
+                  <span className="text-brand-orange text-2xl flex-shrink-0 mt-1">📄</span>
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors">
+                      Courtroom Etiquette
+                    </h3>
+                    <p className="text-xs text-muted-dark mt-1">
+                      1 page • Conduct and communication guide
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </SectionCard>
+          )}
+
           {isDraft && (
             <SectionCard className="text-center mb-12">
               <h3 className="text-lg font-semibold text-foreground-dark mb-2">

@@ -390,29 +390,6 @@ export const hearingSoon: DivorceKit = {
         ]
       },
       {
-        id: "downloadable-resources",
-        heading: "Downloadable PDF Resources",
-        body: [
-          {
-            type: "p",
-            text: "For offline reference and printing, download these comprehensive guides:"
-          },
-          {
-            type: "ul",
-            items: [
-              "Exhibit Labeling & Organization Guidelines (8 pages)",
-              "24-Hour Hearing Preparation Checklist (5 pages)",
-              "Common Mistakes in Family Court (2 pages)",
-              "Courtroom Etiquette & Conduct Guide (1 page)"
-            ]
-          },
-          {
-            type: "p",
-            text: "These PDFs provide detailed instructions with examples and are formatted for easy printing and reference during your hearing preparation."
-          }
-        ]
-      },
-      {
         id: "who-this-is-for",
         heading: "Who This Kit Is For",
         body: [
