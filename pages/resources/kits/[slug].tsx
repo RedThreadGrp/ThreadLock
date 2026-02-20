@@ -10,11 +10,108 @@ import FeedbackWidget from "@/src/components/FeedbackWidget";
 import { getStarterKitBySlug, getResourceBySlug, STARTER_KITS, StarterKit } from "@/src/content/resourcesRegistry";
 import { ResourceLayoutV2 } from "@/src/components/resources/ResourceLayoutV2";
 import { SectionCard, SectionCardGrid } from "@/src/components/resources/SectionCard";
+import type { ResourceBodyBlock } from "@/src/content/resources/types";
 
 type KitPageProps = {
   kit: StarterKit | null;
   slug: string;
 };
+
+// Render structured content blocks (for contentVersion 2)
+function renderBlock(block: ResourceBodyBlock, key: React.Key) {
+  switch (block.type) {
+    case "p":
+      return (
+        <p key={key} className="text-sm leading-6 text-white/85">
+          {block.text}
+        </p>
+      );
+
+    case "ul":
+      return (
+        <ul key={key} className="space-y-2 text-sm text-white/85">
+          {block.items.map((it, i) => (
+            <li key={i} className="flex items-start gap-3 leading-6">
+              <span className="text-brand-orange mt-0.5 flex-shrink-0">✓</span>
+              <span>{it}</span>
+            </li>
+          ))}
+        </ul>
+      );
+
+    case "ol":
+      return (
+        <ol key={key} className="list-decimal pl-5 space-y-2 text-sm text-white/85">
+          {block.items.map((it, i) => (
+            <li key={i} className="leading-6">
+              {it}
+            </li>
+          ))}
+        </ol>
+      );
+
+    case "callout":
+      const borderColorClass = {
+        note: "border-blue-500/50",
+        warning: "border-yellow-500/50",
+        tip: "border-green-500/50",
+      }[block.kind];
+
+      return (
+        <div key={key} className={`border-l-4 ${borderColorClass} bg-white/5 p-4 space-y-2`}>
+          {block.title && (
+            <p className="text-sm font-semibold text-white">
+              {block.title}
+            </p>
+          )}
+          <p className="text-sm leading-6 text-white/85">
+            {block.text}
+          </p>
+        </div>
+      );
+
+    case "table":
+      return (
+        <div key={key} className="overflow-x-auto">
+          {block.caption && (
+            <p className="text-sm font-semibold text-white mb-2">
+              {block.caption}
+            </p>
+          )}
+          <table className="min-w-full border border-white/20">
+            <thead>
+              <tr className="bg-white/10">
+                {block.columns.map((col, i) => (
+                  <th key={i} className="border border-white/20 px-3 py-2 text-left text-sm font-semibold text-white">
+                    {col}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows.map((row, i) => (
+                <tr key={i} className={i % 2 === 0 ? "bg-white/5" : ""}>
+                  {row.map((cell, j) => (
+                    <td key={j} className="border border-white/20 px-3 py-2 text-sm text-white/85">
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {block.footnote && (
+            <p className="text-xs text-white/60 mt-2 italic">
+              {block.footnote}
+            </p>
+          )}
+        </div>
+      );
+
+    default:
+      return null;
+  }
+}
 
 export default function KitPage({ kit, slug }: KitPageProps) {
   if (!kit) {
@@ -116,8 +213,26 @@ export default function KitPage({ kit, slug }: KitPageProps) {
             </SectionCard>
           )}
 
-          {/* Body content */}
-          {kit.body && (
+          {/* Body content - V2 structured blocks */}
+          {(kit as any).blocks?.sections && (
+            <div className="space-y-8">
+              {(kit as any).blocks.sections.map((section: any, idx: number) => (
+                <SectionCard key={section.id || idx} id={section.id}>
+                  <h2 className="text-xl font-semibold text-foreground-dark mb-4">
+                    {section.heading}
+                  </h2>
+                  <div className="space-y-4">
+                    {section.body.map((block: ResourceBodyBlock, blockIdx: number) => 
+                      renderBlock(block, `${section.id}-${blockIdx}`)
+                    )}
+                  </div>
+                </SectionCard>
+              ))}
+            </div>
+          )}
+
+          {/* Body content - V1 legacy string */}
+          {kit.body && !(kit as any).blocks?.sections && (
             <div className="prose prose-invert prose-orange max-w-none mb-12">
               <div 
                 className="whitespace-pre-wrap text-muted-dark leading-relaxed"

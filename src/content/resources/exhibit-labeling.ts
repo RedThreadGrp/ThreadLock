@@ -4,9 +4,9 @@ export const exhibitLabeling: ResourceQAContent = {
   slug: "exhibit-labeling",
 
   seo: {
-    title: "How to Label Exhibits for Court | Complete Guide",
+    title: "Exhibit Labeling Family Court | Court Evidence Organization Guide",
     description:
-      "Label exhibits sequentially using letters (Plaintiff) or numbers (Defendant). Learn proper labeling conventions, attachment methods, and exhibit list creation.",
+      "Professional exhibit labeling standards for self-represented litigants. Learn court evidence organization, redacting legal documents, pro se exhibit formatting, and divorce court exhibit rules for judicial admissibility.",
   },
 
   hero: {
