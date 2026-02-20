@@ -1738,7 +1738,24 @@ This is general information about parenting time calculations. Child support and
     status: "published",
     dateModified: "2026-02-20",
     contentVersion: 2,
-    blocks: hearingSoon.blocks,
+    blocks: {
+      seo: {
+        title: "Hearing Preparation Guide | ThreadLock Resources",
+        description: "Everything you need when a hearing is approaching fast - comprehensive guides for exhibit preparation, courtroom conduct, and hearing readiness.",
+      },
+      hero: {
+        h1: "Hearing Preparation Guide",
+        subhead: "Fast-track guidance for exhibits, courtroom conduct, and hearing readiness.",
+      },
+      shortAnswer: {
+        text: hearingSoon.blocks.shortAnswer,
+      },
+      sections: hearingSoon.blocks.sections,
+      sources: hearingSoon.governance?.sources ? {
+        items: hearingSoon.governance.sources,
+      } : undefined,
+      governance: hearingSoon.governance,
+    },
     governance: hearingSoon.governance,
   },
   {
@@ -1750,7 +1767,24 @@ This is general information about parenting time calculations. Child support and
     status: "published",
     dateModified: "2026-02-16",
     contentVersion: 2,
-    blocks: firstFiling.blocks,
+    blocks: {
+      seo: {
+        title: "First Filing Guide | ThreadLock Resources",
+        description: "Start your case right with proper documentation and filing procedures. Includes proof of service templates, official forms directory, and filing hygiene checklist.",
+      },
+      hero: {
+        h1: "First Filing Guide",
+        subhead: "Start your case right with proper documentation and filing procedures.",
+      },
+      shortAnswer: {
+        text: firstFiling.blocks.shortAnswer,
+      },
+      sections: firstFiling.blocks.sections,
+      sources: firstFiling.governance?.sources ? {
+        items: firstFiling.governance.sources,
+      } : undefined,
+      governance: firstFiling.governance,
+    },
     governance: firstFiling.governance,
   },
   {
@@ -1762,7 +1796,24 @@ This is general information about parenting time calculations. Child support and
     status: "published",
     dateModified: "2026-02-16",
     contentVersion: 2,
-    blocks: evidence.blocks,
+    blocks: {
+      seo: {
+        title: "Evidence Management Guide | ThreadLock Resources",
+        description: "Capture, organize, and preserve evidence that holds up. Includes evidence intake templates, authentication basics, and timeline organization tools.",
+      },
+      hero: {
+        h1: "Evidence Management Guide",
+        subhead: "Capture, organize, and preserve evidence that holds up in court.",
+      },
+      shortAnswer: {
+        text: evidence.blocks.shortAnswer,
+      },
+      sections: evidence.blocks.sections,
+      sources: evidence.governance?.sources ? {
+        items: evidence.governance.sources,
+      } : undefined,
+      governance: evidence.governance,
+    },
     governance: evidence.governance,
   },
 ];
