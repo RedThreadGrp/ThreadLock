@@ -1441,7 +1441,7 @@ This guide is based on common authentication principles found in U.S. state Rule
     title: "Citation Authentication: Verifying Legal Authority",
     excerpt: "Best practices for verifying legal citations before filing court documents, whether researched manually or with AI assistance.",
     tag: "Evidence",
-    topic: "Evidence & Exhibits",
+    topic: "AI & Digital Evidence",
     intent: "Learn",
     readTime: "8 min read",
     status: "published",
@@ -1824,7 +1824,7 @@ For detailed templates and instructions, see our [Proof of Service Pack](/resour
     slug: "evidence-exhibits",
     title: "Evidence & Exhibits",
     promise: "Capture, preserve, and organize records that are usable in court.",
-    resourceCount: 6,
+    resourceCount: 5,
     body: `# Evidence & Exhibits
 
 Raw evidence means nothing if you can't find it when you need it, authenticate it properly, or present it clearly to a judge. Family court cases often hinge on documentary evidence—text messages, emails, photos, financial records, and written communications. Understanding how to capture, preserve, organize, and label evidence is essential for self-represented litigants.
