@@ -83,7 +83,7 @@ const KnowledgeSpotlightSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           <PillarCard
             title="The Evidence Wiki"
             highlights={[
@@ -105,6 +105,18 @@ const KnowledgeSpotlightSection: React.FC = () => {
             ]}
             ctaText="View Blueprints"
             ctaLink="/resources/blueprints"
+          />
+
+          <PillarCard
+            title="AI Verification"
+            highlights={[
+              "Citation integrity standards",
+              "AI disclosure requirements",
+              "Digital evidence authentication",
+              "Model policy frameworks",
+            ]}
+            ctaText="View Resources"
+            ctaLink="/resources?topic=ai-digital-evidence"
           />
 
           <PillarCard
