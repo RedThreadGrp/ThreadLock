@@ -321,6 +321,14 @@ export default function ResourcesPage() {
               </a>
               <span className="text-border-dark">·</span>
               <a 
+                href="#ai-verification"
+                onClick={scrollToSection('ai-verification')}
+                className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
+              >
+                AI Verification
+              </a>
+              <span className="text-border-dark">·</span>
+              <a 
                 href="#topics"
                 onClick={scrollToSection('topics')}
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
@@ -484,6 +492,83 @@ export default function ResourcesPage() {
           </div>
         </section>
 
+        {/* AI & Digital Evidence Verification Collection */}
+        <section id="ai-verification" className="mx-auto max-w-6xl px-6 py-10 md:py-14 bg-surface-dark-panel/30 -mx-6 px-12">
+          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-8">
+            <div>
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-foreground-dark">AI & Digital Evidence Verification</h2>
+              <p className="mt-2 text-muted-dark max-w-2xl">
+                Structural safeguards for citation integrity, digital provenance, and judicial trust in the AI era.
+              </p>
+            </div>
+            <div className="h-1 w-20 rounded-full bg-brand-orange" />
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {/* Verification Crisis Article */}
+            <Link
+              href="/resources/verification-crisis-family-court"
+              className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
+            >
+              {/* Orange glow overlay on hover */}
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
+              
+              <div className="relative z-10">
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="rounded-full bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange">
+                    Research
+                  </span>
+                  <span className="rounded-full border border-border-dark bg-surface-dark px-2 py-0.5 text-xs font-semibold text-muted-dark">
+                    18 min read
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold tracking-tight text-foreground-dark group-hover:text-brand-orange transition-colors">
+                  The Verification Crisis in Family Court
+                </h3>
+                <p className="mt-2 text-sm text-muted-dark leading-relaxed">
+                  Research analysis on citation integrity, AI-generated legal fiction, and structural safeguards needed for digital evidence in family law proceedings.
+                </p>
+                <div className="mt-4">
+                  <span className="text-xs font-semibold text-brand-orange group-hover:text-brand-navy transition-colors">
+                    Read Analysis →
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Model Local Rule Policy */}
+            <Link
+              href="/resources/model-local-rule-ai-verification"
+              className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
+            >
+              {/* Orange glow overlay on hover */}
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
+              
+              <div className="relative z-10">
+                <div className="flex flex-wrap gap-2 mb-3">
+                  <span className="rounded-full bg-brand-orange/10 px-3 py-1 text-xs font-semibold text-brand-orange">
+                    Policy Proposal
+                  </span>
+                  <span className="rounded-full border border-border-dark bg-surface-dark px-2 py-0.5 text-xs font-semibold text-muted-dark">
+                    15 min read
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold tracking-tight text-foreground-dark group-hover:text-brand-orange transition-colors">
+                  Model Local Rule: Verification of Generative AI & Digital Evidence
+                </h3>
+                <p className="mt-2 text-sm text-muted-dark leading-relaxed">
+                  Policy framework for mandatory AI disclosure, citation verification, and Evidence Passport standards in family court proceedings.
+                </p>
+                <div className="mt-4">
+                  <span className="text-xs font-semibold text-brand-orange group-hover:text-brand-navy transition-colors">
+                    View Policy Proposal →
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
+
         {/* Topics Hub */}
         <section id="topics" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-8">
@@ -539,7 +624,7 @@ export default function ResourcesPage() {
                 label="Category"
                 value={tag}
                 onChange={(v) => setTag(v as any)}
-                options={["All", "Templates", "Evidence", "Court Prep", "Forms", "Finance", "Basics"]}
+                options={["All", "Templates", "Evidence", "Court Prep", "Forms", "Finance", "Basics", "Research"]}
               />
             </div>
           </div>

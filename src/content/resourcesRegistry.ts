@@ -35,6 +35,9 @@ import { selfRepresentationComplete } from "./resources/self-representation-comp
 import { filingFees } from "./resources/filing-fees";
 import { freeLegalHelp } from "./resources/free-legal-help";
 import { legalAid } from "./resources/legal-aid";
+import { verificationCrisisFamilyCourt } from "./resources/verification-crisis-family-court";
+import { modelLocalRuleAIVerification } from "./resources/model-local-rule-ai-verification";
+import { citationAuthentication } from "./resources/citation-authentication";
 
 // ============================================================================
 // Type Definitions
@@ -42,7 +45,7 @@ import { legalAid } from "./resources/legal-aid";
 
 export type ResourceStatus = "published" | "draft";
 
-export type ResourceTag = "Templates" | "Evidence" | "Court Prep" | "Forms" | "Finance" | "Basics";
+export type ResourceTag = "Templates" | "Evidence" | "Court Prep" | "Forms" | "Finance" | "Basics" | "Research";
 
 export type ResourceIntent = "Urgent" | "Start" | "Organize" | "Learn";
 
@@ -1388,6 +1391,70 @@ This guide is based on common authentication principles found in U.S. state Rule
     ...legalAid,
     contentVersion: 2,
     blocks: legalAid.blocks,
+  },
+  // Research articles
+  {
+    ...verificationCrisisFamilyCourt,
+    slug: "verification-crisis-family-court",
+    title: "The Verification Crisis in Family Court",
+    excerpt: "Research analysis on citation integrity, AI-generated legal fiction, and structural safeguards for digital evidence in family law proceedings.",
+    tag: "Research",
+    topic: "AI & Digital Evidence",
+    intent: "Learn",
+    readTime: "18 min read",
+    status: "published",
+    seoTitle: "The Verification Crisis in Family Court | AI & Digital Evidence Research",
+    metaDescription: "Research analysis on citation integrity, AI-generated legal fiction, and structural safeguards needed for digital evidence in family law proceedings.",
+    dateModified: "2026-02-20",
+    contentVersion: 2,
+    blocks: verificationCrisisFamilyCourt.blocks,
+    relatedLinks: [
+      { title: "Model Local Rule: AI Verification", href: "/resources/model-local-rule-ai-verification" },
+      { title: "Citation Authentication Guide", href: "/resources/citation-authentication" },
+      { title: "Evidence Authentication 101", href: "/resources/guides/evidence-authentication" },
+    ],
+  },
+  {
+    ...modelLocalRuleAIVerification,
+    slug: "model-local-rule-ai-verification",
+    title: "Model Local Rule: Verification of Generative AI & Digital Evidence",
+    excerpt: "Policy framework for mandatory AI disclosure, citation verification, and Evidence Passport standards in family court proceedings.",
+    tag: "Research",
+    topic: "AI & Digital Evidence",
+    intent: "Learn",
+    readTime: "15 min read",
+    status: "published",
+    seoTitle: "Model Local Rule: Verification of Generative AI & Digital Evidence | Policy Proposal",
+    metaDescription: "Comprehensive policy framework for mandatory AI disclosure, human-in-the-loop certification, Evidence Passport standards, and sanctions for fabricated submissions.",
+    dateModified: "2026-02-20",
+    contentVersion: 2,
+    blocks: modelLocalRuleAIVerification.blocks,
+    relatedLinks: [
+      { title: "The Verification Crisis in Family Court", href: "/resources/verification-crisis-family-court" },
+      { title: "Citation Authentication Guide", href: "/resources/citation-authentication" },
+      { title: "Evidence Authentication 101", href: "/resources/guides/evidence-authentication" },
+    ],
+  },
+  {
+    ...citationAuthentication,
+    slug: "citation-authentication",
+    title: "Citation Authentication: Verifying Legal Authority",
+    excerpt: "Best practices for verifying legal citations before filing court documents, whether researched manually or with AI assistance.",
+    tag: "Evidence",
+    topic: "Evidence & Exhibits",
+    intent: "Learn",
+    readTime: "8 min read",
+    status: "published",
+    seoTitle: "Citation Authentication: Verifying Legal Authority | Best Practice Guide",
+    metaDescription: "How to verify legal citations before filing court documents. Step-by-step guide for checking case law authenticity and avoiding AI-generated hallucinations.",
+    dateModified: "2026-02-20",
+    contentVersion: 2,
+    blocks: citationAuthentication.blocks,
+    relatedLinks: [
+      { title: "The Verification Crisis in Family Court", href: "/resources/verification-crisis-family-court" },
+      { title: "Model Local Rule: AI Verification", href: "/resources/model-local-rule-ai-verification" },
+      { title: "Filing Basics", href: "/resources/filing-basics" },
+    ],
   },
 ];
 

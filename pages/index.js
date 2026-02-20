@@ -483,6 +483,53 @@ const ProductShowcaseSection = () => {
     );
 };
 
+const FeaturedResearchSection = () => (
+  <section
+    id="featured-research"
+    className="relative py-16 md:py-20 bg-gray-50"
+  >
+    <div className="container mx-auto px-6 max-w-4xl">
+      <div className="text-center mb-8">
+        <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 px-4 py-1.5 text-sm font-semibold text-orange-700 mb-4">
+          <FileTextIcon className="w-4 h-4" />
+          Featured Research
+        </div>
+        <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+          The Verification Crisis in Family Court
+        </h2>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+        <p className="text-slate-700 leading-relaxed mb-6">
+          Family courts face an unprecedented verification crisis as AI-generated citations, fabricated case law, 
+          and unverifiable digital evidence undermine judicial trust. Without structural safeguards for citation 
+          authentication and digital provenance, self-represented litigants and attorneys alike can inadvertently 
+          submit plausible legal fiction.
+        </p>
+        <p className="text-slate-700 leading-relaxed mb-6">
+          This research examines the verification bottleneck and proposes Evidence Passport standards for trusted 
+          digital submissions in the AI era.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link
+            href="/resources/verification-crisis-family-court"
+            className="flex-1 bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors text-center"
+          >
+            Read the Analysis
+          </Link>
+          <Link
+            href="/resources/model-local-rule-ai-verification"
+            className="flex-1 bg-white text-slate-700 font-semibold px-6 py-3 rounded-lg border-2 border-slate-200 hover:border-orange-600 hover:text-orange-600 transition-colors text-center"
+          >
+            View Policy Proposal
+          </Link>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const OurMissionSection = () => (
   <section
     id="mission"
@@ -807,6 +854,7 @@ export default function Home() {
                 <ProductShowcaseSection />
                 <WhoItsForSection />
                 <KnowledgeSpotlightSection />
+                <FeaturedResearchSection />
                 <SubscriptionBanner />
                 <OurMissionSection />
                 <FAQSection />
