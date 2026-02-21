@@ -43,6 +43,10 @@ import { citationAuthentication } from "./resources/citation-authentication";
 import { proofOfServiceTopic } from "./topics/proof-of-service";
 import { evidenceExhibitsTopic } from "./topics/evidence-exhibits";
 import { hearingsPrepTopic } from "./topics/hearings-prep";
+import { parentingPlansTopic } from "./topics/parenting-plans";
+import { financialDeclarationsTopic } from "./topics/financial-declarations";
+import { officialFormsTopic } from "./topics/official-forms";
+import { aiDigitalEvidenceTopic } from "./topics/ai-digital-evidence";
 
 // ============================================================================
 // Type Definitions
@@ -1859,239 +1863,37 @@ export const TOPICS: Topic[] = [
     title: "Parenting Plans",
     promise: "Structure routines, transitions, and communication clearly.",
     resourceCount: 3,
-    body: `# Parenting Plans
-
-A parenting plan is a detailed written agreement that describes how you and the other parent will share time, responsibilities, and decision-making for your children. Courts require parenting plans in custody cases because vague arrangements lead to constant disputes. A well-crafted plan reduces conflict, provides predictability for children, and gives you a framework for enforcement when problems arise.
-
-## Core Components of a Parenting Plan
-
-**Regular Schedule**: Define where the child lives during normal weeks. Be specific: "Child resides with Mother Monday 6pm through Thursday 8am, with Father Thursday 8am through Monday 6am." Include school nights and weekends.
-
-**Holidays and Special Days**: List which parent gets which holidays (Thanksgiving, Christmas, spring break, etc.). Specify whether you alternate yearly or split the day. Include birthdays, Mother's Day, Father's Day, and religious holidays.
-
-**Summer and School Breaks**: Address extended time during summer vacation, winter break, and spring break. Specify how parents communicate vacation plans and deadlines for notice.
-
-**Decision-Making Authority**: Clarify who makes major decisions about education, non-emergency healthcare, religious upbringing, and extracurricular activities. Options include joint decision-making, sole authority, or split domains (e.g., one parent decides education, the other decides medical).
-
-**Communication and Exchanges**: Describe how parents will communicate about the child (phone, email, co-parenting app). Specify exchange locations (home, school, public place), times, and who's responsible for transportation.
-
-**Right of First Refusal**: If one parent can't care for the child during their scheduled time, does the other parent get first option before using a babysitter? Specify the timeframe (e.g., "if absence exceeds 4 hours").
-
-## Flexibility vs. Specificity
-
-Parenting plans must balance flexibility with clarity. Courts want specific schedules, but you also need mechanisms for changes. Include provisions for modifying the plan by mutual written agreement, handling emergencies, and resolving disputes (e.g., mediation before going back to court).
-
-## Related Resources
-
-Our comprehensive [Parenting Plan Builder Guide](/resources/parenting-plans) walks through each section with examples. Use the [Parenting Time Calculations](/resources/guides/parenting-time-calculations) tool to calculate overnight percentages for child support purposes.
-
-## Common Mistakes
-
-**Being too vague**: "Reasonable visitation" or "flexible schedule" invites constant arguments. Specify exact days and times.
-
-**Ignoring logistics**: Failing to address who drives, where exchanges happen, or how parents communicate creates daily friction.
-
-**Overcomplicating exchanges**: Complex schedules confuse children and increase conflict. Simpler is usually better, especially for young children.
-
-**Not planning for holidays years in advance**: Alternating holidays prevents annual fights. Specify even/odd years clearly.
-
-**Forgetting about school activities and extracurriculars**: Address who can sign kids up for activities, how costs are split, and whether the other parent's schedule must be accommodated.
-
-**Excluding a modification process**: Circumstances change. Include language about how you'll modify the plan (mutual agreement in writing, mediation, court petition).
-
-**Using the plan to punish the other parent**: Parenting plans should prioritize children's needs, not your desire for control. Unnecessarily restrictive provisions backfire.
-
-**Not addressing technology and communication**: Modern parenting plans should cover video calls, phone access, and social media (who can post photos of children, etc.).`,
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)", href: "https://www.uniformlaws.org/" },
-        { name: "American Academy of Matrimonial Lawyers", href: "https://www.aaml.org/" },
-        { name: "Association of Family and Conciliation Courts", href: "https://www.afccnet.org/" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Parenting plan requirements and enforcement mechanisms vary by state. Some states require specific formats or court-approved templates. Consult local family law rules."
-    }
+    contentVersion: 2,
+    blocks: parentingPlansTopic,
+    governance: parentingPlansTopic.governance
   },
   {
     slug: "financial-declarations",
     title: "Financial Declarations",
     promise: "Answer financial questions without scrambling for numbers.",
     resourceCount: 4,
-    body: `# Financial Declarations
-
-Family court requires detailed financial information for nearly every case involving child support, spousal support, property division, or attorney's fees. Financial declarations—sometimes called income and expense declarations, financial affidavits, or statements of net worth—force you to disclose your complete financial picture under penalty of perjury. Having this information organized before you need it reduces stress and prevents errors that could hurt your case.
-
-## What Is a Financial Declaration?
-
-A financial declaration is a mandatory court form that itemizes your income, expenses, assets, debts, and sometimes your financial history. Different states use different forms (California's FL-150, New York's Statement of Net Worth, Texas's Financial Information Form), but all serve the same purpose: giving the court and opposing party a complete financial snapshot.
-
-## Required Information Categories
-
-**Income**: List all sources—employment wages, self-employment income, rental income, investment returns, bonuses, overtime, unemployment benefits, disability payments, social security, pensions, and any other money received. Include gross amounts (before taxes) and net amounts (after deductions). Attach recent pay stubs and tax returns.
-
-**Expenses**: Detail monthly costs for housing (rent/mortgage, property tax, insurance, utilities, maintenance), food, clothing, transportation (car payment, gas, insurance, maintenance), medical care, childcare, education, insurance premiums, debt payments, and miscellaneous expenses. Be realistic—inflating expenses is perjury and easily disproved.
-
-**Assets**: Disclose bank accounts, retirement accounts, real property, vehicles, business interests, stocks and bonds, and personal property of significant value. Include current values, how the asset is titled (individual or joint), and acquisition dates.
-
-**Debts**: List credit cards, loans, mortgages, unpaid taxes, and other liabilities. Include current balances, monthly payments, creditor names, and whether debts are individual or joint obligations.
-
-## Accuracy and Supporting Documents
-
-Financial declarations require supporting documentation: pay stubs, tax returns, bank statements, credit card statements, mortgage statements, and loan documents. Courts often require the most recent two years of tax returns and three months of pay stubs. Deliberately hiding assets or misrepresenting income constitutes perjury and can result in sanctions, adverse findings, and even criminal charges.
-
-## Related Resources
-
-Our [Financial Snapshot Worksheet](/resources/financial-snapshot) helps you gather required information methodically. The worksheet organizes data into categories matching most financial declaration forms, making completion faster and more accurate.
-
-## Common Mistakes
-
-**Underreporting income**: Forgetting to include bonuses, side gigs, cash payments, or irregular income. Courts can impute income if they believe you're hiding earnings.
-
-**Overestimating expenses**: Inflating costs to reduce support obligations or increase support claims. Judges spot unrealistic expenses quickly (e.g., claiming $1,500/month groceries for one person).
-
-**Using old information**: Financial declarations require current data. Using numbers from six months ago won't work. Update your information before filing.
-
-**Omitting assets or debts**: "Forgetting" to list a bank account, retirement fund, or valuable item is perjury. Full disclosure is mandatory even if you think the asset is "yours."
-
-**Rounding too much or being imprecise**: Courts want specific numbers, not estimates. "$2,347.12" is better than "about $2,300."
-
-**Not keeping copies**: You'll need to reference your financial declaration multiple times throughout your case. Keep copies with your supporting documents.
-
-**Filing without supporting documents**: Many courts require attaching pay stubs, tax returns, and other verification. A declaration without documentation may be rejected.
-
-**Not updating when circumstances change**: If your income or expenses change significantly during the case, you may need to file an updated financial declaration.`,
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Internal Revenue Service - Tax Information for Families", href: "https://www.irs.gov/" },
-        { name: "California Courts - Financial Disclosures", href: "https://www.courts.ca.gov/selfhelp-financials.htm" },
-        { name: "American Bar Association - Family Law Financial Issues", href: "https://www.americanbar.org/groups/family_law/" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Financial declaration forms and requirements vary by state. Income calculation methods, expense standards, and mandatory attachments differ by jurisdiction. Consult local court rules and forms."
-    }
+    contentVersion: 2,
+    blocks: financialDeclarationsTopic,
+    governance: financialDeclarationsTopic.governance
   },
   {
     slug: "official-forms",
     title: "Official Forms & Portals",
     promise: "Access state-provided forms and rules—don't pay for free resources.",
     resourceCount: 8,
-    body: `# Official Forms & Portals
-
-Many websites and services charge $50-$300 for court forms that your state provides for free. As a self-represented litigant, knowing where to find official forms, court rules, and self-help resources can save you hundreds of dollars and ensure you're using current, jurisdiction-approved documents. Every state maintains court websites with free forms, instructions, and often video tutorials designed specifically for people without attorneys.
-
-## Why Use Official Sources?
-
-**Cost**: State court websites provide forms at no charge. Commercial sites charge for the same documents.
-
-**Accuracy**: Official forms are current and jurisdiction-specific. Generic forms from online services may be outdated or formatted for the wrong state.
-
-**Instructions**: Court self-help centers provide plain-language guidance written for non-attorneys. Commercial sites often lack detailed instructions or provide confusing legalese.
-
-**Fillable PDFs**: Most official court sites offer fillable PDF forms that you can complete electronically, save, and print or e-file.
-
-## Where to Find Official Forms
-
-**State Court Websites**: Every state has a judiciary website with a forms section and self-help center. California's courts.ca.gov, New York's nycourts.gov, and Texas's txcourts.gov provide comprehensive form libraries. Search "[your state] court forms family law" to find your jurisdiction's site.
-
-**County Court Websites**: Local county court websites often provide additional forms specific to that jurisdiction, local rules, and information about filing procedures and fees.
-
-**Court Clerk's Offices**: Most clerk's offices have physical forms available and staff who can answer procedural questions (though they can't give legal advice).
-
-**Legal Aid Organizations**: State and local legal aid societies provide free forms and instructions tailored to low-income self-represented litigants.
-
-## Federal Court Resources
-
-For federal cases, use uscourts.gov for official forms and PACER (pacer.uscourts.gov) to access case documents. Federal court forms are standardized nationwide, though some districts have local rules and supplemental forms.
-
-## Related Resources
-
-Our [Official Court Portals Directory](/resources/official-portals) provides direct links to all 50 states' court form libraries and self-help resources. For specific questions, see [Where do I find official court forms?](/resources/q/official-forms-location)
-
-## Common Mistakes
-
-**Paying for free forms**: Spending money on forms available for free from your court. Always check official sources first.
-
-**Using generic "nationwide" forms**: Family law forms are state-specific. A California form won't work in Florida. Use forms from your jurisdiction's official court website.
-
-**Using outdated forms**: Court forms are revised regularly. Forms from three years ago may be rejected. Always download the current version from the official website.
-
-**Printing forms and then retyping them**: Most forms are fillable PDFs. Complete them electronically, then print. Don't print blank forms and handwrite information.
-
-**Ignoring court instructions**: Most forms come with detailed instruction sheets. Read these carefully before completing the form.
-
-**Not checking local rules**: State forms are standard, but some counties have local rule modifications or additional required forms. Check your county court's website.
-
-**Assuming one size fits all**: Different case types require different forms. Divorce forms differ from custody modification forms. Use the right forms for your situation.
-
-**Forgetting about e-filing requirements**: Many courts now require or encourage electronic filing. Check whether your court has an e-filing portal and what formats are accepted.`,
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "National Center for State Courts", href: "https://www.ncsc.org/" },
-        { name: "United States Courts - Forms", href: "https://www.uscourts.gov/forms" },
-        { name: "Legal Services Corporation - Court Resources", href: "https://www.lsc.gov/" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Court form availability, e-filing systems, and fee waiver procedures vary by state and county. Some jurisdictions update forms more frequently than others. Always verify you're using the most current version."
-    }
+    contentVersion: 2,
+    blocks: officialFormsTopic,
+    governance: officialFormsTopic.governance
   },
   {
     slug: "ai-digital-evidence",
     title: "AI & Digital Evidence",
     promise: "Navigate citation verification, AI disclosure, and digital evidence authentication.",
     resourceCount: 3,
-    body: `# AI & Digital Evidence
-
-The intersection of artificial intelligence and digital evidence creates new challenges for family court proceedings. As generative AI tools become commonplace in legal research and document drafting, courts face a verification crisis: How do we ensure citations are real? How do we authenticate digital evidence? How do we maintain trust in the legal system when fabricated content is trivially easy to create?
-
-## The Verification Crisis
-
-AI language models can generate convincing legal citations that don't exist. They hallucinate case names, fabricate holdings, and cite non-existent statutes. Meanwhile, deepfakes, manipulated screenshots, and edited digital evidence undermine the reliability of photos, videos, and electronic communications. Family court litigants—many self-represented—need practical guidance on verification standards, disclosure requirements, and authentication procedures.
-
-## Core Challenges
-
-**Citation Integrity**: Legal research tools powered by AI can produce fabricated cases with realistic case names, docket numbers, and legal reasoning. Without verification against authoritative legal databases, these fictional citations make their way into court filings. Pro se litigants using AI assistants may unknowingly submit false authority.
-
-**AI Disclosure Standards**: Courts are beginning to require disclosure when AI tools are used in legal drafting. The question isn't whether AI should be banned—it's how to require transparency and human verification of AI-generated content. Model rules and local orders establish disclosure frameworks.
-
-**Digital Evidence Authentication**: Screenshots can be edited. Metadata can be manipulated. Email headers can be forged. Establishing the authenticity of digital evidence requires understanding capture methods, preservation techniques, and chain-of-custody documentation. Evidence Passport frameworks provide structured authentication standards.
-
-## Policy Development
-
-Family courts need practical, implementable policies that balance AI's utility with safeguards against fabrication. Model local rules establish standards for mandatory AI disclosure, human-in-the-loop certification of all citations and factual claims, Evidence Passport requirements for contested digital evidence, and graduated sanctions frameworks that distinguish good-faith errors from knowing fabrication.
-
-## Related Resources
-
-Our [The Verification Crisis in Family Court](/resources/verification-crisis-family-court) article provides research analysis on citation integrity and structural challenges. The [Model Local Rule: Verification of Generative AI & Digital Evidence](/resources/model-local-rule-ai-verification) offers a policy framework for courts to adopt disclosure and verification standards. For practical verification workflows, see [Citation Authentication: Verifying Legal Authority](/resources/citation-authentication).
-
-## Best Practices for Litigants
-
-**Verify Every Citation**: If you use AI tools for legal research, check every case citation against Westlaw, LexisNexis, Google Scholar, or official court websites. Confirm the case exists, the citation is accurate, and the holding matches what you're claiming.
-
-**Disclose AI Use**: Even if your court doesn't require it yet, disclose when you've used AI tools in document preparation. Transparency protects you from sanctions if errors are discovered later.
-
-**Document Digital Evidence Provenance**: For digital evidence you plan to introduce, document how it was captured, when it was captured, what device was used, and whether any editing or processing occurred. Preserve original files with metadata intact.
-
-**Maintain Chain of Custody**: From capture to courtroom, document who had access to digital evidence and when. Use screenshots with timestamps, save original files immediately, and avoid editing or manipulation.
-
-**Seek Human Verification**: AI can assist with research and drafting, but a human must verify all factual claims and legal citations. Don't rely blindly on AI output—use it as a starting point for human-verified research.`,
-    governance: {
-      lastUpdated: "2026-02-20",
-      sources: [
-        { name: "Federal Rules of Evidence - Rule 901 (Authentication)", href: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence" },
-        { name: "ABA Formal Opinion 512: Generative AI Tools", href: "https://www.americanbar.org/" },
-        { name: "National Center for State Courts - AI Guidelines", href: "https://www.ncsc.org/" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 90,
-      accuracyNotes: "AI disclosure standards and digital evidence authentication requirements are rapidly evolving as of February 2026. Individual courts and jurisdictions are adopting varying approaches. This guidance reflects emerging best practices but may not match specific local rules in all jurisdictions."
-    }
-  },
+    contentVersion: 2,
+    blocks: aiDigitalEvidenceTopic,
+    governance: aiDigitalEvidenceTopic.governance
+  }
 ];
 
 // ============================================================================
