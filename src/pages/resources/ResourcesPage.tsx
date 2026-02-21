@@ -20,12 +20,10 @@ import {
 } from "@/src/content/externalResources.registry";
 import {
   RESOURCES as REGISTRY_RESOURCES,
-  STARTER_KITS as REGISTRY_STARTER_KITS,
   TOPICS as REGISTRY_TOPICS,
   FEATURED_GUIDES as REGISTRY_FEATURED_GUIDES,
   POPULAR_QUESTIONS as REGISTRY_POPULAR_QUESTIONS,
   Resource as RegistryResource,
-  StarterKit as RegistryStarterKit,
   Topic as RegistryTopic,
   FeaturedGuide as RegistryFeaturedGuide,
   PopularQuestion as RegistryPopularQuestion,
@@ -42,15 +40,6 @@ type Resource = {
   intent: "Urgent" | "Start" | "Organize" | "Learn";
   href: string;
   readTime?: string;
-};
-
-type StarterKit = {
-  title: string;
-  description: string;
-  whatYouGet: string[];
-  estimatedTime: string;
-  resources: string[];
-  href: string;
 };
 
 type Topic = {
@@ -88,17 +77,6 @@ const RESOURCES: Resource[] = REGISTRY_RESOURCES
     intent: r.intent,
     href: `/resources/${r.slug}`,
     readTime: r.readTime,
-  }));
-
-const STARTER_KITS: StarterKit[] = REGISTRY_STARTER_KITS
-  .filter(k => k.status === 'published')
-  .map(k => ({
-    title: k.title,
-    description: k.description,
-    whatYouGet: k.whatYouGet,
-    estimatedTime: k.estimatedTime,
-    resources: k.resources,
-    href: `/resources/kits/${k.slug}`,
   }));
 
 const TOPICS: Topic[] = REGISTRY_TOPICS.map(t => ({
@@ -171,19 +149,6 @@ export default function ResourcesPage() {
       return matchQ && matchIntent && matchTag;
     });
   }, [query, intent, tag]);
-
-  // Filter starter kits based on search query
-  const filteredStarterKits = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return STARTER_KITS;
-    return STARTER_KITS.filter((kit) => {
-      return (
-        kit.title.toLowerCase().includes(q) ||
-        kit.description.toLowerCase().includes(q) ||
-        kit.whatYouGet.some(item => item.toLowerCase().includes(q))
-      );
-    });
-  }, [query]);
 
   // Filter featured guides based on search query
   const filteredFeaturedGuides = useMemo(() => {
@@ -265,7 +230,7 @@ export default function ResourcesPage() {
                 e.preventDefault();
                 // Scroll to first results section when search is submitted
                 // Respect user's motion preferences for accessibility
-                const firstSection = document.querySelector('#starter-kits');
+                const firstSection = document.querySelector('#featured-guides');
                 if (firstSection) {
                   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                   firstSection.scrollIntoView({ 
@@ -304,14 +269,6 @@ export default function ResourcesPage() {
         <nav className="sticky top-0 z-10 bg-surface-dark/95 backdrop-blur-sm border-b border-border-dark mb-10" data-testid="resources.subnav">
           <div className="mx-auto max-w-6xl px-6">
             <div className="flex items-center justify-center gap-1 overflow-x-auto py-3 scrollbar-hide">
-              <a 
-                href="#starter-kits"
-                onClick={scrollToSection('starter-kits')}
-                className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
-              >
-                Starter Kits
-              </a>
-              <span className="text-border-dark">·</span>
               <a 
                 href="#featured-guides"
                 onClick={scrollToSection('featured-guides')}
@@ -363,66 +320,7 @@ export default function ResourcesPage() {
           </div>
         </nav>
 
-        {/* Starter Kits */}
-        <section id="starter-kits" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
-          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-8">
-            <div>
-              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-foreground-dark">Starter Kits</h2>
-              <p className="mt-2 text-muted-dark">
-                High-value bundles to get you moving fast.
-              </p>
-            </div>
-            <div className="h-1 w-20 rounded-full bg-brand-orange" />
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {filteredStarterKits.map((kit) => (
-              <Link
-                key={kit.href}
-                href={kit.href}
-                className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 active:translate-y-0 active:scale-[0.99] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
-              >
-                {/* Orange glow overlay on hover */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
-                
-                <div className="relative z-10">
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3 className="text-lg font-semibold tracking-tight text-foreground-dark group-hover:text-brand-orange transition-colors">
-                      {kit.title}
-                    </h3>
-                    {/* Time badge with orange border */}
-                    <span className="shrink-0 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-2 py-0.5 text-xs font-semibold text-brand-orange">
-                      {kit.estimatedTime}
-                    </span>
-                  </div>
-                  <p className="mt-2 text-sm text-muted-dark leading-relaxed">{kit.description}</p>
-
-                  <div className="mt-4">
-                    <div className="text-xs font-semibold text-muted-dark mb-2">What you'll get:</div>
-                    <ul className="space-y-1">
-                      {kit.whatYouGet.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-dark">
-                          <InlineIconLabel icon={<CheckIcon className="w-4 h-4 text-brand-orange" />} className="gap-2" iconClassName="w-4 h-4 shrink-0">
-                            {item}
-                          </InlineIconLabel>
-                        </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mt-5 flex items-center justify-between">
-                  <span className="rounded-full bg-brand-orange px-3 py-1 text-xs font-semibold text-white group-hover:bg-brand-navy transition-colors">
-                    Start here
-                  </span>
-                  {/* Animated arrow */}
-                  <span className="text-brand-orange font-bold group-hover:translate-x-1 transition-transform duration-200">→</span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
+        
         {/* Featured Guides */}
         <section id="featured-guides" className="mx-auto max-w-6xl px-6 py-10 md:py-14">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-8">

@@ -70,7 +70,17 @@ export interface Resource {
   intent: ResourceIntent;
   readTime?: string;
   status: ResourceStatus;
+  contentVersion?: number; // 1 = markdown body, 2 = structured blocks
   body?: string;
+  blocks?: any; // v2 structured content
+  seo?: {
+    title: string;
+    description: string;
+  };
+  hero?: {
+    h1: string;
+    subhead?: string;
+  };
   // SEO fields
   seoTitle?: string;
   metaDescription?: string;
@@ -81,23 +91,6 @@ export interface Resource {
   }>;
   relatedQuestions?: Array<{
     question: string;
-    href: string;
-  }>;
-  // Governance metadata (required for published content)
-  governance?: GovernanceMetadata;
-}
-
-export interface StarterKit {
-  slug: string;
-  title: string;
-  description: string;
-  whatYouGet: string[];
-  estimatedTime: string;
-  resources: string[];
-  status: ResourceStatus;
-  body?: string;
-  relatedLinks?: Array<{
-    title: string;
     href: string;
   }>;
   // Governance metadata (required for published content)
@@ -170,10 +163,6 @@ export interface PopularQuestion {
 
 export function getResourceBySlug(slug: string): Resource | undefined {
   return RESOURCES.find((r) => r.slug === slug);
-}
-
-export function getStarterKitBySlug(slug: string): StarterKit | undefined {
-  return STARTER_KITS.find((k) => k.slug === slug);
 }
 
 export function getFeaturedGuideBySlug(slug: string): FeaturedGuide | undefined {
@@ -1462,32 +1451,8 @@ This guide is based on common authentication principles found in U.S. state Rule
 // Starter Kits Data (3 items)
 // ============================================================================
 
-export const STARTER_KITS: StarterKit[] = [
-  {
-    ...hearingSoon,
-    slug: "hearing-soon",
-    dateModified: "2026-02-16",
-    contentVersion: 2,
-    blocks: hearingSoon.blocks,
-  },
-  {
-    ...firstFiling,
-    slug: "first-filing",
-    dateModified: "2026-02-16",
-    contentVersion: 2,
-    blocks: firstFiling.blocks,
-  },
-  {
-    ...evidence,
-    slug: "evidence",
-    dateModified: "2026-02-16",
-    contentVersion: 2,
-    blocks: evidence.blocks,
-  },
-];
-
 // ============================================================================
-// Featured Guides Data (4 items)
+// Featured Guides Data (7 items - includes converted starter kits)
 // ============================================================================
 
 export const FEATURED_GUIDES: FeaturedGuide[] = [
@@ -1762,6 +1727,91 @@ Verify your state's requirements with local court rules or the state child suppo
 ## Disclaimer
 
 This is general information about parenting time calculations. Child support and custody laws vary by state. Calculations should be verified with your jurisdiction's guidelines. This is not legal advice. Consider consulting with a licensed attorney or your state's child support enforcement office for case-specific guidance.`,
+  },
+  // Converted from Starter Kits
+  {
+    slug: "hearing-soon",
+    title: "Hearing Preparation Guide",
+    summary: "Everything you need when a hearing is approaching fast - comprehensive guides for exhibit preparation, courtroom conduct, and hearing readiness.",
+    tags: ["Court Prep", "Hearing", "Exhibits"],
+    updated: "Feb 2026",
+    status: "published",
+    dateModified: "2026-02-20",
+    contentVersion: 2,
+    blocks: {
+      seo: {
+        title: "Hearing Preparation Guide | ThreadLock Resources",
+        description: "Everything you need when a hearing is approaching fast - comprehensive guides for exhibit preparation, courtroom conduct, and hearing readiness.",
+      },
+      hero: {
+        h1: "Hearing Preparation Guide",
+        subhead: "Fast-track guidance for exhibits, courtroom conduct, and hearing readiness.",
+      },
+      shortAnswer: {
+        text: hearingSoon.blocks.shortAnswer,
+      },
+      sections: hearingSoon.blocks.sections,
+      sources: hearingSoon.governance?.sources ? {
+        items: hearingSoon.governance.sources,
+      } : undefined,
+    },
+    governance: hearingSoon.governance,
+  },
+  {
+    slug: "first-filing",
+    title: "First Filing Guide",
+    summary: "Start your case right with proper documentation and filing procedures. Includes proof of service templates, official forms directory, and filing hygiene checklist.",
+    tags: ["Filing", "Basics", "Forms"],
+    updated: "Feb 2026",
+    status: "published",
+    dateModified: "2026-02-16",
+    contentVersion: 2,
+    blocks: {
+      seo: {
+        title: "First Filing Guide | ThreadLock Resources",
+        description: "Start your case right with proper documentation and filing procedures. Includes proof of service templates, official forms directory, and filing hygiene checklist.",
+      },
+      hero: {
+        h1: "First Filing Guide",
+        subhead: "Start your case right with proper documentation and filing procedures.",
+      },
+      shortAnswer: {
+        text: firstFiling.blocks.shortAnswer,
+      },
+      sections: firstFiling.blocks.sections,
+      sources: firstFiling.governance?.sources ? {
+        items: firstFiling.governance.sources,
+      } : undefined,
+    },
+    governance: firstFiling.governance,
+  },
+  {
+    slug: "evidence-management",
+    title: "Evidence Management Guide",
+    summary: "Capture, organize, and preserve evidence that holds up. Includes evidence intake templates, authentication basics, and timeline organization tools.",
+    tags: ["Evidence", "Organization", "Documentation"],
+    updated: "Feb 2026",
+    status: "published",
+    dateModified: "2026-02-16",
+    contentVersion: 2,
+    blocks: {
+      seo: {
+        title: "Evidence Management Guide | ThreadLock Resources",
+        description: "Capture, organize, and preserve evidence that holds up. Includes evidence intake templates, authentication basics, and timeline organization tools.",
+      },
+      hero: {
+        h1: "Evidence Management Guide",
+        subhead: "Capture, organize, and preserve evidence that holds up in court.",
+      },
+      shortAnswer: {
+        text: evidence.blocks.shortAnswer,
+      },
+      sections: evidence.blocks.sections,
+      sources: evidence.governance?.sources ? {
+        items: evidence.governance.sources,
+      } : undefined,
+    },
+    governance: evidence.governance,
   },
 ];
 
