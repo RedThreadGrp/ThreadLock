@@ -128,7 +128,7 @@ export interface Topic {
   status?: ResourceStatus;
   contentVersion?: number; // 1 = markdown body, 2 = structured blocks
   body?: string;
-  blocks?: any; // v2 structured content
+  blocks?: import("@/src/content/resources/types").ResourceQAContent; // v2 structured content
   relatedLinks?: Array<{
     title: string;
     href: string;
