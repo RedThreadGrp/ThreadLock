@@ -39,6 +39,9 @@ import { verificationCrisisFamilyCourt } from "./resources/verification-crisis-f
 import { modelLocalRuleAIVerification } from "./resources/model-local-rule-ai-verification";
 import { citationAuthentication } from "./resources/citation-authentication";
 
+// Import v2 topic content
+import { proofOfServiceTopic } from "./topics/proof-of-service";
+
 // ============================================================================
 // Type Definitions
 // ============================================================================
@@ -121,7 +124,9 @@ export interface Topic {
   promise: string;
   resourceCount: number;
   status?: ResourceStatus;
+  contentVersion?: number; // 1 = markdown body, 2 = structured blocks
   body?: string;
+  blocks?: any; // v2 structured content
   relatedLinks?: Array<{
     title: string;
     href: string;
@@ -1825,50 +1830,9 @@ export const TOPICS: Topic[] = [
     title: "Proof of Service",
     promise: "Don't lose on a technicality—get service documentation right.",
     resourceCount: 4,
-    body: `# Proof of Service
-
-Proof of service is one of the most critical—and frequently mishandled—procedural requirements in family court. It's your written evidence that you properly delivered court documents to the other party. Without valid proof of service, your motion can be rejected, your hearing postponed, or your case dismissed entirely, regardless of the merits of your arguments.
-
-## What Is Proof of Service?
-
-Proof of service is a signed declaration under penalty of perjury that documents when, where, how, and to whom you delivered court papers. It proves you gave the other party proper notice and a fair opportunity to respond. Different courts use different forms—California uses FL-335 for mail service and FL-330 for personal service, while New York requires an Affidavit of Service. Federal courts follow specific rules under FRCP Rule 5.
-
-## Service Methods and Documentation
-
-**Personal Service**: Someone over 18 (not you) hand-delivers documents directly to the other party. This is the most reliable method and hardest to contest. The server must complete a declaration detailing the exact date, time, location, and identifying characteristics of the person served.
-
-**Service by Mail**: Documents are mailed to the other party's last known address. Most jurisdictions require adding 5 extra days for the other party to respond. The proof must include the mailing date and complete address used.
-
-**Electronic Service**: Many courts now allow service via email or e-filing portals. This generates automatic proof of service records but requires prior consent from the other party or court authorization.
-
-**Substituted Service**: Used when personal service isn't possible after multiple attempts. The server leaves documents with another adult at the residence or workplace, then follows up by mail. Strict documentation requirements apply.
-
-## Related Resources
-
-For detailed templates and instructions, see our [Proof of Service Pack](/resources/proof-of-service) guide, which includes state-specific requirements. The [Proof of Service State-by-State](/resources/guides/proof-of-service-states) tool provides jurisdiction-specific forms and rules. For common questions, visit [What counts as proof of service?](/resources/q/proof-of-service-definition)
-
-## Common Mistakes
-
-**Using the wrong form**: Each state has specific proof of service forms. California's FL-335 won't work in Texas. Always verify your jurisdiction's required form.
-
-**Serving documents yourself**: You cannot serve your own court papers. The server must be an uninvolved third party who's at least 18 years old.
-
-**Missing the deadline**: Proof of service must be filed by specific deadlines, often several days before a hearing. Late filing can result in continuances or dismissal.
-
-**Incomplete information**: Missing details like exact service time, location, or documents served can invalidate your proof. Fill out every field on the form.
-
-**Skipping proof of service entirely**: Some people assume filing with the court is enough. It's not. You must serve the other party AND file proof that you did so.`,
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Civil Procedure", href: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure" },
-        { name: "California Courts Self-Help Center", href: "https://www.courts.ca.gov/selfhelp-serving.htm" },
-        { name: "American Bar Association - Service of Process", href: "https://www.americanbar.org/" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Service requirements vary significantly by state and case type. Always verify local court rules and deadlines for your specific jurisdiction."
-    }
+    contentVersion: 2,
+    blocks: proofOfServiceTopic,
+    governance: proofOfServiceTopic.governance
   },
   {
     slug: "evidence-exhibits",
