@@ -71,9 +71,9 @@ function ResourcePageV2({ resource, slug }: ResourcePageProps) {
       h1: resource.title,
       subhead: resource.excerpt
     },
-    shortAnswer: {
-      text: resource.blocks.shortAnswer
-    },
+    shortAnswer: typeof resource.blocks.shortAnswer === 'string' 
+      ? { text: resource.blocks.shortAnswer }
+      : resource.blocks.shortAnswer, // Already an object with label/text
     sections: resource.blocks.sections,
     faqs: resource.blocks.faqs ? {
       items: resource.blocks.faqs

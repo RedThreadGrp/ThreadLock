@@ -19,6 +19,10 @@ function cx(...classes: Array<string | undefined | null | false>) {
 
 function slugifyId(id: string) {
   // trust but verify: keep ids URL-safe; do not "invent" ids
+  if (!id) {
+    console.warn("[ResourceQAArticle] slugifyId called with undefined/empty id");
+    return "section";
+  }
   return id
     .trim()
     .toLowerCase()
