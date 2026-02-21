@@ -41,6 +41,8 @@ import { citationAuthentication } from "./resources/citation-authentication";
 
 // Import v2 topic content
 import { proofOfServiceTopic } from "./topics/proof-of-service";
+import { evidenceExhibitsTopic } from "./topics/evidence-exhibits";
+import { hearingsPrepTopic } from "./topics/hearings-prep";
 
 // ============================================================================
 // Type Definitions
@@ -1839,112 +1841,18 @@ export const TOPICS: Topic[] = [
     title: "Evidence & Exhibits",
     promise: "Capture, preserve, and organize records that are usable in court.",
     resourceCount: 5,
-    body: `# Evidence & Exhibits
-
-Raw evidence means nothing if you can't find it when you need it, authenticate it properly, or present it clearly to a judge. Family court cases often hinge on documentary evidence—text messages, emails, photos, financial records, and written communications. Understanding how to capture, preserve, organize, and label evidence is essential for self-represented litigants.
-
-## What Are Evidence and Exhibits?
-
-**Evidence** is information presented to prove or disprove facts in your case. In family law, this typically includes text messages, emails, photos, financial documents, medical records, school reports, and written agreements.
-
-**Exhibits** are specific pieces of evidence formally marked and presented to the court. During hearings, you'll reference "Exhibit A" or "Exhibit 1" rather than fumbling through stacks of papers. Proper labeling makes your evidence accessible and credible.
-
-## Capturing and Preserving Evidence
-
-For **text messages and emails**, take full screenshots showing timestamps, phone numbers, and complete conversation threads. Don't crop or edit—authenticity is crucial. Save original files with metadata intact. For **photos**, capture images immediately with timestamps and location data enabled. Document the context of what you're photographing.
-
-For **financial records**, collect pay stubs, bank statements, tax returns, and receipts systematically. Keep both electronic and paper copies. Organize chronologically and by category (income, expenses, assets, debts).
-
-## Organizing and Labeling Exhibits
-
-Standard convention assigns **letters (A, B, C)** to plaintiff/petitioner exhibits and **numbers (1, 2, 3)** to defendant/respondent exhibits. Create an exhibit list that includes each designation, a brief description, page count, and relevant dates. Use adhesive exhibit stickers or colored tabs on physical documents, and include exhibit labels in PDF bookmarks for electronic filings.
-
-## Related Resources
-
-Our [Evidence Intake: Photos, Texts, Email](/resources/evidence-intake) guide provides detailed capture and preservation techniques. Learn the formal authentication process in [Evidence Authentication](/resources/guides/evidence-authentication). For courtroom preparation, see [How do I label exhibits for court?](/resources/q/exhibit-labeling)
-
-## Common Mistakes
-
-**Not preserving metadata**: Cropped screenshots or edited photos lose credibility. Keep original files with complete metadata intact.
-
-**Poor organization**: Dumping 200 unsorted text messages on a judge doesn't help your case. Organize chronologically and highlight key messages.
-
-**Missing authentication**: Courts require you to authenticate evidence—proving it's what you claim it is. Include declarations explaining the source and chain of custody.
-
-**Wrong labeling conventions**: Using numbers when you should use letters, or skipping exhibit lists entirely, creates confusion and wastes court time.
-
-**Bringing only one copy**: Always bring three copies of each exhibit—one for the judge, one for the opposing party, and one for yourself.
-
-**Forgetting relevance**: Not all evidence is admissible. Make sure each exhibit directly relates to issues in your case and isn't just emotional clutter.`,
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "Federal Rules of Evidence", href: "https://www.law.cornell.edu/rules/fre" },
-        { name: "California Evidence Code", href: "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?tocCode=EVID" },
-        { name: "National Center for State Courts", href: "https://www.ncsc.org/" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Evidence rules vary by jurisdiction. Hearsay exceptions, authentication requirements, and admissibility standards differ between states and between civil and criminal proceedings."
-    }
+    contentVersion: 2,
+    blocks: evidenceExhibitsTopic,
+    governance: evidenceExhibitsTopic.governance
   },
   {
     slug: "hearings-prep",
     title: "Hearings & Courtroom Prep",
     promise: "Walk in prepared, organized, and coherent under pressure.",
     resourceCount: 5,
-    body: `# Hearings & Courtroom Prep
-
-Walking into a courtroom as a self-represented litigant is intimidating. The judge has limited time, the opposing party may have an attorney, and you need to present facts clearly under pressure. Proper preparation—knowing what to bring, how to organize materials, what to say, and what to avoid—makes the difference between being heard and being dismissed.
-
-## What Is a Court Hearing?
-
-A hearing is a formal proceeding where a judge listens to arguments, reviews evidence, and makes decisions about your case. Family law hearings cover temporary orders, child custody arrangements, support modifications, restraining orders, and trial preparation. Unlike informal mediation, hearings follow strict procedural rules and create binding court orders.
-
-## Essential Preparation
-
-**Documents**: Bring originals of all filed court papers, marked exhibits with tabs, your declaration, proof of service, and previous court orders. Have three copies of everything—one for the judge, one for the opposing party, and one for yourself.
-
-**Exhibits**: Pre-mark evidence with exhibit labels (letters for petitioner, numbers for respondent). Create a formal exhibit list describing each item. Use binders with tabs for organization. Bring originals if authenticity might be challenged.
-
-**Argument Outline**: Write a brief, organized outline of key points you want to make. Focus on facts, not emotions. Prepare questions for the opposing party if they'll testify. Practice your opening statement until it's clear and concise (2-3 minutes maximum).
-
-**Practical Items**: Bring a notepad, pens, calendar, calculator, and relevant statutes or case citations. Dress professionally—business attire shows respect for the court. Arrive 30 minutes early to check in and review materials.
-
-## Courtroom Behavior
-
-Address the judge as "Your Honor." Stand when speaking. Listen carefully to questions and answer directly. Don't interrupt the judge or opposing party. Stay calm even if provoked—emotional outbursts damage your credibility. Take notes during the hearing to reference in future filings.
-
-## Related Resources
-
-For immediate hearing preparation, see [Hearing Tomorrow Checklist](/resources/hearing-tomorrow). Our [Courtroom Prep](/resources/courtroom-prep) guide covers etiquette and strategy. For specific questions, visit [What should I bring to a hearing?](/resources/q/hearing-checklist)
-
-## Common Mistakes
-
-**Arriving unprepared**: Showing up without organized exhibits, copies, or a clear plan makes you look disorganized and wastes the judge's time.
-
-**Rambling or emotional testimony**: Judges want facts, not feelings. Stick to relevant, specific information that supports your legal arguments.
-
-**Ignoring court orders to exchange information**: If you were ordered to share exhibits or witness lists beforehand and didn't, the judge may exclude your evidence.
-
-**Dressing inappropriately**: Casual or revealing clothing undermines your credibility. Treat court like a professional job interview.
-
-**Arguing with the opposing party**: Never speak directly to the other party during a hearing. Address all comments to the judge.
-
-**Bringing children**: Unless they're testifying or it's absolutely unavoidable, don't bring kids to hearings. It's stressful for them and distracting for the court.
-
-**Not having a backup plan**: Technology fails. Bring paper copies even if you plan to use a laptop or tablet.`,
-    governance: {
-      lastUpdated: "2026-02-15",
-      sources: [
-        { name: "National Center for State Courts - Self-Representation", href: "https://www.ncsc.org/selfrepresentation" },
-        { name: "California Courts Self-Help - Courtroom Basics", href: "https://www.courts.ca.gov/selfhelp-courtroom.htm" },
-        { name: "American Bar Association - Going to Court", href: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/" }
-      ],
-      jurisdictionScope: ["US-general"],
-      reviewIntervalDays: 180,
-      accuracyNotes: "Courtroom procedures and hearing formats vary by jurisdiction and case type. Check local court rules for specific requirements regarding exhibit exchanges, witness lists, and testimony procedures."
-    }
+    contentVersion: 2,
+    blocks: hearingsPrepTopic,
+    governance: hearingsPrepTopic.governance
   },
   {
     slug: "parenting-plans",
