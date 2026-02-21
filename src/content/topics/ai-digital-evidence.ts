@@ -88,45 +88,98 @@ export const aiDigitalEvidenceTopic: ResourceQAContent = {
         title: "Federal Rules of Evidence - Rule 901 (Authentication)",
         organization: "United States Courts",
         url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-20"
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "ABA Formal Opinion 512: Generative AI Tools",
+        title: "ABA Formal Opinion 512: Generative AI Tools (July 2024)",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/",
-        lastAccessed: "2026-02-20"
+        url: "https://www.americanbar.org/groups/professional_responsibility/publications/ethics_opinions/",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
         title: "AI Guidelines for Courts",
         organization: "National Center for State Courts",
         url: "https://www.ncsc.org/",
-        lastAccessed: "2026-02-20"
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "NCSC — Legal Practitioner's Guide to AI & Hallucinations (2026)",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "Mata v. Avianca, Inc. (2023) — AI Hallucination Sanctions",
+        organization: "CourtListener",
+        url: "https://www.courtlistener.com/docket/16105991/mata-v-avianca-inc/",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "FRE Rule 901 — Authenticating or Identifying Evidence",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/fre/rule_901",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "NIST — Digital Evidence and Forensics",
+        organization: "National Institute of Standards and Technology",
+        url: "https://www.nist.gov/topics/digital-evidence-forensics",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "NCSC — AI & Technology for Courts",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/court-management/technology",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
       }
     ]
   },
   
   governance: {
-    lastUpdated: "2026-02-20",
+    lastUpdated: "2026-02-21",
     sources: [
       {
         title: "Federal Rules of Evidence - Rule 901 (Authentication)",
         organization: "United States Courts",
         url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-20"
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "ABA Formal Opinion 512: Generative AI Tools",
+        title: "ABA Formal Opinion 512: Generative AI Tools (July 2024)",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/",
-        lastAccessed: "2026-02-20"
+        url: "https://www.americanbar.org/groups/professional_responsibility/publications/ethics_opinions/",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
         title: "AI Guidelines for Courts",
         organization: "National Center for State Courts",
         url: "https://www.ncsc.org/",
-        lastAccessed: "2026-02-20"
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "Mata v. Avianca, Inc. (2023) — AI Hallucination Sanctions",
+        organization: "CourtListener",
+        url: "https://www.courtlistener.com/docket/16105991/mata-v-avianca-inc/",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "NIST — Digital Evidence and Forensics",
+        organization: "National Institute of Standards and Technology",
+        url: "https://www.nist.gov/topics/digital-evidence-forensics",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       }
     ],
     jurisdictionScope: ["multi-state"],

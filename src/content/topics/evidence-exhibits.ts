@@ -100,47 +100,98 @@ export const evidenceExhibitsTopic: ResourceQAContent = {
         title: "Federal Rules of Evidence",
         organization: "Legal Information Institute - Cornell Law School",
         url: "https://www.law.cornell.edu/rules/fre",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
         title: "California Evidence Code",
         organization: "California Legislative Information",
         url: "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?tocCode=EVID",
-        jurisdiction: "California",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
       },
       {
         title: "Court Evidence Guidelines",
         organization: "National Center for State Courts",
         url: "https://www.ncsc.org/",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "FRE Rule 901 — Authenticating or Identifying Evidence",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/fre/rule_901",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "FRE Rule 902 — Evidence That Is Self-Authenticating",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/fre/rule_902",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "California Evidence Code §§ 1400–1401 (Authentication)",
+        organization: "California Legislative Information",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=EVID&sectionNum=1400",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "ABA How Courts Work",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "Cornell LII — Evidence (Wex)",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/wex/evidence",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
       }
     ]
   },
   
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-21",
     sources: [
       {
         title: "Federal Rules of Evidence",
         organization: "Legal Information Institute - Cornell Law School",
         url: "https://www.law.cornell.edu/rules/fre",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
         title: "California Evidence Code",
         organization: "California Legislative Information",
         url: "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?tocCode=EVID",
-        jurisdiction: "California",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Court Evidence Guidelines",
-        organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/",
-        lastAccessed: "2026-02-15"
+        title: "FRE Rule 901 — Authenticating or Identifying Evidence",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/fre/rule_901",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "California Evidence Code §§ 1400–1401 (Authentication)",
+        organization: "California Legislative Information",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=EVID&sectionNum=1400",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "ABA How Courts Work",
+        organization: "American Bar Association",
+        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
       }
     ],
     jurisdictionScope: ["multi-state"],
