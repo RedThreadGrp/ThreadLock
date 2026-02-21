@@ -102,48 +102,80 @@ export const hearingsPrepTopic: ResourceQAContent = {
   sources: {
     items: [
       {
-        title: "Self-Representation Resources",
-        organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/selfrepresentation",
-        lastAccessed: "2026-02-15"
-      },
-      {
-        title: "Courtroom Basics",
-        organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/selfhelp-courtroom.htm",
-        jurisdiction: "California",
-        lastAccessed: "2026-02-15"
-      },
-      {
-        title: "How Courts Work",
+        title: "ABA How Courts Work",
         organization: "American Bar Association",
         url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "California Courts Self-Help: Courtroom Basics",
+        organization: "California Judicial Branch",
+        url: "https://www.courts.ca.gov/selfhelp-courtroom.htm",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "NCSC — Self-Representation Resources (State Links)",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "Federal Rules of Civil Procedure (Full Text)",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "U.S. Courts — Pro Se Forms",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/forms/pro-se-forms",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "Legal Services Corporation — Find Legal Aid",
+        organization: "Legal Services Corporation",
+        url: "https://www.lsc.gov/what-legal-aid/find-legal-aid",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
       }
     ]
   },
   
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-21",
     sources: [
       {
-        title: "Self-Representation Resources",
-        organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/selfrepresentation",
-        lastAccessed: "2026-02-15"
-      },
-      {
-        title: "Courtroom Basics",
-        organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/selfhelp-courtroom.htm",
-        jurisdiction: "California",
-        lastAccessed: "2026-02-15"
-      },
-      {
-        title: "How Courts Work",
+        title: "ABA How Courts Work",
         organization: "American Bar Association",
         url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "California Courts Self-Help: Courtroom Basics",
+        organization: "California Judicial Branch",
+        url: "https://www.courts.ca.gov/selfhelp-courtroom.htm",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "NCSC — Self-Representation Resources (State Links)",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "Federal Rules of Civil Procedure (Full Text)",
+        organization: "U.S. Courts",
+        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       }
     ],
     jurisdictionScope: ["multi-state"],

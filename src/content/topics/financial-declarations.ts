@@ -98,46 +98,92 @@ export const financialDeclarationsTopic: ResourceQAContent = {
       {
         title: "Tax Information for Families",
         organization: "Internal Revenue Service",
-        url: "https://www.irs.gov/",
-        lastAccessed: "2026-02-15"
+        url: "https://www.irs.gov/individuals/parents",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Financial Disclosures",
+        title: "California Courts Self-Help: Financial Disclosures",
         organization: "California Judicial Branch",
         url: "https://www.courts.ca.gov/selfhelp-financials.htm",
-        jurisdiction: "California",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
       },
       {
         title: "Family Law Financial Issues",
         organization: "American Bar Association",
         url: "https://www.americanbar.org/groups/family_law/",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "Form FL-150 (Income and Expense Declaration)",
+        organization: "California Judicial Branch",
+        url: "https://www.courts.ca.gov/documents/fl150.pdf",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "New York Domestic Relations Law § 236 (Statement of Net Worth)",
+        organization: "NY State Legislature",
+        url: "https://www.nysenate.gov/legislation/laws/DOM/236",
+        jurisdiction: "new-york",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "IRS — Divorced or Separated Individuals (Publication 504)",
+        organization: "Internal Revenue Service",
+        url: "https://www.irs.gov/publications/p504",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "Child Support Guidelines by State",
+        organization: "National Conference of State Legislatures",
+        url: "https://www.ncsl.org/research/human-services/child-support-guidelines.aspx",
+        jurisdiction: "multi-state",
+        lastAccessed: "2026-02-21"
       }
     ]
   },
   
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-21",
     sources: [
       {
         title: "Tax Information for Families",
         organization: "Internal Revenue Service",
-        url: "https://www.irs.gov/",
-        lastAccessed: "2026-02-15"
+        url: "https://www.irs.gov/individuals/parents",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Financial Disclosures",
+        title: "California Courts Self-Help: Financial Disclosures",
         organization: "California Judicial Branch",
         url: "https://www.courts.ca.gov/selfhelp-financials.htm",
-        jurisdiction: "California",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Family Law Financial Issues",
-        organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/family_law/",
-        lastAccessed: "2026-02-15"
+        title: "Form FL-150 (Income and Expense Declaration)",
+        organization: "California Judicial Branch",
+        url: "https://www.courts.ca.gov/documents/fl150.pdf",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "New York Domestic Relations Law § 236 (Statement of Net Worth)",
+        organization: "NY State Legislature",
+        url: "https://www.nysenate.gov/legislation/laws/DOM/236",
+        jurisdiction: "new-york",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "IRS — Divorced or Separated Individuals (Publication 504)",
+        organization: "Internal Revenue Service",
+        url: "https://www.irs.gov/publications/p504",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       }
     ],
     jurisdictionScope: ["multi-state"],

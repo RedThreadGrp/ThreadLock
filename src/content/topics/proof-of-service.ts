@@ -91,50 +91,80 @@ export const proofOfServiceTopic: ResourceQAContent = {
   sources: {
     items: [
       {
-        title: "Federal Rules of Civil Procedure - Rule 5",
-        organization: "U.S. Courts",
-        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-15"
+        title: "FRCP Rule 5 — Serving and Filing Pleadings",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/frcp/rule_5",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "California Courts - Serving Court Papers",
+        title: "FRCP Rule 4 — Summons",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/frcp/rule_4",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "California Courts Self-Help: Serving Court Papers",
         organization: "California Judicial Branch",
         url: "https://www.courts.ca.gov/selfhelp-serving.htm",
-        jurisdiction: "California",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Service of Process",
+        title: "Cornell LII — Service of Process (Wex)",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/wex/service_of_process",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "ABA How Courts Work",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/",
-        lastAccessed: "2026-02-15"
+        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "NY Courts Self-Help: Family Court",
+        organization: "New York State Courts",
+        url: "https://www.nycourts.gov/courthelp/Family/index.shtml",
+        jurisdiction: "new-york",
+        lastAccessed: "2026-02-21"
       }
     ]
   },
   
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-21",
     sources: [
       {
-        title: "Federal Rules of Civil Procedure - Rule 5",
-        organization: "U.S. Courts",
-        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-civil-procedure",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-15"
+        title: "FRCP Rule 5 — Serving and Filing Pleadings",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/frcp/rule_5",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "California Courts - Serving Court Papers",
+        title: "FRCP Rule 4 — Summons",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/frcp/rule_4",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "California Courts Self-Help: Serving Court Papers",
         organization: "California Judicial Branch",
         url: "https://www.courts.ca.gov/selfhelp-serving.htm",
-        jurisdiction: "California",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Service of Process",
-        organization: "American Bar Association",
-        url: "https://www.americanbar.org/",
-        lastAccessed: "2026-02-15"
+        title: "Cornell LII — Service of Process (Wex)",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/wex/service_of_process",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
       }
     ],
     jurisdictionScope: ["multi-state"],

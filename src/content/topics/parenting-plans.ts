@@ -94,46 +94,80 @@ export const parentingPlansTopic: ResourceQAContent = {
   sources: {
     items: [
       {
-        title: "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)",
+        title: "UCCJEA — Uniform Law Commission",
         organization: "Uniform Law Commission",
-        url: "https://www.uniformlaws.org/",
-        lastAccessed: "2026-02-15"
+        url: "https://www.uniformlaws.org/committees/community-home?CommunityKey=4c6bd37f-a1d0-4f0f-bf4d-aebaf6bd9a64",
+        jurisdiction: "multi-state",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Parenting Plan Guidelines",
+        title: "AAML — Parenting Plan Guidelines",
         organization: "American Academy of Matrimonial Lawyers",
         url: "https://www.aaml.org/",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Family Court Resources",
+        title: "AFCC — Family Court Resources & Parenting Plan Standards",
         organization: "Association of Family and Conciliation Courts",
         url: "https://www.afccnet.org/",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "California Family Code — Full Text",
+        organization: "California Legislative Information",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?tocCode=FAM",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "New York Child Support Standards Act (CSSA)",
+        organization: "NY State Legislature",
+        url: "https://www.nysenate.gov/legislation/laws/DOM/240",
+        jurisdiction: "new-york",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "Cornell LII — Family Law / Custody (Wex)",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/wex/custody",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
       }
     ]
   },
   
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-21",
     sources: [
       {
-        title: "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)",
+        title: "UCCJEA — Uniform Law Commission",
         organization: "Uniform Law Commission",
-        url: "https://www.uniformlaws.org/",
-        lastAccessed: "2026-02-15"
+        url: "https://www.uniformlaws.org/committees/community-home?CommunityKey=4c6bd37f-a1d0-4f0f-bf4d-aebaf6bd9a64",
+        jurisdiction: "multi-state",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Parenting Plan Guidelines",
+        title: "AAML — Parenting Plan Guidelines",
         organization: "American Academy of Matrimonial Lawyers",
         url: "https://www.aaml.org/",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Family Court Resources",
+        title: "AFCC — Family Court Resources & Parenting Plan Standards",
         organization: "Association of Family and Conciliation Courts",
         url: "https://www.afccnet.org/",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "California Family Code — Full Text",
+        organization: "California Legislative Information",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?tocCode=FAM",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
       }
     ],
     jurisdictionScope: ["multi-state"],

@@ -95,49 +95,86 @@ export const officialFormsTopic: ResourceQAContent = {
   sources: {
     items: [
       {
-        title: "State Court Resources",
-        organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/",
-        lastAccessed: "2026-02-15"
-      },
-      {
-        title: "United States Courts - Forms",
-        organization: "United States Courts",
+        title: "U.S. Courts — All Forms",
+        organization: "U.S. Courts",
         url: "https://www.uscourts.gov/forms",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Legal Services Corporation - Court Resources",
-        organization: "Legal Services Corporation",
-        url: "https://www.lsc.gov/",
-        lastAccessed: "2026-02-15"
+        title: "California Courts — All Family Law Forms",
+        organization: "California Judicial Branch",
+        url: "https://www.courts.ca.gov/forms.htm?filter=FL",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "California Courts Self-Help Center (Main)",
+        organization: "California Judicial Branch",
+        url: "https://www.courts.ca.gov/selfhelp.htm",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "NY Courts Self-Help: Family Court",
+        organization: "New York State Courts",
+        url: "https://www.nycourts.gov/courthelp/Family/index.shtml",
+        jurisdiction: "new-york",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "NCSC — Self-Representation Resources (State Links)",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "LawHelp.org — State Legal Aid Finder",
+        organization: "Pro Bono Net",
+        url: "https://www.lawhelp.org/",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
       }
     ]
   },
   
   governance: {
-    lastUpdated: "2026-02-15",
+    lastUpdated: "2026-02-21",
     sources: [
       {
-        title: "State Court Resources",
-        organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/",
-        lastAccessed: "2026-02-15"
-      },
-      {
-        title: "United States Courts - Forms",
-        organization: "United States Courts",
+        title: "U.S. Courts — All Forms",
+        organization: "U.S. Courts",
         url: "https://www.uscourts.gov/forms",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-15"
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21"
       },
       {
-        title: "Legal Services Corporation - Court Resources",
-        organization: "Legal Services Corporation",
-        url: "https://www.lsc.gov/",
-        lastAccessed: "2026-02-15"
+        title: "California Courts — All Family Law Forms",
+        organization: "California Judicial Branch",
+        url: "https://www.courts.ca.gov/forms.htm?filter=FL",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "NY Courts Self-Help: Family Court",
+        organization: "New York State Courts",
+        url: "https://www.nycourts.gov/courthelp/Family/index.shtml",
+        jurisdiction: "new-york",
+        lastAccessed: "2026-02-21"
+      },
+      {
+        title: "NCSC — Self-Representation Resources (State Links)",
+        organization: "National Center for State Courts",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        jurisdiction: "US-general",
+        lastAccessed: "2026-02-21"
       }
+    ],
+    jurisdictionScope: ["multi-state"],
+    reviewIntervalDays: 180,
+    accuracyNotes: "Court form availability, e-filing systems, and fee waiver procedures vary by state and county. Some jurisdictions update forms more frequently than others. Always verify you're using the most current version."
+  }
     ],
     jurisdictionScope: ["multi-state"],
     reviewIntervalDays: 180,
