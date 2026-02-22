@@ -156,51 +156,99 @@ export const evidenceAuthentication: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        title: "Federal Rules of Evidence - Rule 901",
-        organization: "U.S. Courts",
-        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-16",
-        note: "Authenticating or identifying evidence"
+        title: "FRE Rule 901 — Authenticating or Identifying Evidence",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/fre/rule_901",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21",
+        note: "Primary authentication requirements"
       },
       {
-        title: "Federal Rules of Evidence - Rule 902",
-        organization: "U.S. Courts",
-        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-16",
-        note: "Evidence that is self-authenticating"
+        title: "FRE Rule 902 — Evidence That Is Self-Authenticating",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/fre/rule_902",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21",
+        note: "Self-authentication exceptions"
       },
       {
-        title: "Federal Rules of Evidence",
-        organization: "Legal Information Institute, Cornell Law School",
-        url: "https://www.law.cornell.edu/rules/fre",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-16",
-        note: "Complete text with annotations on authentication"
+        title: "California Evidence Code §§ 1400–1401 (Authentication)",
+        organization: "California Legislative Information",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=EVID&sectionNum=1400",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21",
+        note: "California authentication standards"
       },
+      {
+        title: "California Evidence Code § 1421 (Self-Authentication)",
+        organization: "California Legislative Information",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=EVID&sectionNum=1421",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21",
+        note: "Self-authentication under California law"
+      },
+      {
+        title: "California Evidence Code § 1553 (Digital Images)",
+        organization: "California Legislative Information",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=EVID&sectionNum=1553",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21",
+        note: "Authentication of digital images and video"
+      },
+      {
+        title: "Adoption of X.D. (2025) — Screenshot Authentication",
+        organization: "Google Scholar / Case Law",
+        url: "https://scholar.google.com/scholar?q=Adoption+of+X.D.+2025+California",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21",
+        note: "California case on screenshot self-authentication"
+      },
+      {
+        title: "NIST — Digital Evidence and Forensics",
+        organization: "National Institute of Standards and Technology",
+        url: "https://www.nist.gov/topics/digital-evidence-forensics",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21",
+        note: "Digital evidence standards and best practices"
+      }
     ],
   },
 
   governance: {
-    lastUpdated: "2026-02-16",
+    lastUpdated: "2026-02-21",
     sources: [
       {
-        title: "Federal Rules of Evidence - Rules 901 and 902",
-        organization: "U.S. Courts",
-        url: "https://www.uscourts.gov/rules-policies/current-rules-practice-procedure/federal-rules-evidence",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-16",
-        note: "Authentication standards (Rules 901-902)"
+        title: "FRE Rule 901 — Authenticating or Identifying Evidence",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/fre/rule_901",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21",
+        note: "Authentication standards"
       },
       {
-        title: "Federal Rules of Evidence",
-        organization: "Legal Information Institute, Cornell Law School",
-        url: "https://www.law.cornell.edu/rules/fre",
-        jurisdiction: "Federal",
-        lastAccessed: "2026-02-16",
-        note: "Complete text with annotations and case law"
+        title: "FRE Rule 902 — Evidence That Is Self-Authenticating",
+        organization: "Cornell Law School (LII)",
+        url: "https://www.law.cornell.edu/rules/fre/rule_902",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21",
+        note: "Self-authentication exceptions"
       },
+      {
+        title: "California Evidence Code §§ 1400–1401 (Authentication)",
+        organization: "California Legislative Information",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=EVID&sectionNum=1400",
+        jurisdiction: "california",
+        lastAccessed: "2026-02-21",
+        note: "California authentication requirements"
+      },
+      {
+        title: "NIST — Digital Evidence and Forensics",
+        organization: "National Institute of Standards and Technology",
+        url: "https://www.nist.gov/topics/digital-evidence-forensics",
+        jurisdiction: "federal",
+        lastAccessed: "2026-02-21",
+        note: "Digital evidence best practices"
+      }
     ],
     jurisdictionScope: ["federal"],
     reviewIntervalDays: 180,
