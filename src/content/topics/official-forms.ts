@@ -175,9 +175,4 @@ export const officialFormsTopic: ResourceQAContent = {
     reviewIntervalDays: 180,
     accuracyNotes: "Court form availability, e-filing systems, and fee waiver procedures vary by state and county. Some jurisdictions update forms more frequently than others. Always verify you're using the most current version."
   }
-    ],
-    jurisdictionScope: ["multi-state"],
-    reviewIntervalDays: 180,
-    accuracyNotes: "Court form availability, e-filing systems, and fee waiver procedures vary by state and county. Some jurisdictions update forms more frequently than others. Always verify you're using the most current version."
-  }
 };
