@@ -48,6 +48,9 @@ import { financialDeclarationsTopic } from "./topics/financial-declarations";
 import { officialFormsTopic } from "./topics/official-forms";
 import { aiDigitalEvidenceTopic } from "./topics/ai-digital-evidence";
 
+// Import types from the canonical source
+import type { ResourceSource, GovernanceMetadata as ResourceGovernanceMetadata } from "./resources/types";
+
 // ============================================================================
 // Type Definitions
 // ============================================================================
@@ -58,17 +61,8 @@ export type ResourceTag = "Templates" | "Evidence" | "Court Prep" | "Forms" | "F
 
 export type ResourceIntent = "Urgent" | "Start" | "Organize" | "Learn";
 
-export interface GovernanceMetadata {
-  lastUpdated: string; // ISO date string (YYYY-MM-DD)
-  sources: Array<{
-    name: string;
-    href?: string;
-    note?: string;
-  }>;
-  jurisdictionScope: string[]; // e.g., ["US-general"], ["Federal", "California"]
-  reviewIntervalDays: 90 | 180 | 365; // Based on content volatility
-  accuracyNotes?: string; // Optional, useful for "varies by county" disclaimers
-}
+// Use the canonical GovernanceMetadata type from resources/types.ts
+export type GovernanceMetadata = ResourceGovernanceMetadata;
 
 export interface Resource {
   slug: string;
