@@ -289,15 +289,15 @@ function Sources({
     <section id="sources" className="scroll-mt-24">
       <h2 className="text-lg font-semibold text-white/95">{heading}</h2>
       <ul className="mt-3 space-y-2 text-sm text-white/80">
-        {/* Note: Using name+index as key is safe here since sources are static content that won't be reordered */}
+        {/* Note: Using title+index as key is safe here since sources are static content that won't be reordered */}
         {items.map((s, idx) => (
-          <li key={`${s.name}-${idx}`} className="leading-6">
-            {s.href ? (
-              <a href={s.href} target="_blank" rel="noreferrer" className="underline decoration-white/20 hover:decoration-white/50 underline-offset-4">
-                {s.name}
+          <li key={`${s.title}-${idx}`} className="leading-6">
+            {s.url ? (
+              <a href={s.url} target="_blank" rel="noreferrer" className="underline decoration-white/20 hover:decoration-white/50 underline-offset-4">
+                {s.title}
               </a>
             ) : (
-              <span>{s.name}</span>
+              <span>{s.title}</span>
             )}
             {s.note ? <span className="text-white/60"> — {s.note}</span> : null}
           </li>
