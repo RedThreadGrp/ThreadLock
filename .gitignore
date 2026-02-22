@@ -8,6 +8,10 @@ node_modules/
 externalResources.dedupe.report.json
 link-check-report.json
 
+# Citation analysis documentation (not part of the app)
+CITATION*.md
+README_CITATIONS.md
+
 # Cypress
 cypress/screenshots/
 cypress/videos/
