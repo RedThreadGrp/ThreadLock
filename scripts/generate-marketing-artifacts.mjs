@@ -347,6 +347,119 @@ function generateSEOHealthReport(inventory) {
 }
 
 /**
+ * Validate cornerstone articles
+ */
+function validateCornerstoneArticles(inventory) {
+  console.log('Validating cornerstone articles...');
+  
+  const cornerstoneArticles = inventory.filter(item => 
+    item.contentType === 'cornerstone-authority' || 
+    item.path.includes('authority/') && item.path.match(/(evidence-authentication|digital-exhibit|ai-hallucinations|contemporaneous|metadata|motion-practice|family-court-rule|chain-of-custody|judicial-treatment|pro-se)/)
+  );
+  
+  const errors = [];
+  const warnings = [];
+  
+  // Articles requiring jurisdiction comparison tables
+  const requiresJurisdictionTable = [
+    'evidence-authentication-family-court.md',
+    'digital-exhibit-admissibility-standards.md',
+    'ai-hallucinations-legal-filings.md',
+    'motion-practice-self-represented-litigants.md',
+    'family-court-rule-variations-by-state.md'
+  ];
+  
+  cornerstoneArticles.forEach(article => {
+    const fullPath = path.join(CONTENT_DIR, article.path);
+    const content = fs.readFileSync(fullPath, 'utf-8');
+    const filename = path.basename(article.path);
+    
+    // Check word count >= 2,800
+    if (article.wordCount < 2800) {
+      errors.push(`${filename}: Word count ${article.wordCount} below minimum 2,800`);
+    }
+    
+    // Check for "How to Cite This Page" section
+    if (!content.includes('## How to Cite This Page')) {
+      errors.push(`${filename}: Missing "How to Cite This Page" section`);
+    }
+    
+    // Check for schema block
+    if (!content.includes('<script type="application/ld+json">')) {
+      errors.push(`${filename}: Missing schema.org JSON-LD block`);
+    }
+    
+    // Check for jurisdiction comparison table where required
+    if (requiresJurisdictionTable.includes(filename)) {
+      if (!content.includes('| Jurisdiction |') && !content.includes('|--------------|')) {
+        warnings.push(`${filename}: Missing jurisdiction comparison table (required for this article)`);
+      }
+    }
+    
+    // Check for References section
+    if (!content.includes('## References')) {
+      warnings.push(`${filename}: Missing References section`);
+    }
+  });
+  
+  // Generate validation report
+  const timestamp = new Date().toISOString();
+  let report = `# Cornerstone Articles Validation Report\n\n`;
+  report += `**Last Generated:** ${timestamp}  \n`;
+  report += `**Articles Validated:** ${cornerstoneArticles.length}\n\n`;
+  report += `---\n\n`;
+  
+  if (errors.length === 0 && warnings.length === 0) {
+    report += `## ✅ All Validation Checks Passed\n\n`;
+    report += `All ${cornerstoneArticles.length} cornerstone articles meet quality standards.\n\n`;
+  } else {
+    if (errors.length > 0) {
+      report += `## ❌ Errors (${errors.length})\n\n`;
+      errors.forEach(error => {
+        report += `- ${error}\n`;
+      });
+      report += `\n`;
+    }
+    
+    if (warnings.length > 0) {
+      report += `## ⚠️ Warnings (${warnings.length})\n\n`;
+      warnings.forEach(warning => {
+        report += `- ${warning}\n`;
+      });
+      report += `\n`;
+    }
+  }
+  
+  // List all cornerstone articles with stats
+  report += `## Cornerstone Articles Summary\n\n`;
+  cornerstoneArticles.forEach(article => {
+    report += `### ${article.title}\n\n`;
+    report += `- **File:** \`${article.path}\`\n`;
+    report += `- **Word Count:** ${article.wordCount}\n`;
+    report += `- **Internal Links:** ${article.internalLinkCount}\n`;
+    report += `- **Last Reviewed:** ${article.lastReviewed}\n\n`;
+  });
+  
+  // Write report
+  const outputPath = path.join(OUTPUT_DIR, 'cornerstone-validation.md');
+  fs.writeFileSync(outputPath, report);
+  console.log(`✓ Cornerstone validation written to ${outputPath}`);
+  
+  // Exit with error if critical issues found
+  if (errors.length > 0) {
+    console.error(`\n❌ Cornerstone validation failed with ${errors.length} error(s)`);
+    console.error('Fix errors before proceeding.\n');
+    process.exit(1);
+  }
+  
+  if (warnings.length > 0) {
+    console.warn(`\n⚠️  Cornerstone validation completed with ${warnings.length} warning(s)`);
+  }
+  
+  return { errors, warnings };
+}
+
+/**
  * Main execution
  */
 function main() {
@@ -356,12 +469,14 @@ function main() {
     const inventory = generateContentInventory();
     generateInternalLinkMap(inventory);
     generateSEOHealthReport(inventory);
+    validateCornerstoneArticles(inventory);
     
     console.log('\n✓ All marketing artifacts generated successfully!');
     console.log(`\nGenerated files in ${OUTPUT_DIR}:`);
     console.log('  - content-inventory.md');
     console.log('  - internal-link-map.md');
     console.log('  - seo-health.md');
+    console.log('  - cornerstone-validation.md');
   } catch (error) {
     console.error('Error generating marketing artifacts:', error);
     process.exit(1);
