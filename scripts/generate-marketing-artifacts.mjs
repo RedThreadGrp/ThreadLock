@@ -56,9 +56,16 @@ function extractFrontmatter(content) {
   const lines = match[1].split('\n');
   
   lines.forEach(line => {
+    // Skip indented lines (nested YAML structures)
+    if (line.startsWith(' ') || line.startsWith('\t')) {
+      return;
+    }
+    
     const [key, ...valueParts] = line.split(':');
     if (key && valueParts.length > 0) {
-      const value = valueParts.join(':').trim();
+      let value = valueParts.join(':').trim();
+      // Remove surrounding quotes (single or double)
+      value = value.replace(/^["']|["']$/g, '');
       frontmatter[key.trim()] = value;
     }
   });
@@ -153,6 +160,7 @@ function generateContentInventory() {
       description: frontmatter?.description || 'No description',
       topic: frontmatter?.topic || 'uncategorized',
       contentType: frontmatter?.content_type || 'unknown',
+      type: frontmatter?.type || 'unknown',
       lastReviewed: frontmatter?.last_reviewed || 'Not specified',
       lastModified: lastModified,
       wordCount: wordCount,
@@ -354,6 +362,7 @@ function validateCornerstoneArticles(inventory) {
   
   const cornerstoneArticles = inventory.filter(item => 
     item.contentType === 'cornerstone-authority' || 
+    item.type === 'cornerstone' ||
     item.path.includes('authority/') && item.path.match(/(evidence-authentication|digital-exhibit|ai-hallucinations|contemporaneous|metadata|motion-practice|family-court-rule|chain-of-custody|judicial-treatment|pro-se)/)
   );
   
