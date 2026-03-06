@@ -813,7 +813,7 @@ This guide is based on common filing procedures in U.S. state trial courts. It r
     relatedLinks: [
       { title: "Proof of Service Pack", href: "/resources/proof-of-service" },
       { title: "Official Court Portals by State", href: "/resources/official-portals" },
-      { title: "Court Fee Waivers", href: "/resources/fee-waivers" },
+      { title: "Court Fee Waivers", href: "/resources/q/fee-waiver" },
     ],
     relatedQuestions: [
       { question: "What happens if I file the wrong document?", href: "/resources/hearing-tomorrow" },
@@ -1383,6 +1383,7 @@ This guide is based on common authentication principles found in U.S. state Rule
   },
   {
     ...legalAid,
+    slug: "legal-aid",
     contentVersion: 2,
     blocks: legalAid.blocks,
   },
@@ -2048,13 +2049,10 @@ export const POPULAR_QUESTIONS: PopularQuestion[] = [
       },
     },
     relatedLinks: [
-      { title: "Service of Process Requirements by State", href: "/resources/service-requirements" },
-      { title: "California Form FL-335 Instructions", href: "/resources/california-proof-service" },
+      { title: "Proof of Service Pack", href: "/resources/proof-of-service" },
     ],
     relatedQuestions: [
       { question: "How long do I have to serve documents?", href: "/resources/q/service-deadlines" },
-      { question: "Can I serve documents myself?", href: "/resources/q/self-service" },
-      { question: "What happens if service is improper?", href: "/resources/q/improper-service" },
     ],
     governance: {
       lastUpdated: "2026-02-15",
@@ -2146,13 +2144,11 @@ For hearings and trials:
 
 Check your local court's rules or website for jurisdiction-specific requirements. Many courts provide exhibit stickers at the clerk's office or specify approved formats.`,
     relatedLinks: [
-      { title: "Preparing Evidence for Court", href: "/resources/evidence-preparation" },
-      { title: "Declaration and Exhibit Templates", href: "/resources/templates" },
+      { title: "Evidence Intake Guide", href: "/resources/evidence-intake" },
     ],
     relatedQuestions: [
       { question: "Can I authenticate text messages myself?", href: "/resources/q/text-authentication" },
       { question: "What should I bring to a hearing?", href: "/resources/q/hearing-checklist" },
-      { question: "How do I organize evidence chronologically?", href: "/resources/q/evidence-organization" },
     ],
     governance: exhibitLabeling.governance
   },
@@ -2260,14 +2256,11 @@ Always verify you're using the current form version:
 
 If you cannot locate needed forms online, contact your courthouse clerk's office for guidance. Many courts now offer self-help centers that specialize in assisting self-represented litigants with form selection and basic filing procedures.`,
     relatedLinks: [
-      { title: "Court Forms by State", href: "/resources/state-forms" },
+      { title: "Official Court Portals by State", href: "/resources/official-portals" },
       { title: "Legal Aid Organizations Directory", href: "/resources/legal-aid" },
-      { title: "How to Fill Out Court Forms", href: "/resources/form-instructions" },
     ],
     relatedQuestions: [
       { question: "What if I can't afford court fees?", href: "/resources/q/fee-waiver" },
-      { question: "Do I need a lawyer to file forms?", href: "/resources/q/self-representation" },
-      { question: "Can I modify forms after filing?", href: "/resources/q/amending-forms" },
     ],
     governance: officialFormsLocation.governance
   },
@@ -2379,12 +2372,10 @@ In family law cases, text messages between parties are typically admissible as p
 While self-authentication is generally permitted, having the opposing party stipulate to authenticity can streamline admission. Consider requesting such stipulations during discovery or before hearings.`,
     relatedLinks: [
       { title: "How to Label Exhibits for Court", href: "/resources/q/exhibit-labeling" },
-      { title: "Evidence Rules in Family Law", href: "/resources/evidence-rules" },
+      { title: "Authentication Basics for Digital Evidence", href: "/resources/authentication" },
     ],
     relatedQuestions: [
       { question: "What counts as proof of service?", href: "/resources/q/proof-of-service-definition" },
-      { question: "Can I use email as evidence?", href: "/resources/q/email-evidence" },
-      { question: "How do I authenticate photos?", href: "/resources/q/photo-authentication" },
     ],
     governance: textAuthentication.governance
   },
@@ -2525,13 +2516,11 @@ Avoid bringing:
 
 Call the court clerk's office or check the local rules if you're uncertain about specific requirements. Many courts post hearing preparation guides on their websites. Consider attending a similar hearing beforehand to observe procedures and expectations.`,
     relatedLinks: [
-      { title: "Courtroom Etiquette Guide", href: "/resources/courtroom-etiquette" },
+      { title: "Courtroom Etiquette Guide", href: "/resources/courtroom-prep" },
       { title: "How to Label Exhibits for Court", href: "/resources/q/exhibit-labeling" },
-      { title: "Preparing for Trial", href: "/resources/trial-preparation" },
+      { title: "Exhibits Guide: Labeling and Organization", href: "/resources/exhibits-guide" },
     ],
     relatedQuestions: [
-      { question: "What should I wear to court?", href: "/resources/q/court-attire" },
-      { question: "Can I bring someone with me to court?", href: "/resources/q/courtroom-support" },
       { question: "How do I respond to a motion?", href: "/resources/q/respond-to-motion" },
     ],
     governance: hearingChecklist.governance
@@ -2672,13 +2661,11 @@ Always check:
 When in doubt, serve earlier than required to avoid disputes and ensure adequate notice.`,
     relatedLinks: [
       { title: "What Counts as Proof of Service?", href: "/resources/q/proof-of-service-definition" },
-      { title: "Service of Process by State", href: "/resources/service-requirements" },
-      { title: "Court Deadline Calculator", href: "/resources/deadline-calculator" },
+      { title: "Proof of Service Pack", href: "/resources/proof-of-service" },
+      { title: "Filing Basics: Getting Started", href: "/resources/filing-basics" },
     ],
     relatedQuestions: [
-      { question: "What happens if I miss a filing deadline?", href: "/resources/q/missed-deadline" },
-      { question: "How do I calculate court days?", href: "/resources/q/court-days" },
-      { question: "Can I get an extension on a deadline?", href: "/resources/q/deadline-extension" },
+      { question: "What counts as proof of service?", href: "/resources/q/proof-of-service-definition" },
     ],
     governance: serviceDeadlines.governance
   },
@@ -2818,12 +2805,9 @@ Modification requires showing that change serves the child's welfare.
 Understanding these distinctions helps parents negotiate appropriate arrangements. Courts prioritize the child's best interests, considering factors like parental involvement, child's preferences (when age-appropriate), stability, and each parent's ability to facilitate the child's relationship with the other parent.`,
     relatedLinks: [
       { title: "Creating a Parenting Plan", href: "/resources/parenting-plans" },
-      { title: "Child Custody Factors by State", href: "/resources/custody-factors" },
     ],
     relatedQuestions: [
       { question: "Can I modify a parenting plan later?", href: "/resources/q/modify-parenting-plan" },
-      { question: "How do courts decide custody?", href: "/resources/q/custody-determination" },
-      { question: "What is a parenting plan?", href: "/resources/q/parenting-plan-definition" },
     ],
     governance: custodyTypes.governance
   },
@@ -3000,13 +2984,10 @@ Before choosing whether to use an attorney for mediation, consider:
 
 At minimum, consult with an attorney before finalizing any mediated agreement to ensure you understand the legal implications and your rights.`,
     relatedLinks: [
-      { title: "Finding a Family Law Mediator", href: "/resources/mediator-directory" },
-      { title: "Mediation vs. Litigation", href: "/resources/mediation-benefits" },
+      { title: "Filing Basics: Getting Started", href: "/resources/filing-basics" },
     ],
     relatedQuestions: [
-      { question: "How much does mediation cost?", href: "/resources/q/mediation-cost" },
-      { question: "What happens if mediation doesn't work?", href: "/resources/q/mediation-failure" },
-      { question: "Is mediation required before trial?", href: "/resources/q/mandatory-mediation" },
+      { question: "What if I can't afford court fees?", href: "/resources/q/fee-waiver" },
     ],
     governance: mediationLawyer.governance
   },
@@ -3179,13 +3160,11 @@ Key reminders:
 
 Child support calculations can be complex, especially with self-employment income, variable income, or shared custody arrangements. Consider consulting an attorney or using your court's self-help center to ensure accurate calculations.`,
     relatedLinks: [
-      { title: "Child Support Guidelines by State", href: "/resources/child-support-guidelines" },
-      { title: "Modifying Child Support Orders", href: "/resources/support-modification" },
+      { title: "Financial Snapshot Worksheet", href: "/resources/financial-snapshot" },
+      { title: "Official Court Portals by State", href: "/resources/official-portals" },
     ],
     relatedQuestions: [
-      { question: "Can I modify child support later?", href: "/resources/q/modify-support" },
-      { question: "What if my ex won't pay child support?", href: "/resources/q/support-enforcement" },
-      { question: "How is income calculated for self-employed parents?", href: "/resources/q/self-employment-income" },
+      { question: "What if I can't afford court fees?", href: "/resources/q/fee-waiver" },
     ],
     governance: childSupportCalculation.governance
   },
@@ -3401,9 +3380,7 @@ Modification proceedings can be stressful for children. Pursue modification when
       { title: "Creating a Parenting Plan", href: "/resources/parenting-plans" },
     ],
     relatedQuestions: [
-      { question: "What counts as a substantial change in circumstances?", href: "/resources/q/substantial-change" },
-      { question: "Can I relocate with my child?", href: "/resources/q/relocation" },
-      { question: "How does a custody evaluation work?", href: "/resources/q/custody-evaluation" },
+      { question: "What's the difference between legal and physical custody?", href: "/resources/q/custody-types" },
     ],
     governance: modifyParentingPlan.governance
   },
@@ -3588,13 +3565,12 @@ Tips for fee waiver applications:
 If your application is denied and you genuinely cannot afford the fees, consult with legal aid organizations in your area. Some may be able to assist with the cost of filing or help you pursue an appeal of the fee waiver denial.`,
     relatedLinks: [
       { title: "Where to Find Official Court Forms", href: "/resources/q/official-forms-location" },
-      { title: "Legal Aid Organizations by State", href: "/resources/legal-aid" },
-      { title: "Court Fee Schedules", href: "/resources/court-fees" },
+      { title: "Legal Aid Organizations Directory", href: "/resources/legal-aid" },
+      { title: "What Are Typical Court Filing Fees?", href: "/resources/q/filing-fees" },
     ],
     relatedQuestions: [
       { question: "What are typical court filing fees?", href: "/resources/q/filing-fees" },
       { question: "Can I get a free lawyer?", href: "/resources/q/free-legal-help" },
-      { question: "What happens if I can't pay court-ordered costs?", href: "/resources/q/court-costs" },
     ],
     governance: feeWaiver.governance
   },
@@ -3840,12 +3816,10 @@ If you're uncertain how to respond or the motion requests significant changes, c
     relatedLinks: [
       { title: "How Long Do I Have to Serve Documents?", href: "/resources/q/service-deadlines" },
       { title: "What Should I Bring to a Hearing?", href: "/resources/q/hearing-checklist" },
-      { title: "Motion Response Templates", href: "/resources/motion-templates" },
     ],
     relatedQuestions: [
-      { question: "What if I miss the deadline to respond?", href: "/resources/q/missed-response-deadline" },
-      { question: "Do I need to attend the hearing?", href: "/resources/q/hearing-attendance" },
-      { question: "Can I file a counter-motion?", href: "/resources/q/counter-motion" },
+      { question: "How long do I have to serve documents?", href: "/resources/q/service-deadlines" },
+      { question: "What should I bring to a hearing?", href: "/resources/q/hearing-checklist" },
     ],
     governance: respondToMotion.governance
   },
