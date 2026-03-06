@@ -171,6 +171,79 @@ function checkDuplicates(slugs, itemType) {
   });
 }
 
+/**
+ * Extract all slug values from a named export array section in the registry.
+ * Uses regex to find "slug: 'value'" entries within the section boundaries.
+ */
+function extractSlugsFromSection(registryContent, sectionName) {
+  // Match from "export const NAME" to the closing line "];"
+  const escapedName = sectionName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const sectionRegex = new RegExp(
+    `export const ${escapedName}[^=]*=\\s*\\[([\\s\\S]*?)\\n\\];`
+  );
+  const match = sectionRegex.exec(registryContent);
+  if (!match) {
+    warn(`Could not find section "${sectionName}" for internal link validation`);
+    return [];
+  }
+  const body = match[1];
+  const slugs = [];
+  const slugRegex = /^\s+slug:\s*["']([^"']+)["']/mg;
+  let m;
+  while ((m = slugRegex.exec(body)) !== null) {
+    slugs.push(m[1]);
+  }
+  return slugs;
+}
+
+function validateInternalLinks(registryContent) {
+  console.log(`\n${colors.blue}Validating internal relatedLinks and relatedQuestions hrefs...${colors.reset}`);
+
+  // Build the complete set of valid internal paths from each registry section
+  const validPaths = new Set();
+
+  extractSlugsFromSection(registryContent, 'RESOURCES').forEach(s =>
+    validPaths.add(`/resources/${s}`)
+  );
+  extractSlugsFromSection(registryContent, 'FEATURED_GUIDES').forEach(s =>
+    validPaths.add(`/resources/guides/${s}`)
+  );
+  extractSlugsFromSection(registryContent, 'TOPICS').forEach(s =>
+    validPaths.add(`/resources/topics/${s}`)
+  );
+  extractSlugsFromSection(registryContent, 'POPULAR_QUESTIONS').forEach(s =>
+    validPaths.add(`/resources/q/${s}`)
+  );
+
+  if (validPaths.size === 0) {
+    warn('No valid paths found — skipping internal link validation');
+    return;
+  }
+
+  success(`Built ${validPaths.size} valid internal paths for link validation`);
+
+  // Scan every href value in the file
+  const lines = registryContent.split('\n');
+  const hrefRegex = /href:\s*["']([^"']+)["']/;
+  let brokenCount = 0;
+
+  lines.forEach((line, idx) => {
+    const m = hrefRegex.exec(line);
+    if (!m) return;
+    const href = m[1];
+    // Only validate internal /resources/ paths
+    if (!href.startsWith('/resources/')) return;
+    if (!validPaths.has(href)) {
+      error(`Line ${idx + 1}: Internal href "${href}" does not match any known resource slug`);
+      brokenCount++;
+    }
+  });
+
+  if (brokenCount === 0) {
+    success('All internal /resources/ hrefs resolve to known slugs');
+  }
+}
+
 async function validateResourcesRegistry() {
   console.log(`\n${colors.bold}${colors.blue}Validating Resources Content...${colors.reset}\n`);
   
@@ -214,6 +287,9 @@ async function validateResourcesRegistry() {
     
     success(`Checked ${publishedItemsChecked} published items`);
     success(`Scanned ${fileLines.length} lines for placeholder patterns`);
+    
+    // Validate that all internal /resources/ hrefs point to known slugs
+    validateInternalLinks(registryContent);
     
   } catch (err) {
     error(`Failed to read or parse resourcesRegistry.ts: ${err.message}`);
