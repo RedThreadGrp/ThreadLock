@@ -48,7 +48,7 @@ export const firstFiling: DivorceKit = {
         body: [
           {
             type: "p",
-            text: "Ready-to-use templates with plain-English guidance so you don't lose on a technicality. Proper proof of service is essential—courts require documented evidence that all parties received copies of filed documents."
+            text: "Ready-to-use templates with plain-English guidance so you don't lose on a technicality. Proper proof of service is essential. Courts require documented evidence that all parties received copies of filed documents."
           }
         ]
       },
@@ -140,7 +140,7 @@ export const firstFiling: DivorceKit = {
       },
       {
         question: "Do I need original signatures or copies?",
-        answer: "Courts typically require original signatures on filed documents. You'll need the original for the court, plus copies for yourself and other parties. Electronic filing systems may have different requirements—check with your court's e-filing portal."
+        answer: "Courts typically require original signatures on filed documents. You'll need the original for the court, plus copies for yourself and other parties. Electronic filing systems may have different requirements; check with your court's e-filing portal."
       }
     ]
   }

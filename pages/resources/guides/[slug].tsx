@@ -60,15 +60,15 @@ function GuidePageV2({ guide, slug }: GuidePageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resourceQA-v2">
-        <div className="pt-36">
+        <div className="pt-24 md:pt-36">
           <ResourceQAArticle content={guide.blocks} />
         </div>
         
         {/* Related content and feedback */}
-        <div className="mx-auto max-w-4xl px-6 pb-10">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 pb-10">
           {/* Related Links */}
           {guide.relatedLinks && guide.relatedLinks.length > 0 && (
-            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Resources</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {guide.relatedLinks.map((link) => (
@@ -116,7 +116,7 @@ function GuidePageV1({ guide, slug }: GuidePageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resource-v2">
-        <div className="mx-auto max-w-4xl px-6 pt-36 pb-10">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 pt-24 md:pt-36 pb-10">
           {/* Back link */}
           <Link 
             href="/resources#featured-guides" 
@@ -148,7 +148,7 @@ function GuidePageV1({ guide, slug }: GuidePageProps) {
           )}
 
           {/* Title */}
-          <h1 className="text-4xl font-semibold tracking-tight text-foreground-dark mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-foreground-dark mb-4">
             {guide.title}
           </h1>
 
@@ -160,7 +160,7 @@ function GuidePageV1({ guide, slug }: GuidePageProps) {
           )}
 
           {/* Summary */}
-          <p className="text-lg text-muted-dark leading-relaxed mb-8 border-l-4 border-brand-orange pl-4">
+          <p className="text-base sm:text-lg text-muted-dark leading-relaxed mb-8 border-l-4 border-brand-orange pl-4">
             {guide.summary}
           </p>
 
@@ -175,7 +175,7 @@ function GuidePageV1({ guide, slug }: GuidePageProps) {
           )}
 
           {isDraft && (
-            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 text-center mb-12">
+            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8 text-center mb-12">
               <h3 className="text-lg font-semibold text-foreground-dark mb-2">
                 This guide is still being written
               </h3>
@@ -187,7 +187,7 @@ function GuidePageV1({ guide, slug }: GuidePageProps) {
 
           {/* Related Links */}
           {guide.relatedLinks && guide.relatedLinks.length > 0 && (
-            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Resources</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {guide.relatedLinks.map((link) => (
@@ -225,7 +225,7 @@ function GuideNotFound({ slug }: { slug: string }) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
-        <div className="mx-auto max-w-4xl px-6 pt-14 pb-10">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 pt-10 md:pt-14 pb-10">
           <Link 
             href="/resources#featured-guides" 
             className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"
@@ -233,7 +233,7 @@ function GuideNotFound({ slug }: { slug: string }) {
             ← Back to Featured Guides
           </Link>
 
-          <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-12 text-center">
+          <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-6 sm:p-12 text-center">
             <div className="text-6xl mb-4">📘</div>
             <h1 className="text-3xl font-semibold text-foreground-dark mb-4">
               Guide Not Found

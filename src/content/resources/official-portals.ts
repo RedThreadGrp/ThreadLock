@@ -134,7 +134,7 @@ export const officialPortals: ResourcePage = {
           },
           {
             type: "p",
-            text: "**Caution:** These portals provide forms and information, not legal advice. Using the right form doesn't guarantee the right outcome. When in doubt, consult with a licensed attorney in your jurisdiction. Don't rely on out-of-state forms—rules vary significantly."
+            text: "**Caution:** These portals provide forms and information, not legal advice. Using the right form doesn't guarantee the right outcome. When in doubt, consult with a licensed attorney in your jurisdiction. Don't rely on out-of-state forms, as rules vary significantly."
           }
         ]
       }

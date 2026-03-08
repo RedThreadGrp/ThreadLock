@@ -46,7 +46,7 @@ export const hearingTomorrow: ResourcePage = {
     accuracyNotes: "Courtroom procedures vary by jurisdiction. Always check your local court rules."
   },
   blocks: {
-    shortAnswer: "When you have a hearing coming up fast, you need a system—not a panic attack. This checklist covers what to bring, how to behave, and what to avoid.",
+    shortAnswer: "When you have a hearing coming up fast, you need a system, not a panic. This checklist covers what to bring, how to behave, and what to avoid.",
     sections: [
       {
         id: "what-to-bring",
@@ -100,7 +100,7 @@ export const hearingTomorrow: ResourcePage = {
               "Don't argue with the other party directly",
               "Don't bring up irrelevant history",
               "Don't read from a script word-for-word",
-              "Don't show emotion—stick to facts",
+              "Stay focused on facts, not emotions",
               "Don't make personal attacks",
               "Don't volunteer information beyond what's asked"
             ]

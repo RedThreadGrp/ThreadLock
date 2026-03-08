@@ -2,9 +2,12 @@
 
 /**
  * Link Health Checker
- * 
- * Validates URLs from states.json and resources.json
- * Generates a report and fails CI based on configured thresholds
+ *
+ * Validates URLs from:
+ *   - src/data/resources/resources.json  (curated external resource list)
+ *   - src/content/resources/*.ts          (inline citation links in content blocks)
+ *
+ * Generates a report and fails CI based on configured thresholds.
  */
 
 import fs from 'fs';
@@ -27,10 +30,87 @@ const CONFIG = {
   userAgent: 'Mozilla/5.0 (compatible; ThreadLock-LinkChecker/1.0)',
 };
 
-// Load data files
+// Load curated resource list
 const resourcesData = JSON.parse(
   fs.readFileSync(path.join(__dirname, '../src/data/resources/resources.json'), 'utf8')
 );
+
+/**
+ * Extract citation URLs from TypeScript resource content files.
+ *
+ * The content files store citations in governance.sources[] and blocks.sources[]
+ * as objects with a `url` property. This function uses a regex to pull every
+ * `url: "https://…"` (or single-quoted equivalent) value from the files so we
+ * don't need to compile TypeScript at check time.
+ *
+ * Returns an array of { url, source, type } objects ready to be checked.
+ */
+function extractCitationUrlsFromContentFiles() {
+  const contentDir = path.join(__dirname, '../src/content/resources');
+  const items = [];
+
+  // Regex matches: url: "https://..." or url: 'https://...'
+  const URL_PATTERN = /url:\s*["'](\bhttps?:\/\/[^\s"']+)["']/g;
+
+  let files;
+  try {
+    files = fs.readdirSync(contentDir).filter(f => f.endsWith('.ts') && f !== 'types.ts');
+  } catch {
+    console.warn('⚠️  Could not read content directory:', contentDir);
+    return items;
+  }
+
+  const seen = new Set(); // deduplicate across files
+
+  for (const file of files) {
+    const filePath = path.join(contentDir, file);
+    const content = fs.readFileSync(filePath, 'utf8');
+    const sourceName = file.replace('.ts', '');
+
+    let match;
+    URL_PATTERN.lastIndex = 0;
+    while ((match = URL_PATTERN.exec(content)) !== null) {
+      const url = match[1];
+      if (seen.has(url)) continue;
+      seen.add(url);
+      items.push({
+        url,
+        // Citation sources from content files are external authorities (government,
+        // courts, law review) — treat as Tier B unless they are well-known primary
+        // government sources, which bump to Tier A.
+        trustTier: isGovernmentAuthority(url) ? 'A' : 'B',
+        source: `citation in ${sourceName}`,
+        type: 'citation',
+      });
+    }
+  }
+
+  return items;
+}
+
+/**
+ * Heuristic: mark URLs from primary US government / official court domains as
+ * Tier A so failures on these always fail CI, regardless of overall rate.
+ *
+ * Uses the WHATWG URL hostname to avoid substring spoofing (e.g. a hostname
+ * like `fake-uscourts.gov.evil.com` would match a naive `.includes()` check
+ * but correctly fails the `.endsWith()` host check here).
+ */
+function isGovernmentAuthority(url) {
+  let hostname;
+  try {
+    hostname = new URL(url).hostname;
+  } catch {
+    return false;
+  }
+  return (
+    hostname === 'uscourts.gov'       || hostname.endsWith('.uscourts.gov')    ||
+    hostname === 'law.cornell.edu'    || hostname.endsWith('.law.cornell.edu') ||
+    hostname === 'congress.gov'       || hostname.endsWith('.congress.gov')    ||
+    hostname === 'govinfo.gov'        || hostname.endsWith('.govinfo.gov')     ||
+    hostname.endsWith('.gov')
+  );
+}
 
 /**
  * Make an HTTP/HTTPS request with timeout and redirects
@@ -137,7 +217,7 @@ async function main() {
   // Collect all URLs to check
   const urlsToCheck = [];
 
-  // Add curated resources
+  // Source 1: Curated resource list (src/data/resources/resources.json)
   resourcesData.forEach(resource => {
     urlsToCheck.push({
       url: resource.url,
@@ -147,7 +227,13 @@ async function main() {
     });
   });
 
+  // Source 2: Inline citation links in TypeScript content files
+  const citationUrls = extractCitationUrlsFromContentFiles();
+  citationUrls.forEach(item => urlsToCheck.push(item));
+
   console.log(`📊 Total URLs to check: ${urlsToCheck.length}`);
+  console.log(`   - From resources.json: ${resourcesData.length}`);
+  console.log(`   - From content citations: ${citationUrls.length}`);
   console.log(`   - Trust Tier A (critical): ${urlsToCheck.filter(u => u.trustTier === 'A').length}`);
   console.log(`   - Trust Tier B: ${urlsToCheck.filter(u => u.trustTier === 'B').length}`);
   console.log(`   - Trust Tier C: ${urlsToCheck.filter(u => u.trustTier === 'C').length}\n`);

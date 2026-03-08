@@ -181,7 +181,7 @@ export const parentingTimeCalculations: ResourceQAContent = {
       {
         title: "Child Support Guidelines",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/research/human-services/child-support-guidelines.aspx",
+        url: "https://www.ncsl.org/human-services/economics-and-workforce-development/child-support-guidelines",
         lastAccessed: "2026-02-16",
         note: "State custody thresholds and support impacts"
       },
@@ -208,7 +208,7 @@ export const parentingTimeCalculations: ResourceQAContent = {
       {
         title: "Child Support Guidelines",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/research/human-services/child-support-guidelines.aspx",
+        url: "https://www.ncsl.org/human-services/economics-and-workforce-development/child-support-guidelines",
         lastAccessed: "2026-02-16",
         note: "Custody thresholds and support impacts"
       },

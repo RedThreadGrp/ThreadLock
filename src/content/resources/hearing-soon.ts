@@ -47,7 +47,7 @@ export const hearingSoon: DivorceKit = {
     accuracyNotes: "Courtroom procedures, exhibit requirements, and local rules vary by jurisdiction. Always verify with your specific court's requirements."
   },
   blocks: {
-    shortAnswer: "When a hearing is approaching fast, you need immediate, actionable guidance. This kit provides exhibit labeling standards, hearing preparation essentials, courtroom etiquette rules, and common mistakes to avoid—everything necessary for professional court presentation.",
+    shortAnswer: "When a hearing is approaching fast, you need immediate, actionable guidance. This kit provides exhibit labeling standards, hearing preparation essentials, courtroom etiquette rules, and common mistakes to avoid. Everything you need for professional court presentation.",
     sections: [
       {
         id: "exhibit-naming",
@@ -362,7 +362,7 @@ export const hearingSoon: DivorceKit = {
       },
       {
         question: "How long should my opening statement be?",
-        answer: "Brief and focused—typically 2-5 minutes. State what you're requesting, give your top 3-4 supporting facts, and reference your key exhibits. The judge will ask questions if they want more detail."
+        answer: "Brief and focused, typically 2-5 minutes. State what you're requesting, give your top 3-4 supporting facts, and reference your key exhibits. The judge will ask questions if they want more detail."
       },
       {
         question: "Can I object to the other party's evidence?",

@@ -1,10 +1,11 @@
 name: Link Health Check
 
 on:
-  # Run on PRs that modify resource data files
+  # Run on PRs that modify resource data files or content citation files
   pull_request:
     paths:
       - 'src/data/resources/**/*.json'
+      - 'src/content/resources/**/*.ts'
       - 'scripts/check-links.mjs'
   
   # Run nightly at 2 AM UTC
@@ -53,23 +54,38 @@ jobs:
             
             const failed = report.results.filter(r => !r.ok);
             const tierAFailed = failed.filter(r => r.trustTier === 'A');
+            const tierBFailed = failed.filter(r => r.trustTier === 'B');
             
             let comment = '## ❌ Link Health Check Failed\n\n';
             comment += `**Summary:**\n`;
             comment += `- Total links checked: ${report.totalChecked}\n`;
             comment += `- Failed: ${report.failed} (${(report.failureRate * 100).toFixed(2)}%)\n`;
-            comment += `- Critical (Tier A) failures: ${tierAFailed.length}\n\n`;
+            comment += `- Critical (Tier A) failures: ${tierAFailed.length}\n`;
+            comment += `- Warning (Tier B) failures: ${tierBFailed.length}\n\n`;
             
             if (tierAFailed.length > 0) {
               comment += '### 🚨 Critical Link Failures (Tier A)\n\n';
               tierAFailed.slice(0, 10).forEach(item => {
-                comment += `- **${item.source}**\n`;
+                comment += `- **${item.source}** \`${item.type}\`\n`;
                 comment += `  - URL: ${item.url}\n`;
                 comment += `  - Error: ${item.error || 'HTTP ' + item.status}\n\n`;
               });
               
               if (tierAFailed.length > 10) {
                 comment += `_... and ${tierAFailed.length - 10} more critical failures_\n\n`;
+              }
+            }
+
+            if (tierBFailed.length > 0) {
+              comment += '### ⚠️ Non-Critical Link Failures (Tier B)\n\n';
+              tierBFailed.slice(0, 10).forEach(item => {
+                comment += `- **${item.source}** \`${item.type}\`\n`;
+                comment += `  - URL: ${item.url}\n`;
+                comment += `  - Error: ${item.error || 'HTTP ' + item.status}\n\n`;
+              });
+
+              if (tierBFailed.length > 10) {
+                comment += `_... and ${tierBFailed.length - 10} more non-critical failures_\n\n`;
               }
             }
             

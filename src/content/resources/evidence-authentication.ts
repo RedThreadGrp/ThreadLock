@@ -196,12 +196,12 @@ export const evidenceAuthentication: ResourceQAContent = {
         note: "Authentication of digital images and video"
       },
       {
-        title: "Adoption of X.D. (2025) — Screenshot Authentication",
-        organization: "Google Scholar / Case Law",
-        url: "https://scholar.google.com/scholar?q=Adoption+of+X.D.+2025+California",
+        title: "California Evidence Code § 1552 (Printed Representation of Computer Information)",
+        organization: "California Legislative Information",
+        url: "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=EVID&sectionNum=1552",
         jurisdiction: "california",
         lastAccessed: "2026-02-21",
-        note: "California case on screenshot self-authentication"
+        note: "Presumption of accuracy for printed computer-generated records, including screenshots"
       },
       {
         title: "NIST — Digital Evidence and Forensics",

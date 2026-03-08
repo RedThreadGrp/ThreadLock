@@ -73,16 +73,16 @@ function TopicPageV2({ topic, resources, guides, questions, slug }: TopicPagePro
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="topic-v2">
-        <div className="pt-36">
+        <div className="pt-24 md:pt-36">
           <ResourceQAArticle content={topic.blocks} />
         </div>
         
         {/* Child resources section */}
-        <div className="mx-auto max-w-7xl px-6 pb-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-10">
           {/* Resources Section */}
           {resources.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-foreground-dark mb-6">Resources</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground-dark mb-6">Resources</h2>
               <SectionCardGrid columns={3}>
                 {resources.map((resource) => (
                   <Link
@@ -110,7 +110,7 @@ function TopicPageV2({ topic, resources, guides, questions, slug }: TopicPagePro
           {/* Guides Section */}
           {guides.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-foreground-dark mb-6">Featured Guides</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground-dark mb-6">Featured Guides</h2>
               <SectionCardGrid columns={2}>
                 {guides.map((guide) => (
                   <Link
@@ -142,7 +142,7 @@ function TopicPageV2({ topic, resources, guides, questions, slug }: TopicPagePro
           {/* Questions Section */}
           {questions.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-foreground-dark mb-6">Common Questions</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground-dark mb-6">Common Questions</h2>
               <SectionCardGrid columns={3}>
                 {questions.map((question) => (
                   <Link
@@ -180,7 +180,7 @@ function TopicPageV2({ topic, resources, guides, questions, slug }: TopicPagePro
 
           {/* Related Links */}
           {topic.relatedLinks && topic.relatedLinks.length > 0 && (
-            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Topics</h2>
               <div className="grid gap-3 sm:grid-cols-3">
                 {topic.relatedLinks.map((link) => (
@@ -228,12 +228,12 @@ function TopicPageV1({ topic, resources, guides, questions, slug }: TopicPagePro
       </Link>
 
       {/* Title */}
-      <h1 className="text-4xl font-semibold tracking-tight text-foreground-dark mb-4">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-foreground-dark mb-4">
         {topic.title}
       </h1>
 
       {/* Promise */}
-      <p className="text-lg text-muted-dark leading-relaxed mb-8 border-l-4 border-brand-orange pl-4">
+      <p className="text-base sm:text-lg text-muted-dark leading-relaxed mb-8 border-l-4 border-brand-orange pl-4">
         {topic.promise}
       </p>
 
@@ -272,7 +272,7 @@ function TopicPageV1({ topic, resources, guides, questions, slug }: TopicPagePro
           {/* Resources Section */}
           {resources.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-foreground-dark mb-6">Resources</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground-dark mb-6">Resources</h2>
               <SectionCardGrid columns={3}>
                 {resources.map((resource) => (
                   <Link
@@ -300,7 +300,7 @@ function TopicPageV1({ topic, resources, guides, questions, slug }: TopicPagePro
           {/* Guides Section */}
           {guides.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-foreground-dark mb-6">Featured Guides</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground-dark mb-6">Featured Guides</h2>
               <SectionCardGrid columns={2}>
                 {guides.map((guide) => (
                   <Link
@@ -332,7 +332,7 @@ function TopicPageV1({ topic, resources, guides, questions, slug }: TopicPagePro
           {/* Questions Section */}
           {questions.length > 0 && (
             <section className="mb-12">
-              <h2 className="text-2xl font-semibold text-foreground-dark mb-6">Common Questions</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold text-foreground-dark mb-6">Common Questions</h2>
               <SectionCardGrid columns={3}>
                 {questions.map((question) => (
                   <Link

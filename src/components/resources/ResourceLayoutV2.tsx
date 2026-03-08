@@ -82,7 +82,7 @@ export function ResourceLayoutV2({
   includeTopPadding = true,
 }: ResourceLayoutV2Props) {
   const maxWidthClass = MAX_WIDTH_CLASSES[maxWidth];
-  const topPaddingClass = includeTopPadding ? "pt-36" : "";
+  const topPaddingClass = includeTopPadding ? "pt-24 md:pt-36" : "";
 
   return (
     <main
@@ -92,12 +92,17 @@ export function ResourceLayoutV2({
       {header && <div className="mb-8">{header}</div>}
       
       {sidebar ? (
-        // 2-column layout with sidebar
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-          <aside className="lg:col-span-4 space-y-6">
+        // Float-based layout: sidebar floats left on large screens so the article
+        // sits beside it at the top and naturally expands to full container width
+        // once the sidebar content ends.
+        // overflow-hidden is required here: it establishes a block formatting
+        // context (clearfix) so the container fully wraps around the floated
+        // sidebar and prevents height collapse.
+        <div className="overflow-hidden">
+          <aside className="space-y-6 mb-6 lg:float-left lg:w-72 lg:mb-0 lg:mr-8">
             {sidebar}
           </aside>
-          <article className="lg:col-span-8 space-y-10">
+          <article className="space-y-10">
             {children}
           </article>
         </div>

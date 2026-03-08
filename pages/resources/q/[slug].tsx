@@ -88,15 +88,15 @@ function QuestionPageV2({ question, slug }: QuestionPageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resourceQA-v2">
-        <div className="pt-36">
+        <div className="pt-24 md:pt-36">
           <ResourceQAArticle content={question.blocks} />
         </div>
         
         {/* Related content and feedback */}
-        <div className="mx-auto max-w-4xl px-6 pb-10">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 pb-10">
           {/* Related Questions */}
           {question.relatedQuestions && question.relatedQuestions.length > 0 && (
-            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Questions</h2>
               <div className="grid gap-3">
                 {question.relatedQuestions.map((q) => (
@@ -121,7 +121,7 @@ function QuestionPageV2({ question, slug }: QuestionPageProps) {
 
           {/* Related Links */}
           {question.relatedLinks && question.relatedLinks.length > 0 && (
-            <div className="mt-8 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <div className="mt-8 rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Resources</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {question.relatedLinks.map((link) => (
@@ -207,7 +207,7 @@ function QuestionPageV1({ question, slug }: QuestionPageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resource-v2" data-testid="question-v1-content">
-        <div className="mx-auto max-w-4xl px-6 pt-36 pb-10">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 pt-24 md:pt-36 pb-10">
           {/* Back link */}
           <Link 
             href="/resources#questions" 
@@ -229,7 +229,7 @@ function QuestionPageV1({ question, slug }: QuestionPageProps) {
             <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-orange/10 text-brand-orange text-2xl shrink-0">
               ?
             </div>
-            <h1 className="text-3xl font-semibold tracking-tight text-foreground-dark">
+            <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-foreground-dark">
               {question.question}
             </h1>
           </div>
@@ -248,7 +248,7 @@ function QuestionPageV1({ question, slug }: QuestionPageProps) {
 
           {/* Answer */}
           {question.body && (
-            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 mb-8">
+            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8 mb-8">
               <div 
                 className="prose prose-invert prose-orange max-w-none text-muted-dark leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: renderMarkdown(question.body) }}
@@ -257,7 +257,7 @@ function QuestionPageV1({ question, slug }: QuestionPageProps) {
           )}
 
           {isDraft && (
-            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-8 text-center mb-12">
+            <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8 text-center mb-12">
               <h3 className="text-lg font-semibold text-foreground-dark mb-2">
                 This answer is being refined
               </h3>
@@ -269,7 +269,7 @@ function QuestionPageV1({ question, slug }: QuestionPageProps) {
 
           {/* Related Questions */}
           {question.relatedQuestions && question.relatedQuestions.length > 0 && (
-            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Questions</h2>
               <div className="grid gap-3">
                 {question.relatedQuestions.map((q) => (
@@ -294,7 +294,7 @@ function QuestionPageV1({ question, slug }: QuestionPageProps) {
 
           {/* Related Links */}
           {question.relatedLinks && question.relatedLinks.length > 0 && (
-            <div className="mt-8 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <div className="mt-8 rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Resources</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {question.relatedLinks.map((link) => (
@@ -342,7 +342,7 @@ function QuestionNotFound({ slug }: { slug: string }) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16">
-        <div className="mx-auto max-w-4xl px-6 pt-14 pb-10">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 pt-10 md:pt-14 pb-10">
           <Link 
             href="/resources#questions" 
             className="inline-flex items-center gap-2 text-sm text-brand-orange hover:text-brand-orange/80 transition mb-8"
@@ -350,7 +350,7 @@ function QuestionNotFound({ slug }: { slug: string }) {
             ← Back to Questions
           </Link>
 
-          <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-12 text-center">
+          <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-6 sm:p-12 text-center">
             <div className="text-6xl mb-4">❓</div>
             <h1 className="text-3xl font-semibold text-foreground-dark mb-4">
               Question Not Found

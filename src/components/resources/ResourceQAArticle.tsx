@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import type {
   ResourceQAContent,
   ResourceBodyBlock,
@@ -15,6 +16,68 @@ type Props = {
 
 function cx(...classes: Array<string | undefined | null | false>) {
   return classes.filter(Boolean).join(" ");
+}
+
+/**
+ * Renders inline markdown: **bold**, *italic*, and [link text](url).
+ * Returns a string when there are no markdown tokens (avoids React node overhead).
+ */
+function renderInline(text: string): React.ReactNode {
+  if (!text) return null;
+  // Quick check: skip regex work if no markdown tokens present
+  if (!text.includes("**") && !text.includes("*") && !text.includes("[")) return text;
+
+  // Order matters: bold (**) must come before italic (*) so double-asterisk
+  // sequences are not partially consumed by the single-asterisk branch.
+  // Pattern breakdown:
+  //   \*\*[^*\n]+\*\*        — bold:   **text**
+  //   \*(?!\*)[^*\n]+\*(?!\*) — italic: *text* (not preceded/followed by *)
+  //   \[[^\]]+\]\([^)]+\)    — link:   [label](url)
+  const INLINE_MD = /(\*\*[^*\n]+\*\*|\*(?!\*)[^*\n]+\*(?!\*)|\[[^\]]+\]\([^)]+\))/g;
+
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let keyCounter = 0;
+
+  for (const match of text.matchAll(INLINE_MD)) {
+    if (match.index! > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    const token = match[0];
+    if (token.startsWith("**")) {
+      parts.push(
+        <strong key={keyCounter++} className="font-semibold text-white/95">
+          {token.slice(2, -2)}
+        </strong>
+      );
+    } else if (token.startsWith("*")) {
+      parts.push(
+        <em key={keyCounter++}>{token.slice(1, -1)}</em>
+      );
+    } else {
+      const m = token.match(/\[([^\]]+)\]\(([^)]+)\)/);
+      if (m) {
+        const isExternal = m[2].startsWith("http");
+        parts.push(
+          <a
+            key={keyCounter++}
+            href={m[2]}
+            className="underline decoration-white/30 hover:decoration-white/60 underline-offset-4 hover:text-white transition-colors"
+            {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+          >
+            {m[1]}
+          </a>
+        );
+      }
+    }
+    lastIndex = match.index! + token.length;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  if (parts.length === 0) return text;
+  if (parts.length === 1 && typeof parts[0] === "string") return parts[0];
+  return <>{parts}</>;
 }
 
 function slugifyId(id: string) {
@@ -81,27 +144,59 @@ function Toc({
   hasFaqs: boolean;
   hasSources: boolean;
 }) {
+  // On mobile the TOC stacks above article content. A long list of sections
+  // forces the user to scroll past them before reading. Collapsing by default
+  // on small screens keeps the page scannable; on large screens the TOC lives
+  // in a persistent sidebar so it should always be expanded.
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav aria-label="On this page" className="rounded-2xl border border-white/10 bg-white/5 p-5">
-      <div className="text-sm font-semibold text-white/90">On this page</div>
-      <ul className="mt-3 space-y-2 text-sm">
+      {/* Header row: tappable on mobile, non-interactive on desktop (pointer-events-none) */}
+      <button
+        type="button"
+        className="flex w-full items-center justify-between text-sm font-semibold text-white/90 lg:cursor-default lg:pointer-events-none"
+        onClick={() => setIsOpen((o) => !o)}
+        aria-expanded={isOpen}
+        aria-controls="toc-list"
+      >
+        On this page
+        {/* Chevron visible only on mobile */}
+        <span className="text-white/50 transition-transform lg:hidden" aria-hidden="true">
+          {isOpen ? "▴" : "▾"}
+        </span>
+      </button>
+      {/* List: hidden on mobile unless toggled; always shown on lg+ */}
+      <ul id="toc-list" className={`mt-3 space-y-2 text-sm ${isOpen ? "block" : "hidden lg:block"}`}>
         {sections.map((s) => (
           <li key={s.id}>
-            <a href={`#${slugifyId(s.id)}`} className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4">
+            <a
+              href={`#${slugifyId(s.id)}`}
+              className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4"
+              onClick={() => setIsOpen(false)}
+            >
               {s.heading}
             </a>
           </li>
         ))}
         {hasFaqs && (
           <li>
-            <a href="#faqs" className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4">
+            <a
+              href="#faqs"
+              className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4"
+              onClick={() => setIsOpen(false)}
+            >
               FAQs
             </a>
           </li>
         )}
         {hasSources && (
           <li>
-            <a href="#sources" className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4">
+            <a
+              href="#sources"
+              className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4"
+              onClick={() => setIsOpen(false)}
+            >
               Sources
             </a>
           </li>
@@ -177,7 +272,7 @@ function renderBlock(block: ResourceBodyBlock, key: React.Key) {
     case "p":
       return (
         <p key={key} className="text-sm leading-6 text-white/85">
-          {block.text}
+          {renderInline(block.text)}
         </p>
       );
 
@@ -186,7 +281,7 @@ function renderBlock(block: ResourceBodyBlock, key: React.Key) {
         <ul key={key} className="list-disc pl-5 space-y-2 text-sm text-white/85">
           {block.items.map((it, i) => (
             <li key={i} className="leading-6">
-              {it}
+              {renderInline(it)}
             </li>
           ))}
         </ul>
@@ -197,7 +292,7 @@ function renderBlock(block: ResourceBodyBlock, key: React.Key) {
         <ol key={key} className="list-decimal pl-5 space-y-2 text-sm text-white/85">
           {block.items.map((it, i) => (
             <li key={i} className="leading-6">
-              {it}
+              {renderInline(it)}
             </li>
           ))}
         </ol>
@@ -207,13 +302,15 @@ function renderBlock(block: ResourceBodyBlock, key: React.Key) {
       const styles = CalloutStyles(block.kind);
       const role = block.kind === "warning" ? "alert" : block.kind === "note" ? "note" : "status";
       return (
-        <aside key={key} className={cx("rounded-2xl p-4", styles.wrapper)} role={role}>
+        // flow-root establishes a block formatting context so this box
+        // sits cleanly beside the floated sidebar without overlapping it.
+        <aside key={key} className={cx("rounded-2xl p-4 flow-root", styles.wrapper)} role={role}>
           {(block.title || block.kind) && (
             <div className={cx("text-xs font-semibold uppercase tracking-wide", styles.title)}>
               {block.title ?? block.kind}
             </div>
           )}
-          <p className="mt-2 text-sm leading-6">{block.text}</p>
+          <p className="mt-2 text-sm leading-6">{renderInline(block.text)}</p>
         </aside>
       );
     }
@@ -268,7 +365,7 @@ function Faqs({
               </summary>
               <div id={panelId} aria-labelledby={btnId} className="mt-3 text-sm leading-6 text-white/85 flex items-start gap-2">
                 <span className="text-orange-300 shrink-0 leading-[1.4]">A</span>
-                <span className="flex-1">{f.a}</span>
+                <span className="flex-1">{renderInline(f.a)}</span>
               </div>
             </details>
           );
@@ -366,7 +463,7 @@ export function ResourceQAArticle({ content }: Props) {
 
   const header = (
     <header className="space-y-2">
-      <h1 className="text-2xl font-semibold tracking-tight text-white/95">
+      <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-white/95">
         {content.hero.h1}
       </h1>
       {content.hero.subhead ? (
@@ -385,7 +482,7 @@ export function ResourceQAArticle({ content }: Props) {
   return (
     <ResourceLayoutV2
       dataRenderer="resourceQA-v2"
-      maxWidth="medium"
+      maxWidth="wide"
       header={header}
       sidebar={sidebar}
       includeTopPadding={false}

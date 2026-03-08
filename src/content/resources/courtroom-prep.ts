@@ -281,7 +281,7 @@ export const courtroomPrep: ResourcePage = {
           },
           {
             type: "p",
-            text: "**Turn Off Your Phone:** Not on vibrate—completely off. Some courts confiscate phones that ring during proceedings."
+            text: "**Turn Off Your Phone:** Not on vibrate. Turn it completely off. Some courts confiscate phones that ring during proceedings."
           },
           {
             type: "p",
@@ -319,7 +319,7 @@ export const courtroomPrep: ResourcePage = {
     faqs: [
       {
         question: "What if I accidentally call the judge by the wrong title?",
-        answer: "Quickly correct yourself: 'My apologies, Your Honor.' Judges understand nervousness. Don't dwell on it—move forward with your testimony or argument."
+        answer: "Quickly correct yourself: 'My apologies, Your Honor.' Judges understand nervousness. Don't dwell on it. Move forward with your testimony or argument."
       },
       {
         question: "Can I bring someone with me to court for support?",

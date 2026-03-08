@@ -108,7 +108,7 @@ export const financialSnapshot: ResourcePage = {
             items: [
               "Round to nearest dollar",
               "Use monthly figures unless form specifies otherwise",
-              "Be honest—lying on financial declarations is perjury",
+              "Be honest. Lying on financial declarations is perjury",
               "Update regularly as circumstances change",
               "Keep copies of everything you file",
               "If you estimate something, mark it as an estimate and be prepared to provide actual figures later"
