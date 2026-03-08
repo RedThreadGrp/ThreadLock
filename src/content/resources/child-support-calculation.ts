@@ -193,7 +193,7 @@ export const childSupportCalculation: ResourceQAContent = {
       {
         title: "Child Support Guidelines by State",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/research/human-services/child-support-guidelines.aspx",
+        url: "https://www.ncsl.org/human-services/economics-and-workforce-development/child-support-guidelines",
         lastAccessed: "2026-02-16",
         note: "State-by-state child support calculation methods"
       },
@@ -221,7 +221,7 @@ export const childSupportCalculation: ResourceQAContent = {
       {
         title: "Child Support Guidelines",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/research/human-services/child-support-guidelines.aspx",
+        url: "https://www.ncsl.org/human-services/economics-and-workforce-development/child-support-guidelines",
         lastAccessed: "2026-02-16",
         note: "Specific calculation formulas and worksheets by state"
       },
