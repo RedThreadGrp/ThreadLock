@@ -104,14 +104,14 @@ export const officialFormsTopic: ResourceQAContent = {
       {
         title: "California Courts — All Family Law Forms",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/forms.htm?filter=FL",
+        url: "https://selfhelp.courts.ca.gov/find-forms",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },
       {
         title: "California Courts Self-Help Center (Main)",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/selfhelp.htm",
+        url: "https://selfhelp.courts.ca.gov/",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },
@@ -152,7 +152,7 @@ export const officialFormsTopic: ResourceQAContent = {
       {
         title: "California Courts — All Family Law Forms",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/forms.htm?filter=FL",
+        url: "https://selfhelp.courts.ca.gov/find-forms",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },

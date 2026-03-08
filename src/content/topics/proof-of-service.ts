@@ -107,7 +107,7 @@ export const proofOfServiceTopic: ResourceQAContent = {
       {
         title: "California Courts Self-Help: Serving Court Papers",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/selfhelp-serving.htm",
+        url: "https://selfhelp.courts.ca.gov/court-basics/service",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },
@@ -155,7 +155,7 @@ export const proofOfServiceTopic: ResourceQAContent = {
       {
         title: "California Courts Self-Help: Serving Court Papers",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/selfhelp-serving.htm",
+        url: "https://selfhelp.courts.ca.gov/court-basics/service",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },

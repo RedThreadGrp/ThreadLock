@@ -105,7 +105,7 @@ export const financialDeclarationsTopic: ResourceQAContent = {
       {
         title: "California Courts Self-Help: Financial Disclosures",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/selfhelp-financials.htm",
+        url: "https://selfhelp.courts.ca.gov/family/financial-disclosure",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },
@@ -119,7 +119,7 @@ export const financialDeclarationsTopic: ResourceQAContent = {
       {
         title: "Form FL-150 (Income and Expense Declaration)",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/documents/fl150.pdf",
+        url: "https://selfhelp.courts.ca.gov/jcc-form/FL-150",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },
@@ -140,7 +140,7 @@ export const financialDeclarationsTopic: ResourceQAContent = {
       {
         title: "Child Support Guidelines by State",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/research/human-services/child-support-guidelines.aspx",
+        url: "https://www.ncsl.org/human-services/economics-and-workforce-development/child-support-guidelines",
         jurisdiction: "multi-state",
         lastAccessed: "2026-02-21"
       }
@@ -160,14 +160,14 @@ export const financialDeclarationsTopic: ResourceQAContent = {
       {
         title: "California Courts Self-Help: Financial Disclosures",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/selfhelp-financials.htm",
+        url: "https://selfhelp.courts.ca.gov/family/financial-disclosure",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },
       {
         title: "Form FL-150 (Income and Expense Declaration)",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/documents/fl150.pdf",
+        url: "https://selfhelp.courts.ca.gov/jcc-form/FL-150",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },

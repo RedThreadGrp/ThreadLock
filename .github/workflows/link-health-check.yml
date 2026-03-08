@@ -6,6 +6,7 @@ on:
     paths:
       - 'src/data/resources/**/*.json'
       - 'src/content/resources/**/*.ts'
+      - 'src/content/topics/**/*.ts'
       - 'scripts/check-links.mjs'
   
   # Run nightly at 2 AM UTC

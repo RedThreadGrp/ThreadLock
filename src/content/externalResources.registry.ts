@@ -68,7 +68,7 @@ export const EXTERNAL_RESOURCES: ExternalResource[] = [
   {
     id: "state-directory-court.CA.self-help",
     title: "California Courts Self-Help",
-    url: "https://www.courts.ca.gov/selfhelp.htm",
+    url: "https://selfhelp.courts.ca.gov/",
     category: "state-directory-court",
     jurisdiction: "CA",
     authority: "official",

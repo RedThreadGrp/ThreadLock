@@ -111,7 +111,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
       {
         title: "California Courts Self-Help: Courtroom Basics",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/selfhelp-courtroom.htm",
+        url: "https://selfhelp.courts.ca.gov/court-basics",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },
@@ -159,7 +159,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
       {
         title: "California Courts Self-Help: Courtroom Basics",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/selfhelp-courtroom.htm",
+        url: "https://selfhelp.courts.ca.gov/court-basics",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },

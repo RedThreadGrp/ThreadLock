@@ -36,52 +36,60 @@ const resourcesData = JSON.parse(
 );
 
 /**
- * Extract citation URLs from TypeScript resource content files.
+ * Extract citation URLs from TypeScript resource/topic content files.
  *
  * The content files store citations in governance.sources[] and blocks.sources[]
  * as objects with a `url` property. This function uses a regex to pull every
  * `url: "https://…"` (or single-quoted equivalent) value from the files so we
  * don't need to compile TypeScript at check time.
  *
+ * Scans both src/content/resources/*.ts and src/content/topics/*.ts so that
+ * every route under resources/[type]/[slug] is covered by the health check.
+ *
  * Returns an array of { url, source, type } objects ready to be checked.
  */
 function extractCitationUrlsFromContentFiles() {
-  const contentDir = path.join(__dirname, '../src/content/resources');
+  const contentDirs = [
+    path.join(__dirname, '../src/content/resources'),
+    path.join(__dirname, '../src/content/topics'),
+  ];
   const items = [];
 
   // Regex matches: url: "https://..." or url: 'https://...'
   const URL_PATTERN = /url:\s*["'](\bhttps?:\/\/[^\s"']+)["']/g;
 
-  let files;
-  try {
-    files = fs.readdirSync(contentDir).filter(f => f.endsWith('.ts') && f !== 'types.ts');
-  } catch {
-    console.warn('⚠️  Could not read content directory:', contentDir);
-    return items;
-  }
+  const seen = new Set(); // deduplicate across all files
 
-  const seen = new Set(); // deduplicate across files
+  for (const contentDir of contentDirs) {
+    let files;
+    try {
+      files = fs.readdirSync(contentDir).filter(f => f.endsWith('.ts') && f !== 'types.ts');
+    } catch {
+      console.warn('⚠️  Could not read content directory:', contentDir);
+      continue;
+    }
 
-  for (const file of files) {
-    const filePath = path.join(contentDir, file);
-    const content = fs.readFileSync(filePath, 'utf8');
-    const sourceName = file.replace('.ts', '');
+    for (const file of files) {
+      const filePath = path.join(contentDir, file);
+      const content = fs.readFileSync(filePath, 'utf8');
+      const sourceName = file.replace('.ts', '');
 
-    let match;
-    URL_PATTERN.lastIndex = 0;
-    while ((match = URL_PATTERN.exec(content)) !== null) {
-      const url = match[1];
-      if (seen.has(url)) continue;
-      seen.add(url);
-      items.push({
-        url,
-        // Citation sources from content files are external authorities (government,
-        // courts, law review) — treat as Tier B unless they are well-known primary
-        // government sources, which bump to Tier A.
-        trustTier: isGovernmentAuthority(url) ? 'A' : 'B',
-        source: `citation in ${sourceName}`,
-        type: 'citation',
-      });
+      let match;
+      URL_PATTERN.lastIndex = 0;
+      while ((match = URL_PATTERN.exec(content)) !== null) {
+        const url = match[1];
+        if (seen.has(url)) continue;
+        seen.add(url);
+        items.push({
+          url,
+          // Citation sources from content files are external authorities (government,
+          // courts, law review) — treat as Tier B unless they are well-known primary
+          // government sources, which bump to Tier A.
+          trustTier: isGovernmentAuthority(url) ? 'A' : 'B',
+          source: `citation in ${sourceName}`,
+          type: 'citation',
+        });
+      }
     }
   }
 
@@ -233,7 +241,7 @@ async function main() {
 
   console.log(`📊 Total URLs to check: ${urlsToCheck.length}`);
   console.log(`   - From resources.json: ${resourcesData.length}`);
-  console.log(`   - From content citations: ${citationUrls.length}`);
+  console.log(`   - From content citations (resources/ + topics/): ${citationUrls.length}`);
   console.log(`   - Trust Tier A (critical): ${urlsToCheck.filter(u => u.trustTier === 'A').length}`);
   console.log(`   - Trust Tier B: ${urlsToCheck.filter(u => u.trustTier === 'B').length}`);
   console.log(`   - Trust Tier C: ${urlsToCheck.filter(u => u.trustTier === 'C').length}\n`);
