@@ -126,15 +126,15 @@ function ResourcePageV2({ resource, slug }: ResourcePageProps) {
       <SiteHeader />
 
       <div className="min-h-screen bg-surface-dark text-foreground-dark resources-dark-background pb-16" data-renderer="resource-v2">
-        <div className="pt-36">
+        <div className="pt-24 md:pt-36">
           <ResourceQAArticle content={contentForArticle} />
         </div>
         
         {/* Related content and feedback */}
-        <div className="mx-auto max-w-4xl px-6 pb-10">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 pb-10">
           {/* Related Questions */}
           {resource.relatedQuestions && resource.relatedQuestions.length > 0 && (
-            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <div className="mt-12 rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Questions</h2>
               <div className="grid gap-3">
                 {resource.relatedQuestions.map((q) => (
@@ -160,7 +160,7 @@ function ResourcePageV2({ resource, slug }: ResourcePageProps) {
 
           {/* Related Links */}
           {resource.relatedLinks && resource.relatedLinks.length > 0 && (
-            <div className="mt-8 rounded-3xl border border-border-dark bg-surface-dark-panel p-8">
+            <div className="mt-8 rounded-3xl border border-border-dark bg-surface-dark-panel p-5 sm:p-8">
               <h2 className="text-xl font-semibold text-foreground-dark mb-4">Related Resources</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {resource.relatedLinks.map((link) => (
@@ -248,7 +248,7 @@ function ResourcePageV1({ resource, slug }: ResourcePageProps) {
       )}
 
       {/* Title */}
-      <h1 className="text-4xl font-semibold tracking-tight text-foreground-dark mb-4">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-foreground-dark mb-4">
         {resource.title}
       </h1>
 
@@ -274,7 +274,7 @@ function ResourcePageV1({ resource, slug }: ResourcePageProps) {
       </div>
 
       {/* Summary */}
-      <p className="text-lg text-muted-dark leading-relaxed mb-8 border-l-4 border-brand-orange pl-4">
+      <p className="text-base sm:text-lg text-muted-dark leading-relaxed mb-8 border-l-4 border-brand-orange pl-4">
         {resource.excerpt}
       </p>
     </>

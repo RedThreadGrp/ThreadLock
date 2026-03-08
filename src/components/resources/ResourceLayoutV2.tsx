@@ -82,7 +82,7 @@ export function ResourceLayoutV2({
   includeTopPadding = true,
 }: ResourceLayoutV2Props) {
   const maxWidthClass = MAX_WIDTH_CLASSES[maxWidth];
-  const topPaddingClass = includeTopPadding ? "pt-36" : "";
+  const topPaddingClass = includeTopPadding ? "pt-24 md:pt-36" : "";
 
   return (
     <main

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import type {
   ResourceQAContent,
   ResourceBodyBlock,
@@ -143,27 +144,59 @@ function Toc({
   hasFaqs: boolean;
   hasSources: boolean;
 }) {
+  // On mobile the TOC stacks above article content. A long list of sections
+  // forces the user to scroll past them before reading. Collapsing by default
+  // on small screens keeps the page scannable; on large screens the TOC lives
+  // in a persistent sidebar so it should always be expanded.
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav aria-label="On this page" className="rounded-2xl border border-white/10 bg-white/5 p-5">
-      <div className="text-sm font-semibold text-white/90">On this page</div>
-      <ul className="mt-3 space-y-2 text-sm">
+      {/* Header row: tappable on mobile, non-interactive on desktop (pointer-events-none) */}
+      <button
+        type="button"
+        className="flex w-full items-center justify-between text-sm font-semibold text-white/90 lg:cursor-default lg:pointer-events-none"
+        onClick={() => setIsOpen((o) => !o)}
+        aria-expanded={isOpen}
+        aria-controls="toc-list"
+      >
+        On this page
+        {/* Chevron visible only on mobile */}
+        <span className="text-white/50 transition-transform lg:hidden" aria-hidden="true">
+          {isOpen ? "▴" : "▾"}
+        </span>
+      </button>
+      {/* List: hidden on mobile unless toggled; always shown on lg+ */}
+      <ul id="toc-list" className={`mt-3 space-y-2 text-sm ${isOpen ? "block" : "hidden lg:block"}`}>
         {sections.map((s) => (
           <li key={s.id}>
-            <a href={`#${slugifyId(s.id)}`} className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4">
+            <a
+              href={`#${slugifyId(s.id)}`}
+              className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4"
+              onClick={() => setIsOpen(false)}
+            >
               {s.heading}
             </a>
           </li>
         ))}
         {hasFaqs && (
           <li>
-            <a href="#faqs" className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4">
+            <a
+              href="#faqs"
+              className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4"
+              onClick={() => setIsOpen(false)}
+            >
               FAQs
             </a>
           </li>
         )}
         {hasSources && (
           <li>
-            <a href="#sources" className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4">
+            <a
+              href="#sources"
+              className="text-white/75 hover:text-white underline decoration-white/20 hover:decoration-white/50 underline-offset-4"
+              onClick={() => setIsOpen(false)}
+            >
               Sources
             </a>
           </li>
@@ -430,7 +463,7 @@ export function ResourceQAArticle({ content }: Props) {
 
   const header = (
     <header className="space-y-2">
-      <h1 className="text-2xl font-semibold tracking-tight text-white/95">
+      <h1 className="text-xl sm:text-2xl font-semibold tracking-tight text-white/95">
         {content.hero.h1}
       </h1>
       {content.hero.subhead ? (
