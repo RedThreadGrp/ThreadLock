@@ -65,11 +65,11 @@ export const verificationCrisisFamilyCourt: ResourcePage = {
           },
           {
             type: "p",
-            text: "Family courts face heightened risk. Self-represented litigants—who make up over 70% of parties in many jurisdictions—increasingly rely on AI tools to draft motions, research legal standards, and prepare arguments. Without training in legal research or citation verification, they cannot distinguish between real precedent and AI hallucination.",
+            text: "Family courts face heightened risk. Self-represented litigants, who make up over 70% of parties in many jurisdictions, increasingly rely on AI tools to draft motions, research legal standards, and prepare arguments. Without training in legal research or citation verification, they cannot distinguish between real precedent and AI hallucination.",
           },
           {
             type: "p",
-            text: "The result: **plausible legal fiction** enters the court record. Opposing counsel may lack resources to verify every citation. Judges presume good faith. The fabrication persists unchallenged until—if ever—someone manually checks the case reporter.",
+            text: "The result: **plausible legal fiction** enters the court record. Opposing counsel may lack resources to verify every citation. Judges presume good faith. The fabrication persists unchallenged until, if ever, someone manually checks the case reporter.",
           },
           {
             type: "callout",
@@ -107,7 +107,7 @@ export const verificationCrisisFamilyCourt: ResourcePage = {
           },
           {
             type: "p",
-            text: "The traditional solution—attorney representation—breaks down when 70%+ of parties are self-represented. Pro se litigants lack infrastructure for systematic evidence preservation. They lose critical evidence, submit incomplete documentation, and cannot establish chain of custody.",
+            text: "Attorney representation has traditionally been the solution, but that breaks down when 70%+ of parties are self-represented. Pro se litigants lack infrastructure for systematic evidence preservation. They lose critical evidence, submit incomplete documentation, and cannot establish chain of custody.",
           },
           {
             type: "callout",
@@ -135,7 +135,7 @@ export const verificationCrisisFamilyCourt: ResourcePage = {
         body: [
           {
             type: "p",
-            text: "Generative AI tools have democratized legal drafting—but without corresponding verification infrastructure. A self-represented parent can now:",
+            text: "Generative AI tools have democratized legal drafting, but without corresponding verification infrastructure. A self-represented parent can now:",
           },
           {
             type: "ul",
@@ -152,7 +152,7 @@ export const verificationCrisisFamilyCourt: ResourcePage = {
           },
           {
             type: "p",
-            text: "Courts are unprepared for this shift. Most jurisdictions have no rules requiring disclosure of AI use. Judges lack tools to detect AI-generated content. The burden falls on opposing parties—who are often equally unrepresented and under-resourced.",
+            text: "Courts are unprepared for this shift. Most jurisdictions have no rules requiring disclosure of AI use. Judges lack tools to detect AI-generated content. The burden falls on opposing parties, who are often equally unrepresented and under-resourced.",
           },
         ],
       },
@@ -321,7 +321,7 @@ export const verificationCrisisFamilyCourt: ResourcePage = {
           },
           {
             type: "p",
-            text: "The status quo—accepting unverifiable evidence and hoping attorneys catch fabrications—is not cost-free. It generates appeals, creates evidentiary disputes, and erodes public confidence in family court outcomes.",
+            text: "Accepting unverifiable evidence and hoping attorneys catch fabrications is not cost-free. This approach generates appeals, creates evidentiary disputes, and erodes public confidence in family court outcomes.",
           },
         ],
       },

@@ -158,7 +158,7 @@ export const evidence: DivorceKit = {
     faqs: [
       {
         question: "What if I have too much evidence to organize?",
-        answer: "Start with the most critical incidents first. Focus on evidence that directly supports your key claims. Use the timeline tool to identify patterns, then organize evidence by incident date. You don't need to present everything—just the strongest, most relevant evidence."
+        answer: "Start with the most critical incidents first. Focus on evidence that directly supports your key claims. Use the timeline tool to identify patterns, then organize evidence by incident date. You don't need to present everything. Focus on the strongest, most relevant evidence."
       },
       {
         question: "What if I didn't document something when it happened?",

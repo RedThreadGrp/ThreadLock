@@ -13,12 +13,12 @@ export const citationAuthentication: ResourcePage = {
   hero: {
     h1: "Citation Authentication: Verifying Legal Authority",
     subhead:
-      "Best practices for verifying citations before filing—whether researched manually or with AI assistance.",
+      "Best practices for verifying citations before filing, whether researched manually or with AI assistance.",
   },
 
   blocks: {
     shortAnswer:
-      "Before filing any document citing legal authority, verify every citation against an authoritative source. Use Google Scholar, official court websites, or legal research databases to confirm the case exists, the citation is accurate, and the holding supports your argument. When using AI tools for research, always manually verify all suggested citations—AI tools frequently generate plausible but fabricated case references.",
+      "Before filing any document citing legal authority, verify every citation against an authoritative source. Use Google Scholar, official court websites, or legal research databases to confirm the case exists, the citation is accurate, and the holding supports your argument. When using AI tools for research, always manually verify all suggested citations, as AI tools frequently generate plausible but fabricated case references.",
 
     sections: [
       {
@@ -76,7 +76,7 @@ export const citationAuthentication: ResourcePage = {
             type: "callout",
             kind: "warning",
             title: "Never Trust AI Citations Without Verification",
-            text: "AI tools like ChatGPT, Claude, and Bard frequently generate fabricated legal citations. They create plausible case names, realistic docket numbers, and convincing holdings—none of which exist. ALWAYS verify every citation provided by AI tools before including it in court filings.",
+            text: "AI tools like ChatGPT, Claude, and Bard frequently generate fabricated legal citations. They create plausible case names, realistic docket numbers, and convincing holdings, none of which exist. ALWAYS verify every citation provided by AI tools before including it in court filings.",
           },
           {
             type: "p",

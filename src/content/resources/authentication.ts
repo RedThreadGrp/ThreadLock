@@ -11,7 +11,7 @@ export const authentication: ResourcePage = {
         body: [
           {
             type: "p",
-            text: "Authentication means proving that evidence is what you claim it is. Without authentication, the judge won't admit your text messages, emails, or photos—no matter how important they are."
+            text: "Authentication means proving that evidence is what you claim it is. Without authentication, the judge won't admit your text messages, emails, or photos, no matter how important they are."
           },
           {
             type: "p",
@@ -32,7 +32,7 @@ export const authentication: ResourcePage = {
           },
           {
             type: "p",
-            text: "Authentication doesn't prove the content is true—just that the evidence is genuine. The judge still evaluates whether to believe it."
+            text: "Authentication doesn't prove the content is true. It just confirms the evidence is genuine. The judge still evaluates whether to believe it."
           },
           {
             type: "p",
@@ -200,7 +200,7 @@ export const authentication: ResourcePage = {
           },
           {
             type: "p",
-            text: "Videos and Audio Recordings: Video and audio require similar authentication. Testify to: (1) Who recorded it, (2) When and where it was recorded, (3) The accuracy of what's shown/heard, (4) No editing or manipulation, (5) Consent to record (check your state's recording laws—some require all-party consent)."
+            text: "Videos and Audio Recordings: Video and audio require similar authentication. Testify to: (1) Who recorded it, (2) When and where it was recorded, (3) The accuracy of what's shown/heard, (4) No editing or manipulation, (5) Consent to record (check your state's recording laws, as some require all-party consent)."
           }
         ]
       },
@@ -286,7 +286,7 @@ export const authentication: ResourcePage = {
       },
       {
         question: "What if the opposing party deleted the original messages?",
-        answer: "If you have screenshots taken before deletion, authenticate them through your own testimony. You can also subpoena phone records from the wireless carrier showing that messages were sent/received on specific dates (though carrier records won't contain message content). If the opposing party deleted messages to destroy evidence, inform the judge—this can result in adverse inferences or sanctions against them."
+        answer: "If you have screenshots taken before deletion, authenticate them through your own testimony. You can also subpoena phone records from the wireless carrier showing that messages were sent/received on specific dates (though carrier records won't contain message content). If the opposing party deleted messages to destroy evidence, inform the judge, as this can result in adverse inferences or sanctions against them."
       },
       {
         question: "Do I need an expert witness to authenticate digital evidence?",
@@ -336,6 +336,6 @@ export const authentication: ResourcePage = {
     ],
     jurisdictionScope: ["federal"],
     reviewIntervalDays: 180,
-    accuracyNotes: "Authentication requirements vary by jurisdiction and judge. Some judges are more lenient in family court proceedings, while others strictly enforce evidentiary rules even for pro se litigants. Digital evidence authentication is an evolving area of law as technology changes. State recording consent laws vary—some require all-party consent, others only one-party consent. Always check your state's specific requirements before recording conversations."
+    accuracyNotes: "Authentication requirements vary by jurisdiction and judge. Some judges are more lenient in family court proceedings, while others strictly enforce evidentiary rules even for pro se litigants. Digital evidence authentication is an evolving area of law as technology changes. State recording consent laws vary; some require all-party consent, others only one-party consent. Always check your state's specific requirements before recording conversations."
   }
 };

@@ -17,6 +17,68 @@ function cx(...classes: Array<string | undefined | null | false>) {
   return classes.filter(Boolean).join(" ");
 }
 
+/**
+ * Renders inline markdown: **bold**, *italic*, and [link text](url).
+ * Returns a string when there are no markdown tokens (avoids React node overhead).
+ */
+function renderInline(text: string): React.ReactNode {
+  if (!text) return null;
+  // Quick check: skip regex work if no markdown tokens present
+  if (!text.includes("**") && !text.includes("*") && !text.includes("[")) return text;
+
+  // Order matters: bold (**) must come before italic (*) so double-asterisk
+  // sequences are not partially consumed by the single-asterisk branch.
+  // Pattern breakdown:
+  //   \*\*[^*\n]+\*\*        — bold:   **text**
+  //   \*(?!\*)[^*\n]+\*(?!\*) — italic: *text* (not preceded/followed by *)
+  //   \[[^\]]+\]\([^)]+\)    — link:   [label](url)
+  const INLINE_MD = /(\*\*[^*\n]+\*\*|\*(?!\*)[^*\n]+\*(?!\*)|\[[^\]]+\]\([^)]+\))/g;
+
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let keyCounter = 0;
+
+  for (const match of text.matchAll(INLINE_MD)) {
+    if (match.index! > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    const token = match[0];
+    if (token.startsWith("**")) {
+      parts.push(
+        <strong key={keyCounter++} className="font-semibold text-white/95">
+          {token.slice(2, -2)}
+        </strong>
+      );
+    } else if (token.startsWith("*")) {
+      parts.push(
+        <em key={keyCounter++}>{token.slice(1, -1)}</em>
+      );
+    } else {
+      const m = token.match(/\[([^\]]+)\]\(([^)]+)\)/);
+      if (m) {
+        const isExternal = m[2].startsWith("http");
+        parts.push(
+          <a
+            key={keyCounter++}
+            href={m[2]}
+            className="underline decoration-white/30 hover:decoration-white/60 underline-offset-4 hover:text-white transition-colors"
+            {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+          >
+            {m[1]}
+          </a>
+        );
+      }
+    }
+    lastIndex = match.index! + token.length;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  if (parts.length === 0) return text;
+  if (parts.length === 1 && typeof parts[0] === "string") return parts[0];
+  return <>{parts}</>;
+}
+
 function slugifyId(id: string) {
   // trust but verify: keep ids URL-safe; do not "invent" ids
   if (!id) {
@@ -177,7 +239,7 @@ function renderBlock(block: ResourceBodyBlock, key: React.Key) {
     case "p":
       return (
         <p key={key} className="text-sm leading-6 text-white/85">
-          {block.text}
+          {renderInline(block.text)}
         </p>
       );
 
@@ -186,7 +248,7 @@ function renderBlock(block: ResourceBodyBlock, key: React.Key) {
         <ul key={key} className="list-disc pl-5 space-y-2 text-sm text-white/85">
           {block.items.map((it, i) => (
             <li key={i} className="leading-6">
-              {it}
+              {renderInline(it)}
             </li>
           ))}
         </ul>
@@ -197,7 +259,7 @@ function renderBlock(block: ResourceBodyBlock, key: React.Key) {
         <ol key={key} className="list-decimal pl-5 space-y-2 text-sm text-white/85">
           {block.items.map((it, i) => (
             <li key={i} className="leading-6">
-              {it}
+              {renderInline(it)}
             </li>
           ))}
         </ol>
@@ -207,13 +269,15 @@ function renderBlock(block: ResourceBodyBlock, key: React.Key) {
       const styles = CalloutStyles(block.kind);
       const role = block.kind === "warning" ? "alert" : block.kind === "note" ? "note" : "status";
       return (
-        <aside key={key} className={cx("rounded-2xl p-4", styles.wrapper)} role={role}>
+        // flow-root establishes a block formatting context so this box
+        // sits cleanly beside the floated sidebar without overlapping it.
+        <aside key={key} className={cx("rounded-2xl p-4 flow-root", styles.wrapper)} role={role}>
           {(block.title || block.kind) && (
             <div className={cx("text-xs font-semibold uppercase tracking-wide", styles.title)}>
               {block.title ?? block.kind}
             </div>
           )}
-          <p className="mt-2 text-sm leading-6">{block.text}</p>
+          <p className="mt-2 text-sm leading-6">{renderInline(block.text)}</p>
         </aside>
       );
     }
@@ -268,7 +332,7 @@ function Faqs({
               </summary>
               <div id={panelId} aria-labelledby={btnId} className="mt-3 text-sm leading-6 text-white/85 flex items-start gap-2">
                 <span className="text-orange-300 shrink-0 leading-[1.4]">A</span>
-                <span className="flex-1">{f.a}</span>
+                <span className="flex-1">{renderInline(f.a)}</span>
               </div>
             </details>
           );
@@ -385,7 +449,7 @@ export function ResourceQAArticle({ content }: Props) {
   return (
     <ResourceLayoutV2
       dataRenderer="resourceQA-v2"
-      maxWidth="medium"
+      maxWidth="wide"
       header={header}
       sidebar={sidebar}
       includeTopPadding={false}

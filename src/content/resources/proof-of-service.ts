@@ -17,7 +17,7 @@ export const proofOfService: ResourceQAContent = {
 
   shortAnswer: {
     label: "Short Answer: The Legal Definition",
-    text: "Proof of Service (also known as an Affidavit of Service or Return of Service) is a formal document filed with the court that confirms legal papers were successfully delivered to a party in a case. To count as valid, it must be a signed declaration—typically made under penalty of perjury—detailing the exact time, date, location, and method of delivery, as well as the identity of the person who performed the service.",
+    text: "Proof of Service (also known as an Affidavit of Service or Return of Service) is a formal document filed with the court that confirms legal papers were successfully delivered to a party in a case. To count as valid, it must be a signed declaration, typically made under penalty of perjury, detailing the exact time, date, location, and method of delivery, as well as the identity of the person who performed the service.",
   },
 
   sections: [

@@ -118,7 +118,7 @@ export const parentingPlans: ResourcePage = {
       },
       {
         question: "How specific should the parenting plan be?",
-        answer: "Very specific. Avoid vague timing like 'Parent B gets weekends' (which weekends? what times?). Include exact times, locations, and procedures. A good parenting plan is boring, predictable, and specific—you should be able to explain it to a third party in 2 minutes."
+        answer: "Very specific. Avoid vague timing like 'Parent B gets weekends' (which weekends? what times?). Include exact times, locations, and procedures. A good parenting plan is boring, predictable, and specific. You should be able to explain it to a third party in 2 minutes."
       },
       {
         question: "How do I test if my parenting plan will actually work?",
