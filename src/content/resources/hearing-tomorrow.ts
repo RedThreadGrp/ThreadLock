@@ -157,16 +157,19 @@ export const hearingTomorrow: ResourcePage = {
     ],
     faqs: [
       {
-        question: "What if I forget to bring a document?",
-        answer: "If you realize before the hearing starts, ask the court clerk if you can retrieve it. If it's during the hearing, inform the judge immediately. You may need to request a continuance or submit the document later, depending on its importance."
+        id: "forgot-to-bring-document",
+        q: "What if I forget to bring a document?",
+        a: "If you realize before the hearing starts, ask the court clerk if you can retrieve it. If it's during the hearing, inform the judge immediately. You may need to request a continuance or submit the document later, depending on its importance."
       },
       {
-        question: "What if I'm too nervous to speak clearly?",
-        answer: "It's normal to be nervous. Take slow, deep breaths. Pause before answering questions. If you need a moment, it's okay to say 'May I have a moment to collect my thoughts, Your Honor?' Judges understand that self-represented litigants are nervous."
+        id: "too-nervous-to-speak",
+        q: "What if I'm too nervous to speak clearly?",
+        a: "It's normal to be nervous. Take slow, deep breaths. Pause before answering questions. If you need a moment, it's okay to say 'May I have a moment to collect my thoughts, Your Honor?' Judges understand that self-represented litigants are nervous."
       },
       {
-        question: "What if I arrive late to the hearing?",
-        answer: "Arrive early to avoid this. If unavoidable, enter quietly, wait for an appropriate pause, and apologize briefly to the judge. Explain if there was an emergency. The judge may proceed without you if you're significantly late, so call the court clerk immediately if you know you'll be late."
+        id: "arrive-late-to-hearing",
+        q: "What if I arrive late to the hearing?",
+        a: "Arrive early to avoid this. If unavoidable, enter quietly, wait for an appropriate pause, and apologize briefly to the judge. Explain if there was an emergency. The judge may proceed without you if you're significantly late, so call the court clerk immediately if you know you'll be late."
       }
     ]
   }

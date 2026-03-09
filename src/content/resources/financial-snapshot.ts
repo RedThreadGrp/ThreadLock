@@ -123,16 +123,19 @@ export const financialSnapshot: ResourcePage = {
     ],
     faqs: [
       {
-        question: "What are the most common financial disclosure mistakes?",
-        answer: "Forgetting to include all income sources, not accounting for taxes and deductions, guessing at expenses instead of tracking them, omitting debts or assets, using outdated information, and not keeping documentation to back up your numbers."
+        id: "common-financial-disclosure-mistakes",
+        q: "What are the most common financial disclosure mistakes?",
+        a: "Forgetting to include all income sources, not accounting for taxes and deductions, guessing at expenses instead of tracking them, omitting debts or assets, using outdated information, and not keeping documentation to back up your numbers."
       },
       {
-        question: "Should I include income from side gigs or cash payments?",
-        answer: "Yes. Underreporting income by forgetting to include bonuses, side gigs, cash payments, or irregular income is a major mistake. Courts can impute income if they believe you're hiding earnings, which can hurt your credibility."
+        id: "include-side-gig-income",
+        q: "Should I include income from side gigs or cash payments?",
+        a: "Yes. Underreporting income by forgetting to include bonuses, side gigs, cash payments, or irregular income is a major mistake. Courts can impute income if they believe you're hiding earnings, which can hurt your credibility."
       },
       {
-        question: "What if my expenses exceed my income on the worksheet?",
-        answer: "This is a red flag. Be prepared to explain how you're currently managing. Either you're missing income sources, overestimating expenses, or genuinely in financial distress. Courts need realistic numbers to make fair decisions."
+        id: "expenses-exceed-income",
+        q: "What if my expenses exceed my income on the worksheet?",
+        a: "This is a red flag. Be prepared to explain how you're currently managing. Either you're missing income sources, overestimating expenses, or genuinely in financial distress. Courts need realistic numbers to make fair decisions."
       }
     ]
   },

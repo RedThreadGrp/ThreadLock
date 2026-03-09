@@ -131,16 +131,19 @@ export const firstFiling: DivorceKit = {
     ],
     faqs: [
       {
-        question: "Can I file without a lawyer?",
-        answer: "Yes. Most family courts allow self-representation. However, filing pro se means you're responsible for following all court rules and procedures. Use this kit to understand the basics, and consider consulting a lawyer for complex issues."
+        id: "file-without-lawyer",
+        q: "Can I file without a lawyer?",
+        a: "Yes. Most family courts allow self-representation. However, filing pro se means you're responsible for following all court rules and procedures. Use this kit to understand the basics, and consider consulting a lawyer for complex issues."
       },
       {
-        question: "Does the order I file documents matter?",
-        answer: "Yes. Generally, you file the petition or initial complaint first, then supporting documents. Check your local court's rules for specific filing order requirements. Some courts require specific documents to be filed together."
+        id: "filing-order-matters",
+        q: "Does the order I file documents matter?",
+        a: "Yes. Generally, you file the petition or initial complaint first, then supporting documents. Check your local court's rules for specific filing order requirements. Some courts require specific documents to be filed together."
       },
       {
-        question: "Do I need original signatures or copies?",
-        answer: "Courts typically require original signatures on filed documents. You'll need the original for the court, plus copies for yourself and other parties. Electronic filing systems may have different requirements; check with your court's e-filing portal."
+        id: "original-signatures-or-copies",
+        q: "Do I need original signatures or copies?",
+        a: "Courts typically require original signatures on filed documents. You'll need the original for the court, plus copies for yourself and other parties. Electronic filing systems may have different requirements; check with your court's e-filing portal."
       }
     ]
   }

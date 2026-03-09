@@ -141,16 +141,19 @@ export const officialPortals: ResourcePage = {
     ],
     faqs: [
       {
-        question: "Why do some sites charge for forms that are free on government websites?",
-        answer: "Scam sites charge for \"access\" to forms that your state provides for free. They often look professional and rank highly in search results, but they're just reselling free public documents. Always use official .gov sources."
+        id: "sites-charge-for-free-forms",
+        q: "Why do some sites charge for forms that are free on government websites?",
+        a: "Scam sites charge for \"access\" to forms that your state provides for free. They often look professional and rank highly in search results, but they're just reselling free public documents. Always use official .gov sources."
       },
       {
-        question: "Can I use forms from a different state?",
-        answer: "No. Court rules and form requirements vary significantly by state. Using out-of-state forms can result in rejected filings or procedural errors. Always use your specific state's official forms."
+        id: "use-forms-from-different-state",
+        q: "Can I use forms from a different state?",
+        a: "No. Court rules and form requirements vary significantly by state. Using out-of-state forms can result in rejected filings or procedural errors. Always use your specific state's official forms."
       },
       {
-        question: "What if my county has different forms than the state website?",
-        answer: "Local courts often have additional local rules and modified forms. After finding state resources, search for your specific county's court website. Local court sites have judges' preferences, local filing procedures, and county-specific forms. Use local forms when available."
+        id: "county-different-forms",
+        q: "What if my county has different forms than the state website?",
+        a: "Local courts often have additional local rules and modified forms. After finding state resources, search for your specific county's court website. Local court sites have judges' preferences, local filing procedures, and county-specific forms. Use local forms when available."
       }
     ]
   },

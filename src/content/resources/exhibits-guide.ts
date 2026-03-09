@@ -158,24 +158,29 @@ export const exhibitsGuide: ResourcePage = {
     
     faqs: [
       {
-        question: "What if I forgot to label exhibits before filing?",
-        answer: "Contact the court clerk immediately. You may need to file amended exhibits with proper labels, or in some cases, you can bring properly labeled copies to the hearing. However, last-minute labeling can create confusion and may reflect poorly on your preparation. It's always better to label exhibits correctly the first time."
+        id: "forgot-to-label-exhibits",
+        q: "What if I forgot to label exhibits before filing?",
+        a: "Contact the court clerk immediately. You may need to file amended exhibits with proper labels, or in some cases, you can bring properly labeled copies to the hearing. However, last-minute labeling can create confusion and may reflect poorly on your preparation. It's always better to label exhibits correctly the first time."
       },
       {
-        question: "Can I use numbers for my exhibits instead of letters?",
-        answer: "No, if you're the petitioner or moving party, you should use letters (A, B, C). Numbers are typically reserved for the responding party's exhibits. Using numbers can confuse the court record and make it harder to reference your evidence."
+        id: "numbers-instead-of-letters",
+        q: "Can I use numbers for my exhibits instead of letters?",
+        a: "No, if you're the petitioner or moving party, you should use letters (A, B, C). Numbers are typically reserved for the responding party's exhibits. Using numbers can confuse the court record and make it harder to reference your evidence."
       },
       {
-        question: "How many copies of exhibits do I need to bring?",
-        answer: "Bring at least three complete sets: one original for the judge, one copy for the opposing party, and one for yourself. Some courts require additional copies for court staff or witnesses. Check your local rules or call the clerk's office to confirm the exact number needed."
+        id: "how-many-copies",
+        q: "How many copies of exhibits do I need to bring?",
+        a: "Bring at least three complete sets: one original for the judge, one copy for the opposing party, and one for yourself. Some courts require additional copies for court staff or witnesses. Check your local rules or call the clerk's office to confirm the exact number needed."
       },
       {
-        question: "How do I authenticate text messages for court?",
-        answer: "Authentication means proving that evidence is what you claim it is. For text messages, take full-screen screenshots showing the phone number, timestamp, and complete conversation thread. Don't crop or edit images. Include a written declaration under penalty of perjury stating: (1) you took the screenshots from your phone, (2) they accurately represent the messages, (3) the phone number belongs to the other party, and (4) the dates and times are correct. Some judges may also require you to bring the original phone to court for verification."
+        id: "authenticate-text-messages",
+        q: "How do I authenticate text messages for court?",
+        a: "Authentication means proving that evidence is what you claim it is. For text messages, take full-screen screenshots showing the phone number, timestamp, and complete conversation thread. Don't crop or edit images. Include a written declaration under penalty of perjury stating: (1) you took the screenshots from your phone, (2) they accurately represent the messages, (3) the phone number belongs to the other party, and (4) the dates and times are correct. Some judges may also require you to bring the original phone to court for verification."
       },
       {
-        question: "Can I add exhibits after the hearing starts?",
-        answer: "Maybe, but it's risky and not recommended. Courts generally require exhibits to be exchanged with the opposing party before the hearing (typically 5-10 days in advance, depending on jurisdiction). If you try to introduce new exhibits during the hearing, the judge may refuse to admit them unless you can show good cause for the late submission. The opposing party can object, arguing they didn't have time to review or prepare a response. In emergencies (like discovering critical evidence the day before), you can file a motion to admit late exhibits, but success isn't guaranteed. Always label and exchange exhibits according to your court's deadlines."
+        id: "add-exhibits-after-hearing-starts",
+        q: "Can I add exhibits after the hearing starts?",
+        a: "Maybe, but it's risky and not recommended. Courts generally require exhibits to be exchanged with the opposing party before the hearing (typically 5-10 days in advance, depending on jurisdiction). If you try to introduce new exhibits during the hearing, the judge may refuse to admit them unless you can show good cause for the late submission. The opposing party can object, arguing they didn't have time to review or prepare a response. In emergencies (like discovering critical evidence the day before), you can file a motion to admit late exhibits, but success isn't guaranteed. Always label and exchange exhibits according to your court's deadlines."
       }
     ]
   },

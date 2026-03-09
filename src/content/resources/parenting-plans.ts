@@ -113,16 +113,19 @@ export const parentingPlans: ResourcePage = {
     ],
     faqs: [
       {
-        question: "What is right of first refusal and should I include it?",
-        answer: "If one parent can't care for the child for more than X hours, the other parent gets first chance before a babysitter. Pros: Maximizes child's time with parents. Cons: Can create conflict, complicates scheduling. Example: 'If either parent will be unable to care for the child for more than 4 consecutive hours during their parenting time, that parent shall first offer the other parent the opportunity to care for the child before arranging alternate childcare.'"
+        id: "right-of-first-refusal",
+        q: "What is right of first refusal and should I include it?",
+        a: "If one parent can't care for the child for more than X hours, the other parent gets first chance before a babysitter. Pros: Maximizes child's time with parents. Cons: Can create conflict, complicates scheduling. Example: 'If either parent will be unable to care for the child for more than 4 consecutive hours during their parenting time, that parent shall first offer the other parent the opportunity to care for the child before arranging alternate childcare.'"
       },
       {
-        question: "How specific should the parenting plan be?",
-        answer: "Very specific. Avoid vague timing like 'Parent B gets weekends' (which weekends? what times?). Include exact times, locations, and procedures. A good parenting plan is boring, predictable, and specific. You should be able to explain it to a third party in 2 minutes."
+        id: "how-specific-parenting-plan",
+        q: "How specific should the parenting plan be?",
+        a: "Very specific. Avoid vague timing like 'Parent B gets weekends' (which weekends? what times?). Include exact times, locations, and procedures. A good parenting plan is boring, predictable, and specific. You should be able to explain it to a third party in 2 minutes."
       },
       {
-        question: "How do I test if my parenting plan will actually work?",
-        answer: "Before finalizing, ask: Does this work with work schedules and school? Can I explain this to a third party in 2 minutes? What happens if someone moves or remarries? Is this genuinely in the child's best interest, or am I trying to 'win'? If expenses exceed reality, rethink it."
+        id: "test-if-parenting-plan-works",
+        q: "How do I test if my parenting plan will actually work?",
+        a: "Before finalizing, ask: Does this work with work schedules and school? Can I explain this to a third party in 2 minutes? What happens if someone moves or remarries? Is this genuinely in the child's best interest, or am I trying to 'win'? If expenses exceed reality, rethink it."
       }
     ]
   },
