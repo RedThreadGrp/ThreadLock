@@ -25,7 +25,7 @@ export const officialPortals: ResourcePage = {
         body: [
           {
             type: "p",
-            text: "**California:** California Courts Self-Help (https://www.courts.ca.gov/selfhelp.htm) and Forms (https://www.courts.ca.gov/forms.htm) - Family law forms, instructions, local court websites."
+            text: "**California:** California Courts Self-Help (https://selfhelp.courts.ca.gov/) and Forms (https://selfhelp.courts.ca.gov/find-forms) - Family law forms, instructions, local court websites."
           },
           {
             type: "p",

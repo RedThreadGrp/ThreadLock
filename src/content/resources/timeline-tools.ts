@@ -154,7 +154,7 @@ export const timelineTools: ResourcePage = {
       { 
         title: "Self-Help Center",
         organization: "California Courts",
-        url: "https://www.courts.ca.gov/selfhelp.htm",
+        url: "https://selfhelp.courts.ca.gov/",
         jurisdiction: "California",
         lastAccessed: "2026-02-16",
         note: "Example state court self-help resources"

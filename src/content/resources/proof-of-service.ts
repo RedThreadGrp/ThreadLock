@@ -193,7 +193,7 @@ export const proofOfService: ResourceQAContent = {
       {
         title: "Service of Papers - California Courts",
         organization: "California Judicial Branch",
-        url: "https://www.courts.ca.gov/selfhelp-serving.htm",
+        url: "https://selfhelp.courts.ca.gov/court-basics/service",
         jurisdiction: "California",
         lastAccessed: "2026-02-16",
         note: "California proof of service requirements and forms"

@@ -156,7 +156,7 @@ export const financialSnapshot: ResourcePage = {
       { 
         title: "Family Court Self-Help",
         organization: "California Courts",
-        url: "https://www.courts.ca.gov/selfhelp-finance.htm",
+        url: "https://selfhelp.courts.ca.gov/family/financial-disclosure",
         jurisdiction: "California",
         lastAccessed: "2026-02-16",
         note: "Example state financial declaration guidance"
