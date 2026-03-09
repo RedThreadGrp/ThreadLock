@@ -317,7 +317,7 @@ export default function DataProcessingAgreement() {
       </p>
       <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 mb-6">
         <a 
-          href="/ThreadLock_Data_Processing_Agreeement.pdf" 
+          href="/ThreadLock_Data_Processing_Agreement.pdf" 
           download
           className="inline-flex items-center gap-2 bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors"
         >
