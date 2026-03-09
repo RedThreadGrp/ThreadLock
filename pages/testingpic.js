@@ -116,7 +116,7 @@ const HeroSection = ({ bgImage }) => (
 );
 
 const FeatureCard = ({ icon, title, children }) => (
-    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-6 text-left">
+    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
         <div className="w-16 h-16 shrink-0 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
             {icon}
         </div>
