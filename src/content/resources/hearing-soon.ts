@@ -349,24 +349,29 @@ export const hearingSoon: DivorceKit = {
     ],
     faqs: [
       {
-        question: "What if I don't know the answer to a question?",
-        answer: "Be honest and say 'I don't know, Your Honor.' Judges respect honesty. Making up answers damages your credibility far more than admitting you don't know something. If you need to check records, ask: 'May I have a moment to check my documents, Your Honor?'"
+        id: "dont-know-answer",
+        q: "What if I don't know the answer to a question?",
+        a: "Be honest and say 'I don't know, Your Honor.' Judges respect honesty. Making up answers damages your credibility far more than admitting you don't know something. If you need to check records, ask: 'May I have a moment to check my documents, Your Honor?'"
       },
       {
-        question: "Can I bring someone for support?",
-        answer: "Yes, but they must sit in the gallery (spectator seating), not at your table. They cannot speak, pass notes, or participate unless called as a witness. Some courts restrict who can be present during sensitive testimony."
+        id: "bring-support-person",
+        q: "Can I bring someone for support?",
+        a: "Yes, but they must sit in the gallery (spectator seating), not at your table. They cannot speak, pass notes, or participate unless called as a witness. Some courts restrict who can be present during sensitive testimony."
       },
       {
-        question: "What happens if I'm late?",
-        answer: "Missing your hearing time can result in a default judgment against you, meaning the other party gets everything they asked for. Courts often lock doors at session start. If you're unavoidably late due to emergency, contact the clerk immediately."
+        id: "what-happens-if-late",
+        q: "What happens if I'm late?",
+        a: "Missing your hearing time can result in a default judgment against you, meaning the other party gets everything they asked for. Courts often lock doors at session start. If you're unavoidably late due to emergency, contact the clerk immediately."
       },
       {
-        question: "How long should my opening statement be?",
-        answer: "Brief and focused, typically 2-5 minutes. State what you're requesting, give your top 3-4 supporting facts, and reference your key exhibits. The judge will ask questions if they want more detail."
+        id: "opening-statement-length",
+        q: "How long should my opening statement be?",
+        a: "Brief and focused, typically 2-5 minutes. State what you're requesting, give your top 3-4 supporting facts, and reference your key exhibits. The judge will ask questions if they want more detail."
       },
       {
-        question: "Can I object to the other party's evidence?",
-        answer: "Yes. Common objections include 'Objection, hearsay' (secondhand information), 'Objection, relevance' (doesn't relate to this case), or 'Objection, lack of foundation' (no proof it's authentic). State your objection clearly and briefly. Don't argue if overruled."
+        id: "object-to-evidence",
+        q: "Can I object to the other party's evidence?",
+        a: "Yes. Common objections include 'Objection, hearsay' (secondhand information), 'Objection, relevance' (doesn't relate to this case), or 'Objection, lack of foundation' (no proof it's authentic). State your objection clearly and briefly. Don't argue if overruled."
       }
     ]
   }

@@ -157,16 +157,19 @@ export const evidence: DivorceKit = {
     ],
     faqs: [
       {
-        question: "What if I have too much evidence to organize?",
-        answer: "Start with the most critical incidents first. Focus on evidence that directly supports your key claims. Use the timeline tool to identify patterns, then organize evidence by incident date. You don't need to present everything. Focus on the strongest, most relevant evidence."
+        id: "too-much-evidence",
+        q: "What if I have too much evidence to organize?",
+        a: "Start with the most critical incidents first. Focus on evidence that directly supports your key claims. Use the timeline tool to identify patterns, then organize evidence by incident date. You don't need to present everything. Focus on the strongest, most relevant evidence."
       },
       {
-        question: "What if I didn't document something when it happened?",
-        answer: "Document it now while details are fresh. Write a detailed declaration describing what happened, when, where, who was present, and what was said or done. Include specific dates and times if possible. While contemporaneous documentation is stronger, later documentation still has value."
+        id: "didnt-document-at-time",
+        q: "What if I didn't document something when it happened?",
+        a: "Document it now while details are fresh. Write a detailed declaration describing what happened, when, where, who was present, and what was said or done. Include specific dates and times if possible. While contemporaneous documentation is stronger, later documentation still has value."
       },
       {
-        question: "How can I organize evidence quickly before a hearing?",
-        answer: "Use the Evidence Intake Template to quickly catalog your most important items. Create a simple spreadsheet with columns: Date, Type, Description, File Location. Focus on evidence that directly supports your hearing requests. Bring organized exhibits labeled A, B, C, etc."
+        id: "organize-evidence-quickly",
+        q: "How can I organize evidence quickly before a hearing?",
+        a: "Use the Evidence Intake Template to quickly catalog your most important items. Create a simple spreadsheet with columns: Date, Type, Description, File Location. Focus on evidence that directly supports your hearing requests. Bring organized exhibits labeled A, B, C, etc."
       }
     ]
   }

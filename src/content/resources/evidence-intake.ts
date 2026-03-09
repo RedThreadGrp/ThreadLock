@@ -143,19 +143,19 @@ export const evidenceIntake: ResourcePage = {
 
     faqs: [
       {
-        question: "How much evidence is too much?",
-        answer:
-          "Focus on quality over quantity. Each piece should directly support your case. If you have 50 similar texts, choose the 5 most relevant. Courts appreciate concise, organized evidence more than overwhelming volume.",
+        id: "how-much-evidence",
+        q: "How much evidence is too much?",
+        a: "Focus on quality over quantity. Each piece should directly support your case. If you have 50 similar texts, choose the 5 most relevant. Courts appreciate concise, organized evidence more than overwhelming volume.",
       },
       {
-        question: "What if I didn't document something when it happened?",
-        answer:
-          "Document it now as best you can. Write down what you remember with approximate dates. Note that you're recalling from memory. Some evidence is better than none, but acknowledge the limitations.",
+        id: "didnt-document-when-happened",
+        q: "What if I didn't document something when it happened?",
+        a: "Document it now as best you can. Write down what you remember with approximate dates. Note that you're recalling from memory. Some evidence is better than none, but acknowledge the limitations.",
       },
       {
-        question: "Can I organize evidence the night before my hearing?",
-        answer:
-          "You can, but it's risky. Last-minute organization leads to mistakes, missing documents, and poor presentation. Start organizing as soon as you know you're going to court. Even basic organization (chronological folders) done early beats perfect organization done in a panic.",
+        id: "organize-evidence-night-before",
+        q: "Can I organize evidence the night before my hearing?",
+        a: "You can, but it's risky. Last-minute organization leads to mistakes, missing documents, and poor presentation. Start organizing as soon as you know you're going to court. Even basic organization (chronological folders) done early beats perfect organization done in a panic.",
       },
     ],
   },

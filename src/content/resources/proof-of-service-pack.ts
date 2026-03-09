@@ -139,19 +139,19 @@ export const proofOfServicePack: ResourcePage = {
 
     faqs: [
       {
-        question: "Can I serve documents myself?",
-        answer:
-          "In most cases, no. You cannot serve documents in a case where you are a party. The server must be over 18 and not involved in the case. Some jurisdictions allow self-service for specific documents like discovery requests, but initial pleadings almost always require a third party.",
+        id: "serve-documents-yourself",
+        q: "Can I serve documents myself?",
+        a: "In most cases, no. You cannot serve documents in a case where you are a party. The server must be over 18 and not involved in the case. Some jurisdictions allow self-service for specific documents like discovery requests, but initial pleadings almost always require a third party.",
       },
       {
-        question: "What happens if I don't file proof of service?",
-        answer:
-          "The court may reject your filing, deny your motion, or continue (postpone) your hearing. Without proof of service, you haven't proven the other party received proper notice. This is a procedural requirement that can derail your entire case, regardless of the merits.",
+        id: "dont-file-proof-of-service",
+        q: "What happens if I don't file proof of service?",
+        a: "The court may reject your filing, deny your motion, or continue (postpone) your hearing. Without proof of service, you haven't proven the other party received proper notice. This is a procedural requirement that can derail your entire case, regardless of the merits.",
       },
       {
-        question: "How long do I have to file proof of service?",
-        answer:
-          "Deadlines vary by jurisdiction and document type. Common timelines: personal service often requires filing within a few days; mail service may allow 5-10 days after mailing. Check your local court rules and any specific instructions on your forms. When in doubt, file immediately after service is completed.",
+        id: "how-long-to-file-proof",
+        q: "How long do I have to file proof of service?",
+        a: "Deadlines vary by jurisdiction and document type. Common timelines: personal service often requires filing within a few days; mail service may allow 5-10 days after mailing. Check your local court rules and any specific instructions on your forms. When in doubt, file immediately after service is completed.",
       },
     ],
   },

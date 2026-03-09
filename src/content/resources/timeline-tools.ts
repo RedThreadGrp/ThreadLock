@@ -127,16 +127,19 @@ export const timelineTools: ResourcePage = {
     ],
     faqs: [
       {
-        question: "What if I don't have evidence for every event?",
-        answer: "Note the gap in your timeline ('No documentation available'), explain why if possible ('Incident occurred before parties had smartphones'), and use witness testimony to fill in gaps when possible. Judges understand that not every event is documented. Credible testimony can still carry weight, though it's less persuasive without corroboration."
+        id: "no-evidence-for-every-event",
+        q: "What if I don't have evidence for every event?",
+        a: "Note the gap in your timeline ('No documentation available'), explain why if possible ('Incident occurred before parties had smartphones'), and use witness testimony to fill in gaps when possible. Judges understand that not every event is documented. Credible testimony can still carry weight, though it's less persuasive without corroboration."
       },
       {
-        question: "Can I use a timeline instead of testimony?",
-        answer: "No, timelines are demonstrative aids that organize your evidence, not substantive evidence themselves. You still need to testify under oath to authenticate each entry, though you can use the timeline to refresh your memory and reference events during testimony. The timeline helps present your case clearly but doesn't replace sworn testimony."
+        id: "use-timeline-instead-of-testimony",
+        q: "Can I use a timeline instead of testimony?",
+        a: "No, timelines are demonstrative aids that organize your evidence, not substantive evidence themselves. You still need to testify under oath to authenticate each entry, though you can use the timeline to refresh your memory and reference events during testimony. The timeline helps present your case clearly but doesn't replace sworn testimony."
       },
       {
-        question: "How far back should my timeline go?",
-        answer: "Include events that are relevant to the legal issues in your case. For custody disputes, include the past 6-12 months at minimum, or longer if there's a pattern of behavior. For contempt actions, focus on the specific time period covered by the court order. Don't include irrelevant ancient history that doesn't support your current claims."
+        id: "how-far-back-timeline",
+        q: "How far back should my timeline go?",
+        a: "Include events that are relevant to the legal issues in your case. For custody disputes, include the past 6-12 months at minimum, or longer if there's a pattern of behavior. For contempt actions, focus on the specific time period covered by the court order. Don't include irrelevant ancient history that doesn't support your current claims."
       }
     ]
   },

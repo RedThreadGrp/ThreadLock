@@ -318,28 +318,34 @@ export const courtroomPrep: ResourcePage = {
     ],
     faqs: [
       {
-        question: "What if I accidentally call the judge by the wrong title?",
-        answer: "Quickly correct yourself: 'My apologies, Your Honor.' Judges understand nervousness. Don't dwell on it. Move forward with your testimony or argument."
+        id: "wrong-judge-title",
+        q: "What if I accidentally call the judge by the wrong title?",
+        a: "Quickly correct yourself: 'My apologies, Your Honor.' Judges understand nervousness. Don't dwell on it. Move forward with your testimony or argument."
       },
       {
-        question: "Can I bring someone with me to court for support?",
-        answer: "Yes, but they must sit in the gallery (spectator seating), not at your table. They cannot speak, pass notes, or otherwise participate unless called as a witness. Some courts restrict who can be present during sensitive testimony (e.g., children's cases)."
+        id: "bring-support-person",
+        q: "Can I bring someone with me to court for support?",
+        a: "Yes, but they must sit in the gallery (spectator seating), not at your table. They cannot speak, pass notes, or otherwise participate unless called as a witness. Some courts restrict who can be present during sensitive testimony (e.g., children's cases)."
       },
       {
-        question: "What if I need to use the bathroom during my hearing?",
-        answer: "If it's urgent, wait for a natural break (like when the judge is reading documents) and politely ask: 'Your Honor, may I be excused for a moment?' Judges will usually grant a brief recess. Try to use the restroom before your case is called."
+        id: "bathroom-during-hearing",
+        q: "What if I need to use the bathroom during my hearing?",
+        a: "If it's urgent, wait for a natural break (like when the judge is reading documents) and politely ask: 'Your Honor, may I be excused for a moment?' Judges will usually grant a brief recess. Try to use the restroom before your case is called."
       },
       {
-        question: "What if the judge asks me something I don't know?",
-        answer: "Be honest and say: 'I don't know, Your Honor.' Don't guess or make up an answer. If you need time to find documentation or verify information, ask: 'May I have a moment to check my records, Your Honor?' or 'I can provide that information in a supplemental filing if the court allows.' Judges respect honesty. Making up answers damages your credibility far more than admitting you don't know something."
+        id: "judge-asks-something-unknown",
+        q: "What if the judge asks me something I don't know?",
+        a: "Be honest and say: 'I don't know, Your Honor.' Don't guess or make up an answer. If you need time to find documentation or verify information, ask: 'May I have a moment to check my records, Your Honor?' or 'I can provide that information in a supplemental filing if the court allows.' Judges respect honesty. Making up answers damages your credibility far more than admitting you don't know something."
       },
       {
-        question: "Can I object to the other party's evidence?",
-        answer: "Yes, but you must have a legal basis. Common objections in family court include: 'Objection, hearsay' (the document or testimony is a second-hand account, not personal knowledge), 'Objection, relevance' (the evidence doesn't relate to the issues in this case), 'Objection, lack of foundation' (no proof the document is authentic or accurate), and 'Objection, speculation' (the witness is guessing, not testifying to facts). State your objection clearly and briefly. If the judge asks you to explain, give a one-sentence reason. Don't argue with the judge's ruling. If overruled, note your objection for the record and move on."
+        id: "object-to-evidence",
+        q: "Can I object to the other party's evidence?",
+        a: "Yes, but you must have a legal basis. Common objections in family court include: 'Objection, hearsay' (the document or testimony is a second-hand account, not personal knowledge), 'Objection, relevance' (the evidence doesn't relate to the issues in this case), 'Objection, lack of foundation' (no proof the document is authentic or accurate), and 'Objection, speculation' (the witness is guessing, not testifying to facts). State your objection clearly and briefly. If the judge asks you to explain, give a one-sentence reason. Don't argue with the judge's ruling. If overruled, note your objection for the record and move on."
       },
       {
-        question: "What happens if I miss my court date?",
-        answer: "Missing a court date can have serious consequences. The judge may issue a default judgment against you, meaning the other party gets everything they asked for without your input. In some cases, the court may issue a bench warrant for your arrest (especially in contempt or criminal matters). If you miss a hearing due to an emergency, contact the court clerk immediately (same day if possible) and explain the situation. You can file a motion to set aside the default judgment or reschedule the hearing, but you'll need to show good cause (medical emergency, car accident, etc.). Document the reason with evidence (hospital records, police report). Some courts are more forgiving of first-time mistakes than repeated no-shows."
+        id: "miss-court-date",
+        q: "What happens if I miss my court date?",
+        a: "Missing a court date can have serious consequences. The judge may issue a default judgment against you, meaning the other party gets everything they asked for without your input. In some cases, the court may issue a bench warrant for your arrest (especially in contempt or criminal matters). If you miss a hearing due to an emergency, contact the court clerk immediately (same day if possible) and explain the situation. You can file a motion to set aside the default judgment or reschedule the hearing, but you'll need to show good cause (medical emergency, car accident, etc.). Document the reason with evidence (hospital records, police report). Some courts are more forgiving of first-time mistakes than repeated no-shows."
       }
     ]
   },
