@@ -234,8 +234,8 @@ const ValuePropositionSection = () => (
   <section className="py-20 md:py-28 bg-white">
     <div className="container mx-auto px-6">
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
-          <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
+        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+          <div className="w-16 h-16 mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
             <FolderIcon className="w-8 h-8" />
           </div>
           <h3 className="text-2xl font-bold text-slate-800 mb-4">Your All-in-One Hub</h3>
@@ -243,8 +243,8 @@ const ValuePropositionSection = () => (
             Stop the chaos of messy folders and lost notes. Securely upload documents, add journal entries, and track events in one place.
           </p>
         </div>
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
-          <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
+        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+          <div className="w-16 h-16 mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
             <BookOpenIcon className="w-8 h-8" />
           </div>
           <h3 className="text-2xl font-bold text-slate-800 mb-4">Build Your Timeline</h3>
@@ -252,8 +252,8 @@ const ValuePropositionSection = () => (
             See your case chronologically. Our new timeline automatically populates from your entries, giving you a clear view of your story.
           </p>
         </div>
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 text-center">
-          <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
+        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+          <div className="w-16 h-16 mb-6 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
             <UsersIcon className="w-8 h-8" />
           </div>
           <h3 className="text-2xl font-bold text-slate-800 mb-4">You Control Your Story</h3>
@@ -435,7 +435,7 @@ const SubscriptionBanner = ({ onCTAClick }) => (
 );
 
 const FeatureCard = ({ icon, title, children }) => (
-    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-6 text-left">
+    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
         <div className="w-16 h-16 shrink-0 bg-gradient-to-br from-orange-100 to-red-100 text-orange-600 flex items-center justify-center rounded-xl">
             {icon}
         </div>
