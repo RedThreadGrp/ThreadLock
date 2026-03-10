@@ -194,13 +194,12 @@ const SiteHeader = ({ theme = 'auto' }) => {
     }, []);
 
     // Determine if we should use dark text based on theme prop and scroll state
-    // theme = 'light' means light background (use dark text)
-    // theme = 'dark' means dark background (use light text)
-    // theme = 'auto' means use scroll-based detection
-    const shouldUseDarkText = theme === 'light' ? true : theme === 'dark' ? false : isScrolled;
+    // When scrolled, always use light text on the dark slate background
+    // When not scrolled: theme='light' uses dark text, all other themes use light text
+    const shouldUseDarkText = isScrolled ? false : theme === 'light';
 
     const headerClasses = isScrolled
-        ? "bg-white/90 backdrop-blur-md border-b border-slate-200"
+        ? "bg-slate-800/90 backdrop-blur-md border-b border-slate-700"
         : "bg-transparent";
     
     const navTextClasses = shouldUseDarkText ? "text-slate-700" : "text-white";
