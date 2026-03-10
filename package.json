@@ -42,7 +42,8 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
-    "@types/react": "19.2.2",
+    "@types/node": "^25.4.0",
+    "@types/react": "^19.2.2",
     "autoprefixer": "^10.4.19",
     "cypress": "13.13.2",
     "eslint": "^8.57.1",
