@@ -106,6 +106,9 @@ function extractCitationUrlsFromContentFiles() {
 const KNOWN_BOT_BLOCKING_DOMAINS = new Set([
   'www.americanbar.org', // ABA blocks all automated crawlers
   'www.acrnet.org',      // ACR Network blocks automated crawlers
+  'www.acf.hhs.gov',     // HHS/ACF blocks all automated crawlers with 403
+  'www.nycourts.gov',    // NY Courts blocks all automated crawlers with 403
+  'www.nysenate.gov',    // NY Senate blocks all automated crawlers with 403
 ]);
 
 function isBotBlockingDomain(url) {

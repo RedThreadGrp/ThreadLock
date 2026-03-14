@@ -176,10 +176,10 @@ export const modifyParentingPlan: ResourceQAContent = {
         note: "Legal principles for custody modification"
       },
       {
-        title: "Child Custody Laws",
+        title: "Child Support and Family Law",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/human-services/divorce-and-child-custody",
-        lastAccessed: "2026-02-16",
+        url: "https://www.ncsl.org/human-services/child-support-and-family-law",
+        lastAccessed: "2026-03-14",
         note: "State-by-state custody law variations"
       },
     ],
