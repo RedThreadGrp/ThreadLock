@@ -176,9 +176,9 @@ export const modifyParentingPlan: ResourceQAContent = {
         note: "Legal principles for custody modification"
       },
       {
-        title: "Child Support and Family Law",
-        organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/human-services/family",
+        title: "Child Custody — Which State Has Jurisdiction Over a Custody Matter?",
+        organization: "KM Kaplan Law",
+        url: "https://www.kmkaplanlaw.com/practice-areas/child-custody-which-state-has-jurisdiction-over-a-custody-matter/",
         lastAccessed: "2026-03-14",
         note: "State-by-state custody law variations"
       },

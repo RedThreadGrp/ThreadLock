@@ -44,6 +44,11 @@ const nextConfig = {
         destination: '/resources',
         permanent: true,
       },
+      {
+        source: '/features/evidence-management',
+        destination: '/resources/evidence-management',
+        permanent: true,
+      },
     ];
   },
   async headers() {
