@@ -146,14 +146,14 @@ export const mediationLawyer: ResourceQAContent = {
       {
         title: "Dispute Resolution - Mediation",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/dispute_resolution/resources/DisputeResolutionProcesses/mediation/",
+        url: "https://www.americanbar.org/groups/dispute_resolution/",
         lastAccessed: "2026-02-16",
         note: "Standards and best practices for mediation"
       },
       {
         title: "Model Standards of Conduct for Mediators",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/dispute_resolution/policy/model_standards_conduct_mediation/",
+        url: "https://www.americanbar.org/groups/dispute_resolution/policy/",
         lastAccessed: "2026-02-16",
         note: "Professional standards for mediators"
       },
@@ -173,14 +173,14 @@ export const mediationLawyer: ResourceQAContent = {
       {
         title: "Dispute Resolution - Mediation",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/dispute_resolution/resources/DisputeResolutionProcesses/mediation/",
+        url: "https://www.americanbar.org/groups/dispute_resolution/",
         lastAccessed: "2026-02-16",
         note: "Standards and best practices for mediation"
       },
       {
         title: "Court-Connected Mediation Programs",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/alternative-dispute-resolution/mediation/state-links",
+        url: "https://www.ncsc.org/resources-courts",
         lastAccessed: "2026-02-16",
         note: "Jurisdiction-specific mediation rules"
       },

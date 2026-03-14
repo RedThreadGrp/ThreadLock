@@ -165,7 +165,7 @@ export const timelineTools: ResourcePage = {
       { 
         title: "Evidence and Trial Presentation",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/litigation/resources/",
+        url: "https://www.americanbar.org/groups/litigation/",
         lastAccessed: "2026-02-16",
         note: "Practice guidance on demonstrative aids"
       }

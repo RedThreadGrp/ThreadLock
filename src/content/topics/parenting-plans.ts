@@ -96,7 +96,7 @@ export const parentingPlansTopic: ResourceQAContent = {
       {
         title: "UCCJEA — Uniform Law Commission",
         organization: "Uniform Law Commission",
-        url: "https://www.uniformlaws.org/committees/community-home?CommunityKey=4c6bd37f-a1d0-4f0f-bf4d-aebaf6bd9a64",
+        url: "https://www.uniformlaws.org/acts/uccjea",
         jurisdiction: "multi-state",
         lastAccessed: "2026-02-21"
       },
@@ -144,7 +144,7 @@ export const parentingPlansTopic: ResourceQAContent = {
       {
         title: "UCCJEA — Uniform Law Commission",
         organization: "Uniform Law Commission",
-        url: "https://www.uniformlaws.org/committees/community-home?CommunityKey=4c6bd37f-a1d0-4f0f-bf4d-aebaf6bd9a64",
+        url: "https://www.uniformlaws.org/acts/uccjea",
         jurisdiction: "multi-state",
         lastAccessed: "2026-02-21"
       },

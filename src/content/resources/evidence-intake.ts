@@ -175,7 +175,7 @@ export const evidenceIntake: ResourcePage = {
       {
         title: "Digital Evidence and Forensics",
         organization: "National Institute of Standards and Technology (NIST)",
-        url: "https://www.nist.gov/topics/digital-evidence-forensics",
+        url: "https://www.nist.gov/digital-evidence",
         jurisdiction: "Federal",
         lastAccessed: "2026-02-16",
         note: "Digital evidence preservation standards and best practices"

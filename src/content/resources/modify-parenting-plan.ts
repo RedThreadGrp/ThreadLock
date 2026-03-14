@@ -164,7 +164,7 @@ export const modifyParentingPlan: ResourceQAContent = {
       {
         title: "Child Custody Modification",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/family_law/resources/",
+        url: "https://www.americanbar.org/groups/family_law/",
         lastAccessed: "2026-02-16",
         note: "Legal standards and modification procedures"
       },
@@ -176,10 +176,10 @@ export const modifyParentingPlan: ResourceQAContent = {
         note: "Legal principles for custody modification"
       },
       {
-        title: "Child Custody Laws",
+        title: "Child Support and Family Law",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/human-services/family-law/child-custody",
-        lastAccessed: "2026-02-16",
+        url: "https://www.ncsl.org/human-services/child-support-and-family-law",
+        lastAccessed: "2026-03-14",
         note: "State-by-state custody law variations"
       },
     ],
@@ -198,7 +198,7 @@ export const modifyParentingPlan: ResourceQAContent = {
       {
         title: "Child Custody",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/family_law/resources/",
+        url: "https://www.americanbar.org/groups/family_law/",
         lastAccessed: "2026-02-16",
         note: "Legal standards and procedures"
       },

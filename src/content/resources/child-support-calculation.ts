@@ -193,7 +193,7 @@ export const childSupportCalculation: ResourceQAContent = {
       {
         title: "Child Support Guidelines by State",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/human-services/economics-and-workforce-development/child-support-guidelines",
+        url: "https://www.ncsl.org/human-services/child-support-guideline-models",
         lastAccessed: "2026-02-16",
         note: "State-by-state child support calculation methods"
       },
@@ -208,7 +208,7 @@ export const childSupportCalculation: ResourceQAContent = {
       {
         title: "Child Support Information",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/family_law/resources/",
+        url: "https://www.americanbar.org/groups/family_law/",
         lastAccessed: "2026-02-16",
         note: "General child support guidance and legal principles"
       },
@@ -221,7 +221,7 @@ export const childSupportCalculation: ResourceQAContent = {
       {
         title: "Child Support Guidelines",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/human-services/economics-and-workforce-development/child-support-guidelines",
+        url: "https://www.ncsl.org/human-services/child-support-guideline-models",
         lastAccessed: "2026-02-16",
         note: "Specific calculation formulas and worksheets by state"
       },

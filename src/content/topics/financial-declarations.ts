@@ -105,7 +105,7 @@ export const financialDeclarationsTopic: ResourceQAContent = {
       {
         title: "California Courts Self-Help: Financial Disclosures",
         organization: "California Judicial Branch",
-        url: "https://selfhelp.courts.ca.gov/family/financial-disclosure",
+        url: "https://selfhelp.courts.ca.gov/divorce/financial-disclosures",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },
@@ -140,7 +140,7 @@ export const financialDeclarationsTopic: ResourceQAContent = {
       {
         title: "Child Support Guidelines by State",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/human-services/economics-and-workforce-development/child-support-guidelines",
+        url: "https://www.ncsl.org/human-services/child-support-guideline-models",
         jurisdiction: "multi-state",
         lastAccessed: "2026-02-21"
       }
@@ -160,7 +160,7 @@ export const financialDeclarationsTopic: ResourceQAContent = {
       {
         title: "California Courts Self-Help: Financial Disclosures",
         organization: "California Judicial Branch",
-        url: "https://selfhelp.courts.ca.gov/family/financial-disclosure",
+        url: "https://selfhelp.courts.ca.gov/divorce/financial-disclosures",
         jurisdiction: "california",
         lastAccessed: "2026-02-21"
       },

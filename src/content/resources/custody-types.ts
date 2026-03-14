@@ -174,14 +174,14 @@ export const custodyTypes: ResourceQAContent = {
       {
         title: "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)",
         organization: "Uniform Law Commission",
-        url: "https://www.uniformlaws.org/committees/community-home?CommunityKey=4c6bd37f-a1d0-4f0f-bf4d-aebaf6bd9a64",
+        url: "https://www.uniformlaws.org/acts/uccjea",
         jurisdiction: "Multi-State",
         lastAccessed: "2026-02-16"
       },
       {
         title: "Child Custody and Visitation",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/child_custody/",
+        url: "https://www.americanbar.org/groups/public_education/resources/",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-16"
       },
@@ -201,7 +201,7 @@ export const custodyTypes: ResourceQAContent = {
       {
         title: "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)",
         organization: "Uniform Law Commission",
-        url: "https://www.uniformlaws.org/committees/community-home?CommunityKey=4c6bd37f-a1d0-4f0f-bf4d-aebaf6bd9a64",
+        url: "https://www.uniformlaws.org/acts/uccjea",
         jurisdiction: "Multi-State",
         lastAccessed: "2026-02-16",
         note: "Model law adopted by all 50 states for interstate custody matters"
@@ -209,7 +209,7 @@ export const custodyTypes: ResourceQAContent = {
       {
         title: "Child Custody and Visitation",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/child_custody/",
+        url: "https://www.americanbar.org/groups/public_education/resources/",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-16",
         note: "Legal definitions and standards for custody arrangements"

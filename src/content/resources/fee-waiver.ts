@@ -188,7 +188,7 @@ export const feeWaiver: ResourceQAContent = {
       {
         title: "Fee Waiver Information",
         organization: "U.S. Courts",
-        url: "https://www.uscourts.gov/services-forms/fees/fee-waivers",
+        url: "https://www.uscourts.gov/forms-rules/forms/fee-waiver-application-forms",
         jurisdiction: "Federal",
         lastAccessed: "2026-02-16",
         note: "Official guidance on federal court fee waivers"

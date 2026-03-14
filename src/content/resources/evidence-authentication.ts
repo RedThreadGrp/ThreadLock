@@ -206,7 +206,7 @@ export const evidenceAuthentication: ResourceQAContent = {
       {
         title: "NIST — Digital Evidence and Forensics",
         organization: "National Institute of Standards and Technology",
-        url: "https://www.nist.gov/topics/digital-evidence-forensics",
+        url: "https://www.nist.gov/digital-evidence",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21",
         note: "Digital evidence standards and best practices"
@@ -244,7 +244,7 @@ export const evidenceAuthentication: ResourceQAContent = {
       {
         title: "NIST — Digital Evidence and Forensics",
         organization: "National Institute of Standards and Technology",
-        url: "https://www.nist.gov/topics/digital-evidence-forensics",
+        url: "https://www.nist.gov/digital-evidence",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21",
         note: "Digital evidence best practices"

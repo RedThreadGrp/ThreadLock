@@ -24,7 +24,7 @@ export default function DataProcessingAgreement() {
       <h2 className="text-2xl font-bold mt-8 mb-4">1. Subject Matter and Scope</h2>
       <p className="mb-4">
         This DPA applies to the Processing of Customer Personal Data by ThreadLock in the course of providing its case 
-        management, evidence organisation, and AI-assisted documentation services (the "Services"). The terms of this DPA 
+        management, evidence organization, and AI-assisted documentation services (the "Services"). The terms of this DPA 
         supplement and do not replace any data protection or confidentiality provisions already agreed between the parties.
       </p>
 
@@ -50,7 +50,7 @@ export default function DataProcessingAgreement() {
         </li>
         <li>
           <strong>"Personal Data Breach":</strong> A breach of security leading to accidental or unlawful destruction, 
-          loss, alteration, unauthorised disclosure of, or access to, Customer Personal Data.
+          loss, alteration, unauthorized disclosure of, or access to, Customer Personal Data.
         </li>
       </ul>
 
@@ -70,14 +70,14 @@ export default function DataProcessingAgreement() {
 
       <h2 className="text-2xl font-bold mt-8 mb-4">4. Obligations of ThreadLock</h2>
       <p className="mb-4">
-        <strong>4.1 Confidentiality:</strong> ThreadLock shall ensure that all personnel authorised to process 
+        <strong>4.1 Confidentiality:</strong> ThreadLock shall ensure that all personnel authorized to process 
         Customer Personal Data are subject to binding confidentiality obligations, whether by contract or statutory 
         duty, and process such data only as necessary to perform the Services.
       </p>
       <p className="mb-4">
-        <strong>4.2 Security:</strong> ThreadLock shall implement and maintain appropriate technical and organisational 
+        <strong>4.2 Security:</strong> ThreadLock shall implement and maintain appropriate technical and organizational 
         measures to protect Customer Personal Data against accidental or unlawful destruction, loss, alteration, or 
-        unauthorised disclosure or access. The minimum security standards maintained by ThreadLock are described in 
+        unauthorized disclosure or access. The minimum security standards maintained by ThreadLock are described in 
         Annex II below.
       </p>
       <p className="mb-4">
@@ -123,7 +123,7 @@ export default function DataProcessingAgreement() {
       <h2 className="text-2xl font-bold mt-8 mb-4">6. International Transfers</h2>
       <p className="mb-4">
         Where the Services involve the transfer of Customer Personal Data from the European Economic Area, Switzerland, 
-        or the United Kingdom to a country not recognised as providing an adequate level of data protection, the parties 
+        or the United Kingdom to a country not recognized as providing an adequate level of data protection, the parties 
         agree to be bound by the Standard Contractual Clauses (Module 2: Controller to Processor) adopted by the 
         European Commission by Decision 2021/914, which are incorporated into this DPA by reference. In the event of a 
         conflict between the SCCs and the other provisions of this DPA, the SCCs shall prevail.
@@ -189,7 +189,7 @@ export default function DataProcessingAgreement() {
       <h3 className="text-xl font-semibold mt-6 mb-3">B. Description of Processing</h3>
       <p className="mb-2">
         <strong>Categories of Data Subjects:</strong> Individuals involved in family law, tribal court, employment, 
-        or other civil legal matters; the Customer's authorised platform users (attorneys, paralegals, and 
+        or other civil legal matters; the Customer's authorized platform users (attorneys, paralegals, and 
         self-represented litigants).
       </p>
       <p className="mb-2">
@@ -207,7 +207,7 @@ export default function DataProcessingAgreement() {
       </p>
       <p className="mb-2">
         <strong>Nature of Processing:</strong> Storing, organising, and tagging legal evidence; generating 
-        chronological timelines; applying AI models for evidence classification; facilitating access by authorised 
+        chronological timelines; applying AI models for evidence classification; facilitating access by authorized 
         users under the Customer's role-based permissions.
       </p>
       <p className="mb-2">
@@ -218,7 +218,7 @@ export default function DataProcessingAgreement() {
         after which all Customer Personal Data is deleted unless law requires otherwise.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">Annex II — Technical and Organisational Measures</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">Annex II — Technical and Organizational Measures</h2>
       <p className="mb-4">
         ThreadLock maintains the following minimum security standards as of the Effective Date. These measures are 
         reviewed and updated on a regular basis to reflect changes in risk.
@@ -244,7 +244,7 @@ export default function DataProcessingAgreement() {
             </tr>
             <tr>
               <td className="border border-gray-300 px-4 py-3 font-semibold bg-gray-50">Audit Logging</td>
-              <td className="border border-gray-300 px-4 py-3">Access to and operations on Customer Personal Data are logged. Logs are retained for a minimum of 90 days and are protected against unauthorised modification.</td>
+              <td className="border border-gray-300 px-4 py-3">Access to and operations on Customer Personal Data are logged. Logs are retained for a minimum of 90 days and are protected against unauthorized modification.</td>
             </tr>
             <tr>
               <td className="border border-gray-300 px-4 py-3 font-semibold bg-gray-50">Vulnerability Management</td>
@@ -266,9 +266,9 @@ export default function DataProcessingAgreement() {
         </table>
       </div>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">Annex III — Authorised Subprocessors</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">Annex III — Authorized Subprocessors</h2>
       <p className="mb-4">
-        The following third-party entities are authorised by the Customer to process Customer Personal Data as 
+        The following third-party entities are authorized by the Customer to process Customer Personal Data as 
         Subprocessors of ThreadLock as of the Effective Date. ThreadLock will publish updates to this list at 
         threadlock.ai/dpa and provide advance notice of changes as described in Section 5.
       </p>
@@ -327,7 +327,7 @@ export default function DataProcessingAgreement() {
           Download Data Processing Agreement (PDF)
         </a>
         <p className="mt-4 text-sm text-gray-700">
-          After downloading, complete the signature fields with your organisation's information, sign the document, 
+          After downloading, complete the signature fields with your organization's information, sign the document, 
           and return it to <strong>legal@threadlock.ai</strong> for countersignature.
         </p>
       </div>

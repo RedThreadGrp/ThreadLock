@@ -355,9 +355,7 @@ export default function ResourcesPage() {
                     {filteredFeaturedGuides[0].title}
                   </h3>
                   <p className="mt-3 text-muted-dark leading-relaxed">{filteredFeaturedGuides[0].summary}</p>
-                  {filteredFeaturedGuides[0].updated && (
-                    <p className="mt-4 text-xs text-muted-dark">Updated {filteredFeaturedGuides[0].updated}</p>
-                  )}
+                  <p className="mt-4 text-xs text-muted-dark">Updated {filteredFeaturedGuides[0].updated ?? "TBD"}</p>
                 </div>
               </Link>
             )}
