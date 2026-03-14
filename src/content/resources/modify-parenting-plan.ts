@@ -178,7 +178,7 @@ export const modifyParentingPlan: ResourceQAContent = {
       {
         title: "Child Support and Family Law",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/human-services/child-support-and-family-law",
+        url: "https://www.ncsl.org/human-services/child-support-and-family-law-legislation-archived-database",
         lastAccessed: "2026-03-14",
         note: "State-by-state custody law variations"
       },
