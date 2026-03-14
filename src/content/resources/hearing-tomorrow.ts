@@ -20,7 +20,7 @@ export const hearingTomorrow: ResourcePage = {
       { 
         title: "Court Procedures - How Courts Work",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        url: "https://www.americanbar.org/groups/public_education/resources/",
         lastAccessed: "2026-02-16",
         note: "Courtroom procedures and expectations"
       },

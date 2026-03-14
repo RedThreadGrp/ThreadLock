@@ -342,7 +342,7 @@ export const filingBasics: ResourcePage = {
       {
         title: "Court Procedures",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/court-procedures/",
+        url: "https://www.americanbar.org/groups/public_education/resources/court-procedures/",
         lastAccessed: "2026-02-16",
         note: "General court filing procedures and requirements"
       }

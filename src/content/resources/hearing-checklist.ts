@@ -246,14 +246,14 @@ export const hearingChecklist: ResourceQAContent = {
       {
         title: "Court Procedures - How Courts Work",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        url: "https://www.americanbar.org/groups/public_education/resources/",
         lastAccessed: "2026-02-16",
         note: "Court appearance and hearing guidance"
       },
       {
         title: "Self-Help Resources",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
         lastAccessed: "2026-02-16",
         note: "State-specific hearing preparation resources"
       },
@@ -274,7 +274,7 @@ export const hearingChecklist: ResourceQAContent = {
       {
         title: "Self-Help Resources",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
         lastAccessed: "2026-02-16",
         note: "Practical guidance for self-represented litigants"
       },

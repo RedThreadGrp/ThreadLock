@@ -180,7 +180,7 @@ export const proofOfServiceStates: ResourceQAContent = {
       {
         title: "Service of Process Guide",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/litigation/resources/",
+        url: "https://www.americanbar.org/groups/litigation/",
         lastAccessed: "2026-02-16",
         note: "Best practices for service compliance"
       },

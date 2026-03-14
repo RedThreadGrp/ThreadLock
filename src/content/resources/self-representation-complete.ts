@@ -219,7 +219,7 @@ export const selfRepresentationComplete: ResourceQAContent = {
       { 
         title: "Self-Help Resources",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
         lastAccessed: "2026-02-16",
         note: "State-specific pro se resources"
       }

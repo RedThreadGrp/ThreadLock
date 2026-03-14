@@ -104,7 +104,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
       {
         title: "ABA How Courts Work",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        url: "https://www.americanbar.org/groups/public_education/resources/",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
@@ -118,7 +118,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
       {
         title: "NCSC — Self-Representation Resources (State Links)",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
@@ -152,7 +152,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
       {
         title: "ABA How Courts Work",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        url: "https://www.americanbar.org/groups/public_education/resources/",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
@@ -166,7 +166,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
       {
         title: "NCSC — Self-Representation Resources (State Links)",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },

@@ -135,14 +135,14 @@ export const parentingPlans: ResourcePage = {
       { 
         title: "Child Custody and Parenting Time",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/family_law/resources/family_law_101/",
+        url: "https://www.americanbar.org/groups/family_law/family_law_101/",
         lastAccessed: "2026-02-16",
         note: "Family law best practices and parenting plan guidance"
       },
       { 
         title: "Family Law Self-Help",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/state-links",
+        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
         lastAccessed: "2026-02-16",
         note: "State-by-state family court resources"
       },

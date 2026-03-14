@@ -141,7 +141,7 @@ export const evidenceExhibitsTopic: ResourceQAContent = {
       {
         title: "ABA How Courts Work",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        url: "https://www.americanbar.org/groups/public_education/resources/",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
@@ -189,7 +189,7 @@ export const evidenceExhibitsTopic: ResourceQAContent = {
       {
         title: "ABA How Courts Work",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/public_education/resources/law_related_education_network/how_courts_work/",
+        url: "https://www.americanbar.org/groups/public_education/resources/",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       }

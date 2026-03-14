@@ -7,7 +7,7 @@ function SocialLink({ href, label, children }: React.PropsWithChildren<{href:str
       href={href}
       aria-label={label}
       className="inline-flex h-9 w-9 items-center justify-center rounded-full hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/70"
-      target="_blank" rel="noreferrer"
+      target="_blank" rel="noopener noreferrer"
     >
       {children}
     </a>

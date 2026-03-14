@@ -185,7 +185,7 @@ export const textAuthentication: ResourceQAContent = {
       {
         title: "Electronic Evidence Guide",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/litigation/resources/",
+        url: "https://www.americanbar.org/groups/litigation/",
         lastAccessed: "2026-02-16",
         note: "Best practices for authenticating digital communications"
       },

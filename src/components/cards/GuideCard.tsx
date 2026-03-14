@@ -44,11 +44,9 @@ export default function GuideCard({
         {summary}
       </p>
       
-      {updated && (
-        <p className="text-xs text-muted-dark">
-          Updated {updated}
-        </p>
-      )}
+      <p className="text-xs text-muted-dark">
+        Updated {updated ?? "TBD"}
+      </p>
     </BaseCard>
   );
 }

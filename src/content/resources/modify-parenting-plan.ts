@@ -164,7 +164,7 @@ export const modifyParentingPlan: ResourceQAContent = {
       {
         title: "Child Custody Modification",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/family_law/resources/",
+        url: "https://www.americanbar.org/groups/family_law/",
         lastAccessed: "2026-02-16",
         note: "Legal standards and modification procedures"
       },
@@ -198,7 +198,7 @@ export const modifyParentingPlan: ResourceQAContent = {
       {
         title: "Child Custody",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/family_law/resources/",
+        url: "https://www.americanbar.org/groups/family_law/",
         lastAccessed: "2026-02-16",
         note: "Legal standards and procedures"
       },

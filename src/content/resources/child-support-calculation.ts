@@ -208,7 +208,7 @@ export const childSupportCalculation: ResourceQAContent = {
       {
         title: "Child Support Information",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/family_law/resources/",
+        url: "https://www.americanbar.org/groups/family_law/",
         lastAccessed: "2026-02-16",
         note: "General child support guidance and legal principles"
       },

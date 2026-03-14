@@ -101,14 +101,14 @@ export const aiDigitalEvidenceTopic: ResourceQAContent = {
       {
         title: "AI Guidelines for Courts",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/",
+        url: "https://www.ncsc.org/topics/court-management/technology/resource-guide",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
       {
         title: "NCSC — Legal Practitioner's Guide to AI & Hallucinations (2026)",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/",
+        url: "https://www.ncsc.org/topics/court-management/technology/resource-guide",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
@@ -136,7 +136,7 @@ export const aiDigitalEvidenceTopic: ResourceQAContent = {
       {
         title: "NCSC — AI & Technology for Courts",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/court-management/technology",
+        url: "https://www.ncsc.org/topics/court-management/technology/resource-guide",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       }
@@ -163,7 +163,7 @@ export const aiDigitalEvidenceTopic: ResourceQAContent = {
       {
         title: "AI Guidelines for Courts",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/",
+        url: "https://www.ncsc.org/topics/court-management/technology/resource-guide",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },

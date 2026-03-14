@@ -174,7 +174,7 @@ export const parentingTimeCalculations: ResourceQAContent = {
       {
         title: "Child Custody and Parenting Time",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/family_law/resources/",
+        url: "https://www.americanbar.org/groups/family_law/",
         lastAccessed: "2026-02-16",
         note: "Parenting time calculation standards and best practices"
       },
@@ -188,7 +188,7 @@ export const parentingTimeCalculations: ResourceQAContent = {
       {
         title: "Family Court Self-Help",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/family/child-support/state-links",
+        url: "https://www.ncsc.org/topics/family/child-support/resource-guide",
         lastAccessed: "2026-02-16",
         note: "State-specific parenting plan resources"
       },
@@ -201,7 +201,7 @@ export const parentingTimeCalculations: ResourceQAContent = {
       {
         title: "Family Law Resources",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/family_law/resources/",
+        url: "https://www.americanbar.org/groups/family_law/",
         lastAccessed: "2026-02-16",
         note: "Parenting time calculation methods"
       },
