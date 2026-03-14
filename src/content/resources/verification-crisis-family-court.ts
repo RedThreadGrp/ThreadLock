@@ -442,7 +442,7 @@ export const verificationCrisisFamilyCourt: ResourcePage = {
       {
         title: "Self-Represented Litigation Network",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
+        url: "https://www.ncsc.org/resources-courts/access-fairness/self-represented-litigants",
         lastAccessed: "2026-02-20",
         note: "Research on self-represented litigant challenges and court access",
       },

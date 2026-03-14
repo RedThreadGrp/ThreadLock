@@ -118,7 +118,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
       {
         title: "NCSC — Self-Representation Resources (State Links)",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
+        url: "https://www.ncsc.org/resources-courts/access-fairness/self-represented-litigants",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
@@ -166,7 +166,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
       {
         title: "NCSC — Self-Representation Resources (State Links)",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
+        url: "https://www.ncsc.org/resources-courts/access-fairness/self-represented-litigants",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },

@@ -152,14 +152,14 @@ export const financialSnapshot: ResourcePage = {
       { 
         title: "Self-Help Resources",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
+        url: "https://www.ncsc.org/resources-courts/access-fairness/self-represented-litigants",
         lastAccessed: "2026-02-16",
         note: "State-specific financial declaration resources"
       },
       { 
         title: "Family Court Self-Help",
         organization: "California Courts",
-        url: "https://selfhelp.courts.ca.gov/family/financial-disclosure",
+        url: "https://selfhelp.courts.ca.gov/divorce/financial-disclosures",
         jurisdiction: "California",
         lastAccessed: "2026-02-16",
         note: "Example state financial declaration guidance"

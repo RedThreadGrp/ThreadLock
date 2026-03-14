@@ -181,14 +181,14 @@ export const parentingTimeCalculations: ResourceQAContent = {
       {
         title: "Child Support Guidelines",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/human-services/economics-and-workforce-development/child-support-guidelines",
+        url: "https://www.ncsl.org/human-services/child-support-guideline-models",
         lastAccessed: "2026-02-16",
         note: "State custody thresholds and support impacts"
       },
       {
         title: "Family Court Self-Help",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/family/child-support/resource-guide",
+        url: "https://www.ncsc.org/resources-courts/children-families-elders",
         lastAccessed: "2026-02-16",
         note: "State-specific parenting plan resources"
       },
@@ -208,7 +208,7 @@ export const parentingTimeCalculations: ResourceQAContent = {
       {
         title: "Child Support Guidelines",
         organization: "National Conference of State Legislatures",
-        url: "https://www.ncsl.org/human-services/economics-and-workforce-development/child-support-guidelines",
+        url: "https://www.ncsl.org/human-services/child-support-guideline-models",
         lastAccessed: "2026-02-16",
         note: "Custody thresholds and support impacts"
       },

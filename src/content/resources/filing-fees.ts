@@ -128,7 +128,7 @@ export const filingFees: ResourcePage = {
         { 
           title: "Court Filing Fees and Statistics",
           organization: "National Center for State Courts",
-          url: "https://www.ncsc.org/information-and-resources/court-statistics-project",
+          url: "https://www.ncsc.org/resources-courts",
           jurisdiction: "US-general",
           lastAccessed: "2026-02-16",
         },
@@ -147,7 +147,7 @@ export const filingFees: ResourcePage = {
         { 
           title: "Court Filing Fees and Statistics",
           organization: "National Center for State Courts",
-          url: "https://www.ncsc.org/information-and-resources/court-statistics-project",
+          url: "https://www.ncsc.org/resources-courts",
           jurisdiction: "US-general",
           lastAccessed: "2026-02-16",
         },
@@ -179,7 +179,7 @@ export const filingFees: ResourcePage = {
       { 
         title: "Court Filing Fees and Statistics",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/information-and-resources/court-statistics-project",
+        url: "https://www.ncsc.org/resources-courts",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-16",
       },

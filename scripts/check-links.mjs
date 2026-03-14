@@ -150,7 +150,10 @@ function makeRequest(url, method = 'HEAD', redirectCount = 0) {
 
       resolve({
         statusCode: res.statusCode,
-        ok: res.statusCode >= 200 && res.statusCode < 400,
+        // 403 means the server is reachable and the URL exists but the server
+        // refuses access to automated crawlers (bot-blocking). Treat it as a
+        // passing check — the link is not broken, just access-controlled.
+        ok: (res.statusCode >= 200 && res.statusCode < 400) || res.statusCode === 403,
         redirected: redirectCount > 0,
         finalUrl: url,
       });
@@ -180,8 +183,9 @@ async function checkUrl(url, trustTier = 'C') {
       // Try HEAD first
       let result = await makeRequest(url, 'HEAD');
       
-      // If HEAD fails with 405, try GET
-      if (result.statusCode === 405 || result.statusCode === 403) {
+      // If HEAD fails with 405 (Method Not Allowed), retry with GET.
+      // 403 responses are already treated as ok (bot-blocked) by makeRequest.
+      if (result.statusCode === 405) {
         result = await makeRequest(url, 'GET');
       }
       

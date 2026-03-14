@@ -180,7 +180,7 @@ export const mediationLawyer: ResourceQAContent = {
       {
         title: "Court-Connected Mediation Programs",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/alternative-dispute-resolution/mediation/resource-guide",
+        url: "https://www.ncsc.org/resources-courts",
         lastAccessed: "2026-02-16",
         note: "Jurisdiction-specific mediation rules"
       },

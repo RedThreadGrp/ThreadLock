@@ -347,7 +347,7 @@ export const modelLocalRuleAIVerification: ResourcePage = {
       {
         title: "Judicial Technology and AI Guidelines",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/court-management/technology/resource-guide",
+        url: "https://www.ncsc.org/resources-courts/technology",
         lastAccessed: "2026-02-20",
         note: "Emerging standards for AI use in courts",
       },

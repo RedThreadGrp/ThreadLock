@@ -142,7 +142,7 @@ export const parentingPlans: ResourcePage = {
       { 
         title: "Family Law Self-Help",
         organization: "National Center for State Courts",
-        url: "https://www.ncsc.org/topics/access-and-fairness/self-representation/resource-guide",
+        url: "https://www.ncsc.org/resources-courts/access-fairness/self-represented-litigants",
         lastAccessed: "2026-02-16",
         note: "State-by-state family court resources"
       },
