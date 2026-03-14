@@ -206,7 +206,7 @@ export const verificationCrisisFamilyCourt: ResourcePage = {
           },
           {
             type: "p",
-            text: "Learn more about [Evidence Management](/resources/evidence-management) features designed for litigation-grade documentation.",
+            text: "Learn more about [Evidence & Exhibits](/resources/evidence-exhibits) features designed for litigation-grade documentation.",
           },
         ],
       },
