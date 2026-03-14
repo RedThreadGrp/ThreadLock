@@ -153,8 +153,8 @@ export const mediationLawyer: ResourceQAContent = {
       {
         title: "Model Standards of Conduct for Mediators",
         organization: "American Bar Association",
-        url: "https://www.americanbar.org/groups/dispute_resolution/policy/",
-        lastAccessed: "2026-02-16",
+        url: "https://www.americanbar.org/groups/dispute_resolution/resources/",
+        lastAccessed: "2026-03-14",
         note: "Professional standards for mediators"
       },
       {

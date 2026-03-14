@@ -92,7 +92,7 @@ const KnowledgeSpotlightSection: React.FC = () => {
               "Chain of Custody (Digital Evidence)",
             ]}
             ctaText="Browse the Wiki"
-            ctaLink="/resources#glossary"
+            ctaLink="/resources#library"
           />
 
           <PillarCard
@@ -104,7 +104,7 @@ const KnowledgeSpotlightSection: React.FC = () => {
               "Model policy frameworks",
             ]}
             ctaText="View Resources"
-            ctaLink="/resources#ai-digital-evidence"
+            ctaLink="/resources#ai-verification"
           />
 
           <PillarCard

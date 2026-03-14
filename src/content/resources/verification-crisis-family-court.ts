@@ -31,7 +31,7 @@ export const verificationCrisisFamilyCourt: ResourcePage = {
           },
           {
             type: "p",
-            text: "**Published:** February 2026",
+            text: "**Published:** February 20, 2026",
           },
           {
             type: "p",
@@ -206,7 +206,7 @@ export const verificationCrisisFamilyCourt: ResourcePage = {
           },
           {
             type: "p",
-            text: "Learn more about [Evidence Management](/features/evidence-management) features designed for litigation-grade documentation.",
+            text: "Learn more about [Evidence Management](/resources/evidence-management) features designed for litigation-grade documentation.",
           },
         ],
       },

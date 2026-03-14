@@ -8,7 +8,7 @@ export default function WikiRedirect() {
 
   useEffect(() => {
     // Redirect to resources page - the legal glossary is integrated there
-    router.replace("/resources#glossary");
+    router.replace("/resources#library");
   }, [router]);
 
   return (

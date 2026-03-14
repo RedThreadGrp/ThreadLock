@@ -221,7 +221,7 @@ export const respondToMotion: ResourceQAContent = {
         organization: "National Center for State Courts",
         url: "https://www.ncsc.org/resources-courts/access-fairness/self-represented-litigants",
         lastAccessed: "2026-02-16",
-        note: "State-specific motion response guides"
+        note: "Self help resources for court users"
       },
     ],
   },

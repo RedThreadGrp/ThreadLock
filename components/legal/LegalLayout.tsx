@@ -82,6 +82,12 @@ export default function LegalLayout({ title, children, description }: LegalLayou
           font-weight: 600;
           color: #111827;
         }
+        .legal-content table {
+          color: #374151;
+        }
+        .legal-content td, .legal-content th {
+          color: #374151;
+        }
       `}</style>
     </>
   );

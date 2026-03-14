@@ -174,9 +174,9 @@ export const custodyTypes: ResourceQAContent = {
       {
         title: "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)",
         organization: "Uniform Law Commission",
-        url: "https://www.uniformlaws.org/acts/uccjea",
+        url: "https://www.uniformlaws.org/acts",
         jurisdiction: "Multi-State",
-        lastAccessed: "2026-02-16"
+        lastAccessed: "2026-03-14"
       },
       {
         title: "Child Custody and Visitation",
@@ -201,9 +201,9 @@ export const custodyTypes: ResourceQAContent = {
       {
         title: "Uniform Child Custody Jurisdiction and Enforcement Act (UCCJEA)",
         organization: "Uniform Law Commission",
-        url: "https://www.uniformlaws.org/acts/uccjea",
+        url: "https://www.uniformlaws.org/acts",
         jurisdiction: "Multi-State",
-        lastAccessed: "2026-02-16",
+        lastAccessed: "2026-03-14",
         note: "Model law adopted by all 50 states for interstate custody matters"
       },
       {
