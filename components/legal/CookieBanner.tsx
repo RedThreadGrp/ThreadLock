@@ -50,7 +50,7 @@ export default function CookieBanner({ initialConsent }: { initialConsent: Conse
       aria-live="polite"
       aria-label="Cookie consent"
     >
-      <div className="mx-auto max-w-4xl m-4 rounded-xl border shadow-lg bg-white p-4 text-sm">
+      <div className="mx-auto max-w-4xl m-4 rounded-xl border shadow-lg bg-white p-4 text-sm text-gray-900">
         <p className="mb-3">
           We use essential cookies to make this site work, and optional cookies to improve it.
           See our <a href="/privacy" className="underline">Privacy Policy</a>.
