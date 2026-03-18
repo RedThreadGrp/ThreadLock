@@ -204,10 +204,6 @@ export const verificationCrisisFamilyCourt: ResourcePage = {
             type: "p",
             text: "ThreadLock's evidence workflow preserves upload timestamps, generates structured export packages, and maintains audit logs for exhibit lifecycle traceability. Unlike shoebox evidence management, this approach creates a verifiable chain from initial documentation to courtroom presentation.",
           },
-          {
-            type: "p",
-            text: "Learn more about [Evidence & Exhibits](/resources/evidence-exhibits) features designed for litigation-grade documentation.",
-          },
         ],
       },
       {
