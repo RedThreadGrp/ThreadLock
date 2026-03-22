@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function ClioIntegration() {
   const pageUrl = 'https://threadlock.ai/integrations/clio';
   const pageTitle = 'ThreadLock + Clio Integration | Attorney Practice Management';
-  const pageDescription = 'ThreadLock integrates with Clio practice management software to streamline attorney-client collaboration in family law cases. Share case information, sync documents, and coordinate evidence between platforms.';
+  const pageDescription = 'ThreadLock integrates with Clio practice management software to streamline attorney-client collaboration across civil legal matters. Share case information, sync documents, and coordinate evidence between platforms.';
 
   // Schema for integration page
   const softwareSchema = {
@@ -12,7 +12,7 @@ export default function ClioIntegration() {
     "@type": "SoftwareApplication",
     "name": "ThreadLock",
     "applicationCategory": "LegalTech",
-    "description": "Family law case management with Clio integration",
+    "description": "Legal case management with Clio integration",
     "integratesWith": {
       "@type": "SoftwareApplication",
       "name": "Clio",

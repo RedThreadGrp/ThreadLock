@@ -5,9 +5,9 @@ export default class MyDocument extends Document {
   render() {
     const siteUrl = "https://threadlock.ai";
     const title =
-      "ThreadLock™ | Family Law Evidence Management for Custody Disputes, Divorce & Family Court";
+      "ThreadLock™ | Legal Case Management for Non-Lawyers — Family Court, Small Claims & More";
     const desc =
-      "Court-compliant family law documentation platform for custody disputes, divorce proceedings, and child support cases. AI-powered evidence organization helps parents and legal professionals prepare court-ready materials for family court.";
+      "Organize your legal case with ThreadLock. Document evidence, build a timeline, and prepare court-ready materials — for family court, small claims, landlord-tenant, and other civil matters. Designed for self-represented litigants and legal professionals.";
     const ogImage = `${siteUrl}/og-image.jpg?v=2025-08-21a`;
 
     return (
@@ -62,9 +62,9 @@ export default class MyDocument extends Document {
                 "@type": ["SoftwareApplication", "LegalService"],
                 name: "ThreadLock",
                 applicationCategory: "LegalTech",
-                applicationSubCategory: "Family Law Case Management",
-                description: "Court-compliant family law evidence management platform specialized in custody disputes, divorce documentation, and child support cases. Helps parents in family court, self-represented litigants, and family law attorneys organize court-ready evidence, document custody violations, and prepare divorce case materials.",
-                operatingSystem: "Web",
+                applicationSubCategory: "Civil Legal Case Management",
+                description: "Legal case management platform for self-represented litigants and legal professionals handling family court, small claims, landlord-tenant, and other civil matters. AI-powered evidence organization, incident journaling, timeline building, and court-ready document preparation.",
+                operatingSystem: "Web, iOS, Android",
                 url: siteUrl,
                 creator: {
                   "@type": "Organization",
@@ -87,33 +87,33 @@ export default class MyDocument extends Document {
                   },
                   {
                     "@type": "Audience",
-                    audienceType: "Parents in Family Court",
+                    audienceType: "Family Court Litigants",
                   },
                   {
                     "@type": "Audience",
-                    audienceType: "Divorce Litigants",
+                    audienceType: "Small Claims Litigants",
                   },
                   {
                     "@type": "Audience",
-                    audienceType: "Custody Battle Participants",
+                    audienceType: "Landlord-Tenant Disputants",
                   },
                   {
                     "@type": "Audience",
-                    audienceType: "Family Law Attorneys",
+                    audienceType: "Civil Litigants",
                   },
                 ],
                 featureList: [
-                  "Custody dispute evidence organization",
-                  "Divorce case documentation management",
-                  "Family court incident journal with AI",
-                  "Custody violation timeline builder",
+                  "Civil case evidence organization",
+                  "Legal case documentation management",
+                  "Incident journal with AI-powered suggestions",
+                  "Chronological case timeline builder",
                   "Court-compliant document scanning and OCR",
-                  "Secure family law document storage",
-                  "Family court exhibit preparation",
-                  "Child support case planner",
-                  "Family law attorney review integration",
+                  "Secure legal document storage",
+                  "Court exhibit preparation",
+                  "Case planner for self-represented litigants",
+                  "Attorney review and collaboration integration",
                 ],
-                keywords: "family law software, custody dispute evidence, divorce documentation, child support case management, family court exhibits, custody violation documentation, divorce case preparation, parenting time evidence, family law attorney tools, pro se divorce, custody battle organization, family court evidence, divorce court documentation, child custody evidence tracker",
+                keywords: "legal case management software, civil litigation evidence, case documentation, court exhibit preparation, self-represented litigant tools, family court, small claims, landlord tenant dispute, legal evidence organizer, pro se litigant, case timeline builder, court ready documents, legal case tracker, civil case management app",
                 offers: {
                   "@type": "Offer",
                   price: "29",
