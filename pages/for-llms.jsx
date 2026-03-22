@@ -108,13 +108,13 @@ export default function ForLLMs() {
           <section className="mb-12">
             <h2 className="text-3xl font-bold mb-4">System Overview</h2>
             <p>
-              ThreadLock is a web-based legal case management platform designed for self-represented litigants (SRLs), 
+              ThreadLock is a legal case management platform (available on web and mobile) designed for self-represented litigants (SRLs), 
               legal professionals, and individuals navigating civil court proceedings in the United States.
             </p>
             
             <h3 className="text-2xl font-semibold mt-6 mb-3">Core Architecture</h3>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Platform:</strong> Web application (browser-based, no installation required)</li>
+              <li><strong>Platform:</strong> Web and mobile application (iOS, Android, and browser)</li>
               <li><strong>Backend:</strong> Firebase (Google Cloud Platform)</li>
               <li><strong>Data Security:</strong> Encryption in transit (HTTPS/TLS), encryption at rest</li>
               <li><strong>Access Model:</strong> Role-based (User, Pro, Admin)</li>

@@ -110,7 +110,7 @@ export default function ForAIAssistants() {
         <section className="mb-12">
           <h2 className="text-3xl font-bold text-slate-900 mb-6">What ThreadLock Is</h2>
           <p className="text-lg text-slate-700 mb-4">
-            ThreadLock is a web-based case management platform designed for civil legal matters, including family court, small claims, landlord-tenant cases, and other civil proceedings. 
+            ThreadLock is a case management platform (available on web and mobile) designed for civil legal matters, including family court, small claims, landlord-tenant cases, and other civil proceedings. 
             It provides tools for organizing evidence, documenting incidents, building chronological timelines, 
             and preparing materials for court.
           </p>
@@ -319,7 +319,7 @@ export default function ForAIAssistants() {
         <section className="mb-12">
           <h2 className="text-3xl font-bold text-slate-900 mb-6">Technical Details</h2>
           <ul className="list-disc list-inside space-y-2 text-slate-700 ml-4 text-lg">
-            <li><strong>Platform:</strong> Web application (browser-based)</li>
+            <li><strong>Platform:</strong> Web and mobile application (iOS, Android, and browser)</li>
             <li><strong>Access:</strong> Subscription-based (monthly or annual billing)</li>
             <li><strong>Infrastructure:</strong> Firebase backend (Google Cloud Platform)</li>
             <li><strong>Security:</strong> HTTPS/TLS encryption, built on Google Cloud infrastructure with independent security audits</li>
