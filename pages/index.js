@@ -117,7 +117,7 @@ const PdfExportUIMockup = () => (
 
 /* App screenshot mockups — faithful representations of the ThreadLock mobile & web app */
 const AppCaseHubMockup = () => (
-    <div className="w-full bg-[#111827] rounded-xl p-3 md:p-4 text-white" style={{minHeight: '300px'}}>
+    <div className="w-full bg-[#111827] rounded-xl p-3 md:p-4 text-white">
         <div className="flex justify-between items-center mb-2">
             <span className="text-xs text-slate-400">‹ Cases</span>
             <span className="text-xs border border-slate-600 px-2 py-0.5 rounded text-slate-300">Share ↗</span>
@@ -176,7 +176,7 @@ const AppCaseHubMockup = () => (
 );
 
 const AppJournalEntryMockup = () => (
-    <div className="w-full bg-[#1e2535] rounded-xl p-3 md:p-4 text-white" style={{minHeight: '300px'}}>
+    <div className="w-full bg-[#1e2535] rounded-xl p-3 md:p-4 text-white">
         <div className="flex justify-between items-center mb-3 border-b border-slate-700 pb-2">
             <h4 className="text-sm md:text-base font-bold">New Journal Entry</h4>
             <span className="text-slate-400 text-xl leading-none cursor-pointer">×</span>
@@ -227,7 +227,7 @@ const AppJournalEntryMockup = () => (
 );
 
 const AppCaseOverviewMockup = () => (
-    <div className="w-full bg-[#111827] rounded-xl text-white overflow-hidden" style={{minHeight: '300px'}}>
+    <div className="w-full bg-[#111827] rounded-xl text-white overflow-hidden">
         <div className="flex items-center justify-between px-3 py-1.5 bg-[#0d1117] border-b border-slate-800">
             <div className="flex items-center gap-1.5">
                 <div className="bg-slate-700 rounded px-2 py-0.5 text-[9px] flex items-center gap-1 text-slate-300">Family Law Case – CA <span className="text-slate-500">▾</span></div>
@@ -623,21 +623,6 @@ const FeaturesSection = () => (
 
 const ProductShowcaseSection = () => {
     const slides = [
-        { 
-            title: "Stop the Chaos. Start Here.", 
-            description: "Stop digging through emails, notebooks, and messy folders. Your Case Hub gives you a clean, simple view of all your matters. See your timeline, your evidence, and your tasks, all in one place.", 
-            mockup: <JournalUIMockup /> 
-        },
-        { 
-            title: "Your All-in-One Evidence Locker", 
-            description: "A conversation happens. A receipt is printed. An email is sent. Now you have one place to log it all, right when it happens. Add journal entries, upload documents, or scan files, all tagged to your case timeline.", 
-            mockup: <TimelineUIMockup /> 
-        },
-        { 
-            title: "Manage Your Case Forms", 
-            description: "Prepare court-ready documents and summaries using your organized case information.", 
-            mockup: <PdfExportUIMockup /> 
-        },
         {
             title: "Your Entire Case, In Your Pocket",
             description: "The ThreadLock mobile app keeps your case organized wherever you are. Log incidents the moment they happen, scan documents on the go, and access your Journal, Timeline, Research Hub, and Organizer — all from your phone.",
@@ -663,9 +648,9 @@ const ProductShowcaseSection = () => {
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">A quick look at how key features help you stay organized and prepared.</p>
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-2xl mx-auto">
                     <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
-                        <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
+                        <div className="origin-center">{slides[idx].mockup}</div>
                     </div>
                     <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
                         <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
