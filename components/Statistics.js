@@ -4,7 +4,7 @@ export default function Statistics() {
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-            Trusted Insights for Family Law Cases
+            Trusted Insights for Legal Cases
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
             ThreadLock is designed to help self-represented parents and legal professionals
@@ -22,7 +22,7 @@ export default function Statistics() {
                 <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
               </svg>
               <h2 className="title-font font-medium text-3xl text-gray-900">3.8M+</h2>
-              <p className="leading-relaxed">Family Law Cases / Year</p>
+              <p className="leading-relaxed">Civil Legal Cases / Year</p>
             </div>
           </div>
 

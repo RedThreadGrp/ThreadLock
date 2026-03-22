@@ -136,11 +136,11 @@ const HeroSection = () => (
     <div className="absolute inset-0 bg-black/60"></div>
     <div className="relative container mx-auto px-6 py-24 text-center w-full">
       <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
-        <span className="block">Family Court.</span>
+        <span className="block">Your Case.</span>
         <span className="block mt-2 text-orange-400">Organized.</span>
       </h1>
       <p className="mt-8 text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-        Built for family court. Designed to work with or without an attorney.
+        Built for your legal case. Designed to work with or without an attorney.
       </p>
       <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <Link
@@ -164,7 +164,7 @@ const DefinitionStrip = () => (
   <section className="py-12 bg-white border-b border-slate-200">
     <div className="container mx-auto px-6 max-w-4xl text-center">
       <p className="text-base md:text-lg text-slate-800 leading-relaxed mb-4">
-        <strong>ThreadLock is a case organization platform for family court matters.</strong>
+        <strong>ThreadLock is a case organization platform for civil legal matters—family court, small claims, landlord-tenant, and more.</strong>
       </p>
       <p className="text-base md:text-lg text-slate-700 leading-relaxed mb-3">
         It helps self-represented litigants track evidence, events, and documents in a way courts understand.
@@ -560,7 +560,7 @@ const WhoItsForSection = () => (
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
           <h3 className="text-2xl font-bold text-slate-800 mb-4">Navigating on your own? Get a clear path.</h3>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Most people in family law represent themselves. We built ThreadLock for you. It&apos;s your personal case manager to keep you on track, organized, and in control.
+            Most people navigating the legal system represent themselves. We built ThreadLock for you. It&apos;s your personal case manager to keep you on track, organized, and in control.
           </p>
           <p className="text-slate-600 leading-relaxed">
             Stop feeling overwhelmed and start feeling prepared.
@@ -702,7 +702,7 @@ export default function Home() {
         "@type": "SoftwareApplication",
         "name": "ThreadLock",
         "applicationCategory": "LegalTech",
-        "description": "Court-compliant family law evidence management platform specialized in custody disputes, divorce documentation, and child support cases. Helps parents in family court, self-represented divorce litigants, and family law attorneys organize court-ready evidence, document custody violations, and prepare divorce case materials.",
+        "description": "Court-compliant legal case management platform for self-represented litigants. Helps individuals in family court, small claims, and landlord-tenant cases organize court-ready evidence, document incidents, and prepare case materials.",
         "operatingSystem": "Web",
         "url": "https://threadlock.ai",
         "screenshot": "https://threadlock.ai/screenshot-1-request-pool.png",
@@ -739,20 +739,20 @@ export default function Home() {
             }
         ],
         "featureList": [
-            "Custody dispute evidence organization",
-            "Divorce case documentation management",
-            "Family court incident journal with AI",
-            "Custody violation timeline builder",
+            "Evidence organization for legal cases",
+            "Case documentation management",
+            "Incident journal with AI",
+            "Case timeline builder",
             "Court-compliant document scanning and OCR",
-            "Family court PDF exhibit export",
-            "Secure divorce document storage",
-            "Family court exhibit preparation",
-            "Child support case filings management",
-            "Custody case message organization",
-            "Divorce case planner",
-            "AI-assisted family law documentation",
-            "Family law attorney review integration",
-            "Collaborative family law attorney access"
+            "PDF exhibit export",
+            "Secure document storage",
+            "Exhibit preparation and labeling",
+            "Case filings management",
+            "Message and communication organization",
+            "Case planner",
+            "AI-assisted legal documentation",
+            "Attorney review integration",
+            "Collaborative attorney access"
         ],
         "areaServed": {
             "@type": "Country",
@@ -761,22 +761,22 @@ export default function Home() {
         "audience": [
             {
                 "@type": "Audience",
+                "audienceType": "Self-Represented Litigants"
+            },
+            {
+                "@type": "Audience",
                 "audienceType": "Parents in Custody Disputes"
             },
             {
                 "@type": "Audience",
-                "audienceType": "Divorce Litigants"
+                "audienceType": "Small Claims Filers"
             },
             {
                 "@type": "Audience",
-                "audienceType": "Family Law Attorneys"
-            },
-            {
-                "@type": "Audience",
-                "audienceType": "Self-Represented Parents in Family Court"
+                "audienceType": "Landlord-Tenant Litigants"
             }
         ],
-        "keywords": "family law software, custody dispute evidence, divorce documentation, child support case management, family court exhibits, custody violation documentation, divorce case preparation, parenting time evidence, family law attorney tools, pro se divorce, custody battle organization, family court evidence, divorce court documentation, child custody evidence tracker",
+        "keywords": "legal case management software, evidence organization, court document management, self-represented litigant tools, small claims evidence, landlord tenant documentation, family court exhibits, pro se litigation, court-ready evidence, legal case planner, civil case management",
         "softwareHelp": "https://threadlock.ai/resources",
         "installUrl": "https://app.threadlock.ai/signup"
     };
@@ -784,14 +784,14 @@ export default function Home() {
     const legalServiceSchema = {
         "@context": "https://schema.org",
         "@type": "LegalService",
-        "name": "ThreadLock Family Law Technology",
-        "description": "Family law technology platform providing specialized case management tools for custody disputes, divorce proceedings, child support cases, and family court evidence organization. Not a law firm.",
+        "name": "ThreadLock Legal Case Management",
+        "description": "Legal case management platform providing tools for self-represented litigants in family court, small claims, and landlord-tenant cases. Helps organize evidence, documentation, and court preparation. Not a law firm.",
         "url": "https://threadlock.ai",
         "areaServed": {
             "@type": "Country",
             "name": "United States"
         },
-        "serviceType": "Family Law Technology Platform",
+        "serviceType": "Legal Case Management Platform",
         "provider": {
             "@type": "Organization",
             "name": "ThreadLock",
@@ -829,8 +829,8 @@ export default function Home() {
     return (
         <div className="bg-white">
             <Head>
-                <title>ThreadLock™ | Family Law Evidence Management - Custody Disputes, Divorce & Child Support</title>
-                <meta name="description" content="Court-compliant family law platform for custody disputes, divorce cases, and child support documentation. Organize evidence, document custody violations, and prepare court-ready materials for family court proceedings." />
+                <title>ThreadLock™ | Legal Case Management for Non-Lawyers — Family Court, Small Claims & More</title>
+                <meta name="description" content="Court-compliant case management for self-represented litigants. Organize evidence, document incidents, and prepare court-ready materials for family court, small claims, landlord-tenant, and other civil proceedings." />
                 <link rel="canonical" href="https://threadlock.ai/" />
                 <script
                     type="application/ld+json"

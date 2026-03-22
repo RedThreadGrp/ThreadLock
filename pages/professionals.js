@@ -8,8 +8,8 @@ export default function ProfessionalsPage() {
   return (
     <div className="min-h-screen tl-page-background">
       <Head>
-        <title>For Family Law Attorneys - ThreadLock Professional Case Review Platform</title>
-        <meta name="description" content="Join ThreadLock Pro for family law attorneys. Review pre-paid custody and divorce case materials from parents in your state." />
+        <title>For Legal Professionals - ThreadLock Professional Case Review Platform</title>
+        <meta name="description" content="Join ThreadLock Pro for legal professionals. Review pre-paid case materials from clients in your state across family law, small claims, landlord-tenant, and other civil matters." />
       </Head>
 
       <SiteHeader />

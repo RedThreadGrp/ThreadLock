@@ -6,13 +6,13 @@ export default function Hero() {
         {/* Left: Headline & CTA */}
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
-            Take Control of Your Family Law Case
+            Take Control of Your Legal Case
             <br className="hidden lg:inline-block" />
             Secure. Organized. Court-Ready.
           </h1>
           <p className="mb-8 leading-relaxed">
-            Navigating custody and court deadlines is overwhelming when everything that matters is on the line.
-            ThreadLock helps parents and professionals collect, secure, and organize every crucial detail -
+            Navigating legal deadlines and court requirements is overwhelming when everything that matters is on the line.
+            ThreadLock helps individuals and professionals collect, secure, and organize every crucial detail -
             giving you confidence in mediation and court.
           </p>
           <div className="flex justify-center">
