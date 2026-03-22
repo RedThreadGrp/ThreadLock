@@ -117,6 +117,184 @@ const PdfExportUIMockup = () => (
     </div>
 );
 
+const AppCaseHubMockup = () => (
+    <div className="w-full bg-[#111827] rounded-xl p-3 md:p-4 text-white">
+        <div className="flex justify-between items-center mb-2">
+            <span className="text-xs text-slate-400">‹ Cases</span>
+            <span className="text-xs border border-slate-600 px-2 py-0.5 rounded text-slate-300">Share ↗</span>
+        </div>
+        <h4 className="text-sm md:text-base font-bold mb-1">Family Law Case – CA</h4>
+        <div className="flex gap-2 mb-2">
+            <span className="text-[10px] bg-slate-700 px-2 py-0.5 rounded-full text-slate-300">Family</span>
+            <span className="text-[10px] border border-green-500 text-green-400 px-2 py-0.5 rounded-full">Active</span>
+        </div>
+        <div className="mb-3">
+            <div className="flex justify-between text-[10px] mb-1">
+                <span className="text-slate-400">Documentation Score</span>
+                <span className="text-orange-400 font-semibold">74%</span>
+            </div>
+            <div className="w-full bg-slate-700 rounded-full h-1.5">
+                <div className="bg-orange-500 h-1.5 rounded-full" style={{width:'74%'}}></div>
+            </div>
+        </div>
+        <div className="grid grid-cols-2 gap-2 mb-3">
+            <button className="bg-orange-500 text-white text-[11px] py-1.5 rounded-lg font-semibold">+ Journal Entry</button>
+            <button className="bg-slate-700 text-slate-200 text-[11px] py-1.5 rounded-lg">Scan / Upload</button>
+        </div>
+        <div className="grid grid-cols-2 gap-2">
+            <div className="bg-slate-800 p-2.5 rounded-lg">
+                <div className="w-6 h-6 bg-slate-700 rounded-lg flex items-center justify-center mb-1.5">
+                    <FileTextIcon className="w-3 h-3 text-slate-300" />
+                </div>
+                <p className="text-[11px] font-bold">Journal</p>
+                <p className="text-[10px] text-slate-400">Chronological notes</p>
+                <span className="text-[9px] bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded-full mt-1 inline-block">28 entries</span>
+            </div>
+            <div className="bg-slate-800 p-2.5 rounded-lg">
+                <div className="w-6 h-6 bg-green-900/60 rounded-lg flex items-center justify-center mb-1.5">
+                    <svg className="w-3 h-3 text-green-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <p className="text-[11px] font-bold">Timeline</p>
+                <p className="text-[10px] text-slate-400">Chronological events</p>
+            </div>
+            <div className="bg-slate-800 p-2.5 rounded-lg">
+                <div className="w-6 h-6 bg-slate-900 rounded-lg flex items-center justify-center mb-1.5">
+                    <svg className="w-3 h-3 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <p className="text-[11px] font-bold">Research Hub</p>
+                <p className="text-[10px] text-slate-400">Statutes &amp; case law</p>
+            </div>
+            <div className="bg-slate-800 p-2.5 rounded-lg">
+                <div className="w-6 h-6 bg-orange-900/60 rounded-lg flex items-center justify-center mb-1.5">
+                    <FolderIcon className="w-3 h-3 text-orange-400" />
+                </div>
+                <p className="text-[11px] font-bold">Organizer</p>
+                <p className="text-[10px] text-slate-400">AI-powered insights</p>
+                <span className="text-[9px] bg-slate-700 text-slate-300 px-1.5 py-0.5 rounded-full mt-1 inline-block">AI</span>
+            </div>
+        </div>
+    </div>
+);
+
+const AppJournalEntryMockup = () => (
+    <div className="w-full bg-[#1e2535] rounded-xl p-3 md:p-4 text-white">
+        <div className="flex justify-between items-center mb-3 border-b border-slate-700 pb-2">
+            <h4 className="text-sm md:text-base font-bold">New Journal Entry</h4>
+            <span className="text-slate-400 text-xl leading-none cursor-pointer">×</span>
+        </div>
+        <div className="space-y-2 text-[11px]">
+            <div>
+                <label className="text-slate-400 block mb-0.5">Title *</label>
+                <div className="bg-[#2a3448] rounded p-2 text-slate-500 border border-slate-700">Brief summary of what happened</div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+                <div>
+                    <label className="text-slate-400 block mb-0.5">Event Date *</label>
+                    <div className="bg-[#2a3448] rounded p-2 text-slate-300 border border-slate-700">03/22/2026</div>
+                </div>
+                <div>
+                    <label className="text-slate-400 block mb-0.5">Time (optional)</label>
+                    <div className="bg-[#2a3448] rounded p-2 text-slate-500 border border-slate-700">--:-- --</div>
+                </div>
+            </div>
+            <div>
+                <label className="text-slate-400 block mb-0.5">Description *</label>
+                <div className="bg-[#2a3448] rounded p-2 text-slate-500 h-12 border border-slate-700">Describe what happened in detail...</div>
+            </div>
+            <div>
+                <label className="text-slate-400 block mb-0.5">Issue Types <span className="text-purple-400 text-[9px]">✦ AI suggestions available after saving</span></label>
+                <div className="flex gap-1">
+                    <div className="flex-1 bg-[#2a3448] rounded p-2 text-slate-500 border border-slate-700">e.g., custody, evidence (press Enter)</div>
+                    <button className="bg-slate-600 px-2 rounded text-white text-[10px]">Add</button>
+                </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2 items-end">
+                <div>
+                    <label className="text-slate-400 block mb-0.5">Severity</label>
+                    <div className="bg-[#2a3448] rounded p-2 text-slate-200 border border-slate-700 flex justify-between items-center">Medium <span className="text-slate-400">▾</span></div>
+                </div>
+                <div className="pb-0.5">
+                    <label className="flex items-center gap-1 text-slate-300 text-[10px] cursor-pointer">
+                        <span className="w-3 h-3 border border-slate-500 rounded-sm inline-block shrink-0"></span> Flag for review
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div className="flex gap-2 mt-3 pt-2 border-t border-slate-700">
+            <button className="bg-orange-500 text-white px-4 py-1.5 rounded text-[11px] font-semibold">Create Entry</button>
+            <button className="bg-slate-600 text-white px-4 py-1.5 rounded text-[11px]">Cancel</button>
+        </div>
+    </div>
+);
+
+const AppCaseOverviewMockup = () => (
+    <div className="w-full bg-[#111827] rounded-xl text-white overflow-hidden">
+        <div className="flex items-center justify-between px-3 py-1.5 bg-[#0d1117] border-b border-slate-800">
+            <div className="flex items-center gap-1.5">
+                <div className="bg-slate-700 rounded px-2 py-0.5 text-[9px] flex items-center gap-1 text-slate-300">Family Law Case – CA <span className="text-slate-500">▾</span></div>
+            </div>
+            <div className="flex gap-1">
+                {['⌂','⌕','?','🔔'].map((icon, i) => (
+                    <div key={i} className="w-5 h-5 bg-slate-700 rounded text-[10px] flex items-center justify-center text-slate-400">{icon}</div>
+                ))}
+                <div className="w-5 h-5 bg-orange-500 rounded-full text-[9px] flex items-center justify-center font-bold">A</div>
+            </div>
+        </div>
+        <div className="p-3">
+            <h4 className="text-sm font-bold mb-2">Case Overview</h4>
+            <div className="bg-slate-800 rounded-lg p-2 mb-2 border border-slate-700">
+                <div className="flex justify-between items-center mb-1">
+                    <div>
+                        <div className="text-[10px] font-semibold text-white">Start Here</div>
+                        <div className="text-[9px] text-slate-400">Not sure where to begin? Here are the most useful places to get started.</div>
+                    </div>
+                </div>
+                <div className="grid grid-cols-4 gap-1 mt-1">
+                    {[
+                        { label: 'Case Guides', sub: 'Step-by-step guides for your case type', color: 'text-orange-400' },
+                        { label: 'Research Hub', sub: 'Toolkits, resources, and research aids', color: 'text-teal-400' },
+                        { label: 'Add Documents', sub: 'Upload and organize your case files', color: 'text-blue-400' },
+                        { label: 'Journal', sub: 'Document what happened, as it happened', color: 'text-green-400' },
+                    ].map((item, i) => (
+                        <div key={i} className="bg-slate-700/60 rounded p-1.5">
+                            <div className={`text-[9px] font-semibold ${item.color} mb-0.5`}>{item.label}</div>
+                            <div className="text-[8px] text-slate-400 leading-tight">{item.sub}</div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className="bg-slate-800 rounded-lg p-2 mb-2">
+                <div className="flex justify-between items-start">
+                    <div>
+                        <div className="text-[10px] font-semibold">Family Law Case – CA</div>
+                        <div className="text-[9px] text-slate-400">Jurisdiction: California</div>
+                    </div>
+                    <div className="flex gap-1">
+                        <button className="text-[8px] border border-slate-600 px-1.5 py-0.5 rounded text-slate-300">? Help</button>
+                        <button className="text-[8px] border border-slate-600 px-1.5 py-0.5 rounded text-slate-300">✎ Edit case info</button>
+                    </div>
+                </div>
+                <div className="flex gap-3 mt-1.5">
+                    <div className="flex-1">
+                        <div className="text-[9px] text-teal-400 font-semibold">📖 Your Case Guides</div>
+                        <div className="text-[8px] text-slate-400 mt-0.5 leading-tight">Guides for family in California — tailored to your situation</div>
+                        <button className="text-[8px] bg-teal-700 text-white px-2 py-0.5 rounded mt-1">Open Case Guides ›</button>
+                    </div>
+                    <div className="text-[9px] shrink-0">
+                        <div className="font-semibold text-slate-300 mb-0.5">Suggested Next Steps</div>
+                        <div className="space-y-0.5 text-[8px]">
+                            <div className="flex items-center gap-1 text-slate-400"><span className="text-green-400">✓</span> Review your Case Guides</div>
+                            <div className="flex items-center gap-1 text-slate-400"><span className="text-green-400">✓</span> Add your first Journal entry</div>
+                            <div className="flex items-center gap-1 text-slate-400"><span className="text-green-400">✓</span> Upload a document or evidence</div>
+                            <div className="flex items-center gap-1 text-slate-500"><span>○</span> Connect with an attorney</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
 /* ---------------- Text Brand ---------------- */
 function BrandWordmark({ className = "", darkText = true }) {
     return (
@@ -478,20 +656,20 @@ const FeaturesSection = () => (
 
 const ProductShowcaseSection = () => {
     const slides = [
-        { 
-            title: "Stop the Chaos. Start Here.", 
-            description: "Stop digging through emails, notebooks, and messy folders. Your Case Hub gives you a clean, simple view of all your matters. See your timeline, your evidence, and your tasks, all in one place.", 
-            mockup: <JournalUIMockup /> 
+        {
+            title: "Your Entire Case, In Your Pocket",
+            description: "The ThreadLock mobile app keeps your case organized wherever you are. Log incidents the moment they happen, scan documents on the go, and access your Journal, Timeline, Research Hub, and Organizer — all from your phone.",
+            mockup: <AppCaseHubMockup />
         },
-        { 
-            title: "Your All-in-One Evidence Locker", 
-            description: "A conversation happens. A receipt is printed. An email is sent. Now you have one place to log it all, right when it happens. Add journal entries, upload documents, or scan files, all tagged to your case timeline.", 
-            mockup: <TimelineUIMockup /> 
+        {
+            title: "Document Every Detail, Right When It Happens",
+            description: "Capture incidents with rich detail — title, date, time, description, location, people involved, and severity — directly from the app. AI issue-type suggestions help you categorize entries after saving, and you can link entries to your case timeline with one tap.",
+            mockup: <AppJournalEntryMockup />
         },
-        { 
-            title: "Manage Your Case Forms", 
-            description: "Don't waste time searching confusing government websites. Access a library of state-specific legal forms relevant to your case, right from your case hub.", 
-            mockup: <PdfExportUIMockup /> 
+        {
+            title: "Complete Case Overview at a Glance",
+            description: "See your entire case in one structured view. Start with guided next steps, access step-by-step Case Guides tailored to your situation, and take action with one click — add evidence, fill a form, draft a document, or start a court filing.",
+            mockup: <AppCaseOverviewMockup />
         },
     ];
     const [idx, setIdx] = useState(0);
@@ -503,9 +681,9 @@ const ProductShowcaseSection = () => {
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">A quick look at how key features help you stay organized and prepared.</p>
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-2xl mx-auto">
                     <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
-                        <div className="scale-90 md:scale-95 origin-center">{slides[idx].mockup}</div>
+                        <div className="origin-center">{slides[idx].mockup}</div>
                     </div>
                     <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
                         <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
