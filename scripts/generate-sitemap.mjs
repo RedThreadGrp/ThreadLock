@@ -36,7 +36,14 @@ try {
   if (questionsMatch) {
     const questionsContent = questionsMatch[1];
     const slugMatches = [...questionsContent.matchAll(/slug:\s*["']([^"']+)["']/g)];
-    POPULAR_QUESTIONS = slugMatches.map(m => ({ slug: m[1] }));
+    const seen = new Set();
+    POPULAR_QUESTIONS = slugMatches
+      .map(m => ({ slug: m[1] }))
+      .filter(item => {
+        if (seen.has(item.slug)) return false;
+        seen.add(item.slug);
+        return true;
+      });
   }
   
   // Extract FEATURED_GUIDES slugs

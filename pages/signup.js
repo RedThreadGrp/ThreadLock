@@ -6,8 +6,8 @@ export default function SignupPage() {
   return (
     <AuthShell>
       <Head>
-        <title>Sign Up - Family Law Evidence Management | ThreadLock</title>
-        <meta name="description" content="Create your ThreadLock account for custody evidence, divorce documentation, and family court preparation. Plans for parents and attorneys." />
+        <title>Sign Up - Legal Case Management | ThreadLock</title>
+        <meta name="description" content="Create your ThreadLock account to start organizing your legal case — evidence, timelines, documents, and court preparation. Plans for individuals and attorneys." />
       </Head>
 
       <div className="max-w-4xl w-full mx-auto">

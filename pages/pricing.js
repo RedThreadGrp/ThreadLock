@@ -30,8 +30,8 @@ export default function PricingPage() {
       </div>
 
       <Head>
-        <title>Family Law Software Pricing - ThreadLock for Custody & Divorce Cases</title>
-        <meta name="description" content="Affordable family law pricing for custody disputes, divorce cases, and child support. Plans for parents and family law attorneys." />
+        <title>Legal Case Management Pricing - ThreadLock for Non-Lawyers</title>
+        <meta name="description" content="Affordable legal case management pricing for self-represented litigants. Plans for individuals and legal professionals handling family court, small claims, landlord-tenant, and more." />
       </Head>
 
       <SiteHeader theme="dark" />

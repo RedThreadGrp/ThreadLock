@@ -559,7 +559,7 @@ const WhoItsForSection = () => (
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
           <h3 className="text-2xl font-bold text-slate-800 mb-4">Navigating on your own? Get a clear path.</h3>
           <p className="text-slate-600 leading-relaxed mb-4">
-            Most people in family law represent themselves. We built ThreadLock for you. It&apos;s your personal case manager to keep you on track, organized, and in control.
+            Most people navigating the legal system represent themselves. We built ThreadLock for you. It&apos;s your personal case manager to keep you on track, organized, and in control.
           </p>
           <p className="text-slate-600 leading-relaxed">
             Stop feeling overwhelmed and start feeling prepared.
