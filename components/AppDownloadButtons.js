@@ -1,4 +1,5 @@
-// Update IOS_APP_STORE_URL when the iOS app is published to the App Store
+// Update IOS_APP_STORE_URL when the iOS app is published to the App Store.
+// Expected format: 'https://apps.apple.com/app/id[APP_ID]'
 const IOS_APP_STORE_URL = null;
 
 const GOOGLE_PLAY_URL =
@@ -38,7 +39,7 @@ export default function AppDownloadButtons({ className = "" }) {
         href={GOOGLE_PLAY_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2.5 bg-slate-900 text-white px-4 py-2.5 rounded-xl hover:bg-slate-700 transition-colors"
+        className="inline-flex items-center gap-2.5 bg-slate-900 text-white px-4 py-2.5 rounded-xl hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
         aria-label="Get it on Google Play"
       >
         <GooglePlayIcon />
@@ -52,7 +53,7 @@ export default function AppDownloadButtons({ className = "" }) {
           href={IOS_APP_STORE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2.5 bg-slate-900 text-white px-4 py-2.5 rounded-xl hover:bg-slate-700 transition-colors"
+          className="inline-flex items-center gap-2.5 bg-slate-900 text-white px-4 py-2.5 rounded-xl hover:bg-slate-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
           aria-label="Download on the App Store"
         >
           <AppleIcon />
