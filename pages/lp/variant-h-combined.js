@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import LandingPageHead from "../../components/LandingPageHead";
 import PromoModal from "../../components/PromoModal";
+import AppDownloadButtons from "../../components/AppDownloadButtons";
 import TrustBar from "../../components/TrustBar";
 
 /* ---------------- Icons ---------------- */
@@ -682,6 +683,7 @@ const ProductShowcaseSection = () => {
                         <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
                             <h3 className="text-2xl font-bold text-slate-800 mb-2">{slides[idx].title}</h3>
                             <p className="text-slate-600">{slides[idx].description}</p>
+                            <AppDownloadButtons />
                         </div>
                         <div className="flex items-center justify-center gap-4 shrink-0 order-1 md:order-2">
                             <button onClick={prev} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
