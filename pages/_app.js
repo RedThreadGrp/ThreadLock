@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/legal/CookieBanner";
 import { parse } from "cookie";
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App({ Component, pageProps, initialConsent }) {
   return (
@@ -10,6 +11,7 @@ export default function App({ Component, pageProps, initialConsent }) {
       <Component {...pageProps} />
       <Footer />
       <CookieBanner initialConsent={initialConsent} />
+      <Analytics />
     </>
   );
 }
