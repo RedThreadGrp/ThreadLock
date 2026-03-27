@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": ["WebSite", "SoftwareApplication", "LegalService"],
+  "name": "ThreadLock",
+  "url": "https://threadlock.ai",
+  "description": "Organize your legal case with ThreadLock. Document evidence, build a timeline, and prepare court-ready materials — for family court, small claims, landlord-tenant, and other civil matters. Designed for self-represented litigants and legal professionals.",
+  "logo": "https://threadlock.ai/threadlock-logo.png",
+  "image": "https://threadlock.ai/og-image.jpg",
+  "inLanguage": "en-US",
+  "author": {
+    "@type": "Organization",
+    "name": "ThreadLock",
+    "url": "https://threadlock.ai"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ThreadLock",
+    "url": "https://threadlock.ai",
+    "logo": "https://threadlock.ai/threadlock-logo.png"
+  },
+  "applicationCategory": "LegalTech",
+  "operatingSystem": "Web, iOS, Android",
+  "serviceType": "Legal Technology Platform",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "audience": [
+    { "@type": "Audience", "audienceType": "Self-Represented Litigants" },
+    { "@type": "Audience", "audienceType": "Legal Professionals" },
+    { "@type": "Audience", "audienceType": "Family Court Litigants" },
+    { "@type": "Audience", "audienceType": "Small Claims Litigants" },
+    { "@type": "Audience", "audienceType": "Landlord-Tenant Disputants" },
+    { "@type": "Audience", "audienceType": "Civil Litigants" }
+  ],
+  "featureList": [
+    "Civil case evidence organization",
+    "Legal case documentation management",
+    "Incident journal with AI-powered suggestions",
+    "Chronological case timeline builder",
+    "Court-compliant document scanning and OCR",
+    "Secure legal document storage",
+    "Court exhibit preparation",
+    "Case planner for self-represented litigants",
+    "Attorney review and collaboration integration"
+  ],
+  "keywords": "legal case management software, civil litigation evidence, case documentation, court exhibit preparation, self-represented litigant tools, family court, small claims, landlord tenant dispute, legal evidence organizer, pro se litigant, case timeline builder, court ready documents, legal case tracker, civil case management app",
+  "offers": {
+    "@type": "Offer",
+    "price": "29",
+    "priceCurrency": "USD",
+    "priceValidUntil": "2026-12-31"
+  }
+}
