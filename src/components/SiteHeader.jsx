@@ -75,7 +75,7 @@ function ResourcesDropdown({ darkText = false }) {
             </button>
 
             {isOpen && (
-                <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50" role="menu" aria-labelledby={buttonId}>
+                <div className="absolute top-full left-0 mt-2 w-52 bg-white rounded-lg shadow-lg border border-slate-200 py-2 z-50" role="menu" aria-labelledby={buttonId}>
                     <Link
                         href="/resources"
                         onClick={() => setIsOpen(false)}
@@ -102,6 +102,39 @@ function ResourcesDropdown({ darkText = false }) {
                     >
                         Before You Act
                     </a>
+                    <div className="border-t border-slate-100 my-1" role="separator" />
+                    <Link
+                        href="/edu/clinics"
+                        onClick={() => setIsOpen(false)}
+                        className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+                        role="menuitem"
+                    >
+                        Students
+                    </Link>
+                    <Link
+                        href="/professionals"
+                        onClick={() => setIsOpen(false)}
+                        className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+                        role="menuitem"
+                    >
+                        Attorneys
+                    </Link>
+                    <Link
+                        href="/benefits"
+                        onClick={() => setIsOpen(false)}
+                        className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+                        role="menuitem"
+                    >
+                        Employers
+                    </Link>
+                    <Link
+                        href="/sovereign"
+                        onClick={() => setIsOpen(false)}
+                        className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
+                        role="menuitem"
+                    >
+                        Tribal
+                    </Link>
                 </div>
             )}
         </div>
@@ -179,7 +212,7 @@ function StoriesDropdown({ darkText = false }) {
 
 /* ---------------- Header: MODIFIED ---------------- */
 // Constants
-const MOBILE_MENU_MAX_HEIGHT = '32rem'; // Height to accommodate expanded Stories section
+const MOBILE_MENU_MAX_HEIGHT = '40rem'; // Height to accommodate expanded Resources section with all sub-items
 
 const SiteHeader = ({ theme = 'auto' }) => {
     const [open, setOpen] = useState(false);
@@ -212,10 +245,6 @@ const SiteHeader = ({ theme = 'auto' }) => {
                 <nav className={`hidden md:flex items-center space-x-6 font-semibold ${navTextClasses}`}>
                     <ResourcesDropdown darkText={shouldUseDarkText} />
                     <StoriesDropdown darkText={shouldUseDarkText} />
-                    <Link href="/professionals" className="hover:text-orange-600 transition-colors">Attorneys</Link>
-                    <Link href="/benefits" className="hover:text-orange-600 transition-colors">Employers</Link>
-                    <Link href="/sovereign" className="hover:text-orange-600 transition-colors">Tribal</Link>
-                    <Link href="/edu/clinics" className="hover:text-orange-600 transition-colors">Students</Link>
                     <Link href="/login" className="hover:text-orange-600 transition-colors">Login</Link>
                     <Link href="/signup" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
                         Sign Up
@@ -238,16 +267,16 @@ const SiteHeader = ({ theme = 'auto' }) => {
                         <Link href="/resources" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Resources</Link>
                         <Link href="/pricing" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Pricing</Link>
                         <a href="https://app.threadlock.ai/readiness" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Before You Act</a>
+                        <Link href="/edu/clinics" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Students</Link>
+                        <Link href="/professionals" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Attorneys</Link>
+                        <Link href="/benefits" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Employers</Link>
+                        <Link href="/sovereign" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Tribal</Link>
                     </div>
                     <div className="space-y-1">
                         <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider px-2 py-1">Stories</p>
                         <Link href="/founder-story" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Our Story</Link>
                         <Link href="/sarahs-story" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Sarah's Story</Link>
                     </div>
-                    <Link href="/professionals" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Attorneys</Link>
-                    <Link href="/benefits" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Employers</Link>
-                    <Link href="/sovereign" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Tribal</Link>
-                    <Link href="/edu/clinics" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Students</Link>
                     <Link href="/login" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Login</Link>
                     <Link href="/signup" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
                         Sign Up

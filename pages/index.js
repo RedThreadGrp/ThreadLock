@@ -328,40 +328,201 @@ function BrandWordmark({ className = "", darkText = true }) {
 /* ---------------- Sections ---------------- */
 
 const HeroSection = () => (
-  <section
-    className="relative text-white bg-cover bg-center bg-fixed min-h-[500px] flex items-center"
-    style={{ backgroundImage: "url('/simran-sood-qL0t5zNGFVQ-unsplash.jpg')" }}
-  >
-    <div className="absolute inset-0 bg-black/60"></div>
-    <div className="relative container mx-auto px-6 py-24 text-center w-full">
-      <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
-        <span className="block">Your Legal Case.</span>
-        <span className="block mt-2 text-orange-400">Organized.</span>
-      </h1>
-      <p className="mt-8 text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed">
-        Built for your legal case. Designed to work with or without an attorney.
-      </p>
-      <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-        <Link
-          href="/signup"
-          className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
-        >
-          Get Started
-        </Link>
-        <Link
-          href="/login"
-          className="bg-slate-700 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-slate-800 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
-        >
-          Login
-        </Link>
+  <section className="relative text-white overflow-hidden" style={{ background: '#0d1520' }}>
+    {/* Glow effects */}
+    <div className="pointer-events-none absolute" style={{ top: '-100px', left: '-100px', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(251,122,30,0.15) 0%, rgba(251,122,30,0) 70%)', borderRadius: '50%' }} />
+    <div className="pointer-events-none absolute" style={{ bottom: '-80px', right: '20%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(251,122,30,0.08) 0%, rgba(251,122,30,0) 70%)', borderRadius: '50%' }} />
+
+    <div className="relative container mx-auto px-6 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+      {/* Left: Text content */}
+      <div className="space-y-8 z-10">
+        <div className="space-y-5">
+          <p className="text-[11px] font-bold tracking-[0.14em] uppercase text-orange-500">Civil Case Management</p>
+          <h1 className="font-extrabold leading-[1.05] tracking-tight" style={{ fontSize: 'clamp(36px, 5.5vw, 60px)' }}>
+            Don&apos;t let the<br />
+            <span className="text-orange-500">paperwork win.</span>
+          </h1>
+          <p className="text-base md:text-[17px] leading-relaxed max-w-[480px]" style={{ color: 'rgba(255,255,255,0.55)' }}>
+            ThreadLock gives you the tools to build your story, understand the process, and walk into any civil matter without the confusion. No legal background required.
+          </p>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <Link
+            href="/signup"
+            className="inline-flex items-center justify-center bg-orange-600 text-white font-bold px-10 py-[18px] rounded-xl shadow-lg hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-300 text-base"
+            style={{ boxShadow: '0 4px 20px rgba(251,122,30,0.4)' }}
+          >
+            Start Your Free Trial
+          </Link>
+          <Link
+            href="#showcase"
+            className="hero-ghost-btn inline-flex items-center justify-center gap-2 text-white font-semibold px-10 py-[18px] rounded-xl transition-all duration-200 text-base"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3" /></svg>
+            See How It Works
+          </Link>
+        </div>
+
+        {/* Trust signals */}
+        <div className="flex items-center gap-5 pt-1">
+          <div className="flex -space-x-3">
+            {[['JN','bg-slate-600'],['TR','bg-slate-700'],['AL','bg-slate-500']].map(([initials, bg]) => (
+              <div key={initials} className={`w-9 h-9 rounded-full border-2 flex items-center justify-center text-xs font-bold text-white ${bg}`} style={{ borderColor: '#0d1520' }}>
+                {initials}
+              </div>
+            ))}
+          </div>
+          <p className="text-[13px] font-medium" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            Trusted by <strong style={{ color: 'rgba(255,255,255,0.7)' }}>5,000+</strong> self-represented litigants
+          </p>
+        </div>
+
+        <p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.35)', letterSpacing: '0.01em' }}>
+          7 days free &nbsp;·&nbsp; No credit card required
+        </p>
       </div>
-      <p
-        className="mt-5 text-sm font-semibold text-orange-300 tracking-wide"
-        aria-label="Free for 7 days — no credit card required to create an account"
-      >
-        🔓 Free for 7 days — no credit card required to create an account
-      </p>
+
+      {/* Right: Dashboard visuals */}
+      <div className="relative hidden lg:flex items-center justify-center" style={{ perspective: '1200px', height: '500px' }}>
+        {/* Back card (Timeline) */}
+        <div
+          className="absolute rounded-2xl overflow-hidden"
+          style={{
+            width: '440px',
+            height: '320px',
+            top: '20px',
+            right: '60px',
+            zIndex: 1,
+            transform: 'rotateY(-15deg) rotateX(10deg)',
+            background: '#1a222c',
+            border: '1px solid rgba(255,255,255,0.15)',
+            boxShadow: '0 30px 60px rgba(0,0,0,0.6)',
+            opacity: 0.8,
+            filter: 'brightness(0.8)',
+          }}
+        >
+          <div className="w-full h-full p-3 text-white" style={{ background: '#111827' }}>
+            <div className="flex items-center gap-2 mb-2 border-b pb-2" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+              <span className="text-[11px] font-bold text-slate-300">Timeline</span>
+              <span className="text-[9px] text-slate-500 ml-1">Anchor events, data, and evidence to specific points in time.</span>
+            </div>
+            <div className="text-[9px] text-orange-400 mb-2 cursor-pointer">How do I use the Timeline? →</div>
+            <div className="space-y-2">
+              {[
+                { date: 'Jul 26', title: 'Custody Exchange Late', verified: true },
+                { date: 'Jul 25', title: 'Email Received', verified: true },
+                { date: 'Jul 20', title: 'Court Hearing Notice', verified: false },
+              ].map((item, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <div className="w-1 h-1 rounded-full bg-orange-500 mt-1.5 shrink-0" />
+                  <div>
+                    <p className="text-[10px] font-semibold text-white">{item.title}</p>
+                    <p className="text-[9px] text-slate-500">{item.date}, 2025</p>
+                    {item.verified && <span className="text-[8px] text-green-400">✓ Verified</span>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Front card (Case Overview) — animated float */}
+        <div
+          className="absolute rounded-2xl overflow-hidden"
+          style={{
+            width: '480px',
+            height: '340px',
+            bottom: '40px',
+            right: '-20px',
+            zIndex: 2,
+            background: '#1a222c',
+            border: '1px solid rgba(255,255,255,0.15)',
+            boxShadow: '0 30px 60px rgba(0,0,0,0.6)',
+            animation: 'heroFloat 6s ease-in-out infinite',
+          }}
+        >
+          <div className="w-full h-full" style={{ background: '#111827' }}>
+            {/* Top bar */}
+            <div className="flex items-center justify-between px-3 py-1.5" style={{ background: '#0d1117', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+              <div className="flex items-center gap-1.5">
+                <div className="bg-slate-700 rounded px-2 py-0.5 text-[9px] flex items-center gap-1 text-slate-300">Family Law Case – CA <span className="text-slate-500">▾</span></div>
+              </div>
+              <div className="flex gap-1">
+                {[
+                  { icon: '⌂', label: 'Home' },
+                  { icon: '⌕', label: 'Search' },
+                  { icon: '?', label: 'Help' },
+                  { icon: '🔔', label: 'Notifications' },
+                ].map(({ icon, label }) => (
+                  <div key={label} className="w-5 h-5 bg-slate-700 rounded text-[10px] flex items-center justify-center text-slate-400" aria-label={label}>{icon}</div>
+                ))}
+                <div className="w-5 h-5 bg-orange-500 rounded-full text-[9px] flex items-center justify-center font-bold text-white">A</div>
+              </div>
+            </div>
+
+            <div className="p-3">
+              {/* Case Guides */}
+              <div className="rounded-lg p-2.5 mb-2" style={{ background: '#1e2535', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="flex items-center gap-1 mb-0.5">
+                  <BookOpenIcon className="w-3 h-3 text-orange-400" />
+                  <span className="text-[9px] font-bold text-orange-400 uppercase tracking-wide">Case Guides</span>
+                  <span className="ml-auto text-[9px] text-slate-400">Suggested Next Steps</span>
+                </div>
+                <p className="text-[10px] font-semibold text-white mb-0.5">Start Here</p>
+                <p className="text-[8px] text-slate-400 mb-1.5 leading-tight">If this process is unfamiliar to you, this is where to begin. Case Guides walk you through the typical steps for your type of case.</p>
+                <div className="flex gap-2">
+                  <button className="text-[8px] bg-orange-500 text-white px-2.5 py-1 rounded font-semibold">Open Case Guides →</button>
+                  <div className="text-[8px] text-slate-400 space-y-0.5">
+                    <div className="flex items-center gap-1"><span className="text-green-400">✓</span> Review your Case Guides</div>
+                    <div className="flex items-center gap-1"><span className="text-green-400">✓</span> Add your first Journal entry</div>
+                    <div className="flex items-center gap-1"><span className="text-green-400">✓</span> Upload a document</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Build Your Case */}
+              <div>
+                <div className="flex items-center gap-1 text-[11px] font-bold mb-1.5 text-white">
+                  <span className="text-orange-400">⚡</span> Build Your Case
+                </div>
+                <p className="text-[8px] text-slate-400 mb-1.5">Start building your case with these common actions</p>
+                <div className="grid grid-cols-3 gap-1.5">
+                  {[
+                    { icon: '+', label: 'Add Evidence', sub: 'Upload photos, documents, or record what happened', color: 'text-blue-400' },
+                    { icon: '↑', label: 'Fill a Form', sub: 'Upload and complete a court PDF form', color: 'text-green-400' },
+                    { icon: '✎', label: 'Draft a Document', sub: 'Create declarations, chronologies, or other documents', color: 'text-purple-400' },
+                  ].map((item, i) => (
+                    <div key={i} className="rounded-lg p-2" style={{ background: '#1e2535', border: '1px solid rgba(255,255,255,0.06)' }}>
+                      <div className={`text-[14px] mb-1 ${item.color}`}>{item.icon}</div>
+                      <div className="text-[9px] font-semibold text-white">{item.label}</div>
+                      <div className="text-[8px] text-slate-400 leading-tight mt-0.5">{item.sub}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    {/* Float animation keyframes injected inline */}
+    <style>{`
+      @keyframes heroFloat {
+        0%, 100% { transform: rotateY(-5deg) rotateX(2deg) translateY(0px); }
+        50% { transform: rotateY(-5deg) rotateX(2deg) translateY(-15px); }
+      }
+      .hero-ghost-btn {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.12);
+      }
+      .hero-ghost-btn:hover {
+        background: rgba(255,255,255,0.08);
+        border-color: rgba(255,255,255,0.2);
+      }
+    `}</style>
   </section>
 );
 
