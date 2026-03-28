@@ -355,6 +355,12 @@ const HeroSection = () => (
           Login
         </Link>
       </div>
+      <p
+        className="mt-5 text-sm font-semibold text-orange-300 tracking-wide"
+        aria-label="Free for 7 days — no credit card required to create an account"
+      >
+        🔓 Free for 7 days — no credit card required to create an account
+      </p>
     </div>
   </section>
 );
