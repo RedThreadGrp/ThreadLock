@@ -328,7 +328,7 @@ function BrandWordmark({ className = "", darkText = true }) {
 /* ---------------- Sections ---------------- */
 
 const HeroSection = () => (
-  <section className="relative text-white overflow-hidden" style={{ background: '#0d1520' }}>
+  <section data-testid="hero-section" className="relative text-white overflow-hidden" style={{ background: '#0d1520' }}>
     {/* Glow effects */}
     <div className="pointer-events-none absolute" style={{ top: '-100px', left: '-100px', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(251,122,30,0.15) 0%, rgba(251,122,30,0) 70%)', borderRadius: '50%' }} />
     <div className="pointer-events-none absolute" style={{ bottom: '-80px', right: '20%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(251,122,30,0.08) 0%, rgba(251,122,30,0) 70%)', borderRadius: '50%' }} />

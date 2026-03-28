@@ -2,7 +2,7 @@ describe("Marketing Layout Consistency", () => {
   const allPages = ["/", "/resources", "/sarahs-story", "/founder-story"];
   const pagesWithHero = ["/", "/sarahs-story", "/founder-story"];
   const headerHeightSelector = "header";
-  const heroSelector = "section[style*='background-image']";
+  const heroSelector = "[data-testid='hero-section']";
 
   it("all pages share consistent header height and hero scale", () => {
     cy.viewport(1280, 900);
@@ -15,7 +15,7 @@ describe("Marketing Layout Consistency", () => {
       .then((h) => {
         baselineHeaderHeight = h as number;
       })
-      .get("section[style*='background-image']")
+      .get(heroSelector)
       .invoke("outerHeight")
       .then((h) => {
         baselineHeroHeight = h as number;
@@ -34,7 +34,7 @@ describe("Marketing Layout Consistency", () => {
         // Check hero consistency only on pages that have hero sections
         pagesWithHero.slice(1).forEach((page) => {
           cy.visit(page)
-            .get("section[style*='background-image']")
+            .get(heroSelector)
             .invoke("outerHeight")
             .then((h) => {
               // Increased tolerance to 150px to accommodate content-driven height variations

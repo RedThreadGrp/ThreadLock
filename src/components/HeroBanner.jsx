@@ -3,6 +3,7 @@ import React from "react";
 export default function HeroBanner({ image, heading, subheading, children }) {
   return (
     <section
+      data-testid="hero-section"
       className="relative text-white bg-cover bg-center bg-fixed min-h-[500px] flex items-center"
       style={{ backgroundImage: `url('${image}')` }}
     >
