@@ -333,10 +333,10 @@ const HeroSection = () => (
     <div className="pointer-events-none absolute" style={{ top: '-100px', left: '-100px', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(251,122,30,0.15) 0%, rgba(251,122,30,0) 70%)', borderRadius: '50%' }} />
     <div className="pointer-events-none absolute" style={{ bottom: '-80px', right: '20%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(251,122,30,0.08) 0%, rgba(251,122,30,0) 70%)', borderRadius: '50%' }} />
 
-    <div className="relative container mx-auto px-6 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+    <div className="relative container mx-auto px-6 md:px-8 py-10 md:py-16 grid lg:grid-cols-2 gap-12 items-center">
       {/* Left: Text content */}
-      <div className="space-y-8 z-10">
-        <div className="space-y-5">
+      <div className="space-y-5 z-10">
+        <div className="space-y-3">
           <p className="text-[11px] font-bold tracking-[0.14em] uppercase text-orange-500">Civil Case Management</p>
           <h1 className="font-extrabold leading-[1.05] tracking-tight" style={{ fontSize: 'clamp(36px, 5.5vw, 60px)' }}>
             Don&apos;t let the<br />
