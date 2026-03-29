@@ -204,6 +204,42 @@ export default function ResourcesPage() {
       <Head>
         <title>Resource Hub | ThreadLock</title>
         <meta name="description" content="Checklists, templates, and plain-English guidance for self-represented litigants in family court. Updated weekly." />
+        <link rel="canonical" href="https://threadlock.ai/resources" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              name: "ThreadLock Resource Hub",
+              description: "Checklists, templates, plain-English guides, and official court portal links for self-represented litigants in family court, small claims, and landlord-tenant cases. Covers evidence organization, exhibit preparation, proof of service, parenting plans, financial declarations, and more.",
+              url: "https://threadlock.ai/resources",
+              isPartOf: {
+                "@type": "WebSite",
+                name: "ThreadLock",
+                url: "https://threadlock.ai",
+              },
+              about: [
+                { "@type": "Thing", name: "Family court self-representation" },
+                { "@type": "Thing", name: "Evidence organization for civil cases" },
+                { "@type": "Thing", name: "Court exhibit preparation" },
+                { "@type": "Thing", name: "Proof of service" },
+                { "@type": "Thing", name: "Parenting plans" },
+                { "@type": "Thing", name: "Small claims court preparation" },
+                { "@type": "Thing", name: "Landlord-tenant dispute documentation" },
+              ],
+              audience: {
+                "@type": "Audience",
+                audienceType: "Self-Represented Litigants, Pro Se Litigants, Family Court Litigants",
+              },
+              provider: {
+                "@type": "Organization",
+                name: "ThreadLock",
+                url: "https://threadlock.ai",
+              },
+            })
+          }}
+        />
       </Head>
 
       <SiteHeader />

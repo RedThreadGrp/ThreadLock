@@ -342,7 +342,7 @@ const HeroSection = () => (
             <span className="text-orange-500">paperwork win.</span>
           </h1>
           <p className="text-base md:text-[17px] leading-relaxed max-w-[480px]" style={{ color: 'rgba(255,255,255,0.55)' }}>
-            ThreadLock gives you the tools to build your story, understand the process, and walk into any civil matter with confidence.<br />No legal background required.
+            ThreadLock is legal case management software for self-represented litigants. Organize your evidence, document incidents, build a case timeline, and prepare court-ready exhibits—for family court, small claims, landlord-tenant, and other civil matters.<br />No legal background required.
           </p>
         </div>
 
@@ -529,13 +529,16 @@ const DefinitionStrip = () => (
   <section className="py-12 bg-white border-b border-slate-200">
     <div className="container mx-auto px-6 max-w-4xl text-center">
       <p className="text-base md:text-lg text-slate-800 leading-relaxed mb-4">
-        <strong>ThreadLock is a case organization platform for civil legal matters—family court, small claims, landlord-tenant, and more.</strong>
+        <strong>ThreadLock is a legal case management software platform for civil matters—family court, small claims, landlord-tenant disputes, custody proceedings, and more.</strong>
       </p>
       <p className="text-base md:text-lg text-slate-700 leading-relaxed mb-3">
-        It helps self-represented litigants track evidence, events, and documents in a way courts understand.
+        It gives self-represented litigants and pro se filers a structured system to capture incident journals, organize digital evidence, build a chronological case timeline, scan and store court documents, and export court-ready exhibit packets—without needing a legal background.
+      </p>
+      <p className="text-base md:text-lg text-slate-700 leading-relaxed mb-3">
+        ThreadLock functions as a civil case evidence organizer, a case documentation manager, and a court preparation tool. It is not a law firm and does not provide legal advice.
       </p>
       <p className="text-base md:text-lg text-slate-700 leading-relaxed">
-        Designed to work with or without an attorney.
+        Designed to work independently or alongside an attorney. Starting at $29/month.
       </p>
     </div>
   </section>
@@ -1186,6 +1189,38 @@ export default function Home() {
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "No. We can't guarantee any specific outcome - your case is unique. Our mission is to help you get organized and feel a sense of control and preparedness for your next step. A well-organized record is invaluable, whether you are representing yourself or working with a professional."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is ThreadLock used for?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ThreadLock is legal case management software for self-represented litigants. It lets you organize evidence, write incident journal entries, build a chronological case timeline, scan and store legal documents, and export court-ready exhibit packets. It is used in family court, small claims, landlord-tenant, and other civil proceedings."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Who is ThreadLock designed for?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ThreadLock is designed for self-represented litigants (also called pro se litigants) navigating civil legal matters including family court custody disputes, divorce proceedings, small claims cases, and landlord-tenant disputes. It is also used by legal professionals—attorneys and paralegals—who want to review pre-organized client case materials."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does ThreadLock help with evidence in family court?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ThreadLock provides an incident journal to document events with dates, times, locations, and descriptions. Evidence files (photos, documents, screenshots) can be attached to journal entries. A timeline builder organizes everything chronologically. Court exhibit preparation tools label and export evidence into court-compliant PDF packets."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does ThreadLock cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ThreadLock Core starts at $29 per month for individuals. ThreadLock Pro for legal professionals is $99 per month. A 7-day free trial is available with no credit card required."
                 }
             }
         ]

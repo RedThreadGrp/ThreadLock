@@ -32,6 +32,125 @@ export default function PricingPage() {
       <Head>
         <title>Legal Case Management Pricing - ThreadLock for Non-Lawyers</title>
         <meta name="description" content="Affordable legal case management pricing for self-represented litigants. Plans for individuals and legal professionals handling family court, small claims, landlord-tenant, and more." />
+        <link rel="canonical" href="https://threadlock.ai/pricing" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "ThreadLock",
+              applicationCategory: "LegalTech",
+              applicationSubCategory: "Civil Legal Case Management",
+              description: "Legal case management software for self-represented litigants. Organize evidence, document incidents, build timelines, and prepare court-ready materials for family court, small claims, landlord-tenant, and other civil proceedings.",
+              operatingSystem: "Web",
+              url: "https://threadlock.ai",
+              offers: [
+                {
+                  "@type": "Offer",
+                  name: "ThreadLock Core",
+                  description: "Individual plan for self-represented litigants. Includes evidence management, incident journal, timeline builder, document scanning and OCR, PDF exhibit export, and secure document storage.",
+                  price: "29",
+                  priceCurrency: "USD",
+                  priceValidUntil: "2026-12-31",
+                  priceSpecification: {
+                    "@type": "UnitPriceSpecification",
+                    price: "29",
+                    priceCurrency: "USD",
+                    billingDuration: "P1M",
+                  },
+                  eligibleCustomerType: "Individual",
+                  url: "https://threadlock.ai/pricing",
+                },
+                {
+                  "@type": "Offer",
+                  name: "ThreadLock Pro",
+                  description: "Professional plan for attorneys, paralegals, and legal practitioners. Includes client management, review queue, Clio integration, and attorney-client collaboration tools.",
+                  price: "99",
+                  priceCurrency: "USD",
+                  priceValidUntil: "2026-12-31",
+                  priceSpecification: {
+                    "@type": "UnitPriceSpecification",
+                    price: "99",
+                    priceCurrency: "USD",
+                    billingDuration: "P1M",
+                  },
+                  eligibleCustomerType: "Business",
+                  url: "https://threadlock.ai/pricing",
+                },
+              ],
+              audience: [
+                { "@type": "Audience", audienceType: "Self-Represented Litigants" },
+                { "@type": "Audience", audienceType: "Legal Professionals" },
+                { "@type": "Audience", audienceType: "Family Court Litigants" },
+                { "@type": "Audience", audienceType: "Small Claims Filers" },
+                { "@type": "Audience", audienceType: "Landlord-Tenant Disputants" },
+              ],
+              featureList: [
+                "Civil case evidence organization",
+                "Incident journal with AI suggestions",
+                "Chronological case timeline builder",
+                "Court-compliant document scanning and OCR",
+                "PDF exhibit export",
+                "Secure legal document storage",
+                "Court exhibit preparation and labeling",
+                "Attorney review and collaboration integration",
+                "Clio legal practice management integration",
+              ],
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "How much does ThreadLock cost?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "ThreadLock Core starts at $29/month for individuals. ThreadLock Pro for legal professionals is $99/month. Annual plans are available with 2 months free.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Is there a free trial?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes. ThreadLock offers a 7-day free trial with no credit card required.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "What does ThreadLock Core include?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "ThreadLock Core includes a guided 5-step workflow, journal and evidence manager, document scanning and OCR, timeline builder with KML/ICS import, PDF exhibit export, and secure document storage.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Who is ThreadLock for?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "ThreadLock is designed for self-represented litigants navigating family court, small claims, landlord-tenant disputes, and other civil matters—as well as legal professionals who want to review pre-organized client cases.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Can attorneys and paralegals use ThreadLock?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes. ThreadLock Pro is designed for legal professionals. It includes a client review queue, conflict-check tools, case annotation, and integration with Clio legal practice management software.",
+                  },
+                },
+              ],
+            })
+          }}
+        />
       </Head>
 
       <SiteHeader theme="dark" />

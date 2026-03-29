@@ -10,6 +10,87 @@ export default function ProfessionalsPage() {
       <Head>
         <title>For Legal Professionals - ThreadLock Professional Case Review Platform</title>
         <meta name="description" content="Join ThreadLock Pro for legal professionals. Review pre-paid case materials from clients in your state across family law, small claims, landlord-tenant, and other civil matters." />
+        <link rel="canonical" href="https://threadlock.ai/professionals" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: "ThreadLock Pro — Legal Professional Case Review Platform",
+              description: "ThreadLock Pro connects attorneys and paralegals with pre-organized, pre-paid case review requests from self-represented litigants in their jurisdiction. Professionals set their flat fee, claim anonymous jobs, pass a conflict check, annotate the case materials, and receive payment — all within the ThreadLock platform.",
+              provider: {
+                "@type": "Organization",
+                name: "ThreadLock",
+                url: "https://threadlock.ai",
+              },
+              serviceType: "Legal Case Review Marketplace",
+              areaServed: {
+                "@type": "Country",
+                name: "United States",
+              },
+              audience: {
+                "@type": "Audience",
+                audienceType: "Legal Professionals — Attorneys, Paralegals, Law Clerks",
+              },
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "ThreadLock Pro Plans",
+                itemListElement: [
+                  {
+                    "@type": "Offer",
+                    name: "ThreadLock Pro",
+                    description: "Professional plan for attorneys and paralegals. Includes client review queue, conflict check tooling, case annotation, Clio integration, and payment processing.",
+                    price: "99",
+                    priceCurrency: "USD",
+                    priceSpecification: {
+                      "@type": "UnitPriceSpecification",
+                      price: "99",
+                      priceCurrency: "USD",
+                      billingDuration: "P1M",
+                    },
+                  },
+                ],
+              },
+              url: "https://threadlock.ai/professionals",
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "How does ThreadLock Pro work for attorneys?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Attorneys set their profile with jurisdiction, practice area, and flat-fee rate. ThreadLock sends anonymous, pre-paid case review requests from litigants in your state. You view party names to run a conflict check, accept the job, review the organized case materials using in-app annotation tools, and receive payment.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "What types of cases come through ThreadLock Pro?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "ThreadLock Pro handles civil case review requests including family law (divorce, custody, support), small claims, landlord-tenant disputes, and other civil matters. All requests originate from self-represented litigants who have organized their case materials on the platform.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Does ThreadLock Pro integrate with Clio?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes. ThreadLock Pro integrates with Clio legal practice management software, allowing attorneys to sync client data, documents, and case notes between platforms.",
+                  },
+                },
+              ],
+            })
+          }}
+        />
       </Head>
 
       <SiteHeader />
