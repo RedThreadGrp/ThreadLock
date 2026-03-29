@@ -51,6 +51,52 @@ export default class MyDocument extends Document {
                 "@type": "WebSite",
                 name: "ThreadLock",
                 url: siteUrl,
+                description: "Legal case management software for self-represented litigants. Organize evidence, build timelines, and prepare court-ready materials for family court, small claims, landlord-tenant, and civil cases.",
+                potentialAction: {
+                  "@type": "SearchAction",
+                  target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: `${siteUrl}/resources?q={search_term_string}`,
+                  },
+                  "query-input": "required name=search_term_string",
+                },
+              }),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "ThreadLock",
+                url: siteUrl,
+                logo: `${siteUrl}/threadlock-logo.png`,
+                description: "ThreadLock is a legal case management software company. We build tools for self-represented litigants and legal professionals to organize evidence, documentation, and case materials for family court, small claims, landlord-tenant, and civil proceedings.",
+                foundingDate: "2023",
+                areaServed: {
+                  "@type": "Country",
+                  name: "United States",
+                },
+                knowsAbout: [
+                  "Legal case management software",
+                  "Civil litigation evidence organization",
+                  "Self-represented litigant tools",
+                  "Family court documentation",
+                  "Small claims case preparation",
+                  "Landlord-tenant dispute documentation",
+                  "Court exhibit preparation",
+                  "Legal technology",
+                ],
+                sameAs: [
+                  "https://app.threadlock.ai",
+                ],
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  contactType: "customer support",
+                  url: `${siteUrl}/support`,
+                  availableLanguage: "English",
+                },
               }),
             }}
           />

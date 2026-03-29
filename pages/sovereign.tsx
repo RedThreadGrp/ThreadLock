@@ -76,6 +76,37 @@ export default function SovereignPage() {
           content="ThreadLock provides a single, secure place to manage cases, evidence, records, and exports across Tribal Courts and programs."
         />
         <meta property="og:url" content="https://threadlock.ai/sovereign" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "ThreadLock Sovereign Jurisdiction Case System",
+              applicationCategory: "LegalTech",
+              applicationSubCategory: "Tribal Court Case Management",
+              description: "ThreadLock provides a single, secure case management system for Tribal Courts and sovereign jurisdiction programs. Manage cases, evidence, records, and exports with court-compliant workflows designed for sovereign legal systems.",
+              operatingSystem: "Web",
+              url: "https://threadlock.ai/sovereign",
+              audience: {
+                "@type": "Audience",
+                audienceType: "Tribal Courts, Sovereign Jurisdiction Programs, Indigenous Legal Programs",
+              },
+              provider: {
+                "@type": "Organization",
+                name: "ThreadLock",
+                url: "https://threadlock.ai",
+              },
+              featureList: [
+                "Tribal court case management",
+                "Sovereign jurisdiction evidence organization",
+                "Case records and export management",
+                "Secure document storage for tribal programs",
+                "Court-compliant workflow for sovereign jurisdictions",
+              ],
+            })
+          }}
+        />
       </Head>
 
       <SiteHeader theme="dark" />
