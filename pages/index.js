@@ -4,7 +4,6 @@ import Link from "next/link";
 import ResourcesDropdown from "../components/ResourcesDropdown";
 import SiteHeader from "../src/components/SiteHeader";
 import KnowledgeSpotlightSection from "../src/components/KnowledgeSpotlightSection";
-import AppDownloadButtons from "../components/AppDownloadButtons";
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -328,22 +327,22 @@ function BrandWordmark({ className = "", darkText = true }) {
 /* ---------------- Sections ---------------- */
 
 const HeroSection = () => (
-  <section data-testid="hero-section" className="relative text-white overflow-hidden" style={{ background: '#0d1520' }}>
+  <section data-testid="hero-section" className="relative text-white overflow-hidden min-h-screen flex flex-col justify-center" style={{ background: '#0d1520' }}>
     {/* Glow effects */}
     <div className="pointer-events-none absolute" style={{ top: '-100px', left: '-100px', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(251,122,30,0.15) 0%, rgba(251,122,30,0) 70%)', borderRadius: '50%' }} />
     <div className="pointer-events-none absolute" style={{ bottom: '-80px', right: '20%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(251,122,30,0.08) 0%, rgba(251,122,30,0) 70%)', borderRadius: '50%' }} />
 
-    <div className="relative container mx-auto px-6 md:px-8 py-16 md:py-24 grid lg:grid-cols-2 gap-12 items-center">
+    <div className="relative container mx-auto px-6 md:px-8 py-10 md:py-16 grid lg:grid-cols-2 gap-12 items-center">
       {/* Left: Text content */}
-      <div className="space-y-8 z-10">
-        <div className="space-y-5">
+      <div className="space-y-5 z-10">
+        <div className="space-y-3">
           <p className="text-[11px] font-bold tracking-[0.14em] uppercase text-orange-500">Civil Case Management</p>
           <h1 className="font-extrabold leading-[1.05] tracking-tight" style={{ fontSize: 'clamp(36px, 5.5vw, 60px)' }}>
             Don&apos;t let the<br />
             <span className="text-orange-500">paperwork win.</span>
           </h1>
           <p className="text-base md:text-[17px] leading-relaxed max-w-[480px]" style={{ color: 'rgba(255,255,255,0.55)' }}>
-            ThreadLock gives you the tools to build your story, understand the process, and walk into any civil matter without the confusion. No legal background required.
+            ThreadLock gives you the tools to build your story, understand the process, and walk into any civil matter without the confusion.<br />No legal background required.
           </p>
         </div>
 
@@ -351,14 +350,14 @@ const HeroSection = () => (
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             href="/signup"
-            className="inline-flex items-center justify-center bg-orange-600 text-white font-bold px-10 py-[18px] rounded-xl shadow-lg hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-300 text-base"
+            className="inline-flex items-center justify-center bg-orange-600 text-white font-bold px-6 sm:px-10 py-[18px] rounded-xl shadow-lg hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-300 text-base whitespace-nowrap w-full sm:w-auto"
             style={{ boxShadow: '0 4px 20px rgba(251,122,30,0.4)' }}
           >
             Start Your Free Trial
           </Link>
           <Link
             href="#showcase"
-            className="hero-ghost-btn inline-flex items-center justify-center gap-2 text-white font-semibold px-10 py-[18px] rounded-xl transition-all duration-200 text-base"
+            className="hero-ghost-btn inline-flex items-center justify-center gap-2 text-white font-semibold px-6 sm:px-10 py-[18px] rounded-xl transition-all duration-200 text-base whitespace-nowrap w-full sm:w-auto"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3" /></svg>
             See How It Works
@@ -816,7 +815,7 @@ const ProductShowcaseSection = () => {
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">A quick look at how key features help you stay organized and prepared.</p>
-                <div className="max-w-2xl mx-auto">
+                <div className="max-w-xl mx-auto">
                     <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
                         <div className="origin-center">{slides[idx].mockup}</div>
                     </div>
@@ -824,7 +823,6 @@ const ProductShowcaseSection = () => {
                         <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
                             <h3 className="text-2xl font-bold text-slate-800 mb-2">{slides[idx].title}</h3>
                             <p className="text-slate-600">{slides[idx].description}</p>
-                            <AppDownloadButtons />
                         </div>
                         <div className="flex items-center justify-center gap-4 shrink-0 order-1 md:order-2">
                             <button onClick={prev} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
