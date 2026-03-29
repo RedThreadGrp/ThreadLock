@@ -342,7 +342,7 @@ const HeroSection = () => (
             <span className="text-orange-500">paperwork win.</span>
           </h1>
           <p className="text-base md:text-[17px] leading-relaxed max-w-[480px]" style={{ color: 'rgba(255,255,255,0.55)' }}>
-            ThreadLock gives you the tools to build your story, understand the process, and walk into any civil matter without the confusion.<br />No legal background required.
+            ThreadLock gives you the tools to build your story, understand the process, and walk into any civil matter with confidence.<br />No legal background required.
           </p>
         </div>
 
