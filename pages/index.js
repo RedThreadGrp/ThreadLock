@@ -327,7 +327,7 @@ function BrandWordmark({ className = "", darkText = true }) {
 /* ---------------- Sections ---------------- */
 
 const HeroSection = () => (
-  <section data-testid="hero-section" className="relative text-white overflow-hidden" style={{ background: '#0d1520' }}>
+  <section data-testid="hero-section" className="relative text-white overflow-hidden min-h-screen flex flex-col justify-center" style={{ background: '#0d1520' }}>
     {/* Glow effects */}
     <div className="pointer-events-none absolute" style={{ top: '-100px', left: '-100px', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(251,122,30,0.15) 0%, rgba(251,122,30,0) 70%)', borderRadius: '50%' }} />
     <div className="pointer-events-none absolute" style={{ bottom: '-80px', right: '20%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(251,122,30,0.08) 0%, rgba(251,122,30,0) 70%)', borderRadius: '50%' }} />
@@ -342,7 +342,7 @@ const HeroSection = () => (
             <span className="text-orange-500">paperwork win.</span>
           </h1>
           <p className="text-base md:text-[17px] leading-relaxed max-w-[480px]" style={{ color: 'rgba(255,255,255,0.55)' }}>
-            ThreadLock gives you the tools to build your story, understand the process, and walk into any civil matter without the confusion. No legal background required.
+            ThreadLock gives you the tools to build your story, understand the process, and walk into any civil matter without the confusion.<br />No legal background required.
           </p>
         </div>
 
@@ -350,14 +350,14 @@ const HeroSection = () => (
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             href="/signup"
-            className="inline-flex items-center justify-center bg-orange-600 text-white font-bold px-10 py-[18px] rounded-xl shadow-lg hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-300 text-base"
+            className="inline-flex items-center justify-center bg-orange-600 text-white font-bold px-6 sm:px-10 py-[18px] rounded-xl shadow-lg hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-300 text-base whitespace-nowrap w-full sm:w-auto"
             style={{ boxShadow: '0 4px 20px rgba(251,122,30,0.4)' }}
           >
             Start Your Free Trial
           </Link>
           <Link
             href="#showcase"
-            className="hero-ghost-btn inline-flex items-center justify-center gap-2 text-white font-semibold px-10 py-[18px] rounded-xl transition-all duration-200 text-base"
+            className="hero-ghost-btn inline-flex items-center justify-center gap-2 text-white font-semibold px-6 sm:px-10 py-[18px] rounded-xl transition-all duration-200 text-base whitespace-nowrap w-full sm:w-auto"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3" /></svg>
             See How It Works
