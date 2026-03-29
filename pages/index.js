@@ -4,7 +4,6 @@ import Link from "next/link";
 import ResourcesDropdown from "../components/ResourcesDropdown";
 import SiteHeader from "../src/components/SiteHeader";
 import KnowledgeSpotlightSection from "../src/components/KnowledgeSpotlightSection";
-import AppDownloadButtons from "../components/AppDownloadButtons";
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -816,7 +815,7 @@ const ProductShowcaseSection = () => {
             <div className="container mx-auto px-6 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">A quick look at how key features help you stay organized and prepared.</p>
-                <div className="max-w-2xl mx-auto">
+                <div className="max-w-xl mx-auto">
                     <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
                         <div className="origin-center">{slides[idx].mockup}</div>
                     </div>
@@ -824,7 +823,6 @@ const ProductShowcaseSection = () => {
                         <div className="text-left md:w-1/2 md:pr-8 order-2 md:order-1">
                             <h3 className="text-2xl font-bold text-slate-800 mb-2">{slides[idx].title}</h3>
                             <p className="text-slate-600">{slides[idx].description}</p>
-                            <AppDownloadButtons />
                         </div>
                         <div className="flex items-center justify-center gap-4 shrink-0 order-1 md:order-2">
                             <button onClick={prev} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
