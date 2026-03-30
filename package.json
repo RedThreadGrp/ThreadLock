@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "prebuild": "node scripts/check-next-env.mjs && node scripts/validate-governance.mjs && node scripts/validate-resources-content.mjs",
+    "postbuild": "next-sitemap",
     "generate-sitemap": "node scripts/generate-sitemap.mjs",
     "content:generate": "node scripts/generate-marketing-artifacts.mjs",
     "resources:inventory": "node scripts/generate-resources-inventory.mjs",
@@ -24,6 +25,9 @@
     "check-links": "node scripts/check-external-links.mjs",
     "verify:routes": "node scripts/verify-routes-http.mjs",
     "verify:pr82": "node scripts/verify-pr82-deployment.mjs",
+    "freshness:check": "ts-node --project tsconfig.scripts.json scripts/check-freshness.ts",
+    "freshness:check:broken": "ts-node --project tsconfig.scripts.json scripts/check-freshness.ts --broken-only",
+    "freshness:mark": "ts-node --project tsconfig.scripts.json scripts/mark-verified.ts",
     "e2e": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npx cypress run --browser chrome --headless",
     "e2e:spec": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npx cypress run --spec \"cypress/e2e/layout_consistency.cy.ts\" --browser chrome --headless"
   },
@@ -34,11 +38,16 @@
     "firebase": "^12.4.0",
     "firebase-admin": "^13.6.0",
     "framer-motion": "10.16.4",
+    "gray-matter": "^4.0.3",
     "micro": "^10.0.1",
     "next": "14.2.3",
+    "next-sitemap": "^4.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "recharts": "2.15.4",
+    "rehype-sanitize": "^6.0.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
     "stripe": "^16.0.0"
   },
   "devDependencies": {
@@ -49,9 +58,13 @@
     "cypress": "13.13.2",
     "eslint": "^8.57.1",
     "eslint-config-next": "^14.2.33",
+    "glob": "^13.0.6",
+    "minimatch": "^10.2.4",
+    "node-fetch": "^3.3.2",
     "playwright": "^1.58.2",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
   "engines": {

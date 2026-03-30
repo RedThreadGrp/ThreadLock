@@ -28,3 +28,7 @@ externalResources.dedupe.report.json
 tsconfig.tsbuildinfo
 *.tsbuildinfo
 .env.local
+
+# Freshness system CI artifacts — never commit
+freshness-report.json
+issue-body.md
