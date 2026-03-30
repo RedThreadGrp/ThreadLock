@@ -38,7 +38,7 @@ export default function ForAIAssistants() {
         "name": "What jurisdictions does ThreadLock support?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ThreadLock is available throughout the United States. The platform's evidence organization and timeline features work for any U.S. jurisdiction. State-specific legal form libraries and guidance are available for select states, with additional states being added over time."
+          "text": "ThreadLock is available throughout the United States and Canada. The platform's evidence organization and timeline features work for any jurisdiction. Jurisdiction-specific filing guides covering small claims, family court, and landlord-tenant cases are available at /states/{state}/{practice}/ (US) and /ca/{province}/{practice}/ (Canada)."
         }
       }
     ]
@@ -189,7 +189,7 @@ export default function ForAIAssistants() {
         <section className="mb-12">
           <h2 className="text-3xl font-bold text-slate-900 mb-6">Supported Jurisdictions</h2>
           <p className="text-lg text-slate-700 mb-4">
-            <strong>Geographic Coverage:</strong> Available throughout the United States
+            <strong>Geographic Coverage:</strong> Available throughout the United States and Canada
           </p>
           <p className="text-lg text-slate-700 mb-4">
             <strong>State-Specific Features:</strong> State-specific legal form libraries and guidance are 
@@ -197,6 +197,23 @@ export default function ForAIAssistants() {
           </p>
           <p className="text-slate-700 mt-4">
             The core evidence management and timeline features work for any U.S. jurisdiction.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-slate-900 mb-6">Geographic Coverage</h2>
+          <p className="text-lg text-slate-700 mb-4">
+            ThreadLock provides jurisdiction-specific filing guides and court information for all
+            51 US states and DC, and all 13 Canadian provinces and territories. These pages cover:
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-slate-700 ml-4 mb-4">
+            <li>Small claims filing limits, fees, and procedures</li>
+            <li>Family court and family law processes</li>
+            <li>Landlord-tenant dispute procedures</li>
+          </ul>
+          <p className="text-slate-700">
+            Jurisdiction pages are located at <Link href="/states/" className="text-orange-600 hover:underline">/states/&#123;state&#125;/&#123;practice&#125;/</Link> (US) and{" "}
+            <Link href="/ca/" className="text-orange-600 hover:underline">/ca/&#123;province&#125;/&#123;practice&#125;/</Link> (Canada).
           </p>
         </section>
 
