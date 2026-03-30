@@ -352,7 +352,7 @@ const HeroSection = () => (
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             href="/signup"
-            className="inline-flex items-center justify-center bg-orange-600 text-white font-bold px-6 sm:px-10 py-[18px] rounded-xl shadow-lg hover:bg-orange-700 hover:-translate-y-0.5 transition-all duration-300 text-base whitespace-nowrap w-full sm:w-auto"
+            className="inline-flex items-center justify-center bg-orange-700 text-white font-bold px-6 sm:px-10 py-[18px] rounded-xl shadow-lg hover:bg-orange-800 hover:-translate-y-0.5 transition-all duration-300 text-base whitespace-nowrap w-full sm:w-auto"
             style={{ boxShadow: '0 4px 20px rgba(251,122,30,0.4)' }}
           >
             Start Your Free Trial
@@ -655,7 +655,7 @@ const SubscriptionBanner = () => (
             href="https://app.threadlock.ai/signup"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 block text-center bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
+            className="mt-8 block text-center bg-orange-700 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-800 transition-all"
           >
             Get Started
           </a>
@@ -663,7 +663,7 @@ const SubscriptionBanner = () => (
 
         {/* ThreadLock Pro - For Professionals */}
         <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl border-2 border-orange-500 p-8 shadow-xl flex flex-col relative">
-          <div className="absolute top-0 right-0 bg-orange-600 text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-xl">
+          <div className="absolute top-0 right-0 bg-orange-700 text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-xl">
             POPULAR
           </div>
           <div className="mb-6">
@@ -696,7 +696,7 @@ const SubscriptionBanner = () => (
               <li className="flex items-center">
                 <CheckmarkIcon color="green-600" />
                 <span className="text-slate-800">
-                  Upload & Assign Your Firm&apos;s Custom Forms <span className="bg-orange-600 text-white text-xs px-2 py-0.5 rounded-full ml-1">New</span>
+                  Upload & Assign Your Firm&apos;s Custom Forms <span className="bg-orange-700 text-white text-xs px-2 py-0.5 rounded-full ml-1">New</span>
                 </span>
               </li>
               <li className="flex items-center">
@@ -721,7 +721,7 @@ const SubscriptionBanner = () => (
             href="https://app.threadlock.ai/pro/register"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 block text-center bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
+            className="mt-8 block text-center bg-orange-700 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-800 transition-all"
           >
             Get Started as Pro
           </a>
@@ -745,7 +745,7 @@ const SubscriptionBanner = () => (
           </div>
           <Link
             href="/contact"
-            className="mt-8 block text-center bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
+            className="mt-8 block text-center bg-orange-700 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-800 transition-all"
           >
             Contact Us
           </Link>
@@ -829,7 +829,7 @@ const ProductShowcaseSection = () => {
                 <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">See ThreadLock in Action</h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-16">A quick look at how key features help you stay organized and prepared.</p>
                 <div className="max-w-xl mx-auto">
-                    <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4">
+                    <div className="bg-slate-200 rounded-2xl shadow-2xl p-3 md:p-4" aria-hidden="true">
                         <div className="origin-center">{slides[idx].mockup}</div>
                     </div>
                     <div className="mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -838,20 +838,23 @@ const ProductShowcaseSection = () => {
                             <p className="text-slate-600">{slides[idx].description}</p>
                         </div>
                         <div className="flex items-center justify-center gap-4 shrink-0 order-1 md:order-2">
-                            <button onClick={prev} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
-                                <ChevronLeftIcon className="h-6 w-6 text-slate-700" />
+                            <button onClick={prev} aria-label="Previous slide" className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
+                                <ChevronLeftIcon className="h-6 w-6 text-slate-700" aria-hidden="true" />
                             </button>
-                            <div className="flex gap-2">
-                                {slides.map((_, i) => (
-                                    <div
+                            <div className="flex gap-2" role="tablist" aria-label="Slide indicators">
+                                {slides.map((slide, i) => (
+                                    <button
                                         key={i}
+                                        role="tab"
+                                        aria-selected={idx === i}
+                                        aria-label={`Slide ${i + 1}: ${slide.title}`}
                                         onClick={() => setIdx(i)}
-                                        className={`h-3 w-3 rounded-full cursor-pointer transition-colors ${idx === i ? "bg-orange-600" : "bg-slate-300 hover:bg-slate-400"}`}
+                                        className={`h-3 w-3 rounded-full transition-colors ${idx === i ? "bg-orange-700" : "bg-slate-300 hover:bg-slate-400"}`}
                                     />
                                 ))}
                             </div>
-                            <button onClick={next} className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
-                                <ChevronRightIcon className="h-6 w-6 text-slate-700" />
+                            <button onClick={next} aria-label="Next slide" className="p-3 rounded-full bg-white shadow-md hover:bg-slate-100 transition">
+                                <ChevronRightIcon className="h-6 w-6 text-slate-700" aria-hidden="true" />
                             </button>
                         </div>
                     </div>
@@ -892,7 +895,7 @@ const FeaturedResearchSection = () => (
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
             href="/resources/verification-crisis-family-court"
-            className="flex-1 bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors text-center"
+            className="flex-1 bg-orange-700 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-800 transition-colors text-center"
           >
             Read the Analysis
           </Link>
@@ -1056,7 +1059,7 @@ const SignupSection = () => {
                         />
                         <button 
                             type="submit" 
-                            className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all disabled:bg-slate-400"
+                            className="bg-orange-700 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-800 transition-all disabled:bg-slate-400"
                             disabled={status === 'submitting'}
                         >
                             {status === 'submitting' ? 'Joining...' : 'Join'}

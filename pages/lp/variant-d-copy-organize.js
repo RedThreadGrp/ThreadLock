@@ -113,7 +113,7 @@ const PdfExportUIMockup = () => (
             <div className="flex-grow" />
             <p className="text-[8px] text-center text-slate-500">Page 1 of 5</p>
         </div>
-        <button className="text-[11px] bg-orange-600 text-white px-4 py-1.5 rounded-md mt-3">Download PDF</button>
+        <button className="text-[11px] bg-orange-700 text-white px-4 py-1.5 rounded-md mt-3">Download PDF</button>
     </div>
 );
 
@@ -338,7 +338,7 @@ const Header = ({ onCTAClick }) => {
                     <Link href="/login" className="hover:text-orange-600 transition-colors">Login</Link>
                     <button
                         onClick={onCTAClick}
-                        className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all"
+                        className="bg-orange-700 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-800 transform hover:-translate-y-0.5 transition-all"
                     >
                         Organize Your Case Now
                     </button>
@@ -362,7 +362,7 @@ const Header = ({ onCTAClick }) => {
                     <Link href="/login" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Login</Link>
                     <button
                         onClick={() => { setOpen(false); onCTAClick(); }}
-                        className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center"
+                        className="w-full mt-2 bg-orange-700 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-800 transition-all block text-center"
                     >
                         Organize Your Case Now
                     </button>
@@ -394,7 +394,7 @@ const HeroSection = ({ onCTAClick }) => (
       <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <button
           onClick={onCTAClick}
-          className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
+          className="bg-orange-700 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-800 transform hover:-translate-y-1 transition-all duration-300 ease-in-out text-center"
         >
           Organize Your Case Now
         </button>
@@ -513,7 +513,7 @@ const SubscriptionBanner = ({ onCTAClick }) => (
           </div>
           <button
             onClick={onCTAClick}
-            className="mt-8 block text-center bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
+            className="mt-8 block text-center bg-orange-700 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-800 transition-all"
           >
             Organize Your Case Now
           </button>
@@ -521,7 +521,7 @@ const SubscriptionBanner = ({ onCTAClick }) => (
 
         {/* ThreadLock Pro - For Professionals */}
         <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl border-2 border-orange-500 p-8 shadow-xl flex flex-col relative">
-          <div className="absolute top-0 right-0 bg-orange-600 text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-xl">
+          <div className="absolute top-0 right-0 bg-orange-700 text-white text-xs font-bold px-4 py-1 rounded-bl-lg rounded-tr-xl">
             POPULAR
           </div>
           <div className="mb-6">
@@ -554,7 +554,7 @@ const SubscriptionBanner = ({ onCTAClick }) => (
               <li className="flex items-center">
                 <CheckmarkIcon color="green-600" />
                 <span className="text-slate-800">
-                  Upload & Assign Your Firm&apos;s Custom Forms <span className="bg-orange-600 text-white text-xs px-2 py-0.5 rounded-full ml-1">New</span>
+                  Upload & Assign Your Firm&apos;s Custom Forms <span className="bg-orange-700 text-white text-xs px-2 py-0.5 rounded-full ml-1">New</span>
                 </span>
               </li>
               <li className="flex items-center">
@@ -579,7 +579,7 @@ const SubscriptionBanner = ({ onCTAClick }) => (
             href="https://app.threadlock.ai/pro/register"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 block text-center bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
+            className="mt-8 block text-center bg-orange-700 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-800 transition-all"
           >
             Organize Your Case Now as Pro
           </a>
@@ -603,7 +603,7 @@ const SubscriptionBanner = ({ onCTAClick }) => (
           </div>
           <Link
             href="/contact"
-            className="mt-8 block text-center bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all"
+            className="mt-8 block text-center bg-orange-700 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-800 transition-all"
           >
             Contact Us
           </Link>
@@ -863,7 +863,7 @@ const SignupSection = () => {
                         />
                         <button 
                             type="submit" 
-                            className="bg-orange-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all disabled:bg-slate-400"
+                            className="bg-orange-700 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:bg-orange-800 transition-all disabled:bg-slate-400"
                             disabled={status === 'submitting'}
                         >
                             {status === 'submitting' ? 'Joining...' : 'Join'}

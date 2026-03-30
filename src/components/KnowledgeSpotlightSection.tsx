@@ -53,13 +53,13 @@ const PillarCard: React.FC<PillarCardProps> = ({
         {highlights.map((highlight, index) => (
           <li key={index} className="flex items-start">
             <span className="text-brand-orange mr-2 text-lg">•</span>
-            <span className="text-muted-dark leading-relaxed">{highlight}</span>
+            <span className="text-slate-300 leading-relaxed">{highlight}</span>
           </li>
         ))}
       </ul>
-      <span className="inline-flex items-center justify-center bg-brand-orange text-white font-semibold px-6 py-3 rounded-lg group-hover:bg-brand-navy transition-colors duration-200">
+      <span className="inline-flex items-center justify-center bg-brand-orange text-slate-900 group-hover:text-white font-semibold px-6 py-3 rounded-lg group-hover:bg-brand-navy transition-colors duration-200">
         {ctaText}
-        <ChevronRightIcon className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+        <ChevronRightIcon className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true" />
       </span>
     </div>
   </Link>
