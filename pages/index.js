@@ -1157,28 +1157,6 @@ export default function Home() {
         "installUrl": "https://app.threadlock.ai/signup"
     };
 
-    const legalServiceSchema = {
-        "@context": "https://schema.org",
-        "@type": "LegalService",
-        "name": "ThreadLock Legal Case Management",
-        "description": "Legal case management platform providing tools for self-represented litigants in family court, small claims, and landlord-tenant cases. Helps organize evidence, documentation, and court preparation. Not a law firm.",
-        "url": "https://threadlock.ai",
-        "areaServed": {
-            "@type": "Country",
-            "name": "United States"
-        },
-        "serviceType": "Legal Case Management Platform",
-        "provider": {
-            "@type": "Organization",
-            "name": "ThreadLock",
-            "url": "https://threadlock.ai",
-            "logo": "https://threadlock.ai/threadlock-logo.png"
-        },
-        "termsOfService": "https://threadlock.ai/terms",
-        "privacyPolicy": "https://threadlock.ai/privacy",
-        "disclaimer": "ThreadLock is not a law firm and does not provide legal advice. Our software is a tool for organizing and managing case materials."
-    };
-
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -1243,10 +1221,6 @@ export default function Home() {
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
-                />
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(legalServiceSchema) }}
                 />
                 <script
                     type="application/ld+json"

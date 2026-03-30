@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function FamilyLawOregon() {
   const legalServiceSchema = {
     "@context": "https://schema.org",
-    "@type": "LegalService",
+    "@type": "Service",
     "name": "ThreadLock - Oregon Family Law",
     "description": "Family law case management tools for Oregon custody cases, child support documentation, and family court preparation. Serving Portland, Eugene, Salem, Bend, and all Oregon counties.",
     "url": "https://threadlock.ai/family-law/oregon",

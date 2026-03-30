@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function FamilyLawCalifornia() {
   const legalServiceSchema = {
     "@context": "https://schema.org",
-    "@type": "LegalService",
+    "@type": "Service",
     "name": "ThreadLock - California Family Law",
     "description": "Family law case management tools for California custody cases, child support documentation, and family court preparation. Serving Los Angeles, Sacramento, San Diego, San Francisco, and all California counties.",
     "url": "https://threadlock.ai/family-law/california",

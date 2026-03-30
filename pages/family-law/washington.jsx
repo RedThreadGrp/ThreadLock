@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function FamilyLawWashington() {
   const legalServiceSchema = {
     "@context": "https://schema.org",
-    "@type": "LegalService",
+    "@type": "Service",
     "name": "ThreadLock - Washington Family Law",
     "description": "Family law case management tools for Washington custody cases, child support documentation, and family court preparation. Serving Seattle, Spokane, Tacoma, Vancouver, and all Washington counties.",
     "url": "https://threadlock.ai/family-law/washington",

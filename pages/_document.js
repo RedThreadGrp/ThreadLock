@@ -105,7 +105,7 @@ export default class MyDocument extends Document {
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
-                "@type": ["SoftwareApplication", "LegalService"],
+                "@type": "SoftwareApplication",
                 name: "ThreadLock",
                 applicationCategory: "LegalTech",
                 applicationSubCategory: "Civil Legal Case Management",
@@ -117,7 +117,6 @@ export default class MyDocument extends Document {
                   name: "ThreadLock",
                   url: siteUrl,
                 },
-                serviceType: "Legal Technology Platform",
                 areaServed: {
                   "@type": "Country",
                   name: "United States",
