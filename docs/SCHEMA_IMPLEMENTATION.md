@@ -47,8 +47,7 @@ This document tracks all Schema.org structured data (JSON-LD) added to the Threa
           "value": "1",
           "unitCode": "MON"
         }
-      },
-      "eligibleCustomerType": "Individual"
+      }
     },
     {
       "@type": "Offer",
@@ -67,8 +66,7 @@ This document tracks all Schema.org structured data (JSON-LD) added to the Threa
           "value": "1",
           "unitCode": "MON"
         }
-      },
-      "eligibleCustomerType": "Business"
+      }
     }
   ],
   "featureList": [

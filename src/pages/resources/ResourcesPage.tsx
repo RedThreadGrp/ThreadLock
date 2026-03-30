@@ -205,6 +205,15 @@ export default function ResourcesPage() {
         <title>Resource Hub | ThreadLock</title>
         <meta name="description" content="Checklists, templates, and plain-English guidance for self-represented litigants in family court. Updated weekly." />
         <link rel="canonical" href="https://threadlock.ai/resources" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Resource Hub | ThreadLock" />
+        <meta property="og:description" content="Checklists, templates, and plain-English guidance for self-represented litigants in family court. Updated weekly." />
+        <meta property="og:url" content="https://threadlock.ai/resources" />
+        <meta property="og:image" content="https://threadlock.ai/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Resource Hub | ThreadLock" />
+        <meta name="twitter:description" content="Checklists, templates, and plain-English guidance for self-represented litigants in family court. Updated weekly." />
+        <meta name="twitter:image" content="https://threadlock.ai/og-image.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
