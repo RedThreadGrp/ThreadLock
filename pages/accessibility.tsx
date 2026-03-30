@@ -5,6 +5,7 @@ export default function Accessibility() {
     <LegalLayout 
       title="Accessibility Statement" 
       description="ThreadLock's commitment to accessibility and compliance with WCAG standards"
+      canonical="https://threadlock.ai/accessibility"
     >
       <p className="text-sm text-gray-500 mb-6">
         <strong>Effective Date:</strong> October 1, 2025

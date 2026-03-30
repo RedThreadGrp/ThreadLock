@@ -63,6 +63,23 @@ const nextConfig = {
         destination: '/resources/evidence-management',
         permanent: true,
       },
+      // Replace JS-redirect pages that emitted noindex with proper 301s
+      {
+        source: '/resources/wiki',
+        destination: '/resources',
+        permanent: true,
+      },
+      {
+        source: '/resources/guides',
+        destination: '/resources',
+        permanent: true,
+      },
+      // Stale URL that had noindex; now redirect to resources hub
+      {
+        source: '/resources/blueprints',
+        destination: '/resources',
+        permanent: true,
+      },
     ];
   },
   async headers() {

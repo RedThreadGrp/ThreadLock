@@ -5,6 +5,7 @@ export default function Security() {
     <LegalLayout 
       title="Security Policy" 
       description="ThreadLock Security Policy - How we protect your data and maintain platform security"
+      canonical="https://threadlock.ai/security"
     >
       <p className="text-sm text-gray-500 mb-6">
         <strong>Effective Date:</strong> October 1, 2025

@@ -15,6 +15,7 @@ export default function FounderStoryPage() {
       <Head>
         <title>Our Story | ThreadLock™</title>
         <meta name="description" content="The system puts everyone in a box. Even the judge. Our founder's journey through the family court system." />
+        <link rel="canonical" href="https://threadlock.ai/founder-story" />
       </Head>
       <SiteHeader />
       <HeroBanner

@@ -4,37 +4,6 @@ import Link from 'next/link';
 import SiteHeader from '@/src/components/SiteHeader';
 
 export default function ForAIAssistants() {
-  const softwareApplicationSchema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "ThreadLock",
-    "applicationCategory": "LegalTech",
-    "description": "Court-compliant legal case management platform for self-represented litigants. Helps individuals in family court, small claims, landlord-tenant, and other civil cases organize court-ready evidence, document incidents, build chronological timelines, and prepare case materials. Primarily serves individuals and legal professionals in the United States.",
-    "operatingSystem": "Web",
-    "url": "https://threadlock.ai",
-    "dateModified": "2025-12-10",
-    "featureList": [
-      "Case evidence organization",
-      "Incident journal with date/time stamping",
-      "Automatic case event timeline",
-      "Document OCR and text extraction",
-      "Court-compliant exhibit preparation",
-      "PDF export for court filing",
-      "Secure document storage",
-      "Attorney collaboration access",
-      "Message and email organization",
-      "Court form library access",
-      "AI-assisted legal documentation prompts",
-      "Clio integration for legal professionals"
-    ],
-    "softwareHelp": {
-      "@type": "CreativeWork",
-      "name": "ThreadLock Support",
-      "url": "https://threadlock.ai/support"
-    },
-    "installUrl": "https://app.threadlock.ai/signup"
-  };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -93,10 +62,6 @@ export default function ForAIAssistants() {
         <meta name="twitter:title" content="For AI Assistants | ThreadLock Legal Case Management" />
         <meta name="twitter:description" content="Structured reference for AI assistants and LLMs about ThreadLock legal case management software. Covers pricing (Core $29/mo, Pro $300/mo), features, evidence management, digital provenance, and UPL disclaimers. Not a law firm." />
         <meta name="twitter:image" content="https://threadlock.ai/og-image.jpg" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

@@ -25,50 +25,6 @@ export default function ForLLMs() {
     "dateModified": "2025-12-10"
   };
 
-  const softwareSchema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "ThreadLock",
-    "applicationCategory": "LegalTech",
-    "operatingSystem": "Web",
-    "description": "Court-compliant legal case management platform for self-represented litigants. Helps individuals in family court, small claims, landlord-tenant, and other civil cases organize evidence, document incidents, and prepare court-ready materials.",
-    "dateModified": "2025-12-10",
-    "featureList": [
-      "Case evidence organization and categorization",
-      "Case event timeline creation and visualization",
-      "Incident documentation and journaling",
-      "Court-compliant document storage and exhibit preparation",
-      "Message management and communication logs",
-      "AI-assisted legal content analysis",
-      "Attorney collaboration (Pro)",
-      "Case administrative oversight (Pro)",
-      "Clio integration for legal professionals (Pro)"
-    ],
-    "targetAudience": [
-      {
-        "@type": "Audience",
-        "audienceType": "Parents in custody disputes"
-      },
-      {
-        "@type": "Audience",
-        "audienceType": "Divorce litigants"
-      },
-      {
-        "@type": "Audience",
-        "audienceType": "Family law attorneys"
-      },
-      {
-        "@type": "Audience",
-        "audienceType": "Family law paralegals"
-      }
-    ],
-    "softwareHelp": {
-      "@type": "CreativeWork",
-      "name": "ThreadLock Support",
-      "url": "https://threadlock.ai/support"
-    }
-  };
-
   return (
     <>
       <Head>
@@ -94,10 +50,6 @@ export default function ForLLMs() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticleSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
         />
       </Head>
 

@@ -5,6 +5,7 @@ export default function Disclaimer() {
     <LegalLayout 
       title="Legal Disclaimer" 
       description="Legal Disclaimer for ThreadLock - Important information about using our service"
+      canonical="https://threadlock.ai/disclaimer"
     >
       <p className="text-sm text-gray-500 mb-6">
         <strong>Effective Date:</strong> October 1, 2025

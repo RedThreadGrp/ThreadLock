@@ -621,7 +621,7 @@ const FeatureCard = ({ icon, title, children }) => (
 const FeaturesSection = () => (
   <section
     id="features"
-    className="relative py-20 md:py-28 bg-fixed bg-cover bg-center"
+    className="relative py-20 md:py-28 bg-cover bg-center"
     style={{
       backgroundImage: "url('/getty-images-1mEcRkmEXBM-unsplash.jpg')",
     }}

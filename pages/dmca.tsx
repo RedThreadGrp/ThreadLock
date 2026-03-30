@@ -5,6 +5,7 @@ export default function DMCA() {
     <LegalLayout 
       title="DMCA Notice" 
       description="Digital Millennium Copyright Act (DMCA) policy and procedures for ThreadLock"
+      canonical="https://threadlock.ai/dmca"
     >
       <p className="text-sm text-gray-500 mb-6">
         <strong>Effective Date:</strong> October 1, 2025
