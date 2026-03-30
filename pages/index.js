@@ -1092,7 +1092,6 @@ export default function Home() {
                     "priceCurrency": "USD",
                     "billingDuration": "P1M"
                 },
-                "eligibleCustomerType": "https://schema.org/Enduser"
             },
             {
                 "@type": "Offer",
@@ -1111,7 +1110,6 @@ export default function Home() {
                     "priceCurrency": "USD",
                     "billingDuration": "P1M"
                 },
-                "eligibleCustomerType": "https://schema.org/Business"
             }
         ],
         "featureList": [

@@ -59,7 +59,6 @@ export default function PricingPage() {
                     priceCurrency: "USD",
                     billingDuration: "P1M",
                   },
-                  eligibleCustomerType: "https://schema.org/Enduser",
                   url: "https://threadlock.ai/pricing",
                 },
                 {
@@ -75,7 +74,6 @@ export default function PricingPage() {
                     priceCurrency: "USD",
                     billingDuration: "P1M",
                   },
-                  eligibleCustomerType: "https://schema.org/Business",
                   url: "https://threadlock.ai/pricing",
                 },
               ],
