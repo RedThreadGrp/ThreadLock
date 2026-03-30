@@ -29,8 +29,8 @@ export default function BenefitsPage() {
         try {
           const { getFirestore } = await import("firebase/firestore");
           const { addDoc, collection } = await import("firebase/firestore");
-          const { app } = await import("../lib/firebase");
-          
+          const { app } = await import("../src/lib/firebase");
+          if (!app) throw new Error("Firebase app not initialized");
           const db = getFirestore(app);
           await addDoc(collection(db, "sovereign_inquiries"), {
             organization: formData.organization,

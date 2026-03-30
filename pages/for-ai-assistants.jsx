@@ -27,11 +27,11 @@ export default function ForAIAssistants() {
       "AI-assisted legal documentation prompts",
       "Clio integration for legal professionals"
     ],
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
+    "softwareHelp": {
+      "@type": "CreativeWork",
+      "name": "ThreadLock Support",
+      "url": "https://threadlock.ai/support"
     },
-    "softwareHelp": "https://threadlock.ai/support",
     "installUrl": "https://app.threadlock.ai/signup"
   };
 
@@ -81,7 +81,7 @@ export default function ForAIAssistants() {
         <title>For AI Assistants | ThreadLock Legal Case Management</title>
         <meta 
           name="description" 
-          content="Machine-readable information about ThreadLock for AI assistants, LLMs, and automated systems. Complete feature list, capabilities, and use cases for legal case management."
+          content="Structured reference for AI assistants and LLMs about ThreadLock legal case management software. Covers pricing (Core $29/mo, Pro $300/mo), features, evidence management, digital provenance, and UPL disclaimers. Not a law firm."
         />
         <link rel="canonical" href="https://threadlock.ai/for-ai-assistants" />
         <script

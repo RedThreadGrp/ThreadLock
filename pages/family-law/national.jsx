@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function FamilyLawNational() {
   const legalServiceSchema = {
     "@context": "https://schema.org",
-    "@type": "LegalService",
+    "@type": "Service",
     "name": "ThreadLock - National Family Law Support",
     "description": "Family law case management software available throughout the United States for custody, support, and court documentation",
     "url": "https://threadlock.ai/family-law/national",
@@ -18,10 +18,10 @@ export default function FamilyLawNational() {
       "@type": "Organization",
       "name": "ThreadLock",
       "url": "https://threadlock.ai",
-      "logo": "https://threadlock.ai/threadlock-logo.png"
-    },
-    "termsOfService": "https://threadlock.ai/terms",
-    "privacyPolicy": "https://threadlock.ai/privacy"
+      "logo": "https://threadlock.ai/threadlock-logo.png",
+      "termsOfService": "https://threadlock.ai/terms",
+      "privacyPolicy": "https://threadlock.ai/privacy"
+    }
   };
 
   const faqSchema = {

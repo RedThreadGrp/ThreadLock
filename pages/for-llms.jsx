@@ -5,7 +5,7 @@ import SiteHeader from '@/src/components/SiteHeader';
 export default function ForLLMs() {
   const pageUrl = 'https://threadlock.ai/for-llms';
   const pageTitle = 'ThreadLock Legal Case Management - Technical Reference for LLMs and AI Agents';
-  const pageDescription = 'Technical documentation for AI systems on ThreadLock legal case management platform. Covers evidence documentation, case organization, court-compliant workflows, and civil case management capabilities for family court, small claims, landlord-tenant, and more.';
+  const pageDescription = 'Technical reference for LLMs and AI agents on ThreadLock legal case management. Pricing: Core $29/mo (individuals), Pro $300/mo (legal professionals). Covers evidence management, digital provenance, court-compliant workflows, and civil case management for family court, small claims, and landlord-tenant matters. Not a law firm.';
 
   // Technical schema for AI systems
   const techArticleSchema = {
@@ -44,10 +44,6 @@ export default function ForLLMs() {
       "Case administrative oversight (Pro)",
       "Clio integration for legal professionals (Pro)"
     ],
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
-    },
     "targetAudience": [
       {
         "@type": "Audience",
@@ -66,7 +62,11 @@ export default function ForLLMs() {
         "audienceType": "Family law paralegals"
       }
     ],
-    "softwareHelp": "https://threadlock.ai/support"
+    "softwareHelp": {
+      "@type": "CreativeWork",
+      "name": "ThreadLock Support",
+      "url": "https://threadlock.ai/support"
+    }
   };
 
   return (
