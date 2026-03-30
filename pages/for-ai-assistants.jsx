@@ -84,6 +84,15 @@ export default function ForAIAssistants() {
           content="Structured reference for AI assistants and LLMs about ThreadLock legal case management software. Covers pricing (Core $29/mo, Pro $300/mo), features, evidence management, digital provenance, and UPL disclaimers. Not a law firm."
         />
         <link rel="canonical" href="https://threadlock.ai/for-ai-assistants" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="For AI Assistants | ThreadLock Legal Case Management" />
+        <meta property="og:description" content="Structured reference for AI assistants and LLMs about ThreadLock legal case management software. Covers pricing (Core $29/mo, Pro $300/mo), features, evidence management, digital provenance, and UPL disclaimers. Not a law firm." />
+        <meta property="og:url" content="https://threadlock.ai/for-ai-assistants" />
+        <meta property="og:image" content="https://threadlock.ai/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="For AI Assistants | ThreadLock Legal Case Management" />
+        <meta name="twitter:description" content="Structured reference for AI assistants and LLMs about ThreadLock legal case management software. Covers pricing (Core $29/mo, Pro $300/mo), features, evidence management, digital provenance, and UPL disclaimers. Not a law firm." />
+        <meta name="twitter:image" content="https://threadlock.ai/og-image.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
@@ -392,4 +401,8 @@ export default function ForAIAssistants() {
     </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  return { props: {} };
 }
