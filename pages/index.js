@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import ResourcesDropdown from "../components/ResourcesDropdown";
 import SiteHeader from "../src/components/SiteHeader";
-import KnowledgeSpotlightSection from "../src/components/KnowledgeSpotlightSection";
+const KnowledgeSpotlightSection = dynamic(() => import('../src/components/KnowledgeSpotlightSection'), { ssr: false });
 
 /* ---------------- Icons ---------------- */
 const MenuIcon = (props) => (
@@ -584,13 +586,16 @@ const SubscriptionBanner = () => (
   <section
     id="subscriptions"
     className="relative py-16 md:py-20 border-y border-slate-200 overflow-hidden"
-    style={{
-      backgroundImage: "url('/gabrielle-henderson-HJckKnwCXxQ-unsplash.jpg')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
   >
-    <div className="container mx-auto px-6 text-center relative">
+    <Image
+      src="/gabrielle-henderson-HJckKnwCXxQ-unsplash.jpg"
+      alt=""
+      fill
+      className="object-cover object-center"
+      loading="lazy"
+      aria-hidden="true"
+    />
+    <div className="container mx-auto px-6 text-center relative z-10">
       <div className="inline-block px-6 py-5 mb-10 border-2 border-orange-500 rounded-xl bg-white/60 backdrop-blur-sm shadow-md">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
           Simple, Transparent Pricing
@@ -765,11 +770,16 @@ const FeatureCard = ({ icon, title, children }) => (
 const FeaturesSection = () => (
   <section
     id="features"
-    className="relative py-20 md:py-28 bg-fixed bg-cover bg-center"
-    style={{
-      backgroundImage: "url('/getty-images-1mEcRkmEXBM-unsplash.jpg')",
-    }}
+    className="relative py-20 md:py-28"
   >
+    <Image
+      src="/getty-images-1mEcRkmEXBM-unsplash.jpg"
+      alt=""
+      fill
+      className="object-cover object-center"
+      loading="lazy"
+      aria-hidden="true"
+    />
     <div className="absolute inset-0 bg-slate-900/70 z-0"></div>
     <div className="relative container mx-auto px-6 text-center z-10">
       <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">How It Works</h2>

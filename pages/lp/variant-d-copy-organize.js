@@ -376,7 +376,7 @@ const Header = ({ onCTAClick }) => {
 
 const HeroSection = ({ onCTAClick }) => (
   <section
-    className="relative text-white bg-cover bg-center bg-fixed min-h-[500px] flex items-center"
+    className="relative text-white bg-cover bg-center min-h-[500px] flex items-center"
     style={{ backgroundImage: "url('/simran-sood-qL0t5zNGFVQ-unsplash.jpg')" }}
   >
     <div className="absolute inset-0 bg-black/60"></div>
@@ -628,7 +628,7 @@ const FeatureCard = ({ icon, title, children }) => (
 const FeaturesSection = () => (
   <section
     id="features"
-    className="relative py-20 md:py-28 bg-fixed bg-cover bg-center"
+    className="relative py-20 md:py-28 bg-cover bg-center"
     style={{
       backgroundImage: "url('/getty-images-1mEcRkmEXBM-unsplash.jpg')",
     }}
