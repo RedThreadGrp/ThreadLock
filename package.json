@@ -25,6 +25,9 @@
     "check-links": "node scripts/check-external-links.mjs",
     "verify:routes": "node scripts/verify-routes-http.mjs",
     "verify:pr82": "node scripts/verify-pr82-deployment.mjs",
+    "freshness:check": "ts-node --project tsconfig.scripts.json scripts/check-freshness.ts",
+    "freshness:check:broken": "ts-node --project tsconfig.scripts.json scripts/check-freshness.ts --broken-only",
+    "freshness:mark": "ts-node --project tsconfig.scripts.json scripts/mark-verified.ts",
     "e2e": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npx cypress run --browser chrome --headless",
     "e2e:spec": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npx cypress run --spec \"cypress/e2e/layout_consistency.cy.ts\" --browser chrome --headless"
   },

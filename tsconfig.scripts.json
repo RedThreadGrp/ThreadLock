@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "noEmit": false,
+    "outDir": "/tmp/ts-scripts-out"
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "files": false
+  },
+  "include": [
+    "scripts/**/*.ts",
+    "content-freshness.config.ts"
+  ]
+}

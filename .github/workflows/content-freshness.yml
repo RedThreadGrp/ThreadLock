@@ -1,0 +1,143 @@
+name: Content freshness check
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'      # Every Monday 9am UTC
+  workflow_dispatch:           # Manual trigger anytime
+    inputs:
+      broken_only:
+        description: 'Check broken links only (skip staleness)'
+        type: boolean
+        default: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Ensure content-maintenance label exists
+        uses: actions/github-script@v7
+        with:
+          script: |
+            try {
+              await github.rest.issues.createLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: 'content-maintenance',
+                color: 'F9CB42',
+                description: 'Content freshness and link health tracking',
+              })
+            } catch (e) {
+              // 422 = label already exists — ignore
+              if (e.status !== 422) throw e
+            }
+
+      - name: Run freshness check
+        id: check
+        run: |
+          FLAGS="--json"
+          if [ "${{ inputs.broken_only }}" = "true" ]; then
+            FLAGS="$FLAGS --broken-only"
+          fi
+          npx ts-node --project tsconfig.scripts.json scripts/check-freshness.ts $FLAGS > freshness-report.json || true
+
+          STALE=$(node -e "const r=require('./freshness-report.json'); console.log(r.stale_count)")
+          BROKEN=$(node -e "const r=require('./freshness-report.json'); console.log(r.broken_link_count)")
+          TOTAL=$(node -e "const r=require('./freshness-report.json'); console.log(r.items.length)")
+
+          echo "stale_count=$STALE"   >> $GITHUB_OUTPUT
+          echo "broken_count=$BROKEN" >> $GITHUB_OUTPUT
+          echo "total=$TOTAL"         >> $GITHUB_OUTPUT
+
+      - name: Generate issue body
+        if: steps.check.outputs.total > 0
+        run: npx ts-node --project tsconfig.scripts.json scripts/generate-freshness-issue-body.ts
+
+      - name: Check for existing open freshness issue
+        if: steps.check.outputs.total > 0
+        id: existing
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'content-maintenance',
+              state: 'open',
+            })
+            const existing = issues.data.find(i => i.title.startsWith('Content freshness:'))
+            return existing ? String(existing.number) : ''
+
+      - name: Update existing issue or create new one
+        if: steps.check.outputs.total > 0
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs')
+            const body = fs.readFileSync('issue-body.md', 'utf8')
+            const title = `Content freshness: ${{ steps.check.outputs.broken_count }} broken links, ${{ steps.check.outputs.stale_count }} stale pages`
+            const existingNumber = '${{ steps.existing.outputs.result }}'
+
+            if (existingNumber) {
+              // Update the existing open issue rather than opening a duplicate
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: parseInt(existingNumber),
+                title,
+                body,
+              })
+              console.log(`Updated existing issue #${existingNumber}`)
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['content-maintenance'],
+              })
+              console.log('Created new issue')
+            }
+
+      - name: Close issue if everything is clean
+        if: steps.check.outputs.total == 0
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'content-maintenance',
+              state: 'open',
+            })
+            const existing = issues.data.find(i => i.title.startsWith('Content freshness:'))
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: '✓ All content is now current. Closing automatically.',
+              })
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                state: 'closed',
+              })
+            }
