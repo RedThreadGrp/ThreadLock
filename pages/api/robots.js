@@ -1,4 +1,8 @@
-User-agent: *
+export default function handler(req, res) {
+  res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+  res.setHeader('Cache-Control', 'public, max-age=86400, stale-while-revalidate=3600');
+  res.status(200).send(
+`User-agent: *
 Allow: /
 Disallow: /content/archive/
 Disallow: /content/generated/
@@ -37,4 +41,6 @@ Allow: /
 Sitemap: https://threadlock.ai/sitemap.xml
 
 # Machine-readable context for AI/LLM crawlers
-# LLMs-txt: https://threadlock.ai/llms.txt
+# LLMs-txt: https://threadlock.ai/llms.txt`
+  );
+}

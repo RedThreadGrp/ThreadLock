@@ -418,5 +418,7 @@ export default function ForLLMs() {
 }
 
 export async function getStaticProps() {
+  // Opt this page into static generation so the full HTML is pre-rendered
+  // at build time and served without JavaScript to crawlers and AI agents.
   return { props: {} };
 }

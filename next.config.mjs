@@ -37,6 +37,20 @@ const nextConfig = {
     // This is needed because some files may have type issues during development
     ignoreBuildErrors: true,
   },
+  async rewrites() {
+    return {
+      // beforeFiles rewrites run BEFORE static public/ files are checked,
+      // ensuring these routes are always served by the Node.js process
+      // regardless of CDN or static-asset layer configuration.
+      beforeFiles: [
+        { source: '/robots.txt', destination: '/api/robots' },
+        { source: '/llms.txt', destination: '/api/llms' },
+        { source: '/sitemap.xml', destination: '/api/sitemap' },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
   async redirects() {
     return [
       {
