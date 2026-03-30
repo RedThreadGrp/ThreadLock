@@ -154,6 +154,18 @@ export default function WhitePaperPage() {
         <link rel="canonical" href="https://threadlock.ai/whitepaper" />
       </Head>
       <style jsx global>{`
+        body { background-color: #f1f5f9; }
+        .wp-container { max-width: 840px; margin: auto; }
+        .wp-header { padding: 3rem 1.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; background-color: white;}
+        .wp-section { padding: 3rem 1.5rem; border-bottom: 1px solid #e2e8f0; background-color: white;}
+        .wp-section h2 { font-size: 2.25rem; font-weight: 800; color: #1e293b; margin-bottom: 1rem; }
+        .wp-section h3 { font-size: 1.125rem; font-weight: 700; color: #1e293b; margin: 0; }
+        .feature-title { margin: 0; line-height: 1; }
+        .wp-section p { font-size: 1.05rem; line-height: 1.75; color: #334155; margin: 0 0 1rem 0; }
+        .wp-blockquote { border-left: 4px solid #ea580c; padding-left: 1rem; margin: 1.25rem 0; font-size: 1.05rem; font-style: italic; color: #1e293b; }
+      `}</style>
+
+      <div className="page-container">
         <main className="wp-container">
           <header className="wp-header">
             <BrandWordmark className="text-5xl justify-center" />
