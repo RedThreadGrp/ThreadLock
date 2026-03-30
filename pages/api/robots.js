@@ -41,6 +41,6 @@ Allow: /
 Sitemap: https://threadlock.ai/sitemap.xml
 
 # Machine-readable context for AI/LLM crawlers
-# LLMs-txt: https://threadlock.ai/llms.txt`
+LLMs-txt: https://threadlock.ai/llms.txt`
   );
 }

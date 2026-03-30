@@ -31,6 +31,7 @@ export default class MyDocument extends Document {
           <meta property="og:description" content={desc} />
           <meta property="og:image" content={ogImage} />
           <meta property="og:image:secure_url" content={ogImage} />
+          <meta property="og:image:alt" content="ThreadLock — Legal Case Management for Self-Represented Litigants" />
           <meta property="og:image:type" content="image/jpeg" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="627" />
@@ -41,6 +42,7 @@ export default class MyDocument extends Document {
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={desc} />
           <meta name="twitter:image" content={ogImage} />
+          <meta name="twitter:image:alt" content="ThreadLock — Legal Case Management for Self-Represented Litigants" />
 
           {/* JSON-LD (safe) */}
           <script

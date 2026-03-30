@@ -53,6 +53,14 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Canonicalise to non-www — prevents Google from treating www and
+      // non-www as separate sites with duplicate content.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.threadlock.ai' }],
+        destination: 'https://threadlock.ai/:path*',
+        permanent: true,
+      },
       {
         source: '/resources/state/:state',
         destination: '/resources',
