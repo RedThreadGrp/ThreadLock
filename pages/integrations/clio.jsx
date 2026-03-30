@@ -21,7 +21,7 @@ export default function ClioIntegration() {
     },
     "offers": {
       "@type": "Offer",
-      "price": "99",
+      "price": "300",
       "priceCurrency": "USD",
       "name": "ThreadLock Pro"
     }
@@ -350,7 +350,7 @@ export default function ClioIntegration() {
             </p>
             
             <div className="bg-gray-50 p-6 rounded mt-4">
-              <h4 className="font-semibold text-lg mb-2">ThreadLock Pro: $99/month</h4>
+              <h4 className="font-semibold text-lg mb-2">ThreadLock Pro: $300/month</h4>
               <ul className="list-disc pl-6 space-y-1">
                 <li>Clio integration included</li>
                 <li>Unlimited client cases</li>

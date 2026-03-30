@@ -54,12 +54,12 @@ This document tracks all Schema.org structured data (JSON-LD) added to the Threa
       "@type": "Offer",
       "name": "ThreadLock Pro",
       "description": "Professional plan for legal practitioners with review queue, client management, and Clio integration",
-      "price": "99",
+      "price": "300",
       "priceCurrency": "USD",
       "priceValidUntil": "2026-12-31",
       "priceSpecification": {
         "@type": "UnitPriceSpecification",
-        "price": "99",
+        "price": "300",
         "priceCurrency": "USD",
         "billingDuration": "P1M",
         "referenceQuantity": {

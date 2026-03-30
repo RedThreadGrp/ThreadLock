@@ -41,11 +41,11 @@ export default function ProfessionalsPage() {
                     "@type": "Offer",
                     name: "ThreadLock Pro",
                     description: "Professional plan for attorneys and paralegals. Includes client review queue, conflict check tooling, case annotation, Clio integration, and payment processing.",
-                    price: "99",
+                    price: "300",
                     priceCurrency: "USD",
                     priceSpecification: {
                       "@type": "UnitPriceSpecification",
-                      price: "99",
+                      price: "300",
                       priceCurrency: "USD",
                       billingDuration: "P1M",
                     },
