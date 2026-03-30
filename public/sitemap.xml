@@ -199,24 +199,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://threadlock.ai/resources/guides</loc>
-    <lastmod>2026-03-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/resources/thanks</loc>
-    <lastmod>2026-03-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://threadlock.ai/resources/wiki</loc>
-    <lastmod>2026-03-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://threadlock.ai/sarahs-story</loc>
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
