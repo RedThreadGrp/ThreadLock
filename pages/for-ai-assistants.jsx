@@ -27,11 +27,11 @@ export default function ForAIAssistants() {
       "AI-assisted legal documentation prompts",
       "Clio integration for legal professionals"
     ],
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
+    "softwareHelp": {
+      "@type": "CreativeWork",
+      "name": "ThreadLock Support",
+      "url": "https://threadlock.ai/support"
     },
-    "softwareHelp": "https://threadlock.ai/support",
     "installUrl": "https://app.threadlock.ai/signup"
   };
 

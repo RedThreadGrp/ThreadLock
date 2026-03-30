@@ -44,10 +44,6 @@ export default function ForLLMs() {
       "Case administrative oversight (Pro)",
       "Clio integration for legal professionals (Pro)"
     ],
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
-    },
     "targetAudience": [
       {
         "@type": "Audience",
@@ -66,7 +62,11 @@ export default function ForLLMs() {
         "audienceType": "Family law paralegals"
       }
     ],
-    "softwareHelp": "https://threadlock.ai/support"
+    "softwareHelp": {
+      "@type": "CreativeWork",
+      "name": "ThreadLock Support",
+      "url": "https://threadlock.ai/support"
+    }
   };
 
   return (

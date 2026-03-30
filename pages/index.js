@@ -1082,28 +1082,36 @@ export default function Home() {
                 "price": "29",
                 "priceCurrency": "USD",
                 "priceValidUntil": "2026-12-31",
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "United States"
+                },
                 "priceSpecification": {
                     "@type": "UnitPriceSpecification",
                     "price": "29",
                     "priceCurrency": "USD",
                     "billingDuration": "P1M"
                 },
-                "eligibleCustomerType": "Individual"
+                "eligibleCustomerType": "https://schema.org/Enduser"
             },
             {
                 "@type": "Offer",
                 "name": "ThreadLock Pro",
                 "description": "Professional plan for legal practitioners with review queue, client management, and Clio integration",
-                "price": "99",
+                "price": "300",
                 "priceCurrency": "USD",
                 "priceValidUntil": "2026-12-31",
+                "areaServed": {
+                    "@type": "Country",
+                    "name": "United States"
+                },
                 "priceSpecification": {
                     "@type": "UnitPriceSpecification",
-                    "price": "99",
+                    "price": "300",
                     "priceCurrency": "USD",
                     "billingDuration": "P1M"
                 },
-                "eligibleCustomerType": "Business"
+                "eligibleCustomerType": "https://schema.org/Business"
             }
         ],
         "featureList": [
@@ -1122,10 +1130,6 @@ export default function Home() {
             "Attorney review integration",
             "Collaborative attorney access"
         ],
-        "areaServed": {
-            "@type": "Country",
-            "name": "United States"
-        },
         "audience": [
             {
                 "@type": "Audience",
@@ -1145,7 +1149,11 @@ export default function Home() {
             }
         ],
         "keywords": "legal case management software, evidence organization, court document management, self-represented litigant tools, small claims evidence, landlord tenant documentation, family court exhibits, pro se litigation, court-ready evidence, legal case planner, civil case management",
-        "softwareHelp": "https://threadlock.ai/resources",
+        "softwareHelp": {
+            "@type": "CreativeWork",
+            "name": "ThreadLock Resources",
+            "url": "https://threadlock.ai/resources"
+        },
         "installUrl": "https://app.threadlock.ai/signup"
     };
 
@@ -1220,7 +1228,7 @@ export default function Home() {
                 "name": "How much does ThreadLock cost?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "ThreadLock Core starts at $29 per month for individuals. ThreadLock Pro for legal professionals is $99 per month. A 7-day free trial is available with no credit card required."
+                    "text": "ThreadLock Core starts at $29 per month for individuals. ThreadLock Pro for legal professionals is $300 per month. A 7-day free trial is available with no credit card required."
                 }
             }
         ]
