@@ -112,7 +112,7 @@ export default class MyDocument extends Document {
                 description: "Court-compliant legal case management platform for self-represented litigants and legal professionals. Helps individuals in family court, small claims, landlord-tenant, and other civil cases organize evidence, document incidents, build chronological timelines, and prepare court-ready materials.",
                 operatingSystem: "Web, iOS, Android",
                 url: siteUrl,
-                dateModified: "2025-12-10",
+                dateModified: "2026-03-30",
                 creator: {
                   "@type": "Organization",
                   name: "ThreadLock",

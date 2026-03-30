@@ -5,6 +5,7 @@ export default function DataProcessingAgreement() {
     <LegalLayout 
       title="Data Processing Agreement" 
       description="Data Processing Agreement (DPA) for ThreadLock - GDPR compliance and data protection"
+      canonical="https://threadlock.ai/dpa"
     >
       <p className="text-sm text-gray-500 mb-2">
         <strong>Effective Date:</strong> March 9, 2026

@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Head from 'next/head';
 import {
   ResponsiveContainer,
   BarChart as RBarChart,
@@ -133,6 +134,10 @@ export default function WhitePaperB2BPage() {
 
   return (
     <>
+      <Head>
+        <title>ThreadLock B2B Whitepaper | Investment in Legal Access</title>
+        <link rel="canonical" href="https://threadlock.ai/whitepaper-b2b" />
+      </Head>
       <style jsx global>{`
         body { background-color: #f1f5f9; }
         .wp-container { max-width: 840px; margin: auto; }

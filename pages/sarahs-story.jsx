@@ -9,6 +9,7 @@ export default function SarahsStoryPage() {
       <Head>
         <title>Her Story | ThreadLock™</title>
         <meta name="description" content="Sarah's journey from chaos to clarity. How ThreadLock helped a single mom navigate the family court system." />
+        <link rel="canonical" href="https://threadlock.ai/sarahs-story" />
       </Head>
       <SiteHeader />
       <HeroBanner

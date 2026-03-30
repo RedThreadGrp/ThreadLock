@@ -6,9 +6,10 @@ interface LegalLayoutProps {
   title: string;
   children: React.ReactNode;
   description?: string;
+  canonical?: string;
 }
 
-export default function LegalLayout({ title, children, description }: LegalLayoutProps) {
+export default function LegalLayout({ title, children, description, canonical }: LegalLayoutProps) {
   const fullTitle = `${title} | ThreadLock`;
   
   return (
@@ -16,6 +17,7 @@ export default function LegalLayout({ title, children, description }: LegalLayou
       <Head>
         <title>{fullTitle}</title>
         {description && <meta name="description" content={description} />}
+        {canonical && <link rel="canonical" href={canonical} />}
       </Head>
       
       <div className="min-h-screen bg-gray-50">

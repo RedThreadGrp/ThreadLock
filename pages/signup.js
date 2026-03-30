@@ -9,6 +9,7 @@ export default function SignupPage() {
       <Head>
         <title>Sign Up - Legal Case Management | ThreadLock</title>
         <meta name="description" content="Create your ThreadLock account to start organizing your legal case — evidence, timelines, documents, and court preparation. Plans for individuals and attorneys." />
+        <link rel="canonical" href="https://threadlock.ai/signup" />
       </Head>
 
       <div className="max-w-4xl w-full mx-auto">

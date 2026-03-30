@@ -5,6 +5,7 @@ export default function PrivacyPolicy() {
     <LegalLayout 
       title="Privacy Policy" 
       description="Privacy Policy for ThreadLock - How we collect, use, and protect your data"
+      canonical="https://threadlock.ai/privacy"
     >
       <p className="text-sm text-gray-500 mb-6">
         <strong>Effective Date:</strong> October 1, 2025

@@ -5,6 +5,7 @@ export default function CookiePolicy() {
     <LegalLayout 
       title="Cookie Policy" 
       description="Cookie Policy for ThreadLock - How we use cookies and tracking technologies"
+      canonical="https://threadlock.ai/cookies"
     >
       <p className="text-sm text-gray-500 mb-6">
         <strong>Effective Date:</strong> October 1, 2025

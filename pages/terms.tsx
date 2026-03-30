@@ -5,6 +5,7 @@ export default function TermsOfService() {
     <LegalLayout 
       title="Terms of Service" 
       description="Terms of Service for ThreadLock - AI-powered evidence management platform"
+      canonical="https://threadlock.ai/terms"
     >
       <p className="text-sm text-gray-500 mb-6">
         <strong>Effective Date:</strong> October 1, 2025

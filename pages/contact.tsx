@@ -5,6 +5,7 @@ export default function Contact() {
     <LegalLayout 
       title="Contact Us" 
       description="Get in touch with ThreadLock - Contact information and support"
+      canonical="https://threadlock.ai/contact"
     >
       <h2 className="text-2xl font-bold mt-8 mb-4">Get in Touch</h2>
       <p className="mb-6">

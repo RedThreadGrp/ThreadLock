@@ -6,6 +6,7 @@ export default function LegalCenter() {
     <LegalLayout 
       title="Legal Center"
       description="All policies and disclosures in one place - ThreadLock legal documentation hub"
+      canonical="https://threadlock.ai/legal"
     >
       <p className="text-slate-600 mb-6">All policies and disclosures in one place.</p>
       <ul className="mt-6 grid gap-3 sm:grid-cols-2">
