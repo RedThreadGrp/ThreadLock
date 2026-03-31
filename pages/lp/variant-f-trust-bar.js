@@ -664,7 +664,7 @@ const ProductShowcaseSection = () => {
         },
         {
             title: "Document Every Detail, Right When It Happens",
-            description: "Capture incidents with rich detail ,  title, date, time, description, location, people involved, and severity, directly from the app. AI issue-type suggestions help you categorize entries after saving, and you can link entries to your case timeline with one tap.",
+            description: "Capture incidents with rich detail, title, date, time, description, location, people involved, and severity, directly from the app. AI issue-type suggestions help you categorize entries after saving, and you can link entries to your case timeline with one tap.",
             mockup: <AppJournalEntryMockup />
         },
         {

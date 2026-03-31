@@ -24,7 +24,7 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen tl-auth-background text-white">
-      {/* Blurred orange gradient overlay ,  matches EDU/auth page style */}
+      {/* Blurred orange gradient overlay, matches EDU/auth page style */}
       <div className="tl-edu-bg" aria-hidden="true">
         <div className="tl-edu-grid" />
       </div>

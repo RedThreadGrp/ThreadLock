@@ -117,7 +117,7 @@ const PdfExportUIMockup = () => (
     </div>
 );
 
-/* App screenshot mockups ,  faithful representations of the ThreadLock mobile & web app */
+/* App screenshot mockups, faithful representations of the ThreadLock mobile & web app */
 const AppCaseHubMockup = () => (
     <div className="w-full bg-[#111827] rounded-xl p-3 md:p-4 text-white">
         <div className="flex justify-between items-center mb-2">
@@ -429,7 +429,7 @@ const HeroSection = () => (
           </div>
         </div>
 
-        {/* Front card (Case Overview) ,  animated float */}
+        {/* Front card (Case Overview), animated float */}
         <div
           className="absolute rounded-2xl overflow-hidden"
           style={{
@@ -810,7 +810,7 @@ const ProductShowcaseSection = () => {
         },
         {
             title: "Document Every Detail, Right When It Happens",
-            description: "Capture incidents with rich detail ,  title, date, time, description, location, people involved, and severity, directly from the app. AI issue-type suggestions help you categorize entries after saving, and you can link entries to your case timeline with one tap.",
+            description: "Capture incidents with rich detail, title, date, time, description, location, people involved, and severity, directly from the app. AI issue-type suggestions help you categorize entries after saving, and you can link entries to your case timeline with one tap.",
             mockup: <AppJournalEntryMockup />
         },
         {
