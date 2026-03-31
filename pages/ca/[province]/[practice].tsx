@@ -1,12 +1,10 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import JurisdictionShell from "@/components/jurisdiction/JurisdictionShell";
-import JurisdictionHero from "@/components/jurisdiction/JurisdictionHero";
 import JurisdictionBreadcrumb from "@/components/jurisdiction/JurisdictionBreadcrumb";
-import FactBox from "@/components/jurisdiction/FactBox";
+import JurisdictionContentLayout from "@/components/jurisdiction/JurisdictionContentLayout";
 import FormsList from "@/components/jurisdiction/FormsList";
 import JurisdictionCTA from "@/components/jurisdiction/JurisdictionCTA";
-import JurisdictionFaqSection, { extractFaqsFromHtml } from "@/components/jurisdiction/JurisdictionFaqSection";
 import RelatedJurisdictions from "@/components/jurisdiction/RelatedJurisdictions";
 import {
   getAllLeafPaths,
@@ -86,36 +84,10 @@ export default function CaPracticeLeafPage({ page, province, practice, neighborS
         ]}
       />
 
-      <JurisdictionHero
+      <JurisdictionContentLayout
+        page={page}
         eyebrow={`${page.jurisdiction_name} · ${practiceDisplayName}`}
-        title={page.title}
-        intro={page.meta_description}
-        hideCta
       />
-
-      <FactBox
-        courtName={page.court_name || ""}
-        filingLimit={page.filing_limit}
-        filingFee={page.filing_fee}
-        responseDeadline={page.response_deadline}
-        hearingTimeline={page.hearing_timeline}
-        courtUrl={page.court_url}
-        statuteCitation={page.statute_citation}
-        lastVerified={page.last_verified || ""}
-      />
-
-      {(() => {
-        const { faqs, cleanedHtml } = extractFaqsFromHtml(page.bodyHtml);
-        return (
-          <>
-            <article
-              className="prose prose-invert max-w-none mb-8"
-              dangerouslySetInnerHTML={{ __html: cleanedHtml }}
-            />
-            <JurisdictionFaqSection items={faqs} />
-          </>
-        );
-      })()}
 
       <FormsList forms={page.forms || []} />
 
