@@ -333,7 +333,7 @@ export default function ResourcesPage() {
                 href="/uk/"
                 className="inline-flex items-center gap-2 rounded-2xl border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:border-brand-orange/40 hover:text-brand-orange transition-all"
               >
-                <span>🇬🇧</span> UK Guides
+                <span>🇬🇧</span> United Kingdom Guides
               </Link>
             </div>
           </div>
