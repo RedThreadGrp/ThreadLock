@@ -156,7 +156,7 @@ export const evidenceAuthentication: ResourceQAContent = {
     heading: "Sources",
     items: [
       {
-        title: "FRE Rule 901 — Authenticating or Identifying Evidence",
+        title: "FRE Rule 901 - Authenticating or Identifying Evidence",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/fre/rule_901",
         jurisdiction: "federal",
@@ -164,7 +164,7 @@ export const evidenceAuthentication: ResourceQAContent = {
         note: "Primary authentication requirements"
       },
       {
-        title: "FRE Rule 902 — Evidence That Is Self-Authenticating",
+        title: "FRE Rule 902 - Evidence That Is Self-Authenticating",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/fre/rule_902",
         jurisdiction: "federal",
@@ -204,7 +204,7 @@ export const evidenceAuthentication: ResourceQAContent = {
         note: "Presumption of accuracy for printed computer-generated records, including screenshots"
       },
       {
-        title: "NIST — Digital Evidence and Forensics",
+        title: "NIST - Digital Evidence and Forensics",
         organization: "National Institute of Standards and Technology",
         url: "https://www.nist.gov/digital-evidence",
         jurisdiction: "federal",
@@ -218,7 +218,7 @@ export const evidenceAuthentication: ResourceQAContent = {
     lastUpdated: "2026-02-21",
     sources: [
       {
-        title: "FRE Rule 901 — Authenticating or Identifying Evidence",
+        title: "FRE Rule 901 - Authenticating or Identifying Evidence",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/fre/rule_901",
         jurisdiction: "federal",
@@ -226,7 +226,7 @@ export const evidenceAuthentication: ResourceQAContent = {
         note: "Authentication standards"
       },
       {
-        title: "FRE Rule 902 — Evidence That Is Self-Authenticating",
+        title: "FRE Rule 902 - Evidence That Is Self-Authenticating",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/fre/rule_902",
         jurisdiction: "federal",
@@ -242,7 +242,7 @@ export const evidenceAuthentication: ResourceQAContent = {
         note: "California authentication requirements"
       },
       {
-        title: "NIST — Digital Evidence and Forensics",
+        title: "NIST - Digital Evidence and Forensics",
         organization: "National Institute of Standards and Technology",
         url: "https://www.nist.gov/digital-evidence",
         jurisdiction: "federal",

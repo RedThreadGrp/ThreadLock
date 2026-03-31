@@ -155,7 +155,7 @@ export default function DataProcessingAgreement() {
         resolution provisions of the Agreement.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">Annex I — Details of Processing</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">Annex I: Details of Processing</h2>
 
       <h3 className="text-xl font-semibold mt-6 mb-3">A. List of Parties</h3>
       <div className="overflow-x-auto mb-6">
@@ -175,8 +175,8 @@ export default function DataProcessingAgreement() {
             </tr>
             <tr className="bg-gray-50">
               <td className="border border-gray-300 px-4 py-2 font-semibold">Role</td>
-              <td className="border border-gray-300 px-4 py-2">Controller — determines the purposes and means of processing.</td>
-              <td className="border border-gray-300 px-4 py-2">Processor — processes data on the Controller's behalf.</td>
+              <td className="border border-gray-300 px-4 py-2">Controller: determines the purposes and means of processing.</td>
+              <td className="border border-gray-300 px-4 py-2">Processor: processes data on the Controller's behalf.</td>
             </tr>
             <tr>
               <td className="border border-gray-300 px-4 py-2 font-semibold">Contact</td>
@@ -219,7 +219,7 @@ export default function DataProcessingAgreement() {
         after which all Customer Personal Data is deleted unless law requires otherwise.
       </p>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">Annex II — Technical and Organizational Measures</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">Annex II: Technical and Organizational Measures</h2>
       <p className="mb-4">
         ThreadLock maintains the following minimum security standards as of the Effective Date. These measures are 
         reviewed and updated on a regular basis to reflect changes in risk.
@@ -267,7 +267,7 @@ export default function DataProcessingAgreement() {
         </table>
       </div>
 
-      <h2 className="text-2xl font-bold mt-8 mb-4">Annex III — Authorized Subprocessors</h2>
+      <h2 className="text-2xl font-bold mt-8 mb-4">Annex III: Authorized Subprocessors</h2>
       <p className="mb-4">
         The following third-party entities are authorized by the Customer to process Customer Personal Data as 
         Subprocessors of ThreadLock as of the Effective Date. ThreadLock will publish updates to this list at 

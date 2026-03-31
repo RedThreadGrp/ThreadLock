@@ -52,7 +52,7 @@ export default function LawClinicsPage() {
   return (
     <>
       <Head>
-        <title>ThreadLock EDU — Free for Law Students in Clinics</title>
+        <title>ThreadLock EDU: Free for Law Students in Clinics</title>
         <meta 
           name="description" 
           content="Supervise student drafting with review gates and clean approvals. Built for law clinics, pro bono programs, and limited-scope legal aid." 
@@ -71,7 +71,7 @@ export default function LawClinicsPage() {
           <div className="mb-4 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-sm px-3 py-1 text-xs font-semibold text-slate-200">
               <span className="inline-block h-2 w-2 rounded-full bg-brand-orange" />
-              ThreadLock EDU — Free for verified law students
+              ThreadLock EDU: Free for verified law students
             </div>
           </div>
 
@@ -280,7 +280,7 @@ export default function LawClinicsPage() {
             <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-white">Supervision that doesn't fight you</h2>
             <p className="mt-2 text-slate-300 max-w-3xl">
               Your program's credibility depends on oversight. ThreadLock is structured to make supervision obvious,
-              enforceable, and audit-friendly—without turning clinics into ticket queues.
+              enforceable, and audit-friendly, without turning clinics into ticket queues.
             </p>
 
             <div className="mt-8 grid gap-4 md:grid-cols-3">

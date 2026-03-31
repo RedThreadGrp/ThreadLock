@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function StatesIndex({ hubs, rootMeta }: Props) {
-  const title = rootMeta?.title || "US Court Filing Guides — Small Claims, Family Court & Landlord-Tenant";
+  const title = rootMeta?.title || "US Court Filing Guides: Small Claims, Family Court & Landlord-Tenant";
   const metaDescription = rootMeta?.meta_description || "State-by-state court filing guides for self-represented litigants.";
   const canonicalUrl = "https://threadlock.ai/states/";
 

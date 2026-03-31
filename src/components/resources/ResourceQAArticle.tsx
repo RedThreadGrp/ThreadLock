@@ -396,7 +396,7 @@ function Sources({
             ) : (
               <span>{s.title}</span>
             )}
-            {s.note ? <span className="text-white/60"> — {s.note}</span> : null}
+            {s.note ? <span className="text-white/60"> - {s.note}</span> : null}
           </li>
         ))}
       </ul>

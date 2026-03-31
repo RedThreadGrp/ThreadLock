@@ -14,7 +14,7 @@ export const financialDeclarationsTopic: ResourceQAContent = {
   },
   
   shortAnswer: {
-    text: "Family court requires detailed financial information for nearly every case involving child support, spousal support, property division, or attorney's fees. Financial declarations—sometimes called income and expense declarations, financial affidavits, or statements of net worth—force you to disclose your complete financial picture under penalty of perjury. Having this information organized before you need it reduces stress and prevents errors that could hurt your case."
+    text: "Family court requires detailed financial information for nearly every case involving child support, spousal support, property division, or attorney's fees. Financial declarations (sometimes called income and expense declarations, financial affidavits, or statements of net worth, force you to disclose your complete financial picture under penalty of perjury. Having this information organized before you need it reduces stress and prevents errors that could hurt your case."
   },
   
   sections: [
@@ -36,11 +36,11 @@ export const financialDeclarationsTopic: ResourceQAContent = {
           type: "callout",
           kind: "note",
           title: "Income",
-          text: "List all sources—employment wages, self-employment income, rental income, investment returns, bonuses, overtime, unemployment benefits, disability payments, social security, pensions, and any other money received. Include gross amounts (before taxes) and net amounts (after deductions). Attach recent pay stubs and tax returns."
+          text: "List all sources, employment wages, self-employment income, rental income, investment returns, bonuses, overtime, unemployment benefits, disability payments, social security, pensions, and any other money received. Include gross amounts (before taxes) and net amounts (after deductions). Attach recent pay stubs and tax returns."
         },
         {
           type: "p",
-          text: "**Expenses**: Detail monthly costs for housing (rent/mortgage, property tax, insurance, utilities, maintenance), food, clothing, transportation (car payment, gas, insurance, maintenance), medical care, childcare, education, insurance premiums, debt payments, and miscellaneous expenses. Be realistic—inflating expenses is perjury and easily disproved."
+          text: "**Expenses**: Detail monthly costs for housing (rent/mortgage, property tax, insurance, utilities, maintenance), food, clothing, transportation (car payment, gas, insurance, maintenance), medical care, childcare, education, insurance premiums, debt payments, and miscellaneous expenses. Be realistic - inflating expenses is perjury and easily disproved."
         },
         {
           type: "p",
@@ -131,7 +131,7 @@ export const financialDeclarationsTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "IRS — Divorced or Separated Individuals (Publication 504)",
+        title: "IRS: Divorced or Separated Individuals (Publication 504)",
         organization: "Internal Revenue Service",
         url: "https://www.irs.gov/publications/p504",
         jurisdiction: "federal",
@@ -179,7 +179,7 @@ export const financialDeclarationsTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "IRS — Divorced or Separated Individuals (Publication 504)",
+        title: "IRS: Divorced or Separated Individuals (Publication 504)",
         organization: "Internal Revenue Service",
         url: "https://www.irs.gov/publications/p504",
         jurisdiction: "federal",

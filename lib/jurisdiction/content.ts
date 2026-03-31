@@ -10,7 +10,7 @@ export interface JurisdictionFrontmatter {
   jurisdiction_slug: string;
   jurisdiction_name: string;
   practice_area?: string;
-  country: "us" | "ca";
+  country: "us" | "ca" | "au" | "uk";
   province_or_state?: string;
   title: string;
   meta_description: string;
@@ -32,7 +32,7 @@ export interface JurisdictionPage extends JurisdictionFrontmatter {
 export interface HubMeta {
   jurisdiction_slug: string;
   jurisdiction_name: string;
-  country: "us" | "ca";
+  country: "us" | "ca" | "au" | "uk";
   title: string;
   meta_description: string;
 }
@@ -72,17 +72,17 @@ async function parseLeafPage(filePath: string): Promise<JurisdictionPage | null>
   }
 }
 
-export function getHubMeta(country: "us" | "ca", slug: string): HubMeta | null {
+export function getHubMeta(country: "us" | "ca" | "au" | "uk", slug: string): HubMeta | null {
   const filePath = path.join(JURISDICTIONS_DIR, country, slug, "_index.md");
   return safeParseFrontmatter(filePath) as HubMeta | null;
 }
 
-export function getRootHubMeta(country: "us" | "ca"): HubMeta | null {
+export function getRootHubMeta(country: "us" | "ca" | "au" | "uk"): HubMeta | null {
   const filePath = path.join(JURISDICTIONS_DIR, country, "_index.md");
   return safeParseFrontmatter(filePath) as HubMeta | null;
 }
 
-export function getAllJurisdictionSlugs(country: "us" | "ca"): string[] {
+export function getAllJurisdictionSlugs(country: "us" | "ca" | "au" | "uk"): string[] {
   const dir = path.join(JURISDICTIONS_DIR, country);
   if (!fs.existsSync(dir)) return [];
 
@@ -96,7 +96,7 @@ export function getAllJurisdictionSlugs(country: "us" | "ca"): string[] {
 }
 
 export function getAllLeafPaths(
-  country: "us" | "ca"
+  country: "us" | "ca" | "au" | "uk"
 ): { slug: string; practice: string }[] {
   const slugs = getAllJurisdictionSlugs(country);
   const results: { slug: string; practice: string }[] = [];
@@ -115,7 +115,7 @@ export function getAllLeafPaths(
 }
 
 export async function getLeafPage(
-  country: "us" | "ca",
+  country: "us" | "ca" | "au" | "uk",
   slug: string,
   practice: string
 ): Promise<JurisdictionPage | null> {
@@ -125,7 +125,7 @@ export async function getLeafPage(
 }
 
 export function getLeafPagesForPractice(
-  country: "us" | "ca",
+  country: "us" | "ca" | "au" | "uk",
   practice: string
 ): JurisdictionFrontmatter[] {
   const slugs = getAllJurisdictionSlugs(country);
@@ -144,7 +144,7 @@ export function getLeafPagesForPractice(
   );
 }
 
-export function getAllHubMetas(country: "us" | "ca"): HubMeta[] {
+export function getAllHubMetas(country: "us" | "ca" | "au" | "uk"): HubMeta[] {
   const slugs = getAllJurisdictionSlugs(country);
   return slugs
     .map((slug) => getHubMeta(country, slug))
@@ -222,12 +222,35 @@ const CA_NEIGHBORS: Record<string, string[]> = {
   yukon: ["british-columbia", "northwest-territories", "alberta", "saskatchewan"],
 };
 
+const AU_NEIGHBORS: Record<string, string[]> = {
+  "new-south-wales": ["victoria", "queensland", "south-australia", "australian-capital-territory"],
+  victoria: ["new-south-wales", "south-australia", "tasmania", "australian-capital-territory"],
+  queensland: ["new-south-wales", "northern-territory", "south-australia", "western-australia"],
+  "western-australia": ["south-australia", "northern-territory", "queensland", "victoria"],
+  "south-australia": ["western-australia", "northern-territory", "queensland", "new-south-wales"],
+  tasmania: ["victoria", "new-south-wales", "south-australia", "queensland"],
+  "australian-capital-territory": ["new-south-wales", "victoria", "queensland", "south-australia"],
+  "northern-territory": ["western-australia", "south-australia", "queensland", "new-south-wales"],
+};
+
+const UK_NEIGHBORS: Record<string, string[]> = {
+  england: ["wales", "scotland", "northern-ireland"],
+  wales: ["england", "scotland", "northern-ireland"],
+  scotland: ["england", "wales", "northern-ireland"],
+  "northern-ireland": ["england", "wales", "scotland"],
+};
+
 export function getValidNeighbors(
-  country: "us" | "ca",
+  country: "us" | "ca" | "au" | "uk",
   slug: string,
   practice: string
 ): string[] {
-  const map = country === "ca" ? CA_NEIGHBORS : US_NEIGHBORS;
+  const neighborMaps: Record<string, Record<string, string[]>> = {
+    ca: CA_NEIGHBORS,
+    au: AU_NEIGHBORS,
+    uk: UK_NEIGHBORS,
+  };
+  const map = neighborMaps[country] ?? US_NEIGHBORS;
   const neighbors = (map[slug] || []).slice(0, 4);
   return neighbors.filter((neighborSlug) => {
     const filePath = path.join(JURISDICTIONS_DIR, country, neighborSlug, `${practice}.md`);

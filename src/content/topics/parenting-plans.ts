@@ -94,28 +94,28 @@ export const parentingPlansTopic: ResourceQAContent = {
   sources: {
     items: [
       {
-        title: "UCCJEA — Uniform Law Commission",
+        title: "UCCJEA: Uniform Law Commission",
         organization: "Uniform Law Commission",
         url: "https://www.uniformlaws.org/acts/uccjea",
         jurisdiction: "multi-state",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "AAML — Parenting Plan Guidelines",
+        title: "AAML: Parenting Plan Guidelines",
         organization: "American Academy of Matrimonial Lawyers",
         url: "https://www.aaml.org/",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "AFCC — Family Court Resources & Parenting Plan Standards",
+        title: "AFCC: Family Court Resources & Parenting Plan Standards",
         organization: "Association of Family and Conciliation Courts",
         url: "https://www.afccnet.org/",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "California Family Code — Full Text",
+        title: "California Family Code: Full Text",
         organization: "California Legislative Information",
         url: "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?tocCode=FAM",
         jurisdiction: "california",
@@ -129,7 +129,7 @@ export const parentingPlansTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "Cornell LII — Family Law / Custody (Wex)",
+        title: "Cornell LII: Family Law / Custody (Wex)",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/wex/custody",
         jurisdiction: "US-general",
@@ -142,28 +142,28 @@ export const parentingPlansTopic: ResourceQAContent = {
     lastUpdated: "2026-02-21",
     sources: [
       {
-        title: "UCCJEA — Uniform Law Commission",
+        title: "UCCJEA: Uniform Law Commission",
         organization: "Uniform Law Commission",
         url: "https://www.uniformlaws.org/acts/uccjea",
         jurisdiction: "multi-state",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "AAML — Parenting Plan Guidelines",
+        title: "AAML: Parenting Plan Guidelines",
         organization: "American Academy of Matrimonial Lawyers",
         url: "https://www.aaml.org/",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "AFCC — Family Court Resources & Parenting Plan Standards",
+        title: "AFCC: Family Court Resources & Parenting Plan Standards",
         organization: "Association of Family and Conciliation Courts",
         url: "https://www.afccnet.org/",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "California Family Code — Full Text",
+        title: "California Family Code: Full Text",
         organization: "California Legislative Information",
         url: "https://leginfo.legislature.ca.gov/faces/codes_displayexpandedbranch.xhtml?tocCode=FAM",
         jurisdiction: "california",

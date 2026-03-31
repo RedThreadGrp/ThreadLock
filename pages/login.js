@@ -8,7 +8,7 @@ export default function LoginPage() {
     <AuthShell>
       <Head>
         <title>Login - Legal Case Management | ThreadLock</title>
-        <meta name="description" content="Access your ThreadLock account to organize your legal case — evidence, documents, timelines, and more." />
+        <meta name="description" content="Access your ThreadLock account to organize your legal case: evidence, documents, timelines, and more." />
       </Head>
 
       <div className="max-w-4xl w-full mx-auto">

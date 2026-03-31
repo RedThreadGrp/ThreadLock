@@ -30,7 +30,7 @@ export const aiDigitalEvidenceTopic: ResourceQAContent = {
         },
         {
           type: "p",
-          text: "Meanwhile, deepfakes, manipulated screenshots, and edited digital evidence undermine the reliability of photos, videos, and electronic communications. Family court litigants—many self-represented—need practical guidance on verification standards, disclosure requirements, and authentication procedures."
+          text: "Meanwhile, deepfakes, manipulated screenshots, and edited digital evidence undermine the reliability of photos, videos, and electronic communications. Family court litigants, many self-represented, need practical guidance on verification standards, disclosure requirements, and authentication procedures."
         }
       ]
     },
@@ -44,7 +44,7 @@ export const aiDigitalEvidenceTopic: ResourceQAContent = {
         },
         {
           type: "p",
-          text: "**AI Disclosure Standards**: Courts are beginning to require disclosure when AI tools are used in legal drafting. The question isn't whether AI should be banned—it's how to require transparency and human verification of AI-generated content. Model rules and local orders establish disclosure frameworks."
+          text: "**AI Disclosure Standards**: Courts are beginning to require disclosure when AI tools are used in legal drafting. The question isn't whether AI should be banned, it's how to require transparency and human verification of AI-generated content. Model rules and local orders establish disclosure frameworks."
         },
         {
           type: "p",
@@ -75,7 +75,7 @@ export const aiDigitalEvidenceTopic: ResourceQAContent = {
             "**Disclose AI Use**: Even if your court doesn't require it yet, disclose when you've used AI tools in document preparation. Transparency protects you from sanctions if errors are discovered later.",
             "**Document Digital Evidence Provenance**: For digital evidence you plan to introduce, document how it was captured, when it was captured, what device was used, and whether any editing or processing occurred. Preserve original files with metadata intact.",
             "**Maintain Chain of Custody**: From capture to courtroom, document who had access to digital evidence and when. Use screenshots with timestamps, save original files immediately, and avoid editing or manipulation.",
-            "**Seek Human Verification**: AI can assist with research and drafting, but a human must verify all factual claims and legal citations. Don't rely blindly on AI output—use it as a starting point for human-verified research."
+            "**Seek Human Verification**: AI can assist with research and drafting, but a human must verify all factual claims and legal citations. Don't rely blindly on AI output, use it as a starting point for human-verified research."
           ]
         }
       ]
@@ -106,35 +106,35 @@ export const aiDigitalEvidenceTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "NCSC — Legal Practitioner's Guide to AI & Hallucinations (2026)",
+        title: "NCSC: Legal Practitioner's Guide to AI & Hallucinations (2026)",
         organization: "National Center for State Courts",
         url: "https://www.ncsc.org/resources-courts/technology",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "Mata v. Avianca, Inc. (2023) — AI Hallucination Sanctions",
+        title: "Mata v. Avianca, Inc. (2023): AI Hallucination Sanctions",
         organization: "CourtListener",
         url: "https://www.courtlistener.com/docket/16105991/mata-v-avianca-inc/",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "FRE Rule 901 — Authenticating or Identifying Evidence",
+        title: "FRE Rule 901: Authenticating or Identifying Evidence",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/fre/rule_901",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "NIST — Digital Evidence and Forensics",
+        title: "NIST: Digital Evidence and Forensics",
         organization: "National Institute of Standards and Technology",
         url: "https://www.nist.gov/digital-evidence",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "NCSC — AI & Technology for Courts",
+        title: "NCSC: AI & Technology for Courts",
         organization: "National Center for State Courts",
         url: "https://www.ncsc.org/resources-courts/technology",
         jurisdiction: "US-general",
@@ -168,14 +168,14 @@ export const aiDigitalEvidenceTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "Mata v. Avianca, Inc. (2023) — AI Hallucination Sanctions",
+        title: "Mata v. Avianca, Inc. (2023): AI Hallucination Sanctions",
         organization: "CourtListener",
         url: "https://www.courtlistener.com/docket/16105991/mata-v-avianca-inc/",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "NIST — Digital Evidence and Forensics",
+        title: "NIST: Digital Evidence and Forensics",
         organization: "National Institute of Standards and Technology",
         url: "https://www.nist.gov/digital-evidence",
         jurisdiction: "federal",

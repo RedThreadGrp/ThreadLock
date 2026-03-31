@@ -61,9 +61,11 @@ export default function JurisdictionShell({
         ))}
       </Head>
       <SiteHeader />
-      <div className="min-h-screen bg-white">
-        <div className="mx-auto max-w-5xl px-4 md:px-6 pt-20 pb-16">
-          {children}
+      <div className="min-h-screen bg-[#1b3a4d]">
+        <div className="mx-auto max-w-5xl px-4 md:px-6 pt-20">
+          <div className="bg-white pb-16">
+            {children}
+          </div>
         </div>
       </div>
       <Footer />

@@ -8,7 +8,7 @@ export default function JurisdictionCTA() {
       </h2>
       <p className="text-slate-300 mb-8 max-w-xl mx-auto leading-relaxed">
         ThreadLock helps you document incidents, organize evidence, and prepare
-        court-ready materials — so you walk in prepared.
+        court-ready materials, so you walk in prepared.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
         <a

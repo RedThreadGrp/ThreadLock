@@ -117,7 +117,7 @@ const PdfExportUIMockup = () => (
     </div>
 );
 
-/* App screenshot mockups — faithful representations of the ThreadLock mobile & web app */
+/* App screenshot mockups, faithful representations of the ThreadLock mobile & web app */
 const AppCaseHubMockup = () => (
     <div className="w-full bg-[#111827] rounded-xl p-3 md:p-4 text-white">
         <div className="flex justify-between items-center mb-2">
@@ -278,7 +278,7 @@ const AppCaseOverviewMockup = () => (
                 <div className="flex gap-3 mt-1.5">
                     <div className="flex-1">
                         <div className="text-[9px] text-teal-400 font-semibold">📖 Your Case Guides</div>
-                        <div className="text-[8px] text-slate-400 mt-0.5 leading-tight">Guides for family in California — tailored to your situation</div>
+                        <div className="text-[8px] text-slate-400 mt-0.5 leading-tight">Guides for family in California, tailored to your situation</div>
                         <button className="text-[8px] bg-teal-700 text-white px-2 py-0.5 rounded mt-1">Open Case Guides ›</button>
                     </div>
                     <div className="text-[9px] shrink-0">
@@ -344,7 +344,7 @@ const HeroSection = () => (
             <span className="text-orange-500">paperwork win.</span>
           </h1>
           <p className="text-base md:text-[17px] leading-relaxed max-w-[480px]" style={{ color: 'rgba(255,255,255,0.55)' }}>
-            ThreadLock is legal case management software for self-represented litigants. Organize your evidence, document incidents, build a case timeline, and prepare court-ready exhibits—for family court, small claims, landlord-tenant, and other civil matters.<br />No legal background required.
+            ThreadLock is legal case management software for self-represented litigants. Organize your evidence, document incidents, build a case timeline, and prepare court-ready exhibits for family court, small claims, landlord-tenant, and other civil matters.<br />No legal background required.
           </p>
         </div>
 
@@ -429,7 +429,7 @@ const HeroSection = () => (
           </div>
         </div>
 
-        {/* Front card (Case Overview) — animated float */}
+        {/* Front card (Case Overview), animated float */}
         <div
           className="absolute rounded-2xl overflow-hidden"
           style={{
@@ -531,10 +531,10 @@ const DefinitionStrip = () => (
   <section className="py-12 bg-white border-b border-slate-200">
     <div className="container mx-auto px-6 max-w-4xl text-center">
       <p className="text-base md:text-lg text-slate-800 leading-relaxed mb-4">
-        <strong>ThreadLock is a legal case management software platform for civil matters—family court, small claims, landlord-tenant disputes, custody proceedings, and more.</strong>
+        <strong>ThreadLock is a legal case management software platform for civil matters: family court, small claims, landlord-tenant disputes, custody proceedings, and more.</strong>
       </p>
       <p className="text-base md:text-lg text-slate-700 leading-relaxed mb-3">
-        It gives self-represented litigants and pro se filers a structured system to capture incident journals, organize digital evidence, build a chronological case timeline, scan and store court documents, and export court-ready exhibit packets—without needing a legal background.
+        It gives self-represented litigants and pro se filers a structured system to capture incident journals, organize digital evidence, build a chronological case timeline, scan and store court documents, and export court-ready exhibit packets, without needing a legal background.
       </p>
       <p className="text-base md:text-lg text-slate-700 leading-relaxed mb-3">
         ThreadLock functions as a civil case evidence organizer, a case documentation manager, and a court preparation tool. It is not a law firm and does not provide legal advice.
@@ -565,7 +565,7 @@ const ValuePropositionSection = () => (
           </div>
           <h3 className="text-2xl font-bold text-slate-800 mb-4">Chronological Case Timeline</h3>
           <p className="text-slate-600 leading-relaxed">
-            See your case as the court sees it—ordered by date, with sources attached.
+            See your case as the court sees it, ordered by date, with sources attached.
           </p>
         </div>
         <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
@@ -805,17 +805,17 @@ const ProductShowcaseSection = () => {
     const slides = [
         {
             title: "Your Entire Case, In Your Pocket",
-            description: "The ThreadLock mobile app keeps your case organized wherever you are. Log incidents the moment they happen, scan documents on the go, and access your Journal, Timeline, Research Hub, and Organizer — all from your phone.",
+            description: "The ThreadLock mobile app keeps your case organized wherever you are. Log incidents the moment they happen, scan documents on the go, and access your Journal, Timeline, Research Hub, and Organizer, all from your phone.",
             mockup: <AppCaseHubMockup />
         },
         {
             title: "Document Every Detail, Right When It Happens",
-            description: "Capture incidents with rich detail — title, date, time, description, location, people involved, and severity — directly from the app. AI issue-type suggestions help you categorize entries after saving, and you can link entries to your case timeline with one tap.",
+            description: "Capture incidents with rich detail, title, date, time, description, location, people involved, and severity, directly from the app. AI issue-type suggestions help you categorize entries after saving, and you can link entries to your case timeline with one tap.",
             mockup: <AppJournalEntryMockup />
         },
         {
             title: "Complete Case Overview at a Glance",
-            description: "See your entire case in one structured view. Start with guided next steps, access step-by-step Case Guides tailored to your situation, and take action with one click — add evidence, fill a form, draft a document, or start a court filing.",
+            description: "See your entire case in one structured view. Start with guided next steps, access step-by-step Case Guides tailored to your situation, and take action with one click: add evidence, fill a form, draft a document, or start a court filing.",
             mockup: <AppCaseOverviewMockup />
         },
     ];
@@ -1201,7 +1201,7 @@ export default function Home() {
                 "name": "Who is ThreadLock designed for?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "ThreadLock is designed for self-represented litigants (also called pro se litigants) navigating civil legal matters including family court custody disputes, divorce proceedings, small claims cases, and landlord-tenant disputes. It is also used by legal professionals—attorneys and paralegals—who want to review pre-organized client case materials."
+                    "text": "ThreadLock is designed for self-represented litigants (also called pro se litigants) navigating civil legal matters including family court custody disputes, divorce proceedings, small claims cases, and landlord-tenant disputes. It is also used by legal professionals: attorneys and paralegals, who want to review pre-organized client case materials."
                 }
             },
             {
@@ -1226,7 +1226,7 @@ export default function Home() {
     return (
         <div className="bg-white">
             <Head>
-                <title>ThreadLock™ | Legal Case Management for Non-Lawyers — Family Court, Small Claims & More</title>
+                <title>ThreadLock™ | Legal Case Management for Non-Lawyers: Family Court, Small Claims & More</title>
                 <meta name="description" content="Court-compliant case management for self-represented litigants. Organize evidence, document incidents, and prepare court-ready materials for family court, small claims, landlord-tenant, and other civil proceedings." />
                 <link rel="canonical" href="https://threadlock.ai/" />
                 <script

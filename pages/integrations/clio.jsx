@@ -263,7 +263,7 @@ export default function ClioIntegration() {
                 and incident documentation before initial consultation</li>
                 <li>Client creates timeline of custody-related events with linked evidence</li>
                 <li>Attorney reviews organized evidence in Clio before consultation</li>
-                <li>Consultation is more productive—attorney understands case facts immediately</li>
+                <li>Consultation is more productive, attorney understands case facts immediately</li>
                 <li>If client retains attorney, case evidence is already in attorney's system</li>
               </ol>
             </div>

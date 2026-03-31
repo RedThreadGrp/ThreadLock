@@ -5,12 +5,12 @@ export const officialFormsTopic: ResourceQAContent = {
   
   seo: {
     title: "Official Forms & Portals | ThreadLock Resources",
-    description: "Access state-provided forms and rules—don't pay for free resources. Learn where to find official court forms and self-help resources."
+    description: "Access state-provided forms and rules, don't pay for free resources. Learn where to find official court forms and self-help resources."
   },
   
   hero: {
     h1: "Official Forms & Portals",
-    subhead: "Access state-provided forms and rules—don't pay for free resources."
+    subhead: "Access state-provided forms and rules, don't pay for free resources."
   },
   
   shortAnswer: {
@@ -95,14 +95,14 @@ export const officialFormsTopic: ResourceQAContent = {
   sources: {
     items: [
       {
-        title: "U.S. Courts — All Forms",
+        title: "U.S. Courts: All Forms",
         organization: "U.S. Courts",
         url: "https://www.uscourts.gov/forms",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "California Courts — All Family Law Forms",
+        title: "California Courts: All Family Law Forms",
         organization: "California Judicial Branch",
         url: "https://selfhelp.courts.ca.gov/find-forms",
         jurisdiction: "california",
@@ -123,14 +123,14 @@ export const officialFormsTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "NCSC — Self-Representation Resources (State Links)",
+        title: "NCSC: Self-Representation Resources (State Links)",
         organization: "National Center for State Courts",
         url: "https://www.ncsc.org/resources-courts/access-fairness/self-represented-litigants",
         jurisdiction: "US-general",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "LawHelp.org — State Legal Aid Finder",
+        title: "LawHelp.org: State Legal Aid Finder",
         organization: "Pro Bono Net",
         url: "https://www.lawhelp.org/",
         jurisdiction: "US-general",
@@ -143,14 +143,14 @@ export const officialFormsTopic: ResourceQAContent = {
     lastUpdated: "2026-02-21",
     sources: [
       {
-        title: "U.S. Courts — All Forms",
+        title: "U.S. Courts: All Forms",
         organization: "U.S. Courts",
         url: "https://www.uscourts.gov/forms",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "California Courts — All Family Law Forms",
+        title: "California Courts: All Family Law Forms",
         organization: "California Judicial Branch",
         url: "https://selfhelp.courts.ca.gov/find-forms",
         jurisdiction: "california",
@@ -164,7 +164,7 @@ export const officialFormsTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "NCSC — Self-Representation Resources (State Links)",
+        title: "NCSC: Self-Representation Resources (State Links)",
         organization: "National Center for State Courts",
         url: "https://www.ncsc.org/resources-courts/access-fairness/self-represented-litigants",
         jurisdiction: "US-general",

@@ -36,13 +36,13 @@ export default function FactBox({
   ];
 
   return (
-    <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-8">
+    <div className="bg-surface-panel border border-border shadow-sm rounded-2xl p-6 mb-8">
       <h2 className="text-lg font-bold text-slate-900 mb-4">Key Filing Facts</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         {cells.map((cell) => (
           <div
             key={cell.label}
-            className="bg-white border border-slate-100 rounded-xl px-4 py-3"
+            className="bg-white border border-border/70 rounded-xl px-4 py-3"
           >
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
               {cell.label}

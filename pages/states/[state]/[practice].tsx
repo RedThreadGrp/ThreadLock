@@ -6,6 +6,7 @@ import JurisdictionBreadcrumb from "@/components/jurisdiction/JurisdictionBreadc
 import FactBox from "@/components/jurisdiction/FactBox";
 import FormsList from "@/components/jurisdiction/FormsList";
 import JurisdictionCTA from "@/components/jurisdiction/JurisdictionCTA";
+import JurisdictionFaqSection, { extractFaqsFromHtml } from "@/components/jurisdiction/JurisdictionFaqSection";
 import RelatedJurisdictions from "@/components/jurisdiction/RelatedJurisdictions";
 import {
   getAllLeafPaths,
@@ -90,6 +91,7 @@ export default function PracticeLeafPage({ page, state, practice, neighborSlugs 
         eyebrow={`${page.jurisdiction_name} · ${practiceDisplayName}`}
         title={page.title}
         intro={page.meta_description}
+        hideCta
       />
 
       <FactBox
@@ -103,10 +105,18 @@ export default function PracticeLeafPage({ page, state, practice, neighborSlugs 
         lastVerified={page.last_verified || ""}
       />
 
-      <article
-        className="prose prose-slate max-w-none mb-8"
-        dangerouslySetInnerHTML={{ __html: page.bodyHtml }}
-      />
+      {(() => {
+        const { faqs, cleanedHtml } = extractFaqsFromHtml(page.bodyHtml);
+        return (
+          <>
+            <article
+              className="prose prose-slate max-w-none mb-8"
+              dangerouslySetInnerHTML={{ __html: cleanedHtml }}
+            />
+            <JurisdictionFaqSection items={faqs} />
+          </>
+        );
+      })()}
 
       <FormsList forms={page.forms || []} />
 

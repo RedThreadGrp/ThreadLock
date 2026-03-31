@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export interface PracticeAreaCardsProps {
   jurisdictionPath: string;
-  country: "us" | "ca";
+  country: "us" | "ca" | "au" | "uk";
 }
 
 const US_PRACTICES = [
@@ -42,11 +42,53 @@ const CA_PRACTICES = [
   },
 ];
 
+const AU_PRACTICES = [
+  {
+    slug: "small-claims",
+    name: "Small Claims / Tribunal",
+    description: "File and defend civil claims at your state or territory tribunal.",
+  },
+  {
+    slug: "family-law",
+    name: "Family Law",
+    description: "Navigate separation, divorce, parenting orders, and property matters.",
+  },
+  {
+    slug: "tenancy",
+    name: "Tenancy Disputes",
+    description: "Resolve disputes over rent, bonds, repairs, and termination.",
+  },
+];
+
+const UK_PRACTICES = [
+  {
+    slug: "small-claims",
+    name: "Small Claims Court",
+    description: "Make or defend money claims up to the small claims limit.",
+  },
+  {
+    slug: "family-law",
+    name: "Family Law",
+    description: "Navigate divorce, financial orders, and child arrangements.",
+  },
+  {
+    slug: "housing",
+    name: "Housing Disputes",
+    description: "Resolve disputes over tenancy, deposits, disrepair, and possession.",
+  },
+];
+
 export default function PracticeAreaCards({
   jurisdictionPath,
   country,
 }: PracticeAreaCardsProps) {
-  const practices = country === "ca" ? CA_PRACTICES : US_PRACTICES;
+  const practiceMap: Record<string, typeof US_PRACTICES> = {
+    us: US_PRACTICES,
+    ca: CA_PRACTICES,
+    au: AU_PRACTICES,
+    uk: UK_PRACTICES,
+  };
+  const practices = practiceMap[country] ?? US_PRACTICES;
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">

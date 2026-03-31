@@ -155,7 +155,7 @@ export default function ToolsForManagingCoParentingDocumentation() {
             <div className="space-y-4">
               <div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">Shared vs. Independent Platforms</h3>
-                <p className="text-slate-700">OFW and Talking Parents require both parents to participate. ThreadLock works independently—you control your own documentation regardless of what the other parent uses.</p>
+                <p className="text-slate-700">OFW and Talking Parents require both parents to participate. ThreadLock works independently, you control your own documentation regardless of what the other parent uses.</p>
               </div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">Cost Structure</h3>
@@ -183,7 +183,7 @@ export default function ToolsForManagingCoParentingDocumentation() {
           <section className="bg-slate-900 text-white p-8 rounded-xl">
             <h2 className="text-3xl font-bold mb-6">Document Co-Parenting with ThreadLock</h2>
             <p className="text-lg text-slate-200 mb-6">
-              Track all co-parenting communication, exchanges, and incidents in one secure platform. Works independently—no need for the other parent to participate.
+              Track all co-parenting communication, exchanges, and incidents in one secure platform. Works independently, no need for the other parent to participate.
             </p>
             <Link href="/signup" className="bg-orange-600 text-white font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-orange-700 transition inline-block">
               Start Documenting

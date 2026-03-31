@@ -5,9 +5,9 @@ export default class MyDocument extends Document {
   render() {
     const siteUrl = "https://threadlock.ai";
     const title =
-      "ThreadLock™ | Legal Case Management for Non-Lawyers — Family Court, Small Claims & More";
+      "ThreadLock™ | Legal Case Management for Non-Lawyers: Family Court, Small Claims & More";
     const desc =
-      "Organize your legal case with ThreadLock. Document evidence, build a timeline, and prepare court-ready materials — for family court, small claims, landlord-tenant, and other civil matters. Designed for self-represented litigants and legal professionals.";
+      "Organize your legal case with ThreadLock. Document evidence, build a timeline, and prepare court-ready materials for family court, small claims, landlord-tenant, and other civil matters. Designed for self-represented litigants and legal professionals.";
     const ogImage = `${siteUrl}/og-image.jpg?v=2025-08-21a`;
 
     return (
@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
           <meta property="og:description" content={desc} />
           <meta property="og:image" content={ogImage} />
           <meta property="og:image:secure_url" content={ogImage} />
-          <meta property="og:image:alt" content="ThreadLock — Legal Case Management for Self-Represented Litigants" />
+          <meta property="og:image:alt" content="ThreadLock: Legal Case Management for Self-Represented Litigants" />
           <meta property="og:image:type" content="image/jpeg" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="627" />
@@ -42,7 +42,7 @@ export default class MyDocument extends Document {
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={desc} />
           <meta name="twitter:image" content={ogImage} />
-          <meta name="twitter:image:alt" content="ThreadLock — Legal Case Management for Self-Represented Litigants" />
+          <meta name="twitter:image:alt" content="ThreadLock: Legal Case Management for Self-Represented Litigants" />
 
           {/* JSON-LD (safe) */}
           <script
