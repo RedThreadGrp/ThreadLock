@@ -38,22 +38,37 @@ export default function JurisdictionFaqSection({
  * Extracts Q: / A: FAQ pairs from rendered body HTML and returns:
  *  - faqs: parsed items
  *  - cleanedHtml: the original HTML with the FAQ paragraphs removed
+ *
+ * Handles two markdown formats:
+ *  1. Separate paragraphs (blank line between Q and A):
+ *       <p>Q: ...</p>\n<p>A: ...</p>
+ *  2. Same paragraph (no blank line between Q and A, remark-html merges lines):
+ *       <p>Q: ...\nA: ...</p>
  */
 export function extractFaqsFromHtml(bodyHtml: string): {
   faqs: FaqItem[];
   cleanedHtml: string;
 } {
   const faqs: FaqItem[] = [];
-  const qaRegex = /<p>Q:\s*(.*?)<\/p>\s*<p>A:\s*([\s\S]*?)<\/p>/gi;
-  let match;
-  while ((match = qaRegex.exec(bodyHtml)) !== null) {
-    faqs.push({
-      q: match[1].trim(),
-      a: match[2].replace(/<[^>]+>/g, "").trim(),
-    });
-  }
-  const cleanedHtml = bodyHtml
-    .replace(/<p>Q:\s*.*?<\/p>\s*<p>A:\s*[\s\S]*?<\/p>/gi, "")
+  let cleanedHtml = bodyHtml;
+
+  // Case 1: Q and A in separate <p> tags (blank line between Q and A in markdown)
+  const separateTagsRegex = /<p>Q:\s*(.*?)<\/p>\s*<p>A:\s*([\s\S]*?)<\/p>/gi;
+  cleanedHtml = cleanedHtml.replace(separateTagsRegex, (_, q, a) => {
+    faqs.push({ q: q.trim(), a: a.replace(/<[^>]+>/g, "").trim() });
+    return "";
+  });
+
+  // Case 2: Q and A in the same <p> tag (no blank line between Q and A in
+  // markdown — remark-html renders consecutive lines as one paragraph with a
+  // newline between them)
+  const sameTagRegex = /<p>Q:\s*(.*?)\s*\nA:\s*([\s\S]*?)<\/p>/gi;
+  cleanedHtml = cleanedHtml.replace(sameTagRegex, (_, q, a) => {
+    faqs.push({ q: q.trim(), a: a.replace(/<[^>]+>/g, "").trim() });
+    return "";
+  });
+
+  cleanedHtml = cleanedHtml
     .replace(/(<br\s*\/?>|\s)+$/, "")
     .trim();
   return { faqs, cleanedHtml };

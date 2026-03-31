@@ -1,7 +1,6 @@
 import React from "react";
 import Head from "next/head";
 import SiteHeader from "@/src/components/SiteHeader";
-import Footer from "@/components/Footer";
 
 export interface JurisdictionShellProps {
   title: string;
@@ -66,7 +65,6 @@ export default function JurisdictionShell({
           {children}
         </div>
       </div>
-      <Footer />
     </>
   );
 }
