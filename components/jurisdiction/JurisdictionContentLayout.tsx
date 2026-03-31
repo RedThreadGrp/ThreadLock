@@ -164,7 +164,7 @@ export default function JurisdictionContentLayout({
         return (
           <>
             <article
-              className="prose prose-invert max-w-none mb-8"
+              className="prose prose-invert max-w-none mb-8 [&>p+p]:mt-4"
               dangerouslySetInnerHTML={{ __html: cleanedHtml }}
             />
             <JurisdictionFaqSection items={faqs} />
@@ -277,7 +277,7 @@ export default function JurisdictionContentLayout({
                       </span>
                     </div>
                     <div
-                      className="prose prose-invert max-w-none text-sm"
+                      className="prose prose-invert max-w-none text-sm [&>p+p]:mt-4"
                       dangerouslySetInnerHTML={{ __html: html }}
                     />
                   </section>
@@ -299,7 +299,7 @@ export default function JurisdictionContentLayout({
                   </div>
                   {/* Overview: first paragraph gets a blockquote treatment */}
                   <div
-                    className={`prose prose-invert max-w-none text-sm ${
+                    className={`prose prose-invert max-w-none text-sm [&>p+p]:mt-4 ${
                       key === "overview"
                         ? "[&>p:first-of-type]:border-l-4 [&>p:first-of-type]:border-brand-orange [&>p:first-of-type]:pl-4 [&>p:first-of-type]:italic [&>p:first-of-type]:text-foreground-dark"
                         : ""

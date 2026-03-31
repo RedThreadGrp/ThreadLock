@@ -10,7 +10,7 @@ export interface JurisdictionHeroProps {
 
 export default function JurisdictionHero({ eyebrow, title, intro, hideCta = false }: JurisdictionHeroProps) {
   return (
-    <section className="relative bg-[#1b3a4d] text-white rounded-2xl overflow-hidden mb-8 px-8 py-14 md:py-16">
+    <section className="relative bg-surface-dark-panel border border-border-dark text-white rounded-2xl overflow-hidden mb-8 px-8 py-14 md:py-16">
       <div className="absolute inset-0 opacity-10"
         style={{ backgroundImage: "radial-gradient(circle at 70% 50%, #fb7a1e 0%, transparent 60%)" }}
         aria-hidden="true"

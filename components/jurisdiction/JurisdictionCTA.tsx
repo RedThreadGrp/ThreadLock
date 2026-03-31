@@ -2,7 +2,7 @@ import React from "react";
 
 export default function JurisdictionCTA() {
   return (
-    <section className="bg-[#1b3a4d] rounded-2xl px-8 py-12 my-10 text-white text-center">
+    <section className="bg-surface-dark-panel border border-border-dark rounded-2xl px-8 py-12 my-10 text-white text-center">
       <h2 className="text-2xl md:text-3xl font-extrabold mb-3">
         Get organized before your hearing.
       </h2>
