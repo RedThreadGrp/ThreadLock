@@ -328,19 +328,19 @@ export default function ResourcesPage() {
                 href="/ca/"
                 className="inline-flex items-center gap-2 rounded-2xl border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:border-brand-orange/40 hover:text-brand-orange transition-all"
               >
-                <span>🇨🇦</span> Canada Guides
+                Canada Guides
               </Link>
               <Link
                 href="/au/"
                 className="inline-flex items-center gap-2 rounded-2xl border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:border-brand-orange/40 hover:text-brand-orange transition-all"
               >
-                <span>🇦🇺</span> Australia Guides
+                Australia Guides
               </Link>
               <Link
                 href="/uk/"
                 className="inline-flex items-center gap-2 rounded-2xl border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:border-brand-orange/40 hover:text-brand-orange transition-all"
               >
-                <span>🇬🇧</span> United Kingdom Guides
+                United Kingdom Guides
               </Link>
             </div>
           </div>
@@ -1004,7 +1004,6 @@ export default function ResourcesPage() {
             >
               <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity orange-glow-overlay pointer-events-none" />
               <div className="relative z-10">
-                <span className="text-3xl mb-3 block">🇺🇸</span>
                 <h3 className="text-base font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-1">United States</h3>
                 <p className="text-xs text-muted-dark">All 50 states + DC: small claims, family court, landlord-tenant.</p>
               </div>
@@ -1016,7 +1015,6 @@ export default function ResourcesPage() {
             >
               <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity orange-glow-overlay pointer-events-none" />
               <div className="relative z-10">
-                <span className="text-3xl mb-3 block">🇨🇦</span>
                 <h3 className="text-base font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-1">Canada</h3>
                 <p className="text-xs text-muted-dark">All provinces and territories: small claims, family law, landlord-tenant.</p>
               </div>
@@ -1028,7 +1026,6 @@ export default function ResourcesPage() {
             >
               <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity orange-glow-overlay pointer-events-none" />
               <div className="relative z-10">
-                <span className="text-3xl mb-3 block">🇦🇺</span>
                 <h3 className="text-base font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-1">Australia</h3>
                 <p className="text-xs text-muted-dark">All states and territories: NCAT, VCAT, QCAT, family law, tenancy.</p>
               </div>
@@ -1040,7 +1037,6 @@ export default function ResourcesPage() {
             >
               <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity orange-glow-overlay pointer-events-none" />
               <div className="relative z-10">
-                <span className="text-3xl mb-3 block">🇬🇧</span>
                 <h3 className="text-base font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-1">United Kingdom</h3>
                 <p className="text-xs text-muted-dark">England, Wales, Scotland, Northern Ireland: small claims, family law, housing.</p>
               </div>
