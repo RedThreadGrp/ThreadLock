@@ -10,6 +10,13 @@ export default function SignupPage() {
         <title>Sign Up - Legal Case Management | ThreadLock</title>
         <meta name="description" content="Create your ThreadLock account to start organizing your legal case, evidence, timelines, documents, and court preparation. Plans for individuals and attorneys." />
         <link rel="canonical" href="https://threadlock.ai/signup" />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18054068217" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18054068217');`
+          }}
+        />
       </Head>
 
       <div className="max-w-4xl w-full mx-auto">

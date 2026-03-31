@@ -214,6 +214,13 @@ export default function ResourcesPage() {
         <meta name="twitter:title" content="Resource Hub | ThreadLock" />
         <meta name="twitter:description" content="Checklists, templates, and plain-English guidance for self-represented litigants in family court. Updated weekly." />
         <meta name="twitter:image" content="https://threadlock.ai/og-image.jpg" />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18054068217" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18054068217');`
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

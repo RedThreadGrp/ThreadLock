@@ -1229,6 +1229,13 @@ export default function Home() {
                 <title>ThreadLock™ | Legal Case Management for Non-Lawyers: Family Court, Small Claims & More</title>
                 <meta name="description" content="Court-compliant case management for self-represented litigants. Organize evidence, document incidents, and prepare court-ready materials for family court, small claims, landlord-tenant, and other civil proceedings." />
                 <link rel="canonical" href="https://threadlock.ai/" />
+                {/* Google tag (gtag.js) */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18054068217" />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-18054068217');`
+                    }}
+                />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
