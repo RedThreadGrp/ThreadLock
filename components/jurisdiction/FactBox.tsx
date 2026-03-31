@@ -36,18 +36,18 @@ export default function FactBox({
   ];
 
   return (
-    <div className="bg-surface-panel border border-border shadow-sm rounded-2xl p-6 mb-8">
-      <h2 className="text-lg font-bold text-slate-900 mb-4">Key Filing Facts</h2>
+    <div className="bg-surface-dark-panel border border-border-dark rounded-2xl p-6 mb-8">
+      <h2 className="text-lg font-bold text-foreground-dark mb-4">Key Filing Facts</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         {cells.map((cell) => (
           <div
             key={cell.label}
-            className="bg-white border border-border/70 rounded-xl px-4 py-3"
+            className="bg-surface-dark border border-border-dark/70 rounded-xl px-4 py-3"
           >
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-dark mb-1">
               {cell.label}
             </p>
-            <p className="text-base font-semibold text-slate-800">{cell.value}</p>
+            <p className="text-base font-semibold text-foreground-dark">{cell.value}</p>
           </div>
         ))}
       </div>
@@ -56,12 +56,12 @@ export default function FactBox({
           href={courtUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-sm font-semibold text-[#fb7a1e] hover:underline mb-4"
+          className="inline-flex items-center gap-1 text-sm font-semibold text-brand-orange hover:underline mb-4"
         >
           Official Court Website →
         </a>
       )}
-      <p className="text-xs text-slate-400 mt-2">
+      <p className="text-xs text-muted-dark mt-2">
         ✓ Verified as of {lastVerified}
       </p>
     </div>

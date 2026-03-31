@@ -96,15 +96,18 @@ export default function PracticeAreaCards({
         <Link
           key={practice.slug}
           href={`${jurisdictionPath}/${practice.slug}/`}
-          className="group block bg-white border border-slate-200 hover:border-[#fb7a1e] rounded-2xl p-5 transition-all hover:shadow-md"
+          className="group relative block bg-surface-dark-panel border border-border-dark hover:border-brand-orange/50 rounded-2xl p-5 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange/30"
         >
-          <h3 className="text-base font-bold text-slate-900 group-hover:text-[#fb7a1e] transition-colors mb-2">
-            {practice.name}
-          </h3>
-          <p className="text-sm text-slate-600 mb-3 leading-relaxed">
-            {practice.description}
-          </p>
-          <span className="text-sm font-semibold text-[#fb7a1e]">View Guide →</span>
+          <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 orange-glow-overlay pointer-events-none" />
+          <div className="relative z-10">
+            <h3 className="text-base font-bold text-foreground-dark group-hover:text-brand-orange transition-colors mb-2">
+              {practice.name}
+            </h3>
+            <p className="text-sm text-muted-dark mb-3 leading-relaxed">
+              {practice.description}
+            </p>
+            <span className="text-sm font-semibold text-brand-orange">View Guide →</span>
+          </div>
         </Link>
       ))}
     </div>
