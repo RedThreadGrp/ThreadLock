@@ -302,9 +302,7 @@ function renderBlock(block: ResourceBodyBlock, key: React.Key) {
       const styles = CalloutStyles(block.kind);
       const role = block.kind === "warning" ? "alert" : block.kind === "note" ? "note" : "status";
       return (
-        // flow-root establishes a block formatting context so this box
-        // sits cleanly beside the floated sidebar without overlapping it.
-        <aside key={key} className={cx("rounded-2xl p-4 flow-root", styles.wrapper)} role={role}>
+        <aside key={key} className={cx("rounded-2xl p-4", styles.wrapper)} role={role}>
           {(block.title || block.kind) && (
             <div className={cx("text-xs font-semibold uppercase tracking-wide", styles.title)}>
               {block.title ?? block.kind}
