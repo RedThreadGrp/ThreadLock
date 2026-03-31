@@ -53,8 +53,8 @@ export default function UkIndex({ hubs, rootMeta }: Props) {
       />
 
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-slate-900 mb-2">All Regions</h2>
-        <p className="text-slate-600 text-sm">Select your region to see available court guides.</p>
+        <h2 className="text-2xl font-bold text-foreground-dark mb-2">All Regions</h2>
+        <p className="text-muted-dark text-sm">Select your region to see available court guides.</p>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8">
@@ -62,7 +62,7 @@ export default function UkIndex({ hubs, rootMeta }: Props) {
           <Link
             key={hub.jurisdiction_slug}
             href={`/uk/${hub.jurisdiction_slug}/`}
-            className="block bg-white border border-slate-200 hover:border-[#fb7a1e] rounded-xl px-4 py-3 text-sm font-medium text-slate-700 hover:text-[#fb7a1e] transition-all hover:shadow-sm"
+            className="block bg-surface-dark-panel border border-border-dark hover:border-brand-orange/50 rounded-xl px-4 py-3 text-sm font-medium text-muted-dark hover:text-brand-orange transition-all hover:shadow-sm"
           >
             {hub.jurisdiction_name}
           </Link>
