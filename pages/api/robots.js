@@ -7,7 +7,7 @@ Allow: /
 Disallow: /content/archive/
 Disallow: /content/generated/
 
-# AI crawlers, explicitly permitted to index and cite all public pages
+# AI crawlers — explicitly permitted to index and cite all public pages
 User-agent: GPTBot
 Allow: /
 
@@ -40,7 +40,6 @@ Allow: /
 
 Sitemap: https://threadlock.ai/sitemap.xml
 
-# Machine-readable context for AI/LLM crawlers
-LLMs-txt: https://threadlock.ai/llms.txt`
+# Machine-readable context for AI/LLM crawlers: https://threadlock.ai/llms.txt`
   );
 }
