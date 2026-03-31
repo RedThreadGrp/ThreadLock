@@ -25,7 +25,7 @@ export default function JurisdictionFaqSection({
             key={i}
             className="bg-surface-dark border border-border-dark/70 rounded-xl px-4 py-4"
           >
-            <p className="text-sm font-semibold text-foreground-dark mb-2">{item.q}</p>
+            <p className="text-sm font-semibold text-foreground-dark mb-3">{item.q}</p>
             <p className="text-sm text-muted-dark leading-relaxed">{item.a}</p>
           </div>
         ))}

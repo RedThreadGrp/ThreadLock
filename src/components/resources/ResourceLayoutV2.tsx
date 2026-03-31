@@ -92,17 +92,14 @@ export function ResourceLayoutV2({
       {header && <div className="mb-8">{header}</div>}
       
       {sidebar ? (
-        // Float-based layout: sidebar floats left on large screens so the article
-        // sits beside it at the top and naturally expands to full container width
-        // once the sidebar content ends.
-        // overflow-hidden is required here: it establishes a block formatting
-        // context (clearfix) so the container fully wraps around the floated
-        // sidebar and prevents height collapse.
-        <div className="overflow-hidden">
-          <aside className="space-y-6 mb-6 lg:float-left lg:w-72 lg:mb-0 lg:mr-8">
+        // Flex-based two-column layout: sidebar is sticky on large screens so it
+        // follows the user as they scroll through the article (matches jurisdiction
+        // pages). On smaller screens the sidebar stacks above the article content.
+        <div className="flex flex-col lg:flex-row gap-8 items-start">
+          <aside className="w-full lg:w-72 shrink-0 lg:sticky lg:top-24 lg:self-start space-y-6">
             {sidebar}
           </aside>
-          <article className="space-y-10">
+          <article className="flex-1 min-w-0 space-y-10">
             {children}
           </article>
         </div>

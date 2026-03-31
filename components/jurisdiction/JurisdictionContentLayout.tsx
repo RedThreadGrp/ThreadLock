@@ -164,7 +164,7 @@ export default function JurisdictionContentLayout({
         return (
           <>
             <article
-              className="prose prose-invert max-w-none mb-8"
+              className="prose prose-invert max-w-none mb-8 [&>p+p]:mt-4"
               dangerouslySetInnerHTML={{ __html: cleanedHtml }}
             />
             <JurisdictionFaqSection items={faqs} />
@@ -205,9 +205,9 @@ export default function JurisdictionContentLayout({
         )}
 
         {/* Legal Support card */}
-        <div className="bg-gradient-to-br from-purple-700 to-purple-900 rounded-2xl p-4 text-white">
-          <h3 className="font-bold text-sm mb-2">Legal Support</h3>
-          <p className="text-xs text-purple-200 leading-relaxed mb-4">
+        <div className="bg-sky-500/10 border border-sky-300/25 rounded-2xl p-4">
+          <h3 className="font-bold text-sm mb-2 text-sky-200">Legal Support</h3>
+          <p className="text-xs text-sky-100/80 leading-relaxed mb-4">
             {page.jurisdiction_name} residents should contact a rights
             organization or legal aid office before filing to understand all
             options.
@@ -216,7 +216,7 @@ export default function JurisdictionContentLayout({
             href={page.court_url || "/resources/"}
             target={page.court_url ? "_blank" : undefined}
             rel={page.court_url ? "noopener noreferrer" : undefined}
-            className="block text-center bg-white/20 hover:bg-white/30 text-white text-xs font-bold px-3 py-2 rounded-lg transition-colors"
+            className="block text-center bg-sky-500/20 hover:bg-sky-500/30 text-sky-100 text-xs font-bold px-3 py-2 rounded-lg transition-colors"
           >
             Get Local Help
           </a>
@@ -277,7 +277,7 @@ export default function JurisdictionContentLayout({
                       </span>
                     </div>
                     <div
-                      className="prose prose-invert max-w-none text-sm"
+                      className="prose prose-invert max-w-none text-sm [&>p+p]:mt-4"
                       dangerouslySetInnerHTML={{ __html: html }}
                     />
                   </section>
@@ -299,7 +299,7 @@ export default function JurisdictionContentLayout({
                   </div>
                   {/* Overview: first paragraph gets a blockquote treatment */}
                   <div
-                    className={`prose prose-invert max-w-none text-sm ${
+                    className={`prose prose-invert max-w-none text-sm [&>p+p]:mt-4 ${
                       key === "overview"
                         ? "[&>p:first-of-type]:border-l-4 [&>p:first-of-type]:border-brand-orange [&>p:first-of-type]:pl-4 [&>p:first-of-type]:italic [&>p:first-of-type]:text-foreground-dark"
                         : ""
