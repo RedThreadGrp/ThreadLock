@@ -51,17 +51,18 @@ export default function ProvinceHub({ hub, province }: Props) {
         eyebrow={`${hub.jurisdiction_name} · Court Guides`}
         title={hub.title}
         intro={hub.meta_description}
+        hideCta
       />
 
       {isQuebec && (
-        <div className="bg-blue-50 border border-blue-200 rounded-xl px-5 py-4 mb-6 text-sm text-blue-800">
-          <strong>Note on Quebec Civil Law:</strong> Quebec operates under the Civil Code of
+        <div className="bg-surface-dark-panel border border-blue-500/30 rounded-xl px-5 py-4 mb-6 text-sm text-blue-300">
+          <strong className="text-blue-200">Note on Quebec Civil Law:</strong> Quebec operates under the Civil Code of
           Québec, a civil law system distinct from the common law system used in other
           Canadian provinces. Procedures and terminology may differ significantly.
         </div>
       )}
 
-      <h2 className="text-xl font-bold text-slate-900 mb-4">
+      <h2 className="text-xl font-bold text-foreground-dark mb-4">
         Choose a Practice Area
       </h2>
       <PracticeAreaCards

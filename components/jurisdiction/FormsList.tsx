@@ -13,8 +13,8 @@ export default function FormsList({ forms }: FormsListProps) {
   if (!forms || forms.length === 0) return null;
 
   return (
-    <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-8">
-      <h2 className="text-lg font-bold text-slate-900 mb-4">Official Court Forms</h2>
+    <div className="bg-surface-dark-panel border border-border-dark rounded-2xl p-6 mb-8">
+      <h2 className="text-lg font-bold text-foreground-dark mb-4">Official Court Forms</h2>
       <ul className="space-y-3">
         {forms.map((form) => (
           <li key={form.url}>
@@ -22,7 +22,7 @@ export default function FormsList({ forms }: FormsListProps) {
               href={form.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-[#fb7a1e] hover:underline"
+              className="inline-flex items-center gap-2 text-sm font-medium text-brand-orange hover:underline"
             >
               <svg
                 width="16"

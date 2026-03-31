@@ -50,9 +50,10 @@ export default function AuRegionHub({ hub, region }: Props) {
         eyebrow={`${hub.jurisdiction_name} · Court Guides`}
         title={hub.title}
         intro={hub.meta_description}
+        hideCta
       />
 
-      <h2 className="text-xl font-bold text-slate-900 mb-4">Choose a Practice Area</h2>
+      <h2 className="text-xl font-bold text-foreground-dark mb-4">Choose a Practice Area</h2>
       <PracticeAreaCards jurisdictionPath={`/au/${region}`} country="au" />
 
       <JurisdictionCTA />

@@ -17,16 +17,16 @@ export default function JurisdictionFaqSection({
   if (items.length === 0) return null;
 
   return (
-    <section className="bg-surface-panel border border-border shadow-sm rounded-2xl p-6 mb-8">
-      <h2 className="text-lg font-bold text-slate-900 mb-5">{heading}</h2>
+    <section className="bg-surface-dark-panel border border-border-dark rounded-2xl p-6 mb-8">
+      <h2 className="text-lg font-bold text-foreground-dark mb-5">{heading}</h2>
       <div className="space-y-4">
         {items.map((item, i) => (
           <div
             key={i}
-            className="bg-white border border-border/70 rounded-xl px-4 py-4"
+            className="bg-surface-dark border border-border-dark/70 rounded-xl px-4 py-4"
           >
-            <p className="text-sm font-semibold text-slate-800 mb-2">{item.q}</p>
-            <p className="text-sm text-slate-600 leading-relaxed">{item.a}</p>
+            <p className="text-sm font-semibold text-foreground-dark mb-2">{item.q}</p>
+            <p className="text-sm text-muted-dark leading-relaxed">{item.a}</p>
           </div>
         ))}
       </div>

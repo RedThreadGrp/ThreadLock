@@ -109,7 +109,7 @@ export default function CaPracticeLeafPage({ page, province, practice, neighborS
         return (
           <>
             <article
-              className="prose prose-slate max-w-none mb-8"
+              className="prose prose-invert max-w-none mb-8"
               dangerouslySetInnerHTML={{ __html: cleanedHtml }}
             />
             <JurisdictionFaqSection items={faqs} />

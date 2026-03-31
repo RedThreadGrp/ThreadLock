@@ -109,7 +109,7 @@ export default function AuPracticeLeafPage({ page, region, practice, neighborSlu
         return (
           <>
             <article
-              className="prose prose-slate max-w-none mb-8"
+              className="prose prose-invert max-w-none mb-8"
               dangerouslySetInnerHTML={{ __html: cleanedHtml }}
             />
             <JurisdictionFaqSection items={faqs} />
