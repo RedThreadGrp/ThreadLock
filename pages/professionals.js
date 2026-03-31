@@ -17,8 +17,8 @@ export default function ProfessionalsPage() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Service",
-              name: "ThreadLock Pro — Legal Professional Case Review Platform",
-              description: "ThreadLock Pro connects attorneys and paralegals with pre-organized, pre-paid case review requests from self-represented litigants in their jurisdiction. Professionals set their flat fee, claim anonymous jobs, pass a conflict check, annotate the case materials, and receive payment — all within the ThreadLock platform.",
+              name: "ThreadLock Pro: Legal Professional Case Review Platform",
+              description: "ThreadLock Pro connects attorneys and paralegals with pre-organized, pre-paid case review requests from self-represented litigants in their jurisdiction. Professionals set their flat fee, claim anonymous jobs, pass a conflict check, annotate the case materials, and receive payment, all within the ThreadLock platform.",
               provider: {
                 "@type": "Organization",
                 name: "ThreadLock",
@@ -31,7 +31,7 @@ export default function ProfessionalsPage() {
               },
               audience: {
                 "@type": "Audience",
-                audienceType: "Legal Professionals — Attorneys, Paralegals, Law Clerks",
+                audienceType: "Legal Professionals: Attorneys, Paralegals, Law Clerks",
               },
               hasOfferCatalog: {
                 "@type": "OfferCatalog",

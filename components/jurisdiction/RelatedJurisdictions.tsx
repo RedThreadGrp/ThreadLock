@@ -4,7 +4,7 @@ import Link from "next/link";
 export interface RelatedJurisdictionsProps {
   currentSlug: string;
   practiceArea: string;
-  country: "us" | "ca";
+  country: "us" | "ca" | "au" | "uk";
   neighborSlugs: string[];
 }
 
@@ -21,8 +21,13 @@ export default function RelatedJurisdictions({
   country,
   neighborSlugs,
 }: RelatedJurisdictionsProps) {
-  const basePath = country === "ca" ? "/ca" : "/states";
-  const nationalPath = country === "ca" ? null : `/${practiceArea}/`;
+  const basePathMap: Record<string, string> = {
+    ca: "/ca",
+    au: "/au",
+    uk: "/uk",
+  };
+  const basePath = basePathMap[country] ?? "/states";
+  const nationalPath = country === "ca" ? null : country === "us" ? `/${practiceArea}/` : null;
 
   return (
     <div className="mt-10 pt-8 border-t border-slate-200">

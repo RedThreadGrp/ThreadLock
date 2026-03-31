@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function CaIndex({ hubs, rootMeta }: Props) {
-  const title = rootMeta?.title || "Canadian Court Filing Guides — Small Claims, Family Law & Landlord-Tenant";
+  const title = rootMeta?.title || "Canadian Court Filing Guides: Small Claims, Family Law & Landlord-Tenant";
   const metaDescription = rootMeta?.meta_description || "Province-by-province court filing guides for self-represented litigants in Canada.";
   const canonicalUrl = "https://threadlock.ai/ca/";
 

@@ -10,7 +10,7 @@ interface Props {
   pages: JurisdictionFrontmatter[];
 }
 
-const TITLE = "Small Claims Court by State — Filing Limits, Fees & Guides";
+const TITLE = "Small Claims Court by State: Filing Limits, Fees & Guides";
 const META_DESCRIPTION =
   "Compare small claims court filing limits, fees, and deadlines across all 50 US states and DC. Find your state guide and prepare your case with ThreadLock.";
 const CANONICAL = "https://threadlock.ai/small-claims/";
@@ -48,7 +48,7 @@ export default function SmallClaimsNational({ pages }: Props) {
 
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-slate-900 mb-2">
-          All States — Small Claims Filing Limits
+          All States: Small Claims Filing Limits
         </h2>
         <p className="text-slate-600 text-sm">
           {pages.length} state guides available. Click any state to see full details.
@@ -74,8 +74,8 @@ export default function SmallClaimsNational({ pages }: Props) {
                 <td className="py-3 px-4 font-medium text-slate-800">
                   {p.jurisdiction_name}
                 </td>
-                <td className="py-3 px-4 text-slate-600">{p.filing_limit || "—"}</td>
-                <td className="py-3 px-4 text-slate-600">{p.filing_fee || "—"}</td>
+                <td className="py-3 px-4 text-slate-600">{p.filing_limit || "-"}</td>
+                <td className="py-3 px-4 text-slate-600">{p.filing_fee || "-"}</td>
                 <td className="py-3 px-4">
                   <Link
                     href={`/states/${p.jurisdiction_slug}/small-claims/`}

@@ -10,7 +10,7 @@ interface Props {
   pages: JurisdictionFrontmatter[];
 }
 
-const TITLE = "Landlord-Tenant Law by State — Filing Guides & Dispute Procedures";
+const TITLE = "Landlord-Tenant Law by State: Filing Guides & Dispute Procedures";
 const META_DESCRIPTION =
   "State-by-state landlord-tenant guides covering evictions, security deposits, habitability, and court procedures. Find your state and organize your evidence with ThreadLock.";
 const CANONICAL = "https://threadlock.ai/landlord-tenant/";
@@ -48,7 +48,7 @@ export default function LandlordTenantNational({ pages }: Props) {
 
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-slate-900 mb-2">
-          All States — Landlord-Tenant Guides
+          All States: Landlord-Tenant Guides
         </h2>
         <p className="text-slate-600 text-sm">
           {pages.length > 0

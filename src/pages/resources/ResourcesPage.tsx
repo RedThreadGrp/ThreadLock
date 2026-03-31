@@ -310,6 +310,35 @@ export default function ResourcesPage() {
           </div>
         </section>
 
+        {/* International Resources Navigation */}
+        <section className="mx-auto max-w-6xl px-6 pb-4">
+          <div className="rounded-3xl border border-border-dark bg-surface-dark-panel p-5">
+            <p className="text-xs font-semibold text-muted-dark uppercase tracking-widest mb-3">
+              Guides for Other Countries
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/ca/"
+                className="inline-flex items-center gap-2 rounded-2xl border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:border-brand-orange/40 hover:text-brand-orange transition-all"
+              >
+                <span>🇨🇦</span> Canadian Guides
+              </Link>
+              <Link
+                href="/au/"
+                className="inline-flex items-center gap-2 rounded-2xl border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:border-brand-orange/40 hover:text-brand-orange transition-all"
+              >
+                <span>🇦🇺</span> Australian Guides
+              </Link>
+              <Link
+                href="/uk/"
+                className="inline-flex items-center gap-2 rounded-2xl border border-border-dark bg-surface-dark px-4 py-2 text-sm font-semibold text-foreground-dark hover:border-brand-orange/40 hover:text-brand-orange transition-all"
+              >
+                <span>🇬🇧</span> UK Guides
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* In-page Subnav */}
         <nav className="sticky top-0 z-10 bg-surface-dark/95 backdrop-blur-sm border-b border-border-dark mb-10" data-testid="resources.subnav">
           <div className="mx-auto max-w-6xl px-6">
@@ -360,6 +389,14 @@ export default function ResourcesPage() {
                 className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
               >
                 Official Directory
+              </a>
+              <span className="text-border-dark">·</span>
+              <a 
+                href="#jurisdiction-guides"
+                onClick={scrollToSection('jurisdiction-guides')}
+                className="shrink-0 rounded-full px-4 py-2 text-xs font-semibold transition hover:bg-surface-dark-panel text-muted-dark hover:text-foreground-dark"
+              >
+                International Guides
               </a>
             </div>
           </div>
@@ -939,6 +976,69 @@ export default function ResourcesPage() {
               </div>
             </div>
           )}
+        </section>
+
+        {/* Jurisdiction Guides - US + International */}
+        <section id="jurisdiction-guides" className="mx-auto max-w-6xl px-6 py-10 md:py-14 border-t border-border-dark">
+          <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between mb-8">
+            <div>
+              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl text-foreground-dark">Jurisdiction Filing Guides</h2>
+              <p className="mt-2 text-muted-dark">
+                State-by-state and country-specific guides: small claims, family law, landlord-tenant, and more.
+              </p>
+            </div>
+            <div className="h-1 w-20 rounded-full bg-brand-orange" />
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <Link
+              href="/states/"
+              className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 transition-all"
+            >
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity orange-glow-overlay pointer-events-none" />
+              <div className="relative z-10">
+                <span className="text-3xl mb-3 block">🇺🇸</span>
+                <h3 className="text-base font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-1">United States</h3>
+                <p className="text-xs text-muted-dark">All 50 states + DC: small claims, family court, landlord-tenant.</p>
+              </div>
+            </Link>
+
+            <Link
+              href="/ca/"
+              className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 transition-all"
+            >
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity orange-glow-overlay pointer-events-none" />
+              <div className="relative z-10">
+                <span className="text-3xl mb-3 block">🇨🇦</span>
+                <h3 className="text-base font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-1">Canada</h3>
+                <p className="text-xs text-muted-dark">All provinces and territories: small claims, family law, landlord-tenant.</p>
+              </div>
+            </Link>
+
+            <Link
+              href="/au/"
+              className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 transition-all"
+            >
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity orange-glow-overlay pointer-events-none" />
+              <div className="relative z-10">
+                <span className="text-3xl mb-3 block">🇦🇺</span>
+                <h3 className="text-base font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-1">Australia</h3>
+                <p className="text-xs text-muted-dark">All states and territories: NCAT, VCAT, QCAT, family law, tenancy.</p>
+              </div>
+            </Link>
+
+            <Link
+              href="/uk/"
+              className="group relative rounded-3xl border border-border-dark bg-surface-dark-panel p-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 hover:border-brand-orange/30 transition-all"
+            >
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity orange-glow-overlay pointer-events-none" />
+              <div className="relative z-10">
+                <span className="text-3xl mb-3 block">🇬🇧</span>
+                <h3 className="text-base font-semibold text-foreground-dark group-hover:text-brand-orange transition-colors mb-1">United Kingdom</h3>
+                <p className="text-xs text-muted-dark">England, Wales, Scotland, Northern Ireland: small claims, family law, housing.</p>
+              </div>
+            </Link>
+          </div>
         </section>
 
 

@@ -132,7 +132,7 @@ export default function HowToOrganizeEvidenceForCustodyCases() {
               Family courts make custody decisions based on the child's best interests, and evidence is how you demonstrate your involvement, capability, and commitment as a parent. Disorganized evidence gets overlooked. Chronologically organized, well-presented evidence tells a clear story.
             </p>
             <p className="text-lg text-slate-700">
-              Judges review numerous cases daily. Clear, organized evidence makes it easy for them to understand your situation. Scattered, disorganized evidence creates confusion and weakens your position—even if the underlying facts support your case.
+              Judges review numerous cases daily. Clear, organized evidence makes it easy for them to understand your situation. Scattered, disorganized evidence creates confusion and weakens your position, even if the underlying facts support your case.
             </p>
           </section>
 
@@ -143,7 +143,7 @@ export default function HowToOrganizeEvidenceForCustodyCases() {
               <div className="border-l-4 border-orange-500 pl-6">
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">Step 1: Collect All Relevant Documentation</h3>
                 <p className="text-slate-700 mb-4">
-                  Start by gathering every piece of evidence related to your custody case. Cast a wide net initially—you can always exclude items later, but you can't retroactively create evidence that wasn't preserved.
+                  Start by gathering every piece of evidence related to your custody case. Cast a wide net initially, you can always exclude items later, but you can't retroactively create evidence that wasn't preserved.
                 </p>
                 <h4 className="font-semibold text-slate-900 mb-2">What to Collect:</h4>
                 <ul className="list-disc list-inside space-y-2 text-slate-700 ml-4">

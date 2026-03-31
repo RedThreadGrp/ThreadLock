@@ -17,13 +17,12 @@ import {
 
 interface Props {
   page: JurisdictionPage;
-  state: string;
+  region: string;
   practice: string;
   neighborSlugs: string[];
 }
 
 function buildFaqSchema(bodyHtml: string) {
-  // Extract Q&A pairs from rendered HTML (pattern: Q: ... A: ...)
   const qaRegex = /<p>Q:\s*(.*?)<\/p>\s*<p>A:\s*([\s\S]*?)<\/p>/gi;
   const entities: object[] = [];
   let match;
@@ -45,8 +44,8 @@ function buildFaqSchema(bodyHtml: string) {
   };
 }
 
-export default function PracticeLeafPage({ page, state, practice, neighborSlugs }: Props) {
-  const canonicalUrl = `https://threadlock.ai/states/${state}/${practice}/`;
+export default function AuPracticeLeafPage({ page, region, practice, neighborSlugs }: Props) {
+  const canonicalUrl = `https://threadlock.ai/au/${region}/${practice}/`;
 
   const practiceDisplayName = practice
     .split("-")
@@ -72,18 +71,18 @@ export default function PracticeLeafPage({ page, state, practice, neighborSlugs 
       canonicalUrl={canonicalUrl}
       breadcrumbs={[
         { label: "Home", href: "/" },
-        { label: "States", href: "/states/" },
-        { label: page.jurisdiction_name, href: `/states/${state}/` },
-        { label: practiceDisplayName, href: `/states/${state}/${practice}/` },
+        { label: "Australia", href: "/au/" },
+        { label: page.jurisdiction_name, href: `/au/${region}/` },
+        { label: practiceDisplayName, href: `/au/${region}/${practice}/` },
       ]}
       schemaBlocks={schemaBlocks}
     >
       <JurisdictionBreadcrumb
         crumbs={[
           { label: "Home", href: "/" },
-          { label: "States", href: "/states/" },
-          { label: page.jurisdiction_name, href: `/states/${state}/` },
-          { label: practiceDisplayName, href: `/states/${state}/${practice}/` },
+          { label: "Australia", href: "/au/" },
+          { label: page.jurisdiction_name, href: `/au/${region}/` },
+          { label: practiceDisplayName, href: `/au/${region}/${practice}/` },
         ]}
       />
 
@@ -123,9 +122,9 @@ export default function PracticeLeafPage({ page, state, practice, neighborSlugs 
       <JurisdictionCTA />
 
       <RelatedJurisdictions
-        currentSlug={state}
+        currentSlug={region}
         practiceArea={practice}
-        country="us"
+        country="au"
         neighborSlugs={neighborSlugs}
       />
     </JurisdictionShell>
@@ -133,26 +132,22 @@ export default function PracticeLeafPage({ page, state, practice, neighborSlugs 
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = getAllLeafPaths("us");
+  const paths = getAllLeafPaths("au");
   return {
     paths: paths.map(({ slug, practice }) => ({
-      params: { state: slug, practice },
+      params: { region: slug, practice },
     })),
     fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const state = params?.state as string;
+  const region = params?.region as string;
   const practice = params?.practice as string;
 
-  const page = await getLeafPage("us", state, practice);
+  const page = await getLeafPage("au", region, practice);
+  if (!page) return { notFound: true };
 
-  if (!page) {
-    return { notFound: true };
-  }
-
-  const neighborSlugs = getValidNeighbors("us", state, practice);
-
-  return { props: { page, state, practice, neighborSlugs } };
+  const neighborSlugs = getValidNeighbors("au", region, practice);
+  return { props: { page, region, practice, neighborSlugs } };
 };

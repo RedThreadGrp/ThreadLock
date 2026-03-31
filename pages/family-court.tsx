@@ -10,7 +10,7 @@ interface Props {
   pages: JurisdictionFrontmatter[];
 }
 
-const TITLE = "Family Court by State — Filing Guides for Self-Represented Litigants";
+const TITLE = "Family Court by State: Filing Guides for Self-Represented Litigants";
 const META_DESCRIPTION =
   "State-by-state family court guides covering custody, divorce, and support procedures. Find your state and prepare your documentation with ThreadLock.";
 const CANONICAL = "https://threadlock.ai/family-court/";
@@ -48,7 +48,7 @@ export default function FamilyCourtNational({ pages }: Props) {
 
       <div className="mb-6">
         <h2 className="text-2xl font-bold text-slate-900 mb-2">
-          All States — Family Court Guides
+          All States: Family Court Guides
         </h2>
         <p className="text-slate-600 text-sm">
           {pages.length > 0

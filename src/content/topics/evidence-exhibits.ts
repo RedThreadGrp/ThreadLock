@@ -14,7 +14,7 @@ export const evidenceExhibitsTopic: ResourceQAContent = {
   },
   
   shortAnswer: {
-    text: "Raw evidence means nothing if you can't find it when you need it, authenticate it properly, or present it clearly to a judge. Family court cases often hinge on documentary evidence—text messages, emails, photos, financial records, and written communications. Understanding how to capture, preserve, organize, and label evidence is essential for self-represented litigants."
+    text: "Raw evidence means nothing if you can't find it when you need it, authenticate it properly, or present it clearly to a judge. Family court cases often hinge on documentary evidence, text messages, emails, photos, financial records, and written communications. Understanding how to capture, preserve, organize, and label evidence is essential for self-represented litigants."
   },
   
   sections: [
@@ -40,7 +40,7 @@ export const evidenceExhibitsTopic: ResourceQAContent = {
           type: "callout",
           kind: "tip",
           title: "Text Messages and Emails",
-          text: "Take full screenshots showing timestamps, phone numbers, and complete conversation threads. Don't crop or edit—authenticity is crucial. Save original files with metadata intact."
+          text: "Take full screenshots showing timestamps, phone numbers, and complete conversation threads. Don't crop or edit, authenticity is crucial. Save original files with metadata intact."
         },
         {
           type: "p",
@@ -84,9 +84,9 @@ export const evidenceExhibitsTopic: ResourceQAContent = {
           items: [
             "**Not preserving metadata**: Cropped screenshots or edited photos lose credibility. Keep original files with complete metadata intact.",
             "**Poor organization**: Dumping 200 unsorted text messages on a judge doesn't help your case. Organize chronologically and highlight key messages.",
-            "**Missing authentication**: Courts require you to authenticate evidence—proving it's what you claim it is. Include declarations explaining the source and chain of custody.",
+            "**Missing authentication**: Courts require you to authenticate evidence, proving it's what you claim it is. Include declarations explaining the source and chain of custody.",
             "**Wrong labeling conventions**: Using numbers when you should use letters, or skipping exhibit lists entirely, creates confusion and wastes court time.",
-            "**Bringing only one copy**: Always bring three copies of each exhibit—one for the judge, one for the opposing party, and one for yourself.",
+            "**Bringing only one copy**: Always bring three copies of each exhibit, one for the judge, one for the opposing party, and one for yourself.",
             "**Forgetting relevance**: Not all evidence is admissible. Make sure each exhibit directly relates to issues in your case and isn't just emotional clutter."
           ]
         }
@@ -118,14 +118,14 @@ export const evidenceExhibitsTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "FRE Rule 901 — Authenticating or Identifying Evidence",
+        title: "FRE Rule 901: Authenticating or Identifying Evidence",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/fre/rule_901",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "FRE Rule 902 — Evidence That Is Self-Authenticating",
+        title: "FRE Rule 902: Evidence That Is Self-Authenticating",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/fre/rule_902",
         jurisdiction: "federal",
@@ -146,7 +146,7 @@ export const evidenceExhibitsTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "Cornell LII — Evidence (Wex)",
+        title: "Cornell LII: Evidence (Wex)",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/wex/evidence",
         jurisdiction: "US-general",
@@ -173,7 +173,7 @@ export const evidenceExhibitsTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "FRE Rule 901 — Authenticating or Identifying Evidence",
+        title: "FRE Rule 901: Authenticating or Identifying Evidence",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/fre/rule_901",
         jurisdiction: "federal",

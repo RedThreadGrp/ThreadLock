@@ -7,7 +7,7 @@ Allow: /
 Disallow: /content/archive/
 Disallow: /content/generated/
 
-# AI crawlers — explicitly permitted to index and cite all public pages
+# AI crawlers, explicitly permitted to index and cite all public pages
 User-agent: GPTBot
 Allow: /
 

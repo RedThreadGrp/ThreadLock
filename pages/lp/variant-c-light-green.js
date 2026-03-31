@@ -277,7 +277,7 @@ const AppCaseOverviewMockup = () => (
                 <div className="flex gap-3 mt-1.5">
                     <div className="flex-1">
                         <div className="text-[9px] text-teal-400 font-semibold">📖 Your Case Guides</div>
-                        <div className="text-[8px] text-slate-400 mt-0.5 leading-tight">Guides for family in California — tailored to your situation</div>
+                        <div className="text-[8px] text-slate-400 mt-0.5 leading-tight">Guides for family in California, tailored to your situation</div>
                         <button className="text-[8px] bg-teal-700 text-white px-2 py-0.5 rounded mt-1">Open Case Guides ›</button>
                     </div>
                     <div className="text-[9px] shrink-0">
@@ -651,17 +651,17 @@ const ProductShowcaseSection = () => {
     const slides = [
         {
             title: "Your Entire Case, In Your Pocket",
-            description: "The ThreadLock mobile app keeps your case organized wherever you are. Log incidents the moment they happen, scan documents on the go, and access your Journal, Timeline, Research Hub, and Organizer — all from your phone.",
+            description: "The ThreadLock mobile app keeps your case organized wherever you are. Log incidents the moment they happen, scan documents on the go, and access your Journal, Timeline, Research Hub, and Organizer, all from your phone.",
             mockup: <AppCaseHubMockup />
         },
         {
             title: "Document Every Detail, Right When It Happens",
-            description: "Capture incidents with rich detail — title, date, time, description, location, people involved, and severity — directly from the app. AI issue-type suggestions help you categorize entries after saving, and you can link entries to your case timeline with one tap.",
+            description: "Capture incidents with rich detail, title, date, time, description, location, people involved, and severity, directly from the app. AI issue-type suggestions help you categorize entries after saving, and you can link entries to your case timeline with one tap.",
             mockup: <AppJournalEntryMockup />
         },
         {
             title: "Complete Case Overview at a Glance",
-            description: "See your entire case in one structured view. Start with guided next steps, access step-by-step Case Guides tailored to your situation, and take action with one click — add evidence, fill a form, draft a document, or start a court filing.",
+            description: "See your entire case in one structured view. Start with guided next steps, access step-by-step Case Guides tailored to your situation, and take action with one click, add evidence, fill a form, draft a document, or start a court filing.",
             mockup: <AppCaseOverviewMockup />
         },
     ];

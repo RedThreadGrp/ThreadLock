@@ -146,7 +146,7 @@ export default function DigitalEvidenceGuide() {
           <h2 className="text-3xl font-bold text-slate-900 mb-4">Why This Guide Matters</h2>
           <p className="text-lg text-slate-700 mb-4 leading-relaxed">
             In today&apos;s digital age, most communication happens through text messages, emails, and social media. 
-            When you&apos;re involved in a family court case—whether it&apos;s custody, divorce, or another matter—this 
+            When you&apos;re involved in a family court case, whether it&apos;s custody, divorce, or another matter, this 
             digital evidence can be crucial to your case.
           </p>
           <p className="text-lg text-slate-700 mb-4 leading-relaxed">

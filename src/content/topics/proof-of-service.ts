@@ -5,12 +5,12 @@ export const proofOfServiceTopic: ResourceQAContent = {
   
   seo: {
     title: "Proof of Service | ThreadLock Resources",
-    description: "Don't lose on a technicality—get service documentation right. Learn about proof of service requirements, methods, and common mistakes."
+    description: "Don't lose on a technicality, get service documentation right. Learn about proof of service requirements, methods, and common mistakes."
   },
   
   hero: {
     h1: "Proof of Service",
-    subhead: "Don't lose on a technicality—get service documentation right."
+    subhead: "Don't lose on a technicality, get service documentation right."
   },
   
   shortAnswer: {
@@ -28,7 +28,7 @@ export const proofOfServiceTopic: ResourceQAContent = {
         },
         {
           type: "p",
-          text: "Different courts use different forms—California uses FL-335 for mail service and FL-330 for personal service, while New York requires an Affidavit of Service. Federal courts follow specific rules under FRCP Rule 5."
+          text: "Different courts use different forms: California uses FL-335 for mail service and FL-330 for personal service, while New York requires an Affidavit of Service. Federal courts follow specific rules under FRCP Rule 5."
         },
         {
           type: "callout",
@@ -91,14 +91,14 @@ export const proofOfServiceTopic: ResourceQAContent = {
   sources: {
     items: [
       {
-        title: "FRCP Rule 5 — Serving and Filing Pleadings",
+        title: "FRCP Rule 5: Serving and Filing Pleadings",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/frcp/rule_5",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "FRCP Rule 4 — Summons",
+        title: "FRCP Rule 4: Summons",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/frcp/rule_4",
         jurisdiction: "federal",
@@ -112,7 +112,7 @@ export const proofOfServiceTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "Cornell LII — Service of Process (Wex)",
+        title: "Cornell LII: Service of Process (Wex)",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/wex/service_of_process",
         jurisdiction: "US-general",
@@ -139,14 +139,14 @@ export const proofOfServiceTopic: ResourceQAContent = {
     lastUpdated: "2026-02-21",
     sources: [
       {
-        title: "FRCP Rule 5 — Serving and Filing Pleadings",
+        title: "FRCP Rule 5: Serving and Filing Pleadings",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/frcp/rule_5",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "FRCP Rule 4 — Summons",
+        title: "FRCP Rule 4: Summons",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/rules/frcp/rule_4",
         jurisdiction: "federal",
@@ -160,7 +160,7 @@ export const proofOfServiceTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "Cornell LII — Service of Process (Wex)",
+        title: "Cornell LII: Service of Process (Wex)",
         organization: "Cornell Law School (LII)",
         url: "https://www.law.cornell.edu/wex/service_of_process",
         jurisdiction: "US-general",

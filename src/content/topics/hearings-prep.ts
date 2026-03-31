@@ -14,7 +14,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
   },
   
   shortAnswer: {
-    text: "Walking into a courtroom as a self-represented litigant is intimidating. The judge has limited time, the opposing party may have an attorney, and you need to present facts clearly under pressure. Proper preparation—knowing what to bring, how to organize materials, what to say, and what to avoid—makes the difference between being heard and being dismissed."
+    text: "Walking into a courtroom as a self-represented litigant is intimidating. The judge has limited time, the opposing party may have an attorney, and you need to present facts clearly under pressure. Proper preparation - knowing what to bring, how to organize materials, what to say, and what to avoid, makes the difference between being heard and being dismissed."
   },
   
   sections: [
@@ -40,7 +40,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
       body: [
         {
           type: "p",
-          text: "**Documents**: Bring originals of all filed court papers, marked exhibits with tabs, your declaration, proof of service, and previous court orders. Have three copies of everything—one for the judge, one for the opposing party, and one for yourself."
+          text: "**Documents**: Bring originals of all filed court papers, marked exhibits with tabs, your declaration, proof of service, and previous court orders. Have three copies of everything, one for the judge, one for the opposing party, and one for yourself."
         },
         {
           type: "p",
@@ -54,7 +54,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
           type: "callout",
           kind: "tip",
           title: "Practical Items Checklist",
-          text: "Bring a notepad, pens, calendar, calculator, and relevant statutes or case citations. Dress professionally—business attire shows respect for the court. Arrive 30 minutes early to check in and review materials."
+          text: "Bring a notepad, pens, calendar, calculator, and relevant statutes or case citations. Dress professionally, business attire shows respect for the court. Arrive 30 minutes early to check in and review materials."
         }
       ]
     },
@@ -69,7 +69,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
             "Stand when speaking",
             "Listen carefully to questions and answer directly",
             "Don't interrupt the judge or opposing party",
-            "Stay calm even if provoked—emotional outbursts damage your credibility",
+            "Stay calm even if provoked - emotional outbursts damage your credibility",
             "Take notes during the hearing to reference in future filings"
           ]
         }
@@ -116,7 +116,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "NCSC — Self-Representation Resources (State Links)",
+        title: "NCSC: Self-Representation Resources (State Links)",
         organization: "National Center for State Courts",
         url: "https://www.ncsc.org/resources-courts/access-fairness/self-represented-litigants",
         jurisdiction: "US-general",
@@ -130,14 +130,14 @@ export const hearingsPrepTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "U.S. Courts — Pro Se Forms",
+        title: "U.S. Courts: Pro Se Forms",
         organization: "U.S. Courts",
         url: "https://www.uscourts.gov/forms/pro-se-forms",
         jurisdiction: "federal",
         lastAccessed: "2026-02-21"
       },
       {
-        title: "Legal Services Corporation — Find Legal Aid",
+        title: "Legal Services Corporation: Find Legal Aid",
         organization: "Legal Services Corporation",
         url: "https://www.lsc.gov/what-legal-aid/find-legal-aid",
         jurisdiction: "US-general",
@@ -164,7 +164,7 @@ export const hearingsPrepTopic: ResourceQAContent = {
         lastAccessed: "2026-02-21"
       },
       {
-        title: "NCSC — Self-Representation Resources (State Links)",
+        title: "NCSC: Self-Representation Resources (State Links)",
         organization: "National Center for State Courts",
         url: "https://www.ncsc.org/resources-courts/access-fairness/self-represented-litigants",
         jurisdiction: "US-general",

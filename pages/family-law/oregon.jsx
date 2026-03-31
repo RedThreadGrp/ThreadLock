@@ -140,7 +140,7 @@ export default function FamilyLawOregon() {
             <div className="bg-white p-8 rounded-xl shadow-sm">
               <h3 className="text-2xl font-bold text-slate-900 mb-3">Oregon Custody Evidence Organization</h3>
               <p className="text-slate-700 mb-4">
-                Oregon custody cases require comprehensive evidence of parenting ability, involvement, and the child's best interests. ThreadLock helps you organize emails, text messages, school records, medical documentation, and incident reports chronologically—the way Oregon courts prefer.
+                Oregon custody cases require comprehensive evidence of parenting ability, involvement, and the child's best interests. ThreadLock helps you organize emails, text messages, school records, medical documentation, and incident reports chronologically, the way Oregon courts prefer.
               </p>
               <ul className="text-slate-600 space-y-2 ml-4">
                 <li>• Upload and tag custody-related evidence</li>
@@ -272,7 +272,7 @@ export default function FamilyLawOregon() {
                 Is ThreadLock approved by Oregon courts or the Oregon State Bar?
               </h3>
               <p className="text-slate-700">
-                ThreadLock is case management software and doesn't require court or bar approval to use. It's a tool for organizing your materials—similar to using a word processor or spreadsheet. Oregon courts accept documents prepared with any software, as long as they meet formatting and filing requirements.
+                ThreadLock is case management software and doesn't require court or bar approval to use. It's a tool for organizing your materials, similar to using a word processor or spreadsheet. Oregon courts accept documents prepared with any software, as long as they meet formatting and filing requirements.
               </p>
             </div>
 

@@ -24,7 +24,7 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen tl-auth-background text-white">
-      {/* Blurred orange gradient overlay — matches EDU/auth page style */}
+      {/* Blurred orange gradient overlay ,  matches EDU/auth page style */}
       <div className="tl-edu-bg" aria-hidden="true">
         <div className="tl-edu-grid" />
       </div>
@@ -134,7 +134,7 @@ export default function PricingPage() {
                   name: "Who is ThreadLock for?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "ThreadLock is designed for self-represented litigants navigating family court, small claims, landlord-tenant disputes, and other civil matters—as well as legal professionals who want to review pre-organized client cases.",
+                    text: "ThreadLock is designed for self-represented litigants navigating family court, small claims, landlord-tenant disputes, and other civil matters, as well as legal professionals who want to review pre-organized client cases.",
                   },
                 },
                 {

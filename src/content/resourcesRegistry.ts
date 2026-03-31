@@ -269,7 +269,7 @@ export const RESOURCES: Resource[] = [
     ...parentingPlans,
     slug: "parenting-plans",
     title: "Parenting Plan Builder Guide",
-    excerpt: "A structured way to describe routines, transitions, holidays, and communication—without writing a manifesto.",
+    excerpt: "A structured way to describe routines, transitions, holidays, and communication, without writing a manifesto.",
     tag: "Basics",
     topic: "Parenting Plans",
     intent: "Start",
@@ -287,7 +287,7 @@ export const RESOURCES: Resource[] = [
     ...financialSnapshot,
     slug: "financial-snapshot",
     title: "Financial Snapshot Worksheet",
-    excerpt: "Income, expenses, accounts, and timelines—so you can answer questions without scrambling.",
+    excerpt: "Income, expenses, accounts, and timelines, so you can answer questions without scrambling.",
     tag: "Finance",
     topic: "Financial Declarations",
     intent: "Organize",
@@ -344,7 +344,7 @@ export const RESOURCES: Resource[] = [
     blocks: courtroomPrep.blocks,
     legacyBody: `# Courtroom Etiquette and Preparation
 
-Family court has rules—written and unwritten. Following them won't win your case, but breaking them can hurt your credibility before you even speak.
+Family court has rules - written and unwritten. Following them won't win your case, but breaking them can hurt your credibility before you even speak.
 
 ## Short Answer
 
@@ -1082,7 +1082,7 @@ This guide is based on common practices for organizing and presenting timelines 
     blocks: authentication.blocks,
     legacyBody: `# Authentication Basics for Digital Evidence
 
-Authentication means proving that evidence is what you claim it is. Without authentication, the judge won't admit your text messages, emails, or photos—no matter how important they are.
+Authentication means proving that evidence is what you claim it is. Without authentication, the judge won't admit your text messages, emails, or photos - no matter how important they are.
 
 ## Short Answer
 
@@ -1100,7 +1100,7 @@ Under most states' Rules of Evidence (similar to Federal Rule of Evidence 901), 
 - **Proving accuracy:** Is this an accurate representation of the original?
 - **Proving authenticity:** Has it been altered or tampered with?
 
-Authentication doesn't prove the content is true—just that the evidence is genuine. The judge still evaluates whether to believe it.
+Authentication doesn't prove the content is true - just that the evidence is genuine. The judge still evaluates whether to believe it.
 
 ### What Happens If You Don't Authenticate
 
@@ -1829,7 +1829,7 @@ export const TOPICS: Topic[] = [
   {
     slug: "proof-of-service",
     title: "Proof of Service",
-    promise: "Don't lose on a technicality—get service documentation right.",
+    promise: "Don't lose on a technicality - get service documentation right.",
     resourceCount: 4,
     contentVersion: 2,
     blocks: proofOfServiceTopic,
@@ -1874,7 +1874,7 @@ export const TOPICS: Topic[] = [
   {
     slug: "official-forms",
     title: "Official Forms & Portals",
-    promise: "Access state-provided forms and rules—don't pay for free resources.",
+    promise: "Access state-provided forms and rules - don't pay for free resources.",
     resourceCount: 8,
     contentVersion: 2,
     blocks: officialFormsTopic,
@@ -3807,7 +3807,7 @@ Tips for effective responses:
 - Start working on response as soon as you receive motion
 - Don't wait until deadline to begin
 - Seek legal advice if motion is complex or consequences are serious
-- Be honest about facts—credibility matters
+- Be honest about facts - credibility matters
 - Organize your evidence clearly
 - Proofread carefully before filing
 - Keep copies of everything you file

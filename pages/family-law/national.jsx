@@ -97,7 +97,7 @@ export default function FamilyLawNational() {
           </h1>
           <p className="text-xl md:text-2xl text-slate-200 mb-8 max-w-3xl">
             ThreadLock serves self-represented litigants and legal professionals throughout the United States. 
-            Organize evidence, document incidents, and prepare for family court—wherever you are.
+            Organize evidence, document incidents, and prepare for family court, wherever you are.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
@@ -176,7 +176,7 @@ export default function FamilyLawNational() {
             <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">Evidence Disorganization</h3>
               <p className="text-slate-700 mb-4">
-                Emails, texts, receipts, photos—scattered across devices and accounts. Courts expect organized, 
+                Emails, texts, receipts, photos, scattered across devices and accounts. Courts expect organized, 
                 chronological evidence. ThreadLock provides one secure place for everything.
               </p>
               <p className="text-orange-600 font-semibold">
@@ -198,7 +198,7 @@ export default function FamilyLawNational() {
             <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
               <h3 className="text-2xl font-bold text-slate-900 mb-4">Court Preparation Overwhelm</h3>
               <p className="text-slate-700 mb-4">
-                Preparing exhibits, organizing documents, creating summaries—it's overwhelming when you're doing 
+                Preparing exhibits, organizing documents, creating summaries, it's overwhelming when you're doing 
                 it alone. ThreadLock guides you through each step with clear workflows.
               </p>
               <p className="text-orange-600 font-semibold">
@@ -281,7 +281,7 @@ export default function FamilyLawNational() {
                 <div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Upload Your Evidence</h3>
                   <p className="text-slate-700 mb-4">
-                    Documents, photos, emails, texts, receipts—upload anything relevant to your case. ThreadLock 
+                    Documents, photos, emails, texts, receipts, upload anything relevant to your case. ThreadLock 
                     securely stores everything in one place, accessible from any device.
                   </p>
                   <ul className="text-slate-600 space-y-2 ml-4">
@@ -324,7 +324,7 @@ export default function FamilyLawNational() {
                   <h3 className="text-2xl font-bold text-slate-900 mb-3">Build Your Chronological Timeline</h3>
                   <p className="text-slate-700 mb-4">
                     ThreadLock automatically organizes all your evidence and journal entries chronologically. 
-                    See your case story unfold in order—the way courts prefer.
+                    See your case story unfold in order, the way courts prefer.
                   </p>
                   <ul className="text-slate-600 space-y-2 ml-4">
                     <li>• Automatic timeline from all your entries</li>
@@ -450,7 +450,7 @@ export default function FamilyLawNational() {
                 Is ThreadLock approved by state courts?
               </h3>
               <p className="text-slate-700">
-                ThreadLock is case management software—it doesn't require court approval to use. Courts accept 
+                ThreadLock is case management software, it doesn't require court approval to use. Courts accept 
                 documents prepared using any word processor or organizational tool. ThreadLock generates 
                 professional PDFs that meet standard court filing requirements. We are not a court filing 
                 service; users file documents themselves through their local court's procedures.

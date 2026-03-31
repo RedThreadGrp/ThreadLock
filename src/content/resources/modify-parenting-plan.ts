@@ -176,7 +176,7 @@ export const modifyParentingPlan: ResourceQAContent = {
         note: "Legal principles for custody modification"
       },
       {
-        title: "Child Custody — Which State Has Jurisdiction Over a Custody Matter?",
+        title: "Child Custody: Which State Has Jurisdiction Over a Custody Matter?",
         organization: "KM Kaplan Law",
         url: "https://www.kmkaplanlaw.com/practice-areas/child-custody-which-state-has-jurisdiction-over-a-custody-matter/",
         lastAccessed: "2026-03-14",

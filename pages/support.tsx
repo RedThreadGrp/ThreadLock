@@ -58,7 +58,7 @@ export default function SupportPage() {
                 Need help with ThreadLock?
               </h1>
               <p className="text-xl text-slate-600 mb-10 max-w-3xl mx-auto">
-                Find answers, fix issues, and get in touch—whether you&apos;re a self-represented litigant or a legal professional using ThreadLock Pro.
+                Find answers, fix issues, and get in touch - whether you&apos;re a self-represented litigant or a legal professional using ThreadLock Pro.
               </p>
               
               {/* Primary user type buttons */}

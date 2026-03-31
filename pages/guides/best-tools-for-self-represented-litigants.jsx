@@ -54,7 +54,7 @@ export default function BestToolsForSelfRepresentedLitigants() {
         <article>
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Best Tools for Self-Represented Litigants</h1>
           <p className="text-xl text-slate-700 mb-12">
-            Representing yourself in family court? These tools help you stay organized, meet deadlines, and present your case effectively—without hiring a full-service attorney.
+            Representing yourself in family court? These tools help you stay organized, meet deadlines, and present your case effectively, without hiring a full-service attorney.
           </p>
 
           <section className="mb-12">
