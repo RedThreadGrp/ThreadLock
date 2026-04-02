@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function StateHub({ hub, state }: Props) {
-  const canonicalUrl = `https://threadlock.ai/states/${state}/`;
+  const canonicalUrl = `https://threadlock.ai/states/${state}`;
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",

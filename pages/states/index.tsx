@@ -14,7 +14,7 @@ interface Props {
 export default function StatesIndex({ hubs, rootMeta }: Props) {
   const title = rootMeta?.title || "US Court Filing Guides: Small Claims, Family Court & Landlord-Tenant";
   const metaDescription = rootMeta?.meta_description || "State-by-state court filing guides for self-represented litigants.";
-  const canonicalUrl = "https://threadlock.ai/states/";
+  const canonicalUrl = "https://threadlock.ai/states";
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -25,7 +25,7 @@ export default function StatesIndex({ hubs, rootMeta }: Props) {
     hasPart: hubs.map((h) => ({
       "@type": "WebPage",
       name: h.title,
-      url: `https://threadlock.ai/states/${h.jurisdiction_slug}/`,
+      url: `https://threadlock.ai/states/${h.jurisdiction_slug}`,
     })),
   };
 

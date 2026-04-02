@@ -16,7 +16,7 @@ export default function AuIndex({ hubs, rootMeta }: Props) {
   const metaDescription =
     rootMeta?.meta_description ||
     "State and territory court filing guides for self-represented litigants in Australia.";
-  const canonicalUrl = "https://threadlock.ai/au/";
+  const canonicalUrl = "https://threadlock.ai/au";
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -27,7 +27,7 @@ export default function AuIndex({ hubs, rootMeta }: Props) {
     hasPart: hubs.map((h) => ({
       "@type": "WebPage",
       name: h.title,
-      url: `https://threadlock.ai/au/${h.jurisdiction_slug}/`,
+      url: `https://threadlock.ai/au/${h.jurisdiction_slug}`,
     })),
   };
 
