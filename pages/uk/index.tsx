@@ -16,7 +16,7 @@ export default function UkIndex({ hubs, rootMeta }: Props) {
   const metaDescription =
     rootMeta?.meta_description ||
     "Court filing guides for self-represented litigants in England, Wales, Scotland, and Northern Ireland.";
-  const canonicalUrl = "https://threadlock.ai/uk/";
+  const canonicalUrl = "https://threadlock.ai/uk";
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -27,7 +27,7 @@ export default function UkIndex({ hubs, rootMeta }: Props) {
     hasPart: hubs.map((h) => ({
       "@type": "WebPage",
       name: h.title,
-      url: `https://threadlock.ai/uk/${h.jurisdiction_slug}/`,
+      url: `https://threadlock.ai/uk/${h.jurisdiction_slug}`,
     })),
   };
 

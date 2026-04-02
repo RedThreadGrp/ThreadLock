@@ -22,13 +22,13 @@ module.exports = {
         } else if (entry.name.endsWith('.md') && entry.name !== '_index.md') {
           const slug = entry.name.replace('.md', '')
           paths.push({
-            loc: `${urlBase}/${slug}/`,
+            loc: `${urlBase}/${slug}`,
             changefreq: 'monthly',
             priority: 0.8,
           })
         } else if (entry.name === '_index.md') {
           paths.push({
-            loc: `${urlBase}/`,
+            loc: urlBase,
             changefreq: 'monthly',
             priority: 0.75,
           })
@@ -38,6 +38,8 @@ module.exports = {
 
     crawl('./content/jurisdictions/us', '/states')
     crawl('./content/jurisdictions/ca', '/ca')
+    crawl('./content/jurisdictions/au', '/au')
+    crawl('./content/jurisdictions/uk', '/uk')
 
     return paths
   },

@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function UkRegionHub({ hub, region }: Props) {
-  const canonicalUrl = `https://threadlock.ai/uk/${region}/`;
+  const canonicalUrl = `https://threadlock.ai/uk/${region}`;
 
   const webPageSchema = {
     "@context": "https://schema.org",

@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function AuRegionHub({ hub, region }: Props) {
-  const canonicalUrl = `https://threadlock.ai/au/${region}/`;
+  const canonicalUrl = `https://threadlock.ai/au/${region}`;
 
   const webPageSchema = {
     "@context": "https://schema.org",

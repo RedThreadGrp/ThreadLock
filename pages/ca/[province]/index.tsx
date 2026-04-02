@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function ProvinceHub({ hub, province }: Props) {
-  const canonicalUrl = `https://threadlock.ai/ca/${province}/`;
+  const canonicalUrl = `https://threadlock.ai/ca/${province}`;
   const isQuebec = province === "quebec";
 
   const webPageSchema = {

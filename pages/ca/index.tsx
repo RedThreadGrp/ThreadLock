@@ -14,7 +14,7 @@ interface Props {
 export default function CaIndex({ hubs, rootMeta }: Props) {
   const title = rootMeta?.title || "Canadian Court Filing Guides: Small Claims, Family Law & Landlord-Tenant";
   const metaDescription = rootMeta?.meta_description || "Province-by-province court filing guides for self-represented litigants in Canada.";
-  const canonicalUrl = "https://threadlock.ai/ca/";
+  const canonicalUrl = "https://threadlock.ai/ca";
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -25,7 +25,7 @@ export default function CaIndex({ hubs, rootMeta }: Props) {
     hasPart: hubs.map((h) => ({
       "@type": "WebPage",
       name: h.title,
-      url: `https://threadlock.ai/ca/${h.jurisdiction_slug}/`,
+      url: `https://threadlock.ai/ca/${h.jurisdiction_slug}`,
     })),
   };
 
