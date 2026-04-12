@@ -3,6 +3,8 @@ import Head from "next/head";
 import Link from "next/link";
 import SiteHeader from "../src/components/SiteHeader";
 
+const TRANSITION_DELAY_MS = 280;
+
 const QUESTIONS = [
   {
     id: 1,
@@ -108,6 +110,11 @@ function getResult(score) {
   };
 }
 
+const MAX_SCORE = QUESTIONS.reduce((sum, q) => {
+  const max = Math.max(...q.options.map((o) => o.points));
+  return sum + max;
+}, 0);
+
 const COLOR_MAP = {
   red: {
     badge: "bg-red-100 text-red-700 border border-red-200",
@@ -136,16 +143,16 @@ export default function QuizPage() {
 
   const question = QUESTIONS[currentQ];
   const totalQuestions = QUESTIONS.length;
-  const progress = submitted ? 100 : Math.round((currentQ / totalQuestions) * 100);
+  const progress = submitted ? 100 : Math.round(((currentQ + 1) / totalQuestions) * 100);
 
   function handleSelect(value, points) {
     const updated = { ...answers, [question.id]: { value, points } };
     setAnswers(updated);
 
     if (currentQ < totalQuestions - 1) {
-      setTimeout(() => setCurrentQ((q) => q + 1), 280);
+      setTimeout(() => setCurrentQ((q) => q + 1), TRANSITION_DELAY_MS);
     } else {
-      setTimeout(() => setSubmitted(true), 280);
+      setTimeout(() => setSubmitted(true), TRANSITION_DELAY_MS);
     }
   }
 
@@ -153,10 +160,7 @@ export default function QuizPage() {
   const result = getResult(totalScore);
   const colors = COLOR_MAP[result.color];
 
-  const maxScore = QUESTIONS.reduce((sum, q) => {
-    const max = Math.max(...q.options.map((o) => o.points));
-    return sum + max;
-  }, 0);
+  const maxScore = MAX_SCORE;
 
   return (
     <>
