@@ -252,8 +252,8 @@ const QUESTIONS = [
     question: "Is this AI advice correct?",
     visual: "recording-advice",
     options: [
-      { label: "\u2713 Yes \u2014 recordings are always admissible as evidence", value: "yes", correct: false },
-      { label: "\u2717 No \u2014 this advice could get you criminally charged", value: "no", correct: true },
+      { label: "Yes \u2014 recordings are always admissible as evidence", value: "yes", correct: false },
+      { label: "No \u2014 this advice could get you criminally charged", value: "no", correct: true },
     ],
     correctValue: "no",
     reveal: {
@@ -544,7 +544,7 @@ export default function QuizPage() {
         <meta property="og:type" content="website" />
       </Head>
 
-      <SiteHeader theme="light" />
+      <SiteHeader theme="dark" />
 
       <main className="min-h-screen bg-slate-950 pt-16 pb-20">
         {/* Hero */}
@@ -587,7 +587,7 @@ export default function QuizPage() {
                     <span className="text-[10px] font-bold uppercase tracking-widest text-orange-400 bg-orange-900/40 px-2 py-0.5 rounded-full border border-orange-800">
                       {question.tag}
                     </span>
-                    <span className="text-[10px] text-slate-500">Q{currentQ + 1} / {totalQuestions}</span>
+                    <span className="text-[10px] text-slate-500">Q{currentQ + 1} of {totalQuestions}</span>
                   </div>
                   <p className="text-slate-400 text-sm leading-relaxed mb-1">{question.prompt}</p>
                   <h2 className="text-xl md:text-2xl font-bold text-white leading-tight">
