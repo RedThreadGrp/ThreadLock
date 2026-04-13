@@ -310,7 +310,7 @@ const QUESTIONS = [
     correctValue: "B",
     reveal: {
       heading: "\u2705 Mata v. Avianca is devastatingly real.",
-      body: "Mata v. Avianca, Inc., No. 22-cv-1461 (S.D.N.Y. 2023): New York attorneys Steven Schwartz and Peter LoDuca filed a brief citing six ChatGPT-hallucinated cases. They were ordered to pay $5,000 in sanctions, appear before the court personally, and notify the judges whose names appeared in the fake opinions. The case made international headlines and is now taught in every law school\u2019s AI ethics module. Henderson v. AI Technologies Corp. is \u2014 fittingly \u2014 itself a hallucination.",
+      body: "Mata v. Avianca, Inc., No. 22-cv-1461 (S.D.N.Y. 2023): New York attorneys Steven Schwartz and Peter LoDuca filed a brief citing six ChatGPT-hallucinated cases. They were ordered to pay $5,000 in sanctions, appear before the court personally, and notify the judges whose names appeared in the fake opinions. The case made international headlines and is now widely taught in law school AI ethics courses. Henderson v. AI Technologies Corp. is \u2014 fittingly \u2014 itself a hallucination.",
     },
   },
 ];
