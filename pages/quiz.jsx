@@ -142,7 +142,7 @@ function ParentingPlanMockup({ highlightClause }) {
   return (
     <div className="bg-white border border-slate-300 rounded-lg shadow-sm font-sans text-xs overflow-hidden">
       <div className="bg-slate-700 text-white px-4 py-2 flex items-center gap-2">
-        <span className="text-slate-300 text-[10px] uppercase tracking-widest">Parenting Plan \u2014 AI Draft</span>
+        <span className="text-slate-300 text-[10px] uppercase tracking-widest">Parenting Plan — AI Draft</span>
         <span className="ml-auto bg-purple-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold">AI-Generated</span>
       </div>
       <div className="divide-y divide-slate-100">
@@ -156,7 +156,7 @@ function ParentingPlanMockup({ highlightClause }) {
             <div className={`font-semibold mb-1 ${highlightClause && c.id === "statute" ? "text-red-700" : "text-slate-700"}`}>
               {c.label}
               {highlightClause && c.id === "statute" && (
-                <span className="ml-2 text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold">\u26a0 FICTITIOUS STATUTE</span>
+                <span className="ml-2 text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold">⚠ FICTITIOUS STATUTE</span>
               )}
             </div>
             <p className="text-slate-600 leading-relaxed text-[11px]">{c.text}</p>
@@ -171,7 +171,7 @@ function ExhibitEntryMockup({ revealed }) {
   return (
     <div className="bg-white border border-slate-200 rounded-lg overflow-hidden text-xs font-mono">
       <div className="bg-slate-700 text-slate-200 px-4 py-2 text-[10px] uppercase tracking-widest">
-        Exhibit Entry \u2014 AI Draft
+        Exhibit Entry — AI Draft
       </div>
       <div className="px-4 py-3 space-y-1">
         <div>
@@ -197,11 +197,11 @@ function ExhibitEntryMockup({ revealed }) {
         <div className="px-4 py-3 border-t border-red-200 bg-red-50 text-[11px] font-sans space-y-1">
           <div className="font-bold text-red-700">Missing required authentication elements:</div>
           <ul className="text-red-600 space-y-0.5 list-none">
-            <li>\u2717 No metadata (device ID, screenshot timestamp, app version)</li>
-            <li>\u2717 No declarant identified (&ldquo;who took this screenshot?&rdquo;)</li>
-            <li>\u2717 No chain of custody \u2014 was the screenshot altered?</li>
-            <li>\u2717 No Bates number for the record</li>
-            <li>\u2717 No foundation declaration attached</li>
+            <li>✗ No metadata (device ID, screenshot timestamp, app version)</li>
+            <li>✗ No declarant identified (&ldquo;who took this screenshot?&rdquo;)</li>
+            <li>✗ No chain of custody — was the screenshot altered?</li>
+            <li>✗ No Bates number for the record</li>
+            <li>✗ No foundation declaration attached</li>
           </ul>
           <div className="text-red-700 font-semibold mt-1">Objection: Lacks foundation. Likely excluded.</div>
         </div>
@@ -374,7 +374,7 @@ function QuestionVisual({ visualKey, revealed }) {
             citation="Smith v. Superior Court, 198 Cal.App.4th 1, 17 (2011)"
             court="Cal. Ct. App., 2nd Dist."
             year="2011"
-            summary="Holding that a parent\u2019s consistent documentation of communication breakdowns constitutes material evidence in custody modification proceedings under the best interests standard."
+            summary="Holding that a parent's consistent documentation of communication breakdowns constitutes material evidence in custody modification proceedings under the best interests standard."
             isReal={false}
             revealed={revealed}
           />
@@ -385,7 +385,7 @@ function QuestionVisual({ visualKey, revealed }) {
             citation="In re Marriage of LaMusga, 32 Cal.4th 1072 (2004)"
             court="California Supreme Court"
             year="2004"
-            summary="Landmark ruling establishing factors courts must consider when a custodial parent seeks to relocate with a child, including disruption to parent-child contact and the child\u2019s need for continuity."
+            summary="Landmark ruling establishing factors courts must consider when a custodial parent seeks to relocate with a child, including disruption to parent-child contact and the child's need for continuity."
             isReal={true}
             revealed={revealed}
           />
@@ -412,7 +412,7 @@ function QuestionVisual({ visualKey, revealed }) {
           <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1.5 text-center">Citation B</div>
           <CaseCitation
             citation="Mata v. Avianca, Inc., No. 22-cv-1461 (S.D.N.Y. 2023)"
-            court="S.D.N.Y. \u2014 Judge Kevin Castel"
+            court="S.D.N.Y. — Judge Kevin Castel"
             year="2023"
             summary="Attorneys sanctioned $5,000 after filing a brief containing six AI-hallucinated case citations. Court ordered counsel to notify judges named in the fabricated opinions. Case became the defining AI-in-courts cautionary tale."
             isReal={true}
@@ -444,18 +444,18 @@ function QuestionVisual({ visualKey, revealed }) {
         <div className="bg-gradient-to-br from-purple-600 to-indigo-700 rounded-xl p-4 text-white shadow-lg">
           <div className="flex items-start gap-3">
             <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-              <span className="text-base">\ud83e\udd16</span>
+              <span className="text-base">🤖</span>
             </div>
             <div>
               <div className="text-purple-200 text-[10px] uppercase tracking-widest font-bold mb-1">AI Legal Assistant</div>
               <p className="text-sm leading-relaxed">
                 Yes, you can record phone calls with your co-parent without notifying them. As long as
                 you are a party to the conversation, the recording is legal under federal wiretapping law
-                (18 U.S.C. \u00a7 2511), and courts regularly admit such recordings as evidence of parenting
+                (18 U.S.C. § 2511), and courts regularly admit such recordings as evidence of parenting
                 plan violations or threatening behavior.
               </p>
               <div className="mt-2 flex items-center gap-2">
-                <span className="text-[10px] text-purple-300">\ud83d\udc4d Helpful?</span>
+                <span className="text-[10px] text-purple-300">👍 Helpful?</span>
                 <span className="text-[10px] bg-white/10 px-2 py-0.5 rounded text-purple-200">1,247 people found this useful</span>
               </div>
             </div>
@@ -539,7 +539,7 @@ export default function QuizPage() {
         <meta property="og:title" content="Can You Catch It? The AI Hallucination Test" />
         <meta
           property="og:description"
-          content="Fake case law. Inadmissible AI documents. Illegal advice. It\u2019s happening in courtrooms right now. Can you tell what\u2019s real?"
+          content="Fake case law. Inadmissible AI documents. Illegal advice. It's happening in courtrooms right now. Can you tell what's real?"
         />
         <meta property="og:type" content="website" />
       </Head>
@@ -550,7 +550,7 @@ export default function QuizPage() {
         {/* Hero */}
         <div className="text-center px-4 pt-12 pb-8 max-w-2xl mx-auto">
           <span className="inline-block bg-red-900/60 text-red-300 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 border border-red-700">
-            \u26a0 Real consequences. Actual courtrooms.
+            ⚠ Real consequences. Actual courtrooms.
           </span>
           <h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
             Can You Catch What AI Gets Wrong About Civil Court?
@@ -608,7 +608,7 @@ export default function QuizPage() {
                     let cls =
                       "w-full text-left px-4 py-3 rounded-xl border-2 font-medium text-sm transition-all duration-150 ";
                     if (!revealed) {
-                      cls += "border-slate-600 bg-slate-800 text-slate-200 hover:border-orange-400 hover:bg-slate-700";
+                      cls += "border-slate-500 bg-slate-800 text-white hover:border-orange-500 hover:bg-orange-500/10";
                     } else if (isAnswerCorrect) {
                       cls += "border-green-500 bg-green-900/40 text-green-200";
                     } else if (isSelected && !isAnswerCorrect) {
@@ -618,8 +618,8 @@ export default function QuizPage() {
                     }
                     return (
                       <button key={opt.value} onClick={() => handleSelect(opt.value)} className={cls} disabled={revealed}>
-                        {revealed && isAnswerCorrect && <span className="mr-2">\u2713</span>}
-                        {revealed && isSelected && !isAnswerCorrect && <span className="mr-2">\u2717</span>}
+                        {revealed && isAnswerCorrect && <span className="mr-2">✓</span>}
+                        {revealed && isSelected && !isAnswerCorrect && <span className="mr-2">✗</span>}
                         {opt.label}
                       </button>
                     );
@@ -698,7 +698,7 @@ export default function QuizPage() {
                 </h3>
                 <p className="text-orange-100 mb-6 leading-relaxed">
                   ThreadLock helps you document incidents, authenticate evidence, build court-ready
-                  timelines, and export exhibit packets that hold up \u2014 no law degree required.
+                  timelines, and export exhibit packets that hold up — no law degree required.
                 </p>
                 <a
                   href="https://app.threadlock.ai/subscribe?src=quiz&s=quiz_cta"
@@ -706,9 +706,9 @@ export default function QuizPage() {
                   rel="noopener noreferrer"
                   className="inline-block bg-white text-orange-600 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-slate-100 transition-colors text-lg"
                 >
-                  Start Free \u2014 No Credit Card \u2192
+                  Start Free — No Credit Card →
                 </a>
-                <p className="text-orange-200 text-sm mt-3">7-day free trial \u00b7 Court-ready in minutes</p>
+                <p className="text-orange-200 text-sm mt-3">7-day free trial · Court-ready in minutes</p>
               </div>
 
               {/* Disclaimer */}
