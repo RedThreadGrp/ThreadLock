@@ -104,12 +104,14 @@ function extractCitationUrlsFromContentFiles() {
  * other domains are still caught by the checker.
  */
 const KNOWN_BOT_BLOCKING_DOMAINS = new Set([
-  'www.americanbar.org', // ABA blocks all automated crawlers
-  'www.acrnet.org',      // ACR Network blocks automated crawlers
-  'www.acf.hhs.gov',     // HHS/ACF blocks all automated crawlers with 403
-  'www.nycourts.gov',    // NY Courts blocks all automated crawlers with 403
-  'www.nysenate.gov',    // NY Senate blocks all automated crawlers with 403
-  'aspe.hhs.gov',        // HHS/ASPE poverty guidelines — blocks automated crawlers with 403
+  'www.americanbar.org',   // ABA blocks all automated crawlers
+  'www.acrnet.org',        // ACR Network blocks automated crawlers
+  'www.acf.hhs.gov',       // HHS/ACF blocks all automated crawlers with 403
+  'www.nycourts.gov',      // NY Courts blocks all automated crawlers with 403
+  'www.nysenate.gov',      // NY Senate blocks all automated crawlers with 403
+  'aspe.hhs.gov',          // HHS/ASPE poverty guidelines — blocks automated crawlers with 403
+  'www.lawhelp.org',       // LawHelp.org resets connections (ECONNRESET) from automated crawlers
+  'www.kmkaplanlaw.com',   // Law firm site returns 403 to all automated crawlers
 ]);
 
 function isBotBlockingDomain(url) {
