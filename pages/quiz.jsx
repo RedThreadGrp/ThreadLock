@@ -16,34 +16,36 @@ function ExhibitListReal() {
         <div className="text-slate-500 text-[10px] mt-0.5">Case No. 24-FL-008847 &middot; Dept. 12</div>
         <div className="text-slate-500 text-[10px]">IN RE: MARRIAGE OF CALDWELL</div>
       </div>
-      <table className="w-full text-[10px]">
-        <thead>
-          <tr className="bg-slate-100 border-b border-slate-200">
-            <th className="px-2 py-1.5 text-left text-slate-600 font-semibold w-10">Ex#</th>
-            <th className="px-2 py-1.5 text-left text-slate-600 font-semibold">Description</th>
-            <th className="px-2 py-1.5 text-left text-slate-600 font-semibold w-20">Date</th>
-            <th className="px-2 py-1.5 text-left text-slate-600 font-semibold w-16">Bates</th>
-            <th className="px-2 py-1.5 text-left text-slate-600 font-semibold w-16">Auth.</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-slate-100">
-          {[
-            ["1", "Text message thread, R\u2192P re: missed exchange", "03/14/24", "P001-004", "Decl. \u00b63"],
-            ["2", "Email, school re: unexcused absence (Ethan)", "03/20/24", "P005-006", "Decl. \u00b65"],
-            ["3", "Photo \u2014 visible bruise, L. arm (Ethan)", "04/01/24", "P007", "Decl. \u00b68"],
-            ["4", "Medical record, Oakview Pediatrics", "04/02/24", "P008-011", "Cert. Copy"],
-            ["5", "Call log screenshot, iPhone 14 (Petitioner)", "04/05/24", "P012-013", "Decl. \u00b611"],
-          ].map(([ex, desc, date, bates, auth]) => (
-            <tr key={ex} className="hover:bg-slate-50">
-              <td className="px-2 py-1.5 font-bold text-slate-700">{ex}</td>
-              <td className="px-2 py-1.5 text-slate-700">{desc}</td>
-              <td className="px-2 py-1.5 text-slate-500">{date}</td>
-              <td className="px-2 py-1.5 text-blue-600">{bates}</td>
-              <td className="px-2 py-1.5 text-green-700">{auth}</td>
+      <div className="overflow-x-auto">
+        <table className="w-full text-[10px]">
+          <thead>
+            <tr className="bg-slate-100 border-b border-slate-200">
+              <th className="px-2 py-1.5 text-left text-slate-600 font-semibold w-10">Ex#</th>
+              <th className="px-2 py-1.5 text-left text-slate-600 font-semibold">Description</th>
+              <th className="px-2 py-1.5 text-left text-slate-600 font-semibold w-20">Date</th>
+              <th className="px-2 py-1.5 text-left text-slate-600 font-semibold w-16">Bates</th>
+              <th className="px-2 py-1.5 text-left text-slate-600 font-semibold w-16">Auth.</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="divide-y divide-slate-100">
+            {[
+              ["1", "Text message thread, R\u2192P re: missed exchange", "03/14/24", "P001-004", "Decl. \u00b63"],
+              ["2", "Email, school re: unexcused absence (Ethan)", "03/20/24", "P005-006", "Decl. \u00b65"],
+              ["3", "Photo \u2014 visible bruise, L. arm (Ethan)", "04/01/24", "P007", "Decl. \u00b68"],
+              ["4", "Medical record, Oakview Pediatrics", "04/02/24", "P008-011", "Cert. Copy"],
+              ["5", "Call log screenshot, iPhone 14 (Petitioner)", "04/05/24", "P012-013", "Decl. \u00b611"],
+            ].map(([ex, desc, date, bates, auth]) => (
+              <tr key={ex} className="hover:bg-slate-50">
+                <td className="px-2 py-1.5 font-bold text-slate-700">{ex}</td>
+                <td className="px-2 py-1.5 text-slate-700">{desc}</td>
+                <td className="px-2 py-1.5 text-slate-500">{date}</td>
+                <td className="px-2 py-1.5 text-blue-600">{bates}</td>
+                <td className="px-2 py-1.5 text-green-700">{auth}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <div className="px-4 py-2 border-t border-slate-200 text-[10px] text-slate-400">
         Prepared per Local Rule 5.2(c) &middot; All exhibits pre-marked &middot; Foundation declarations attached
       </div>
@@ -101,11 +103,11 @@ function CaseCitation({ citation, court, year, summary, isReal, revealed }) {
     ? "border-slate-200 bg-white"
     : isReal
     ? "border-green-400 bg-green-50"
-    : "border-red-400 bg-red-50";
+    : "border-orange-400 bg-orange-50";
   return (
     <div className={`${base} ${style}`}>
       {revealed && (
-        <div className={`text-[10px] font-bold uppercase tracking-widest mb-2 ${isReal ? "text-green-700" : "text-red-600"}`}>
+        <div className={`text-[10px] font-bold uppercase tracking-widest mb-2 ${isReal ? "text-green-700" : "text-orange-600"}`}>
           {isReal ? "\u2713 REAL CASE" : "\u2717 AI HALLUCINATION"}
         </div>
       )}
@@ -150,13 +152,13 @@ function ParentingPlanMockup({ highlightClause }) {
           <div
             key={c.id}
             className={`px-4 py-3 transition-colors ${
-              highlightClause && c.id === "statute" ? "bg-red-50 border-l-4 border-red-500" : ""
+              highlightClause && c.id === "statute" ? "bg-orange-50 border-l-4 border-orange-500" : ""
             }`}
           >
-            <div className={`font-semibold mb-1 ${highlightClause && c.id === "statute" ? "text-red-700" : "text-slate-700"}`}>
+            <div className={`font-semibold mb-1 ${highlightClause && c.id === "statute" ? "text-orange-700" : "text-slate-700"}`}>
               {c.label}
               {highlightClause && c.id === "statute" && (
-                <span className="ml-2 text-[10px] bg-red-100 text-red-700 px-1.5 py-0.5 rounded font-bold">⚠ FICTITIOUS STATUTE</span>
+                <span className="ml-2 text-[10px] bg-orange-100 text-orange-700 px-1.5 py-0.5 rounded font-bold">⚠ FICTITIOUS STATUTE</span>
               )}
             </div>
             <p className="text-slate-600 leading-relaxed text-[11px]">{c.text}</p>
@@ -194,16 +196,16 @@ function ExhibitEntryMockup({ revealed }) {
         </div>
       </div>
       {revealed && (
-        <div className="px-4 py-3 border-t border-red-200 bg-red-50 text-[11px] font-sans space-y-1">
-          <div className="font-bold text-red-700">Missing required authentication elements:</div>
-          <ul className="text-red-600 space-y-0.5 list-none">
+        <div className="px-4 py-3 border-t border-orange-200 bg-orange-50 text-[11px] font-sans space-y-1">
+          <div className="font-bold text-orange-700">Missing required authentication elements:</div>
+          <ul className="text-orange-600 space-y-0.5 list-none">
             <li>✗ No metadata (device ID, screenshot timestamp, app version)</li>
             <li>✗ No declarant identified (&ldquo;who took this screenshot?&rdquo;)</li>
             <li>✗ No chain of custody — was the screenshot altered?</li>
             <li>✗ No Bates number for the record</li>
             <li>✗ No foundation declaration attached</li>
           </ul>
-          <div className="text-red-700 font-semibold mt-1">Objection: Lacks foundation. Likely excluded.</div>
+          <div className="text-orange-700 font-semibold mt-1">Objection: Lacks foundation. Likely excluded.</div>
         </div>
       )}
     </div>
@@ -354,9 +356,9 @@ function getResult(correct, total) {
   return {
     emoji: "\ud83d\udea8",
     badge: "Danger Zone",
-    badgeClass: "bg-red-100 text-red-800 border border-red-300",
-    headingClass: "text-red-800",
-    cardClass: "border-red-200 bg-red-50",
+    badgeClass: "bg-orange-100 text-orange-800 border border-orange-300",
+    headingClass: "text-orange-800",
+    cardClass: "border-orange-200 bg-orange-50",
     headline: "AI fooled you on almost every question.",
     body: "That\u2019s not a knock on you \u2014 it\u2019s a warning about AI. It generates confident, polished, completely wrong legal content. Fake cases. Non-existent statutes. Evidence without foundation. Advice that leads to criminal charges. This is happening in courtrooms right now. To real people. With real consequences.",
   };
@@ -549,7 +551,7 @@ export default function QuizPage() {
       <main className="min-h-screen bg-slate-950 pt-16 pb-20">
         {/* Hero */}
         <div className="text-center px-4 pt-12 pb-8 max-w-2xl mx-auto">
-          <span className="inline-block bg-red-900/60 text-red-300 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 border border-red-700">
+          <span className="inline-block bg-orange-900/60 text-orange-300 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 border border-orange-700">
             ⚠ Real consequences. Actual courtrooms.
           </span>
           <h1 className="text-3xl md:text-4xl font-extrabold text-white leading-tight mb-4">
@@ -558,7 +560,7 @@ export default function QuizPage() {
           <p className="text-slate-400 text-lg max-w-xl mx-auto leading-relaxed">
             AI is writing legal documents for millions of self-represented litigants.
             Some of it is{" "}
-            <span className="text-red-400 font-semibold">confidently, dangerously wrong.</span>
+            <span className="text-orange-400 font-semibold">confidently, dangerously wrong.</span>
             {" "}Six questions. See how many you catch.
           </p>
         </div>
@@ -582,7 +584,7 @@ export default function QuizPage() {
             <div className="space-y-4">
               {/* Question card */}
               <div className="bg-slate-900 rounded-2xl border border-slate-700 overflow-hidden">
-                <div className="px-6 pt-5 pb-1">
+                <div className="px-4 sm:px-6 pt-5 pb-1">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-orange-400 bg-orange-900/40 px-2 py-0.5 rounded-full border border-orange-800">
                       {question.tag}
@@ -596,12 +598,12 @@ export default function QuizPage() {
                 </div>
 
                 {/* Visual mockup */}
-                <div className="px-6">
+                <div className="px-4 sm:px-6">
                   <QuestionVisual visualKey={question.visual} revealed={revealed} />
                 </div>
 
                 {/* Answer options */}
-                <div className="px-6 pb-5 space-y-2">
+                <div className="px-4 sm:px-6 pb-5 space-y-2">
                   {question.options.map((opt) => {
                     const isSelected = selected === opt.value;
                     const isAnswerCorrect = opt.correct;
@@ -612,7 +614,7 @@ export default function QuizPage() {
                     } else if (isAnswerCorrect) {
                       cls += "border-green-500 bg-green-900/40 text-green-200";
                     } else if (isSelected && !isAnswerCorrect) {
-                      cls += "border-red-500 bg-red-900/40 text-red-200";
+                      cls += "border-orange-500 bg-orange-900/40 text-orange-200";
                     } else {
                       cls += "border-slate-700 bg-slate-800/50 text-slate-500";
                     }
@@ -630,16 +632,16 @@ export default function QuizPage() {
               {/* Reveal panel */}
               {revealed && (
                 <div
-                  className={`rounded-2xl border px-6 py-5 ${
+                  className={`rounded-2xl border px-4 sm:px-6 py-5 ${
                     isCorrect
                       ? "bg-green-950/60 border-green-700"
-                      : "bg-red-950/60 border-red-700"
+                      : "bg-orange-950/60 border-orange-700"
                   }`}
                 >
-                  <div className={`font-bold text-base mb-2 ${isCorrect ? "text-green-300" : "text-red-300"}`}>
+                  <div className={`font-bold text-base mb-2 ${isCorrect ? "text-green-300" : "text-orange-300"}`}>
                     {isCorrect ? "You got it." : "Nope \u2014 and here\u2019s why it matters."}
                   </div>
-                  <div className={`font-semibold mb-2 text-sm ${isCorrect ? "text-green-200" : "text-red-200"}`}>
+                  <div className={`font-semibold mb-2 text-sm ${isCorrect ? "text-green-200" : "text-orange-200"}`}>
                     {question.reveal.heading}
                   </div>
                   <p className="text-slate-300 text-sm leading-relaxed">{question.reveal.body}</p>
