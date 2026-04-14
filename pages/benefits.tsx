@@ -307,6 +307,35 @@ export default function BenefitsPage() {
               </div>
             </section>
 
+            {/* ── Quiz CTA ── */}
+            <section className="bg-slate-900 rounded-2xl px-8 py-10 border border-orange-500/30 text-center relative overflow-hidden">
+              <div className="absolute inset-0 opacity-5 pointer-events-none" aria-hidden="true">
+                <svg width="100%" height="100%">
+                  <defs>
+                    <pattern id="quiz-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#f97316" strokeWidth="0.5" />
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#quiz-grid)" />
+                </svg>
+              </div>
+              <div className="relative z-10">
+                <p className="text-orange-500 text-sm font-bold uppercase tracking-widest mb-3">Challenge</p>
+                <h2 className="text-2xl md:text-3xl font-black text-white mb-3">
+                  Think you can spot the difference?
+                </h2>
+                <p className="text-slate-400 max-w-xl mx-auto mb-7 leading-relaxed">
+                  AI-generated court documents look convincing — until they aren't. See if you can tell a ThreadLock filing from a fabricated one.
+                </p>
+                <Link
+                  href="/quiz"
+                  className="inline-block bg-orange-600 text-white font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-orange-700 transition-all"
+                >
+                  Take the Quiz &rarr;
+                </Link>
+              </div>
+            </section>
+
             {/* ── Vertical Specifics ── */}
             <section aria-labelledby="verticals-heading">
               <div className="text-center mb-10">
