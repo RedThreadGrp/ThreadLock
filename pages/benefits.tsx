@@ -60,16 +60,16 @@ export default function BenefitsPage() {
   return (
     <>
       <Head>
-        <title>Employer Benefits | ThreadLock — Managed Civil Legal Support</title>
+        <title>Employer Benefits | ThreadLock: Managed Civil Legal Support</title>
         <meta
           name="description"
-          content="Reduce bottom-line losses via managed civil legal support. ThreadLock fills the gap where traditional legal plans stop — scalable pricing for workforces of 50 to 50,000+."
+          content="Reduce bottom-line losses via managed civil legal support. ThreadLock fills the gap where traditional legal plans stop. Scalable pricing for workforces of 50 to 50,000+."
         />
         <link rel="canonical" href="https://threadlock.ai/benefits" />
-        <meta property="og:title" content="Employer Benefits | ThreadLock — Managed Civil Legal Support" />
+        <meta property="og:title" content="Employer Benefits | ThreadLock: Managed Civil Legal Support" />
         <meta
           property="og:description"
-          content="Reduce bottom-line losses via managed civil legal support. ThreadLock fills the gap where traditional legal plans stop — scalable pricing for workforces of 50 to 50,000+."
+          content="Reduce bottom-line losses via managed civil legal support. ThreadLock fills the gap where traditional legal plans stop. Scalable pricing for workforces of 50 to 50,000+."
         />
         <meta property="og:url" content="https://threadlock.ai/benefits" />
       </Head>
@@ -79,7 +79,7 @@ export default function BenefitsPage() {
       <div className="bg-slate-950 text-slate-50 antialiased min-h-screen pt-16">
 
         {/* ── Hero ── */}
-        <header className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-6 pt-16 pb-14 border-b border-slate-700/50 relative overflow-hidden">
+        <header className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 px-6 pt-10 pb-8 border-b border-slate-700/50 relative overflow-hidden">
           <div className="absolute inset-0 opacity-5 pointer-events-none" aria-hidden="true">
             <svg width="100%" height="100%">
               <defs>
@@ -92,16 +92,16 @@ export default function BenefitsPage() {
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto text-center">
-            <span className="inline-block text-xs font-bold tracking-widest uppercase text-slate-400 border border-slate-600 px-4 py-2 rounded-full bg-slate-800/50 mb-8">
+            <span className="inline-block text-xs font-bold tracking-widest uppercase text-slate-400 border border-slate-600 px-4 py-2 rounded-full bg-slate-800/50 mb-5">
               Employer Benefits Program
             </span>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight mb-4 leading-tight">
               Reducing Bottom-Line Losses via{" "}
               <span className="text-orange-500">Managed Civil Legal Support.</span>
             </h1>
 
-            <p className="text-slate-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-10">
+            <p className="text-slate-300 text-base md:text-lg leading-relaxed max-w-3xl mx-auto mb-7">
               Personal legal stress is a primary driver of presenteeism and absenteeism. ThreadLock fills the gap where traditional legal plans stop.
             </p>
 
@@ -174,7 +174,7 @@ export default function BenefitsPage() {
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                {/* Left Pane — The Math */}
+                {/* Left Pane: The Math */}
                 <div className="bg-slate-900 rounded-2xl p-8 border border-slate-700">
                   <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <span className="w-2 h-6 bg-orange-500 rounded-full inline-block"></span>
@@ -203,7 +203,7 @@ export default function BenefitsPage() {
                   </dl>
                 </div>
 
-                {/* Right Pane — Recovery Table */}
+                {/* Right Pane: Recovery Table */}
                 <div className="bg-slate-900 rounded-2xl p-8 border border-slate-700">
                   <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <span className="w-2 h-6 bg-orange-500 rounded-full inline-block"></span>
@@ -320,12 +320,12 @@ export default function BenefitsPage() {
                 </svg>
               </div>
               <div className="relative z-10">
-                <p className="text-orange-500 text-sm font-bold uppercase tracking-widest mb-3">Challenge</p>
+                <p className="text-orange-500 text-sm font-bold uppercase tracking-widest mb-3">AI vs. Authentic</p>
                 <h2 className="text-2xl md:text-3xl font-black text-white mb-3">
-                  Think you can spot the difference?
+                  Can you spot the difference between AI hallucinations and authentic legal context?
                 </h2>
                 <p className="text-slate-400 max-w-xl mx-auto mb-7 leading-relaxed">
-                  AI-generated court documents look convincing — until they aren't. See if you can tell a ThreadLock filing from a fabricated one.
+                  AI-generated court documents can look convincing. See if you can tell the difference between a ThreadLock filing built on verified legal context and one fabricated by an AI hallucination.
                 </p>
                 <Link
                   href="/quiz"
@@ -356,7 +356,7 @@ export default function BenefitsPage() {
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">Family Court</h3>
                   <p className="text-slate-400 leading-relaxed mb-4">
-                    Custody, visitation, and support matters — guiding employees through every filing and hearing.
+                    Custody, visitation, and support matters, guiding employees through every filing and hearing.
                   </p>
                   <p className="text-slate-500 text-sm italic">
                     70–80% of family court cases involve at least one party with no attorney.
@@ -371,7 +371,7 @@ export default function BenefitsPage() {
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">Landlord-Tenant</h3>
                   <p className="text-slate-400 leading-relaxed">
-                    Eviction defense and habitability claims — helping employees assert their rights without an attorney.
+                    Eviction defense and habitability claims, helping employees assert their rights without an attorney.
                   </p>
                 </div>
 
@@ -383,7 +383,7 @@ export default function BenefitsPage() {
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3">Small Claims</h3>
                   <p className="text-slate-400 leading-relaxed">
-                    Debt collection and consumer disputes — empowering employees to pursue or defend claims confidently.
+                    Debt collection and consumer disputes, empowering employees to pursue or defend claims confidently.
                   </p>
                 </div>
               </div>
