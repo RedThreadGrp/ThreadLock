@@ -120,14 +120,6 @@ function ResourcesDropdown({ darkText = false }) {
                         Attorneys
                     </Link>
                     <Link
-                        href="/benefits"
-                        onClick={() => setIsOpen(false)}
-                        className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
-                        role="menuitem"
-                    >
-                        Employers
-                    </Link>
-                    <Link
                         href="/sovereign"
                         onClick={() => setIsOpen(false)}
                         className="block px-4 py-2 text-slate-800 hover:bg-slate-50 hover:text-orange-600 transition-colors"
@@ -245,6 +237,7 @@ const SiteHeader = ({ theme = 'auto' }) => {
                 <nav className={`hidden md:flex items-center space-x-6 font-semibold ${navTextClasses}`}>
                     <ResourcesDropdown darkText={shouldUseDarkText} />
                     <StoriesDropdown darkText={shouldUseDarkText} />
+                    <Link href="/benefits" className="hover:text-orange-600 transition-colors">Benefits</Link>
                     <Link href="/login" className="hover:text-orange-600 transition-colors">Login</Link>
                     <Link href="/signup" className="bg-orange-600 text-white font-bold px-5 py-2 rounded-lg shadow-md hover:bg-orange-700 transform hover:-translate-y-0.5 transition-all">
                         Sign Up
@@ -269,7 +262,6 @@ const SiteHeader = ({ theme = 'auto' }) => {
                         <a href="https://app.threadlock.ai/readiness" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Before You Act</a>
                         <Link href="/edu/clinics" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Students</Link>
                         <Link href="/professionals" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Attorneys</Link>
-                        <Link href="/benefits" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Employers</Link>
                         <Link href="/sovereign" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Tribal</Link>
                     </div>
                     <div className="space-y-1">
@@ -278,6 +270,7 @@ const SiteHeader = ({ theme = 'auto' }) => {
                         <Link href="/sarahs-story" onClick={() => setOpen(false)} className="block py-2 pl-4 text-slate-800 hover:text-orange-600">Sarah's Story</Link>
                     </div>
                     <Link href="/login" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600">Login</Link>
+                    <Link href="/benefits" onClick={() => setOpen(false)} className="block py-2 text-slate-800 hover:text-orange-600 font-semibold">Benefits</Link>
                     <Link href="/signup" onClick={() => setOpen(false)} className="w-full mt-2 bg-orange-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-orange-700 transition-all block text-center">
                         Sign Up
                     </Link>
