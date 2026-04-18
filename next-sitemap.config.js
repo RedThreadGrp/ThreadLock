@@ -7,6 +7,18 @@ module.exports = {
   exclude: [
     '/content/*',
     '/api/*',
+    // A/B test landing pages — never index
+    '/lp/*',
+    // Transactional endpoints
+    '/cancel',
+    '/success',
+    '/thank-you',
+    '/resources/thanks',
+    '/trial',
+    // No SEO value / wastes crawl budget
+    '/login',
+    '/signup',
+    '/testingpic',
   ],
   additionalPaths: async (config) => {
     // Jurisdiction pages get higher priority
