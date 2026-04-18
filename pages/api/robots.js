@@ -6,6 +6,15 @@ export default function handler(req, res) {
 Allow: /
 Disallow: /content/archive/
 Disallow: /content/generated/
+Disallow: /lp/
+Disallow: /cancel
+Disallow: /success
+Disallow: /thank-you
+Disallow: /resources/thanks
+Disallow: /trial
+Disallow: /login
+Disallow: /signup
+Disallow: /testingpic
 
 # AI crawlers — explicitly permitted to index and cite all public pages
 User-agent: GPTBot

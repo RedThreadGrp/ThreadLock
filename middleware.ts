@@ -2,6 +2,22 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 /**
+ * Paths that must never be indexed by search engines.
+ * Covers A/B test variants, transactional endpoints, and zero-SEO-value pages.
+ */
+const NOINDEX_PREFIXES = [
+  '/lp/',
+  '/cancel',
+  '/success',
+  '/thank-you',
+  '/resources/thanks',
+  '/trial',
+  '/login',
+  '/signup',
+  '/testingpic',
+];
+
+/**
  * Redirect canonical subdomain aliases to the primary domain.
  *
  * blog.threadlock.ai  → https://threadlock.ai (same path)
@@ -21,6 +37,16 @@ export function middleware(request: NextRequest) {
     destination.hostname = 'threadlock.ai';
     destination.port = '';
     return NextResponse.redirect(destination, { status: 308 });
+  }
+
+  const { pathname } = request.nextUrl;
+  const matchesNoindexPrefix = (prefix: string) =>
+    pathname === prefix || pathname.startsWith(prefix.endsWith('/') ? prefix : `${prefix}/`);
+  const shouldNoindex = NOINDEX_PREFIXES.some(matchesNoindexPrefix);
+  if (shouldNoindex) {
+    const response = NextResponse.next();
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+    return response;
   }
 
   return NextResponse.next();
