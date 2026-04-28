@@ -231,6 +231,9 @@ const SiteHeader = ({ theme = 'auto' }) => {
 
     return (
         <header className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${headerClasses}`}>
+            <div className="w-full bg-red-600 text-white text-center text-sm font-medium py-2 px-4">
+                We&apos;re currently experiencing a service disruption. We are working to restore full access for all users. (4/28)
+            </div>
             <div className="container mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
                 <Link href="/"><BrandWordmark darkText={shouldUseDarkText} /></Link>
 
