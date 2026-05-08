@@ -4,6 +4,7 @@ import Link from "next/link";
 export interface PracticeAreaCardsProps {
   jurisdictionPath: string;
   country: "us" | "ca" | "au" | "uk";
+  availablePractices?: string[];
 }
 
 const US_PRACTICES = [
@@ -81,6 +82,7 @@ const UK_PRACTICES = [
 export default function PracticeAreaCards({
   jurisdictionPath,
   country,
+  availablePractices,
 }: PracticeAreaCardsProps) {
   const practiceMap: Record<string, typeof US_PRACTICES> = {
     us: US_PRACTICES,
@@ -88,7 +90,10 @@ export default function PracticeAreaCards({
     au: AU_PRACTICES,
     uk: UK_PRACTICES,
   };
-  const practices = practiceMap[country] ?? US_PRACTICES;
+  const allPractices = practiceMap[country] ?? US_PRACTICES;
+  const practices = availablePractices
+    ? allPractices.filter((p) => availablePractices.includes(p.slug))
+    : allPractices;
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">

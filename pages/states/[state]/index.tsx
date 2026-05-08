@@ -8,15 +8,17 @@ import JurisdictionCTA from "@/components/jurisdiction/JurisdictionCTA";
 import {
   getAllJurisdictionSlugs,
   getHubMeta,
+  getAvailablePractices,
   HubMeta,
 } from "@/lib/jurisdiction/content";
 
 interface Props {
   hub: HubMeta;
   state: string;
+  availablePractices: string[];
 }
 
-export default function StateHub({ hub, state }: Props) {
+export default function StateHub({ hub, state, availablePractices }: Props) {
   const canonicalUrl = `https://threadlock.ai/states/${state}`;
   const webPageSchema = {
     "@context": "https://schema.org",
@@ -58,6 +60,7 @@ export default function StateHub({ hub, state }: Props) {
       <PracticeAreaCards
         jurisdictionPath={`/states/${state}`}
         country="us"
+        availablePractices={availablePractices}
       />
 
       <JurisdictionCTA />
@@ -81,5 +84,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { notFound: true };
   }
 
-  return { props: { hub, state } };
+  const availablePractices = getAvailablePractices("us", state);
+  return { props: { hub, state, availablePractices } };
 };

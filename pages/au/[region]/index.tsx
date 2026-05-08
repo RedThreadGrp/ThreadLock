@@ -8,15 +8,17 @@ import JurisdictionCTA from "@/components/jurisdiction/JurisdictionCTA";
 import {
   getAllJurisdictionSlugs,
   getHubMeta,
+  getAvailablePractices,
   HubMeta,
 } from "@/lib/jurisdiction/content";
 
 interface Props {
   hub: HubMeta;
   region: string;
+  availablePractices: string[];
 }
 
-export default function AuRegionHub({ hub, region }: Props) {
+export default function AuRegionHub({ hub, region, availablePractices }: Props) {
   const canonicalUrl = `https://threadlock.ai/au/${region}`;
 
   const webPageSchema = {
@@ -54,7 +56,7 @@ export default function AuRegionHub({ hub, region }: Props) {
       />
 
       <h2 className="text-xl font-bold text-foreground-dark mb-4">Choose a Practice Area</h2>
-      <PracticeAreaCards jurisdictionPath={`/au/${region}`} country="au" />
+      <PracticeAreaCards jurisdictionPath={`/au/${region}`} country="au" availablePractices={availablePractices} />
 
       <JurisdictionCTA />
     </JurisdictionShell>
@@ -73,5 +75,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const region = params?.region as string;
   const hub = getHubMeta("au", region);
   if (!hub) return { notFound: true };
-  return { props: { hub, region } };
+  const availablePractices = getAvailablePractices("au", region);
+  return { props: { hub, region, availablePractices } };
 };

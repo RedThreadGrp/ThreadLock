@@ -44,6 +44,8 @@ function buildFaqSchema(bodyHtml: string) {
 }
 
 export default function PracticeLeafPage({ page, state, practice, neighborSlugs }: Props) {
+  if (!practice || !page) return null;
+
   const canonicalUrl = `https://threadlock.ai/states/${state}/${practice}`;
 
   const practiceDisplayName = practice

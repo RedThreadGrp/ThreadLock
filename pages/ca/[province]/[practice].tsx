@@ -43,6 +43,8 @@ function buildFaqSchema(bodyHtml: string) {
 }
 
 export default function CaPracticeLeafPage({ page, province, practice, neighborSlugs }: Props) {
+  if (!practice || !page) return null;
+
   const canonicalUrl = `https://threadlock.ai/ca/${province}/${practice}`;
 
   const practiceDisplayName = practice
