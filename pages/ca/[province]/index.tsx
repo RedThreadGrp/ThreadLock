@@ -8,15 +8,17 @@ import JurisdictionCTA from "@/components/jurisdiction/JurisdictionCTA";
 import {
   getAllJurisdictionSlugs,
   getHubMeta,
+  getAvailablePractices,
   HubMeta,
 } from "@/lib/jurisdiction/content";
 
 interface Props {
   hub: HubMeta;
   province: string;
+  availablePractices: string[];
 }
 
-export default function ProvinceHub({ hub, province }: Props) {
+export default function ProvinceHub({ hub, province, availablePractices }: Props) {
   const canonicalUrl = `https://threadlock.ai/ca/${province}`;
   const isQuebec = province === "quebec";
 
@@ -68,6 +70,7 @@ export default function ProvinceHub({ hub, province }: Props) {
       <PracticeAreaCards
         jurisdictionPath={`/ca/${province}`}
         country="ca"
+        availablePractices={availablePractices}
       />
 
       <JurisdictionCTA />
@@ -91,5 +94,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { notFound: true };
   }
 
-  return { props: { hub, province } };
+  const availablePractices = getAvailablePractices("ca", province);
+  return { props: { hub, province, availablePractices } };
 };

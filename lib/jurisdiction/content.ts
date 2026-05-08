@@ -240,6 +240,22 @@ const UK_NEIGHBORS: Record<string, string[]> = {
   "northern-ireland": ["england", "wales", "scotland"],
 };
 
+/**
+ * Returns the list of practice-area slugs that have content files for a given
+ * jurisdiction (i.e. files other than _index.md exist in its directory).
+ */
+export function getAvailablePractices(
+  country: "us" | "ca" | "au" | "uk",
+  slug: string
+): string[] {
+  const dir = path.join(JURISDICTIONS_DIR, country, slug);
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".md") && f !== "_index.md")
+    .map((f) => f.replace(".md", ""));
+}
+
 export function getValidNeighbors(
   country: "us" | "ca" | "au" | "uk",
   slug: string,

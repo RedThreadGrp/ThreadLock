@@ -15,16 +15,11 @@ function req(name: string, ...keys: string[]) {
   const v = pick(...keys);
   if (!v) {
     const msg = `[env] Missing ${name}. Checked keys: ${keys.join(", ")}.`;
-    // Surface clearly in prod to avoid silent "undefined" hosts.
-    // Only throw in browser context, not during SSR/build
-    if (typeof window !== "undefined") {
-      console.error(msg);
-      throw new Error(msg);
-    } else {
-      // During build/SSR, just warn - the actual value will come from runtime env
-      console.warn(msg);
-      return "";
-    }
+    // Log the missing var clearly but never throw — callers (e.g. firebase.ts)
+    // already guard on hasRequiredConfig and degrade gracefully when vars are absent.
+    // Throwing here crashes every page that dynamically imports firebase.ts.
+    console.warn(msg);
+    return "";
   }
   return v;
 }
