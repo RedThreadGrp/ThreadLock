@@ -106,9 +106,14 @@ const nextConfig = {
     NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA || "",
     NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV || "development",
 
-    // Sentry (must be listed here to be inlined into the client bundle in this
-    // project's build — NEXT_PUBLIC_* are not auto-inlined; see Firebase vars below)
-    NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN || "",
+    // Sentry. Must be listed here to be inlined into the client bundle in this
+    // project's build (NEXT_PUBLIC_* are not auto-inlined; see Firebase vars below).
+    // The Vercel-provided env var is not reliably present at `vercel build` time in
+    // CI, so we fall back to the literal public DSN (a DSN is a public, client-side
+    // key — safe to commit; the secret is the auth token, which is never here).
+    NEXT_PUBLIC_SENTRY_DSN:
+      process.env.NEXT_PUBLIC_SENTRY_DSN ||
+      "https://4d02959a50a9dbd2e64269fcf0643292@o4511629316980736.ingest.us.sentry.io/4511632294871040",
     NEXT_PUBLIC_SENTRY_ENV: process.env.NEXT_PUBLIC_SENTRY_ENV || process.env.VERCEL_ENV || "production",
 
     // Support both NEXT_PUBLIC_* (Next.js standard) and VITE_* (legacy) prefixes
