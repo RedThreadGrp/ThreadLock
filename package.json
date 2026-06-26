@@ -32,6 +32,7 @@
     "e2e:spec": "CYPRESS_INSTALL_BINARY=0 NODE_OPTIONS= npx cypress run --spec \"cypress/e2e/layout_consistency.cy.ts\" --browser chrome --headless"
   },
   "dependencies": {
+    "@sentry/nextjs": "^8.55.2",
     "@stripe/stripe-js": "2.3.0",
     "@vercel/analytics": "^2.0.1",
     "cookie": "^1.0.2",
