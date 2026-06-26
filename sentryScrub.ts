@@ -17,5 +17,10 @@ export function scrubEvent(event: Record<string, any>): Record<string, any> {
   if (event.request?.cookies) delete event.request.cookies;
   if (event.request?.data) delete event.request.data;
   if (event.extra) event.extra = pruneObject(event.extra);
+  if (event.contexts) {
+    for (const ctx of Object.values(event.contexts)) {
+      if (ctx && typeof ctx === "object") pruneObject(ctx as Record<string, any>);
+    }
+  }
   return event;
 }
