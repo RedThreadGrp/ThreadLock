@@ -10,6 +10,13 @@ function pruneObject(obj: Record<string, any>): Record<string, any> {
   }
   return obj;
 }
+export function scrubBreadcrumb(crumb: Record<string, any>): Record<string, any> {
+  if (crumb.data) {
+    if (crumb.data.url) crumb.data.url = stripUrl(crumb.data.url);
+    crumb.data = pruneObject(crumb.data);
+  }
+  return crumb;
+}
 export function scrubEvent(event: Record<string, any>): Record<string, any> {
   if (event.user) event.user = { id: event.user.id };
   if (event.request?.url) event.request.url = stripUrl(event.request.url);

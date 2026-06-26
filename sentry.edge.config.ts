@@ -1,5 +1,5 @@
 import * as Sentry from "@sentry/nextjs";
-import { scrubEvent } from "./sentryScrub";
+import { scrubEvent, scrubBreadcrumb } from "./sentryScrub";
 
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
@@ -7,4 +7,5 @@ Sentry.init({
   sendDefaultPii: false,
   tracesSampleRate: 0.1,
   beforeSend: (e) => scrubEvent(e as Record<string, any>),
+  beforeBreadcrumb: (c) => scrubBreadcrumb(c as Record<string, any>),
 });

@@ -1,5 +1,5 @@
 import * as Sentry from "@sentry/nextjs";
-import { scrubEvent } from "./sentryScrub";
+import { scrubEvent, scrubBreadcrumb } from "./sentryScrub";
 
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
@@ -10,4 +10,5 @@ Sentry.init({
   replaysOnErrorSampleRate: 1.0,
   integrations: [Sentry.replayIntegration({ maskAllText: true, maskAllInputs: true, blockAllMedia: true })],
   beforeSend: (e) => scrubEvent(e as Record<string, any>),
+  beforeBreadcrumb: (c) => scrubBreadcrumb(c as Record<string, any>),
 });
