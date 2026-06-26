@@ -105,7 +105,12 @@ const nextConfig = {
     NEXT_PUBLIC_BUILD_TIMESTAMP: new Date().toISOString(),
     NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA || "",
     NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV || "development",
-    
+
+    // Sentry (must be listed here to be inlined into the client bundle in this
+    // project's build — NEXT_PUBLIC_* are not auto-inlined; see Firebase vars below)
+    NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN || "",
+    NEXT_PUBLIC_SENTRY_ENV: process.env.NEXT_PUBLIC_SENTRY_ENV || process.env.VERCEL_ENV || "production",
+
     // Support both NEXT_PUBLIC_* (Next.js standard) and VITE_* (legacy) prefixes
     // Fallback to empty string to prevent build failures when env vars are missing
     NEXT_PUBLIC_FIREBASE_API_KEY:
