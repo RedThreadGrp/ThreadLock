@@ -1,0 +1,94 @@
+name: Claude prod-error remediation
+
+# Fires when the central poller (compver/coordination) — or a human — labels an
+# issue `prod-error`. Claude investigates the Sentry error against this repo and
+# opens a DRAFT PR to `main`, then STOPS.
+#
+# CRITICAL DEPLOY FACT: merging to `main` deploys PRODUCTION via
+# deploy-vercel.yml. That is why the agent may only ever open a DRAFT PR — the
+# Vercel PREVIEW deployment on the PR is the staging gate; a human marks ready
+# and merges from GitHub Mobile.
+#
+# Repo/org secrets required: ANTHROPIC_API_KEY. Optional: SLACK_WEBHOOK_URL.
+
+on:
+  issues:
+    types: [labeled]   # labeled-only: fires exactly once per issue (beam lesson)
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: "Issue number carrying the Sentry context"
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: claude-remediate-${{ github.event.issue.number || github.event.inputs.issue_number }}
+  cancel-in-progress: false
+
+jobs:
+  remediate:
+    if: github.event_name == 'workflow_dispatch' || github.event.label.name == 'prod-error'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          base_branch: main
+          branch_prefix: "fix/prod-error-"
+          prompt: |
+            You are remediating a PRODUCTION error on tl-website (threadlock.ai),
+            filed as issue #${{ github.event.issue.number || github.event.inputs.issue_number }}
+            in this repo. The issue body has the Sentry link, culprit, and stack.
+
+            Do this, and NOTHING that deploys:
+            1. Read the issue with `gh issue view`. Read and FOLLOW `HOTFIX.md`.
+            2. Trace the ROOT CAUSE in this Next.js codebase. Cite exact files.
+               If you cannot confidently localize it, comment your findings on
+               the issue and STOP — no PR.
+            3. Make the SMALLEST correct fix. Add a regression test where the
+               structure allows (component/util level).
+            4. Verify: `npm ci && npm run lint && npm run build` must pass.
+               The prebuild validators must stay green.
+            5. Open a **DRAFT** PR to `main` titled `fix(sentry): <summary>`.
+               Body: `Closes #<n>`, the Sentry link, root cause, and this exact
+               warning: "Merging deploys PRODUCTION. Verify the Vercel preview
+               deployment first."
+
+            HARD CONSTRAINTS:
+            - DRAFT PR only. Never merge, never mark ready, never push to main.
+            - Merging main = production deploy on Vercel. You do not deploy.
+            - No refactors, no scope creep, no dependency upgrades.
+          claude_args: |
+            --allowedTools Edit,Write,Read,Bash(npm ci:*),Bash(npm run lint:*),Bash(npm run build:*),Bash(npx tsc:*),Bash(git:*),Bash(gh issue:*),Bash(gh pr create:*),Bash(gh pr view:*),Bash(grep:*),Bash(cat:*),Bash(ls:*),Bash(node:*)
+            --disallowedTools Bash(vercel:*),Bash(gh pr merge:*),Bash(gh pr ready:*),Bash(git push origin main:*)
+            --max-turns 30
+            --model claude-sonnet-4-6
+
+      - name: Notify Slack of outcome
+        if: always()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          STATUS: ${{ job.status }}
+          ISSUE: ${{ github.event.issue.number || github.event.inputs.issue_number }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK_URL" ]; then
+            curl -sf -X POST -H 'Content-type: application/json' --data \
+              "{\"text\":\"ThreadLock remediation run for issue #${ISSUE}: *${STATUS}* — https://github.com/${{ github.repository }}/issues/${ISSUE}\"}" \
+              "$SLACK_WEBHOOK_URL" || true
+          fi
+
+      - name: Escalate if no PR resulted
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number || github.event.inputs.issue_number }}
+        run: gh issue edit "$ISSUE" --repo "${{ github.repository }}" --add-label needs-human || true
