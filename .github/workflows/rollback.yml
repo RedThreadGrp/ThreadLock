@@ -1,0 +1,60 @@
+name: Rollback production (Vercel)
+
+# One-tap remote rollback: redeploys a known-good git ref to PRODUCTION via
+# Vercel, without touching git history. Run from GitHub Mobile: Actions →
+# "Rollback production (Vercel)" → Run workflow → paste the SHA/tag.
+#
+# Find the last good SHA from the deploy-vercel.yml run history (each run links
+# its commit), or `git log main --oneline`.
+#
+# Uses the same secrets as deploy-vercel.yml: VERCEL_TOKEN, VERCEL_ORG_ID,
+# VERCEL_PROJECT_ID.
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Known-good commit SHA or tag to redeploy to production"
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vercel-production-deploy   # never race a rollback against a deploy
+  cancel-in-progress: false
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Redeploy ${{ github.event.inputs.ref }} to production
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+        run: |
+          npm i -g vercel@latest
+          vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
+          vercel build --prod --token="$VERCEL_TOKEN"
+          vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
+
+      - name: Notify Slack
+        if: always()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          STATUS: ${{ job.status }}
+        run: |
+          if [ -n "$SLACK_WEBHOOK_URL" ]; then
+            curl -sf -X POST -H 'Content-type: application/json' --data \
+              "{\"text\":\":leftwards_arrow_with_hook: ThreadLock production ROLLBACK to \`${{ github.event.inputs.ref }}\`: *${STATUS}*\"}" \
+              "$SLACK_WEBHOOK_URL" || true
+          fi
