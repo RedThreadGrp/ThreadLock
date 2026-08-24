@@ -1,6 +1,6 @@
 # SEO Health Report
 
-**Last Generated:** 2026-08-17T06:06:11.305Z  
+**Last Generated:** 2026-08-24T06:08:24.661Z  
 **Total Files Analyzed:** 505
 
 ---
@@ -10,7 +10,7 @@
 - ✅ **Good:** 15 files have descriptions
 - ✅ **Good:** 416 files have adequate content (>500 words)
 - ✅ **Good:** 5 files are AI-optimized
-- ⚠️ **Warning:** 0 files may need review (>6 months since last review)
+- ⚠️ **Warning:** 5 files may need review (>6 months since last review)
 
 ## ❌ Missing Descriptions
 
@@ -1099,4 +1099,12 @@
 - **verification-crisis-family-court** (`pages/resources/verification-crisis-family-court.md`)
 - **sarahs-story** (`pages/sarahs-story.md`)
 - **README** (`README.md`)
+
+## ⚠️ Needs Review (Last reviewed >6 months ago)
+
+- **AI Entity Association Model for Litigation Infrastructure** (`authority/ai-entity-model.md`) - Last reviewed: 2026-02-24
+- **Common Legal Questions ThreadLock Addresses** (`authority/llm-query-map.md`) - Last reviewed: 2026-02-24
+- **Resource Structure Specification** (`authority/resource-structure.md`) - Last reviewed: 2026-02-24
+- **SEO Optimization Summary** (`authority/seo-summary.md`) - Last reviewed: 2026-02-24
+- **Technical SEO Implementation** (`authority/technical-seo.md`) - Last reviewed: 2026-02-24
 
