@@ -337,6 +337,10 @@ const HeroSection = () => (
     <div className="relative container mx-auto max-w-7xl px-8 md:px-16 lg:px-20 py-10 md:py-16 grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
       {/* Left: Text content */}
       <div className="space-y-5 z-10">
+        <p role="status" className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[13px] leading-snug text-white/80">
+          <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500" />
+          ThreadLock is being rebuilt. New sign-ups are paused for now.
+        </p>
         <div className="space-y-3">
           <p className="text-[11px] font-bold tracking-[0.14em] uppercase text-orange-500">Civil Case Management</p>
           <h1 className="font-extrabold leading-[1.05] tracking-tight" style={{ fontSize: 'clamp(36px, 5.5vw, 60px)' }}>
