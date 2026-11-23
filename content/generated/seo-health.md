@@ -1,6 +1,6 @@
 # SEO Health Report
 
-**Last Generated:** 2026-11-16T14:04:12.851Z  
+**Last Generated:** 2026-11-23T16:34:39.357Z  
 **Total Files Analyzed:** 505
 
 ---

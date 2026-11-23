@@ -1,6 +1,6 @@
 # Internal Link Map
 
-**Last Generated:** 2026-11-16T14:04:12.850Z  
+**Last Generated:** 2026-11-23T16:34:39.356Z  
 **Files with Links:** 5
 
 ---
